@@ -1,769 +1,330 @@
-|Aaron Reed|Commonly Unimplemented|20230131101949/685:Tue 31 January 2023 10:19|indexing|
-|Aaron Reed|Dynamic Rooms|20230131101949/1854:Tue 31 January 2023 10:19|indexing|
-|Aaron Reed|Extended Grammar|20230131101949/258:Tue 31 January 2023 10:19|indexing|
-|Aaron Reed|Keyword Interface|20230131101949/2867:Tue 31 January 2023 10:19|indexing|
-|Aaron Reed|Numbered Disambiguation Choices|20230131101949/438:Tue 31 January 2023 10:19|indexing|
-|Aaron Reed|Poor Man's Mistype|20230131101949/258:Tue 31 January 2023 10:19|indexing|
-|Aaron Reed|Response Assistant|20230131101949/170:Tue 31 January 2023 10:19|indexing|
-|Aaron Reed|Small Kindnesses|20230131101949/391:Tue 31 January 2023 10:19|indexing|
-|Aaron Reed|Smarter Parser|20230131101949/6382:Tue 31 January 2023 10:19|indexing|
-|Alice Grove|Common Commands Sidebar|20230131101949/5086:Tue 31 January 2023 10:19|indexing|
-|Alice Grove|Simple Spelling|20230131101949/461:Tue 31 January 2023 10:19|indexing|
-|Andrew Owen|Secret Doors|20230131101949/383:Tue 31 January 2023 10:19|indexing|
-|Andrew Plotkin|Disappearing Doors|20230131101949/568:Tue 31 January 2023 10:19|indexing|
-|Andrew Plotkin|Optimized Epistemology|20230131101949/1485:Tue 31 January 2023 10:19|indexing|
-|Andrew Plotkin|Serial And Fix|20230131101949/0:Tue 31 January 2023 10:19|indexing|
-|Andrew Plotkin|Unified Glulx Input|20230131101949/7894:Tue 31 January 2023 10:19|indexing|
-|Andrew Schultz|In-Line Topical Hints|20230131101949/3186:Tue 31 January 2023 10:19|indexing|
-|Aw Freyr|Hybrid Choices|20230131101949/7846:Tue 31 January 2023 10:19|indexing|
-|B David Paulsen|Rapid Prototyping|20230131101949/543:Tue 31 January 2023 10:19|indexing|
-|Bart Massey|Basic Literacy|20230131101949/701:Tue 31 January 2023 10:19|indexing|
-|Brady Garvin|Object Kinds|20230131101949/473:Tue 31 January 2023 10:19|indexing|
-|Brady Garvin|Scopability|20230131101949/262:Tue 31 January 2023 10:19|indexing|
-|Brian Rushton|Clues And Conversation|20230131101949/3160:Tue 31 January 2023 10:19|indexing|
-|Chris Conley|Conversation Builder|20230131101949/2413:Tue 31 January 2023 10:19|indexing|
-|Chris Conley|Threaded Conversation|20230131101949/13297:Tue 31 January 2023 10:19|indexing|
-|Creative Commons|Configurable Creative Commons License|20230131101949/586:Tue 31 January 2023 10:19|indexing|
-|Daniel Gaskell|Volumetric Limiter|20230131101949/725:Tue 31 January 2023 10:19|indexing|
-|Daniel Stelzer|Alternate Lighting System|20230131101949/254:Tue 31 January 2023 10:19|indexing|
-|Daniel Stelzer|Boolean Variables|20230131101949/0:Tue 31 January 2023 10:19|indexing|
-|Daniel Stelzer|Cleared Events|20230131101949/83:Tue 31 January 2023 10:19|indexing|
-|Daniel Stelzer|Command Casing|20230131101949/0:Tue 31 January 2023 10:19|indexing|
-|Daniel Stelzer|Command Modification|20230131101949/111:Tue 31 January 2023 10:19|indexing|
-|Daniel Stelzer|Command Preloading|20230131101949/54:Tue 31 January 2023 10:19|indexing|
-|Daniel Stelzer|Conversation Touchability Fix|20230131101949/34:Tue 31 January 2023 10:19|indexing|
-|Daniel Stelzer|Debugging|20230131101949/0:Tue 31 January 2023 10:19|indexing|
-|Daniel Stelzer|Default Styles|20230131101949/0:Tue 31 January 2023 10:19|indexing|
-|Daniel Stelzer|Empty Command Handling|20230131101949/97:Tue 31 January 2023 10:19|indexing|
-|Daniel Stelzer|Formatting Capture|20230131101949/167:Tue 31 January 2023 10:19|indexing|
-|Daniel Stelzer|Glulx Text Styles|20230131101949/215:Tue 31 January 2023 10:19|indexing|
-|Daniel Stelzer|Helpful Functions|20230131101949/0:Tue 31 January 2023 10:19|indexing|
-|Daniel Stelzer|Hidden Prompt|20230131101949/93:Tue 31 January 2023 10:19|indexing|
-|Daniel Stelzer|Inline Hyperlinks|20230131101949/2800:Tue 31 January 2023 10:19|indexing|
-|Daniel Stelzer|Modified Timekeeping|20230131101949/123:Tue 31 January 2023 10:19|indexing|
-|Daniel Stelzer|Music|20230131101949/284:Tue 31 January 2023 10:19|indexing|
-|Daniel Stelzer|Output Silencing|20230131101949/0:Tue 31 January 2023 10:19|indexing|
-|Daniel Stelzer|Runtime Replacements|20230131101949/523:Tue 31 January 2023 10:19|indexing|
-|Daniel Stelzer|Subcommands|20230131101949/234:Tue 31 January 2023 10:19|indexing|
-|Daniel Stelzer|Third Noun|20230131101949/0:Tue 31 January 2023 10:19|indexing|
-|Daniel Stelzer|Typographical Conveniences|20230131101949/0:Tue 31 January 2023 10:19|indexing|
-|Dannii Willis|Alternative Startup Rules|20230131101949/0:Tue 31 January 2023 10:19|indexing|
-|Dannii Willis|Benchmarking|20230131101949/1100:Tue 31 January 2023 10:19|indexing|
-|Dannii Willis|Collections|20230131101949/801:Tue 31 January 2023 10:19|indexing|
-|Dannii Willis|Data Structures|20230131101949/1063:Tue 31 January 2023 10:19|indexing|
-|Dannii Willis|Glk Events|20230131101949/0:Tue 31 January 2023 10:19|indexing|
-|Dannii Willis|Glk Object Recovery|20230131101949/194:Tue 31 January 2023 10:19|indexing|
-|Dannii Willis|Glk Text Formatting|20230131101949/420:Tue 31 January 2023 10:19|indexing|
-|Dannii Willis|Glulx Definitions|20230131101949/431:Tue 31 January 2023 10:19|indexing|
-|Dannii Willis|Highscores|20230131101949/181:Tue 31 January 2023 10:19|indexing|
-|Dannii Willis|Infra Undo|20230131101949/370:Tue 31 January 2023 10:19|indexing|
-|Dannii Willis|Json|20230131101949/807:Tue 31 January 2023 10:19|indexing|
-|Dannii Willis|Menus|20230131101949/983:Tue 31 January 2023 10:19|indexing|
-|Dannii Willis|Startup Precomputation|20230131101949/281:Tue 31 January 2023 10:19|indexing|
-|Dannii Willis|Xorshift|20230131101949/294:Tue 31 January 2023 10:19|indexing|
-|Dave Robinson|Snippetage|20230131101949/972:Tue 31 January 2023 10:19|indexing|
-|David A Wheeler|Dice|20230131101949/375:Tue 31 January 2023 10:19|indexing|
-|David Corbett|Mobile Doors|20230131101949/528:Tue 31 January 2023 10:19|indexing|
-|David Cornelson|Basic Help|20230131101949/192:Tue 31 January 2023 10:19|indexing|
-|David Ratliff|Armed|20230131101949/1484:Tue 31 January 2023 10:19|indexing|
-|Edward Griffiths|Adventure Book|20230131101949/21203:Tue 31 January 2023 10:19|indexing|
-|Eliuk Blau|Glulx Boxed Quotation|20230131101949/129:Tue 31 January 2023 10:19|indexing|
-|Emily Short|Approaches|20230131101949/2868:Tue 31 January 2023 10:19|indexing|
-|Emily Short|Assorted Text Generation|20230131101949/1344:Tue 31 January 2023 10:19|indexing|
-|Emily Short|Automated Drawers|20230131101949/696:Tue 31 January 2023 10:19|indexing|
-|Emily Short|Basic Help Menu Sp|20230131101949/452:Tue 31 January 2023 10:19|indexing|
-|Emily Short|Basic Hyperlinks|20230131101949/525:Tue 31 January 2023 10:19|indexing|
-|Emily Short|Basic Screen Effects Sp|20230131101949/55:Tue 31 January 2023 10:19|indexing|
-|Emily Short|Computers|20230131101949/4607:Tue 31 January 2023 10:19|indexing|
-|Emily Short|Deluxe Doors|20230131101949/1048:Tue 31 January 2023 10:19|indexing|
-|Emily Short|Dishes|20230131101949/370:Tue 31 January 2023 10:19|indexing|
-|Emily Short|Facing|20230131101949/897:Tue 31 January 2023 10:19|indexing|
-|Emily Short|Glulx Entry Points|20230131101949/964:Tue 31 January 2023 10:19|indexing|
-|Emily Short|Introductions|20230131101949/2311:Tue 31 January 2023 10:19|indexing|
-|Emily Short|Location Images|20230131101949/152:Tue 31 January 2023 10:19|indexing|
-|Emily Short|Measured Liquid|20230131101949/5801:Tue 31 January 2023 10:19|indexing|
-|Emily Short|Menus Sp|20230131101949/13:Tue 31 January 2023 10:19|indexing|
-|Emily Short|Modern Conveniences|20230131101949/1088:Tue 31 January 2023 10:19|indexing|
-|Emily Short|Modified Exit|20230131101949/824:Tue 31 January 2023 10:19|indexing|
-|Emily Short|Mood Variations|20230131101949/811:Tue 31 January 2023 10:19|indexing|
-|Emily Short|Ordinary Room Description|20230131101949/194:Tue 31 January 2023 10:19|indexing|
-|Emily Short|Postures|20230131101949/837:Tue 31 January 2023 10:19|indexing|
-|Emily Short|Power Sources|20230131101949/2323:Tue 31 January 2023 10:19|indexing|
-|Emily Short|Property Checking|20230131101949/214:Tue 31 January 2023 10:19|indexing|
-|Emily Short|Recorded Endings|20230131101949/674:Tue 31 January 2023 10:19|indexing|
-|Emily Short|Room Description Control|20230131101949/996:Tue 31 January 2023 10:19|indexing|
-|Emily Short|Simple Followers|20230131101949/482:Tue 31 January 2023 10:19|indexing|
-|Emily Short|Simple Graphical Window|20230131101949/727:Tue 31 January 2023 10:19|indexing|
-|Emily Short|Single Paragraph Description|20230131101949/341:Tue 31 January 2023 10:19|indexing|
-|Emily Short|Tailored Room Description|20230131101949/2648:Tue 31 January 2023 10:19|indexing|
-|Emily Short|Transit System|20230131101949/970:Tue 31 January 2023 10:19|indexing|
-|Emily Short|Tutorial Mode|20230131101949/740:Tue 31 January 2023 10:19|indexing|
-|Enano Malauva|Conversacion Por Clave|20230131101949/259:Tue 31 January 2023 10:19|indexing|
-|Eric Eve|Adaptive Hints|20230131101949/2562:Tue 31 January 2023 10:19|indexing|
-|Eric Eve|Alternatives|20230131101949/1350:Tue 31 January 2023 10:19|indexing|
-|Eric Eve|Bulk Limiter|20230131101949/428:Tue 31 January 2023 10:19|indexing|
-|Eric Eve|Conversation Framework|20230131101949/3117:Tue 31 January 2023 10:19|indexing|
-|Eric Eve|Conversation Nodes|20230131101949/4396:Tue 31 January 2023 10:19|indexing|
-|Eric Eve|Conversation Package|20230131101949/1975:Tue 31 January 2023 10:19|indexing|
-|Eric Eve|Conversation Responses|20230131101949/814:Tue 31 January 2023 10:19|indexing|
-|Eric Eve|Conversation Rules|20230131101949/4807:Tue 31 January 2023 10:19|indexing|
-|Eric Eve|Conversation Suggestions|20230131101949/2041:Tue 31 January 2023 10:19|indexing|
-|Eric Eve|Conversational Defaults|20230131101949/1437:Tue 31 January 2023 10:19|indexing|
-|Eric Eve|Exit Lister|20230131101949/2187:Tue 31 January 2023 10:19|indexing|
-|Eric Eve|Hiding Under|20230131101949/2657:Tue 31 January 2023 10:19|indexing|
-|Eric Eve|Implicit Actions|20230131101949/5645:Tue 31 January 2023 10:19|indexing|
-|Eric Eve|Limited Implicit Actions|20230131101949/3237:Tue 31 January 2023 10:19|indexing|
-|Eric Eve|List Control|20230131101949/1644:Tue 31 January 2023 10:19|indexing|
-|Eric Eve|List Controller|20230131101949/1903:Tue 31 January 2023 10:19|indexing|
-|Eric Eve|Npc Implicit Actions|20230131101949/658:Tue 31 January 2023 10:19|indexing|
-|Eric Eve|Text Capture|20230131101949/870:Tue 31 January 2023 10:19|indexing|
-|Eric Eve|Underside|20230131101949/1620:Tue 31 January 2023 10:19|indexing|
-|Eric Eve|Variable Time Control|20230131101949/1137:Tue 31 January 2023 10:19|indexing|
-|Erik Temple|Extended Debugging|20230131101949/827:Tue 31 January 2023 10:19|indexing|
-|Erik Temple|Glimmr Canvas Animation|20230131101949/19512:Tue 31 January 2023 10:19|indexing|
-|Erik Temple|Glimmr Canvas-Based Drawing|20230131101949/24775:Tue 31 January 2023 10:19|indexing|
-|Erik Temple|Glimmr Drawing Commands|20230131101949/12013:Tue 31 January 2023 10:19|indexing|
-|Erik Temple|Glimmr Graphic Hyperlinks|20230131101949/1980:Tue 31 January 2023 10:19|indexing|
-|Erik Temple|Inline Hyperlinks|20230131101949/2799:Tue 31 January 2023 10:19|indexing|
-|Erik Temple|Real-Time Delays|20230131101949/675:Tue 31 January 2023 10:19|indexing|
-|Erik Temple|Undo Output Control|20230131101949/3293:Tue 31 January 2023 10:19|indexing|
-|Friends Of I7|6m62 Patches|20230131101949/26:Tue 31 January 2023 10:19|indexing|
-|Friends Of I7|Interpreter Sniffing|20230131101949/568:Tue 31 January 2023 10:19|indexing|
-|Gavin Lambert|Brief Room Descriptions|20230131101949/380:Tue 31 January 2023 10:19|indexing|
-|Gavin Lambert|Enterable Underside|20230131101949/1054:Tue 31 January 2023 10:19|indexing|
-|Gavin Lambert|Exit Lister|20230131101949/2688:Tue 31 January 2023 10:19|indexing|
-|Gavin Lambert|Extended Banner|20230131101949/356:Tue 31 January 2023 10:19|indexing|
-|Gavin Lambert|Glk Input Suspending|20230131101949/315:Tue 31 January 2023 10:19|indexing|
-|Gavin Lambert|Hyperlink Extension Registry|20230131101949/1370:Tue 31 January 2023 10:19|indexing|
-|Gavin Lambert|Hyperlinks|20230131101949/1778:Tue 31 January 2023 10:19|indexing|
-|Gavin Lambert|Inline Hyperlinks|20230131101949/5331:Tue 31 January 2023 10:19|indexing|
-|Gavin Lambert|Prepositional Correctness|20230131101949/1558:Tue 31 January 2023 10:19|indexing|
-|Gavin Lambert|Rideable Vehicles|20230131101949/135:Tue 31 January 2023 10:19|indexing|
-|Gavin Lambert|Secret Doors|20230131101949/887:Tue 31 January 2023 10:19|indexing|
-|Gavin Lambert|Title Page|20230131101949/1516:Tue 31 January 2023 10:19|indexing|
-|Hanon Ondricek|Easy Doors|20230131101949/4008:Tue 31 January 2023 10:19|indexing|
-|Jeff Nyman|Contextual Descriptions|20230131101949/557:Tue 31 January 2023 10:19|indexing|
-|Jeff Nyman|Description Decay|20230131101949/1582:Tue 31 January 2023 10:19|indexing|
-|Jeff Nyman|Nuanced Timekeeping|20230131101949/81:Tue 31 January 2023 10:19|indexing|
-|Jeff Nyman|Relative Placement And Direction|20230131101949/864:Tue 31 January 2023 10:19|indexing|
-|Jeff Nyman|Story Substrate|20230131101949/735:Tue 31 January 2023 10:19|indexing|
-|Jeff Nyman|Supplemental|20230131101949/264:Tue 31 January 2023 10:19|indexing|
-|Jeff Nyman|World Knowledge|20230131101949/1370:Tue 31 January 2023 10:19|indexing|
-|Jeff Sheets|Graphic Links|20230131101949/318:Tue 31 January 2023 10:19|indexing|
-|Jesse Mcgrew|Dynamic Objects|20230131101949/966:Tue 31 January 2023 10:19|indexing|
-|Jesse Mcgrew|Dynamic Tables|20230131101949/1788:Tue 31 January 2023 10:19|indexing|
-|Jesse Mcgrew|Hypothetical Questions|20230131101949/848:Tue 31 January 2023 10:19|indexing|
-|Jim Aikin|Notepad|20230131101949/1883:Tue 31 January 2023 10:19|indexing|
-|Johan Paz|Cortos|20230131101949/531:Tue 31 January 2023 10:19|indexing|
-|John Clemens|Consolidated Multiple Actions|20230131101949/2643:Tue 31 January 2023 10:19|indexing|
-|John Clemens|Scheduled Activities|20230131101949/2443:Tue 31 January 2023 10:19|indexing|
-|Jon Ingold|Disambiguation Control|20230131101949/4832:Tue 31 January 2023 10:19|indexing|
-|Jon Ingold|Far Away|20230131101949/1754:Tue 31 January 2023 10:19|indexing|
-|Jon Ingold|Flexible Windows|20230131101949/1806:Tue 31 January 2023 10:19|indexing|
-|Jon Ingold|Title Page|20230131101949/545:Tue 31 January 2023 10:19|indexing|
-|Juhana Leinonen|Achievements|20230131101949/519:Tue 31 January 2023 10:19|indexing|
-|Juhana Leinonen|Bulky Items|20230131101949/1170:Tue 31 January 2023 10:19|indexing|
-|Juhana Leinonen|Debug Files|20230131101949/943:Tue 31 January 2023 10:19|indexing|
-|Juhana Leinonen|Object Response Tests|20230131101949/1218:Tue 31 January 2023 10:19|indexing|
-|Juhana Leinonen|Regional Travel|20230131101949/1065:Tue 31 January 2023 10:19|indexing|
-|Juhana Leinonen|Reversed Persuasion Correction|20230131101949/484:Tue 31 January 2023 10:19|indexing|
-|Juhana Leinonen|Vorple Element Manipulation|20230131101949/1337:Tue 31 January 2023 10:19|indexing|
-|Juhana Leinonen|Vorple Modal Windows|20230131101949/537:Tue 31 January 2023 10:19|indexing|
-|Juhana Leinonen|Vorple Notifications|20230131101949/644:Tue 31 January 2023 10:19|indexing|
-|Juhana Leinonen|Vorple Status Line|20230131101949/1722:Tue 31 January 2023 10:19|indexing|
-|Juhana Leinonen|Vorple Tooltips|20230131101949/1191:Tue 31 January 2023 10:19|indexing|
-|Leonardo Boselli|Automap It|20230131101949/15:Tue 31 January 2023 10:19|indexing|
-|Leonardo Boselli|Basic Help Menu It|20230131101949/34:Tue 31 January 2023 10:19|indexing|
-|Leonardo Boselli|Bulky Items It|20230131101949/13:Tue 31 January 2023 10:19|indexing|
-|Leonardo Boselli|Creative Commons Public License It|20230131101949/42:Tue 31 January 2023 10:19|indexing|
-|Leonardo Boselli|Menus It|20230131101949/32:Tue 31 January 2023 10:19|indexing|
-|Leonardo Boselli|Milleuna For Gargoyle With Graphics|20230131101949/6:Tue 31 January 2023 10:19|indexing|
-|Leonardo Boselli|Milleuna For Gargoyle|20230131101949/6:Tue 31 January 2023 10:19|indexing|
-|Leonardo Boselli|Milleuna For Quixe With Graphics|20230131101949/6:Tue 31 January 2023 10:19|indexing|
-|Leonardo Boselli|Milleuna For Quixe|20230131101949/6:Tue 31 January 2023 10:19|indexing|
-|Leonardo Boselli|Milleuna World|20230131101949/25:Tue 31 January 2023 10:19|indexing|
-|Leonardo Boselli|Numbered Disambiguation Choices It|20230131101949/13:Tue 31 January 2023 10:19|indexing|
-|Leonardo Boselli|Patrollers It|20230131101949/15:Tue 31 January 2023 10:19|indexing|
-|Leonardo Boselli|Questions It|20230131101949/15:Tue 31 January 2023 10:19|indexing|
-|Leonardo Boselli|Release For Gargoyle|20230131101949/0:Tue 31 January 2023 10:19|indexing|
-|Leonardo Boselli|Release For Quixe|20230131101949/0:Tue 31 January 2023 10:19|indexing|
-|Leonardo Boselli|Scoring It|20230131101949/6:Tue 31 January 2023 10:19|indexing|
-|Leonardo Boselli|Scoring|20230131101949/6:Tue 31 January 2023 10:19|indexing|
-|Leonardo Boselli|Simple Followers It|20230131101949/13:Tue 31 January 2023 10:19|indexing|
-|Leonardo Boselli|Simple Graphical Window|20230131101949/14:Tue 31 January 2023 10:19|indexing|
-|Leonardo Boselli|Simple Html Window|20230131101949/23:Tue 31 January 2023 10:19|indexing|
-|Leonardo Boselli|Title Page It|20230131101949/16:Tue 31 January 2023 10:19|indexing|
-|Leonardo Boselli|Written Inventory|20230131101949/16:Tue 31 January 2023 10:19|indexing|
-|Mark Tilford|Automap|20230131101949/2295:Tue 31 January 2023 10:19|indexing|
-|Massimo Stella|Italian Language|20230131101949/1832:Tue 31 January 2023 10:19|indexing|
-|Massimo Stella|Multiple Sounds Sp|20230131101949/350:Tue 31 January 2023 10:19|indexing|
-|Massimo Stella|Multiple Sounds|20230131101949/569:Tue 31 January 2023 10:19|indexing|
-|Matt Weiner|Actions On Groups|20230131101949/3872:Tue 31 January 2023 10:19|indexing|
-|Matt Weiner|Indefinite Article Substitution Fix|20230131101949/743:Tue 31 January 2023 10:19|indexing|
-|Matt Weiner|Responsive Disambiguation For 6m62|20230131101949/564:Tue 31 January 2023 10:19|indexing|
-|Mel Hython|Decorados|20230131101949/247:Tue 31 January 2023 10:19|indexing|
-|Mel Hython|Frase De Tabla|20230131101949/335:Tue 31 January 2023 10:19|indexing|
-|Michael Callaghan|Patrollers Sp|20230131101949/4457:Tue 31 January 2023 10:19|indexing|
-|Michael Callaghan|Questions|20230131101949/3911:Tue 31 January 2023 10:19|indexing|
-|Michael Kielstra|Debug Tags|20230131101949/1131:Tue 31 January 2023 10:19|indexing|
-|Michael Martin|Assumed Conversers|20230131101949/162:Tue 31 January 2023 10:19|indexing|
-|Michael Martin|Quip-Based Conversation Sp|20230131101949/1661:Tue 31 January 2023 10:19|indexing|
-|Michael Martin|Quip-Based Conversation|20230131101949/1661:Tue 31 January 2023 10:19|indexing|
-|Michael Martin|Reactable Quips Sp|20230131101949/1807:Tue 31 January 2023 10:19|indexing|
-|Michael Martin|Reactable Quips|20230131101949/1807:Tue 31 January 2023 10:19|indexing|
-|Michael Martin|Unicode Interrogation|20230131101949/103:Tue 31 January 2023 10:19|indexing|
-|Mikael Segercrantz|Achievements Sp|20230131101949/1568:Tue 31 January 2023 10:19|indexing|
-|Mikael Segercrantz|Achievements|20230131101949/1288:Tue 31 January 2023 10:19|indexing|
-|Mikael Segercrantz|Atmospheric Effects|20230131101949/4260:Tue 31 January 2023 10:19|indexing|
-|Mikael Segercrantz|Randomness|20230131101949/286:Tue 31 January 2023 10:19|indexing|
-|Mikael Segercrantz|Trinity Inventory|20230131101949/1430:Tue 31 January 2023 10:19|indexing|
-|Mike Ciul|Autotaking|20230131101949/454:Tue 31 January 2023 10:19|indexing|
-|Mike Ciul|Effective Infinity|20230131101949/285:Tue 31 January 2023 10:19|indexing|
-|Mike Ciul|Flexible Action Requirements|20230131101949/1076:Tue 31 January 2023 10:19|indexing|
-|Mike Ciul|Objects Matching Snippets|20230131101949/656:Tue 31 January 2023 10:19|indexing|
-|Mike Ciul|Scope Caching|20230131101949/901:Tue 31 January 2023 10:19|indexing|
-|Mike Ciul|Takeability|20230131101949/0:Tue 31 January 2023 10:19|indexing|
-|Mike Ciul|Unknown Word Error|20230131101949/281:Tue 31 January 2023 10:19|indexing|
-|Nate Cull|Basic Plans|20230131101949/924:Tue 31 January 2023 10:19|indexing|
-|Nate Cull|Planner|20230131101949/1992:Tue 31 January 2023 10:19|indexing|
-|Nathanael Nerode|Character Portraits|20230131101949/872:Tue 31 January 2023 10:19|indexing|
-|Nathanael Nerode|Compliant Characters|20230131101949/2752:Tue 31 January 2023 10:19|indexing|
-|Nathanael Nerode|Gender Options|20230131101949/2750:Tue 31 January 2023 10:19|indexing|
-|Nathanael Nerode|Gender Speedup|20230131101949/276:Tue 31 January 2023 10:19|indexing|
-|Nathanael Nerode|Initial Cursor At Top Or Bottom|20230131101949/1093:Tue 31 January 2023 10:19|indexing|
-|Nathanael Nerode|Large Game Speedup|20230131101949/1648:Tue 31 January 2023 10:19|indexing|
-|Nathanael Nerode|Nathanael's Cookbook|20230131101949/2904:Tue 31 January 2023 10:19|indexing|
-|Nathanael Nerode|Nathanael's Debug Tools|20230131101949/82:Tue 31 January 2023 10:19|indexing|
-|Nathanael Nerode|Neutral Standard Responses|20230131101949/3212:Tue 31 January 2023 10:19|indexing|
-|Nathanael Nerode|Parser Error Number Bugfix|20230131101949/75:Tue 31 January 2023 10:19|indexing|
-|Nathanael Nerode|Room Description Supporter Bugfixes|20230131101949/576:Tue 31 January 2023 10:19|indexing|
-|Nathanael Nerode|Standard Rules Dead Code Removal|20230131101949/112:Tue 31 January 2023 10:19|indexing|
-|Nathanael Nerode|Tab Removal|20230131101949/137:Tue 31 January 2023 10:19|indexing|
-|Nathanael Nerode|Title Case For Headings|20230131101949/2006:Tue 31 January 2023 10:19|indexing|
-|Nathanael Nerode|Undo Output Control|20230131101949/3293:Tue 31 January 2023 10:19|indexing|
-|Nathanael Nerode|Verb Stripping|20230131101949/154:Tue 31 January 2023 10:19|indexing|
-|Peter Orme|Checkpoints|20230131101949/1466:Tue 31 January 2023 10:19|indexing|
-|Peter Orme|Developer Framework|20230131101949/242:Tue 31 January 2023 10:19|indexing|
-|Peter Orme|Flexible Logger|20230131101949/1133:Tue 31 January 2023 10:19|indexing|
-|Peter Orme|Object Descriptors|20230131101949/336:Tue 31 January 2023 10:19|indexing|
-|Peter Orme|Possible Movements|20230131101949/29:Tue 31 January 2023 10:19|indexing|
-|Peter Orme|Unit Testing|20230131101949/834:Tue 31 January 2023 10:19|indexing|
-|Peter Orme|Universal Opening|20230131101949/307:Tue 31 January 2023 10:19|indexing|
-|Ron Newcomb|After Not Doing Something|20230131101949/213:Tue 31 January 2023 10:19|indexing|
-|Ron Newcomb|Command Prompt On Cue|20230131101949/856:Tue 31 January 2023 10:19|indexing|
-|Ron Newcomb|Editable Stored Actions|20230131101949/1384:Tue 31 January 2023 10:19|indexing|
-|Ron Newcomb|Permission To Visit|20230131101949/2264:Tue 31 January 2023 10:19|indexing|
-|Ron Newcomb|Phrases For Adaptive Pacing|20230131101949/1416:Tue 31 January 2023 10:19|indexing|
-|Ron Newcomb|Phrases For Tables With Topics|20230131101949/495:Tue 31 January 2023 10:19|indexing|
-|Ron Newcomb|Real Date And Time|20230131101949/941:Tue 31 January 2023 10:19|indexing|
-|Ron Newcomb|Rewrite The Command Line|20230131101949/681:Tue 31 January 2023 10:19|indexing|
-|Ron Newcomb|Scope Control|20230131101949/583:Tue 31 January 2023 10:19|indexing|
-|Ron Newcomb|Unsuccessful Pc Attempt|20230131101949/495:Tue 31 January 2023 10:19|indexing|
-|Sarah Morayati|Basic Real Time|20230131101949/976:Tue 31 January 2023 10:19|indexing|
-|Sarganar|Multi P|20230131101949/2112:Tue 31 January 2023 10:19|indexing|
-|Sean Turner|Plugs And Sockets|20230131101949/2232:Tue 31 January 2023 10:19|indexing|
-|Shin|Game Ending Reloaded|20230131101949/17:Tue 31 January 2023 10:19|indexing|
-|Shin|Points Awarding Reloaded|20230131101949/17:Tue 31 January 2023 10:19|indexing|
-|Shin|Singing Reloaded|20230131101949/16:Tue 31 January 2023 10:19|indexing|
-|Shin|Swearing Reloaded|20230131101949/16:Tue 31 January 2023 10:19|indexing|
-|Stephen Granade|Footnotes|20230131101949/500:Tue 31 January 2023 10:19|indexing|
-|Taryn Michelle|Print Stage Detection|20230131101949/1448:Tue 31 January 2023 10:19|indexing|
-|Wade Clarke|Basic Help Menu|20230131101949/683:Tue 31 January 2023 10:19|indexing|
-|Wade Clarke|Menus|20230131101949/13316:Tue 31 January 2023 10:19|indexing|
-|Xavid|Command Unit Testing|20230131101949/744:Tue 31 January 2023 10:19|indexing|
-|Xavid|Directional Disambiguation|20230131101949/110:Tue 31 January 2023 10:19|indexing|
-|Xavid|Expanded Understanding|20230131101949/2487:Tue 31 January 2023 10:19|indexing|
-|Xavid|Graphical Map|20230131101949/1430:Tue 31 January 2023 10:19|indexing|
-|Xavid|Liquids|20230131101949/988:Tue 31 January 2023 10:19|indexing|
-|Xavid|Object Matching|20230131101949/611:Tue 31 January 2023 10:19|indexing|
-|Xavid|Scenery Words|20230131101949/129:Tue 31 January 2023 10:19|indexing|
-|Xavid|Visible From A Distance|20230131101949/100:Tue 31 January 2023 10:19|indexing|
-|Zed Lopez|Bit Ops|20230131101949/822:Tue 31 January 2023 10:19|indexing|
-|Zed Lopez|Char|20230131101949/553:Tue 31 January 2023 10:19|indexing|
-|Zed Lopez|Code|20230131101949/387:Tue 31 January 2023 10:19|indexing|
-|Zed Lopez|Custom Banner And Version|20230131101949/1173:Tue 31 January 2023 10:19|indexing|
-|Zed Lopez|If True|20230131101949/47:Tue 31 January 2023 10:19|indexing|
-|Zed Lopez|Inquiry|20230131101949/1037:Tue 31 January 2023 10:19|indexing|
-|Zed Lopez|List Utilities|20230131101949/2561:Tue 31 January 2023 10:19|indexing|
-|Zed Lopez|Parser Error Details|20230131101949/105:Tue 31 January 2023 10:19|indexing|
-|Zed Lopez|Pseudodevices|20230131101949/265:Tue 31 January 2023 10:19|indexing|
-|Zed Lopez|Screenreader|20230131101949/294:Tue 31 January 2023 10:19|indexing|
-|Zed Lopez|Speechless|20230131101949/178:Tue 31 January 2023 10:19|indexing|
-|Zed Lopez|Strange Loopiness|20230131101949/700:Tue 31 January 2023 10:19|indexing|
-|Zed Lopez|Supercredits|20230131101949/188:Tue 31 January 2023 10:19|indexing|
-|Zed Lopez|Switch|20230131101949/166:Tue 31 January 2023 10:19|indexing|
-|Zed Lopez|Tabulate|20230131101949/76:Tue 31 January 2023 10:19|indexing|
-|Zed Lopez|Text Loops|20230131101949/120:Tue 31 January 2023 10:19|indexing|
-|Zed Lopez|Textile|20230131101949/1379:Tue 31 January 2023 10:19|indexing|
-|Zed Lopez|Trial|20230131101949/65:Tue 31 January 2023 10:19|indexing|
-|Zed Lopez|Unicode File Io|20230131101949/430:Tue 31 January 2023 10:19|indexing|
-|Zed Lopez|Unit Tests|20230131101949/3611:Tue 31 January 2023 10:19|indexing|
-|Zed Lopez|Untrimmed Lines|20230131101949/197:Tue 31 January 2023 10:19|indexing|
-|Zed Lopez|Verbal Commands|20230131101949/158:Tue 31 January 2023 10:19|indexing|
-|Zed Lopez|Verbs|20230131101949/180:Tue 31 January 2023 10:19|indexing|
-|Emily Short|Basic Help Menu|20230131101949/452:Tue 31 January 2023 10:19|indexing|
-|Emily Short|Complex Listing|20230131101949/2213:Tue 31 January 2023 10:19|indexing|
-|Emily Short|Glulx Image Centering|20230131101949/152:Tue 31 January 2023 10:19|indexing|
-|Emily Short|Glulx Text Effects|20230131101949/1179:Tue 31 January 2023 10:19|indexing|
-|Emily Short|Inanimate Listeners|20230131101949/313:Tue 31 January 2023 10:19|indexing|
-|Emily Short|Locksmith|20230131101949/2153:Tue 31 January 2023 10:19|indexing|
-|Emily Short|Menus|20230131101949/1000:Tue 31 January 2023 10:19|indexing|
-|Emily Short|Punctuation Removal|20230131101949/800:Tue 31 January 2023 10:19|indexing|
-|Emily Short|Skeleton Keys|20230131101949/371:Tue 31 January 2023 10:19|indexing|
-|Eric Eve|Epistemology|20230131101949/1148:Tue 31 January 2023 10:19|indexing|
-|Graham Nelson|Approximate Metric Units|20230131101949/2334:Tue 31 January 2023 10:19|indexing|
-|Graham Nelson|Metric Units|20230131101949/2042:Tue 31 January 2023 10:19|indexing|
-|Graham Nelson|Rideable Vehicles|20230131101949/953:Tue 31 January 2023 10:19|indexing|
-|Graham Nelson|Unicode Character Names|20230131101949/102:Tue 31 January 2023 10:19|indexing|
-|Graham Nelson|Unicode Full Character Names|20230131101949/91:Tue 31 January 2023 10:19|indexing|
-|Graham Nelson|Standard Rules|20230131102004/42655:Tue 31 January 2023 10:20|indexing|
-|Graham Nelson|Standard Rules|room|kind|
-|Graham Nelson|Standard Rules|thing|kind|
-|Graham Nelson|Standard Rules|direction|kind|
-|Graham Nelson|Standard Rules|door|kind|
-|Graham Nelson|Standard Rules|container|kind|
-|Graham Nelson|Standard Rules|supporter|kind|
-|Graham Nelson|Standard Rules|backdrop|kind|
-|Graham Nelson|Standard Rules|person|kind|
-|Graham Nelson|Standard Rules|region|kind|
-|Graham Nelson|Standard Rules|man|kind|
-|Graham Nelson|Standard Rules|woman|kind|
-|Graham Nelson|Standard Rules|animal|kind|
-|Graham Nelson|Standard Rules|device|kind|
-|Graham Nelson|Standard Rules|vehicle|kind|
-|Graham Nelson|Standard Rules|player's holdall|kind|
-|Graham Nelson|Standard Rules|natural language|kind|
-|Graham Nelson|Standard Rules|command parser error|kind|
-|Graham Nelson|Standard Rules|north|direction|
-|Graham Nelson|Standard Rules|northeast|direction|
-|Graham Nelson|Standard Rules|northwest|direction|
-|Graham Nelson|Standard Rules|south|direction|
-|Graham Nelson|Standard Rules|southeast|direction|
-|Graham Nelson|Standard Rules|southwest|direction|
-|Graham Nelson|Standard Rules|east|direction|
-|Graham Nelson|Standard Rules|west|direction|
-|Graham Nelson|Standard Rules|up|direction|
-|Graham Nelson|Standard Rules|down|direction|
-|Graham Nelson|Standard Rules|inside|direction|
-|Graham Nelson|Standard Rules|outside|direction|
-|Graham Nelson|Standard Rules|player|value|
-|Graham Nelson|Standard Rules|location|value|
-|Graham Nelson|Standard Rules|score|value|
-|Graham Nelson|Standard Rules|last notified score|value|
-|Graham Nelson|Standard Rules|maximum score|value|
-|Graham Nelson|Standard Rules|turn count|value|
-|Graham Nelson|Standard Rules|time of day|value|
-|Graham Nelson|Standard Rules|darkness witnessed|value|
-|Graham Nelson|Standard Rules|noun|value|
-|Graham Nelson|Standard Rules|second noun|value|
-|Graham Nelson|Standard Rules|person asked|value|
-|Graham Nelson|Standard Rules|reason the action failed|value|
-|Graham Nelson|Standard Rules|item described|value|
-|Graham Nelson|Standard Rules|person reaching|value|
-|Graham Nelson|Standard Rules|container in question|value|
-|Graham Nelson|Standard Rules|supporter in question|value|
-|Graham Nelson|Standard Rules|particular possession|value|
-|Graham Nelson|Standard Rules|player's command|value|
-|Graham Nelson|Standard Rules|matched text|value|
-|Graham Nelson|Standard Rules|current item from the multiple object list|value|
-|Graham Nelson|Standard Rules|command prompt|value|
-|Graham Nelson|Standard Rules|left hand status line|value|
-|Graham Nelson|Standard Rules|right hand status line|value|
-|Graham Nelson|Standard Rules|listing group size|value|
-|Graham Nelson|Standard Rules|language of play|value|
-|Graham Nelson|Standard Rules|prior named object|value|
-|Graham Nelson|Standard Rules|latest parser error|value|
-|Graham Nelson|Standard Rules|Figure of cover|value|
-|Graham Nelson|Standard Rules|Entire Game|value|
-|Graham Nelson|Standard Rules|didn't understand error|value|
-|Graham Nelson|Standard Rules|only understood as far as error|value|
-|Graham Nelson|Standard Rules|didn't understand that number error|value|
-|Graham Nelson|Standard Rules|can only do that to something animate error|value|
-|Graham Nelson|Standard Rules|can't see any such thing error|value|
-|Graham Nelson|Standard Rules|said too little error|value|
-|Graham Nelson|Standard Rules|aren't holding that error|value|
-|Graham Nelson|Standard Rules|can't use multiple objects error|value|
-|Graham Nelson|Standard Rules|can only use multiple objects error|value|
-|Graham Nelson|Standard Rules|not sure what it refers to error|value|
-|Graham Nelson|Standard Rules|excepted something not included error|value|
-|Graham Nelson|Standard Rules|not a verb I recognise error|value|
-|Graham Nelson|Standard Rules|not something you need to refer to error|value|
-|Graham Nelson|Standard Rules|can't see it at the moment error|value|
-|Graham Nelson|Standard Rules|didn't understand the way that finished error|value|
-|Graham Nelson|Standard Rules|not enough of those available error|value|
-|Graham Nelson|Standard Rules|nothing to do error|value|
-|Graham Nelson|Standard Rules|noun did not make sense in that context error|value|
-|Graham Nelson|Standard Rules|referred to a determination of scope error|value|
-|Graham Nelson|Standard Rules|I beg your pardon error|value|
-|Graham Nelson|Standard Rules|can't again the addressee error|value|
-|Graham Nelson|Standard Rules|comma can't begin error|value|
-|Graham Nelson|Standard Rules|can't see whom to talk to error|value|
-|Graham Nelson|Standard Rules|can't talk to inanimate things error|value|
-|Graham Nelson|Standard Rules|didn't understand addressee's last name error|value|
-|Graham Nelson|Standard Rules|Taking inventory|action|
-|Graham Nelson|Standard Rules|Taking|action|
-|Graham Nelson|Standard Rules|Removing it from|action|
-|Graham Nelson|Standard Rules|Dropping|action|
-|Graham Nelson|Standard Rules|Putting it on|action|
-|Graham Nelson|Standard Rules|Inserting it into|action|
-|Graham Nelson|Standard Rules|Eating|action|
-|Graham Nelson|Standard Rules|Going|action|
-|Graham Nelson|Standard Rules|Entering|action|
-|Graham Nelson|Standard Rules|Exiting|action|
-|Graham Nelson|Standard Rules|Getting off|action|
-|Graham Nelson|Standard Rules|Looking|action|
-|Graham Nelson|Standard Rules|Examining|action|
-|Graham Nelson|Standard Rules|Looking under|action|
-|Graham Nelson|Standard Rules|Searching|action|
-|Graham Nelson|Standard Rules|Consulting it about|action|
-|Graham Nelson|Standard Rules|Locking it with|action|
-|Graham Nelson|Standard Rules|Unlocking it with|action|
-|Graham Nelson|Standard Rules|Switching on|action|
-|Graham Nelson|Standard Rules|Switching off|action|
-|Graham Nelson|Standard Rules|Opening|action|
-|Graham Nelson|Standard Rules|Closing|action|
-|Graham Nelson|Standard Rules|Wearing|action|
-|Graham Nelson|Standard Rules|Taking off|action|
-|Graham Nelson|Standard Rules|Giving it to|action|
-|Graham Nelson|Standard Rules|Showing it to|action|
-|Graham Nelson|Standard Rules|Waking|action|
-|Graham Nelson|Standard Rules|Throwing it at|action|
-|Graham Nelson|Standard Rules|Attacking|action|
-|Graham Nelson|Standard Rules|Kissing|action|
-|Graham Nelson|Standard Rules|Answering it that|action|
-|Graham Nelson|Standard Rules|Telling it about|action|
-|Graham Nelson|Standard Rules|Asking it about|action|
-|Graham Nelson|Standard Rules|Asking it for|action|
-|Graham Nelson|Standard Rules|Waiting|action|
-|Graham Nelson|Standard Rules|Touching|action|
-|Graham Nelson|Standard Rules|Waving|action|
-|Graham Nelson|Standard Rules|Pulling|action|
-|Graham Nelson|Standard Rules|Pushing|action|
-|Graham Nelson|Standard Rules|Turning|action|
-|Graham Nelson|Standard Rules|Pushing it to|action|
-|Graham Nelson|Standard Rules|Squeezing|action|
-|Graham Nelson|Standard Rules|Saying yes|action|
-|Graham Nelson|Standard Rules|Saying no|action|
-|Graham Nelson|Standard Rules|Burning|action|
-|Graham Nelson|Standard Rules|Waking up|action|
-|Graham Nelson|Standard Rules|Thinking|action|
-|Graham Nelson|Standard Rules|Smelling|action|
-|Graham Nelson|Standard Rules|Listening to|action|
-|Graham Nelson|Standard Rules|Tasting|action|
-|Graham Nelson|Standard Rules|Cutting|action|
-|Graham Nelson|Standard Rules|Jumping|action|
-|Graham Nelson|Standard Rules|Tying it to|action|
-|Graham Nelson|Standard Rules|Drinking|action|
-|Graham Nelson|Standard Rules|Saying sorry|action|
-|Graham Nelson|Standard Rules|Swinging|action|
-|Graham Nelson|Standard Rules|Rubbing|action|
-|Graham Nelson|Standard Rules|Setting it to|action|
-|Graham Nelson|Standard Rules|Waving hands|action|
-|Graham Nelson|Standard Rules|Buying|action|
-|Graham Nelson|Standard Rules|Climbing|action|
-|Graham Nelson|Standard Rules|Sleeping|action|
-|Graham Nelson|Standard Rules|Quitting the game|action|
-|Graham Nelson|Standard Rules|Saving the game|action|
-|Graham Nelson|Standard Rules|Restoring the game|action|
-|Graham Nelson|Standard Rules|Restarting the game|action|
-|Graham Nelson|Standard Rules|Verifying the story file|action|
-|Graham Nelson|Standard Rules|Switching the story transcript on|action|
-|Graham Nelson|Standard Rules|Switching the story transcript off|action|
-|Graham Nelson|Standard Rules|Requesting the story file version|action|
-|Graham Nelson|Standard Rules|Requesting the score|action|
-|Graham Nelson|Standard Rules|Preferring abbreviated room descriptions|action|
-|Graham Nelson|Standard Rules|Preferring unabbreviated room descriptions|action|
-|Graham Nelson|Standard Rules|Preferring sometimes abbreviated room descriptions|action|
-|Graham Nelson|Standard Rules|Switching score notification on|action|
-|Graham Nelson|Standard Rules|Switching score notification off|action|
-|Graham Nelson|Standard Rules|Requesting the pronoun meanings|action|
-|Graham Nelson|Standard Rules|be|verb|
-|Graham Nelson|Standard Rules|have|verb|
-|Graham Nelson|Standard Rules|relate|verb|
-|Graham Nelson|Standard Rules|mean|verb|
-|Graham Nelson|Standard Rules|provide|verb|
-|Graham Nelson|Standard Rules|contain|verb|
-|Graham Nelson|Standard Rules|support|verb|
-|Graham Nelson|Standard Rules|incorporate|verb|
-|Graham Nelson|Standard Rules|enclose|verb|
-|Graham Nelson|Standard Rules|carry|verb|
-|Graham Nelson|Standard Rules|hold|verb|
-|Graham Nelson|Standard Rules|wear|verb|
-|Graham Nelson|Standard Rules|be able to see|verb|
-|Graham Nelson|Standard Rules|be able to touch|verb|
-|Graham Nelson|Standard Rules|conceal|verb|
-|Graham Nelson|Standard Rules|unlock|verb|
-|Graham Nelson|Standard Rules|worn|adjective|
-|Graham Nelson|Standard Rules|carried|adjective|
-|Graham Nelson|Standard Rules|held|adjective|
-|Graham Nelson|Standard Rules|visible|adjective|
-|Graham Nelson|Standard Rules|invisible|adjective|
-|Graham Nelson|Standard Rules|touchable|adjective|
-|Graham Nelson|Standard Rules|untouchable|adjective|
-|Graham Nelson|Standard Rules|concealed|adjective|
-|Graham Nelson|Standard Rules|unconcealed|adjective|
-|Graham Nelson|Standard Rules|on-stage|adjective|
-|Graham Nelson|Standard Rules|off-stage|adjective|
-|Graham Nelson|Standard Rules|offstage|adjective|
-|Graham Nelson|Standard Rules|adjacent|adjective|
-|Graham Nelson|Standard Rules|even|adjective|
-|Graham Nelson|Standard Rules|odd|adjective|
-|Graham Nelson|Standard Rules|positive|adjective|
-|Graham Nelson|Standard Rules|negative|adjective|
-|Graham Nelson|Standard Rules|empty|adjective|
-|Graham Nelson|Standard Rules|non-empty|adjective|
-|Graham Nelson|Standard Rules|substituted|adjective|
-|Graham Nelson|Standard Rules|unsubstituted|adjective|
-|Graham Nelson|Standard Rules|happening|adjective|
-|Graham Nelson|Standard Rules|full|adjective|
-|Graham Nelson|Standard Rules|non-full|adjective|
-|Graham Nelson|Standard Rules|going on|adjective|
-|Graham Nelson|Standard Rules|active|adjective|
-|Graham Nelson|Standard Rules|inactive|adjective|
-|Graham Nelson|Standard Rules|equivalence|adjective|
-|Graham Nelson|Standard Rules|symmetric|adjective|
-|Graham Nelson|Standard Rules|one-to-one|adjective|
-|Graham Nelson|Standard Rules|one-to-various|adjective|
-|Graham Nelson|Standard Rules|various-to-one|adjective|
-|Graham Nelson|Standard Rules|various-to-various|adjective|
-|Graham Nelson|Standard Rules|modal|adjective|
-|Graham Nelson|Standard Rules|non-modal|adjective|
-|Graham Nelson|Standard Rules|meaningful|adjective|
-|Graham Nelson|Standard Rules|meaningless|adjective|
-|Graham Nelson|Standard Rules|infinite|adjective|
-|Graham Nelson|Standard Rules|finite|adjective|
-|Graham Nelson|Standard Rules|nonexistent|adjective|
-|Graham Nelson|Standard Rules|existent|adjective|
-|Graham Nelson|Standard Rules|locale-supportable|adjective|
-|Graham Nelson|Standard Rules|plural-named|adjective|
-|Graham Nelson|Standard Rules|singular-named|adjective|
-|Graham Nelson|Standard Rules|proper-named|adjective|
-|Graham Nelson|Standard Rules|improper-named|adjective|
-|Graham Nelson|Standard Rules|ambiguously plural|adjective|
-|Graham Nelson|Standard Rules|privately-named|adjective|
-|Graham Nelson|Standard Rules|publicly-named|adjective|
-|Graham Nelson|Standard Rules|lighted|adjective|
-|Graham Nelson|Standard Rules|dark|adjective|
-|Graham Nelson|Standard Rules|visited|adjective|
-|Graham Nelson|Standard Rules|unvisited|adjective|
-|Graham Nelson|Standard Rules|lit|adjective|
-|Graham Nelson|Standard Rules|unlit|adjective|
-|Graham Nelson|Standard Rules|edible|adjective|
-|Graham Nelson|Standard Rules|inedible|adjective|
-|Graham Nelson|Standard Rules|fixed in place|adjective|
-|Graham Nelson|Standard Rules|portable|adjective|
-|Graham Nelson|Standard Rules|scenery|adjective|
-|Graham Nelson|Standard Rules|wearable|adjective|
-|Graham Nelson|Standard Rules|pushable between rooms|adjective|
-|Graham Nelson|Standard Rules|handled|adjective|
-|Graham Nelson|Standard Rules|described|adjective|
-|Graham Nelson|Standard Rules|undescribed|adjective|
-|Graham Nelson|Standard Rules|marked for listing|adjective|
-|Graham Nelson|Standard Rules|unmarked for listing|adjective|
-|Graham Nelson|Standard Rules|mentioned|adjective|
-|Graham Nelson|Standard Rules|unmentioned|adjective|
-|Graham Nelson|Standard Rules|enterable|adjective|
-|Graham Nelson|Standard Rules|opaque|adjective|
-|Graham Nelson|Standard Rules|transparent|adjective|
-|Graham Nelson|Standard Rules|open|adjective|
-|Graham Nelson|Standard Rules|closed|adjective|
-|Graham Nelson|Standard Rules|openable|adjective|
-|Graham Nelson|Standard Rules|unopenable|adjective|
-|Graham Nelson|Standard Rules|lockable|adjective|
-|Graham Nelson|Standard Rules|locked|adjective|
-|Graham Nelson|Standard Rules|unlocked|adjective|
-|Graham Nelson|Standard Rules|switched on|adjective|
-|Graham Nelson|Standard Rules|switched off|adjective|
-|Graham Nelson|Standard Rules|recurring|adjective|
-|Graham Nelson|Standard Rules|non-recurring|adjective|
-|Graham Nelson|Standard Rules|list grouping key|property|
-|Graham Nelson|Standard Rules|printed name|property|
-|Graham Nelson|Standard Rules|printed plural name|property|
-|Graham Nelson|Standard Rules|indefinite article|property|
-|Graham Nelson|Standard Rules|description|property|
-|Graham Nelson|Standard Rules|map region|property|
-|Graham Nelson|Standard Rules|initial appearance|property|
-|Graham Nelson|Standard Rules|opposite|property|
-|Graham Nelson|Standard Rules|other side|property|
-|Graham Nelson|Standard Rules|carrying capacity|property|
-|Graham Nelson|Standard Rules|matching key|property|
-|Graham Nelson|Standard Rules|plural-named|property|
-|Graham Nelson|Standard Rules|singular-named|property|
-|Graham Nelson|Standard Rules|proper-named|property|
-|Graham Nelson|Standard Rules|improper-named|property|
-|Graham Nelson|Standard Rules|ambiguously plural|property|
-|Graham Nelson|Standard Rules|lighted|property|
-|Graham Nelson|Standard Rules|dark|property|
-|Graham Nelson|Standard Rules|visited|property|
-|Graham Nelson|Standard Rules|unvisited|property|
-|Graham Nelson|Standard Rules|lit|property|
-|Graham Nelson|Standard Rules|unlit|property|
-|Graham Nelson|Standard Rules|edible|property|
-|Graham Nelson|Standard Rules|inedible|property|
-|Graham Nelson|Standard Rules|fixed in place|property|
-|Graham Nelson|Standard Rules|portable|property|
-|Graham Nelson|Standard Rules|scenery|property|
-|Graham Nelson|Standard Rules|wearable|property|
-|Graham Nelson|Standard Rules|pushable between rooms|property|
-|Graham Nelson|Standard Rules|handled|property|
-|Graham Nelson|Standard Rules|described|property|
-|Graham Nelson|Standard Rules|undescribed|property|
-|Graham Nelson|Standard Rules|marked for listing|property|
-|Graham Nelson|Standard Rules|unmarked for listing|property|
-|Graham Nelson|Standard Rules|mentioned|property|
-|Graham Nelson|Standard Rules|unmentioned|property|
-|Graham Nelson|Standard Rules|enterable|property|
-|Graham Nelson|Standard Rules|opaque|property|
-|Graham Nelson|Standard Rules|transparent|property|
-|Graham Nelson|Standard Rules|open|property|
-|Graham Nelson|Standard Rules|closed|property|
-|Graham Nelson|Standard Rules|openable|property|
-|Graham Nelson|Standard Rules|unopenable|property|
-|Graham Nelson|Standard Rules|lockable|property|
-|Graham Nelson|Standard Rules|locked|property|
-|Graham Nelson|Standard Rules|unlocked|property|
-|Graham Nelson|Standard Rules|switched on|property|
-|Graham Nelson|Standard Rules|switched off|property|
-|Graham Nelson|Standard Rules|recurring|property|
-|Graham Nelson|Standard Rules|non-recurring|property|
-|Graham Nelson|Standard Rules|ineffectual|use option|
-|Graham Nelson|Standard Rules|dynamic memory allocation|use option|
-|Graham Nelson|Standard Rules|maximum text length|use option|
-|Graham Nelson|Standard Rules|index figure thumbnails|use option|
-|Graham Nelson|Standard Rules|maximum things understood at once|use option|
-|Graham Nelson|Standard Rules|American dialect|use option|
-|Graham Nelson|Standard Rules|serial comma|use option|
-|Graham Nelson|Standard Rules|full-length room descriptions|use option|
-|Graham Nelson|Standard Rules|abbreviated room descriptions|use option|
-|Graham Nelson|Standard Rules|memory economy|use option|
-|Graham Nelson|Standard Rules|authorial modesty|use option|
-|Graham Nelson|Standard Rules|scoring|use option|
-|Graham Nelson|Standard Rules|no scoring|use option|
-|Graham Nelson|Standard Rules|engineering notation|use option|
-|Graham Nelson|Standard Rules|unabbreviated object names|use option|
-|Graham Nelson|Standard Rules|command line echoing|use option|
-|Graham Nelson|Standard Rules|manual pronouns|use option|
-|Graham Nelson|Standard Rules|undo prevention|use option|
-|Graham Nelson|Standard Rules|predictable randomisation|use option|
-|Graham Nelson|Standard Rules|fast route-finding|use option|
-|Graham Nelson|Standard Rules|slow route-finding|use option|
-|Graham Nelson|Standard Rules|numbered rules|use option|
-|Graham Nelson|Standard Rules|telemetry recordings|use option|
-|Graham Nelson|Standard Rules|no deprecated features|use option|
-|Graham Nelson|Standard Rules|gn testing version|use option|
-|Graham Nelson|Standard Rules|VERBOSE room descriptions|use option|
-|Graham Nelson|Standard Rules|BRIEF room descriptions|use option|
-|Graham Nelson|Standard Rules|SUPERBRIEF room descriptions|use option|
-|Graham Nelson|English Language|20230131102004/2297:Tue 31 January 2023 10:20|indexing|
-|Sebastian Arg|Spanish Language|20230131102004/11604:Tue 31 January 2023 10:20|indexing|
-|Sebastian Arg|Spanish Language|grammatical tense|kind|
-|Sebastian Arg|Spanish Language|narrative viewpoint|kind|
-|Sebastian Arg|Spanish Language|grammatical case|kind|
-|Sebastian Arg|Spanish Language|grammatical gender|kind|
-|Sebastian Arg|Spanish Language|yourself|person|
-|Sebastian Arg|Spanish Language|story title|value|
-|Sebastian Arg|Spanish Language|story author|value|
-|Sebastian Arg|Spanish Language|story headline|value|
-|Sebastian Arg|Spanish Language|story genre|value|
-|Sebastian Arg|Spanish Language|story description|value|
-|Sebastian Arg|Spanish Language|release number|value|
-|Sebastian Arg|Spanish Language|story creation year|value|
-|Sebastian Arg|Spanish Language|story tense|value|
-|Sebastian Arg|Spanish Language|story viewpoint|value|
-|Sebastian Arg|Spanish Language|present tense|value|
-|Sebastian Arg|Spanish Language|past tense|value|
-|Sebastian Arg|Spanish Language|perfect tense|value|
-|Sebastian Arg|Spanish Language|past perfect tense|value|
-|Sebastian Arg|Spanish Language|future tense|value|
-|Sebastian Arg|Spanish Language|first person singular|value|
-|Sebastian Arg|Spanish Language|second person singular|value|
-|Sebastian Arg|Spanish Language|third person singular|value|
-|Sebastian Arg|Spanish Language|first person plural|value|
-|Sebastian Arg|Spanish Language|second person plural|value|
-|Sebastian Arg|Spanish Language|third person plural|value|
-|Sebastian Arg|Spanish Language|nominative|value|
-|Sebastian Arg|Spanish Language|accusative|value|
-|Sebastian Arg|Spanish Language|neuter gender|value|
-|Sebastian Arg|Spanish Language|masculine gender|value|
-|Sebastian Arg|Spanish Language|feminine gender|value|
-|Sebastian Arg|Spanish Language|Entering to room|action|
-|Sebastian Arg|Spanish Language|Bajando|action|
-|Sebastian Arg|Spanish Language|Subiendo|action|
-|Sebastian Arg|Spanish Language|female|adjective|
-|Sebastian Arg|Spanish Language|male|adjective|
-|Sebastian Arg|Spanish Language|neuter|adjective|
-|Sebastian Arg|Spanish Language|neuter gender|adjective|
-|Sebastian Arg|Spanish Language|masculine gender|adjective|
-|Sebastian Arg|Spanish Language|feminine gender|adjective|
-|Sebastian Arg|Spanish Language|female|property|
-|Sebastian Arg|Spanish Language|male|property|
-|Sebastian Arg|Spanish Language|neuter|property|
-|Sebastian Arg|Spanish Language|grammatical gender|property|
-|Sebastian Arg|Spanish Language|Dialecto Castellano|use option|
-|Sebastian Arg|Spanish Language|Dialecto Sudamericano|use option|
-|Sebastian Arg|Spanish Language|maximum capture buffer length|use option|
-|Juhana Leinonen|Vorple|20230131102004/5672:Tue 31 January 2023 10:20|indexing|
-|Juhana Leinonen|Vorple|Vorple support|value|
-|Juhana Leinonen|Vorple|Vorple prompt|value|
-|Juhana Leinonen|Vorple|file of Vorple Handshake|value|
-|Juhana Leinonen|Vorple|file of JavaScript Evaluation Input|value|
-|Juhana Leinonen|Vorple|file of JavaScript Return Value|value|
-|Juhana Leinonen|Vorple|file of JavaScript Return Value Type|value|
-|Juhana Leinonen|Vorple Multimedia|20230131102004/3906:Tue 31 January 2023 10:20|indexing|
-|Juhana Leinonen|Vorple Screen Effects|20230131102004/2682:Tue 31 January 2023 10:20|indexing|
-|Juhana Leinonen|Vorple Screen Effects|Vorple style|kind|
-|Juhana Leinonen|Vorple Screen Effects|cursive font|value|
-|Juhana Leinonen|Vorple Screen Effects|emphasized font|value|
-|Juhana Leinonen|Vorple Screen Effects|fantasy font|value|
-|Juhana Leinonen|Vorple Screen Effects|monospace font|value|
-|Juhana Leinonen|Vorple Screen Effects|nowrap font|value|
-|Juhana Leinonen|Vorple Screen Effects|strikethrough font|value|
-|Juhana Leinonen|Vorple Screen Effects|strong font|value|
-|Juhana Leinonen|Vorple Screen Effects|underlined font|value|
-|Juhana Leinonen|Vorple Screen Effects|xx-small font|value|
-|Juhana Leinonen|Vorple Screen Effects|x-small font|value|
-|Juhana Leinonen|Vorple Screen Effects|small font|value|
-|Juhana Leinonen|Vorple Screen Effects|large font|value|
-|Juhana Leinonen|Vorple Screen Effects|x-large font|value|
-|Juhana Leinonen|Vorple Screen Effects|xx-large font|value|
-|Juhana Leinonen|Vorple Screen Effects|white letters|value|
-|Juhana Leinonen|Vorple Screen Effects|black letters|value|
-|Juhana Leinonen|Vorple Screen Effects|blue letters|value|
-|Juhana Leinonen|Vorple Screen Effects|green letters|value|
-|Juhana Leinonen|Vorple Screen Effects|cyan letters|value|
-|Juhana Leinonen|Vorple Screen Effects|red letters|value|
-|Juhana Leinonen|Vorple Screen Effects|magenta letters|value|
-|Juhana Leinonen|Vorple Screen Effects|brown letters|value|
-|Juhana Leinonen|Vorple Screen Effects|yellow letters|value|
-|Juhana Leinonen|Vorple Screen Effects|dark gray letters|value|
-|Juhana Leinonen|Vorple Screen Effects|light gray letters|value|
-|Juhana Leinonen|Vorple Screen Effects|light blue letters|value|
-|Juhana Leinonen|Vorple Screen Effects|light green letters|value|
-|Juhana Leinonen|Vorple Screen Effects|light cyan letters|value|
-|Juhana Leinonen|Vorple Screen Effects|light red letters|value|
-|Juhana Leinonen|Vorple Screen Effects|light magenta letters|value|
-|Juhana Leinonen|Vorple Screen Effects|white background|value|
-|Juhana Leinonen|Vorple Screen Effects|black background|value|
-|Juhana Leinonen|Vorple Screen Effects|blue background|value|
-|Juhana Leinonen|Vorple Screen Effects|green background|value|
-|Juhana Leinonen|Vorple Screen Effects|cyan background|value|
-|Juhana Leinonen|Vorple Screen Effects|red background|value|
-|Juhana Leinonen|Vorple Screen Effects|magenta background|value|
-|Juhana Leinonen|Vorple Screen Effects|brown background|value|
-|Juhana Leinonen|Vorple Screen Effects|yellow background|value|
-|Juhana Leinonen|Vorple Screen Effects|dark gray background|value|
-|Juhana Leinonen|Vorple Screen Effects|light gray background|value|
-|Juhana Leinonen|Vorple Screen Effects|light blue background|value|
-|Juhana Leinonen|Vorple Screen Effects|light green background|value|
-|Juhana Leinonen|Vorple Screen Effects|light cyan background|value|
-|Juhana Leinonen|Vorple Screen Effects|light red background|value|
-|Juhana Leinonen|Vorple Screen Effects|light magenta background|value|
-|Juhana Leinonen|Vorple Hyperlinks|20230131102004/1814:Tue 31 January 2023 10:20|indexing|
-|Juhana Leinonen|Vorple Command Prompt Control|20230131102004/2086:Tue 31 January 2023 10:20|indexing|
-|Emily Short|Status Line Removal|20230131102004/147:Tue 31 January 2023 10:20|indexing|
-|Matthew Fletcher|Exit Descriptions Sp|20230131102004/311:Tue 31 January 2023 10:20|indexing|
-|Matthew Fletcher|Exit Descriptions Sp|amount|value|
-|Matthew Fletcher|Exit Descriptions Sp|num|value|
-|Emily Short|Basic Screen Effects|20230131102004/2218:Tue 31 January 2023 10:20|indexing|
-|Emily Short|Basic Screen Effects|Status bar table|value|
-|Emily Short|Basic Screen Effects|Right alignment depth|value|
+|Aaron Reed|Commonly Unimplemented|20230131102847/685:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Aaron Reed\Commonly Unimplemented.i7x
+|Aaron Reed|Dynamic Rooms|20230131102847/1854:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Aaron Reed\Dynamic Rooms.i7x
+|Aaron Reed|Extended Grammar|20230131102847/258:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Aaron Reed\Extended Grammar.i7x
+|Aaron Reed|Keyword Interface|20230131102847/2867:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Aaron Reed\Keyword Interface.i7x
+|Aaron Reed|Numbered Disambiguation Choices|20230131102847/438:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Aaron Reed\Numbered Disambiguation Choices.i7x
+|Aaron Reed|Poor Man's Mistype|20230131102847/258:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Aaron Reed\Poor Man's Mistype.i7x
+|Aaron Reed|Response Assistant|20230131102847/170:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Aaron Reed\Response Assistant.i7x
+|Aaron Reed|Small Kindnesses|20230131102847/391:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Aaron Reed\Small Kindnesses.i7x
+|Aaron Reed|Smarter Parser|20230131102847/6382:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Aaron Reed\Smarter Parser.i7x
+|Alice Grove|Common Commands Sidebar|20230131102847/5086:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Alice Grove\Common Commands Sidebar.i7x
+|Alice Grove|Simple Spelling|20230131102847/461:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Alice Grove\Simple Spelling.i7x
+|Andrew Owen|Secret Doors|20230131102847/383:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Andrew Owen\Secret Doors.i7x
+|Andrew Plotkin|Disappearing Doors|20230131102847/568:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Andrew Plotkin\Disappearing Doors.i7x
+|Andrew Plotkin|Optimized Epistemology|20230131102847/1485:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Andrew Plotkin\Optimized Epistemology.i7x
+|Andrew Plotkin|Serial And Fix|20230131102847/0:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Andrew Plotkin\Serial And Fix.i7x
+|Andrew Plotkin|Unified Glulx Input|20230131102847/7894:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Andrew Plotkin\Unified Glulx Input.i7x
+|Andrew Schultz|In-Line Topical Hints|20230131102847/3186:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Andrew Schultz\In-Line Topical Hints.i7x
+|AW Freyr|Hybrid Choices|20230131102847/7846:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\AW Freyr\Hybrid Choices.i7x
+|B David Paulsen|Rapid Prototyping|20230131102847/543:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\B David Paulsen\Rapid Prototyping.i7x
+|Bart Massey|Basic Literacy|20230131102847/701:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Bart Massey\Basic Literacy.i7x
+|Brady Garvin|Object Kinds|20230131102847/473:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Brady Garvin\Object Kinds.i7x
+|Brady Garvin|Scopability|20230131102847/262:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Brady Garvin\Scopability.i7x
+|Brian Rushton|Clues And Conversation|20230131102847/3160:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Brian Rushton\Clues and Conversation.i7x
+|Chris Conley|Conversation Builder|20230131102847/2413:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Chris Conley\Conversation Builder.i7x
+|Chris Conley|Threaded Conversation|20230131102847/13297:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Chris Conley\Threaded Conversation.i7x
+|Creative Commons|Configurable Creative Commons License|20230131102847/586:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Creative Commons\Configurable Creative Commons License.i7x
+|Daniel Gaskell|Volumetric Limiter|20230131102847/725:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Daniel Gaskell\Volumetric Limiter.i7x
+|Daniel Stelzer|Alternate Lighting System|20230131102847/254:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Daniel Stelzer\Alternate Lighting System.i7x
+|Daniel Stelzer|Boolean Variables|20230131102847/0:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Daniel Stelzer\Boolean Variables.i7x
+|Daniel Stelzer|Cleared Events|20230131102847/83:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Daniel Stelzer\Cleared Events.i7x
+|Daniel Stelzer|Command Casing|20230131102847/0:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Daniel Stelzer\Command Casing.i7x
+|Daniel Stelzer|Command Modification|20230131102847/111:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Daniel Stelzer\Command Modification.i7x
+|Daniel Stelzer|Command Preloading|20230131102847/54:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Daniel Stelzer\Command Preloading.i7x
+|Daniel Stelzer|Conversation Touchability Fix|20230131102847/34:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Daniel Stelzer\Conversation Touchability Fix.i7x
+|Daniel Stelzer|Debugging|20230131102847/0:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Daniel Stelzer\Debugging.i7x
+|Daniel Stelzer|Default Styles|20230131102847/0:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Daniel Stelzer\Default Styles.i7x
+|Daniel Stelzer|Empty Command Handling|20230131102847/97:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Daniel Stelzer\Empty Command Handling.i7x
+|Daniel Stelzer|Formatting Capture|20230131102847/167:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Daniel Stelzer\Formatting Capture.i7x
+|Daniel Stelzer|Glulx Text Styles|20230131102847/215:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Daniel Stelzer\Glulx Text Styles.i7x
+|Daniel Stelzer|Helpful Functions|20230131102847/0:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Daniel Stelzer\Helpful Functions.i7x
+|Daniel Stelzer|Hidden Prompt|20230131102847/93:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Daniel Stelzer\Hidden Prompt.i7x
+|Daniel Stelzer|Inline Hyperlinks|20230131102847/2800:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Daniel Stelzer\Inline Hyperlinks.i7x
+|Daniel Stelzer|Modified Timekeeping|20230131102847/123:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Daniel Stelzer\Modified Timekeeping.i7x
+|Daniel Stelzer|Music|20230131102847/284:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Daniel Stelzer\Music.i7x
+|Daniel Stelzer|Output Silencing|20230131102847/0:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Daniel Stelzer\Output Silencing.i7x
+|Daniel Stelzer|Runtime Replacements|20230131102847/523:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Daniel Stelzer\Runtime Replacements.i7x
+|Daniel Stelzer|Subcommands|20230131102847/234:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Daniel Stelzer\Subcommands.i7x
+|Daniel Stelzer|Third Noun|20230131102847/0:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Daniel Stelzer\Third Noun.i7x
+|Daniel Stelzer|Typographical Conveniences|20230131102847/0:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Daniel Stelzer\Typographical Conveniences.i7x
+|Dannii Willis|Alternative Startup Rules|20230131102847/0:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Dannii Willis\Alternative Startup Rules.i7x
+|Dannii Willis|Benchmarking|20230131102847/1100:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Dannii Willis\Benchmarking.i7x
+|Dannii Willis|Collections|20230131102847/801:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Dannii Willis\Collections.i7x
+|Dannii Willis|Data Structures|20230131102847/1063:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Dannii Willis\Data Structures.i7x
+|Dannii Willis|Glk Events|20230131102847/0:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Dannii Willis\Glk Events.i7x
+|Dannii Willis|Glk Object Recovery|20230131102847/194:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Dannii Willis\Glk Object Recovery.i7x
+|Dannii Willis|Glk Text Formatting|20230131102847/420:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Dannii Willis\Glk Text Formatting.i7x
+|Dannii Willis|Glulx Definitions|20230131102847/431:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Dannii Willis\Glulx Definitions.i7x
+|Dannii Willis|Highscores|20230131102847/181:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Dannii Willis\Highscores.i7x
+|Dannii Willis|Infra Undo|20230131102847/370:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Dannii Willis\Infra Undo.i7x
+|Dannii Willis|JSON|20230131102847/807:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Dannii Willis\JSON.i7x
+|Dannii Willis|Menus|20230131102847/983:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Dannii Willis\Menus.i7x
+|Dannii Willis|Startup Precomputation|20230131102847/281:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Dannii Willis\Startup Precomputation.i7x
+|Dannii Willis|Xorshift|20230131102847/294:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Dannii Willis\Xorshift.i7x
+|Dave Robinson|Snippetage|20230131102847/972:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Dave Robinson\Snippetage.i7x
+|David A Wheeler|Dice|20230131102847/375:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\David A Wheeler\Dice.i7x
+|David Corbett|Mobile Doors|20230131102847/528:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\David Corbett\Mobile Doors.i7x
+|David Cornelson|Basic Help|20230131102847/192:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\David Cornelson\Basic Help.i7x
+|David Ratliff|Armed|20230131102847/1484:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\David Ratliff\Armed.i7x
+|Edward Griffiths|Adventure Book|20230131102847/21203:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Edward Griffiths\Adventure Book.i7x
+|Eliuk Blau|Glulx Boxed Quotation|20230131102847/129:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Eliuk Blau\Glulx Boxed Quotation.i7x
+|Emily Short|Approaches|20230131102847/2868:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Emily Short\Approaches.i7x
+|Emily Short|Assorted Text Generation|20230131102847/1344:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Emily Short\Assorted Text Generation.i7x
+|Emily Short|Automated Drawers|20230131102847/696:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Emily Short\Automated Drawers.i7x
+|Emily Short|Basic Help Menu SP|20230131102847/452:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Emily Short\Basic Help Menu SP.i7x
+|Emily Short|Basic Hyperlinks|20230131102847/525:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Emily Short\Basic Hyperlinks.i7x
+|Emily Short|Basic Screen Effects SP|20230131102847/55:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Emily Short\Basic Screen Effects SP.i7x
+|Emily Short|Computers|20230131102847/4607:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Emily Short\Computers.i7x
+|Emily Short|Deluxe Doors|20230131102847/1048:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Emily Short\Deluxe Doors.i7x
+|Emily Short|Dishes|20230131102847/370:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Emily Short\Dishes.i7x
+|Emily Short|Facing|20230131102847/897:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Emily Short\Facing.i7x
+|Emily Short|Glulx Entry Points|20230131102847/964:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Emily Short\Glulx Entry Points.i7x
+|Emily Short|Introductions|20230131102847/2311:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Emily Short\Introductions.i7x
+|Emily Short|Location Images|20230131102847/152:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Emily Short\Location Images.i7x
+|Emily Short|Measured Liquid|20230131102847/5801:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Emily Short\Measured Liquid.i7x
+|Emily Short|Menus SP|20230131102847/13:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Emily Short\Menus SP.i7x
+|Emily Short|Modern Conveniences|20230131102847/1088:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Emily Short\Modern Conveniences.i7x
+|Emily Short|Modified Exit|20230131102847/824:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Emily Short\Modified Exit.i7x
+|Emily Short|Mood Variations|20230131102847/811:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Emily Short\Mood Variations.i7x
+|Emily Short|Ordinary Room Description|20230131102847/194:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Emily Short\Ordinary Room Description.i7x
+|Emily Short|Postures|20230131102847/837:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Emily Short\Postures.i7x
+|Emily Short|Power Sources|20230131102847/2323:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Emily Short\Power Sources.i7x
+|Emily Short|Property Checking|20230131102847/214:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Emily Short\Property Checking.i7x
+|Emily Short|Recorded Endings|20230131102847/674:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Emily Short\Recorded Endings.i7x
+|Emily Short|Room Description Control|20230131102847/996:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Emily Short\Room Description Control.i7x
+|Emily Short|Simple Followers|20230131102847/482:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Emily Short\Simple Followers.i7x
+|Emily Short|Simple Graphical Window|20230131102847/727:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Emily Short\Simple Graphical Window.i7x
+|Emily Short|Single Paragraph Description|20230131102847/341:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Emily Short\Single Paragraph Description.i7x
+|Emily Short|Status Line Removal|20230131102847/62:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Emily Short\Status Line Removal.i7x
+|Emily Short|Tailored Room Description|20230131102847/2648:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Emily Short\Tailored Room Description.i7x
+|Emily Short|Transit System|20230131102847/970:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Emily Short\Transit System.i7x
+|Emily Short|Tutorial Mode|20230131102847/740:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Emily Short\Tutorial Mode.i7x
+|Enano Malauva|Conversacion Por Clave|20230131102847/259:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Enano Malauva\Conversacion Por Clave.i7x
+|Eric Eve|Adaptive Hints|20230131102847/2562:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Eric Eve\Adaptive Hints.i7x
+|Eric Eve|Alternatives|20230131102847/1350:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Eric Eve\Alternatives.i7x
+|Eric Eve|Bulk Limiter|20230131102847/428:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Eric Eve\Bulk Limiter.i7x
+|Eric Eve|Conversation Framework|20230131102847/3117:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Eric Eve\Conversation Framework.i7x
+|Eric Eve|Conversation Nodes|20230131102847/4396:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Eric Eve\Conversation Nodes.i7x
+|Eric Eve|Conversation Package|20230131102847/1975:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Eric Eve\Conversation Package.i7x
+|Eric Eve|Conversation Responses|20230131102847/814:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Eric Eve\Conversation Responses.i7x
+|Eric Eve|Conversation Rules|20230131102847/4807:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Eric Eve\Conversation Rules.i7x
+|Eric Eve|Conversation Suggestions|20230131102847/2041:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Eric Eve\Conversation Suggestions.i7x
+|Eric Eve|Conversational Defaults|20230131102847/1437:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Eric Eve\Conversational Defaults.i7x
+|Eric Eve|Exit Lister|20230131102847/2187:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Eric Eve\Exit Lister.i7x
+|Eric Eve|Hiding Under|20230131102847/2657:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Eric Eve\Hiding Under.i7x
+|Eric Eve|Implicit Actions|20230131102847/5645:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Eric Eve\Implicit Actions.i7x
+|Eric Eve|Limited Implicit Actions|20230131102847/3237:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Eric Eve\Limited Implicit Actions.i7x
+|Eric Eve|List Control|20230131102847/1644:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Eric Eve\List Control.i7x
+|Eric Eve|List Controller|20230131102847/1903:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Eric Eve\List Controller.i7x
+|Eric Eve|NPC Implicit Actions|20230131102847/658:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Eric Eve\NPC Implicit Actions.i7x
+|Eric Eve|Text Capture|20230131102847/870:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Eric Eve\Text Capture.i7x
+|Eric Eve|Underside|20230131102847/1620:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Eric Eve\Underside.i7x
+|Eric Eve|Variable Time Control|20230131102847/1137:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Eric Eve\Variable Time Control.i7x
+|Erik Temple|Extended Debugging|20230131102847/827:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Erik Temple\Extended Debugging.i7x
+|Erik Temple|Glimmr Canvas Animation|20230131102847/19512:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Erik Temple\Glimmr Canvas Animation.i7x
+|Erik Temple|Glimmr Canvas-Based Drawing|20230131102847/24775:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Erik Temple\Glimmr Canvas-Based Drawing.i7x
+|Erik Temple|Glimmr Drawing Commands|20230131102847/12013:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Erik Temple\Glimmr Drawing Commands.i7x
+|Erik Temple|Glimmr Graphic Hyperlinks|20230131102847/1980:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Erik Temple\Glimmr Graphic Hyperlinks.i7x
+|Erik Temple|Inline Hyperlinks|20230131102847/2799:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Erik Temple\Inline Hyperlinks.i7x
+|Erik Temple|Real-Time Delays|20230131102847/675:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Erik Temple\Real-Time Delays.i7x
+|Erik Temple|Undo Output Control|20230131102847/3293:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Erik Temple\Undo Output Control.i7x
+|Friends Of I7|6M62 Patches|20230131102847/26:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Friends of I7\6M62 Patches.i7x
+|Friends Of I7|Interpreter Sniffing|20230131102847/568:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Friends of I7\Interpreter Sniffing.i7x
+|Gavin Lambert|Brief Room Descriptions|20230131102847/380:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Gavin Lambert\Brief Room Descriptions.i7x
+|Gavin Lambert|Enterable Underside|20230131102847/1054:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Gavin Lambert\Enterable Underside.i7x
+|Gavin Lambert|Exit Lister|20230131102847/2688:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Gavin Lambert\Exit Lister.i7x
+|Gavin Lambert|Extended Banner|20230131102847/356:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Gavin Lambert\Extended Banner.i7x
+|Gavin Lambert|Glk Input Suspending|20230131102847/315:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Gavin Lambert\Glk Input Suspending.i7x
+|Gavin Lambert|Hyperlink Extension Registry|20230131102847/1370:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Gavin Lambert\Hyperlink Extension Registry.i7x
+|Gavin Lambert|Hyperlinks|20230131102847/1778:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Gavin Lambert\Hyperlinks.i7x
+|Gavin Lambert|Inline Hyperlinks|20230131102847/5331:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Gavin Lambert\Inline Hyperlinks.i7x
+|Gavin Lambert|Prepositional Correctness|20230131102847/1558:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Gavin Lambert\Prepositional Correctness.i7x
+|Gavin Lambert|Rideable Vehicles|20230131102847/135:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Gavin Lambert\Rideable Vehicles.i7x
+|Gavin Lambert|Secret Doors|20230131102847/887:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Gavin Lambert\Secret Doors.i7x
+|Gavin Lambert|Title Page|20230131102847/1516:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Gavin Lambert\Title Page.i7x
+|Hanon Ondricek|Easy Doors|20230131102847/4008:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Hanon Ondricek\Easy Doors.i7x
+|Jeff Nyman|Contextual Descriptions|20230131102847/557:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Jeff Nyman\Contextual Descriptions.i7x
+|Jeff Nyman|Description Decay|20230131102847/1582:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Jeff Nyman\Description Decay.i7x
+|Jeff Nyman|Nuanced Timekeeping|20230131102847/81:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Jeff Nyman\Nuanced Timekeeping.i7x
+|Jeff Nyman|Relative Placement And Direction|20230131102847/864:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Jeff Nyman\Relative Placement and Direction.i7x
+|Jeff Nyman|Story Substrate|20230131102847/735:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Jeff Nyman\Story Substrate.i7x
+|Jeff Nyman|Supplemental|20230131102847/264:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Jeff Nyman\Supplemental.i7x
+|Jeff Nyman|World Knowledge|20230131102847/1370:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Jeff Nyman\World Knowledge.i7x
+|Jeff Sheets|Graphic Links|20230131102847/318:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Jeff Sheets\Graphic Links.i7x
+|Jesse McGrew|Dynamic Objects|20230131102847/966:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Jesse McGrew\Dynamic Objects.i7x
+|Jesse McGrew|Dynamic Tables|20230131102847/1788:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Jesse McGrew\Dynamic Tables.i7x
+|Jesse McGrew|Hypothetical Questions|20230131102847/848:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Jesse McGrew\Hypothetical Questions.i7x
+|Jim Aikin|Notepad|20230131102847/1883:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Jim Aikin\Notepad.i7x
+|Johan Paz|Cortos|20230131102847/531:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Johan Paz\Cortos.i7x
+|John Clemens|Consolidated Multiple Actions|20230131102847/2643:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\John Clemens\Consolidated Multiple Actions.i7x
+|John Clemens|Scheduled Activities|20230131102847/2443:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\John Clemens\Scheduled Activities.i7x
+|Jon Ingold|Disambiguation Control|20230131102847/4832:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Jon Ingold\Disambiguation Control.i7x
+|Jon Ingold|Far Away|20230131102847/1754:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Jon Ingold\Far Away.i7x
+|Jon Ingold|Flexible Windows|20230131102847/1806:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Jon Ingold\Flexible Windows.i7x
+|Jon Ingold|Title Page|20230131102847/545:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Jon Ingold\Title Page.i7x
+|Juhana Leinonen|Achievements|20230131102847/519:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Juhana Leinonen\Achievements.i7x
+|Juhana Leinonen|Bulky Items|20230131102847/1170:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Juhana Leinonen\Bulky Items.i7x
+|Juhana Leinonen|Debug Files|20230131102847/943:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Juhana Leinonen\Debug Files.i7x
+|Juhana Leinonen|Object Response Tests|20230131102847/1218:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Juhana Leinonen\Object Response Tests.i7x
+|Juhana Leinonen|Regional Travel|20230131102847/1065:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Juhana Leinonen\Regional Travel.i7x
+|Juhana Leinonen|Reversed Persuasion Correction|20230131102847/484:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Juhana Leinonen\Reversed Persuasion Correction.i7x
+|Juhana Leinonen|Vorple Command Prompt Control|20230131102847/1854:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Juhana Leinonen\Vorple Command Prompt Control.i7x
+|Juhana Leinonen|Vorple Element Manipulation|20230131102847/1337:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Juhana Leinonen\Vorple Element Manipulation.i7x
+|Juhana Leinonen|Vorple Hyperlinks|20230131102847/1200:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Juhana Leinonen\Vorple Hyperlinks.i7x
+|Juhana Leinonen|Vorple Modal Windows|20230131102847/537:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Juhana Leinonen\Vorple Modal Windows.i7x
+|Juhana Leinonen|Vorple Multimedia|20230131102847/3294:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Juhana Leinonen\Vorple Multimedia.i7x
+|Juhana Leinonen|Vorple Notifications|20230131102847/644:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Juhana Leinonen\Vorple Notifications.i7x
+|Juhana Leinonen|Vorple Screen Effects|20230131102847/1862:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Juhana Leinonen\Vorple Screen Effects.i7x
+|Juhana Leinonen|Vorple Status Line|20230131102847/1722:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Juhana Leinonen\Vorple Status Line.i7x
+|Juhana Leinonen|Vorple Tooltips|20230131102847/1191:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Juhana Leinonen\Vorple Tooltips.i7x
+|Juhana Leinonen|Vorple|20230131102847/3754:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Juhana Leinonen\Vorple.i7x
+|Leonardo Boselli|Automap IT|20230131102847/15:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Leonardo Boselli\Automap IT.i7x
+|Leonardo Boselli|Basic Help Menu IT|20230131102847/34:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Leonardo Boselli\Basic Help Menu IT.i7x
+|Leonardo Boselli|Bulky Items IT|20230131102847/13:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Leonardo Boselli\Bulky Items IT.i7x
+|Leonardo Boselli|Creative Commons Public License IT|20230131102847/42:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Leonardo Boselli\Creative Commons Public License IT.i7x
+|Leonardo Boselli|Menus IT|20230131102847/32:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Leonardo Boselli\Menus IT.i7x
+|Leonardo Boselli|MilleUna For Gargoyle With Graphics|20230131102847/6:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Leonardo Boselli\MilleUna for Gargoyle with graphics.i7x
+|Leonardo Boselli|MilleUna For Gargoyle|20230131102847/6:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Leonardo Boselli\MilleUna for Gargoyle.i7x
+|Leonardo Boselli|MilleUna For Quixe With Graphics|20230131102847/6:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Leonardo Boselli\MilleUna for Quixe with graphics.i7x
+|Leonardo Boselli|MilleUna For Quixe|20230131102847/6:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Leonardo Boselli\MilleUna for Quixe.i7x
+|Leonardo Boselli|MilleUna World|20230131102847/25:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Leonardo Boselli\MilleUna World.i7x
+|Leonardo Boselli|Numbered Disambiguation Choices IT|20230131102847/13:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Leonardo Boselli\Numbered Disambiguation Choices IT.i7x
+|Leonardo Boselli|Patrollers IT|20230131102847/15:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Leonardo Boselli\Patrollers IT.i7x
+|Leonardo Boselli|Questions IT|20230131102847/15:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Leonardo Boselli\Questions IT.i7x
+|Leonardo Boselli|Release For Gargoyle|20230131102847/0:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Leonardo Boselli\Release for Gargoyle.i7x
+|Leonardo Boselli|Release For Quixe|20230131102847/0:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Leonardo Boselli\Release for Quixe.i7x
+|Leonardo Boselli|Scoring IT|20230131102847/6:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Leonardo Boselli\Scoring IT.i7x
+|Leonardo Boselli|Scoring|20230131102847/6:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Leonardo Boselli\Scoring.i7x
+|Leonardo Boselli|Simple Followers IT|20230131102847/13:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Leonardo Boselli\Simple Followers IT.i7x
+|Leonardo Boselli|Simple Graphical Window|20230131102847/14:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Leonardo Boselli\Simple Graphical Window.i7x
+|Leonardo Boselli|Simple HTML Window|20230131102847/23:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Leonardo Boselli\Simple HTML Window.i7x
+|Leonardo Boselli|Title Page IT|20230131102847/16:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Leonardo Boselli\Title Page IT.i7x
+|Leonardo Boselli|Written Inventory|20230131102847/16:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Leonardo Boselli\Written Inventory.i7x
+|Mark Tilford|Automap|20230131102847/2295:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Mark Tilford\Automap.i7x
+|Massimo Stella|Italian Language|20230131102847/1832:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Massimo Stella\Italian Language.i7x
+|Massimo Stella|Multiple Sounds Sp|20230131102847/350:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Massimo Stella\Multiple Sounds Sp.i7x
+|Massimo Stella|Multiple Sounds|20230131102847/569:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Massimo Stella\Multiple Sounds.i7x
+|Matt Weiner|Actions On Groups|20230131102847/3872:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Matt Weiner\Actions on Groups.i7x
+|Matt Weiner|Indefinite Article Substitution Fix|20230131102847/743:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Matt Weiner\Indefinite Article Substitution Fix.i7x
+|Matt Weiner|Responsive Disambiguation For 6M62|20230131102847/564:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Matt Weiner\Responsive Disambiguation for 6M62.i7x
+|Matthew Fletcher|Exit Descriptions SP|20230131102847/135:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Matthew Fletcher\Exit Descriptions SP.i7x
+|Mel Hython|Decorados|20230131102847/247:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Mel Hython\Decorados.i7x
+|Mel Hython|Frase De Tabla|20230131102847/335:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Mel Hython\Frase De Tabla.i7x
+|Michael Callaghan|Patrollers SP|20230131102847/4457:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Michael Callaghan\Patrollers SP.i7x
+|Michael Callaghan|Questions|20230131102847/3911:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Michael Callaghan\Questions.i7x
+|Michael Kielstra|Debug Tags|20230131102847/1131:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Michael Kielstra\Debug Tags.i7x
+|Michael Martin|Assumed Conversers|20230131102847/162:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Michael Martin\Assumed Conversers.i7x
+|Michael Martin|Quip-Based Conversation SP|20230131102847/1661:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Michael Martin\Quip-Based Conversation SP.i7x
+|Michael Martin|Quip-Based Conversation|20230131102847/1661:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Michael Martin\Quip-Based Conversation.i7x
+|Michael Martin|Reactable Quips SP|20230131102847/1807:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Michael Martin\Reactable Quips SP.i7x
+|Michael Martin|Reactable Quips|20230131102847/1807:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Michael Martin\Reactable Quips.i7x
+|Michael Martin|Unicode Interrogation|20230131102847/103:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Michael Martin\Unicode Interrogation.i7x
+|Mikael Segercrantz|Achievements SP|20230131102847/1568:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Mikael Segercrantz\Achievements SP.i7x
+|Mikael Segercrantz|Achievements|20230131102847/1288:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Mikael Segercrantz\Achievements.i7x
+|Mikael Segercrantz|Atmospheric Effects|20230131102847/4260:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Mikael Segercrantz\Atmospheric Effects.i7x
+|Mikael Segercrantz|Randomness|20230131102847/286:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Mikael Segercrantz\Randomness.i7x
+|Mikael Segercrantz|Trinity Inventory|20230131102847/1430:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Mikael Segercrantz\Trinity Inventory.i7x
+|Mike Ciul|Autotaking|20230131102847/454:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Mike Ciul\Autotaking.i7x
+|Mike Ciul|Effective Infinity|20230131102847/285:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Mike Ciul\Effective Infinity.i7x
+|Mike Ciul|Flexible Action Requirements|20230131102847/1076:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Mike Ciul\Flexible Action Requirements.i7x
+|Mike Ciul|Objects Matching Snippets|20230131102847/656:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Mike Ciul\Objects Matching Snippets.i7x
+|Mike Ciul|Scope Caching|20230131102847/901:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Mike Ciul\Scope Caching.i7x
+|Mike Ciul|Takeability|20230131102847/0:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Mike Ciul\Takeability.i7x
+|Mike Ciul|Unknown Word Error|20230131102847/281:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Mike Ciul\Unknown Word Error.i7x
+|Nate Cull|Basic Plans|20230131102847/924:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Nate Cull\Basic Plans.i7x
+|Nate Cull|Planner|20230131102847/1992:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Nate Cull\Planner.i7x
+|Nathanael Nerode|Character Portraits|20230131102847/872:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Nathanael Nerode\Character Portraits.i7x
+|Nathanael Nerode|Compliant Characters|20230131102847/2752:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Nathanael Nerode\Compliant Characters.i7x
+|Nathanael Nerode|Gender Options|20230131102847/2750:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Nathanael Nerode\Gender Options.i7x
+|Nathanael Nerode|Gender Speedup|20230131102847/276:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Nathanael Nerode\Gender Speedup.i7x
+|Nathanael Nerode|Initial Cursor At Top Or Bottom|20230131102847/1093:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Nathanael Nerode\Initial Cursor at Top or Bottom.i7x
+|Nathanael Nerode|Large Game Speedup|20230131102847/1648:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Nathanael Nerode\Large Game Speedup.i7x
+|Nathanael Nerode|Nathanael's Cookbook|20230131102847/2904:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Nathanael Nerode\Nathanael's Cookbook.i7x
+|Nathanael Nerode|Nathanael's Debug Tools|20230131102847/82:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Nathanael Nerode\Nathanael's Debug Tools.i7x
+|Nathanael Nerode|Neutral Standard Responses|20230131102847/3212:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Nathanael Nerode\Neutral Standard Responses.i7x
+|Nathanael Nerode|Parser Error Number Bugfix|20230131102847/75:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Nathanael Nerode\Parser Error Number Bugfix.i7x
+|Nathanael Nerode|Room Description Supporter Bugfixes|20230131102847/576:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Nathanael Nerode\Room Description Supporter Bugfixes.i7x
+|Nathanael Nerode|Standard Rules Dead Code Removal|20230131102847/112:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Nathanael Nerode\Standard Rules Dead Code Removal.i7x
+|Nathanael Nerode|Tab Removal|20230131102847/137:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Nathanael Nerode\Tab Removal.i7x
+|Nathanael Nerode|Title Case For Headings|20230131102847/2006:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Nathanael Nerode\Title Case for Headings.i7x
+|Nathanael Nerode|Undo Output Control|20230131102847/3293:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Nathanael Nerode\Undo Output Control.i7x
+|Nathanael Nerode|Verb Stripping|20230131102847/154:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Nathanael Nerode\Verb Stripping.i7x
+|Peter Orme|Checkpoints|20230131102847/1466:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Peter Orme\Checkpoints.i7x
+|Peter Orme|Developer Framework|20230131102847/242:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Peter Orme\Developer Framework.i7x
+|Peter Orme|Flexible Logger|20230131102847/1133:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Peter Orme\Flexible Logger.i7x
+|Peter Orme|Object Descriptors|20230131102847/336:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Peter Orme\Object Descriptors.i7x
+|Peter Orme|Possible Movements|20230131102847/29:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Peter Orme\Possible Movements.i7x
+|Peter Orme|Unit Testing|20230131102847/834:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Peter Orme\Unit Testing.i7x
+|Peter Orme|Universal Opening|20230131102847/307:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Peter Orme\Universal Opening.i7x
+|Ron Newcomb|After Not Doing Something|20230131102847/213:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Ron Newcomb\After Not Doing Something.i7x
+|Ron Newcomb|Command Prompt On Cue|20230131102847/856:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Ron Newcomb\Command Prompt on Cue.i7x
+|Ron Newcomb|Editable Stored Actions|20230131102847/1384:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Ron Newcomb\Editable Stored Actions.i7x
+|Ron Newcomb|Permission To Visit|20230131102847/2264:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Ron Newcomb\Permission to Visit.i7x
+|Ron Newcomb|Phrases For Adaptive Pacing|20230131102847/1416:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Ron Newcomb\Phrases for Adaptive Pacing.i7x
+|Ron Newcomb|Phrases For Tables With Topics|20230131102847/495:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Ron Newcomb\Phrases for Tables with Topics.i7x
+|Ron Newcomb|Real Date And Time|20230131102847/941:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Ron Newcomb\Real Date and Time.i7x
+|Ron Newcomb|Rewrite The Command Line|20230131102847/681:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Ron Newcomb\Rewrite the Command Line.i7x
+|Ron Newcomb|Scope Control|20230131102847/583:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Ron Newcomb\Scope Control.i7x
+|Ron Newcomb|Unsuccessful PC Attempt|20230131102847/495:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Ron Newcomb\Unsuccessful PC Attempt.i7x
+|Sarah Morayati|Basic Real Time|20230131102847/976:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Sarah Morayati\Basic Real Time.i7x
+|Sarganar|Multi P|20230131102847/2112:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Sarganar\Multi P.i7x
+|Sean Turner|Plugs And Sockets|20230131102847/2232:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Sean Turner\Plugs and Sockets.i7x
+|Sebastian Arg|Spanish Language|20230131102847/173:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Sebastian Arg\Spanish Language.i7x
+|Shin|Game Ending Reloaded|20230131102847/17:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Shin\Game Ending Reloaded.i7x
+|Shin|Points Awarding Reloaded|20230131102847/17:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Shin\Points Awarding Reloaded.i7x
+|Shin|Singing Reloaded|20230131102847/16:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Shin\Singing Reloaded.i7x
+|Shin|Swearing Reloaded|20230131102847/16:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Shin\Swearing Reloaded.i7x
+|Stephen Granade|Footnotes|20230131102847/500:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Stephen Granade\Footnotes.i7x
+|Taryn Michelle|Print Stage Detection|20230131102847/1448:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Taryn Michelle\Print Stage Detection.i7x
+|Wade Clarke|Basic Help Menu|20230131102847/683:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Wade Clarke\Basic Help Menu.i7x
+|Wade Clarke|Menus|20230131102847/13316:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Wade Clarke\Menus.i7x
+|Xavid|Command Unit Testing|20230131102847/744:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Xavid\Command Unit Testing.i7x
+|Xavid|Directional Disambiguation|20230131102847/110:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Xavid\Directional Disambiguation.i7x
+|Xavid|Expanded Understanding|20230131102847/2487:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Xavid\Expanded Understanding.i7x
+|Xavid|Graphical Map|20230131102847/1430:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Xavid\Graphical Map.i7x
+|Xavid|Liquids|20230131102847/988:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Xavid\Liquids.i7x
+|Xavid|Object Matching|20230131102847/611:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Xavid\Object Matching.i7x
+|Xavid|Scenery Words|20230131102847/129:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Xavid\Scenery Words.i7x
+|Xavid|Visible From A Distance|20230131102847/100:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Xavid\Visible from a Distance.i7x
+|Zed Lopez|Bit Ops|20230131102847/822:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Zed Lopez\Bit Ops.i7x
+|Zed Lopez|Char|20230131102847/553:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Zed Lopez\Char.i7x
+|Zed Lopez|Code|20230131102847/387:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Zed Lopez\Code.i7x
+|Zed Lopez|Custom Banner And Version|20230131102847/1173:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Zed Lopez\Custom Banner and Version.i7x
+|Zed Lopez|If True|20230131102847/47:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Zed Lopez\If True.i7x
+|Zed Lopez|Inquiry|20230131102847/1037:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Zed Lopez\Inquiry.i7x
+|Zed Lopez|List Utilities|20230131102847/2561:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Zed Lopez\List Utilities.i7x
+|Zed Lopez|Parser Error Details|20230131102847/105:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Zed Lopez\Parser Error Details.i7x
+|Zed Lopez|Pseudodevices|20230131102847/265:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Zed Lopez\Pseudodevices.i7x
+|Zed Lopez|Screenreader|20230131102847/294:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Zed Lopez\Screenreader.i7x
+|Zed Lopez|Speechless|20230131102847/178:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Zed Lopez\Speechless.i7x
+|Zed Lopez|Strange Loopiness|20230131102847/700:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Zed Lopez\Strange Loopiness.i7x
+|Zed Lopez|Supercredits|20230131102847/188:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Zed Lopez\Supercredits.i7x
+|Zed Lopez|Switch|20230131102847/166:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Zed Lopez\Switch.i7x
+|Zed Lopez|Tabulate|20230131102847/76:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Zed Lopez\Tabulate.i7x
+|Zed Lopez|Text Loops|20230131102847/120:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Zed Lopez\Text Loops.i7x
+|Zed Lopez|Textile|20230131102847/1379:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Zed Lopez\Textile.i7x
+|Zed Lopez|Trial|20230131102847/65:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Zed Lopez\Trial.i7x
+|Zed Lopez|Unicode File IO|20230131102847/430:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Zed Lopez\Unicode File IO.i7x
+|Zed Lopez|Unit Tests|20230131102847/3611:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Zed Lopez\Unit Tests.i7x
+|Zed Lopez|Untrimmed Lines|20230131102847/197:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Zed Lopez\Untrimmed Lines.i7x
+|Zed Lopez|Verbal Commands|20230131102847/158:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Zed Lopez\Verbal Commands.i7x
+|Zed Lopez|Verbs|20230131102847/180:Tue 31 January 2023 10:28|indexing|C:\Users\byfer\OneDrive\Documentos\Inform\Extensions\Zed Lopez\Verbs.i7x
+|Emily Short|Basic Help Menu|20230131102847/452:Tue 31 January 2023 10:28|indexing|C:\Program Files\Inform\Internal\Extensions\Emily Short\Basic Help Menu.i7x
+|Emily Short|Basic Screen Effects|20230131102847/1716:Tue 31 January 2023 10:28|indexing|C:\Program Files\Inform\Internal\Extensions\Emily Short\Basic Screen Effects.i7x
+|Emily Short|Complex Listing|20230131102847/2213:Tue 31 January 2023 10:28|indexing|C:\Program Files\Inform\Internal\Extensions\Emily Short\Complex Listing.i7x
+|Emily Short|Glulx Image Centering|20230131102847/152:Tue 31 January 2023 10:28|indexing|C:\Program Files\Inform\Internal\Extensions\Emily Short\Glulx Image Centering.i7x
+|Emily Short|Glulx Text Effects|20230131102847/1179:Tue 31 January 2023 10:28|indexing|C:\Program Files\Inform\Internal\Extensions\Emily Short\Glulx Text Effects.i7x
+|Emily Short|Inanimate Listeners|20230131102847/313:Tue 31 January 2023 10:28|indexing|C:\Program Files\Inform\Internal\Extensions\Emily Short\Inanimate Listeners.i7x
+|Emily Short|Locksmith|20230131102847/2153:Tue 31 January 2023 10:28|indexing|C:\Program Files\Inform\Internal\Extensions\Emily Short\Locksmith.i7x
+|Emily Short|Menus|20230131102847/1000:Tue 31 January 2023 10:28|indexing|C:\Program Files\Inform\Internal\Extensions\Emily Short\Menus.i7x
+|Emily Short|Punctuation Removal|20230131102847/800:Tue 31 January 2023 10:28|indexing|C:\Program Files\Inform\Internal\Extensions\Emily Short\Punctuation Removal.i7x
+|Emily Short|Skeleton Keys|20230131102847/371:Tue 31 January 2023 10:28|indexing|C:\Program Files\Inform\Internal\Extensions\Emily Short\Skeleton Keys.i7x
+|Eric Eve|Epistemology|20230131102847/1148:Tue 31 January 2023 10:28|indexing|C:\Program Files\Inform\Internal\Extensions\Eric Eve\Epistemology.i7x
+|Graham Nelson|Approximate Metric Units|20230131102847/2334:Tue 31 January 2023 10:28|indexing|C:\Program Files\Inform\Internal\Extensions\Graham Nelson\Approximate Metric Units.i7x
+|Graham Nelson|Basic Inform|20230131102847/33:Tue 31 January 2023 10:28|indexing|C:\Program Files\Inform\Internal\Extensions\Graham Nelson\Basic Inform.i7x
+|Graham Nelson|English Language|20230131102847/0:Tue 31 January 2023 10:28|indexing|C:\Program Files\Inform\Internal\Extensions\Graham Nelson\English Language.i7x
+|Graham Nelson|Metric Units|20230131102847/2042:Tue 31 January 2023 10:28|indexing|C:\Program Files\Inform\Internal\Extensions\Graham Nelson\Metric Units.i7x
+|Graham Nelson|Rideable Vehicles|20230131102847/953:Tue 31 January 2023 10:28|indexing|C:\Program Files\Inform\Internal\Extensions\Graham Nelson\Rideable Vehicles.i7x
+|Graham Nelson|Standard Rules|20230131102847/37:Tue 31 January 2023 10:28|indexing|C:\Program Files\Inform\Internal\Extensions\Graham Nelson\Standard Rules.i7x
+|Graham Nelson|Unicode Character Names|20230131102847/102:Tue 31 January 2023 10:28|indexing|C:\Program Files\Inform\Internal\Extensions\Graham Nelson\Unicode Character Names.i7x
+|Graham Nelson|Unicode Full Character Names|20230131102847/91:Tue 31 January 2023 10:28|indexing|C:\Program Files\Inform\Internal\Extensions\Graham Nelson\Unicode Full Character Names.i7x

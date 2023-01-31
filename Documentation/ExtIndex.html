@@ -1,5 +1,1336 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>Extensions</title><script type="text/javascript">	function project() {		return external.Project;	}	function showExtra(id, imid) {		if (document.getElementById(id).style.display == 'block') {			document.getElementById(id).style.display = 'none';			document.getElementById(imid).src = 'inform:/doc_images/extrarboff.png';		} else {			document.getElementById(id).style.display = 'block';			document.getElementById(imid).src = 'inform:/doc_images/extrarbon.png';		}	}    function openExtra(id, imid) {    	document.getElementById(id).style.display = 'block';    	document.getElementById(imid).src = 'inform:/doc_images/extrarbon.png';    }    function closeExtra(id, imid) {    	document.getElementById(id).style.display = 'none';    	document.getElementById(imid).src = 'inform:/doc_images/extrarboff.png';    }</script><style type="text/css">    <!--	*, *:before, *:after {		-moz-box-sizing: border-box;		-webkit-box-sizing: border-box;		box-sizing: border-box;	}	.headingbox {		position: relative;		height: 56px;		padding: 0px;		white-space:nowrap;		background: #808080;		font-family: "Lucida Grande", "Lucida Sans Unicode", Helvetica, Arial, Verdana, sans-serif;		-webkit-font-smoothing: antialiased;	}	.headingtext {		position: absolute;		top: -4px;		left: -1px;		width: 100%;		color: #ffffff;		padding: 14px 10px 0px 10px;		font-size: 20px;		font-weight: bold;	}	.headingrubric {		position: absolute;		top: 36px;		width: 100%;		color: #ffffff;		padding: 0px 10px 0px 10px;		font-size: 11px;		font-weight: bold;	}	p {		font-family: "Lucida Grande", "Lucida Sans Unicode", Helvetica, Arial, Verdana, sans-serif;		-webkit-font-smoothing: antialiased;		font-size: 12px;	}    --></style></head><body><table border="0" cellspacing="4" cellpadding="0" width=100%><tr><td align="left" valign="top"><font size=2><img src='inform:/doc_images/extensions@2x.png' border=0 width=150 height=150>&nbsp;&nbsp;&nbsp;&nbsp;</font></td><td align="left" valign="top"><font size=2><div class='headingbox'>
-<div class='headingtext'>Installed Extensions</div>
-<div class='headingrubric'>Bundles of extra rules or phrases to extend what Inform can do</div>
-</div>
-<p>Whenever an extension is used, its definitions are entered into the following index. (Thus, a newly installed but never-used extension is not indexed yet.).</p></font></td></tr></table></body></html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Extensions</title>
+    <style type="text/css">
+        <!--
+        /* The default font (family) and size */
+
+        body, p, td {
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.8rem; /* 100/125 */
+        }
+
+        /* For fixed-point material within text, such as the typing on the Library Card index page */
+
+        span.typewritten {
+        	font-family: monospace;
+        	font-size: 0.867rem; /* 13/12 * 100/125 */
+        }
+
+        /* For less important material: the small print */
+
+        span.smaller {
+        	font-size: 80%;
+        }
+
+        /* The "heading panel" is the coloured box, high up on the page. The colours
+        vary depending on the page: for example, the style on a report of a translation
+        with no problems is "headingpanelsucceeded", usually green, but if there were
+        problems then "headingpanelfailed" is used, which is usually red. "headingpanel"
+        itself is a more neutral grey by default. "headingpanelDark" is an alternative
+        look to make the extensions index pages have some visual contrast with the others;
+        by default they are a darker grey. */
+
+        .headingpanel {
+        	background: #eeeeee;
+        }
+        .headingpanelsucceeded {
+        	background: #E6FFE6;
+        }
+        .headingpanelfailed {
+        	background: #f69Ca6;
+        }
+        .headingpanelalt {
+        	background: #808080;
+        }
+
+        /* Heading panels have two lines of text: an upper one in a larger size, and a
+        lower one in a smaller. Again, the alt versions are meant to contrast.
+
+        	Report on Translation: Succeeded                <-- headingpaneltext
+        	Produced by Inform 10.1.0 (build 6U97)          <-- headingpanelrubric
+
+        	Installed Extensions                            <-- headingpaneltextalt
+        	Bundles of extra rules or phrases to...         <-- headingpanelrubricalt
+
+        */
+
+        span.headingpaneltext {
+        	color: #222222;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+        span.headingpaneltextalt {
+        	color: #ffffff;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        span.headingpanelrubric {
+        	color: #222222;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.733rem; /* 11/12 * 100/125 */
+        	font-weight: bold;
+        }
+        span.headingpanelrubricalt {
+        	color: #ffffff;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.733rem; /* 11/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* Horizontal rule styling */
+
+        div.hr {
+        	border: 0;
+        	width: 100%;
+        	color: #707070;
+        	background-color: #707070;
+        	height: 5px;
+        }
+
+        /* This styles the (usually white) text of the example numbers written inside
+        oval blobs in the extension documentation, which mimic the look of the in-app
+        documentation. */
+
+        .oval, .oval td {
+        	background-image:url('inform:/doc_images/ovoid.png');
+        	color:white;
+        }
+
+        /* Styling used in the extension documentation indexes: */
+
+        /* Used for extension names in the extensions pane of the app */
+
+        span.extensioncensusentry {
+        	color: #ffffff;
+        }
+
+        span.extensionindexentry {
+        	color: #404040;
+        }
+
+        span.extensionindexerror {
+        	color: #ff8080;
+        }
+
+        /* This is used in extension documentation, where an example is presented
+        in a slightly tinted box: */
+
+        table.extensionexample {
+        	background-color: #f0f0f0;
+        }
+
+        span.extensionexampleletter {
+        	color: #202020;
+        	font-size: 14px;
+        	font-weight: bold;
+        }
+
+        /* Seen in problem messages: */
+
+        span.problemred {
+        	color: #800000;
+        }
+
+        span.problemgreen {
+        	color: #008000;
+        }
+
+        span.phraseword {
+        	color: #808080;
+        }
+
+        span.phrasetokentext {
+        	color: #e00060;
+        }
+
+        span.phrasetokendesctext {
+        	color: #4040ff;
+        }
+
+        span.phrasetokenvaluetext {
+        	color: #ff4040;
+        }
+
+        /* Now we move on to styling used in the Index pages only: */
+
+        /* The periodic table display has "sidebars", usually grey and taller than they
+        are wide; they contain no text. */
+
+        div.periodictablesidebarcolour {
+        	background: #888;
+        }
+        div.periodictablesidebar:hover {
+        	background: #222;
+        }
+
+        /* The text of the element-abbreviation, such as "Lx" or "Ph", uses: */
+
+        span.elementtext {
+        	color: #ffffff;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* Similarly for the "atomic number" - a single digit - in the top left corner
+        of these boxes: */
+
+        span.elementnumbertext {
+        	color: #ffffff;
+        	font-size: 0.622rem; /* 7/12 * 96/72 * 100/125 */
+        }
+
+        /* For the text of the element title, to the right of the element box: */
+
+        span.elementtitletext {
+        	color: #ffffff;
+        	font-size: 0.6rem; /* 9/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* The banner at the top of each element: */
+
+        table.elementbanner {
+        	background: #eeeeee;
+        }
+
+        /* For the typewriting on the Library Card: */
+
+        span.librarycardtitle {
+        	color: #803030;
+        }
+
+        span.librarycardother {
+        	color: #303030;
+        }
+
+        /* Generically used for "more details" boxes in the index: */
+
+        table.indexmorebox {
+        	background-color: #e0e0e0;
+            border-radius: 8px;
+        }
+
+        /* But not for activity contents: */
+
+        table.indexactivitycontents {
+        	background-color: #e8e0c0;
+            border-radius: 8px;
+        }
+
+        /* For responses in index entries about rules: */
+
+        span.indexresponseletter {
+        	color: #ffffff;
+        	font-family: 'Courier New', Courier, monospace;
+        	background-color: #8080ff;
+        }
+
+        span.indexresponsetext {
+        	color: #000066;
+        }
+
+        /* Used ubiquitously throughout the index and extension documentation: */
+
+        span.indexblack {
+        	color: #000000;
+        }
+
+        span.indexgrey {
+        	color: #808080;
+        }
+
+        span.indexdarkgrey {
+            color: #505050;
+        }
+
+        span.indexdullred {
+        	color: #800000;
+        }
+
+        span.indexdullgreen {
+        	color: #008000;
+        }
+
+        span.indexdullblue {
+        	color: #000080;
+        }
+
+        /* Used for the room squares in the World map in the Index (which is currently
+        a table with one row of one column) */
+
+        table.indexmaproom {
+        	border-color: #000000;
+        }
+
+        /* Used in the numbering of levels of the World map in the Index */
+
+        span.indexmaplevelnumbers {
+        	color: #c0c0c0;
+        }
+
+        /* Used e.g. for title rows in the Chart of basic kinds in the Index */
+
+        tr.headingrow {
+        	background-color: #e0e0e0;
+        }
+
+        /* Standard rows have black text on striped background colours, these being
+        the usual ones seen in Mac OS X applications such as iTunes. */
+
+        tr.stripeone {
+        	background-color: #ffffff;
+        }
+
+        tr.stripetwo {
+        	background-color: #f3f6fa;
+        }
+
+        tr.tintedrow {
+        	background-color: #808080;
+        }
+
+        /* In the Figures index, this is the background colour used behind images
+        (though in fact it will only be visible if the image fails to load, or uses
+        transparency): */
+
+        div.figureindexbox {
+        	background-color: #6495ed;
+        }
+
+        /* To get the book-contents-page style leaders on the Contents element of
+           the index to work, these must use the background colour of the body of
+           the page, whatever that is: */
+
+        ul.leaders li.leaded span:first-child {
+        	background: white;
+        }
+        ul.leaders li.leaded span + span {
+        	background: white;
+        }
+
+        /* On Registry index pages (such as the Public Library), these are used for
+        download buttons and the like: */
+
+        span.registrybuttontext {
+        	font-size: 11px;
+        	border-color: #000000;
+        }
+
+        span.registryminibuttontext {
+        	font-size: 10px;
+        	border-color: #000000;
+        }
+
+        span.registrybuttonuninstalled {
+        	color: #000000;
+        	background: #ffffdd;
+        }
+
+        span.registrybuttoninstalled {
+        	color: #000000;
+        	background: #ffffff;
+        	pointer-events: none;
+        }
+
+        span.registrybuttonbuiltin {
+        	color: #888888;
+        	background: #ffffff;
+        	pointer-events: none;
+        }
+
+        span.registrybuttonupdate {
+        	color: #000000;
+        	background: #aaddff;
+        }
+
+        span.registrybuttonrevert {
+        	color: #000000;
+        	background: #ddaaff;
+        }
+
+        span.registrybuttonrevealer {
+        	color: #ffffff;
+        	background: #444444;
+        }
+
+        /* Registry index section headings: */
+
+        span.registrysectionname {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 16px;
+        	line-height: 18px;
+        }
+        span.registrysubsectionname {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 14px;
+        	line-height: 16px;
+        }
+
+        /* These are for the "mark" for a section, usually a section-symbol and number */
+
+        span.registrysectionmark {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 16px;
+        	line-height: 18px;
+        	color: #666;
+        }
+        span.registrysubsectionmark {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 14px;
+        	line-height: 16px;
+        	color: #666;
+        }
+
+        /* Text of an item listed in a registry: */
+
+        span.registryitemtext {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 12px;
+        	line-height: 16px;
+        }
+
+        /* And how the links in a registry index page behave: */
+
+        a.registrysilentlink {
+        	text-decoration: none;
+        	color: #000;
+        }
+        a.registrybuttonlink {
+        	text-decoration: none;
+        }
+        a.registrycontentslink:link {
+        	text-decoration: none;
+        	color: #202020;
+        }
+        a.registrycontentslink:visited {
+        	text-decoration: none;
+        	color: #202020;
+        }
+        a.registrycontentslink:hover {
+        	text-decoration: none;
+        	color: #D00000;
+        }
+        a.registrycontentslink:active {
+        	text-decoration: none;
+        	color: #D00000;
+        }
+
+        -->
+    </style>
+    <style type="text/css">
+        <!--
+        /* (1) General layout material */
+
+        *, *:before, *:after {
+        	-moz-box-sizing: border-box;
+        	-webkit-box-sizing: border-box;
+        	box-sizing: border-box;
+        }
+        .headingpanellayout {
+        	position: relative;
+        	height: 56px;
+        	padding: 0px;
+        	white-space:nowrap;
+        }
+        .headingpanellayoutdeeper {
+        	position: relative;
+        	height: 117px;
+        	padding: 0px;
+        	white-space:nowrap;
+        }
+        .headingtext {
+        	position: absolute;
+        	top: -4px;
+        	left: -1px;
+        	width: 100%;
+        	padding: 14px 10px 0px 10px;
+        }
+        .headingrubric {
+        	position: absolute;
+        	top: 36px;
+        	width: 100%;
+        	padding: 0px 10px 0px 10px;
+        }
+        h3.tighter {
+        	margin-top: 0px;
+        }
+        p.hang {
+        	padding-left: 25px;
+        	text-indent: -25px;
+        	margin-top: 0px;
+        	margin-bottom: 0px;
+        }
+        p.in1 {
+        	padding-left: 0px;
+        }
+        p.tightin1 {
+        	padding-left: 0px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin1 {
+        	padding-left: 0px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin1 {
+        	padding-left: 50px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in2 {
+        	padding-left: 25px;
+        }
+        p.tightin2 {
+        	padding-left: 25px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin2 {
+        	padding-left: 25px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin2 {
+        	padding-left: 75px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in3 {
+        	padding-left: 50px;
+        }
+        p.tightin3 {
+        	padding-left: 50px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin3 {
+        	padding-left: 50px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin3 {
+        	padding-left: 100px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in4 {
+        	padding-left: 75px;
+        }
+        p.tightin4 {
+        	padding-left: 75px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin4 {
+        	padding-left: 75px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin4 {
+        	padding-left: 125px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in5 {
+        	padding-left: 100px;
+        }
+        p.tightin5 {
+        	padding-left: 100px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin5 {
+        	padding-left: 100px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin5 {
+        	padding-left: 150px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in6 {
+        	padding-left: 125px;
+        }
+        p.tightin6 {
+        	padding-left: 125px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin6 {
+        	padding-left: 125px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin6 {
+        	padding-left: 175px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in7 {
+        	padding-left: 150px;
+        }
+        p.tightin7 {
+        	padding-left: 150px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin7 {
+        	padding-left: 150px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin7 {
+        	padding-left: 200px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in8 {
+        	padding-left: 175px;
+        }
+        p.tightin8 {
+        	padding-left: 175px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin8 {
+        	padding-left: 175px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin8 {
+        	padding-left: 225px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in9 {
+        	padding-left: 200px;
+        }
+        p.tightin9 {
+        	padding-left: 200px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin9 {
+        	padding-left: 200px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin9 {
+        	padding-left: 250px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+
+        /* (2) Index page layout material */
+
+        /* The periodic table display has "sidebars", usually grey and taller than they
+        are wide; they contain no text. */
+
+        div.periodictablesidebar {
+        	height: 56px;
+        	width: 16px;
+        }
+        .periodictablesidebar a:link { text-decoration: none; }
+        .periodictablesidebar a:visited { text-decoration: none; }
+        .periodictablesidebar a:active { text-decoration: none; }
+
+        /* The "element boxes" are the cells appearing in the periodic-table display
+        on the welcome page of the index: */
+
+        .elementbox {
+        	position: relative;
+        	height: 56px;
+        	width: 56px;
+        	padding: 0px;
+        }
+
+        .elementbox a:link { text-decoration: none; }
+        .elementbox a:visited { text-decoration: none; }
+        .elementbox a:active { text-decoration: none; }
+        .elementbox a:hover { text-decoration: none; }
+        .elementbox:hover {
+        	opacity: 0.6;
+        }
+
+        /* The "small element boxes" look like those, but are smaller, and used on
+        the headings of the content which those original boxes link to: */
+
+        .smallelementbox {
+        	position: relative;
+        	height: 40px;
+        	width: 40px;
+        	padding: 0px;
+        }
+
+        .smallelementbox a:link { text-decoration: none; }
+        .smallelementbox a:visited { text-decoration: none; }
+        .smallelementbox a:active { text-decoration: none; }
+        .smallelementbox a:hover { text-decoration: none; }
+        .smallelementbox:hover {
+        	opacity: 0.6;
+        }
+
+        /* This is a class for the links formed by the element boxes: */
+
+        a.elementlink {
+        	position: absolute;
+        	top: -4px;
+        	left: -1px;
+        	width: 100%;
+        	padding: 14px 0px 14px 1px;
+        	text-align: center;
+        }
+
+        /* Similarly for the "atomic number" - a single digit - in the top left corner
+        of these boxes: */
+
+        div.elementnumber {
+        	position: absolute;
+        	top: 1px;
+        	left: 3px;
+        	text-align: left;
+        }
+
+        /* For the text of the element title, to the right of the element box: */
+
+        div.elementtitle {
+        	position: absolute;
+        	top: 35px;
+        	width: 100%;
+        	text-align: center;
+        }
+
+        /* Used for the book-contents-page style leaders on the Contents element of
+           the index: */
+
+        ul.leaders {
+        	padding: 0;
+        	margin-top: 1px;
+        	margin-bottom: 0;
+        	overflow-x: hidden;
+        	list-style: none}
+        ul.leaders li.leaded:before {
+        	float: left;
+        	width: 0;
+        	white-space: nowrap;
+        	content:
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "}
+        ul.leaders li.leaded span:first-child {
+        	padding-right: 0.33em;
+        }
+        ul.leaders li.leaded span + span {
+        	float: right;
+        	padding-left: 0.33em;
+        }
+        li.indent1 span:first-child {
+        	padding-left: 25px;
+        }
+        li.indent2 span:first-child {
+        	padding-left: 50px;
+        }
+        li.indent3 span:first-child {
+        	padding-left: 75px;
+        }
+        li.indent4 span:first-child {
+        	padding-left: 100px;
+        }
+        li.indent5 span:first-child {
+        	padding-left: 125px;
+        }
+        li.indent6 span:first-child {
+        	padding-left: 150px;
+        }
+        li.indent7 span:first-child {
+        	padding-left: 175px;
+        }
+        li.indent8 span:first-child {
+        	padding-left: 200px;
+        }
+        li.indent9 span:first-child {
+        	padding-left: 225px;
+        }
+
+        li.unleaded:before {
+        	content: "";
+        }
+
+        /* On Registry index pages (such as the Public Library), these are used for
+        download buttons and the like: */
+
+        span.registrybuttons {
+        	height: 20px;
+        	padding: 2px 8px 2px 8px;
+        	margin: 2px;
+        	border:1px solid;
+        	border-radius: 5px;
+        }
+
+        span.registryminibuttons {
+        	height: 14px;
+        	padding: 2px 5px 2px 5px;
+        	margin: 2px;
+        	border:1px solid;
+        	border-radius: 4px;
+        }
+
+        /* Used to hide or display sections in the Registry pages: */
+
+        div.registrysectionitemsopen {
+        	display: block;
+        }
+
+        div.registrysectionitemsclosed {
+        	display: none;
+        }
+
+        /* Hanging indentation for Registry item paragraphs: */
+
+        p.registryitem {
+        	padding-left: 80px;
+        	text-indent: -40px;
+        }
+
+        p.registryaddition {
+        	padding-left: 40px;
+        	text-indent: -40px;
+        }
+
+        -->
+    </style>
+    <script type="text/javascript">
+        function project() {
+            return window.Project;
+        }
+        function showExtra(id, imid) {
+        	if (document.getElementById(id).style.display == 'block') {
+        		document.getElementById(id).style.display = 'none';
+        		document.getElementById(imid).src = 'inform:/doc_images/extrarboff.png';
+        	} else {
+        		document.getElementById(id).style.display = 'block';
+        		document.getElementById(imid).src = 'inform:/doc_images/extrarbon.png';
+        	}
+        }
+        function openExtra(id, imid) {
+        	document.getElementById(id).style.display = 'block';
+        	document.getElementById(imid).src = 'inform:/doc_images/extrarbon.png';
+        }
+        function closeExtra(id, imid) {
+        	document.getElementById(id).style.display = 'none';
+        	document.getElementById(imid).src = 'inform:/doc_images/extrarboff.png';
+        }
+
+    </script>
+</head>
+<body>
+    <!--CONTENT BEGINS-->
+    <table border="0" cellspacing="4" cellpadding="0" width=100%>
+        <tr>
+            <td align="left" valign="top">
+                <img src='inform:/doc_images/extensions@2x.png' border=0 width=150 height=150>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <div class="headingpanellayout headingpanelalt">
+                    <div class="headingtext">
+                        <span class="headingpaneltextalt">Installed Extensions</span></div>
+                    <div class="headingrubric">
+                        <span class="headingpanelrubricalt">Bundles of extra rules or phrases to extend what Inform can do</span></div>
+                </div>
+                <p>Whenever an extension is used, its definitions are entered into the following index. (Thus, a newly installed but never-used extension is not indexed yet.).</p>
+
+            </td>
+        </tr>
+    </table>
+    <hr>
+    <br>
+    <p style='margin:0px; padding:0px;'> - <i></i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Aaron Reed/Smarter Parser.html' style="text-decoration: none"><span class="extensionindexentry">Smarter Parser by Aaron Reed</span></a></span></p>
+    <br>
+    <p style='margin:0px; padding:0px;'>abbreviated room descriptions - <i>use option</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>accusative - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Sebastian Arg/Spanish Language.html' style="text-decoration: none"><span class="extensionindexentry">Spanish Language by Sebastian Arg</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>active - <i>adjective</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>adjacent - <i>adjective</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>ambiguously plural - <i>adjective</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>ambiguously plural - <i>property</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>American dialect - <i>use option</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>amount - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Matthew Fletcher/Exit Descriptions SP.html' style="text-decoration: none"><span class="extensionindexentry">Exit Descriptions SP by Matthew Fletcher</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>animal - <i>kind</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>Answering it that - <i>action</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>aren't holding that error - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>Asking it about - <i>action</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>Asking it for - <i>action</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>Attacking - <i>action</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>authorial modesty - <i>use option</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <br>
+    <p style='margin:0px; padding:0px;'>backdrop - <i>kind</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>Bajando - <i>action</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Sebastian Arg/Spanish Language.html' style="text-decoration: none"><span class="extensionindexentry">Spanish Language by Sebastian Arg</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>be - <i>verb</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>be able to see - <i>verb</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>be able to touch - <i>verb</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>black background - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Juhana Leinonen/Vorple Screen Effects.html' style="text-decoration: none"><span class="extensionindexentry">Vorple Screen Effects by Juhana Leinonen</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>black letters - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Juhana Leinonen/Vorple Screen Effects.html' style="text-decoration: none"><span class="extensionindexentry">Vorple Screen Effects by Juhana Leinonen</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>blue background - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Juhana Leinonen/Vorple Screen Effects.html' style="text-decoration: none"><span class="extensionindexentry">Vorple Screen Effects by Juhana Leinonen</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>blue letters - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Juhana Leinonen/Vorple Screen Effects.html' style="text-decoration: none"><span class="extensionindexentry">Vorple Screen Effects by Juhana Leinonen</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>BRIEF room descriptions - <i>use option</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>brown background - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Juhana Leinonen/Vorple Screen Effects.html' style="text-decoration: none"><span class="extensionindexentry">Vorple Screen Effects by Juhana Leinonen</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>brown letters - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Juhana Leinonen/Vorple Screen Effects.html' style="text-decoration: none"><span class="extensionindexentry">Vorple Screen Effects by Juhana Leinonen</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>Burning - <i>action</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>Buying - <i>action</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <br>
+    <p style='margin:0px; padding:0px;'>can't again the addressee error - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>can't see any such thing error - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>can't see it at the moment error - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>can't see whom to talk to error - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>can't talk to inanimate things error - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>can't use multiple objects error - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>can only do that to something animate error - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>can only use multiple objects error - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>carried - <i>adjective</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>carry - <i>verb</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>carrying capacity - <i>property</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>Climbing - <i>action</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>closed - <i>adjective</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>closed - <i>property</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>Closing - <i>action</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>comma can't begin error - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>command line echoing - <i>use option</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>command parser error - <i>kind</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>command prompt - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>conceal - <i>verb</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>concealed - <i>adjective</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>Consulting it about - <i>action</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>contain - <i>verb</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>container - <i>kind</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>container in question - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>current item from the multiple object list - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>cursive font - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Juhana Leinonen/Vorple Screen Effects.html' style="text-decoration: none"><span class="extensionindexentry">Vorple Screen Effects by Juhana Leinonen</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>Cutting - <i>action</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>cyan background - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Juhana Leinonen/Vorple Screen Effects.html' style="text-decoration: none"><span class="extensionindexentry">Vorple Screen Effects by Juhana Leinonen</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>cyan letters - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Juhana Leinonen/Vorple Screen Effects.html' style="text-decoration: none"><span class="extensionindexentry">Vorple Screen Effects by Juhana Leinonen</span></a></span></p>
+    <br>
+    <p style='margin:0px; padding:0px;'>dark - <i>adjective</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>dark - <i>property</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>dark gray background - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Juhana Leinonen/Vorple Screen Effects.html' style="text-decoration: none"><span class="extensionindexentry">Vorple Screen Effects by Juhana Leinonen</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>dark gray letters - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Juhana Leinonen/Vorple Screen Effects.html' style="text-decoration: none"><span class="extensionindexentry">Vorple Screen Effects by Juhana Leinonen</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>darkness witnessed - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>described - <i>adjective</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>described - <i>property</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>description - <i>property</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>device - <i>kind</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>Dialecto Castellano - <i>use option</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Sebastian Arg/Spanish Language.html' style="text-decoration: none"><span class="extensionindexentry">Spanish Language by Sebastian Arg</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>Dialecto Sudamericano - <i>use option</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Sebastian Arg/Spanish Language.html' style="text-decoration: none"><span class="extensionindexentry">Spanish Language by Sebastian Arg</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>didn't understand addressee's last name error - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>didn't understand error - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>didn't understand that number error - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>didn't understand the way that finished error - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>direction - <i>kind</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>door - <i>kind</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>down - <i>direction</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>Drinking - <i>action</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>Dropping - <i>action</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>dynamic memory allocation - <i>use option</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <br>
+    <p style='margin:0px; padding:0px;'>east - <i>direction</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>Eating - <i>action</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>edible - <i>adjective</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>edible - <i>property</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>emphasized font - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Juhana Leinonen/Vorple Screen Effects.html' style="text-decoration: none"><span class="extensionindexentry">Vorple Screen Effects by Juhana Leinonen</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>empty - <i>adjective</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>enclose - <i>verb</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>engineering notation - <i>use option</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>enterable - <i>adjective</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>enterable - <i>property</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>Entering - <i>action</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>Entering to room - <i>action</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Sebastian Arg/Spanish Language.html' style="text-decoration: none"><span class="extensionindexentry">Spanish Language by Sebastian Arg</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>Entire Game - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>equivalence - <i>adjective</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>even - <i>adjective</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>Examining - <i>action</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>excepted something not included error - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>existent - <i>adjective</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>Exiting - <i>action</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <br>
+    <p style='margin:0px; padding:0px;'>fantasy font - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Juhana Leinonen/Vorple Screen Effects.html' style="text-decoration: none"><span class="extensionindexentry">Vorple Screen Effects by Juhana Leinonen</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>fast route-finding - <i>use option</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>female - <i>adjective</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Sebastian Arg/Spanish Language.html' style="text-decoration: none"><span class="extensionindexentry">Spanish Language by Sebastian Arg</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>female - <i>property</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Sebastian Arg/Spanish Language.html' style="text-decoration: none"><span class="extensionindexentry">Spanish Language by Sebastian Arg</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>feminine gender - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Sebastian Arg/Spanish Language.html' style="text-decoration: none"><span class="extensionindexentry">Spanish Language by Sebastian Arg</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>feminine gender - <i>adjective</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Sebastian Arg/Spanish Language.html' style="text-decoration: none"><span class="extensionindexentry">Spanish Language by Sebastian Arg</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>Figure of cover - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>file of JavaScript Evaluation Input - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Juhana Leinonen/Vorple.html' style="text-decoration: none"><span class="extensionindexentry">Vorple by Juhana Leinonen</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>file of JavaScript Return Value - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Juhana Leinonen/Vorple.html' style="text-decoration: none"><span class="extensionindexentry">Vorple by Juhana Leinonen</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>file of JavaScript Return Value Type - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Juhana Leinonen/Vorple.html' style="text-decoration: none"><span class="extensionindexentry">Vorple by Juhana Leinonen</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>file of Vorple Handshake - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Juhana Leinonen/Vorple.html' style="text-decoration: none"><span class="extensionindexentry">Vorple by Juhana Leinonen</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>finite - <i>adjective</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>first person plural - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Sebastian Arg/Spanish Language.html' style="text-decoration: none"><span class="extensionindexentry">Spanish Language by Sebastian Arg</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>first person singular - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Sebastian Arg/Spanish Language.html' style="text-decoration: none"><span class="extensionindexentry">Spanish Language by Sebastian Arg</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>fixed in place - <i>adjective</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>fixed in place - <i>property</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>full - <i>adjective</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>full-length room descriptions - <i>use option</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>future tense - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Sebastian Arg/Spanish Language.html' style="text-decoration: none"><span class="extensionindexentry">Spanish Language by Sebastian Arg</span></a></span></p>
+    <br>
+    <p style='margin:0px; padding:0px;'>Getting off - <i>action</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>Giving it to - <i>action</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>gn testing version - <i>use option</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>Going - <i>action</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>going on - <i>adjective</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>grammatical case - <i>kind</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Sebastian Arg/Spanish Language.html' style="text-decoration: none"><span class="extensionindexentry">Spanish Language by Sebastian Arg</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>grammatical gender - <i>kind</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Sebastian Arg/Spanish Language.html' style="text-decoration: none"><span class="extensionindexentry">Spanish Language by Sebastian Arg</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>grammatical gender - <i>property</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Sebastian Arg/Spanish Language.html' style="text-decoration: none"><span class="extensionindexentry">Spanish Language by Sebastian Arg</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>grammatical tense - <i>kind</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Sebastian Arg/Spanish Language.html' style="text-decoration: none"><span class="extensionindexentry">Spanish Language by Sebastian Arg</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>green background - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Juhana Leinonen/Vorple Screen Effects.html' style="text-decoration: none"><span class="extensionindexentry">Vorple Screen Effects by Juhana Leinonen</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>green letters - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Juhana Leinonen/Vorple Screen Effects.html' style="text-decoration: none"><span class="extensionindexentry">Vorple Screen Effects by Juhana Leinonen</span></a></span></p>
+    <br>
+    <p style='margin:0px; padding:0px;'>handled - <i>adjective</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>handled - <i>property</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>happening - <i>adjective</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>have - <i>verb</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>held - <i>adjective</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>hold - <i>verb</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <br>
+    <p style='margin:0px; padding:0px;'>I beg your pardon error - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>improper-named - <i>adjective</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>improper-named - <i>property</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>inactive - <i>adjective</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>incorporate - <i>verb</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>indefinite article - <i>property</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>index figure thumbnails - <i>use option</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>inedible - <i>adjective</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>inedible - <i>property</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>ineffectual - <i>use option</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>infinite - <i>adjective</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>initial appearance - <i>property</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>Inserting it into - <i>action</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>inside - <i>direction</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>invisible - <i>adjective</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>item described - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <br>
+    <p style='margin:0px; padding:0px;'>Jumping - <i>action</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <br>
+    <p style='margin:0px; padding:0px;'>Kissing - <i>action</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <br>
+    <p style='margin:0px; padding:0px;'>language of play - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>large font - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Juhana Leinonen/Vorple Screen Effects.html' style="text-decoration: none"><span class="extensionindexentry">Vorple Screen Effects by Juhana Leinonen</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>last notified score - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>latest parser error - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>left hand status line - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>light blue background - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Juhana Leinonen/Vorple Screen Effects.html' style="text-decoration: none"><span class="extensionindexentry">Vorple Screen Effects by Juhana Leinonen</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>light blue letters - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Juhana Leinonen/Vorple Screen Effects.html' style="text-decoration: none"><span class="extensionindexentry">Vorple Screen Effects by Juhana Leinonen</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>light cyan background - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Juhana Leinonen/Vorple Screen Effects.html' style="text-decoration: none"><span class="extensionindexentry">Vorple Screen Effects by Juhana Leinonen</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>light cyan letters - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Juhana Leinonen/Vorple Screen Effects.html' style="text-decoration: none"><span class="extensionindexentry">Vorple Screen Effects by Juhana Leinonen</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>lighted - <i>adjective</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>lighted - <i>property</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>light gray background - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Juhana Leinonen/Vorple Screen Effects.html' style="text-decoration: none"><span class="extensionindexentry">Vorple Screen Effects by Juhana Leinonen</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>light gray letters - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Juhana Leinonen/Vorple Screen Effects.html' style="text-decoration: none"><span class="extensionindexentry">Vorple Screen Effects by Juhana Leinonen</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>light green background - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Juhana Leinonen/Vorple Screen Effects.html' style="text-decoration: none"><span class="extensionindexentry">Vorple Screen Effects by Juhana Leinonen</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>light green letters - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Juhana Leinonen/Vorple Screen Effects.html' style="text-decoration: none"><span class="extensionindexentry">Vorple Screen Effects by Juhana Leinonen</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>light magenta background - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Juhana Leinonen/Vorple Screen Effects.html' style="text-decoration: none"><span class="extensionindexentry">Vorple Screen Effects by Juhana Leinonen</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>light magenta letters - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Juhana Leinonen/Vorple Screen Effects.html' style="text-decoration: none"><span class="extensionindexentry">Vorple Screen Effects by Juhana Leinonen</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>light red background - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Juhana Leinonen/Vorple Screen Effects.html' style="text-decoration: none"><span class="extensionindexentry">Vorple Screen Effects by Juhana Leinonen</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>light red letters - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Juhana Leinonen/Vorple Screen Effects.html' style="text-decoration: none"><span class="extensionindexentry">Vorple Screen Effects by Juhana Leinonen</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>Listening to - <i>action</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>list grouping key - <i>property</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>listing group size - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>lit - <i>adjective</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>lit - <i>property</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>locale-supportable - <i>adjective</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>location - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>lockable - <i>adjective</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>lockable - <i>property</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>locked - <i>adjective</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>locked - <i>property</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>Locking it with - <i>action</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>Looking - <i>action</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>Looking under - <i>action</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <br>
+    <p style='margin:0px; padding:0px;'>magenta background - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Juhana Leinonen/Vorple Screen Effects.html' style="text-decoration: none"><span class="extensionindexentry">Vorple Screen Effects by Juhana Leinonen</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>magenta letters - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Juhana Leinonen/Vorple Screen Effects.html' style="text-decoration: none"><span class="extensionindexentry">Vorple Screen Effects by Juhana Leinonen</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>male - <i>adjective</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Sebastian Arg/Spanish Language.html' style="text-decoration: none"><span class="extensionindexentry">Spanish Language by Sebastian Arg</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>male - <i>property</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Sebastian Arg/Spanish Language.html' style="text-decoration: none"><span class="extensionindexentry">Spanish Language by Sebastian Arg</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>man - <i>kind</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>manual pronouns - <i>use option</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>map region - <i>property</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>marked for listing - <i>adjective</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>marked for listing - <i>property</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>masculine gender - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Sebastian Arg/Spanish Language.html' style="text-decoration: none"><span class="extensionindexentry">Spanish Language by Sebastian Arg</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>masculine gender - <i>adjective</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Sebastian Arg/Spanish Language.html' style="text-decoration: none"><span class="extensionindexentry">Spanish Language by Sebastian Arg</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>matched text - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>matching key - <i>property</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>maximum capture buffer length - <i>use option</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Sebastian Arg/Spanish Language.html' style="text-decoration: none"><span class="extensionindexentry">Spanish Language by Sebastian Arg</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>maximum score - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>maximum text length - <i>use option</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>maximum things understood at once - <i>use option</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>mean - <i>verb</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>meaningful - <i>adjective</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>meaningless - <i>adjective</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>memory economy - <i>use option</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>mentioned - <i>adjective</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>mentioned - <i>property</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>modal - <i>adjective</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>monospace font - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Juhana Leinonen/Vorple Screen Effects.html' style="text-decoration: none"><span class="extensionindexentry">Vorple Screen Effects by Juhana Leinonen</span></a></span></p>
+    <br>
+    <p style='margin:0px; padding:0px;'>narrative viewpoint - <i>kind</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Sebastian Arg/Spanish Language.html' style="text-decoration: none"><span class="extensionindexentry">Spanish Language by Sebastian Arg</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>natural language - <i>kind</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>negative - <i>adjective</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>neuter - <i>adjective</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Sebastian Arg/Spanish Language.html' style="text-decoration: none"><span class="extensionindexentry">Spanish Language by Sebastian Arg</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>neuter - <i>property</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Sebastian Arg/Spanish Language.html' style="text-decoration: none"><span class="extensionindexentry">Spanish Language by Sebastian Arg</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>neuter gender - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Sebastian Arg/Spanish Language.html' style="text-decoration: none"><span class="extensionindexentry">Spanish Language by Sebastian Arg</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>neuter gender - <i>adjective</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Sebastian Arg/Spanish Language.html' style="text-decoration: none"><span class="extensionindexentry">Spanish Language by Sebastian Arg</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>no deprecated features - <i>use option</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>nominative - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Sebastian Arg/Spanish Language.html' style="text-decoration: none"><span class="extensionindexentry">Spanish Language by Sebastian Arg</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>non-empty - <i>adjective</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>non-full - <i>adjective</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>non-modal - <i>adjective</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>non-recurring - <i>adjective</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>non-recurring - <i>property</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>nonexistent - <i>adjective</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>north - <i>direction</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>northeast - <i>direction</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>northwest - <i>direction</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>no scoring - <i>use option</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>not a verb I recognise error - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>not enough of those available error - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>nothing to do error - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>not something you need to refer to error - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>not sure what it refers to error - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>noun - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>noun did not make sense in that context error - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>nowrap font - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Juhana Leinonen/Vorple Screen Effects.html' style="text-decoration: none"><span class="extensionindexentry">Vorple Screen Effects by Juhana Leinonen</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>num - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Matthew Fletcher/Exit Descriptions SP.html' style="text-decoration: none"><span class="extensionindexentry">Exit Descriptions SP by Matthew Fletcher</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>numbered rules - <i>use option</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <br>
+    <p style='margin:0px; padding:0px;'>odd - <i>adjective</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>off-stage - <i>adjective</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>offstage - <i>adjective</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>on-stage - <i>adjective</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>one-to-one - <i>adjective</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>one-to-various - <i>adjective</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>only understood as far as error - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>opaque - <i>adjective</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>opaque - <i>property</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>open - <i>adjective</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>open - <i>property</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>openable - <i>adjective</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>openable - <i>property</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>Opening - <i>action</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>opposite - <i>property</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>other side - <i>property</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>outside - <i>direction</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <br>
+    <p style='margin:0px; padding:0px;'>particular possession - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>past perfect tense - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Sebastian Arg/Spanish Language.html' style="text-decoration: none"><span class="extensionindexentry">Spanish Language by Sebastian Arg</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>past tense - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Sebastian Arg/Spanish Language.html' style="text-decoration: none"><span class="extensionindexentry">Spanish Language by Sebastian Arg</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>perfect tense - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Sebastian Arg/Spanish Language.html' style="text-decoration: none"><span class="extensionindexentry">Spanish Language by Sebastian Arg</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>person - <i>kind</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>person asked - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>person reaching - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>player's command - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>player's holdall - <i>kind</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>player - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>plural-named - <i>adjective</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>plural-named - <i>property</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>portable - <i>adjective</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>portable - <i>property</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>positive - <i>adjective</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>predictable randomisation - <i>use option</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>Preferring abbreviated room descriptions - <i>action</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>Preferring sometimes abbreviated room descriptions - <i>action</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>Preferring unabbreviated room descriptions - <i>action</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>present tense - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Sebastian Arg/Spanish Language.html' style="text-decoration: none"><span class="extensionindexentry">Spanish Language by Sebastian Arg</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>printed name - <i>property</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>printed plural name - <i>property</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>prior named object - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>privately-named - <i>adjective</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>proper-named - <i>adjective</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>proper-named - <i>property</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>provide - <i>verb</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>publicly-named - <i>adjective</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>Pulling - <i>action</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>pushable between rooms - <i>adjective</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>pushable between rooms - <i>property</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>Pushing - <i>action</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>Pushing it to - <i>action</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>Putting it on - <i>action</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <br>
+    <p style='margin:0px; padding:0px;'>Quitting the game - <i>action</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <br>
+    <p style='margin:0px; padding:0px;'>reason the action failed - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>recurring - <i>adjective</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>recurring - <i>property</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>red background - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Juhana Leinonen/Vorple Screen Effects.html' style="text-decoration: none"><span class="extensionindexentry">Vorple Screen Effects by Juhana Leinonen</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>red letters - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Juhana Leinonen/Vorple Screen Effects.html' style="text-decoration: none"><span class="extensionindexentry">Vorple Screen Effects by Juhana Leinonen</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>referred to a determination of scope error - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>region - <i>kind</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>relate - <i>verb</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>release number - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Sebastian Arg/Spanish Language.html' style="text-decoration: none"><span class="extensionindexentry">Spanish Language by Sebastian Arg</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>Removing it from - <i>action</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>Requesting the pronoun meanings - <i>action</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>Requesting the score - <i>action</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>Requesting the story file version - <i>action</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>Restarting the game - <i>action</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>Restoring the game - <i>action</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>Right alignment depth - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Emily Short/Basic Screen Effects.html' style="text-decoration: none"><span class="extensionindexentry">Basic Screen Effects by Emily Short</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>right hand status line - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>room - <i>kind</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>Rubbing - <i>action</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <br>
+    <p style='margin:0px; padding:0px;'>said too little error - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>Saving the game - <i>action</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>Saying no - <i>action</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>Saying sorry - <i>action</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>Saying yes - <i>action</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>scenery - <i>adjective</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>scenery - <i>property</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>score - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>scoring - <i>use option</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>Searching - <i>action</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>second noun - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>second person plural - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Sebastian Arg/Spanish Language.html' style="text-decoration: none"><span class="extensionindexentry">Spanish Language by Sebastian Arg</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>second person singular - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Sebastian Arg/Spanish Language.html' style="text-decoration: none"><span class="extensionindexentry">Spanish Language by Sebastian Arg</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>serial comma - <i>use option</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>Setting it to - <i>action</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>Showing it to - <i>action</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>singular-named - <i>adjective</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>singular-named - <i>property</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>Sleeping - <i>action</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>slow route-finding - <i>use option</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>small font - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Juhana Leinonen/Vorple Screen Effects.html' style="text-decoration: none"><span class="extensionindexentry">Vorple Screen Effects by Juhana Leinonen</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>Smelling - <i>action</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>south - <i>direction</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>southeast - <i>direction</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>southwest - <i>direction</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>Squeezing - <i>action</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>Status bar table - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Emily Short/Basic Screen Effects.html' style="text-decoration: none"><span class="extensionindexentry">Basic Screen Effects by Emily Short</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>story author - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Sebastian Arg/Spanish Language.html' style="text-decoration: none"><span class="extensionindexentry">Spanish Language by Sebastian Arg</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>story creation year - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Sebastian Arg/Spanish Language.html' style="text-decoration: none"><span class="extensionindexentry">Spanish Language by Sebastian Arg</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>story description - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Sebastian Arg/Spanish Language.html' style="text-decoration: none"><span class="extensionindexentry">Spanish Language by Sebastian Arg</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>story genre - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Sebastian Arg/Spanish Language.html' style="text-decoration: none"><span class="extensionindexentry">Spanish Language by Sebastian Arg</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>story headline - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Sebastian Arg/Spanish Language.html' style="text-decoration: none"><span class="extensionindexentry">Spanish Language by Sebastian Arg</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>story tense - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Sebastian Arg/Spanish Language.html' style="text-decoration: none"><span class="extensionindexentry">Spanish Language by Sebastian Arg</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>story title - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Sebastian Arg/Spanish Language.html' style="text-decoration: none"><span class="extensionindexentry">Spanish Language by Sebastian Arg</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>story viewpoint - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Sebastian Arg/Spanish Language.html' style="text-decoration: none"><span class="extensionindexentry">Spanish Language by Sebastian Arg</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>strikethrough font - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Juhana Leinonen/Vorple Screen Effects.html' style="text-decoration: none"><span class="extensionindexentry">Vorple Screen Effects by Juhana Leinonen</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>strong font - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Juhana Leinonen/Vorple Screen Effects.html' style="text-decoration: none"><span class="extensionindexentry">Vorple Screen Effects by Juhana Leinonen</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>Subiendo - <i>action</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Sebastian Arg/Spanish Language.html' style="text-decoration: none"><span class="extensionindexentry">Spanish Language by Sebastian Arg</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>substituted - <i>adjective</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>SUPERBRIEF room descriptions - <i>use option</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>support - <i>verb</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>supporter - <i>kind</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>supporter in question - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>Swinging - <i>action</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>switched off - <i>adjective</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>switched off - <i>property</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>switched on - <i>adjective</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>switched on - <i>property</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>Switching off - <i>action</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>Switching on - <i>action</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>Switching score notification off - <i>action</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>Switching score notification on - <i>action</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>Switching the story transcript off - <i>action</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>Switching the story transcript on - <i>action</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>symmetric - <i>adjective</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <br>
+    <p style='margin:0px; padding:0px;'>Taking - <i>action</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>Taking inventory - <i>action</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>Taking off - <i>action</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>Tasting - <i>action</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>telemetry recordings - <i>use option</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>Telling it about - <i>action</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>thing - <i>kind</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>Thinking - <i>action</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>third person plural - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Sebastian Arg/Spanish Language.html' style="text-decoration: none"><span class="extensionindexentry">Spanish Language by Sebastian Arg</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>third person singular - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Sebastian Arg/Spanish Language.html' style="text-decoration: none"><span class="extensionindexentry">Spanish Language by Sebastian Arg</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>Throwing it at - <i>action</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>time of day - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>touchable - <i>adjective</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>Touching - <i>action</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>transparent - <i>adjective</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>transparent - <i>property</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>turn count - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>Turning - <i>action</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>Tying it to - <i>action</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <br>
+    <p style='margin:0px; padding:0px;'>unabbreviated object names - <i>use option</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>unconcealed - <i>adjective</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>underlined font - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Juhana Leinonen/Vorple Screen Effects.html' style="text-decoration: none"><span class="extensionindexentry">Vorple Screen Effects by Juhana Leinonen</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>undescribed - <i>adjective</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>undescribed - <i>property</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>undo prevention - <i>use option</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>unlit - <i>adjective</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>unlit - <i>property</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>unlock - <i>verb</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>unlocked - <i>adjective</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>unlocked - <i>property</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>Unlocking it with - <i>action</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>unmarked for listing - <i>adjective</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>unmarked for listing - <i>property</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>unmentioned - <i>adjective</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>unmentioned - <i>property</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>unopenable - <i>adjective</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>unopenable - <i>property</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>unsubstituted - <i>adjective</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>untouchable - <i>adjective</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>unvisited - <i>adjective</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>unvisited - <i>property</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>up - <i>direction</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <br>
+    <p style='margin:0px; padding:0px;'>various-to-one - <i>adjective</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>various-to-various - <i>adjective</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>vehicle - <i>kind</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>VERBOSE room descriptions - <i>use option</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>Verifying the story file - <i>action</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>visible - <i>adjective</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>visited - <i>adjective</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>visited - <i>property</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>Vorple prompt - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Juhana Leinonen/Vorple.html' style="text-decoration: none"><span class="extensionindexentry">Vorple by Juhana Leinonen</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>Vorple style - <i>kind</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Juhana Leinonen/Vorple Screen Effects.html' style="text-decoration: none"><span class="extensionindexentry">Vorple Screen Effects by Juhana Leinonen</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>Vorple support - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Juhana Leinonen/Vorple.html' style="text-decoration: none"><span class="extensionindexentry">Vorple by Juhana Leinonen</span></a></span></p>
+    <br>
+    <p style='margin:0px; padding:0px;'>Waiting - <i>action</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>Waking - <i>action</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>Waking up - <i>action</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>Waving - <i>action</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>Waving hands - <i>action</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>wear - <i>verb</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>wearable - <i>adjective</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>wearable - <i>property</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>Wearing - <i>action</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>west - <i>direction</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>white background - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Juhana Leinonen/Vorple Screen Effects.html' style="text-decoration: none"><span class="extensionindexentry">Vorple Screen Effects by Juhana Leinonen</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>white letters - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Juhana Leinonen/Vorple Screen Effects.html' style="text-decoration: none"><span class="extensionindexentry">Vorple Screen Effects by Juhana Leinonen</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>woman - <i>kind</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>worn - <i>adjective</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Graham Nelson/Standard Rules.html' style="text-decoration: none"><span class="extensionindexentry">Standard Rules</span></a></span></p>
+    <br>
+    <p style='margin:0px; padding:0px;'>x-large font - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Juhana Leinonen/Vorple Screen Effects.html' style="text-decoration: none"><span class="extensionindexentry">Vorple Screen Effects by Juhana Leinonen</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>x-small font - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Juhana Leinonen/Vorple Screen Effects.html' style="text-decoration: none"><span class="extensionindexentry">Vorple Screen Effects by Juhana Leinonen</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>xx-large font - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Juhana Leinonen/Vorple Screen Effects.html' style="text-decoration: none"><span class="extensionindexentry">Vorple Screen Effects by Juhana Leinonen</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>xx-small font - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Juhana Leinonen/Vorple Screen Effects.html' style="text-decoration: none"><span class="extensionindexentry">Vorple Screen Effects by Juhana Leinonen</span></a></span></p>
+    <br>
+    <p style='margin:0px; padding:0px;'>yellow background - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Juhana Leinonen/Vorple Screen Effects.html' style="text-decoration: none"><span class="extensionindexentry">Vorple Screen Effects by Juhana Leinonen</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>yellow letters - <i>value</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Juhana Leinonen/Vorple Screen Effects.html' style="text-decoration: none"><span class="extensionindexentry">Vorple Screen Effects by Juhana Leinonen</span></a></span></p>
+    <p style='margin:0px; padding:0px;'>yourself - <i>person</i>&nbsp;&nbsp;&nbsp;<span class="smaller"><a href='Extensions/Sebastian Arg/Spanish Language.html' style="text-decoration: none"><span class="extensionindexentry">Spanish Language by Sebastian Arg</span></a></span></p>
+
+    <!--CONTENT ENDS-->
+</body>
+</html>

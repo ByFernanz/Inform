@@ -1,155 +1,1072 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>Extension</title><script type="text/javascript">	function showExtra(id, imid) {		if (document.getElementById(id).style.display == 'block') {			document.getElementById(id).style.display = 'none';			document.getElementById(imid).src = 'inform:/extra.png';		} else {			document.getElementById(id).style.display = 'block';			document.getElementById(imid).src = 'inform:/extraclose.png';		}	}    function openExtra(id, imid) {    	document.getElementById(id).style.display = 'block';    	document.getElementById(imid).src = 'inform:/extraclose.png';    }    function closeExtra(id, imid) {    	document.getElementById(id).style.display = 'none';    	document.getElementById(imid).src = 'inform:/extra.png';    }</script></head><STYLE TYPE="text/css"><!--.oval, .oval TD{background-image:url('inform:/doc_images/ovoid.png');color:white;}--></STYLE><body><script language="JavaScript">function project() {   return external.Project;}function pasteCode(code) {    var myProject = external.Project;    myProject.selectView('source');    myProject.pasteCode(code);}</script><font size=2><table CELLPADDING=0 CELLSPACING=0 width="100%" bgcolor="#000000"><tr><TD width=38px height=26px align="center" valign="center"><a href="inform://Extensions/Extensions.html" border=0><img border=0 src="inform:/doc_images/Hookindex.png" border=0></a></td><TD width=38px height=26px align="center" valign="center"></td><td halign="left" valign="center" CELLPADDING=0 CELLSPACING=0><font color="#FFFFFF" size=2>Extensions</font></a></td><TD width=56px height=26px align="right" valign="center"><a href="inform:/index.html" border=0><img border=0 src="inform:/doc_images/Hookup.png" border=0></a></td></tr></table><p><script language="JavaScript">
-function pasteCode1014(code) {
-    var myProject = project();
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Extension</title>
+    <style type="text/css">
+        <!--
+        /* The default font (family) and size */
 
-    myProject.selectView('source');
-    myProject.pasteCode('Include Vorple Hyperlinks by Juhana Leinonen.[=0x000A=][=0x000A=][=0x000A=]');
-}
-</script>
-<a href="javascript:pasteCode1014()"><img border=0 src=inform:/doc_images/paste.png></a>&nbsp;<b>Vorple Hyperlinks<font color="#404040"> by </font>Juhana Leinonen</b><p><small>for Glulx only&nbsp;<p>Version 3/181103</small><p>Hyperlinks that either open a web site, execute a parser command or evaluate JavaScript code.<p><p><hr><p>
-<p>
- There are three kinds of hyperlinks that we can add to the story with this extension: a link to another web site, a link that triggers a parser command, or a link that runs JavaScript code.
-<p>
- In non-Vorple interpreters the links are just plain text that can't be clicked.
-<p>
- Chapter: Links to web sites
-<p>
- Hyperlinks open web pages in new browser windows. The addresses should include the &quot;http://&quot; or &quot;https://&quot; prefix, unless the link is pointing to another file on the same server.
-<p>
-<blockquote><font color="#000080"> place a link to web site &quot;http://vorple-if.com&quot; reading &quot;Vorple web page&quot;;</font></blockquote>
-<p>
- An optional &quot;called&quot; part defines the link element's additional classes.
-<p>
-<blockquote><font color="#000080"> place a link to web site &quot;http://vorple-if.com&quot; called &quot;system-credits&quot; reading &quot;Vorple web page&quot;;</font></blockquote>
-<p>
- Clicking on the links open the target web page on a new browser window. The link can be opened in the same window by passing an option:
-<p>
-<blockquote><font color="#000080"> place a link to web site &quot;http://vorple-if.com&quot; reading &quot;Vorple web page&quot;, opening in the same window;</font></blockquote>
-<p>
- If the story is run in a standard interpreter, the link description text is displayed but not the web site address (and clicking on the text won't do anything).
-<p>
- Chapter: Links to commands
-<p>
- Links to commands by default work just as if they would have been typed on the prompt.
-<p>
-<blockquote><font color="#000080"> place a link to command &quot;open door&quot; reading &quot;door&quot;;</font></blockquote>
-<p>
- Leaving out the text content will print the link target instead (so you don't have to write 'place a link to &quot;ask the custodian about the missing artifacts&quot; reading &quot;ask the custodian about the missing artifacts&quot; ' and so on).
-<p>
-<blockquote><font color="#000080"> say &quot;Feel free to &quot;;<br> place a link to command &quot;look&quot;;<br> say &quot; around.&quot;;</font></blockquote>
-<p>
- The option &quot;without showing the command&quot; runs the command but doesn't show it in the scrollback. The story's response is still printed.
-<p>
-<blockquote><font color="#000080"> place a link to command &quot;inventory&quot; reading &quot;my stuff&quot;, without showing the command;</font></blockquote>
-<p>
- In a non-Vorple interpreter only the link text is displayed.
-<p>
- Chapter: Links that execute JavaScript code
-<p>
- Links that execute JavaScript code can be created with the following command:
-<p>
-<blockquote><font color="#000080"> place a link to execute the JavaScript command &quot;alert('Hello!')&quot; called &quot;greeting&quot; reading &quot;Hello?&quot;;</font></blockquote>
-<p>
- The &quot;called&quot; part is optional.
-<p>
- The click event object is available in the execution scope as a variable called &quot;e&quot;. The object is the jQuery's event object in response to the click.
-<p>
- Example: * Click to Learn More - Hyperlinks to external web pages, email links and action links, with a fallback if Vorple is not available
-<p>
- Email links (&quot;mailto:&quot;) open an external mail program with the address pre-filled.
-<p>
-<blockquote><font color="#000080"><script language="JavaScript">
-function pasteCode1015(code) {
-    var myProject = project();
+        body, p, td {
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.8rem; /* 100/125 */
+        }
 
-    myProject.selectView('source');
-    myProject.pasteCode('[=0x0022=]Click to Learn More[=0x0022=][=0x000A=][=0x000A=]Include Vorple Hyperlinks by Juhana Leinonen.[=0x000A=][=0x000A=]Release along with the [=0x0022=]Vorple[=0x0022=] interpreter.[=0x000A=][=0x000A=]Lounge is a room.[=0x000A=][=0x000A=]Getting information is an action out of world.[=0x000A=]Understand [=0x0022=]about[=0x0022=] and [=0x0022=]info[=0x0022=] as getting information.[=0x000A=][=0x000A=]Carry out getting information:[=0x000A=][=0x0009=]say [=0x0022=]This fine story has been made possible by [=0x0022=];[=0x000A=][=0x0009=]if Vorple is supported:[=0x000A=][=0x0009=][=0x0009=]place a link to web site [=0x0022=]http://vorple-if.com[=0x0022=] reading [=0x0022=]Vorple[=0x0022=];[=0x000A=][=0x0009=]otherwise:[=0x000A=][=0x0009=][=0x0009=]say [=0x0022=]Vorple (vorple-if.com)[=0x0022=];[=0x000A=][=0x0009=]say [=0x0022=]. Please contact us at [=0x0022=];[=0x000A=][=0x0009=]place a link to web site [=0x0022=]mailto:if@example.com[=0x0022=] reading [=0x0022=]if@example.com[=0x0022=];[=0x000A=][=0x0009=]say [=0x0022=].[=0x0022=][=0x000A=][=0x000A=]After looking for the first time:[=0x000A=][=0x0009=]say [=0x0022=](Type [=0x0022=];[=0x000A=][=0x0009=]place a link to command [=0x0022=]ABOUT[=0x0022=];[=0x000A=][=0x0009=]say [=0x0022=] for more information.)[line break][=0x0022=].[=0x000A=][=0x000A=]Test me with [=0x0022=]about[=0x0022=].[=0x000A=][=0x000A=]');
-}
-</script>
-<a href="javascript:pasteCode1015()"><img border=0 src=inform:/doc_images/paste.png></a> &quot;Click to Learn More&quot;</font></blockquote>
-<p>
-<blockquote><font color="#000080"> Include Vorple Hyperlinks by Juhana Leinonen.</font></blockquote>
-<p>
-<blockquote><font color="#000080"> Release along with the &quot;Vorple&quot; interpreter.</font></blockquote>
-<p>
-<blockquote><font color="#000080"> Lounge is a room.</font></blockquote>
-<p>
-<blockquote><font color="#000080"> Getting information is an action out of world.<br> Understand &quot;about&quot; and &quot;info&quot; as getting information.</font></blockquote>
-<p>
-<blockquote><font color="#000080"> Carry out getting information:<br>&nbsp;&nbsp;&nbsp;&nbsp; say &quot;This fine story has been made possible by &quot;;<br>&nbsp;&nbsp;&nbsp;&nbsp; if Vorple is supported:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; place a link to web site &quot;http://vorple-if.com&quot; reading &quot;Vorple&quot;;<br>&nbsp;&nbsp;&nbsp;&nbsp; otherwise:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say &quot;Vorple (vorple-if.com)&quot;;<br>&nbsp;&nbsp;&nbsp;&nbsp; say &quot;. Please contact us at &quot;;<br>&nbsp;&nbsp;&nbsp;&nbsp; place a link to web site &quot;mailto:if@example.com&quot; reading &quot;if@example.com&quot;;<br>&nbsp;&nbsp;&nbsp;&nbsp; say &quot;.&quot;</font></blockquote>
-<p>
-<blockquote><font color="#000080"> After looking for the first time:<br>&nbsp;&nbsp;&nbsp;&nbsp; say &quot;(Type &quot;;<br>&nbsp;&nbsp;&nbsp;&nbsp; place a link to command &quot;ABOUT&quot;;<br>&nbsp;&nbsp;&nbsp;&nbsp; say &quot; for more information.)[line break]&quot;.</font></blockquote>
-<p>
-<blockquote><font color="#000080"> Test me with &quot;about&quot;.</font></blockquote>
-<p>
- Example: ** Click to Retry - Clickable options when play ends
-<p>
- If the story makes use of hyperlinks, we will probably want the options presented when the play ends be clickable as well. This example replaces the rule in the Standard Rules with one that prints the options as hyperlinks.
-<p>
- Because we can't print the topic entry that contains the actual command, we'll assume that the word written in all caps is the correct command.
-<p>
-<blockquote><font color="#000080"><script language="JavaScript">
-function pasteCode1016(code) {
-    var myProject = project();
+        /* For fixed-point material within text, such as the typing on the Library Card index page */
 
-    myProject.selectView('source');
-    myProject.pasteCode('[=0x0022=]Click to Retry[=0x0022=][=0x000A=][=0x000A=]Chapter 1 - Clickable end of story options[=0x000A=][=0x000A=]Include Vorple Hyperlinks by Juhana Leinonen.[=0x000A=]Release along with the [=0x0022=]Vorple[=0x0022=] interpreter.[=0x000A=][=0x000A=]This is the clickable print the final question rule:[=0x000A=][=0x0009=]let named options count be 0;[=0x000A=][=0x0009=]repeat through the Table of Final Question Options:[=0x000A=][=0x0009=][=0x0009=]if the only if victorious entry is false or the story has ended finally:[=0x000A=][=0x0009=][=0x0009=][=0x0009=]if there is a final response rule entry[=0x000A=][=0x0009=][=0x0009=][=0x0009=][=0x0009=]or the final response activity entry is not empty:[=0x000A=][=0x0009=][=0x0009=][=0x0009=][=0x0009=]if there is a final question wording entry, increase named options count by 1;[=0x000A=][=0x0009=]if the named options count is less than 1, abide by the immediately quit rule;[=0x000A=][=0x0009=]say [=0x0022=]Would you like to [=0x0022=] (A);[=0x000A=][=0x0009=]repeat through the Table of Final Question Options:[=0x000A=][=0x0009=][=0x0009=]if the only if victorious entry is false or the story has ended finally:[=0x000A=][=0x0009=][=0x0009=][=0x0009=]if there is a final response rule entry[=0x000A=][=0x0009=][=0x0009=][=0x0009=][=0x0009=]or the final response activity entry is not empty:[=0x000A=][=0x0009=][=0x0009=][=0x0009=][=0x0009=]if there is a final question wording entry and final question wording entry matches the regular expression [=0x0022=][=0x003C=]A-Z[=0x003E=]{2,}[=0x0022=]:[=0x000A=][=0x0009=][=0x0009=][=0x0009=][=0x0009=][=0x0009=]place a link to command text matching regular expression reading final question wording entry;[=0x000A=][=0x0009=][=0x0009=][=0x0009=][=0x0009=][=0x0009=]decrease named options count by 1;[=0x000A=][=0x0009=][=0x0009=][=0x0009=][=0x0009=][=0x0009=]if the named options count is 1:[=0x000A=][=0x0009=][=0x0009=][=0x0009=][=0x0009=][=0x0009=][=0x0009=]if the serial comma option is active, say [=0x0022=],[=0x0022=];[=0x000A=][=0x0009=][=0x0009=][=0x0009=][=0x0009=][=0x0009=][=0x0009=]say [=0x0022=] or [=0x0022=] (B);[=0x000A=][=0x0009=][=0x0009=][=0x0009=][=0x0009=][=0x0009=]otherwise if the named options count is 0:[=0x000A=][=0x0009=][=0x0009=][=0x0009=][=0x0009=][=0x0009=][=0x0009=]say [=0x0022=]?[paragraph break][=0x0022=];[=0x000A=][=0x0009=][=0x0009=][=0x0009=][=0x0009=][=0x0009=]otherwise:[=0x000A=][=0x0009=][=0x0009=][=0x0009=][=0x0009=][=0x0009=][=0x0009=]say [=0x0022=], [=0x0022=];[=0x000A=][=0x000A=]The clickable print the final question rule is listed instead of the print the final question rule in the before handling the final question rulebook.[=0x000A=][=0x000A=]Chapter 2 - Story[=0x000A=][=0x000A=]The Treasury is a room.[=0x0009=]The gem is in the treasury.[=0x000A=][=0x000A=]After taking the gem:[=0x000A=][=0x0009=]end the story finally.[=0x000A=][=0x000A=]Test me with [=0x0022=]take gem[=0x0022=].[=0x000A=][=0x000A=]');
-}
-</script>
-<a href="javascript:pasteCode1016()"><img border=0 src=inform:/doc_images/paste.png></a> &quot;Click to Retry&quot;</font></blockquote>
-<p>
-<blockquote><font color="#000080"> Chapter 1 - Clickable end of story options</font></blockquote>
-<p>
-<blockquote><font color="#000080"> Include Vorple Hyperlinks by Juhana Leinonen.<br> Release along with the &quot;Vorple&quot; interpreter.</font></blockquote>
-<p>
-<blockquote><font color="#000080"> This is the clickable print the final question rule:<br>&nbsp;&nbsp;&nbsp;&nbsp; let named options count be 0;<br>&nbsp;&nbsp;&nbsp;&nbsp; repeat through the Table of Final Question Options:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if the only if victorious entry is false or the story has ended finally:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if there is a final response rule entry<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; or the final response activity entry is not empty:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if there is a final question wording entry, increase named options count by 1;<br>&nbsp;&nbsp;&nbsp;&nbsp; if the named options count is less than 1, abide by the immediately quit rule;<br>&nbsp;&nbsp;&nbsp;&nbsp; say &quot;Would you like to &quot; (A);<br>&nbsp;&nbsp;&nbsp;&nbsp; repeat through the Table of Final Question Options:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if the only if victorious entry is false or the story has ended finally:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if there is a final response rule entry<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; or the final response activity entry is not empty:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if there is a final question wording entry and final question wording entry matches the regular expression &quot;&lt;A-Z&gt;{2,}&quot;:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; place a link to command text matching regular expression reading final question wording entry;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; decrease named options count by 1;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if the named options count is 1:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if the serial comma option is active, say &quot;,&quot;;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say &quot; or &quot; (B);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; otherwise if the named options count is 0:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say &quot;?[paragraph break]&quot;;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; otherwise:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say &quot;, &quot;;</font></blockquote>
-<p>
-<blockquote><font color="#000080"> The clickable print the final question rule is listed instead of the print the final question rule in the before handling the final question rulebook.</font></blockquote>
-<p>
-<blockquote><font color="#000080"> Chapter 2 - Story</font></blockquote>
-<p>
-<blockquote><font color="#000080"> The Treasury is a room. The gem is in the treasury.</font></blockquote>
-<p>
-<blockquote><font color="#000080"> After taking the gem:<br>&nbsp;&nbsp;&nbsp;&nbsp; end the story finally.</font></blockquote>
-<p>
-<blockquote><font color="#000080"> Test me with &quot;take gem&quot;.</font></blockquote>
-<p>
- Example: *** Mood Swings - Changing the text of clicked links
-<p>
- A commonly used technique in modern hypertext IF is to make a linked text cycle through a set of options that changes the story state. For example, clicking on the word &quot;happy&quot; in the text &quot;Alice is happy&quot; changes the sentence to &quot;Alice is sad&quot; without otherwise advancing the story.
-<p>
- Here we do the same thing by making links in character descriptions trigger a hidden command that changes the property called appearance and then changing the link to reflect the new property. The phrase that changes the link (&quot;display text...&quot;) is from the core Vorple extension.
-<p>
-<blockquote><font color="#000080"><script language="JavaScript">
-function pasteCode1017(code) {
-    var myProject = project();
+        span.typewritten {
+        	font-family: monospace;
+        	font-size: 0.867rem; /* 13/12 * 100/125 */
+        }
 
-    myProject.selectView('source');
-    myProject.pasteCode('[=0x0022=]Mood Swings[=0x0022=][=0x000A=][=0x000A=]Include Vorple Hyperlinks by Juhana Leinonen.[=0x000A=]Release along with the [=0x0022=]Vorple[=0x0022=] interpreter.[=0x000A=][=0x000A=]An appearance is a kind of value. Appearances are confident, energetic, flustered, tired and cheerful. A person has an appearance.[=0x000A=][=0x000A=]The Savoy Ballroom is a room. Alice is a woman in the ballroom. Bob is a man in the ballroom. Carol is a woman in the ballroom. David is a man in the ballroom.[=0x000A=][=0x000A=]The description of a person is usually [=0x0022=][The item described] is looking [link to the appearance of the item described].[=0x0022=][=0x000A=][=0x000A=]To say link to the appearance of (target - person):[=0x000A=][=0x0009=]let link name be [=0x0022=]appearance-[target][=0x0022=];[=0x000A=][=0x0009=]disable all links called link name;[=0x000A=][=0x0009=]place a link to the command [=0x0022=]cycle appearance of [target][=0x0022=] called link name reading [=0x0022=][appearance of the target][=0x0022=], without showing the command.[=0x000A=][=0x000A=]Cycling the appearance is an action applying to one visible thing.[=0x000A=][=0x000A=]Understand [=0x0022=]cycle appearance of [any person][=0x0022=] as cycling the appearance.[=0x000A=][=0x000A=]Carry out cycling the appearance:[=0x000A=][=0x0009=]now the noun is the appearance after the appearance of the noun;[=0x000A=][=0x0009=]if Vorple is supported:[=0x000A=][=0x0009=][=0x0009=]display text [=0x0022=][appearance of the noun][=0x0022=] in the element called [=0x0022=]appearance-[noun][=0x0022=].[=0x000A=][=0x000A=]Report cycling the appearance when Vorple is not supported:[=0x000A=][=0x0009=]say [=0x0022=][The noun] is now [appearance of the noun].[=0x0022=][=0x000A=][=0x000A=]Test me with [=0x0022=]x alice/cycle appearance of alice/g/x alice/x bob/cycle appearance of bob/x bob[=0x0022=].[=0x000A=][=0x000A=]');
-}
-</script>
-<a href="javascript:pasteCode1017()"><img border=0 src=inform:/doc_images/paste.png></a> &quot;Mood Swings&quot;</font></blockquote>
-<p>
-<blockquote><font color="#000080"> Include Vorple Hyperlinks by Juhana Leinonen.<br> Release along with the &quot;Vorple&quot; interpreter.</font></blockquote>
-<p>
-<blockquote><font color="#000080"> An appearance is a kind of value. Appearances are confident, energetic, flustered, tired and cheerful. A person has an appearance.</font></blockquote>
-<p>
-<blockquote><font color="#000080"> The Savoy Ballroom is a room. Alice is a woman in the ballroom. Bob is a man in the ballroom. Carol is a woman in the ballroom. David is a man in the ballroom.</font></blockquote>
-<p>
-<blockquote><font color="#000080"> The description of a person is usually &quot;[The item described] is looking [link to the appearance of the item described].&quot;</font></blockquote>
-<p>
-<blockquote><font color="#000080"> To say link to the appearance of (target - person):<br>&nbsp;&nbsp;&nbsp;&nbsp; let link name be &quot;appearance-[target]&quot;;<br>&nbsp;&nbsp;&nbsp;&nbsp; disable all links called link name;<br>&nbsp;&nbsp;&nbsp;&nbsp; place a link to the command &quot;cycle appearance of [target]&quot; called link name reading &quot;[appearance of the target]&quot;, without showing the command.</font></blockquote>
-<p>
-<blockquote><font color="#000080"> Cycling the appearance is an action applying to one visible thing.</font></blockquote>
-<p>
-<blockquote><font color="#000080"> Understand &quot;cycle appearance of [any person]&quot; as cycling the appearance.</font></blockquote>
-<p>
-<blockquote><font color="#000080"> Carry out cycling the appearance:<br>&nbsp;&nbsp;&nbsp;&nbsp; now the noun is the appearance after the appearance of the noun;<br>&nbsp;&nbsp;&nbsp;&nbsp; if Vorple is supported:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; display text &quot;[appearance of the noun]&quot; in the element called &quot;appearance-[noun]&quot;.</font></blockquote>
-<p>
-<blockquote><font color="#000080"> Report cycling the appearance when Vorple is not supported:<br>&nbsp;&nbsp;&nbsp;&nbsp; say &quot;[The noun] is now [appearance of the noun].&quot;</font></blockquote>
-<p>
-<blockquote><font color="#000080"> Test me with &quot;x alice/cycle appearance of alice/g/x alice/x bob/cycle appearance of bob/x bob&quot;.</font></blockquote>
-<p>
+        /* For less important material: the small print */
 
-<p>
-<p></body></html>
+        span.smaller {
+        	font-size: 80%;
+        }
+
+        /* The "heading panel" is the coloured box, high up on the page. The colours
+        vary depending on the page: for example, the style on a report of a translation
+        with no problems is "headingpanelsucceeded", usually green, but if there were
+        problems then "headingpanelfailed" is used, which is usually red. "headingpanel"
+        itself is a more neutral grey by default. "headingpanelDark" is an alternative
+        look to make the extensions index pages have some visual contrast with the others;
+        by default they are a darker grey. */
+
+        .headingpanel {
+        	background: #eeeeee;
+        }
+        .headingpanelsucceeded {
+        	background: #E6FFE6;
+        }
+        .headingpanelfailed {
+        	background: #f69Ca6;
+        }
+        .headingpanelalt {
+        	background: #808080;
+        }
+
+        /* Heading panels have two lines of text: an upper one in a larger size, and a
+        lower one in a smaller. Again, the alt versions are meant to contrast.
+
+        	Report on Translation: Succeeded                <-- headingpaneltext
+        	Produced by Inform 10.1.0 (build 6U97)          <-- headingpanelrubric
+
+        	Installed Extensions                            <-- headingpaneltextalt
+        	Bundles of extra rules or phrases to...         <-- headingpanelrubricalt
+
+        */
+
+        span.headingpaneltext {
+        	color: #222222;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+        span.headingpaneltextalt {
+        	color: #ffffff;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        span.headingpanelrubric {
+        	color: #222222;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.733rem; /* 11/12 * 100/125 */
+        	font-weight: bold;
+        }
+        span.headingpanelrubricalt {
+        	color: #ffffff;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.733rem; /* 11/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* Horizontal rule styling */
+
+        div.hr {
+        	border: 0;
+        	width: 100%;
+        	color: #707070;
+        	background-color: #707070;
+        	height: 5px;
+        }
+
+        /* This styles the (usually white) text of the example numbers written inside
+        oval blobs in the extension documentation, which mimic the look of the in-app
+        documentation. */
+
+        .oval, .oval td {
+        	background-image:url('inform:/doc_images/ovoid.png');
+        	color:white;
+        }
+
+        /* Styling used in the extension documentation indexes: */
+
+        /* Used for extension names in the extensions pane of the app */
+
+        span.extensioncensusentry {
+        	color: #ffffff;
+        }
+
+        span.extensionindexentry {
+        	color: #404040;
+        }
+
+        span.extensionindexerror {
+        	color: #ff8080;
+        }
+
+        /* This is used in extension documentation, where an example is presented
+        in a slightly tinted box: */
+
+        table.extensionexample {
+        	background-color: #f0f0f0;
+        }
+
+        span.extensionexampleletter {
+        	color: #202020;
+        	font-size: 14px;
+        	font-weight: bold;
+        }
+
+        /* Seen in problem messages: */
+
+        span.problemred {
+        	color: #800000;
+        }
+
+        span.problemgreen {
+        	color: #008000;
+        }
+
+        span.phraseword {
+        	color: #808080;
+        }
+
+        span.phrasetokentext {
+        	color: #e00060;
+        }
+
+        span.phrasetokendesctext {
+        	color: #4040ff;
+        }
+
+        span.phrasetokenvaluetext {
+        	color: #ff4040;
+        }
+
+        /* Now we move on to styling used in the Index pages only: */
+
+        /* The periodic table display has "sidebars", usually grey and taller than they
+        are wide; they contain no text. */
+
+        div.periodictablesidebarcolour {
+        	background: #888;
+        }
+        div.periodictablesidebar:hover {
+        	background: #222;
+        }
+
+        /* The text of the element-abbreviation, such as "Lx" or "Ph", uses: */
+
+        span.elementtext {
+        	color: #ffffff;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* Similarly for the "atomic number" - a single digit - in the top left corner
+        of these boxes: */
+
+        span.elementnumbertext {
+        	color: #ffffff;
+        	font-size: 0.622rem; /* 7/12 * 96/72 * 100/125 */
+        }
+
+        /* For the text of the element title, to the right of the element box: */
+
+        span.elementtitletext {
+        	color: #ffffff;
+        	font-size: 0.6rem; /* 9/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* The banner at the top of each element: */
+
+        table.elementbanner {
+        	background: #eeeeee;
+        }
+
+        /* For the typewriting on the Library Card: */
+
+        span.librarycardtitle {
+        	color: #803030;
+        }
+
+        span.librarycardother {
+        	color: #303030;
+        }
+
+        /* Generically used for "more details" boxes in the index: */
+
+        table.indexmorebox {
+        	background-color: #e0e0e0;
+            border-radius: 8px;
+        }
+
+        /* But not for activity contents: */
+
+        table.indexactivitycontents {
+        	background-color: #e8e0c0;
+            border-radius: 8px;
+        }
+
+        /* For responses in index entries about rules: */
+
+        span.indexresponseletter {
+        	color: #ffffff;
+        	font-family: 'Courier New', Courier, monospace;
+        	background-color: #8080ff;
+        }
+
+        span.indexresponsetext {
+        	color: #000066;
+        }
+
+        /* Used ubiquitously throughout the index and extension documentation: */
+
+        span.indexblack {
+        	color: #000000;
+        }
+
+        span.indexgrey {
+        	color: #808080;
+        }
+
+        span.indexdarkgrey {
+            color: #505050;
+        }
+
+        span.indexdullred {
+        	color: #800000;
+        }
+
+        span.indexdullgreen {
+        	color: #008000;
+        }
+
+        span.indexdullblue {
+        	color: #000080;
+        }
+
+        /* Used for the room squares in the World map in the Index (which is currently
+        a table with one row of one column) */
+
+        table.indexmaproom {
+        	border-color: #000000;
+        }
+
+        /* Used in the numbering of levels of the World map in the Index */
+
+        span.indexmaplevelnumbers {
+        	color: #c0c0c0;
+        }
+
+        /* Used e.g. for title rows in the Chart of basic kinds in the Index */
+
+        tr.headingrow {
+        	background-color: #e0e0e0;
+        }
+
+        /* Standard rows have black text on striped background colours, these being
+        the usual ones seen in Mac OS X applications such as iTunes. */
+
+        tr.stripeone {
+        	background-color: #ffffff;
+        }
+
+        tr.stripetwo {
+        	background-color: #f3f6fa;
+        }
+
+        tr.tintedrow {
+        	background-color: #808080;
+        }
+
+        /* In the Figures index, this is the background colour used behind images
+        (though in fact it will only be visible if the image fails to load, or uses
+        transparency): */
+
+        div.figureindexbox {
+        	background-color: #6495ed;
+        }
+
+        /* To get the book-contents-page style leaders on the Contents element of
+           the index to work, these must use the background colour of the body of
+           the page, whatever that is: */
+
+        ul.leaders li.leaded span:first-child {
+        	background: white;
+        }
+        ul.leaders li.leaded span + span {
+        	background: white;
+        }
+
+        /* On Registry index pages (such as the Public Library), these are used for
+        download buttons and the like: */
+
+        span.registrybuttontext {
+        	font-size: 11px;
+        	border-color: #000000;
+        }
+
+        span.registryminibuttontext {
+        	font-size: 10px;
+        	border-color: #000000;
+        }
+
+        span.registrybuttonuninstalled {
+        	color: #000000;
+        	background: #ffffdd;
+        }
+
+        span.registrybuttoninstalled {
+        	color: #000000;
+        	background: #ffffff;
+        	pointer-events: none;
+        }
+
+        span.registrybuttonbuiltin {
+        	color: #888888;
+        	background: #ffffff;
+        	pointer-events: none;
+        }
+
+        span.registrybuttonupdate {
+        	color: #000000;
+        	background: #aaddff;
+        }
+
+        span.registrybuttonrevert {
+        	color: #000000;
+        	background: #ddaaff;
+        }
+
+        span.registrybuttonrevealer {
+        	color: #ffffff;
+        	background: #444444;
+        }
+
+        /* Registry index section headings: */
+
+        span.registrysectionname {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 16px;
+        	line-height: 18px;
+        }
+        span.registrysubsectionname {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 14px;
+        	line-height: 16px;
+        }
+
+        /* These are for the "mark" for a section, usually a section-symbol and number */
+
+        span.registrysectionmark {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 16px;
+        	line-height: 18px;
+        	color: #666;
+        }
+        span.registrysubsectionmark {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 14px;
+        	line-height: 16px;
+        	color: #666;
+        }
+
+        /* Text of an item listed in a registry: */
+
+        span.registryitemtext {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 12px;
+        	line-height: 16px;
+        }
+
+        /* And how the links in a registry index page behave: */
+
+        a.registrysilentlink {
+        	text-decoration: none;
+        	color: #000;
+        }
+        a.registrybuttonlink {
+        	text-decoration: none;
+        }
+        a.registrycontentslink:link {
+        	text-decoration: none;
+        	color: #202020;
+        }
+        a.registrycontentslink:visited {
+        	text-decoration: none;
+        	color: #202020;
+        }
+        a.registrycontentslink:hover {
+        	text-decoration: none;
+        	color: #D00000;
+        }
+        a.registrycontentslink:active {
+        	text-decoration: none;
+        	color: #D00000;
+        }
+
+        -->
+    </style>
+    <style type="text/css">
+        <!--
+        /* (1) General layout material */
+
+        *, *:before, *:after {
+        	-moz-box-sizing: border-box;
+        	-webkit-box-sizing: border-box;
+        	box-sizing: border-box;
+        }
+        .headingpanellayout {
+        	position: relative;
+        	height: 56px;
+        	padding: 0px;
+        	white-space:nowrap;
+        }
+        .headingpanellayoutdeeper {
+        	position: relative;
+        	height: 117px;
+        	padding: 0px;
+        	white-space:nowrap;
+        }
+        .headingtext {
+        	position: absolute;
+        	top: -4px;
+        	left: -1px;
+        	width: 100%;
+        	padding: 14px 10px 0px 10px;
+        }
+        .headingrubric {
+        	position: absolute;
+        	top: 36px;
+        	width: 100%;
+        	padding: 0px 10px 0px 10px;
+        }
+        h3.tighter {
+        	margin-top: 0px;
+        }
+        p.hang {
+        	padding-left: 25px;
+        	text-indent: -25px;
+        	margin-top: 0px;
+        	margin-bottom: 0px;
+        }
+        p.in1 {
+        	padding-left: 0px;
+        }
+        p.tightin1 {
+        	padding-left: 0px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin1 {
+        	padding-left: 0px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin1 {
+        	padding-left: 50px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in2 {
+        	padding-left: 25px;
+        }
+        p.tightin2 {
+        	padding-left: 25px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin2 {
+        	padding-left: 25px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin2 {
+        	padding-left: 75px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in3 {
+        	padding-left: 50px;
+        }
+        p.tightin3 {
+        	padding-left: 50px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin3 {
+        	padding-left: 50px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin3 {
+        	padding-left: 100px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in4 {
+        	padding-left: 75px;
+        }
+        p.tightin4 {
+        	padding-left: 75px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin4 {
+        	padding-left: 75px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin4 {
+        	padding-left: 125px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in5 {
+        	padding-left: 100px;
+        }
+        p.tightin5 {
+        	padding-left: 100px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin5 {
+        	padding-left: 100px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin5 {
+        	padding-left: 150px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in6 {
+        	padding-left: 125px;
+        }
+        p.tightin6 {
+        	padding-left: 125px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin6 {
+        	padding-left: 125px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin6 {
+        	padding-left: 175px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in7 {
+        	padding-left: 150px;
+        }
+        p.tightin7 {
+        	padding-left: 150px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin7 {
+        	padding-left: 150px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin7 {
+        	padding-left: 200px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in8 {
+        	padding-left: 175px;
+        }
+        p.tightin8 {
+        	padding-left: 175px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin8 {
+        	padding-left: 175px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin8 {
+        	padding-left: 225px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in9 {
+        	padding-left: 200px;
+        }
+        p.tightin9 {
+        	padding-left: 200px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin9 {
+        	padding-left: 200px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin9 {
+        	padding-left: 250px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+
+        /* (2) Index page layout material */
+
+        /* The periodic table display has "sidebars", usually grey and taller than they
+        are wide; they contain no text. */
+
+        div.periodictablesidebar {
+        	height: 56px;
+        	width: 16px;
+        }
+        .periodictablesidebar a:link { text-decoration: none; }
+        .periodictablesidebar a:visited { text-decoration: none; }
+        .periodictablesidebar a:active { text-decoration: none; }
+
+        /* The "element boxes" are the cells appearing in the periodic-table display
+        on the welcome page of the index: */
+
+        .elementbox {
+        	position: relative;
+        	height: 56px;
+        	width: 56px;
+        	padding: 0px;
+        }
+
+        .elementbox a:link { text-decoration: none; }
+        .elementbox a:visited { text-decoration: none; }
+        .elementbox a:active { text-decoration: none; }
+        .elementbox a:hover { text-decoration: none; }
+        .elementbox:hover {
+        	opacity: 0.6;
+        }
+
+        /* The "small element boxes" look like those, but are smaller, and used on
+        the headings of the content which those original boxes link to: */
+
+        .smallelementbox {
+        	position: relative;
+        	height: 40px;
+        	width: 40px;
+        	padding: 0px;
+        }
+
+        .smallelementbox a:link { text-decoration: none; }
+        .smallelementbox a:visited { text-decoration: none; }
+        .smallelementbox a:active { text-decoration: none; }
+        .smallelementbox a:hover { text-decoration: none; }
+        .smallelementbox:hover {
+        	opacity: 0.6;
+        }
+
+        /* This is a class for the links formed by the element boxes: */
+
+        a.elementlink {
+        	position: absolute;
+        	top: -4px;
+        	left: -1px;
+        	width: 100%;
+        	padding: 14px 0px 14px 1px;
+        	text-align: center;
+        }
+
+        /* Similarly for the "atomic number" - a single digit - in the top left corner
+        of these boxes: */
+
+        div.elementnumber {
+        	position: absolute;
+        	top: 1px;
+        	left: 3px;
+        	text-align: left;
+        }
+
+        /* For the text of the element title, to the right of the element box: */
+
+        div.elementtitle {
+        	position: absolute;
+        	top: 35px;
+        	width: 100%;
+        	text-align: center;
+        }
+
+        /* Used for the book-contents-page style leaders on the Contents element of
+           the index: */
+
+        ul.leaders {
+        	padding: 0;
+        	margin-top: 1px;
+        	margin-bottom: 0;
+        	overflow-x: hidden;
+        	list-style: none}
+        ul.leaders li.leaded:before {
+        	float: left;
+        	width: 0;
+        	white-space: nowrap;
+        	content:
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "}
+        ul.leaders li.leaded span:first-child {
+        	padding-right: 0.33em;
+        }
+        ul.leaders li.leaded span + span {
+        	float: right;
+        	padding-left: 0.33em;
+        }
+        li.indent1 span:first-child {
+        	padding-left: 25px;
+        }
+        li.indent2 span:first-child {
+        	padding-left: 50px;
+        }
+        li.indent3 span:first-child {
+        	padding-left: 75px;
+        }
+        li.indent4 span:first-child {
+        	padding-left: 100px;
+        }
+        li.indent5 span:first-child {
+        	padding-left: 125px;
+        }
+        li.indent6 span:first-child {
+        	padding-left: 150px;
+        }
+        li.indent7 span:first-child {
+        	padding-left: 175px;
+        }
+        li.indent8 span:first-child {
+        	padding-left: 200px;
+        }
+        li.indent9 span:first-child {
+        	padding-left: 225px;
+        }
+
+        li.unleaded:before {
+        	content: "";
+        }
+
+        /* On Registry index pages (such as the Public Library), these are used for
+        download buttons and the like: */
+
+        span.registrybuttons {
+        	height: 20px;
+        	padding: 2px 8px 2px 8px;
+        	margin: 2px;
+        	border:1px solid;
+        	border-radius: 5px;
+        }
+
+        span.registryminibuttons {
+        	height: 14px;
+        	padding: 2px 5px 2px 5px;
+        	margin: 2px;
+        	border:1px solid;
+        	border-radius: 4px;
+        }
+
+        /* Used to hide or display sections in the Registry pages: */
+
+        div.registrysectionitemsopen {
+        	display: block;
+        }
+
+        div.registrysectionitemsclosed {
+        	display: none;
+        }
+
+        /* Hanging indentation for Registry item paragraphs: */
+
+        p.registryitem {
+        	padding-left: 80px;
+        	text-indent: -40px;
+        }
+
+        p.registryaddition {
+        	padding-left: 40px;
+        	text-indent: -40px;
+        }
+
+        -->
+    </style>
+    <script type="text/javascript">
+        function project() {
+            return window.Project;
+        }
+        function showExtra(id, imid) {
+        	if (document.getElementById(id).style.display == 'block') {
+        		document.getElementById(id).style.display = 'none';
+        		document.getElementById(imid).src = 'inform:/extra.png';
+        	} else {
+        		document.getElementById(id).style.display = 'block';
+        		document.getElementById(imid).src = 'inform:/extraclose.png';
+        	}
+        }
+        function openExtra(id, imid) {
+        	document.getElementById(id).style.display = 'block';
+        	document.getElementById(imid).src = 'inform:/extraclose.png';
+        }
+        function closeExtra(id, imid) {
+        	document.getElementById(id).style.display = 'none';
+        	document.getElementById(imid).src = 'inform:/extra.png';
+        }
+        function pasteCode(code) {
+            var myProject = project();
+
+            myProject.selectView('source');
+            myProject.pasteCode(code);
+        }
+
+    </script>
+</head>
+<body>
+    <!--CONTENT BEGINS-->
+    <table CELLPADDING=0 CELLSPACING=0 width="100%" bgcolor="#000000"><tr><TD width=38px height=26px align="center" valign="center"><a href="inform://Extensions/Extensions.html" border=0><img border=0 src="inform:/doc_images/Hookindex.png" border=0></a></td><TD width=38px height=26px align="center" valign="center"></td><td halign="left" valign="center" CELLPADDING=0 CELLSPACING=0><font color="#FFFFFF" size=2>Extensions</font></a></td><TD width=56px height=26px align="right" valign="center"><a href="inform:/index.html" border=0><img border=0 src="inform:/doc_images/Hookup.png" border=0></a></td></tr></table>
+
+    <p><a href="javascript:pasteCode('Include Vorple Hyperlinks by Juhana Leinonen.[=0x000A=][=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a>&nbsp;<b>Vorple Hyperlinks<span class="extensionindexentry"> by </span>Juhana Leinonen</b></p>
+    <p><span class="smaller">(For Glulx Only)&nbsp; <img border=0 src=inform:/doc_images/vm_glulx.png>&nbsp;Version 3.0.181103</span></p>
+    <p>Hyperlinks that either open a web site, execute a parser command or evaluate JavaScript code.</p>
+    <p></p>
+    <hr>
+    <p><span class="indexblack"><b><a style="text-decoration: none" href=#docsec1>Chapter 1: </a></b></span>Links to web sites<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec2>Chapter 2: </a></b></span>Links to commands<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec3>Chapter 3: </a></b></span>Links that execute JavaScript code<br>
+    <br>
+    <b>Examples</b><br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href="Vorple Hyperlinks-eg1.html#eg1">A &mdash; Click to Learn More</a></span><br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href="Vorple Hyperlinks-eg2.html#eg2">B &mdash; Click to Retry</a></span><br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href="Vorple Hyperlinks-eg3.html#eg3">C &mdash; Mood Swings</a></span><br>
+    </p>
+    <hr>
+    <p></p>
+    </p>
+
+    <p> There are three kinds of hyperlinks that we can add to the story with this extension: a link to another web site, a link that triggers a parser command, or a link that runs JavaScript code.</p>
+
+    <p> In non-Vorple interpreters the links are just plain text that can't be clicked.</p>
+
+    <p><p><span class="indexdullred"><b><span id=docsec1>Chapter 1: Links to web sites</span></b></span></p>
+    </p>
+
+    <p> Hyperlinks open web pages in new browser windows. The addresses should include the &quot;http://&quot; or &quot;https://&quot; prefix, unless the link is pointing to another file on the same server.</p>
+
+    <p><blockquote><span class="indexdullblue"> place a link to web site &quot;http://vorple-if.com&quot; reading &quot;Vorple web page&quot;;</span></blockquote>
+
+    <p> An optional &quot;called&quot; part defines the link element's additional classes.</p>
+
+    <p><blockquote><span class="indexdullblue"> place a link to web site &quot;http://vorple-if.com&quot; called &quot;system-credits&quot; reading &quot;Vorple web page&quot;;</span></blockquote>
+
+    <p> Clicking on the links open the target web page on a new browser window. The link can be opened in the same window by passing an option:</p>
+
+    <p><blockquote><span class="indexdullblue"> place a link to web site &quot;http://vorple-if.com&quot; reading &quot;Vorple web page&quot;, opening in the same window;</span></blockquote>
+
+    <p> If the story is run in a standard interpreter, the link description text is displayed but not the web site address (and clicking on the text won't do anything).</p>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec2>Chapter 2: Links to commands</span></b></span></p>
+    </p>
+
+    <p> Links to commands by default work just as if they would have been typed on the prompt.</p>
+
+    <p><blockquote><span class="indexdullblue"> place a link to command &quot;open door&quot; reading &quot;door&quot;;</span></blockquote>
+
+    <p> Leaving out the text content will print the link target instead (so you don't have to write 'place a link to &quot;ask the custodian about the missing artifacts&quot; reading &quot;ask the custodian about the missing artifacts&quot; ' and so on).</p>
+
+    <p><blockquote><span class="indexdullblue"> say &quot;Feel free to &quot;;<br>
+     place a link to command &quot;look&quot;;<br>
+     say &quot; around.&quot;;</span></blockquote>
+
+    <p> The option &quot;without showing the command&quot; runs the command but doesn't show it in the scrollback. The story's response is still printed.</p>
+
+    <p><blockquote><span class="indexdullblue"> place a link to command &quot;inventory&quot; reading &quot;my stuff&quot;, without showing the command;</span></blockquote>
+
+    <p> In a non-Vorple interpreter only the link text is displayed.</p>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec3>Chapter 3: Links that execute JavaScript code</span></b></span></p>
+    </p>
+
+    <p> Links that execute JavaScript code can be created with the following command:</p>
+
+    <p><blockquote><span class="indexdullblue"> place a link to execute the JavaScript command &quot;alert('Hello!')&quot; called &quot;greeting&quot; reading &quot;Hello?&quot;;</span></blockquote>
+
+    <p> The &quot;called&quot; part is optional.</p>
+
+    <p> The click event object is available in the execution scope as a variable called &quot;e&quot;. The object is the jQuery's event object in response to the click.</p>
+
+    <p><hr>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td halign="left" valign="top" cellpadding=0 cellspacing=0 width=38px>
+                <span id=eg1><table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="oval">
+                        <td width=38px height=30px align="left" valign="center">
+                            <a href="Vorple Hyperlinks-eg1.html#eg1" style="text-decoration: none"><div class="paragraph Body" style="line-height: 1px; margin-bottom: 0px; margin-top: 0px; padding-bottom: 0pt; padding-top: 0px; text-align: center;">
+                                <span class="extensionexampleletter">A</span></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                </span>
+            </td>
+            <td cellpadding=0 cellspacing=0 halign="left" valign="top">
+                <a href="Vorple Hyperlinks-eg1.html#eg1" style="text-decoration: none"><img border="0" src='inform:/doc_images/asterisk.png'><b><span class="indexdarkgrey">&nbsp;Example&nbsp;</span><span class="indexblack">Click to Learn More</span></b></a><br>
+                <p>Hyperlinks to external web pages, email links and action links, with a fallback if Vorple is not available</p>
+
+            </td>
+        </tr>
+    </table>
+    </p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p><hr>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td halign="left" valign="top" cellpadding=0 cellspacing=0 width=38px>
+                <span id=eg2><table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="oval">
+                        <td width=38px height=30px align="left" valign="center">
+                            <a href="Vorple Hyperlinks-eg2.html#eg2" style="text-decoration: none"><div class="paragraph Body" style="line-height: 1px; margin-bottom: 0px; margin-top: 0px; padding-bottom: 0pt; padding-top: 0px; text-align: center;">
+                                <span class="extensionexampleletter">B</span></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                </span>
+            </td>
+            <td cellpadding=0 cellspacing=0 halign="left" valign="top">
+                <a href="Vorple Hyperlinks-eg2.html#eg2" style="text-decoration: none"><img border="0" src='inform:/doc_images/asterisk.png'><img border="0" src='inform:/doc_images/asterisk.png'><b><span class="indexdarkgrey">&nbsp;Example&nbsp;</span><span class="indexblack">Click to Retry</span></b></a><br>
+                <p>Clickable options when play ends</p>
+
+            </td>
+        </tr>
+    </table>
+    </p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p><hr>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td halign="left" valign="top" cellpadding=0 cellspacing=0 width=38px>
+                <span id=eg3><table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="oval">
+                        <td width=38px height=30px align="left" valign="center">
+                            <a href="Vorple Hyperlinks-eg3.html#eg3" style="text-decoration: none"><div class="paragraph Body" style="line-height: 1px; margin-bottom: 0px; margin-top: 0px; padding-bottom: 0pt; padding-top: 0px; text-align: center;">
+                                <span class="extensionexampleletter">C</span></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                </span>
+            </td>
+            <td cellpadding=0 cellspacing=0 halign="left" valign="top">
+                <a href="Vorple Hyperlinks-eg3.html#eg3" style="text-decoration: none"><img border="0" src='inform:/doc_images/asterisk.png'><img border="0" src='inform:/doc_images/asterisk.png'><img border="0" src='inform:/doc_images/asterisk.png'><b><span class="indexdarkgrey">&nbsp;Example&nbsp;</span><span class="indexblack">Mood Swings</span></b></a><br>
+                <p>Changing the text of clicked links</p>
+
+            </td>
+        </tr>
+    </table>
+    </p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p>
+    <!--CONTENT ENDS-->
+</body>
+</html>
