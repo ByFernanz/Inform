@@ -1,0 +1,13 @@
+[0131/101924.329:INFO:CONSOLE(822)] "Uncaught ReferenceError: test is not defined", source: file:///C:/Program%20Files/Inform/Documentation/advice/TestingTemplate.html (822)
+[0131/101924.329:INFO:CONSOLE(822)] "Uncaught ReferenceError: test is not defined", source: file:///C:/Program%20Files/Inform/Documentation/advice/TestingTemplate.html (822)
+[0131/101953.205:ERROR:gpu_init.cc(486)] Passthrough is not supported, GL is disabled, ANGLE is 
+[0131/102027.658:INFO:render_frame_host_impl.cc(11505)] RenderFrameHostImpl::MaybeGenerateCrashReport url = file:///C:/Users/byfer/OneDrive/Documentos/Juegos/Usurpador/El%20Usurpador.inform/Build/Problems.html, status = 4, exit_code = 258
+[0131/102027.668:INFO:render_frame_host_impl.cc(11505)] RenderFrameHostImpl::MaybeGenerateCrashReport url = file:///C:/Program%20Files/Inform/Documentation/advice/TestingTemplate.html, status = 4, exit_code = 258
+[0131/102027.673:INFO:render_frame_host_impl.cc(11505)] RenderFrameHostImpl::MaybeGenerateCrashReport url = file:///C:/Users/byfer/OneDrive/Documentos/Juegos/Usurpador/El%20Usurpador.inform/Index/Welcome.html, status = 4, exit_code = 258
+[0131/102027.675:INFO:render_frame_host_impl.cc(11505)] RenderFrameHostImpl::MaybeGenerateCrashReport url = , status = 4, exit_code = 258
+[0131/102027.678:INFO:render_frame_host_impl.cc(11505)] RenderFrameHostImpl::MaybeGenerateCrashReport url = , status = 4, exit_code = 258
+[0131/102027.683:INFO:render_frame_host_impl.cc(11505)] RenderFrameHostImpl::MaybeGenerateCrashReport url = file:///C:/Users/byfer/OneDrive/Documentos/Juegos/Usurpador/El%20Usurpador.inform/Build/Problems.html, status = 4, exit_code = 258
+[0131/102027.688:INFO:render_frame_host_impl.cc(11505)] RenderFrameHostImpl::MaybeGenerateCrashReport url = file:///C:/Program%20Files/Inform/Documentation/advice/TestingTemplate.html, status = 4, exit_code = 258
+[0131/102027.690:INFO:render_frame_host_impl.cc(11505)] RenderFrameHostImpl::MaybeGenerateCrashReport url = file:///C:/Users/byfer/OneDrive/Documentos/Juegos/Usurpador/El%20Usurpador.inform/Index/Welcome.html, status = 4, exit_code = 258
+[0131/102027.693:INFO:render_frame_host_impl.cc(11505)] RenderFrameHostImpl::MaybeGenerateCrashReport url = file:///C:/Program%20Files/Inform/Documentation/index.html, status = 4, exit_code = 258
+[0131/102027.695:INFO:render_frame_host_impl.cc(11505)] RenderFrameHostImpl::MaybeGenerateCrashReport url = file:///C:/Users/byfer/OneDrive/Documentos/Inform/Documentation/Extensions.html, status = 4, exit_code = 258

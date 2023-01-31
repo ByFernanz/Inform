@@ -1,317 +1,322 @@
-|Aaron Reed|Commonly Unimplemented|20230130204129/685:Mon 30 January 2023 20:41|indexing|
-|Aaron Reed|Dynamic Rooms|20230130204129/1854:Mon 30 January 2023 20:41|indexing|
-|Aaron Reed|Extended Grammar|20230130204129/258:Mon 30 January 2023 20:41|indexing|
-|Aaron Reed|Keyword Interface|20230130204129/2867:Mon 30 January 2023 20:41|indexing|
-|Aaron Reed|Numbered Disambiguation Choices|20230130204129/438:Mon 30 January 2023 20:41|indexing|
-|Aaron Reed|Poor Man's Mistype|20230130204129/258:Mon 30 January 2023 20:41|indexing|
-|Aaron Reed|Response Assistant|20230130204129/170:Mon 30 January 2023 20:41|indexing|
-|Aaron Reed|Small Kindnesses|20230130204129/391:Mon 30 January 2023 20:41|indexing|
-|Aaron Reed|Smarter Parser|20230130204129/6382:Mon 30 January 2023 20:41|indexing|
-|Alice Grove|Common Commands Sidebar|20230130204129/5086:Mon 30 January 2023 20:41|indexing|
-|Alice Grove|Simple Spelling|20230130204129/461:Mon 30 January 2023 20:41|indexing|
-|Andrew Owen|Secret Doors|20230130204129/383:Mon 30 January 2023 20:41|indexing|
-|Andrew Plotkin|Disappearing Doors|20230130204129/568:Mon 30 January 2023 20:41|indexing|
-|Andrew Plotkin|Optimized Epistemology|20230130204129/1485:Mon 30 January 2023 20:41|indexing|
-|Andrew Plotkin|Serial And Fix|20230130204129/0:Mon 30 January 2023 20:41|indexing|
-|Andrew Plotkin|Unified Glulx Input|20230130204129/7894:Mon 30 January 2023 20:41|indexing|
-|Andrew Schultz|In-Line Topical Hints|20230130204129/3186:Mon 30 January 2023 20:41|indexing|
-|Aw Freyr|Hybrid Choices|20230130204129/7846:Mon 30 January 2023 20:41|indexing|
-|B David Paulsen|Rapid Prototyping|20230130204129/543:Mon 30 January 2023 20:41|indexing|
-|Bart Massey|Basic Literacy|20230130204129/701:Mon 30 January 2023 20:41|indexing|
-|Brady Garvin|Object Kinds|20230130204129/473:Mon 30 January 2023 20:41|indexing|
-|Brady Garvin|Scopability|20230130204129/262:Mon 30 January 2023 20:41|indexing|
-|Brian Rushton|Clues And Conversation|20230130204129/3160:Mon 30 January 2023 20:41|indexing|
-|Chris Conley|Conversation Builder|20230130204129/2413:Mon 30 January 2023 20:41|indexing|
-|Chris Conley|Threaded Conversation|20230130204129/13297:Mon 30 January 2023 20:41|indexing|
-|Creative Commons|Configurable Creative Commons License|20230130204129/586:Mon 30 January 2023 20:41|indexing|
-|Daniel Gaskell|Volumetric Limiter|20230130204129/725:Mon 30 January 2023 20:41|indexing|
-|Daniel Stelzer|Alternate Lighting System|20230130204129/254:Mon 30 January 2023 20:41|indexing|
-|Daniel Stelzer|Boolean Variables|20230130204129/0:Mon 30 January 2023 20:41|indexing|
-|Daniel Stelzer|Cleared Events|20230130204129/83:Mon 30 January 2023 20:41|indexing|
-|Daniel Stelzer|Command Casing|20230130204129/0:Mon 30 January 2023 20:41|indexing|
-|Daniel Stelzer|Command Modification|20230130204129/111:Mon 30 January 2023 20:41|indexing|
-|Daniel Stelzer|Command Preloading|20230130204129/54:Mon 30 January 2023 20:41|indexing|
-|Daniel Stelzer|Conversation Touchability Fix|20230130204129/34:Mon 30 January 2023 20:41|indexing|
-|Daniel Stelzer|Debugging|20230130204129/0:Mon 30 January 2023 20:41|indexing|
-|Daniel Stelzer|Default Styles|20230130204129/0:Mon 30 January 2023 20:41|indexing|
-|Daniel Stelzer|Empty Command Handling|20230130204129/97:Mon 30 January 2023 20:41|indexing|
-|Daniel Stelzer|Formatting Capture|20230130204129/167:Mon 30 January 2023 20:41|indexing|
-|Daniel Stelzer|Glulx Text Styles|20230130204129/215:Mon 30 January 2023 20:41|indexing|
-|Daniel Stelzer|Helpful Functions|20230130204129/0:Mon 30 January 2023 20:41|indexing|
-|Daniel Stelzer|Hidden Prompt|20230130204129/93:Mon 30 January 2023 20:41|indexing|
-|Daniel Stelzer|Inline Hyperlinks|20230130204129/2800:Mon 30 January 2023 20:41|indexing|
-|Daniel Stelzer|Modified Timekeeping|20230130204129/123:Mon 30 January 2023 20:41|indexing|
-|Daniel Stelzer|Music|20230130204129/284:Mon 30 January 2023 20:41|indexing|
-|Daniel Stelzer|Output Silencing|20230130204129/0:Mon 30 January 2023 20:41|indexing|
-|Daniel Stelzer|Runtime Replacements|20230130204129/523:Mon 30 January 2023 20:41|indexing|
-|Daniel Stelzer|Subcommands|20230130204129/234:Mon 30 January 2023 20:41|indexing|
-|Daniel Stelzer|Third Noun|20230130204129/0:Mon 30 January 2023 20:41|indexing|
-|Daniel Stelzer|Typographical Conveniences|20230130204129/0:Mon 30 January 2023 20:41|indexing|
-|Dannii Willis|Alternative Startup Rules|20230130204129/0:Mon 30 January 2023 20:41|indexing|
-|Dannii Willis|Benchmarking|20230130204129/1100:Mon 30 January 2023 20:41|indexing|
-|Dannii Willis|Collections|20230130204129/801:Mon 30 January 2023 20:41|indexing|
-|Dannii Willis|Data Structures|20230130204129/1063:Mon 30 January 2023 20:41|indexing|
-|Dannii Willis|Glk Events|20230130204129/0:Mon 30 January 2023 20:41|indexing|
-|Dannii Willis|Glk Object Recovery|20230130204129/194:Mon 30 January 2023 20:41|indexing|
-|Dannii Willis|Glk Text Formatting|20230130204129/420:Mon 30 January 2023 20:41|indexing|
-|Dannii Willis|Glulx Definitions|20230130204129/431:Mon 30 January 2023 20:41|indexing|
-|Dannii Willis|Highscores|20230130204129/181:Mon 30 January 2023 20:41|indexing|
-|Dannii Willis|Infra Undo|20230130204129/370:Mon 30 January 2023 20:41|indexing|
-|Dannii Willis|Json|20230130204129/807:Mon 30 January 2023 20:41|indexing|
-|Dannii Willis|Menus|20230130204129/983:Mon 30 January 2023 20:41|indexing|
-|Dannii Willis|Startup Precomputation|20230130204129/281:Mon 30 January 2023 20:41|indexing|
-|Dannii Willis|Xorshift|20230130204129/294:Mon 30 January 2023 20:41|indexing|
-|Dave Robinson|Snippetage|20230130204129/972:Mon 30 January 2023 20:41|indexing|
-|David A Wheeler|Dice|20230130204129/375:Mon 30 January 2023 20:41|indexing|
-|David Corbett|Mobile Doors|20230130204129/528:Mon 30 January 2023 20:41|indexing|
-|David Cornelson|Basic Help|20230130204129/192:Mon 30 January 2023 20:41|indexing|
-|David Ratliff|Armed|20230130204129/1484:Mon 30 January 2023 20:41|indexing|
-|Edward Griffiths|Adventure Book|20230130204129/21203:Mon 30 January 2023 20:41|indexing|
-|Eliuk Blau|Glulx Boxed Quotation|20230130204129/129:Mon 30 January 2023 20:41|indexing|
-|Emily Short|Approaches|20230130204129/2868:Mon 30 January 2023 20:41|indexing|
-|Emily Short|Assorted Text Generation|20230130204129/1344:Mon 30 January 2023 20:41|indexing|
-|Emily Short|Automated Drawers|20230130204129/696:Mon 30 January 2023 20:41|indexing|
-|Emily Short|Basic Help Menu Sp|20230130204129/452:Mon 30 January 2023 20:41|indexing|
-|Emily Short|Basic Hyperlinks|20230130204129/525:Mon 30 January 2023 20:41|indexing|
-|Emily Short|Basic Screen Effects Sp|20230130204129/55:Mon 30 January 2023 20:41|indexing|
-|Emily Short|Computers|20230130204129/4607:Mon 30 January 2023 20:41|indexing|
-|Emily Short|Deluxe Doors|20230130204129/1048:Mon 30 January 2023 20:41|indexing|
-|Emily Short|Dishes|20230130204129/370:Mon 30 January 2023 20:41|indexing|
-|Emily Short|Facing|20230130204129/897:Mon 30 January 2023 20:41|indexing|
-|Emily Short|Glulx Entry Points|20230130204129/964:Mon 30 January 2023 20:41|indexing|
-|Emily Short|Introductions|20230130204129/2311:Mon 30 January 2023 20:41|indexing|
-|Emily Short|Location Images|20230130204129/152:Mon 30 January 2023 20:41|indexing|
-|Emily Short|Measured Liquid|20230130204129/5801:Mon 30 January 2023 20:41|indexing|
-|Emily Short|Menus Sp|20230130204129/13:Mon 30 January 2023 20:41|indexing|
-|Emily Short|Modern Conveniences|20230130204129/1088:Mon 30 January 2023 20:41|indexing|
-|Emily Short|Modified Exit|20230130204129/824:Mon 30 January 2023 20:41|indexing|
-|Emily Short|Mood Variations|20230130204129/811:Mon 30 January 2023 20:41|indexing|
-|Emily Short|Ordinary Room Description|20230130204129/194:Mon 30 January 2023 20:41|indexing|
-|Emily Short|Postures|20230130204129/837:Mon 30 January 2023 20:41|indexing|
-|Emily Short|Power Sources|20230130204129/2323:Mon 30 January 2023 20:41|indexing|
-|Emily Short|Property Checking|20230130204129/214:Mon 30 January 2023 20:41|indexing|
-|Emily Short|Recorded Endings|20230130204129/674:Mon 30 January 2023 20:41|indexing|
-|Emily Short|Room Description Control|20230130204129/996:Mon 30 January 2023 20:41|indexing|
-|Emily Short|Simple Followers|20230130204129/482:Mon 30 January 2023 20:41|indexing|
-|Emily Short|Simple Graphical Window|20230130204129/727:Mon 30 January 2023 20:41|indexing|
-|Emily Short|Single Paragraph Description|20230130204129/341:Mon 30 January 2023 20:41|indexing|
-|Emily Short|Tailored Room Description|20230130204129/2648:Mon 30 January 2023 20:41|indexing|
-|Emily Short|Transit System|20230130204129/970:Mon 30 January 2023 20:41|indexing|
-|Emily Short|Tutorial Mode|20230130204129/740:Mon 30 January 2023 20:41|indexing|
-|Eric Eve|Adaptive Hints|20230130204129/2562:Mon 30 January 2023 20:41|indexing|
-|Eric Eve|Alternatives|20230130204129/1350:Mon 30 January 2023 20:41|indexing|
-|Eric Eve|Bulk Limiter|20230130204129/428:Mon 30 January 2023 20:41|indexing|
-|Eric Eve|Conversation Framework|20230130204129/3117:Mon 30 January 2023 20:41|indexing|
-|Eric Eve|Conversation Nodes|20230130204129/4396:Mon 30 January 2023 20:41|indexing|
-|Eric Eve|Conversation Package|20230130204129/1975:Mon 30 January 2023 20:41|indexing|
-|Eric Eve|Conversation Responses|20230130204129/814:Mon 30 January 2023 20:41|indexing|
-|Eric Eve|Conversation Rules|20230130204129/4807:Mon 30 January 2023 20:41|indexing|
-|Eric Eve|Conversation Suggestions|20230130204129/2041:Mon 30 January 2023 20:41|indexing|
-|Eric Eve|Conversational Defaults|20230130204129/1437:Mon 30 January 2023 20:41|indexing|
-|Eric Eve|Exit Lister|20230130204129/2187:Mon 30 January 2023 20:41|indexing|
-|Eric Eve|Hiding Under|20230130204129/2657:Mon 30 January 2023 20:41|indexing|
-|Eric Eve|Implicit Actions|20230130204129/5645:Mon 30 January 2023 20:41|indexing|
-|Eric Eve|Limited Implicit Actions|20230130204129/3237:Mon 30 January 2023 20:41|indexing|
-|Eric Eve|List Control|20230130204129/1644:Mon 30 January 2023 20:41|indexing|
-|Eric Eve|List Controller|20230130204129/1903:Mon 30 January 2023 20:41|indexing|
-|Eric Eve|Npc Implicit Actions|20230130204129/658:Mon 30 January 2023 20:41|indexing|
-|Eric Eve|Text Capture|20230130204129/870:Mon 30 January 2023 20:41|indexing|
-|Eric Eve|Underside|20230130204129/1620:Mon 30 January 2023 20:41|indexing|
-|Eric Eve|Variable Time Control|20230130204129/1137:Mon 30 January 2023 20:41|indexing|
-|Erik Temple|Extended Debugging|20230130204129/827:Mon 30 January 2023 20:41|indexing|
-|Erik Temple|Glimmr Canvas Animation|20230130204129/19512:Mon 30 January 2023 20:41|indexing|
-|Erik Temple|Glimmr Canvas-Based Drawing|20230130204129/24775:Mon 30 January 2023 20:41|indexing|
-|Erik Temple|Glimmr Drawing Commands|20230130204129/12013:Mon 30 January 2023 20:41|indexing|
-|Erik Temple|Glimmr Graphic Hyperlinks|20230130204129/1980:Mon 30 January 2023 20:41|indexing|
-|Erik Temple|Inline Hyperlinks|20230130204129/2799:Mon 30 January 2023 20:41|indexing|
-|Erik Temple|Real-Time Delays|20230130204129/675:Mon 30 January 2023 20:41|indexing|
-|Erik Temple|Undo Output Control|20230130204129/3293:Mon 30 January 2023 20:41|indexing|
-|Friends Of I7|6m62 Patches|20230130204129/26:Mon 30 January 2023 20:41|indexing|
-|Friends Of I7|Interpreter Sniffing|20230130204129/568:Mon 30 January 2023 20:41|indexing|
-|Gavin Lambert|Brief Room Descriptions|20230130204129/380:Mon 30 January 2023 20:41|indexing|
-|Gavin Lambert|Enterable Underside|20230130204129/1054:Mon 30 January 2023 20:41|indexing|
-|Gavin Lambert|Exit Lister|20230130204129/2688:Mon 30 January 2023 20:41|indexing|
-|Gavin Lambert|Extended Banner|20230130204129/356:Mon 30 January 2023 20:41|indexing|
-|Gavin Lambert|Glk Input Suspending|20230130204129/315:Mon 30 January 2023 20:41|indexing|
-|Gavin Lambert|Hyperlink Extension Registry|20230130204129/1370:Mon 30 January 2023 20:41|indexing|
-|Gavin Lambert|Hyperlinks|20230130204129/1778:Mon 30 January 2023 20:41|indexing|
-|Gavin Lambert|Inline Hyperlinks|20230130204129/5331:Mon 30 January 2023 20:41|indexing|
-|Gavin Lambert|Prepositional Correctness|20230130204129/1558:Mon 30 January 2023 20:41|indexing|
-|Gavin Lambert|Rideable Vehicles|20230130204129/135:Mon 30 January 2023 20:41|indexing|
-|Gavin Lambert|Secret Doors|20230130204129/887:Mon 30 January 2023 20:41|indexing|
-|Gavin Lambert|Title Page|20230130204129/1516:Mon 30 January 2023 20:41|indexing|
-|Hanon Ondricek|Easy Doors|20230130204129/4008:Mon 30 January 2023 20:41|indexing|
-|Jeff Nyman|Contextual Descriptions|20230130204129/557:Mon 30 January 2023 20:41|indexing|
-|Jeff Nyman|Description Decay|20230130204129/1582:Mon 30 January 2023 20:41|indexing|
-|Jeff Nyman|Nuanced Timekeeping|20230130204129/81:Mon 30 January 2023 20:41|indexing|
-|Jeff Nyman|Relative Placement And Direction|20230130204129/864:Mon 30 January 2023 20:41|indexing|
-|Jeff Nyman|Story Substrate|20230130204129/735:Mon 30 January 2023 20:41|indexing|
-|Jeff Nyman|Supplemental|20230130204129/264:Mon 30 January 2023 20:41|indexing|
-|Jeff Nyman|World Knowledge|20230130204129/1370:Mon 30 January 2023 20:41|indexing|
-|Jeff Sheets|Graphic Links|20230130204129/318:Mon 30 January 2023 20:41|indexing|
-|Jesse Mcgrew|Dynamic Objects|20230130204129/966:Mon 30 January 2023 20:41|indexing|
-|Jesse Mcgrew|Dynamic Tables|20230130204129/1788:Mon 30 January 2023 20:41|indexing|
-|Jesse Mcgrew|Hypothetical Questions|20230130204129/848:Mon 30 January 2023 20:41|indexing|
-|Jim Aikin|Notepad|20230130204129/1883:Mon 30 January 2023 20:41|indexing|
-|Johan Paz|Cortos|20230130204129/531:Mon 30 January 2023 20:41|indexing|
-|John Clemens|Consolidated Multiple Actions|20230130204129/2643:Mon 30 January 2023 20:41|indexing|
-|John Clemens|Scheduled Activities|20230130204129/2443:Mon 30 January 2023 20:41|indexing|
-|Jon Ingold|Disambiguation Control|20230130204129/4832:Mon 30 January 2023 20:41|indexing|
-|Jon Ingold|Far Away|20230130204129/1754:Mon 30 January 2023 20:41|indexing|
-|Jon Ingold|Flexible Windows|20230130204129/1806:Mon 30 January 2023 20:41|indexing|
-|Jon Ingold|Title Page|20230130204129/545:Mon 30 January 2023 20:41|indexing|
-|Juhana Leinonen|Achievements|20230130204129/519:Mon 30 January 2023 20:41|indexing|
-|Juhana Leinonen|Bulky Items|20230130204129/1170:Mon 30 January 2023 20:41|indexing|
-|Juhana Leinonen|Debug Files|20230130204129/943:Mon 30 January 2023 20:41|indexing|
-|Juhana Leinonen|Object Response Tests|20230130204129/1218:Mon 30 January 2023 20:41|indexing|
-|Juhana Leinonen|Regional Travel|20230130204129/1065:Mon 30 January 2023 20:41|indexing|
-|Juhana Leinonen|Reversed Persuasion Correction|20230130204129/484:Mon 30 January 2023 20:41|indexing|
-|Juhana Leinonen|Vorple Element Manipulation|20230130204129/1337:Mon 30 January 2023 20:41|indexing|
-|Juhana Leinonen|Vorple Modal Windows|20230130204129/537:Mon 30 January 2023 20:41|indexing|
-|Juhana Leinonen|Vorple Notifications|20230130204129/644:Mon 30 January 2023 20:41|indexing|
-|Juhana Leinonen|Vorple Status Line|20230130204129/1722:Mon 30 January 2023 20:41|indexing|
-|Juhana Leinonen|Vorple Tooltips|20230130204129/1191:Mon 30 January 2023 20:41|indexing|
-|Leonardo Boselli|Automap It|20230130204129/15:Mon 30 January 2023 20:41|indexing|
-|Leonardo Boselli|Basic Help Menu It|20230130204129/34:Mon 30 January 2023 20:41|indexing|
-|Leonardo Boselli|Bulky Items It|20230130204129/13:Mon 30 January 2023 20:41|indexing|
-|Leonardo Boselli|Creative Commons Public License It|20230130204129/42:Mon 30 January 2023 20:41|indexing|
-|Leonardo Boselli|Menus It|20230130204129/32:Mon 30 January 2023 20:41|indexing|
-|Leonardo Boselli|Milleuna For Gargoyle With Graphics|20230130204129/6:Mon 30 January 2023 20:41|indexing|
-|Leonardo Boselli|Milleuna For Gargoyle|20230130204129/6:Mon 30 January 2023 20:41|indexing|
-|Leonardo Boselli|Milleuna For Quixe With Graphics|20230130204129/6:Mon 30 January 2023 20:41|indexing|
-|Leonardo Boselli|Milleuna For Quixe|20230130204129/6:Mon 30 January 2023 20:41|indexing|
-|Leonardo Boselli|Milleuna World|20230130204129/25:Mon 30 January 2023 20:41|indexing|
-|Leonardo Boselli|Numbered Disambiguation Choices It|20230130204129/13:Mon 30 January 2023 20:41|indexing|
-|Leonardo Boselli|Patrollers It|20230130204129/15:Mon 30 January 2023 20:41|indexing|
-|Leonardo Boselli|Questions It|20230130204129/15:Mon 30 January 2023 20:41|indexing|
-|Leonardo Boselli|Release For Gargoyle|20230130204129/0:Mon 30 January 2023 20:41|indexing|
-|Leonardo Boselli|Release For Quixe|20230130204129/0:Mon 30 January 2023 20:41|indexing|
-|Leonardo Boselli|Scoring It|20230130204129/6:Mon 30 January 2023 20:41|indexing|
-|Leonardo Boselli|Scoring|20230130204129/6:Mon 30 January 2023 20:41|indexing|
-|Leonardo Boselli|Simple Followers It|20230130204129/13:Mon 30 January 2023 20:41|indexing|
-|Leonardo Boselli|Simple Graphical Window|20230130204129/14:Mon 30 January 2023 20:41|indexing|
-|Leonardo Boselli|Simple Html Window|20230130204129/23:Mon 30 January 2023 20:41|indexing|
-|Leonardo Boselli|Title Page It|20230130204129/16:Mon 30 January 2023 20:41|indexing|
-|Leonardo Boselli|Written Inventory|20230130204129/16:Mon 30 January 2023 20:41|indexing|
-|Mark Tilford|Automap|20230130204129/2295:Mon 30 January 2023 20:41|indexing|
-|Massimo Stella|Italian Language|20230130204129/1832:Mon 30 January 2023 20:41|indexing|
-|Massimo Stella|Multiple Sounds Sp|20230130204129/350:Mon 30 January 2023 20:41|indexing|
-|Massimo Stella|Multiple Sounds|20230130204129/569:Mon 30 January 2023 20:41|indexing|
-|Matt Weiner|Actions On Groups|20230130204129/3872:Mon 30 January 2023 20:41|indexing|
-|Matt Weiner|Indefinite Article Substitution Fix|20230130204129/743:Mon 30 January 2023 20:41|indexing|
-|Matt Weiner|Responsive Disambiguation For 6m62|20230130204129/564:Mon 30 January 2023 20:41|indexing|
-|Michael Callaghan|Patrollers Sp|20230130204129/4457:Mon 30 January 2023 20:41|indexing|
-|Michael Callaghan|Questions|20230130204129/3911:Mon 30 January 2023 20:41|indexing|
-|Michael Kielstra|Debug Tags|20230130204129/1131:Mon 30 January 2023 20:41|indexing|
-|Michael Martin|Assumed Conversers|20230130204129/162:Mon 30 January 2023 20:41|indexing|
-|Michael Martin|Quip-Based Conversation Sp|20230130204129/1661:Mon 30 January 2023 20:41|indexing|
-|Michael Martin|Quip-Based Conversation|20230130204129/1661:Mon 30 January 2023 20:41|indexing|
-|Michael Martin|Reactable Quips Sp|20230130204129/1807:Mon 30 January 2023 20:41|indexing|
-|Michael Martin|Reactable Quips|20230130204129/1807:Mon 30 January 2023 20:41|indexing|
-|Michael Martin|Unicode Interrogation|20230130204129/103:Mon 30 January 2023 20:41|indexing|
-|Mikael Segercrantz|Achievements|20230130204129/1288:Mon 30 January 2023 20:41|indexing|
-|Mikael Segercrantz|Atmospheric Effects|20230130204129/4260:Mon 30 January 2023 20:41|indexing|
-|Mikael Segercrantz|Randomness|20230130204129/286:Mon 30 January 2023 20:41|indexing|
-|Mikael Segercrantz|Trinity Inventory|20230130204129/1430:Mon 30 January 2023 20:41|indexing|
-|Mike Ciul|Autotaking|20230130204129/454:Mon 30 January 2023 20:41|indexing|
-|Mike Ciul|Effective Infinity|20230130204129/285:Mon 30 January 2023 20:41|indexing|
-|Mike Ciul|Flexible Action Requirements|20230130204129/1076:Mon 30 January 2023 20:41|indexing|
-|Mike Ciul|Objects Matching Snippets|20230130204129/656:Mon 30 January 2023 20:41|indexing|
-|Mike Ciul|Scope Caching|20230130204129/901:Mon 30 January 2023 20:41|indexing|
-|Mike Ciul|Takeability|20230130204129/0:Mon 30 January 2023 20:41|indexing|
-|Mike Ciul|Unknown Word Error|20230130204129/281:Mon 30 January 2023 20:41|indexing|
-|Nate Cull|Basic Plans|20230130204129/924:Mon 30 January 2023 20:41|indexing|
-|Nate Cull|Planner|20230130204129/1992:Mon 30 January 2023 20:41|indexing|
-|Nathanael Nerode|Character Portraits|20230130204129/872:Mon 30 January 2023 20:41|indexing|
-|Nathanael Nerode|Compliant Characters|20230130204129/2752:Mon 30 January 2023 20:41|indexing|
-|Nathanael Nerode|Gender Options|20230130204129/2750:Mon 30 January 2023 20:41|indexing|
-|Nathanael Nerode|Gender Speedup|20230130204129/276:Mon 30 January 2023 20:41|indexing|
-|Nathanael Nerode|Initial Cursor At Top Or Bottom|20230130204129/1093:Mon 30 January 2023 20:41|indexing|
-|Nathanael Nerode|Large Game Speedup|20230130204129/1648:Mon 30 January 2023 20:41|indexing|
-|Nathanael Nerode|Nathanael's Cookbook|20230130204129/2904:Mon 30 January 2023 20:41|indexing|
-|Nathanael Nerode|Nathanael's Debug Tools|20230130204129/82:Mon 30 January 2023 20:41|indexing|
-|Nathanael Nerode|Neutral Standard Responses|20230130204129/3212:Mon 30 January 2023 20:41|indexing|
-|Nathanael Nerode|Parser Error Number Bugfix|20230130204129/75:Mon 30 January 2023 20:41|indexing|
-|Nathanael Nerode|Room Description Supporter Bugfixes|20230130204129/576:Mon 30 January 2023 20:41|indexing|
-|Nathanael Nerode|Standard Rules Dead Code Removal|20230130204129/112:Mon 30 January 2023 20:41|indexing|
-|Nathanael Nerode|Tab Removal|20230130204129/137:Mon 30 January 2023 20:41|indexing|
-|Nathanael Nerode|Title Case For Headings|20230130204129/2006:Mon 30 January 2023 20:41|indexing|
-|Nathanael Nerode|Undo Output Control|20230130204129/3293:Mon 30 January 2023 20:41|indexing|
-|Nathanael Nerode|Verb Stripping|20230130204129/154:Mon 30 January 2023 20:41|indexing|
-|Peter Orme|Checkpoints|20230130204129/1466:Mon 30 January 2023 20:41|indexing|
-|Peter Orme|Developer Framework|20230130204129/242:Mon 30 January 2023 20:41|indexing|
-|Peter Orme|Flexible Logger|20230130204129/1133:Mon 30 January 2023 20:41|indexing|
-|Peter Orme|Object Descriptors|20230130204129/336:Mon 30 January 2023 20:41|indexing|
-|Peter Orme|Possible Movements|20230130204129/29:Mon 30 January 2023 20:41|indexing|
-|Peter Orme|Unit Testing|20230130204129/834:Mon 30 January 2023 20:41|indexing|
-|Peter Orme|Universal Opening|20230130204129/307:Mon 30 January 2023 20:41|indexing|
-|Ron Newcomb|After Not Doing Something|20230130204129/213:Mon 30 January 2023 20:41|indexing|
-|Ron Newcomb|Command Prompt On Cue|20230130204129/856:Mon 30 January 2023 20:41|indexing|
-|Ron Newcomb|Editable Stored Actions|20230130204129/1384:Mon 30 January 2023 20:41|indexing|
-|Ron Newcomb|Permission To Visit|20230130204129/2264:Mon 30 January 2023 20:41|indexing|
-|Ron Newcomb|Phrases For Adaptive Pacing|20230130204129/1416:Mon 30 January 2023 20:41|indexing|
-|Ron Newcomb|Phrases For Tables With Topics|20230130204129/495:Mon 30 January 2023 20:41|indexing|
-|Ron Newcomb|Real Date And Time|20230130204129/941:Mon 30 January 2023 20:41|indexing|
-|Ron Newcomb|Rewrite The Command Line|20230130204129/681:Mon 30 January 2023 20:41|indexing|
-|Ron Newcomb|Scope Control|20230130204129/583:Mon 30 January 2023 20:41|indexing|
-|Ron Newcomb|Unsuccessful Pc Attempt|20230130204129/495:Mon 30 January 2023 20:41|indexing|
-|Sarah Morayati|Basic Real Time|20230130204129/976:Mon 30 January 2023 20:41|indexing|
-|Sean Turner|Plugs And Sockets|20230130204129/2232:Mon 30 January 2023 20:41|indexing|
-|Shin|Game Ending Reloaded|20230130204129/17:Mon 30 January 2023 20:41|indexing|
-|Shin|Points Awarding Reloaded|20230130204129/17:Mon 30 January 2023 20:41|indexing|
-|Shin|Singing Reloaded|20230130204129/16:Mon 30 January 2023 20:41|indexing|
-|Shin|Swearing Reloaded|20230130204129/16:Mon 30 January 2023 20:41|indexing|
-|Stephen Granade|Footnotes|20230130204129/500:Mon 30 January 2023 20:41|indexing|
-|Taryn Michelle|Print Stage Detection|20230130204129/1448:Mon 30 January 2023 20:41|indexing|
-|Wade Clarke|Basic Help Menu|20230130204129/683:Mon 30 January 2023 20:41|indexing|
-|Wade Clarke|Menus|20230130204129/13316:Mon 30 January 2023 20:41|indexing|
-|Xavid|Command Unit Testing|20230130204129/744:Mon 30 January 2023 20:41|indexing|
-|Xavid|Directional Disambiguation|20230130204129/110:Mon 30 January 2023 20:41|indexing|
-|Xavid|Expanded Understanding|20230130204129/2487:Mon 30 January 2023 20:41|indexing|
-|Xavid|Graphical Map|20230130204129/1430:Mon 30 January 2023 20:41|indexing|
-|Xavid|Liquids|20230130204129/988:Mon 30 January 2023 20:41|indexing|
-|Xavid|Object Matching|20230130204129/611:Mon 30 January 2023 20:41|indexing|
-|Xavid|Scenery Words|20230130204129/129:Mon 30 January 2023 20:41|indexing|
-|Xavid|Visible From A Distance|20230130204129/100:Mon 30 January 2023 20:41|indexing|
-|Zed Lopez|Bit Ops|20230130204129/822:Mon 30 January 2023 20:41|indexing|
-|Zed Lopez|Char|20230130204129/553:Mon 30 January 2023 20:41|indexing|
-|Zed Lopez|Code|20230130204129/387:Mon 30 January 2023 20:41|indexing|
-|Zed Lopez|Custom Banner And Version|20230130204129/1173:Mon 30 January 2023 20:41|indexing|
-|Zed Lopez|If True|20230130204129/47:Mon 30 January 2023 20:41|indexing|
-|Zed Lopez|Inquiry|20230130204129/1037:Mon 30 January 2023 20:41|indexing|
-|Zed Lopez|List Utilities|20230130204129/2561:Mon 30 January 2023 20:41|indexing|
-|Zed Lopez|Parser Error Details|20230130204129/105:Mon 30 January 2023 20:41|indexing|
-|Zed Lopez|Pseudodevices|20230130204129/265:Mon 30 January 2023 20:41|indexing|
-|Zed Lopez|Screenreader|20230130204129/294:Mon 30 January 2023 20:41|indexing|
-|Zed Lopez|Speechless|20230130204129/178:Mon 30 January 2023 20:41|indexing|
-|Zed Lopez|Strange Loopiness|20230130204129/700:Mon 30 January 2023 20:41|indexing|
-|Zed Lopez|Supercredits|20230130204129/188:Mon 30 January 2023 20:41|indexing|
-|Zed Lopez|Switch|20230130204129/166:Mon 30 January 2023 20:41|indexing|
-|Zed Lopez|Tabulate|20230130204129/76:Mon 30 January 2023 20:41|indexing|
-|Zed Lopez|Text Loops|20230130204129/120:Mon 30 January 2023 20:41|indexing|
-|Zed Lopez|Textile|20230130204129/1379:Mon 30 January 2023 20:41|indexing|
-|Zed Lopez|Trial|20230130204129/65:Mon 30 January 2023 20:41|indexing|
-|Zed Lopez|Unicode File Io|20230130204129/430:Mon 30 January 2023 20:41|indexing|
-|Zed Lopez|Unit Tests|20230130204129/3611:Mon 30 January 2023 20:41|indexing|
-|Zed Lopez|Untrimmed Lines|20230130204129/197:Mon 30 January 2023 20:41|indexing|
-|Zed Lopez|Verbal Commands|20230130204129/158:Mon 30 January 2023 20:41|indexing|
-|Zed Lopez|Verbs|20230130204129/180:Mon 30 January 2023 20:41|indexing|
-|Emily Short|Basic Help Menu|20230130204129/452:Mon 30 January 2023 20:41|indexing|
-|Emily Short|Complex Listing|20230130204129/2213:Mon 30 January 2023 20:41|indexing|
-|Emily Short|Glulx Image Centering|20230130204129/152:Mon 30 January 2023 20:41|indexing|
-|Emily Short|Glulx Text Effects|20230130204129/1179:Mon 30 January 2023 20:41|indexing|
-|Emily Short|Inanimate Listeners|20230130204129/313:Mon 30 January 2023 20:41|indexing|
-|Emily Short|Locksmith|20230130204129/2153:Mon 30 January 2023 20:41|indexing|
-|Emily Short|Menus|20230130204129/1000:Mon 30 January 2023 20:41|indexing|
-|Emily Short|Punctuation Removal|20230130204129/800:Mon 30 January 2023 20:41|indexing|
-|Emily Short|Skeleton Keys|20230130204129/371:Mon 30 January 2023 20:41|indexing|
-|Eric Eve|Epistemology|20230130204129/1148:Mon 30 January 2023 20:41|indexing|
-|Graham Nelson|Approximate Metric Units|20230130204129/2334:Mon 30 January 2023 20:41|indexing|
-|Graham Nelson|Metric Units|20230130204129/2042:Mon 30 January 2023 20:41|indexing|
-|Graham Nelson|Rideable Vehicles|20230130204129/953:Mon 30 January 2023 20:41|indexing|
-|Graham Nelson|Unicode Character Names|20230130204129/102:Mon 30 January 2023 20:41|indexing|
-|Graham Nelson|Unicode Full Character Names|20230130204129/91:Mon 30 January 2023 20:41|indexing|
-|Graham Nelson|Standard Rules|20230130214754/42655:Mon 30 January 2023 21:47|indexing|
+|Aaron Reed|Commonly Unimplemented|20230131101949/685:Tue 31 January 2023 10:19|indexing|
+|Aaron Reed|Dynamic Rooms|20230131101949/1854:Tue 31 January 2023 10:19|indexing|
+|Aaron Reed|Extended Grammar|20230131101949/258:Tue 31 January 2023 10:19|indexing|
+|Aaron Reed|Keyword Interface|20230131101949/2867:Tue 31 January 2023 10:19|indexing|
+|Aaron Reed|Numbered Disambiguation Choices|20230131101949/438:Tue 31 January 2023 10:19|indexing|
+|Aaron Reed|Poor Man's Mistype|20230131101949/258:Tue 31 January 2023 10:19|indexing|
+|Aaron Reed|Response Assistant|20230131101949/170:Tue 31 January 2023 10:19|indexing|
+|Aaron Reed|Small Kindnesses|20230131101949/391:Tue 31 January 2023 10:19|indexing|
+|Aaron Reed|Smarter Parser|20230131101949/6382:Tue 31 January 2023 10:19|indexing|
+|Alice Grove|Common Commands Sidebar|20230131101949/5086:Tue 31 January 2023 10:19|indexing|
+|Alice Grove|Simple Spelling|20230131101949/461:Tue 31 January 2023 10:19|indexing|
+|Andrew Owen|Secret Doors|20230131101949/383:Tue 31 January 2023 10:19|indexing|
+|Andrew Plotkin|Disappearing Doors|20230131101949/568:Tue 31 January 2023 10:19|indexing|
+|Andrew Plotkin|Optimized Epistemology|20230131101949/1485:Tue 31 January 2023 10:19|indexing|
+|Andrew Plotkin|Serial And Fix|20230131101949/0:Tue 31 January 2023 10:19|indexing|
+|Andrew Plotkin|Unified Glulx Input|20230131101949/7894:Tue 31 January 2023 10:19|indexing|
+|Andrew Schultz|In-Line Topical Hints|20230131101949/3186:Tue 31 January 2023 10:19|indexing|
+|Aw Freyr|Hybrid Choices|20230131101949/7846:Tue 31 January 2023 10:19|indexing|
+|B David Paulsen|Rapid Prototyping|20230131101949/543:Tue 31 January 2023 10:19|indexing|
+|Bart Massey|Basic Literacy|20230131101949/701:Tue 31 January 2023 10:19|indexing|
+|Brady Garvin|Object Kinds|20230131101949/473:Tue 31 January 2023 10:19|indexing|
+|Brady Garvin|Scopability|20230131101949/262:Tue 31 January 2023 10:19|indexing|
+|Brian Rushton|Clues And Conversation|20230131101949/3160:Tue 31 January 2023 10:19|indexing|
+|Chris Conley|Conversation Builder|20230131101949/2413:Tue 31 January 2023 10:19|indexing|
+|Chris Conley|Threaded Conversation|20230131101949/13297:Tue 31 January 2023 10:19|indexing|
+|Creative Commons|Configurable Creative Commons License|20230131101949/586:Tue 31 January 2023 10:19|indexing|
+|Daniel Gaskell|Volumetric Limiter|20230131101949/725:Tue 31 January 2023 10:19|indexing|
+|Daniel Stelzer|Alternate Lighting System|20230131101949/254:Tue 31 January 2023 10:19|indexing|
+|Daniel Stelzer|Boolean Variables|20230131101949/0:Tue 31 January 2023 10:19|indexing|
+|Daniel Stelzer|Cleared Events|20230131101949/83:Tue 31 January 2023 10:19|indexing|
+|Daniel Stelzer|Command Casing|20230131101949/0:Tue 31 January 2023 10:19|indexing|
+|Daniel Stelzer|Command Modification|20230131101949/111:Tue 31 January 2023 10:19|indexing|
+|Daniel Stelzer|Command Preloading|20230131101949/54:Tue 31 January 2023 10:19|indexing|
+|Daniel Stelzer|Conversation Touchability Fix|20230131101949/34:Tue 31 January 2023 10:19|indexing|
+|Daniel Stelzer|Debugging|20230131101949/0:Tue 31 January 2023 10:19|indexing|
+|Daniel Stelzer|Default Styles|20230131101949/0:Tue 31 January 2023 10:19|indexing|
+|Daniel Stelzer|Empty Command Handling|20230131101949/97:Tue 31 January 2023 10:19|indexing|
+|Daniel Stelzer|Formatting Capture|20230131101949/167:Tue 31 January 2023 10:19|indexing|
+|Daniel Stelzer|Glulx Text Styles|20230131101949/215:Tue 31 January 2023 10:19|indexing|
+|Daniel Stelzer|Helpful Functions|20230131101949/0:Tue 31 January 2023 10:19|indexing|
+|Daniel Stelzer|Hidden Prompt|20230131101949/93:Tue 31 January 2023 10:19|indexing|
+|Daniel Stelzer|Inline Hyperlinks|20230131101949/2800:Tue 31 January 2023 10:19|indexing|
+|Daniel Stelzer|Modified Timekeeping|20230131101949/123:Tue 31 January 2023 10:19|indexing|
+|Daniel Stelzer|Music|20230131101949/284:Tue 31 January 2023 10:19|indexing|
+|Daniel Stelzer|Output Silencing|20230131101949/0:Tue 31 January 2023 10:19|indexing|
+|Daniel Stelzer|Runtime Replacements|20230131101949/523:Tue 31 January 2023 10:19|indexing|
+|Daniel Stelzer|Subcommands|20230131101949/234:Tue 31 January 2023 10:19|indexing|
+|Daniel Stelzer|Third Noun|20230131101949/0:Tue 31 January 2023 10:19|indexing|
+|Daniel Stelzer|Typographical Conveniences|20230131101949/0:Tue 31 January 2023 10:19|indexing|
+|Dannii Willis|Alternative Startup Rules|20230131101949/0:Tue 31 January 2023 10:19|indexing|
+|Dannii Willis|Benchmarking|20230131101949/1100:Tue 31 January 2023 10:19|indexing|
+|Dannii Willis|Collections|20230131101949/801:Tue 31 January 2023 10:19|indexing|
+|Dannii Willis|Data Structures|20230131101949/1063:Tue 31 January 2023 10:19|indexing|
+|Dannii Willis|Glk Events|20230131101949/0:Tue 31 January 2023 10:19|indexing|
+|Dannii Willis|Glk Object Recovery|20230131101949/194:Tue 31 January 2023 10:19|indexing|
+|Dannii Willis|Glk Text Formatting|20230131101949/420:Tue 31 January 2023 10:19|indexing|
+|Dannii Willis|Glulx Definitions|20230131101949/431:Tue 31 January 2023 10:19|indexing|
+|Dannii Willis|Highscores|20230131101949/181:Tue 31 January 2023 10:19|indexing|
+|Dannii Willis|Infra Undo|20230131101949/370:Tue 31 January 2023 10:19|indexing|
+|Dannii Willis|Json|20230131101949/807:Tue 31 January 2023 10:19|indexing|
+|Dannii Willis|Menus|20230131101949/983:Tue 31 January 2023 10:19|indexing|
+|Dannii Willis|Startup Precomputation|20230131101949/281:Tue 31 January 2023 10:19|indexing|
+|Dannii Willis|Xorshift|20230131101949/294:Tue 31 January 2023 10:19|indexing|
+|Dave Robinson|Snippetage|20230131101949/972:Tue 31 January 2023 10:19|indexing|
+|David A Wheeler|Dice|20230131101949/375:Tue 31 January 2023 10:19|indexing|
+|David Corbett|Mobile Doors|20230131101949/528:Tue 31 January 2023 10:19|indexing|
+|David Cornelson|Basic Help|20230131101949/192:Tue 31 January 2023 10:19|indexing|
+|David Ratliff|Armed|20230131101949/1484:Tue 31 January 2023 10:19|indexing|
+|Edward Griffiths|Adventure Book|20230131101949/21203:Tue 31 January 2023 10:19|indexing|
+|Eliuk Blau|Glulx Boxed Quotation|20230131101949/129:Tue 31 January 2023 10:19|indexing|
+|Emily Short|Approaches|20230131101949/2868:Tue 31 January 2023 10:19|indexing|
+|Emily Short|Assorted Text Generation|20230131101949/1344:Tue 31 January 2023 10:19|indexing|
+|Emily Short|Automated Drawers|20230131101949/696:Tue 31 January 2023 10:19|indexing|
+|Emily Short|Basic Help Menu Sp|20230131101949/452:Tue 31 January 2023 10:19|indexing|
+|Emily Short|Basic Hyperlinks|20230131101949/525:Tue 31 January 2023 10:19|indexing|
+|Emily Short|Basic Screen Effects Sp|20230131101949/55:Tue 31 January 2023 10:19|indexing|
+|Emily Short|Computers|20230131101949/4607:Tue 31 January 2023 10:19|indexing|
+|Emily Short|Deluxe Doors|20230131101949/1048:Tue 31 January 2023 10:19|indexing|
+|Emily Short|Dishes|20230131101949/370:Tue 31 January 2023 10:19|indexing|
+|Emily Short|Facing|20230131101949/897:Tue 31 January 2023 10:19|indexing|
+|Emily Short|Glulx Entry Points|20230131101949/964:Tue 31 January 2023 10:19|indexing|
+|Emily Short|Introductions|20230131101949/2311:Tue 31 January 2023 10:19|indexing|
+|Emily Short|Location Images|20230131101949/152:Tue 31 January 2023 10:19|indexing|
+|Emily Short|Measured Liquid|20230131101949/5801:Tue 31 January 2023 10:19|indexing|
+|Emily Short|Menus Sp|20230131101949/13:Tue 31 January 2023 10:19|indexing|
+|Emily Short|Modern Conveniences|20230131101949/1088:Tue 31 January 2023 10:19|indexing|
+|Emily Short|Modified Exit|20230131101949/824:Tue 31 January 2023 10:19|indexing|
+|Emily Short|Mood Variations|20230131101949/811:Tue 31 January 2023 10:19|indexing|
+|Emily Short|Ordinary Room Description|20230131101949/194:Tue 31 January 2023 10:19|indexing|
+|Emily Short|Postures|20230131101949/837:Tue 31 January 2023 10:19|indexing|
+|Emily Short|Power Sources|20230131101949/2323:Tue 31 January 2023 10:19|indexing|
+|Emily Short|Property Checking|20230131101949/214:Tue 31 January 2023 10:19|indexing|
+|Emily Short|Recorded Endings|20230131101949/674:Tue 31 January 2023 10:19|indexing|
+|Emily Short|Room Description Control|20230131101949/996:Tue 31 January 2023 10:19|indexing|
+|Emily Short|Simple Followers|20230131101949/482:Tue 31 January 2023 10:19|indexing|
+|Emily Short|Simple Graphical Window|20230131101949/727:Tue 31 January 2023 10:19|indexing|
+|Emily Short|Single Paragraph Description|20230131101949/341:Tue 31 January 2023 10:19|indexing|
+|Emily Short|Tailored Room Description|20230131101949/2648:Tue 31 January 2023 10:19|indexing|
+|Emily Short|Transit System|20230131101949/970:Tue 31 January 2023 10:19|indexing|
+|Emily Short|Tutorial Mode|20230131101949/740:Tue 31 January 2023 10:19|indexing|
+|Enano Malauva|Conversacion Por Clave|20230131101949/259:Tue 31 January 2023 10:19|indexing|
+|Eric Eve|Adaptive Hints|20230131101949/2562:Tue 31 January 2023 10:19|indexing|
+|Eric Eve|Alternatives|20230131101949/1350:Tue 31 January 2023 10:19|indexing|
+|Eric Eve|Bulk Limiter|20230131101949/428:Tue 31 January 2023 10:19|indexing|
+|Eric Eve|Conversation Framework|20230131101949/3117:Tue 31 January 2023 10:19|indexing|
+|Eric Eve|Conversation Nodes|20230131101949/4396:Tue 31 January 2023 10:19|indexing|
+|Eric Eve|Conversation Package|20230131101949/1975:Tue 31 January 2023 10:19|indexing|
+|Eric Eve|Conversation Responses|20230131101949/814:Tue 31 January 2023 10:19|indexing|
+|Eric Eve|Conversation Rules|20230131101949/4807:Tue 31 January 2023 10:19|indexing|
+|Eric Eve|Conversation Suggestions|20230131101949/2041:Tue 31 January 2023 10:19|indexing|
+|Eric Eve|Conversational Defaults|20230131101949/1437:Tue 31 January 2023 10:19|indexing|
+|Eric Eve|Exit Lister|20230131101949/2187:Tue 31 January 2023 10:19|indexing|
+|Eric Eve|Hiding Under|20230131101949/2657:Tue 31 January 2023 10:19|indexing|
+|Eric Eve|Implicit Actions|20230131101949/5645:Tue 31 January 2023 10:19|indexing|
+|Eric Eve|Limited Implicit Actions|20230131101949/3237:Tue 31 January 2023 10:19|indexing|
+|Eric Eve|List Control|20230131101949/1644:Tue 31 January 2023 10:19|indexing|
+|Eric Eve|List Controller|20230131101949/1903:Tue 31 January 2023 10:19|indexing|
+|Eric Eve|Npc Implicit Actions|20230131101949/658:Tue 31 January 2023 10:19|indexing|
+|Eric Eve|Text Capture|20230131101949/870:Tue 31 January 2023 10:19|indexing|
+|Eric Eve|Underside|20230131101949/1620:Tue 31 January 2023 10:19|indexing|
+|Eric Eve|Variable Time Control|20230131101949/1137:Tue 31 January 2023 10:19|indexing|
+|Erik Temple|Extended Debugging|20230131101949/827:Tue 31 January 2023 10:19|indexing|
+|Erik Temple|Glimmr Canvas Animation|20230131101949/19512:Tue 31 January 2023 10:19|indexing|
+|Erik Temple|Glimmr Canvas-Based Drawing|20230131101949/24775:Tue 31 January 2023 10:19|indexing|
+|Erik Temple|Glimmr Drawing Commands|20230131101949/12013:Tue 31 January 2023 10:19|indexing|
+|Erik Temple|Glimmr Graphic Hyperlinks|20230131101949/1980:Tue 31 January 2023 10:19|indexing|
+|Erik Temple|Inline Hyperlinks|20230131101949/2799:Tue 31 January 2023 10:19|indexing|
+|Erik Temple|Real-Time Delays|20230131101949/675:Tue 31 January 2023 10:19|indexing|
+|Erik Temple|Undo Output Control|20230131101949/3293:Tue 31 January 2023 10:19|indexing|
+|Friends Of I7|6m62 Patches|20230131101949/26:Tue 31 January 2023 10:19|indexing|
+|Friends Of I7|Interpreter Sniffing|20230131101949/568:Tue 31 January 2023 10:19|indexing|
+|Gavin Lambert|Brief Room Descriptions|20230131101949/380:Tue 31 January 2023 10:19|indexing|
+|Gavin Lambert|Enterable Underside|20230131101949/1054:Tue 31 January 2023 10:19|indexing|
+|Gavin Lambert|Exit Lister|20230131101949/2688:Tue 31 January 2023 10:19|indexing|
+|Gavin Lambert|Extended Banner|20230131101949/356:Tue 31 January 2023 10:19|indexing|
+|Gavin Lambert|Glk Input Suspending|20230131101949/315:Tue 31 January 2023 10:19|indexing|
+|Gavin Lambert|Hyperlink Extension Registry|20230131101949/1370:Tue 31 January 2023 10:19|indexing|
+|Gavin Lambert|Hyperlinks|20230131101949/1778:Tue 31 January 2023 10:19|indexing|
+|Gavin Lambert|Inline Hyperlinks|20230131101949/5331:Tue 31 January 2023 10:19|indexing|
+|Gavin Lambert|Prepositional Correctness|20230131101949/1558:Tue 31 January 2023 10:19|indexing|
+|Gavin Lambert|Rideable Vehicles|20230131101949/135:Tue 31 January 2023 10:19|indexing|
+|Gavin Lambert|Secret Doors|20230131101949/887:Tue 31 January 2023 10:19|indexing|
+|Gavin Lambert|Title Page|20230131101949/1516:Tue 31 January 2023 10:19|indexing|
+|Hanon Ondricek|Easy Doors|20230131101949/4008:Tue 31 January 2023 10:19|indexing|
+|Jeff Nyman|Contextual Descriptions|20230131101949/557:Tue 31 January 2023 10:19|indexing|
+|Jeff Nyman|Description Decay|20230131101949/1582:Tue 31 January 2023 10:19|indexing|
+|Jeff Nyman|Nuanced Timekeeping|20230131101949/81:Tue 31 January 2023 10:19|indexing|
+|Jeff Nyman|Relative Placement And Direction|20230131101949/864:Tue 31 January 2023 10:19|indexing|
+|Jeff Nyman|Story Substrate|20230131101949/735:Tue 31 January 2023 10:19|indexing|
+|Jeff Nyman|Supplemental|20230131101949/264:Tue 31 January 2023 10:19|indexing|
+|Jeff Nyman|World Knowledge|20230131101949/1370:Tue 31 January 2023 10:19|indexing|
+|Jeff Sheets|Graphic Links|20230131101949/318:Tue 31 January 2023 10:19|indexing|
+|Jesse Mcgrew|Dynamic Objects|20230131101949/966:Tue 31 January 2023 10:19|indexing|
+|Jesse Mcgrew|Dynamic Tables|20230131101949/1788:Tue 31 January 2023 10:19|indexing|
+|Jesse Mcgrew|Hypothetical Questions|20230131101949/848:Tue 31 January 2023 10:19|indexing|
+|Jim Aikin|Notepad|20230131101949/1883:Tue 31 January 2023 10:19|indexing|
+|Johan Paz|Cortos|20230131101949/531:Tue 31 January 2023 10:19|indexing|
+|John Clemens|Consolidated Multiple Actions|20230131101949/2643:Tue 31 January 2023 10:19|indexing|
+|John Clemens|Scheduled Activities|20230131101949/2443:Tue 31 January 2023 10:19|indexing|
+|Jon Ingold|Disambiguation Control|20230131101949/4832:Tue 31 January 2023 10:19|indexing|
+|Jon Ingold|Far Away|20230131101949/1754:Tue 31 January 2023 10:19|indexing|
+|Jon Ingold|Flexible Windows|20230131101949/1806:Tue 31 January 2023 10:19|indexing|
+|Jon Ingold|Title Page|20230131101949/545:Tue 31 January 2023 10:19|indexing|
+|Juhana Leinonen|Achievements|20230131101949/519:Tue 31 January 2023 10:19|indexing|
+|Juhana Leinonen|Bulky Items|20230131101949/1170:Tue 31 January 2023 10:19|indexing|
+|Juhana Leinonen|Debug Files|20230131101949/943:Tue 31 January 2023 10:19|indexing|
+|Juhana Leinonen|Object Response Tests|20230131101949/1218:Tue 31 January 2023 10:19|indexing|
+|Juhana Leinonen|Regional Travel|20230131101949/1065:Tue 31 January 2023 10:19|indexing|
+|Juhana Leinonen|Reversed Persuasion Correction|20230131101949/484:Tue 31 January 2023 10:19|indexing|
+|Juhana Leinonen|Vorple Element Manipulation|20230131101949/1337:Tue 31 January 2023 10:19|indexing|
+|Juhana Leinonen|Vorple Modal Windows|20230131101949/537:Tue 31 January 2023 10:19|indexing|
+|Juhana Leinonen|Vorple Notifications|20230131101949/644:Tue 31 January 2023 10:19|indexing|
+|Juhana Leinonen|Vorple Status Line|20230131101949/1722:Tue 31 January 2023 10:19|indexing|
+|Juhana Leinonen|Vorple Tooltips|20230131101949/1191:Tue 31 January 2023 10:19|indexing|
+|Leonardo Boselli|Automap It|20230131101949/15:Tue 31 January 2023 10:19|indexing|
+|Leonardo Boselli|Basic Help Menu It|20230131101949/34:Tue 31 January 2023 10:19|indexing|
+|Leonardo Boselli|Bulky Items It|20230131101949/13:Tue 31 January 2023 10:19|indexing|
+|Leonardo Boselli|Creative Commons Public License It|20230131101949/42:Tue 31 January 2023 10:19|indexing|
+|Leonardo Boselli|Menus It|20230131101949/32:Tue 31 January 2023 10:19|indexing|
+|Leonardo Boselli|Milleuna For Gargoyle With Graphics|20230131101949/6:Tue 31 January 2023 10:19|indexing|
+|Leonardo Boselli|Milleuna For Gargoyle|20230131101949/6:Tue 31 January 2023 10:19|indexing|
+|Leonardo Boselli|Milleuna For Quixe With Graphics|20230131101949/6:Tue 31 January 2023 10:19|indexing|
+|Leonardo Boselli|Milleuna For Quixe|20230131101949/6:Tue 31 January 2023 10:19|indexing|
+|Leonardo Boselli|Milleuna World|20230131101949/25:Tue 31 January 2023 10:19|indexing|
+|Leonardo Boselli|Numbered Disambiguation Choices It|20230131101949/13:Tue 31 January 2023 10:19|indexing|
+|Leonardo Boselli|Patrollers It|20230131101949/15:Tue 31 January 2023 10:19|indexing|
+|Leonardo Boselli|Questions It|20230131101949/15:Tue 31 January 2023 10:19|indexing|
+|Leonardo Boselli|Release For Gargoyle|20230131101949/0:Tue 31 January 2023 10:19|indexing|
+|Leonardo Boselli|Release For Quixe|20230131101949/0:Tue 31 January 2023 10:19|indexing|
+|Leonardo Boselli|Scoring It|20230131101949/6:Tue 31 January 2023 10:19|indexing|
+|Leonardo Boselli|Scoring|20230131101949/6:Tue 31 January 2023 10:19|indexing|
+|Leonardo Boselli|Simple Followers It|20230131101949/13:Tue 31 January 2023 10:19|indexing|
+|Leonardo Boselli|Simple Graphical Window|20230131101949/14:Tue 31 January 2023 10:19|indexing|
+|Leonardo Boselli|Simple Html Window|20230131101949/23:Tue 31 January 2023 10:19|indexing|
+|Leonardo Boselli|Title Page It|20230131101949/16:Tue 31 January 2023 10:19|indexing|
+|Leonardo Boselli|Written Inventory|20230131101949/16:Tue 31 January 2023 10:19|indexing|
+|Mark Tilford|Automap|20230131101949/2295:Tue 31 January 2023 10:19|indexing|
+|Massimo Stella|Italian Language|20230131101949/1832:Tue 31 January 2023 10:19|indexing|
+|Massimo Stella|Multiple Sounds Sp|20230131101949/350:Tue 31 January 2023 10:19|indexing|
+|Massimo Stella|Multiple Sounds|20230131101949/569:Tue 31 January 2023 10:19|indexing|
+|Matt Weiner|Actions On Groups|20230131101949/3872:Tue 31 January 2023 10:19|indexing|
+|Matt Weiner|Indefinite Article Substitution Fix|20230131101949/743:Tue 31 January 2023 10:19|indexing|
+|Matt Weiner|Responsive Disambiguation For 6m62|20230131101949/564:Tue 31 January 2023 10:19|indexing|
+|Mel Hython|Decorados|20230131101949/247:Tue 31 January 2023 10:19|indexing|
+|Mel Hython|Frase De Tabla|20230131101949/335:Tue 31 January 2023 10:19|indexing|
+|Michael Callaghan|Patrollers Sp|20230131101949/4457:Tue 31 January 2023 10:19|indexing|
+|Michael Callaghan|Questions|20230131101949/3911:Tue 31 January 2023 10:19|indexing|
+|Michael Kielstra|Debug Tags|20230131101949/1131:Tue 31 January 2023 10:19|indexing|
+|Michael Martin|Assumed Conversers|20230131101949/162:Tue 31 January 2023 10:19|indexing|
+|Michael Martin|Quip-Based Conversation Sp|20230131101949/1661:Tue 31 January 2023 10:19|indexing|
+|Michael Martin|Quip-Based Conversation|20230131101949/1661:Tue 31 January 2023 10:19|indexing|
+|Michael Martin|Reactable Quips Sp|20230131101949/1807:Tue 31 January 2023 10:19|indexing|
+|Michael Martin|Reactable Quips|20230131101949/1807:Tue 31 January 2023 10:19|indexing|
+|Michael Martin|Unicode Interrogation|20230131101949/103:Tue 31 January 2023 10:19|indexing|
+|Mikael Segercrantz|Achievements Sp|20230131101949/1568:Tue 31 January 2023 10:19|indexing|
+|Mikael Segercrantz|Achievements|20230131101949/1288:Tue 31 January 2023 10:19|indexing|
+|Mikael Segercrantz|Atmospheric Effects|20230131101949/4260:Tue 31 January 2023 10:19|indexing|
+|Mikael Segercrantz|Randomness|20230131101949/286:Tue 31 January 2023 10:19|indexing|
+|Mikael Segercrantz|Trinity Inventory|20230131101949/1430:Tue 31 January 2023 10:19|indexing|
+|Mike Ciul|Autotaking|20230131101949/454:Tue 31 January 2023 10:19|indexing|
+|Mike Ciul|Effective Infinity|20230131101949/285:Tue 31 January 2023 10:19|indexing|
+|Mike Ciul|Flexible Action Requirements|20230131101949/1076:Tue 31 January 2023 10:19|indexing|
+|Mike Ciul|Objects Matching Snippets|20230131101949/656:Tue 31 January 2023 10:19|indexing|
+|Mike Ciul|Scope Caching|20230131101949/901:Tue 31 January 2023 10:19|indexing|
+|Mike Ciul|Takeability|20230131101949/0:Tue 31 January 2023 10:19|indexing|
+|Mike Ciul|Unknown Word Error|20230131101949/281:Tue 31 January 2023 10:19|indexing|
+|Nate Cull|Basic Plans|20230131101949/924:Tue 31 January 2023 10:19|indexing|
+|Nate Cull|Planner|20230131101949/1992:Tue 31 January 2023 10:19|indexing|
+|Nathanael Nerode|Character Portraits|20230131101949/872:Tue 31 January 2023 10:19|indexing|
+|Nathanael Nerode|Compliant Characters|20230131101949/2752:Tue 31 January 2023 10:19|indexing|
+|Nathanael Nerode|Gender Options|20230131101949/2750:Tue 31 January 2023 10:19|indexing|
+|Nathanael Nerode|Gender Speedup|20230131101949/276:Tue 31 January 2023 10:19|indexing|
+|Nathanael Nerode|Initial Cursor At Top Or Bottom|20230131101949/1093:Tue 31 January 2023 10:19|indexing|
+|Nathanael Nerode|Large Game Speedup|20230131101949/1648:Tue 31 January 2023 10:19|indexing|
+|Nathanael Nerode|Nathanael's Cookbook|20230131101949/2904:Tue 31 January 2023 10:19|indexing|
+|Nathanael Nerode|Nathanael's Debug Tools|20230131101949/82:Tue 31 January 2023 10:19|indexing|
+|Nathanael Nerode|Neutral Standard Responses|20230131101949/3212:Tue 31 January 2023 10:19|indexing|
+|Nathanael Nerode|Parser Error Number Bugfix|20230131101949/75:Tue 31 January 2023 10:19|indexing|
+|Nathanael Nerode|Room Description Supporter Bugfixes|20230131101949/576:Tue 31 January 2023 10:19|indexing|
+|Nathanael Nerode|Standard Rules Dead Code Removal|20230131101949/112:Tue 31 January 2023 10:19|indexing|
+|Nathanael Nerode|Tab Removal|20230131101949/137:Tue 31 January 2023 10:19|indexing|
+|Nathanael Nerode|Title Case For Headings|20230131101949/2006:Tue 31 January 2023 10:19|indexing|
+|Nathanael Nerode|Undo Output Control|20230131101949/3293:Tue 31 January 2023 10:19|indexing|
+|Nathanael Nerode|Verb Stripping|20230131101949/154:Tue 31 January 2023 10:19|indexing|
+|Peter Orme|Checkpoints|20230131101949/1466:Tue 31 January 2023 10:19|indexing|
+|Peter Orme|Developer Framework|20230131101949/242:Tue 31 January 2023 10:19|indexing|
+|Peter Orme|Flexible Logger|20230131101949/1133:Tue 31 January 2023 10:19|indexing|
+|Peter Orme|Object Descriptors|20230131101949/336:Tue 31 January 2023 10:19|indexing|
+|Peter Orme|Possible Movements|20230131101949/29:Tue 31 January 2023 10:19|indexing|
+|Peter Orme|Unit Testing|20230131101949/834:Tue 31 January 2023 10:19|indexing|
+|Peter Orme|Universal Opening|20230131101949/307:Tue 31 January 2023 10:19|indexing|
+|Ron Newcomb|After Not Doing Something|20230131101949/213:Tue 31 January 2023 10:19|indexing|
+|Ron Newcomb|Command Prompt On Cue|20230131101949/856:Tue 31 January 2023 10:19|indexing|
+|Ron Newcomb|Editable Stored Actions|20230131101949/1384:Tue 31 January 2023 10:19|indexing|
+|Ron Newcomb|Permission To Visit|20230131101949/2264:Tue 31 January 2023 10:19|indexing|
+|Ron Newcomb|Phrases For Adaptive Pacing|20230131101949/1416:Tue 31 January 2023 10:19|indexing|
+|Ron Newcomb|Phrases For Tables With Topics|20230131101949/495:Tue 31 January 2023 10:19|indexing|
+|Ron Newcomb|Real Date And Time|20230131101949/941:Tue 31 January 2023 10:19|indexing|
+|Ron Newcomb|Rewrite The Command Line|20230131101949/681:Tue 31 January 2023 10:19|indexing|
+|Ron Newcomb|Scope Control|20230131101949/583:Tue 31 January 2023 10:19|indexing|
+|Ron Newcomb|Unsuccessful Pc Attempt|20230131101949/495:Tue 31 January 2023 10:19|indexing|
+|Sarah Morayati|Basic Real Time|20230131101949/976:Tue 31 January 2023 10:19|indexing|
+|Sarganar|Multi P|20230131101949/2112:Tue 31 January 2023 10:19|indexing|
+|Sean Turner|Plugs And Sockets|20230131101949/2232:Tue 31 January 2023 10:19|indexing|
+|Shin|Game Ending Reloaded|20230131101949/17:Tue 31 January 2023 10:19|indexing|
+|Shin|Points Awarding Reloaded|20230131101949/17:Tue 31 January 2023 10:19|indexing|
+|Shin|Singing Reloaded|20230131101949/16:Tue 31 January 2023 10:19|indexing|
+|Shin|Swearing Reloaded|20230131101949/16:Tue 31 January 2023 10:19|indexing|
+|Stephen Granade|Footnotes|20230131101949/500:Tue 31 January 2023 10:19|indexing|
+|Taryn Michelle|Print Stage Detection|20230131101949/1448:Tue 31 January 2023 10:19|indexing|
+|Wade Clarke|Basic Help Menu|20230131101949/683:Tue 31 January 2023 10:19|indexing|
+|Wade Clarke|Menus|20230131101949/13316:Tue 31 January 2023 10:19|indexing|
+|Xavid|Command Unit Testing|20230131101949/744:Tue 31 January 2023 10:19|indexing|
+|Xavid|Directional Disambiguation|20230131101949/110:Tue 31 January 2023 10:19|indexing|
+|Xavid|Expanded Understanding|20230131101949/2487:Tue 31 January 2023 10:19|indexing|
+|Xavid|Graphical Map|20230131101949/1430:Tue 31 January 2023 10:19|indexing|
+|Xavid|Liquids|20230131101949/988:Tue 31 January 2023 10:19|indexing|
+|Xavid|Object Matching|20230131101949/611:Tue 31 January 2023 10:19|indexing|
+|Xavid|Scenery Words|20230131101949/129:Tue 31 January 2023 10:19|indexing|
+|Xavid|Visible From A Distance|20230131101949/100:Tue 31 January 2023 10:19|indexing|
+|Zed Lopez|Bit Ops|20230131101949/822:Tue 31 January 2023 10:19|indexing|
+|Zed Lopez|Char|20230131101949/553:Tue 31 January 2023 10:19|indexing|
+|Zed Lopez|Code|20230131101949/387:Tue 31 January 2023 10:19|indexing|
+|Zed Lopez|Custom Banner And Version|20230131101949/1173:Tue 31 January 2023 10:19|indexing|
+|Zed Lopez|If True|20230131101949/47:Tue 31 January 2023 10:19|indexing|
+|Zed Lopez|Inquiry|20230131101949/1037:Tue 31 January 2023 10:19|indexing|
+|Zed Lopez|List Utilities|20230131101949/2561:Tue 31 January 2023 10:19|indexing|
+|Zed Lopez|Parser Error Details|20230131101949/105:Tue 31 January 2023 10:19|indexing|
+|Zed Lopez|Pseudodevices|20230131101949/265:Tue 31 January 2023 10:19|indexing|
+|Zed Lopez|Screenreader|20230131101949/294:Tue 31 January 2023 10:19|indexing|
+|Zed Lopez|Speechless|20230131101949/178:Tue 31 January 2023 10:19|indexing|
+|Zed Lopez|Strange Loopiness|20230131101949/700:Tue 31 January 2023 10:19|indexing|
+|Zed Lopez|Supercredits|20230131101949/188:Tue 31 January 2023 10:19|indexing|
+|Zed Lopez|Switch|20230131101949/166:Tue 31 January 2023 10:19|indexing|
+|Zed Lopez|Tabulate|20230131101949/76:Tue 31 January 2023 10:19|indexing|
+|Zed Lopez|Text Loops|20230131101949/120:Tue 31 January 2023 10:19|indexing|
+|Zed Lopez|Textile|20230131101949/1379:Tue 31 January 2023 10:19|indexing|
+|Zed Lopez|Trial|20230131101949/65:Tue 31 January 2023 10:19|indexing|
+|Zed Lopez|Unicode File Io|20230131101949/430:Tue 31 January 2023 10:19|indexing|
+|Zed Lopez|Unit Tests|20230131101949/3611:Tue 31 January 2023 10:19|indexing|
+|Zed Lopez|Untrimmed Lines|20230131101949/197:Tue 31 January 2023 10:19|indexing|
+|Zed Lopez|Verbal Commands|20230131101949/158:Tue 31 January 2023 10:19|indexing|
+|Zed Lopez|Verbs|20230131101949/180:Tue 31 January 2023 10:19|indexing|
+|Emily Short|Basic Help Menu|20230131101949/452:Tue 31 January 2023 10:19|indexing|
+|Emily Short|Complex Listing|20230131101949/2213:Tue 31 January 2023 10:19|indexing|
+|Emily Short|Glulx Image Centering|20230131101949/152:Tue 31 January 2023 10:19|indexing|
+|Emily Short|Glulx Text Effects|20230131101949/1179:Tue 31 January 2023 10:19|indexing|
+|Emily Short|Inanimate Listeners|20230131101949/313:Tue 31 January 2023 10:19|indexing|
+|Emily Short|Locksmith|20230131101949/2153:Tue 31 January 2023 10:19|indexing|
+|Emily Short|Menus|20230131101949/1000:Tue 31 January 2023 10:19|indexing|
+|Emily Short|Punctuation Removal|20230131101949/800:Tue 31 January 2023 10:19|indexing|
+|Emily Short|Skeleton Keys|20230131101949/371:Tue 31 January 2023 10:19|indexing|
+|Eric Eve|Epistemology|20230131101949/1148:Tue 31 January 2023 10:19|indexing|
+|Graham Nelson|Approximate Metric Units|20230131101949/2334:Tue 31 January 2023 10:19|indexing|
+|Graham Nelson|Metric Units|20230131101949/2042:Tue 31 January 2023 10:19|indexing|
+|Graham Nelson|Rideable Vehicles|20230131101949/953:Tue 31 January 2023 10:19|indexing|
+|Graham Nelson|Unicode Character Names|20230131101949/102:Tue 31 January 2023 10:19|indexing|
+|Graham Nelson|Unicode Full Character Names|20230131101949/91:Tue 31 January 2023 10:19|indexing|
+|Graham Nelson|Standard Rules|20230131102004/42655:Tue 31 January 2023 10:20|indexing|
 |Graham Nelson|Standard Rules|room|kind|
 |Graham Nelson|Standard Rules|thing|kind|
 |Graham Nelson|Standard Rules|direction|kind|
@@ -649,8 +654,8 @@
 |Graham Nelson|Standard Rules|VERBOSE room descriptions|use option|
 |Graham Nelson|Standard Rules|BRIEF room descriptions|use option|
 |Graham Nelson|Standard Rules|SUPERBRIEF room descriptions|use option|
-|Graham Nelson|English Language|20230130214754/2297:Mon 30 January 2023 21:47|indexing|
-|Sebastian Arg|Spanish Language|20230130214754/11604:Mon 30 January 2023 21:47|indexing|
+|Graham Nelson|English Language|20230131102004/2297:Tue 31 January 2023 10:20|indexing|
+|Sebastian Arg|Spanish Language|20230131102004/11604:Tue 31 January 2023 10:20|indexing|
 |Sebastian Arg|Spanish Language|grammatical tense|kind|
 |Sebastian Arg|Spanish Language|narrative viewpoint|kind|
 |Sebastian Arg|Spanish Language|grammatical case|kind|
@@ -697,15 +702,15 @@
 |Sebastian Arg|Spanish Language|Dialecto Castellano|use option|
 |Sebastian Arg|Spanish Language|Dialecto Sudamericano|use option|
 |Sebastian Arg|Spanish Language|maximum capture buffer length|use option|
-|Juhana Leinonen|Vorple|20230130214754/5672:Mon 30 January 2023 21:47|indexing|
+|Juhana Leinonen|Vorple|20230131102004/5672:Tue 31 January 2023 10:20|indexing|
 |Juhana Leinonen|Vorple|Vorple support|value|
 |Juhana Leinonen|Vorple|Vorple prompt|value|
 |Juhana Leinonen|Vorple|file of Vorple Handshake|value|
 |Juhana Leinonen|Vorple|file of JavaScript Evaluation Input|value|
 |Juhana Leinonen|Vorple|file of JavaScript Return Value|value|
 |Juhana Leinonen|Vorple|file of JavaScript Return Value Type|value|
-|Juhana Leinonen|Vorple Multimedia|20230130214754/3906:Mon 30 January 2023 21:47|indexing|
-|Juhana Leinonen|Vorple Screen Effects|20230130214754/2682:Mon 30 January 2023 21:47|indexing|
+|Juhana Leinonen|Vorple Multimedia|20230131102004/3906:Tue 31 January 2023 10:20|indexing|
+|Juhana Leinonen|Vorple Screen Effects|20230131102004/2682:Tue 31 January 2023 10:20|indexing|
 |Juhana Leinonen|Vorple Screen Effects|Vorple style|kind|
 |Juhana Leinonen|Vorple Screen Effects|cursive font|value|
 |Juhana Leinonen|Vorple Screen Effects|emphasized font|value|
@@ -753,12 +758,12 @@
 |Juhana Leinonen|Vorple Screen Effects|light cyan background|value|
 |Juhana Leinonen|Vorple Screen Effects|light red background|value|
 |Juhana Leinonen|Vorple Screen Effects|light magenta background|value|
-|Juhana Leinonen|Vorple Hyperlinks|20230130214754/1814:Mon 30 January 2023 21:47|indexing|
-|Juhana Leinonen|Vorple Command Prompt Control|20230130214754/2086:Mon 30 January 2023 21:47|indexing|
-|Emily Short|Status Line Removal|20230130214754/147:Mon 30 January 2023 21:47|indexing|
-|Matthew Fletcher|Exit Descriptions Sp|20230130214754/311:Mon 30 January 2023 21:47|indexing|
+|Juhana Leinonen|Vorple Hyperlinks|20230131102004/1814:Tue 31 January 2023 10:20|indexing|
+|Juhana Leinonen|Vorple Command Prompt Control|20230131102004/2086:Tue 31 January 2023 10:20|indexing|
+|Emily Short|Status Line Removal|20230131102004/147:Tue 31 January 2023 10:20|indexing|
+|Matthew Fletcher|Exit Descriptions Sp|20230131102004/311:Tue 31 January 2023 10:20|indexing|
 |Matthew Fletcher|Exit Descriptions Sp|amount|value|
 |Matthew Fletcher|Exit Descriptions Sp|num|value|
-|Emily Short|Basic Screen Effects|20230130214754/2218:Mon 30 January 2023 21:47|indexing|
+|Emily Short|Basic Screen Effects|20230131102004/2218:Tue 31 January 2023 10:20|indexing|
 |Emily Short|Basic Screen Effects|Status bar table|value|
 |Emily Short|Basic Screen Effects|Right alignment depth|value|
