@@ -1,0 +1,1587 @@
+"`Mid the sagebrush and the cactus" by "Victor Gijsbers"
+
+The story genre is "Western".
+The release number is 1.
+The story creation year is 2010.
+
+Release along with cover art.
+
+[This is perhaps not going to be the best-structured source code ever. My apologies. There are some comments, but your mostly on your own.]
+
+[We first need some extension. Plurality is required by ATTACK.]
+Include Plurality by Emily Short.
+Include Inform ATTACK by Victor Gijsbers.
+Include Basic Help Menu by Emily Short.
+
+[There is no score.]
+Use no scoring.
+
+[The player should not be able to undo during this extended combat.]
+Use Undo Prevention.
+
+
+
+Section - The Menu and the Difficulty
+
+[We start the game by asking the player to choose a difficulty.]
+
+[In-game-menu is true just in case we are showing the menu; we let the]
+In-game-menu is a truth state that varies. In-game-menu is true.
+
+[Difficulty is introduced as a kind of value. During the game, we can check the value of "game difficulty".]
+Difficulty is a kind of value. The difficulties are d-easy, d-normal, d-hard and d-extreme.
+
+The game difficulty is a difficulty that varies.
+
+[This routine adapted from Jon Ingold's extension "Title Page"]
+
+The first when play begins rule (this is the title screen rule):
+	now in-game-menu is true;
+	while 1 is 1:
+		clear the screen;
+		say "                [bold type][story title][roman type][line break]";
+		say "                        by [story author]";
+		say paragraph break;
+		say line break;
+		say fixed letter spacing;
+		say "   Start new game - Easy      :    Press E[line break]";
+		say "   Start new game - Normal    :    Press N[line break]";	
+		say "   Start new game - Hard      :    Press H[line break]";		
+		say "   Start new game - Extreme   :    Press X[line break]";
+		say "   Restore game               :    Press R[line break]";
+		say "   Quit                       :    Press Q[line break]";  
+		say variable letter spacing;
+		say "[line break][line break][line break][italic type]The [roman type]easy[italic type] difficulty is recommended for those new to the game; although it is thematically important that the protagonist is dependent on the strumpet Fortune, it's probably more important for you to gently learn the system. Graduate to the [roman type]normal[italic type] difficulty when you feel ready. The [roman type]hard[italic type] difficulty is for those who have already learned to game the system and wish to test their skills. The [roman type]extreme[italic type] difficulty is only for those seeking a formidable, perhaps impossible, challenge.[roman type]";
+		let k be 0;
+		while k is 0:
+			let k be the chosen letter;
+		if k is 101 or k is 69:
+			now in-game-menu is false;
+			now game difficulty is d-easy;
+			clear the screen; 
+			make no decision;			
+		if k is 110 or k is 78:
+			now in-game-menu is false;
+			now game difficulty is d-normal;
+			clear the screen; 
+			make no decision;
+		if k is 104 or k is 72:
+			now in-game-menu is false;
+			now game difficulty is d-hard;
+			clear the screen; 
+			make no decision;
+		if k is 120 or k is 88:
+			now in-game-menu is false;
+			now game difficulty is d-extreme;
+			clear the screen; 
+			make no decision;							
+		otherwise if k is 113 or k is 81:
+			stop game abruptly;
+		otherwise if k is 82 or k is 114:
+			follow the restore the game rule.
+
+[Here are some attack and damage modifiers based on the difficulty of the game. As a table:
+
+Difficulty		Your attack	D's attack	Your dam	D's dam
+EASY		+3			-2			0			-2
+NORMAL		0			0			0			-1
+HARD		-1			+1			0			0
+EXTREME	-2			+2			0			+2]
+
+An attack modifiers rule (this is the easy attack bonus rule):
+	if game difficulty is d-easy:
+		if the global attacker is David:
+			if the numbers boolean is true, say " - 2 (easy game)[run paragraph on]";
+			decrease the to-hit modifier by 2;
+		if the global attacker is the player:
+			if the numbers boolean is true, say " + 3 (easy game)[run paragraph on]";
+			increase the to-hit modifier by 3.
+			
+An attack modifiers rule (this is the hard attack malus rule):
+	if game difficulty is d-hard:
+		if the global attacker is the player:
+			if the numbers boolean is true, say " - 1 (hard game)[run paragraph on]";
+			decrease the to-hit modifier by 1;
+		if the global attacker is David:
+			if the numbers boolean is true, say " + 1 (hard game)[run paragraph on]";
+			increase the to-hit modifier by 1;
+
+An attack modifiers rule (this is the extreme attack malus rule):
+	if game difficulty is d-extreme:
+		if the global attacker is the player:
+			if the numbers boolean is true, say " - 2 (extreme game)[run paragraph on]";
+			decrease the to-hit modifier by 2;
+		if the global attacker is David:
+			if the numbers boolean is true, say " + 2 (extreme game)[run paragraph on]";
+			increase the to-hit modifier by 2;						
+
+An damage modifiers rule (this is the easy damage modifier rule):
+	if game difficulty is d-easy:
+		if the global attacker is David:
+			if the numbers boolean is true, say " - 2 (easy game)[run paragraph on]";
+			decrease the damage modifier by 2.
+			
+An damage modifiers rule (this is the normal damage modifier rule):
+	if game difficulty is d-normal:
+		if the global attacker is David:
+			if the numbers boolean is true, say " - 1 (normal game)[run paragraph on]";
+			decrease the damage modifier by 1.			
+
+An damage modifiers rule (this is the extreme damage modifier rule):
+	if game difficulty is d-extreme:
+		if the global attacker is David:
+			if the numbers boolean is true, say " + 2 (extreme game)[run paragraph on]";
+			increase the damage modifier by 2.
+
+
+		
+Section - When play begins
+
+[We start out without showing combat related numbers.]
+
+When play begins:
+	now the numbers boolean is false.
+	
+When play begins:
+	say "They shot you in the leg, the sheriff or one of his men, but you still managed to get away. You always manage to get away. And while they're off pursuing you to, who knows, perhaps Colorado, you have quietly made your way back to where it all began. What better place to rest?[paragraph break]With a grunt of pain you descend from your horse and lie down near the water. How good it would be to just close your eyes for a moment and sleep... but you know that you've got to take that bullet out first.[paragraph break]'They all said I was crazy, but I [italic type]knew[roman type] you'd be coming back here,' says a young voice behind you.[paragraph break][italic type]First time players, please type HELP[roman type]."
+
+
+
+
+Section - The location
+
+[Just some scenery and stuff.]
+
+By the bitter creek is a room. "You are [if the player is prone]lying[otherwise]standing[end if] next to a small stream, screened off from the wider plains by the sagebrush around you. An ideal place to hide -- or so you thought."
+
+The horse is scenery. It is in bitter creek. Instead of examining the horse: say "Your horse is searching for something to eat a little further down the creek. Which is just as well, since you wouldn't be able to climb onto him anyway.".
+
+The stream is scenery. It is in bitter creek. Understand "creek" and "bitter" as the stream. Instead of examining the stream: say "It's not exactly the Mississippi, and it doesn't taste too good, but a desperado running from the law shouldn't complain.".
+Instead of entering the stream:
+	take no time;
+	say "It's about a hand deep. You can't hide there.".
+
+Instead of tasting or drinking the stream:
+	if the player is prone:
+		say "Yeah, it's the bitter creek alright. No confusion possible.";
+	otherwise:
+		take no time;
+		say "You'd have to lie down first.".
+
+The vegetation is scenery. It is in bitter creek. Understand "vegetation" and "plant" and "plants" and "sagebrush" and "cactus" and "cacti" as the vegetation.
+
+Instead of examining the vegetation: say "Yeah, they're plants all right. You're not exactly in a botanical mood.".
+
+Instead of tasting or eating the vegetation: say "Even if you were hungry, you wouldn't eat that.".
+
+Instead of taking the vegetation: say "It's fixed in place. With roots.".
+
+Instead of climbing the vegetation: say "You couldn't climb stairs, let alone this.".
+
+
+Chapter - State of the game
+
+Section - The important variables
+
+[Here we introduce the numbers that are used to determine how David acts. Anger will make him attack; sympathy will stop him from attacking and makes him likely to believe you in the end. Temporary violence and pacifism also raise or lower the chance of attacking, but both of them continually decrease towards 0.]
+
+
+Anger is a number that varies. Anger is -4.
+Sympathy is a number that varies. Sympathy is 0.
+
+Temporary violence is a number that varies. Temporary violence is 6.
+Temporary pacifism is a number that varies. Temporary pacifism is 8.
+
+Every turn (this is the decrease temporaries rule):
+	decrease temporary violence by 1;
+	if temporary violence is less than 0, now temporary violence is 0;
+	decrease temporary pacifism by 1;
+	if temporary pacifism is less than 0, now temporary pacifism is 0;
+
+[We count hits against the player and hits against David. Hits against David works against his eagerness to attack.]
+
+Hits against player is a number that varies. Hits against player is 0.
+Hits against David is a number that varies. Hits against David is 0.
+
+Aftereffects before flavour text rule (this is the count hits against player rule):
+	if the global defender is the player:
+		if the final damage is greater than 0:
+			increase hits against player by 1.
+			
+Aftereffects rule (this is the count hits against David rule):
+	if the global defender is the David:
+		if the final damage is greater than 0:
+			increase hits against David by 1.
+
+[The only way to decrease David's anger is by hitting him. But this doesn't immediately have the effect of getting him to stop attack -- in the rush of the moment, his temporary violence rises.]					
+			
+Aftereffects before flavour text rule (this is the hitting David decreases anger but increases temporary violence rule):
+	if the global defender is the David:
+		if the final damage is greater than 0:
+			if game difficulty is d-easy: [At Easy, hitting decreases anger by more.]
+				now anger is anger divided by 3;
+				now temporary violence is 2;
+			otherwise:
+				now anger is anger divided by 2;
+				now temporary violence is 5.
+				
+
+[The automatic increase of anger every turn depends on game difficulty. It is on average 0.45 point per turn on Easy, 0.6 on Normal, 0.7 on Hard, and 0.9 on Extreme.]
+
+Every turn (this is the automatic increase of anger rule):
+	let n be 12;
+	if game difficulty is d-easy, now n is 9;
+	if game difficulty is d-hard, now n is 14;
+	if game difficulty is d-extreme, now n is 18;
+	if a random chance of n in 20 succeeds:
+		increase anger by 1.
+
+Section - Whose turn was it last time?
+
+[Because of the initiative system, this is not guaranteed to be the guy who is not currently acting. We need it at certain points for flow. "David just talked" is a variable that is used to ensure that we don't have David asking a question and then shooting you without waiting for an answer.]
+
+The last-turner is a person that varies. The last-turner is yourself.
+
+Every turn:
+	if the combat state of David is at-Act:
+		now the last-turner is David;
+	otherwise:
+		now the last-turner is yourself;
+		now David just talked is false.
+		
+
+
+Section - Gasping counter
+
+[A highly wounded player sometimes loses his action and gasps in pain. If this has happened, David may comment on it.]
+
+Gasping counter is a number that varies. Gasping counter is 0.
+
+
+Section - Endings
+
+[There are a couple of different endings, and they are detailed here.]
+
+Every turn (this is the David too afraid rule):
+	if hits against David is greater than 2 and last-turner is not David:
+		if anger is not greater than hits against David:
+			say "'Don't kill me!', David screams. With a mad dash he runs away, disappearing between the sagebrush and the cacti before you are able to react.[paragraph break]";
+			run the end-survival check.
+	
+To run the end-survival check:
+	let n be a random number between 1 and 5;
+	if the health of the player is greater than n:
+		say "Exhausted, you fall into an uneasy sleep. When you wake up the sun is setting, and you know you must take the bullet out now. It's not going to be pretty, but you are tough. The toughest man this side of the border. It's only on the other side that you break down.[run paragraph on]";
+		end the story saying "You are drained but alive";
+	otherwise:
+		say "Exhausted, you fall into an uneasy sleep -- and dream. You walk through an unending, featureless desert. Only the storm clouds overhead move, forming patterns that dissolve as soon as you have identified them. But you know that beyond the horizon two black eyes are waiting for you. Two black eyes from Chihuahua.[run paragraph on]";
+		end the story saying "You never wake up".
+
+Every turn (this is the when to make the great decision rule):
+	if the sympathy has been at least 12 for 15 turns:
+		if decision made is false:
+			make the great decision.
+
+To say decision time:
+	make the great decision.
+
+To make the great decision:
+	now decision made is true;
+	let n be sympathy;
+	increase n by 2 times hits against David; [hurting him in combat will soften him up]
+	let m be a random number between 1 and 20;
+	if n is greater than 20:
+		say "'I believe you... may God and my father forgive me, but I do believe you.' He hesitates, then adds: 'I'll let my sister know where you are. Who knows? Maybe she'll tend to your wounds.' He then turns around and walks away slowly.[paragraph break]";
+		run the end-survival check;
+	otherwise:
+		if n is greater than m:
+			say "'I believe you... May God and my father forgive me, but I do believe you.' With those words David turns around and walks away slowly, his head down, leaving you to your fate.[paragraph break]";
+			run the end-survival check;
+		otherwise:
+			say "'I don't believe you,' David says. 'Talk what you want, but I know my father was a good guy. This was the end of our conversation.'";
+			now negative decision is true.
+
+Negative decision is a truth state that varies. Negative decision is false. [Once true, David will no longer speak with you.]
+
+Decision made is a truth state that varies. Decision made is false. [We don't want to decide twice.]
+
+The do not kill yourself rule is not listed in any rulebook.
+
+Instead of the player attacking the player:
+	if sympathy is less than 10 or health of the player is greater than 7:
+		say "Your survival instinct is too strong.";
+	otherwise:
+		say "'My death come not upon thee, David.' ";
+		if the global attacker weapon is a revolver:
+			say "With those words you put the gun to your head and pull the trigger. ";
+		otherwise:
+			say "With those words you drive the knife into your own heart. ";
+		end the story saying "Your last thought is of two black eyes in Chihuahua".
+		
+First check player attacking David:
+	if the global attacker weapon is a knife:
+		if David encloses a readied not unloaded revolver:
+			if anger is greater than 9 and the health of the player is less than 8:
+				say "'Wraagh!', you scream, pulling all your strength together for one final action. You raise your knife like a madman and storm at David. One moment of indecision -- then he shoots.[paragraph break]For the rest of his life he will wonder whether you did it on purpose.";
+				end the story saying "Your blood joins the bitter creek";
+			otherwise:
+				take no time;
+				say "He is pointing a gun at you; attacking with a knife would be suicide!" instead.
+.
+
+
+
+	
+
+Chapter - Weapons
+
+[Here we define revolvers and knives.]
+
+Section - Revolver
+
+A revolver is a kind of weapon.
+
+The damage die of a revolver is usually 8.
+The dodgability of a revolver is usually 2.
+The passive parry max of a revolver is usually 0.
+The active parry max of a revolver is usually 0.
+The weapon attack bonus of a revolver is usually 2.
+
+The maximum shots of a revolver is usually 6.
+The current shots of a revolver is usually 3.
+The maximum load time of a revolver is usually 2.
+The current load time of a revolver is usually 2.
+
+The player carries a revolver called your revolver. Understand "weapon" as your revolver.
+
+David carries a revolver called his revolver.
+
+Instead of examining a revolver:
+	say "One of the wonders of human civilization.".
+
+When play begins:
+	let X be a random revolver carried by David;
+	now X is readied.
+	
+Damage modifiers rule (this is the revolver damage bonus rule):
+	if the global attacker weapon is a revolver:
+		increase the damage modifier by 1;
+		if the numbers boolean is true:
+			say " + 1 (revolver)[run paragraph on]".	
+
+Understand "shoot [a person]" as attacking.
+Understand "gun" as a revolver.
+Understand "draw [weapon]" and "wield [weapon]" as readying.
+
+Last carry out taking a revolver:
+	silently try readying the noun.
+	
+Report dropping a revolver:
+	if the player encloses a knife:
+		say "David watches you drop the gun, but he notices that you still carry a knife.";
+	otherwise:
+		say "David watches you drop the gun, and he does seem a little bit more relaxed now that you are unarmed -- but only a little bit.";
+	rule succeeds.
+
+
+
+Section - Knife
+
+A knife is a kind of weapon.
+
+The damage die of a knife is usually 6.
+The dodgability of a knife is usually 2.
+The passive parry max of a knife is usually 0.
+The active parry max of a knife is usually 0.
+The weapon attack bonus of a knife is usually 0.
+
+The player carries a knife called your knife.
+David carries a knife called his knife.
+
+Instead of examining a knife:
+	say "An Arkansas toothpick: not the most advanced weapon, but it works well in close quarters.".
+
+Last carry out taking a knife:
+	silently try readying the noun.
+
+Report dropping a knife:
+	if the player encloses a revolver:
+		say "David watches you drop the knife, but he notices that you still carry a revolver.";
+	otherwise:
+		say "David watches you drop the knife, and he does seem a little bit more relaxed now that you are unarmed -- but only a little bit.";
+	rule succeeds.
+
+Understand "stab [someone]" and "knife [someone]" and "dirk [someone]" as attacking.
+
+
+Section - Additional rules
+
+[Some more rules governing this specific combat: the player cannot attack unarmed, he cannot attack with a knife when prone, and tension is somewhat less damaging.]
+
+Check attacking (this is the cannot attack unarmed rule):
+	if the player does not enclose a readied knife and the player does not enclose a readied revolver:
+		take no time;
+		say "You very much doubt that you're capable of unarmed physical violence right now. [italic type](You must ready a weapon first.)[roman type][paragraph break]" instead.
+
+Check attacking (this is the cannot attack David with knife when prone rule):
+	if the player encloses a readied knife and the player is prone and the noun is David:
+		take no time;
+		say "If you want to attack with a knife, you'd better stand up first." instead.
+
+The standard tension damage modifier rule is not listed in any rulebook.
+
+A damage modifiers rule (this is the changed tension damage modifier rule):
+	let the first dummy be 0;
+	now the first dummy is the tension divided by 5;
+	if the first dummy is not 0:
+		if the numbers boolean is true, say " + ", the first dummy, " (tension)[run paragraph on]";
+		increase the damage modifier by the first dummy.
+
+[Also, if you just attacked, David gets temporarily angry.]
+
+An aftereffects rule (this is the player attacking increases temporary violence rule):
+	if the global attacker is the player:
+		increase temporary violence by 5.
+
+
+Section - Attacking as a reaction
+
+[We allow the player to attack as a reaction. ]
+
+The cannot attack as reaction rule is not listed in any rulebook.
+
+[This rule ought to be useless, as it only intervenes when there is more than one person you can attack; but we are writing clean code here.]
+A check attacking rule (this is the only attack attacker as reaction rule):
+	if the combat state of the player is at-React:
+		let n be 0;
+		repeat through the Table of Stored Combat Actions:
+			if the Combat Action entry is the action of the noun attacking the actor:
+				now n is 1;
+		if n is 0:
+			take no time;
+			say "In a reaction, you can only attack your attacker!" instead.
+
+Carry out attacking when the fight consequences variable is false (this is the standard reactive attacking first phase rule):
+	if the combat state of the actor is at-React:
+		now the global attacker is the actor;
+		choose a blank row in the Table of Stored Combat actions;
+		let n be a random number between 10 and 17;
+		decrease n by the concentration of the player; [Probability of the player going before David at different concentrations: 0 -> 6%, 1-> 19%, 2-> 31%, 3-> 44%.]
+		now the Combat Speed entry is n;
+		now the Combat Action entry is the action of the actor attacking the noun.
+
+
+
+
+
+
+Chapter - The player
+
+Section - Combat variables
+
+[A little less health than David, and a big penalty to all your attacks.]
+
+The health of the player is 25.
+The melee of the player is -3.
+
+
+
+Section - Prone / standing
+
+[A special feature of the game is that the player can be either prone or standing up.]
+
+A person can be prone or standing. A person is usually standing.
+The player is prone.
+
+[Being prone gives big combat penalties (it also reduces David's chance of attacking, but this is handled somewhere else).]
+
+An attack modifiers rule (this is the penalty when prone rule):
+	if the global attacker is prone:
+		if the numbers boolean is true, say " - 3 (lying prone)[run paragraph on]";
+		decrease the to-hit modifier by 3.
+
+[Exiting is the action triggered by "stand".]
+
+Instead of exiting:
+	if the player is standing:
+		take no time;
+		say "You are already on your feet, albeit barely.";
+	otherwise:
+		if the combat state of the player is at-React:
+			take no time;
+			say "You'll need to do that on your own turn.";
+		otherwise:
+			if the health of the player is less than 6:
+				say "You make a feeble attempt to stand up, but to no avail -- your wounds have weakened you too much.";
+			otherwise:
+				say "'Don't move!', David threatens somewhat hesitantly, but you get up anyway. Seems you can stand, as long as you hold this sagebrush for support.";
+				now the player is standing.
+
+[And you can of course also lie down.]
+		
+Lying down is an action applying to nothing.
+Understand "lie", "lie down" and "lie prone" as lying down.
+Instead of going down: try lying down.
+
+Instead of lying down:
+	if the player is prone:
+		take no time;
+		say "You are already lying down";
+	otherwise:
+		if the combat state of the player is at-React:
+			take no time;
+			say "You'll need to do that on your own turn.";
+		otherwise:
+			say "You collapse to the ground with as much grace as you can muster.";
+			now the player is prone.
+
+[Let's catch sitting, even though it doesn't do anything.]
+
+Understand the command "sit" as something new.
+
+Sitting is an action applying to nothing. Understand "sit" and "sit down" as sitting.
+
+Instead of sitting:
+	take no time;
+	say "In your situation, that would combine the disadvantages of lying down with those of standing up. Not a good idea.".
+
+
+Section - Bullet / wound
+
+[Some scenery on the player's body.]
+
+The bullet is part of the player.
+
+Instead of examining the bullet:
+	say "You have more immediate problems to deal with right now.".
+	
+Instead of taking the bullet:
+	say "You have more immediate problems to deal with right now.";
+	take no time.
+	
+The wound is part of the player:
+
+Instead of examining the wound:
+	say "It doesn't look good.".
+	
+
+
+
+Section - The player is wounded and weak
+
+[...and we want him to notice this. There is a probability that the player drops his weapon...]
+
+The weapon dropped variable is a truth state that varies. The weapon dropped variable is false.
+
+Check attacking when the weapon dropped variable is false:
+	if the fight consequences variable is false:
+		let n be the health of the player plus 2;
+		if a random chance of one in n succeeds:
+			let n be 3;
+			if the player is standing, now n is 2;
+			if a random chance of one in n succeeds:
+				now the weapon dropped variable is true;
+				let item be a random readied weapon enclosed by the player;
+				now item is not readied;
+				move item to the location;
+				say "As you [if item is a revolver]aim your gun at David's head[otherwise]stare at David, your knife clenched in your fist[end if], his face suddenly blurs and changes into that of a young man you used to know in Chihuahua. You gasp; you stretch your arm towards him in supplication; [the item] drops from your hand. Then the illusion disappears as quickly as it came." instead;
+
+[... and a probability that his pain is too great for him to attack.]
+
+Check attacking:
+	if the fight consequences variable is false:
+		let n be the health of the player plus 5;
+		if a random chance of one in n succeeds:
+			say "[if the player encloses a readied revolver]As you steady your aim,[otherwise]As you plan your attack,[end if] you are suddenly racked by agony. This is not going well." instead.
+
+[And he cannot bend down.]
+
+Check taking:
+	if the noun is a weapon and the noun is in the location and the player is standing:
+		take no time;
+		say "You won't be able to reach it unless you lie down first." instead.
+
+
+
+[Now we come to the special actions.]
+
+Section - Explaining		
+		
+Explaining is an action applying to nothing. Understand "explain" as explaining. Understand "answer" as explaining.
+
+Explained-since-David-attacked is a truth state that varies. Explained-since-David-attacked is false.
+
+Check explaining:
+	if the Question boolean is false:
+		take no time;
+		say "David didn't ask you a question." instead.
+		
+Check explaining:
+	if the combat state of the player is not at-Act:
+		take no time;
+		say "This is not the time for explaining -- but you can try to dodge or taunt." instead.
+
+Last check explaining:
+	let n be a random number between -3 and 10;
+	let m be a random number between -1 and 10;
+	if n is greater than the health of the player and m is greater than the health of the player:
+		increase gasping counter by 1;
+		say "You try to speak, but only a gasp of pain comes out." instead.
+
+Carry out explaining:
+	choose row with an ID of reply ID in the Table of Explanations;
+	say phrase entry;
+	increase sympathy by sympathy-bonus entry;
+	now the Question boolean is false;
+	increase explanation counter by 1;
+	now explained-since-David-attacked is true;
+	now gasping counter is 0.
+
+Table of Explanations
+Phrase			ID		sympathy-bonus
+"'Will you believe me when I tell you your father deserved to die? I doubt it. But it's true.'[paragraph break]"	1	1
+"'You haven't seen every side of him, David. I knew him long ago, in the Mexican war. Your father wasn't so peaceful then, when he was the most irregular of our whole band of irregulars. Not very peaceful at all.'[David phrase 4][David phrase 9][paragraph break]"	3	1
+"'The [italic type]dead[roman type] care, David. They never forget. And I'm here to represent them.'[David phrase 5][paragraph break]"	4	0
+"'Maybe I [italic type]am[roman type] crazy. But the only one I was after was your father, and that for only one murder.'[paragraph break]"	5	1
+"'When a man and a woman meet and then have sex because they both want to, we don't call it rape, David.'[David phrase 8][paragraph break]"	7	1
+"'Well, if your sister said it, it must be true, mustn't it? I'm sure your father believed her as well, and didn't, oh, lock her up or anything?'[paragraph break]David looks abashed.[David phrase 9][paragraph break]"	8	1
+"'He didn't do anything to me, but he did do something to a friend of mine called Billy. Billy was a nice boy, a little rough around the edges maybe, but at his core there was no evil. You remind me of him.'[David phrase 10][paragraph break]"	9	1
+"'David, you see, Billy was with us in Pancho's posse, or whatever you'd call a bunch of citizens who went over the border to help with the war effort. And while in Mexico, this Billy guy fell in love with a woman. She was the most beautiful woman he'd ever seen.'[David phrase 11][paragraph break]"	10	1
+"'No, not exactly, no. See, this woman wasn't just any kind of woman, she was what we might call a drab, a whore, a prostitute. And your father and she had an... they had... O God my leg hurts! ... they had an argument, about money. About payment.'[David phrase 12][paragraph break]"	11	1
+"'No, Billy did not intervene. I mean, he would have if he had had the chance, but he was too late. Because, you see, your father didn't like being argued with. And he didn't like being argued with by a whore, and even less being argued with by a Mexican. So he just took out his gun and shot her. Through the heart. Like, dead. Billy was waiting his turn downstairs, so he hadn't heard the argument. But he did hear the shot.'[David phrase 13][David phrase 16][paragraph break]"	12	1
+"'No, you still misunderstand. Look, your father was strong, he was fast, he was one of the leaders of the gang... Billy couldn't challenge him. No, he would have had to spend years, decades even, trying to get faster and better, waiting until your father had settled down and let down his guard. But it wasn't to be.'[David phrase 14][paragraph break]"	13	1
+"'He died [italic type]during[roman type] the war. See, when I said that Billy was in love, I'm not exaggerating. This was the real stuff, the kind they make songs about. The highwayman and the landlord's black-eyed daughter, that kind of thing. So Billy, he just pined away. He dreamt about her. He couldn't eat, couldn't drink. He just wasted away and died.'[David phrase 15][paragraph break]"	14	1
+"'All for a whore, David. All for a whore. A black-eyed whore in Chihuahua.'[paragraph break]"	15	1
+"'Because... because David was my best friend. I mean Billy. He died. I swore vengeance. Bided my time. Waiting, dreaming, thinking, I mean, who knows? What was I saying? I'm not feeling very well, Billy. I'm not feeling well at all.'[paragraph break]"	16	1
+"'Truth? I'm always telling the truth. I tried to forget it. Doesn't work. You can't forget the truth, Billy, I used to say, to myself, you can't forget it. It's right there in front of you.'[paragraph break]"	17	1
+"'I can still see her. The eyes. The laughing eyes, suddenly dead and lightless. Maybe... maybe it was all meant to be this way. Me, you, the gun, death and the sun beating down on us. Vengeance answered by vengeance, and David emerging as the hero... no... stay clean, David, stay clean. Don't do it. It's just not worth it. Find yourself a pair of eyes. That's my advice to you... a pair of eyes... as one man to another... old pals, you know, we're old pals really. Old pals...'[paragraph break][decision time]"	19	0
+
+
+Section - Placating
+
+Placating is an action applying to one thing. Understand "placate [a person]" as placating.
+
+Check placating (this is the only placate as action rule):
+	if the combat state of the player is not at-Act:
+		take no time;
+		say "This is not the time for placating -- but you can try to dodge, threaten or taunt." instead.
+		
+Last check placating:
+	let n be a random number between -1 and 10;
+	let m be a random number between -3 and 10;
+	if n is greater than the health of the player and m is greater than the health of the player:
+		increase gasping counter by 1;
+		say "You try to speak, but only a gasp of pain comes out." instead.
+
+Carry out placating:
+	now gasping counter is 0;
+	if there is an ID of the reply ID in the Table of Specific placatings:
+		choose row with an ID of reply ID in the Table of Specific placatings;
+		say phrase entry;
+		blank out the whole row;
+		now temporary pacifism is 8;
+	otherwise:
+		if the Table of placatings is not empty:
+			sort Table of Placatings in Phrase order;
+			let n be a random number between 1 and 3;
+			if the number of filled rows in the Table of placatings is less than n:
+				now n is 1;
+			choose row n in the Table of placatings;
+			say phrase entry;
+			blank out the whole row;
+			now temporary pacifism is 8;			
+		otherwise:
+			take no time;
+			say "You have exhausted your store of placating things to say." instead.
+	
+	
+Table of Specific Placatings
+Phrase		ID
+"'Maybe you should, but... you've never killed a man before, have you?' He doesn't reply, but you know the answer. Knew it before you asked the question. It's written all over him.[paragraph break]"	2
+"'Come on, you don't even know [italic type]why[roman type] I killed your father. Just let me explain.'[paragraph break]"	6
+
+
+Table of Placatings
+Phrase
+"'Just calm down. We need to talk, before you start doing anything hasty and foolish.'[paragraph break]"
+"'Let's talk, David, there's no need to hurry. As you can see, I'm not exactly going anywhere.'[paragraph break]"
+"'Believe me, your father was no saint. If you had known even half of what he had done, you would have killed him yourself.'[paragraph break]"
+"'What about... what about you just ride into town and get a doctor for me? My leg is hurting like all hell. On a Sunday.'[paragraph break]"
+"'If you'll just talk to me, I'll tell you everything. And then, at the end, you can make a decision. Shoot me or not shoot me. Is that a deal?'[paragraph break]"
+
+
+Section - Taunting
+
+Taunting is an action applying to one thing. Understand "taunt [a person]" as taunting.
+
+A person can be at taunt or not at taunt. A person is usually not at taunt.
+A person can be taunted or not taunted. A person is usually not taunted.
+
+Check taunting (this is the only taunt as reaction rule):
+	if the combat state of the player is not at-React:
+		take no time;
+		say "Taunting is only useful as a reaction to David's attacks." instead.
+		
+Last check taunting:
+	let n be a random number between -1 and 10;
+	let m be a random number between -3 and 10;
+	if n is greater than the health of the player and m is greater than the health of the player:
+		increase gasping counter by 1;
+		say "You try to speak, but only a gasp of pain comes out." instead.
+
+[The whole calculation in the beginning of the following routine assures that the later, more extreme taunts in the table are only chosen when the player has done little placating/explaining and probably a lot of more aggressive things.]
+
+Carry out taunting:
+	now gasping counter is 0;
+	now the player is at taunt;
+	let x be the number of filled rows in the Table of Taunts;
+	decrease x by 6;
+	let y be Anger;
+	decrease y by Sympathy;
+	if y is greater than 0:
+		increase x by y;
+		if x is greater than the number of filled rows in the Table of Taunts:
+			now x is the the number of filled rows in the Table of Taunts;
+	let n be a random number between 1 and x;
+	choose row n in the Table of Taunts;
+	say phrase entry;
+	increase anger by 2;
+	now temporary violence is 5.
+
+Attack modifiers rule (this is the taunt penalty rule):
+	if the global defender is at taunt:
+		if the numbers boolean is true, say " - 3 (taunted)[run paragraph on]";
+		decrease the to-hit modifier by 3.
+
+An aftereffects rule (this is the take away at taunt and make taunted rule):
+	if the global defender is at taunt:
+		now the global attacker is taunted;
+	now the global defender is not at taunt.
+	
+Attack modifiers rule (this is the taunted bonus rule):
+	if the global defender is taunted:
+		if the numbers boolean is true, say " + 1 (defender taunted)[run paragraph on]";
+		increase the to-hit modifier by 1;
+		now the global defender is not taunted.
+
+Table of Taunts
+Phrase
+"'Just give up, kid; you couldn't hit an elephant at three feet.'[paragraph break]"
+"'Come on, David, I don't have all day.'[paragraph break]"
+"'Do your worst, David. You're not half the man your father was. And your father... well, he wasn't much of a man when I had my gun against his head.'[paragraph break]"
+"'Come and get me, sissy boy. You'll be licking my arse before this is over.'[paragraph break]"
+"'Why don't you just run away, Nancy-boy?'[paragraph break]"
+"'You remind me of a Mexican boy I once knew. He was as pretty a little [italic type]chichifo[roman type] as you can find them.'[paragraph break]"
+"'You shouldn't be playing with your daddy's [if David carries a readied revolver]gun[otherwise]knife[end if]. Not that he'll need it anymore.'[paragraph break]"
+"'You're going to [if David carries a readied revolver]shoot[otherwise]kill[end if] me here, right on the spot where I enjoyed your sister? How romantic!'[paragraph break]"
+"'I will always cherish the look on your father's face when he died.'[paragraph break]"
+"'You know what your father is doing right now? He's burning. In Hell.'[paragraph break]"
+"'Wanna suck my gun? Your sister certainly did.'[paragraph break]"
+"'What, still angry that I knocked up your sister? You must have been saving her for yourself.'[paragraph break]"
+
+
+
+Section - Thinking = concentrating
+
+Instead of thinking: try concentrating instead.
+Understand "t" as concentrating.
+
+The standard concentrating prose rule is not listed in any rulebook.
+
+The line of thought is a number that varies. The line of thought is 0.
+
+First carry out concentrating (this is the manage line of thought rule):
+	if the concentration of the player is 0:
+		if the time of day is before 9:20 AM:
+			let n be a random number between 1 and 3;
+		otherwise:
+			if the time of day is before 9:40 AM:
+				let n be a random number between 4 and 6;
+			otherwise:
+				let n be a random number between 7 and 9;
+		now line of thought is n.
+			
+
+Report concentrating (this is the report player thinking rule):
+	repeat through the Table of Thoughts:
+		if the line entry is line of thought and the step entry is the concentration of the player:
+			say the Thought entry;
+			make no decision;
+	say "All for revenge. All for her eyes, that afternoon in Chihuahua.".
+	
+Last report concentrating (this is the report concentration status rule):	
+	say "(You are now [if the concentration of the player is 1]slightly[otherwise if the concentration of the player is 2]somewhat[otherwise]highly[end if] concentrated.)".
+
+Table of Thoughts
+Line		Step	Thought
+1		1		"Shooting down tough gunslinging asswipes is something you do for breakfast -- but this boy? That's not really your style.[paragraph break]"
+1		2		"And not just because he's so young and innocent... there's also, you know, that nagging feeling that he is justified and you are not.[paragraph break]"
+1		3		"But then again: you can't afford to be sentimental right now.[paragraph break]"
+2		1		"You sort of like this boy. His father... that was different. No regrets there.[paragraph break]"
+2		2		"If anything, you'd like to shoot him again. Not in the head this time, but in the guts, and then watching him die.[paragraph break]"
+2		3		"This was so much more than business.[paragraph break]"
+3		1		"The moment the boy's father saw your face, he knew what you had come to do. 'You're here to kill me,' he said. It wasn't a question.[paragraph break]"
+3		2		"And you didn't answer. That would have been fatal: the second he needed to get to his gun.[paragraph break]"
+3		3		"You just pressed the trigger. Bang. Dead before he could finish his sentence. Too quickly for your liking... but better safe than sorry.[paragraph break]"
+4		1		"He didn't really stick out when you first met him, the father. Just one of the boys of Pancho's gang, one more gun against the Mexicans.[paragraph break]"
+4		2		"But it didn't take long before he rose in the ranks, informal as they were. Might even have taken over Pancho's place if he hadn't been so reckless. Not that the other guys where much given to careful deliberation, but even in that group he was know as 'the madman'.[paragraph break]"
+4		3		"Nobody said that to his face though. Only that one boy, what was his name -- Billy?, only he made that mistake and he made it only once. Would have been dead too, if Pancho hadn't stopped it.[paragraph break]"
+5		1		"This is his son. You regard the boy once more through your half-closed eyes: nothing of the murderer. He probably takes after his mother.[paragraph break]"
+5		2		"Can you kill him without reason? You ain't like his father, are you?[paragraph break]"
+5		3		"No, you ain't like his father. Chihuahua. Did that cocksucker even [italic type]remember[roman type] Chihuahua?[paragraph break]"
+6		1		"You're not a braggart. They really [italic type]do[roman type] fear you all through the south-west, quake when they hear whatever name you go by locally.[paragraph break]"
+6		2		"But there are rules. You don't do women, you don't do children. You only do assholes.[paragraph break]"
+6		3		"Within the law too, mostly. Bounty hunting. Mostly.[paragraph break]"
+7		1		"It's all so different from how you'd planned it! Go in, shoot the guy, go out. Done it a thousand times. What could go wrong?[paragraph break]"
+7		2		"Falling in love with his daughter first thing you see her, that could go wrong. Bloody stupid thing to do. And at your age![paragraph break]"
+7		3		"Not that you knew she was his daughter, at first, or you might have restrained yourself. And you certainly wouldn't have come to her house in the middle of the night! After that... well.[paragraph break]"
+8		1		"You planned to kill him for what, two decades? Something like that. And then to encounter him while you're sneaking into a house to be with your new lover... who turned out to be his daughter...[paragraph break]"
+8		2		"No time to think. No time to hesitate. Gun. Shot. Screaming. Entire town woken up.[paragraph break]"
+8		3		"And then of course the sheriff, and the bullet in your leg, and the chase, and the sun slowly rising above the plains as you managed to escape [apostrophe]mid the sagebrush."
+9		1		"All for revenge. All for her eyes, glazed over and dead, that afternoon in Chihuahua.[paragraph break]"
+9		2		"'Pull yourself together, Billy. She was just a whore,' he told you. 'Fucking madman!', you screamed, and went at him, all your fifteen years of inexperience against one of the best gunmen of the West.[paragraph break]"
+9		3		"And you would have been dead, if Pancho hadn't been there. You would have been dead.[paragraph break]"
+
+Lose concentration prose rule:
+	if the concentration loser is the player:
+		say " Your train of thought is derailed.[run paragraph on]";
+		rule succeeds.
+
+
+Section - Thinking takes time (in place of Section - Thinking is fast in Inform ATTACK by Victor Gijsbers)
+
+[Because we want this to take time!]
+
+
+Section - Dodging
+
+Report dodging:
+	if the player is prone:
+		say "You try to roll aside in an unpredictable manner.";
+	otherwise:
+		say "You clumsily make some evasive maneuvers.";
+	rule succeeds.
+
+
+
+Section - Appealing to
+
+The explanation counter is a number that varies. The explanation counter is 0.
+The total appeals counter is a number that varies. The total appeals counter is 0.
+The successful appeals counter is a number that varies. The successful appeals counter is 0.
+
+Appealing to is an action applying to one thing. Understand "appeal to [person]" and "appeal [person]" as appealing to.
+
+Check appealing to:
+	if decision made is true:
+		take no time;
+		say "It is too late for appeals." instead.
+		
+Check appealing to:
+	if the Question boolean is true and the combat state of the player is at-Act:
+		take no time;
+		say "David is already willing to listen to you." instead.
+
+Check appealing to:
+	if the noun is the player:
+		take no time;
+		say "You find yourself quite appealing." instead;
+	if the noun is not David:
+		take no time;
+		say "That makes little sense." instead.
+
+Check appealing to:
+	if the explanation counter is 0:
+		take no time;
+		say "You need to do more explaining before you can appeal." instead.
+
+Last check appealing to:
+	let n be a random number between -3 and 8;
+	let m be a random number between -3 and 8;
+	if n is greater than the health of the player and m is greater than the health of the player:
+		increase gasping counter by 1;
+		say "You try to speak, but only a gasp of pain comes out." instead.
+
+Carry out appealing to:
+	if total appeals counter is 3:
+		say "You know that you are pushing your luck, but what have you got to lose? 'Just listen to me one final time!'[paragraph break]'Yeah, that really was the final time I listened to you!', David answers.";
+	otherwise:
+		let n be 1 + total appeals counter;
+		choose row with an ID of n in the Table of Appeals;
+		say appeal entry;
+		let x be 10 minus health of the player;
+		let x be x divided by 2;
+		if x is less than 0, now x is 0; [low health makes appealing easier]
+		increase x by 2;
+		increase x by 3 times explanation counter; [explanation is especially important]
+		increase x by 2 times hits against David; [piercing through David's berserk mood is important]
+		increase x by concentration of the player; [concentration gives slight bonus]
+		increase x by successful appeals counter; [success breeds success]
+		let y be a random number between 1 and 20;
+		if y is greater than x: [appeal fails]
+			say appeal-fail entry;
+			increase temporary violence by 4;
+			decrease sympathy by a random number between 1 and 2;
+		otherwise: [appeal succeeds]
+			say appeal-success entry;
+			if David can talk:
+				say "[one of]David ponders the situation for a moment. [run paragraph on][or]He wipes the sweat from his forehead. [run paragraph on][or]He backs away a few feet. [run paragraph on][at random]";
+				try David talking;
+			otherwise:
+				say "[paragraph break]";
+			if the combat state of the player is at-React:
+				if there is a Combat Action of the action of David attacking the player in the Table of Stored Combat Actions:
+					choose a row with Combat Action of the action of David attacking the player in the Table of Stored Combat Actions;
+					blank out the whole row;
+			increase successful appeals counter by 1;
+			now temporary pacifism is 5;
+			now temporary violence is 0;			
+		now the explanation counter is 0;
+		unless the concentration of the player is 0, decrease the concentration of the player by 1;
+		increase total appeals counter by 1;
+		now gasping counter is 0.
+
+Table of Appeals
+ID		appeal			appeal-success		appeal-fail
+1		"'Come on, David, you've [italic type]got[roman type] to listen to my whole story.'[paragraph break]"		"'I'm listening -- but this had better be good.' "		"'I got to do nothing you tell me!'[paragraph break]"
+2		"[appeal-34]"		"[success-34]"		"[fail-34]"
+3		"[appeal-567]"		"[success-567]"		"[fail-567]"
+
+To say appeal-34:
+	if combat state of player is at-React:
+		say "'Don't [if David carries a readied revolver]shoot[otherwise]attack me[end if]! I have so much more to tell you about your father.'[paragraph break]";
+	otherwise:
+		say "'We can keep our weapons down, can't we? I have a lot to tell you about your father.'[paragraph break]".
+		
+To say success-34:
+	say "'You [italic type]do[roman type] seem to have known him well. Tell me more.' ".
+
+To say fail-34:
+	say "'Sure you can tell me a lot... of lies.'[paragraph break]".
+		
+To say appeal-567:
+	if combat state of player is at-React:
+		say "'Please, [if David carries a readied revolver]put away that gun[otherwise]put away that knife[end if]. Just give me one final chance to explain!'[paragraph break]"; [The only way to get this message twice is if the first time total and success are both 2.]
+	otherwise:
+		say "'You're beginning to see that I'm right, aren't you? Just give me one final chance to explain and all will become clear.'[paragraph break]".
+
+To say success-567:
+	say "'Go on! But don't get your hopes up. I still mean to see you dead.' ".
+
+To say fail-567:
+	say "'No, I think I've heard quite enough.'[paragraph break]".
+
+
+
+Section - Some other actions
+
+Report readying a revolver:
+	if your revolver is readied for at most one turn:
+		say "'Don't do that!', David warns, but of course you don't listen. It feels good to have a gun in your hand.";
+	otherwise:
+		say "You once again grab your revolver.";
+	rule succeeds.
+
+Instead of examining the player:
+	say "Sweaty, blood-stained -- you have seen better days. But nobody would pick a fight with you in a bar.".
+	
+Instead of singing:
+	if a random chance of 4 in 5 succeeds:
+		say "You get ready to sing [italic type]Billy the Kid[roman type], but cough up a little blood instead. It's worse than you thought.";
+	otherwise:
+		say "[italic type]'Mid the sagebrush and the cactus, I will watch the fellers practice,'[roman type] and then... something about dropping bombs? It was a strange song.".
+
+Understand the command "throw" as something new. Throwing is an action applying to one thing. Understand "throw [something]" as throwing.
+
+Understand "throw [something] at [something]" as throwing it at.
+
+Instead of throwing:
+	take no time;
+	say "Throwing about stuff won't solve anything.".
+
+Instead of throwing a knife:
+	take no time;
+	say "It's not a throwing knife.".
+	
+First check throwing at:
+	if the noun is a knife:
+		try throwing the noun instead.
+
+Instead of going:
+	take no time;
+	say "You wouldn't get ten yards before David killed you.".
+
+Instead of answering something that:
+	take no time;
+	say "Conversation is handled by 'explain', 'placate', 'appeal' and 'taunt'.".
+	
+Instead of telling something about:
+	take no time;
+	say "Conversation is handled by 'explain', 'placate', 'appeal' and 'taunt'.".
+
+Instead of asking something about:
+	take no time;
+	say "Conversation is handled by 'explain', 'placate', 'appeal' and 'taunt'.".
+	
+Instead of asking something for:
+	take no time;
+	say "Conversation is handled by 'explain', 'placate', 'appeal' and 'taunt'.".
+
+The standard report reloading rule is not listed in any rulebook.
+
+Report an actor reloading (this is the custom report reloading rule):
+	now the global actor is the actor;
+	if the current load time of the noun is the maximum load time of the noun:
+		say "[CAP-actor] [if the maximum load time of the noun is 1][reload text of the noun][s][otherwise]finish[es] [reload stem text of the noun]ing[end if] [the noun].";
+	otherwise:
+		say "[CAP-actor] [if the current load time of the noun plus 1 is the maximum load time of the noun]start[s][otherwise]continue[s][end if] [reload stem text of the noun]ing [the noun][run paragraph on][if the current load time of the noun is 1 and the global actor is the player][one of]. (You need to spend one more turn reloading.)[or].[stopping][otherwise].[end if][paragraph break]".
+
+Attacking with is an action applying to two things. Understand "attack [person] with [weapon]" as attacking with.
+
+Instead of attacking with:
+	take no time;
+	say "You can choose which weapon to attack with by readying that weapon. You will always attack with your readied weapon.".
+
+
+
+
+Chapter - David
+
+David is a hostile man in bitter creek. "David stares at you[if David encloses a readied revolver], a revolver unsteady in his hand[end if]."
+
+Instead of examining David:
+	say "He's young, about the age you were when you left for the Mexican War. And not even as tough.".
+
+Section - Combat variables
+
+The health of David is 30.
+The melee of David is 0.
+
+
+A whether attacking begins rule (this is the sometimes Davids gun breaks down rule):
+	if the global attacker is David:
+		if the global attacker weapon is a revolver:
+			if a random chance of 1 in 14 succeeds:
+				let item be a random revolver enclosed by David;
+				remove item from play;
+				move the broken revolver to the location;
+				say "David pulls the trigger, but nothing happens. 'Damned piece of junk!', he screams, and throws the broken weapon down in frustration." instead.
+
+The broken revolver is a thing. Instead of examining the broken revolver: say "It's an old model, hardly a weapon David's father would have used.". Instead of taking the broken revolver: say "Nah; it's probably useless.".
+
+
+
+Section - Talking
+
+Talking is an action applying to nothing.
+
+The Question boolean is a truth state that varies. The Question boolean is false.
+The reply ID is a number that varies. The reply ID is 0.
+
+David just talked is a truth state that varies. David just talked is false. [David shouldn't attack after saying something if the player didn't get a turn in between.]
+
+Carry out David talking:
+	repeat through the Table of David Talking Options:
+		if the available entry is true:
+			say Phrase entry;
+			if temporary pacifism is less than 5, now temporary pacifism is 5;
+			now David just talked is true;
+			if the Question boolean is false:
+				now the Question boolean is the IsQuestion entry;
+				now the reply ID is the ID entry;
+			if the Question boolean is true:
+				if the IsQuestion entry is true:
+					now the reply ID is the ID entry;
+			if the ID entry is 19 and sympathy is less than 14:
+				now sympathy is 14;
+			unless the ID entry is 19, blank out the whole row;
+			make no decision.
+
+To decide if David can talk:
+	repeat through the Table of David Talking Options:
+		if the available entry is true:
+			decide yes;
+	decide no.
+	
+To say David phrase (n - a number):
+	if there is an ID of n in the Table of David Talking Options:
+		choose row with an ID of n in the Table of David Talking Options;
+		now the available entry is true.
+	
+Table of David Talking Options
+Phrase					IsQuestion	available			ID
+"'Why did you do it?' he asks, perhaps closer to tears than to pulling the trigger.[paragraph break]"			true		true		1
+"'I shouldn't be talking to you. I just ought to [if David encloses a revolver]shoot[otherwise]stab[end if] you right now!' David blurts out.[paragraph break]"			false		true		2
+"'My father was a great man. A peaceful man! He never did anybody no harm, he was no fighter. What did you have against him?'[David-flavour][paragraph break]"	true		true		3
+"'He was in the Mexican war? I... I didn't know. But that was twenty-five years ago! Who cares about that?'[David-flavour][paragraph break]"	true		false		4
+"'You say that the dead remember -- are you a loon, like that John Bender guy everyone is talking about?'[David-flavour][paragraph break]"	true		false		5
+"'You probably think that just because you're a bad-ass desperado, and because I am a green boy, you are invulnerable and can toy with me and tell me all kinds of lies. But you're wrong!'[paragraph break]"	false		true		6
+"'Even if you did have a reason to kill my father, how about raping my sister? Huh?'[David-flavour][paragraph break]"	true		true		7
+"'Yeah? Well, my sister called it rape, when I found the two of you here at the creek!'[David-flavour][paragraph break]"	true		false		8
+"'So what [italic type]did[roman type] my father do to you?'[paragraph break]"	true		false		9
+"'Well, what about this Billy?'[David-flavour][paragraph break]"	true		false		10
+"'But the woman fell in love with my father, they had a row about it, and my father shot this Billy of yours?'[David-flavour][paragraph break]"	true		false		11
+"'So what happened? Billy intervened?'[David-flavour][paragraph break]"	true		false		12
+"'And [italic type]then[roman type] Billy challenged my father, was killed, and you vowed revenge?'[David-flavour][paragraph break]"	true		false		13
+"'Did Billy die in the war?'[David-flavour][paragraph break]"	true		false		14
+"'All for a woman? For a whore?'[David-flavour][paragraph break]"	true		false		15
+"'But I still don't understand! Why would [italic type]you[roman type] come after my father for this?'[David-flavour][David phrase 17][David phrase 18][David phrase 19][paragraph break]"	true		false		16
+"'How can I even know you're telling the truth?'[David-flavour][paragraph break]"	true		false		17
+"'I don't know. I just don't know what to think.'[paragraph break]"	false		false		18
+"[one of]'What should I think?'[or]'Maybe you're trying to gum me.'[or]'What [italic type]should[roman type] I think?', repeats David.[or]'Are you speaking the truth?'[stopping][David-flavour][paragraph break]"	true		false		19
+
+To say David-flavour:
+	let n be hits against David;
+	if n is 0:
+		if a random chance of 1 in 4 succeeds:
+			say "[one of] David sounds very skeptical.[or] David spits the question at you as if it were a bullet.[or] He radiates menace.[or] He doesn't look ready to believe you.[at random][run paragraph on]";
+	if n is 1:
+		if a random chance of 1 in 4 succeeds:
+			say "[one of] A tone of sarcasm is evident.[or] His tone remains accusatory.[or] There is still murder in his eyes.[or] He still doesn't look ready to believe you.[at random][run paragraph on]";
+	if n is 2:
+		if a random chance of 1 in 3 succeeds:
+			say "[one of] David nervously scratches his beard.[or] He sounds unsure whether to buy your story or not.[or] There is a quizzical look in his eyes.[or] There is a hint of fear in his question.[at random][run paragraph on]";			
+	if n is greater than 2:
+		if a random chance of 1 in 3 succeeds:
+			say "[one of] Tears roll down his face.[or] He is evidently tormented by doubt.[or] You hear the weariness of despair in his voice.[or] David wipes the sweat from his forehead.[or] He almost seems to be begging you for an answer.[at random][run paragraph on]".
+
+
+Section - More David prose
+
+[Attack move.]
+
+
+An attack move flavour rule (this is the David attacks with a gun rule):
+	if the global attacker is David and the global attacker weapon is a revolver:
+		let n be a random number between 1 and 8;
+		if n is:
+			-- 1: say "[enough-talk]David points his gun at your heart, about to pull the trigger.";
+			-- 2: say "[enough-talk]David's finger tightens on the trigger of his gun.";
+			-- 3: say "[enough-talk-speech]You must die!', David suddenly screams.";
+			-- 4: say "[enough-talk]David aims his gun at your head.";
+			-- 5: say "[enough-talk-speech]You're really gonna die this time,' David hysterically tells you.";			
+			-- 6: say "[enough-talk]With fascination you stare at his revolver as David starts pulling the trigger.";
+			-- 7: say "[enough-talk-speech]My father will be revenged,' David whispers.";
+			-- 8: say "[enough-talk]David grabs the gun with two hands in order to steady his aim, and points it at you.";
+		say "";
+		rule succeeds.
+
+An attack move flavour rule (this is the David attacks with a knife rule):
+	if the global attacker is David and the global attacker weapon is not a revolver:
+		let n be a random number between 1 and 5;
+		if n is:
+			-- 1: say "[enough-talk]Screaming wildly, David runs at you with his knife raised.";
+			-- 2: say "[enough-talk-speech]I can't just let my father's murderer go free!', David whispers and lunges at you with the knife.";
+			-- 3: say "[enough-talk]The sharp steel of his knife flickering in the sun, David goes for your stomach.";
+			-- 4: say "[enough-talk]With all the force of grief and desperation David attempts to stab you.";
+			-- 5: say "[enough-talk-speech]I'll dirk you!', David screams.";
+		say "";
+		rule succeeds.
+
+
+
+To say enough-talk:
+	if gasping counter is greater than 0:
+		say "'So you won't talk?' [run paragraph on]";
+		now explained-since-David-attacked is false;
+	otherwise if explained-since-David-attacked is true:
+		say "'[one of]You know, I didn't come here to talk, but to fight.[run paragraph on][or]Enough talk![run paragraph on][or]You are just going to talk all day if I let you. Well, I won't.[run paragraph on][or]I'm fed up with your babbling![run paragraph on][or]I think I've heard enough of your so-called explanations.[run paragraph on][or]Call that an explanation? You're just liar![run paragraph on][at random]' [run paragraph on]";	
+		now explained-since-David-attacked is false.
+
+To say enough-talk-speech:
+	if gasping counter is greater than 0:
+		say "'So you won't talk? [run paragraph on]";
+		now explained-since-David-attacked is false;
+	otherwise if explained-since-David-attacked is true:
+		say "'[one of]You know, I didn't come here to talk, but to fight.[run paragraph on][or]Enough talk![run paragraph on][or]You are just going to talk all day if I let you. Well, I won't.[run paragraph on][or]I'm fed up with your babbling![run paragraph on][or]I think I've heard enough of your so-called explanations.[run paragraph on][or]Call that an explanation? You're just liar![run paragraph on][at random] [run paragraph on]";	
+		now explained-since-David-attacked is false;
+	otherwise:
+		say "'[run paragraph on]".
+
+
+A flavour rule (this is the David hits or misses with a gun rule):
+	if the global attacker is David and the global attacker weapon is a revolver:
+		if the final damage is greater than 0:
+			let n be a random number between 1 and 4;
+			if n is:
+				-- 1: say "The boy's bullet hits you in [one of]the shoulder, only inches away from the jugular[or]your upper left arm[or]in your left side[at random]. You are in even more terrible pain than before.[run paragraph on]";
+				-- 2: say "You are overwhelmed by agony as David's bullet finds your [if the player is prone and a random chance of 1 in 2 succeeds]hurt leg[otherwise if the player is prone]lower right arm[otherwise if a random chance of 1 in 2 succeeds]abdomen[otherwise]pelvis[end if].[run paragraph on]";
+				-- 3: say "You have to fight against tears when a sudden sharp pain in your [one of]arm[or]elbow[or]hip[at random] announces that David scored a hit.[run paragraph on]";
+				-- 4: say "The BANG of the pistol reaches your ear at the same moment that the bullet reaches your [if the player is prone and a random chance of 1 in 2 succeeds]back[otherwise if the player is prone]buttocks[otherwise if a random chance of 1 in 2 succeeds]chest[otherwise]lower leg[end if]. You feel your life slowly deserting you.[run paragraph on]";
+		otherwise:
+			let n be a random number between 1 and 3;
+			if n is:
+				-- 1: say "David's bullet flies past your head, harmless.[run paragraph on]";
+				-- 2: say "His aim is too careless, and David's bullet strikes the ground behind you.[run paragraph on]";
+				-- 3: say "The deadly lead misses you. Another few seconds to live.[run paragraph on]";
+		rule succeeds.
+
+A flavour rule (this is the David hits or misses with a knife rule):
+	if the global attacker is David and the global attacker weapon is a knife:
+		if the final damage is greater than 0:
+			let n be a random number between 1 and 3;
+			if n is:
+				-- 1: say "David sticks his knife in your guts. 'Blgh,' is the sound that involuntarily escapes you.[run paragraph on]";
+				-- 2: say "You scream out as David's knife sinks into your leg, close to the shot wound.[run paragraph on]";
+				-- 3: say "The murderous steel makes a large gash in your arm.[run paragraph on]";
+		otherwise:
+			let n be a random number between 1 and 3;
+			if n is:
+				-- 1: say "You push David away, and his slash misses the mark.[run paragraph on]";
+				-- 2: say "You are too fast for David, and his knife finds only the air.[run paragraph on]";
+				-- 3: say "Instincts you've honed over the decades make you duck just in time to avoid David's frenzied attack.[run paragraph on]";
+		rule succeeds.
+
+A fatal player flavour rule:
+	if the global attacker is David and the global attacker weapon is a revolver:
+		say "The bullet goes straight through your brain. You stare at the sun. Was it ever this bright? you wonder as it slowly expands to fill your field of vision. Was it?[paragraph break]Then you [if the player is prone]sink down to the earth[otherwise]topple over and crash to the earth[end if]. ";
+	if the global attacker is David and the global attacker weapon is a knife:
+		say "The knife goes straight in your heart. You stare at the sun. Was it ever this bright?, you wonder. Was it? Then you [if the player is prone]sink down on the earth[otherwise]topple over and crash to the earth[end if]. ";
+	end the story saying "David found his revenge... if no consolation".
+	
+A fatal flavour rule:
+	if the global attacker is the player and the global defender is David:
+		if the global attacker weapon is a revolver:
+			say "You take a deep breath, concentrate, aim for the head -- BANG. You close your eyes because you don't want to see what he looks like in death.[paragraph break]";
+		if the global attacker weapon is a knife:
+			say "You take a deep breath, concentrate, aim for the heart -- and thrust. As he sinks down you turn away because you don't want to see what he looks like in death.[paragraph break]";
+		run the end-survival check.
+		
+
+A flavour rule (this is the player hits or misses with a gun rule):
+	if the global attacker is the player and the global attacker weapon is a revolver:
+		if the final damage is greater than 0:
+			let n be hits against David;
+			if n is:
+				-- 0: say "A hit, a very palpable hit! David staggers back, watching the shot wound in disbelief. 'I... I didn't think you could hit me.'[run paragraph on]";
+				-- 1: say "Your bullet lodges itself in David's leg. He grunts in pain and tears stream down his face -- but he doesn't seem to be ready to give up just yet.[run paragraph on]";
+				-- 2: say "David screams as your shot penetrates his left arm. Little is left of his original bravado.[run paragraph on]";
+				-- otherwise: say "Another hit! David's face is distorted by pain, and all hope for a good outcome seems to have deserted him.[run paragraph on]";
+		otherwise:
+			let n be a random number between 1 and 4;
+			if n is:
+				-- 1: say "Just as you pull the trigger, a spasm of pain runs through your body. Your shot goes a mile wide.[run paragraph on]";
+				-- 2: say "The sun beats on your head. Your bullet pierces the ground.[run paragraph on]";
+				-- 3: say "You cannot seem to keep your arm still. You miss David, even though you can normally hit the spade on the ace at this distance.[run paragraph on]";
+				-- 4: say "You curse as your bullet goes wide and smashes into a cactus.[run paragraph on]";
+		rule succeeds.
+
+A flavour rule (this is the player hits or misses with a knife rule):
+	if the global attacker is the player and the global attacker weapon is a knife:
+		if the final damage is greater than 0:
+			let n be hits against David;
+			if n is:
+				-- 0: say "You slash across David's chest, where his shirt turns red immediately. He staggers back, watching the wound in disbelief. 'I... I didn't think you could hit me.'[run paragraph on]";
+				-- 1: say "You stick the knife deep into David's flesh. He grunts in pain and tears stream down his face -- but he doesn't seem to be ready to give up just yet.[run paragraph on]";
+				-- 2: say "David screams as your blade penetrates his left arm. Little is left of his original bravado.[run paragraph on]";
+				-- otherwise: say "Another slash! David's face is distorted by pain, and all hope for a good outcome seems to have deserted him.[run paragraph on]";				
+		otherwise:
+			let n be a random number between 1 and 3;
+			if n is:
+				-- 1: say "A clumsy attack, a clumsy miss--you grunt in frustration.[run paragraph on]";
+				-- 2: say "You slash in the air, but David dances away without the slightest trouble.[run paragraph on]";
+				-- 3: say "You attempt to stick your knife in his guts, but you are too slow, far too slow.[run paragraph on]";
+		rule succeeds.
+
+
+Report an actor concentrating (this is the David concentrating prose rule):
+	if the actor is David:
+		say "David seems to pull himself together.";
+		rule succeeds.
+
+Report an actor dodging:
+	if the actor is David:
+		rule succeeds.
+		
+First report an actor waiting (this is the David waiting prose rule):
+	if the actor is David:
+		say "David [one of]ponders his options for a moment[or]doesn't seem to know what to do[or]wipes away his tears[at random].";
+		rule succeeds.
+		
+
+Section - AI rules
+
+[David has the following possible actions: talk, attack, ready, reload, dodge, concentrate.]
+
+First standard AI action select rule (this is the have David consider talking rule):
+	if the global attacker is David:
+		choose a blank Row in the Table of AI Combat Options;
+		change the Option entry to the action of David talking;
+		change the Weight entry to 0.
+		
+First standard AI action select rule (this is the have David consider waiting rule):
+	if the global attacker is David:
+		choose a blank Row in the Table of AI Combat Options;
+		change the Option entry to the action of David waiting;
+		change the Weight entry to -100.
+		
+Standard AI action select rule (this is the AI David talking rule):
+	if the global attacker is David:
+		choose row with an Option of the action of David talking in the Table of AI Combat Options;
+		increase the Weight entry by 3;
+		increase the Weight entry by Sympathy divided by 2;
+		decrease the Weight entry by Anger divided by 2;
+		decrease the Weight entry by the concentration of the player;
+		if game difficulty is d-easy:
+			increase Weight entry by 1;
+		if game difficulty is d-normal:
+			increase Weight entry by 1;
+		if game difficulty is d-hard:
+			decrease Weight entry by 1;
+		if game difficulty is d-extreme:
+			decrease Weight entry by 3;
+		if negative decision is true:
+			decrease the Weight entry by 100;
+		unless David can talk:
+			decrease the Weight entry by 1000.
+
+Standard AI action select rule (this is the AI David often prefers talking to attacking rule):
+	if the global attacker is David and the concentration of the player is not 3:
+		if a random chance of 1 in 3 succeeds:
+			choose row with an Option of the action of David talking in the Table of AI Combat Options;
+			increase Weight entry by 4;
+			choose row with an Option of the action of David attacking the global defender in the Table of AI Combat Options;
+			decrease Weight entry by 4.
+			
+Standard AI action select rule (this is the AI David sometimes unpredictably attacks rule):
+	if the global attacker is David:
+		if a random chance of 1 in 10 succeeds:
+			if temporary pacifism is not greater than 1:
+				unless last-turner is David: [Never as David's second action, if he gets to act twice.]
+					choose row with an Option of the action of David attacking the global defender in the Table of AI Combat Options;
+					increase Weight entry by 6.
+			
+Standard AI action select rule (this is the AI David sometimes unpredictably waits rule):
+	if the global attacker is David and the concentration of the player is not 3 and the combat state of David is not at-React:
+		if a random chance of 1 in 12 succeeds:
+			choose row with an Option of the action of David waiting in the Table of AI Combat Options;
+			increase Weight entry by 200.
+
+Standard AI action select rule (this is the AI David no longer talks when all is said rule):
+	if the global attacker is David:
+		choose row with an Option of the action of David talking in the Table of AI Combat Options;
+		if the Table of David Talking Options is empty:
+			decrease the Weight entry by 1000.
+			
+Standard AI action select rule (this is the AI David attacking rule):
+	if the global attacker is David:
+		choose row with an Option of the action of David attacking the global defender in the Table of AI Combat Options;
+		increase the weight entry by anger divided by 2;
+		if difficulty is not d-easy, increase the weight entry by total appeals counter;
+		decrease the weight entry by 2 times successful appeals counter;
+		increase the weight entry by temporary violence;
+		decrease the weight entry by temporary pacifism;
+		decrease the weight entry by sympathy divided by 2;
+		decrease the weight entry by hits against David;
+		if last-turner is David:
+			decrease the weight entry by 2;
+		if the player is prone:
+			decrease the weight entry by 2;
+		if the player carries a readied revolver:
+			increase the weight entry by 1;
+		if the player does not carry a revolver and the player does not carry a knife:
+			decrease weight entry by 2;
+		if David just talked is true:
+			now the weight entry is -1000.
+			
+[But we don't want David to think rationally about his chances to win. The player should be able to talk to him until tension gets really high. So we'll limit David's perception of his chance to win.]
+
+Last chance to win rule (this is the David CTW rule):
+	if the global attacker is David:
+		if the chance-to-win is greater than 4, now the chance-to-win is 4;
+		if the normalised chance-to-win is greater than 4, now the normalised chance-to-win is 4.
+
+Standard AI action select rule (this is the David doesn't like concentrating rule):
+	if the global attacker is David:
+		choose row with an Option of the action of David concentrating in the Table of AI Combat Options;
+		decrease weight entry by 3;
+		decrease weight entry by tension divided by 2.
+		
+Standard AI action select rule (this is the David likes dodging when attacked rule):
+	if the global attacker is David:
+		if the combat state of David is at-React:
+			choose row with an Option of the action of David dodging in the Table of AI Combat Options;
+			increase weight entry by 10.
+
+			
+
+
+Section - Help
+
+Asking for help is acting fast. Understand "menu" and "copyright" as asking for help.
+
+The help request rule is not listed in any rulebook.
+
+Carry out asking for help:
+	now the current menu is the Table of Sagebrush Help;
+	carry out the displaying activity;
+	clear the screen;
+	try looking;
+	stop the action. 
+
+Table of Sagebrush Help
+title		subtable		description		toggle
+"Basic instructions"	--	"In order to successfully interact with David, whether with speech or violence or a combination of these, you will need to use several game-specific verbs. Violence is easy: just [bold type]attack[roman type] a person. You may need to [bold type]ready[roman type] or [bold type]reload[roman type] a weapon first. Violence is also essential, since hitting David repeatedly will make him lose the stomach for a fight.[paragraph break]However, you are wounded, lying on the ground, and overall in very bad shape. To have any chance to hit, you will need to [bold type]think[roman type] (synonyms: [bold type]concentrate[roman type] and [bold type]c[roman type]); the more often you think without losing your train of thought, the better your chances of hitting, and hitting well, become. Also, a high tension (shown in the status bar) helps [italic type]a lot[roman type]. Finally, standing up will increase your combat skills, but it will also make David more likely to attack you.[paragraph break]Your main conversational strategies are [bold type]placate[roman type], which may temporarily get David to listen to you; and [bold type]explain[roman type]. Explaining is very powerful, since it will gain you sympathy; but you can only explain yourself after David has asked a question.[paragraph break]In the unfortunate case that David decides to attack you, you can defend yourself in three ways. If you [bold type]taunt[roman type] David, his anger may make him miss, and it also makes him an easier target for your next attack. However, it will make him less likely to talk in the future. Alternatively, you can attempt to [bold type]dodge[roman type] his attacks. There is also the powerful [bold type]appeal[roman type], which you can use to implore David not to attack. It probably won't work unless you have already explained yourself quite a bit.[paragraph break]For your convenience, all the special actions you can take (except attacking, readying and reloading) are shown in the status bar at the top of the window. Most common interactive fiction verbs still work, and some important ones (examine, look, inventory) can be done freely -- they don't take a turn! One final remark. You should be able to enjoy the game in pure prose, but if you're playing to win, you might want to see the underlying combat calculations. If so, just type [bold type]numbers on[roman type]."	--
+"I died! In easy mode!"	--	"This is possible. You are heavily wounded; David has the upper hand and he is not, currently, the most reasonable person on Earth. In other words, you are in dire straits, and it is possible for your luck to simply run out. That's life, and you've always known it.[paragraph break]This may be important, and unusual, enough to stress: although this is (or at least can be played as) a tactical game, you are not meant to be able to win every game. (Even apart from the question which of the several different endings counts as winning.)[paragraph break]On the other hand, you should normally win on easy mode. If that's not happening, try reading the other parts of this help again, to see if you might be missing a crucial command or strategy. (Did you ready your gun? Did you try to appeal when David attacks, but only after you've explained a couple of times? Did you attack David, to get that 'aggressive' status out of the status bar?)"
+"My status bar looks weird!"	--	"By default, the game requires a relatively wide status bar to display quite a bit of information. If the text in your status bar is cut off, or if different parts of it overlap, the best thing you can do is to widen your window. If this is impossible or undesirable, you can reduce the amount of information shown in it with the 'shrink status' command. The 'expand status' command reverses this."
+"Thanks"	--	"I would like to thank my beta testers: Jimmy Maher, Dorte Lassen, Adam Myers, Matt Weiner, Kevin Colyer and S. John Ross."
+"Contact"	--	"You can contact the author at victor@lilith.cc."
+"License and copyright"		--	"The copyright of this game belongs to Victor Gijsbers. It is released under the GNU General Public License version 3 or any later version. (Note that some of the extensions and libraries needed to compile the source may be released under different licenses. However, none of them restrict your freedom to play, copy and redistribute this compiled game file.)[paragraph break]The copyright of the photograph used in the cover art belongs to Richard Topalovich. He released it under the Creative Commons Attribution 2.0 Generic license."
+
+Include Basic Screen Effects by Emily Short.
+
+Table of Fancy Status
+left		central	right
+"[bold type]You[roman type] are [health status], [if the player carries no readied weapon]unarmed[otherwise]armed with [random readied weapon carried by the player][end if], and [if the player is prone]lying down[otherwise]standing[end if]."	""	""
+"[bold type]David[roman type] is [Davids health], [Davids courage], and [if David carries no readied weapon]unarmed[otherwise]armed with [random readied weapon carried by David][end if]."	""	""
+"[bold type]Special actions[roman type]: [possible actions]"	""	""
+"Tension: [tension]"	""	"[if game difficulty is d-easy](Easy)[otherwise if game difficulty is d-normal](Normal)[otherwise if difficulty is d-hard](Hard)[otherwise](Extreme)[end if]"
+
+
+Table of Shrunken Status
+left		central	right
+"[bold type]You[roman type] are [health status]."	""	""
+"[bold type]David[roman type] is [Davids health] and [Davids courage]."	""	""
+"Tension: [tension]"	""	"[if game difficulty is d-easy](Easy)[otherwise if game difficulty is d-normal](Normal)[otherwise if difficulty is d-hard](Hard)[otherwise](Extreme)[end if]"
+
+Status-shrinked is a truth state that varies. Status-shrinked is false.
+
+Shrinking status is an action out of world. Shrinking status is acting fast. Understand "shrink status" and "shrink" as shrinking status.
+
+Expanding status is an action out of world. Expanding status is acting fast. Understand "expand status" and "expand" as expanding status.
+
+Carry out shrinking status:
+	now status-shrinked is true;
+	say "Done.".
+
+Carry out expanding status:
+	now status-shrinked is false;
+	say "Done.".
+
+Table of Unfancy Status
+left		central		right
+""		"Menu"	""
+
+Rule for constructing the status line:
+	if in-game-menu is false:
+		if status-shrinked is false:
+			fill status bar with Table of Fancy Status;
+		otherwise:
+			fill status bar with Table of Shrunken Status;
+		rule succeeds;
+	otherwise:
+		fill status bar with Table of Unfancy Status;
+		rule succeeds. 
+
+To say weapon-capitalised:
+	say "[random readied weapon carried by the player]" in sentence case.
+	
+To say tension:
+	if the numbers boolean is true:
+		say tension;
+	otherwise:
+		if tension is greater than 17:
+			say "[bold type]extreme[roman type]"; [9-10 attack, 6 damage]
+		if tension is greater than 13 and tension is less than 18:
+			say "[bold type]very high[roman type]"; [7-8 attack, 4-5 damage]
+		if tension is greater than 10 and tension is less than 14:
+			say "high"; [5-6 attack, 3-4 damage]
+		if tension is greater than 7 and tension is less than 11:
+			say "moderate"; [4-5 attack, 2-3 damage]
+		if tension is greater than 4 and tension is less than 8:
+			say "low"; [2-3 attack, 1-2 damage]
+		if tension is less than 5:
+			say "very low". [0-2 attack, 0-1 damage]
+			
+To say health status:
+	if the numbers boolean is true:
+		say "at ", health of the player, " health";
+	otherwise:
+		if health of the player is greater than 20:
+			say "wounded";
+		if health of the player is greater than 14 and health of the player is less than 21:
+			say "badly wounded";
+		if health of the player is greater than 10 and health of the player is less than 15:
+			say "severely wounded";
+		if health of the player is greater than 6 and health of the player is less than 11:
+			say "bleeding to death";
+		if health of the player is greater than 2 and health of the player is less than 7:
+			say "[bold type]slipping away[roman type]";
+		if health of the player is greater than 0 and health of the player is less than 3:
+			say "[bold type]on the brink[roman type]";
+		if health of the player is less than 1:
+			say "[bold type]dead[roman type]".
+
+To say Davids health:
+	if the numbers boolean is true:
+		say "at ", health of David, " health";	
+	otherwise:
+		if the health of David is greater than 29:
+			say "unharmed";
+		if the health of David is less than 30 and the health of David is greater than 22:
+			say "scratched";
+		if the health of David is less than 23 and the health of David is greater than 15:
+			say "lightly wounded";
+		if the health of David is less than 16 and the health of David is greater than 9:
+			say "wounded";
+		if the health of David is less than 10 and the health of David is greater than 4:
+			say "severely wounded";
+		if the health of David is less than 5 and the health of David is greater than 0:
+			say "[bold type]near death[roman type]";
+		if the health of David is less than 1:
+			say "[bold type]dead[roman type]".
+
+To say Davids courage:
+	if hits against David is 0:
+		say "aggressive";
+	if hits against David is 1:
+		say "determined";
+	if hits against David is 2:
+		say "unsure";
+	if hits against David is 3:
+		say "faltering";		
+	if hits against David is greater than 3:
+		say "despairing";		
+					
+To say possible actions:
+	let x be 0;
+	if the question boolean is true and the combat state of the player is at-Act:
+		if x is 1, say ", ";
+		say "explain";
+		now x is 1;
+	if the combat state of the player is at-Act:
+		if there is an ID of the reply ID in the Table of Specific placatings or the Table of placatings is not empty:
+			if x is 1, say ", ";
+			say "placate";
+			now x is 1;
+	if the combat state of the player is at-React:
+		if x is 1, say ", ";
+		if explanation counter is greater than 0:
+			say "appeal, ";
+		say "taunt, dodge";
+		now x is 1;
+	if x is 1, say ", ";
+	say "think".
+	
+	
+		
+Section - Testing
+
+[Uncomment for testing purposes.]
+
+[Last standard AI action select rule (this is the test AI selection rule):
+	repeat through the Table of AI Combat Options begin;
+		say "[Option entry]: [Weight entry][line break]";
+	end repeat.]
+
+[When play begins, seed the random-number generator with 2089.]
+
+[Stating is an action out of world. Understand "state" as stating.
+
+Carry out stating:
+	take no time;
+	say "Anger: [Anger]; sympathy: [Sympathy]; temporary violence: [temporary violence]; temporary pacifism: [temporary pacifism]; hits against player: [hits against player]; hits against David: [hits against david]; total appeal attempts: [total appeals counter]; successful appeal attempts: [successful appeals counter]."]
+	
+[Every turn:
+	try stating.]
+

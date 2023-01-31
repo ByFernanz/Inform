@@ -1,0 +1,1515 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Extension</title>
+    <style type="text/css">
+        <!--
+        /* The default font (family) and size */
+
+        body, p, td {
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.8rem; /* 100/125 */
+        }
+
+        /* For fixed-point material within text, such as the typing on the Library Card index page */
+
+        span.typewritten {
+        	font-family: monospace;
+        	font-size: 0.867rem; /* 13/12 * 100/125 */
+        }
+
+        /* For less important material: the small print */
+
+        span.smaller {
+        	font-size: 80%;
+        }
+
+        /* The "heading panel" is the coloured box, high up on the page. The colours
+        vary depending on the page: for example, the style on a report of a translation
+        with no problems is "headingpanelsucceeded", usually green, but if there were
+        problems then "headingpanelfailed" is used, which is usually red. "headingpanel"
+        itself is a more neutral grey by default. "headingpanelDark" is an alternative
+        look to make the extensions index pages have some visual contrast with the others;
+        by default they are a darker grey. */
+
+        .headingpanel {
+        	background: #eeeeee;
+        }
+        .headingpanelsucceeded {
+        	background: #E6FFE6;
+        }
+        .headingpanelfailed {
+        	background: #f69Ca6;
+        }
+        .headingpanelalt {
+        	background: #808080;
+        }
+
+        /* Heading panels have two lines of text: an upper one in a larger size, and a
+        lower one in a smaller. Again, the alt versions are meant to contrast.
+
+        	Report on Translation: Succeeded                <-- headingpaneltext
+        	Produced by Inform 10.1.0 (build 6U97)          <-- headingpanelrubric
+
+        	Installed Extensions                            <-- headingpaneltextalt
+        	Bundles of extra rules or phrases to...         <-- headingpanelrubricalt
+
+        */
+
+        span.headingpaneltext {
+        	color: #222222;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+        span.headingpaneltextalt {
+        	color: #ffffff;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        span.headingpanelrubric {
+        	color: #222222;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.733rem; /* 11/12 * 100/125 */
+        	font-weight: bold;
+        }
+        span.headingpanelrubricalt {
+        	color: #ffffff;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.733rem; /* 11/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* Horizontal rule styling */
+
+        div.hr {
+        	border: 0;
+        	width: 100%;
+        	color: #707070;
+        	background-color: #707070;
+        	height: 5px;
+        }
+
+        /* This styles the (usually white) text of the example numbers written inside
+        oval blobs in the extension documentation, which mimic the look of the in-app
+        documentation. */
+
+        .oval, .oval td {
+        	background-image:url('inform:/doc_images/ovoid.png');
+        	color:white;
+        }
+
+        /* Styling used in the extension documentation indexes: */
+
+        /* Used for extension names in the extensions pane of the app */
+
+        span.extensioncensusentry {
+        	color: #ffffff;
+        }
+
+        span.extensionindexentry {
+        	color: #404040;
+        }
+
+        span.extensionindexerror {
+        	color: #ff8080;
+        }
+
+        /* This is used in extension documentation, where an example is presented
+        in a slightly tinted box: */
+
+        table.extensionexample {
+        	background-color: #f0f0f0;
+        }
+
+        span.extensionexampleletter {
+        	color: #202020;
+        	font-size: 14px;
+        	font-weight: bold;
+        }
+
+        /* Seen in problem messages: */
+
+        span.problemred {
+        	color: #800000;
+        }
+
+        span.problemgreen {
+        	color: #008000;
+        }
+
+        span.phraseword {
+        	color: #808080;
+        }
+
+        span.phrasetokentext {
+        	color: #e00060;
+        }
+
+        span.phrasetokendesctext {
+        	color: #4040ff;
+        }
+
+        span.phrasetokenvaluetext {
+        	color: #ff4040;
+        }
+
+        /* Now we move on to styling used in the Index pages only: */
+
+        /* The periodic table display has "sidebars", usually grey and taller than they
+        are wide; they contain no text. */
+
+        div.periodictablesidebarcolour {
+        	background: #888;
+        }
+        div.periodictablesidebar:hover {
+        	background: #222;
+        }
+
+        /* The text of the element-abbreviation, such as "Lx" or "Ph", uses: */
+
+        span.elementtext {
+        	color: #ffffff;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* Similarly for the "atomic number" - a single digit - in the top left corner
+        of these boxes: */
+
+        span.elementnumbertext {
+        	color: #ffffff;
+        	font-size: 0.622rem; /* 7/12 * 96/72 * 100/125 */
+        }
+
+        /* For the text of the element title, to the right of the element box: */
+
+        span.elementtitletext {
+        	color: #ffffff;
+        	font-size: 0.6rem; /* 9/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* The banner at the top of each element: */
+
+        table.elementbanner {
+        	background: #eeeeee;
+        }
+
+        /* For the typewriting on the Library Card: */
+
+        span.librarycardtitle {
+        	color: #803030;
+        }
+
+        span.librarycardother {
+        	color: #303030;
+        }
+
+        /* Generically used for "more details" boxes in the index: */
+
+        table.indexmorebox {
+        	background-color: #e0e0e0;
+            border-radius: 8px;
+        }
+
+        /* But not for activity contents: */
+
+        table.indexactivitycontents {
+        	background-color: #e8e0c0;
+            border-radius: 8px;
+        }
+
+        /* For responses in index entries about rules: */
+
+        span.indexresponseletter {
+        	color: #ffffff;
+        	font-family: 'Courier New', Courier, monospace;
+        	background-color: #8080ff;
+        }
+
+        span.indexresponsetext {
+        	color: #000066;
+        }
+
+        /* Used ubiquitously throughout the index and extension documentation: */
+
+        span.indexblack {
+        	color: #000000;
+        }
+
+        span.indexgrey {
+        	color: #808080;
+        }
+
+        span.indexdarkgrey {
+            color: #505050;
+        }
+
+        span.indexdullred {
+        	color: #800000;
+        }
+
+        span.indexdullgreen {
+        	color: #008000;
+        }
+
+        span.indexdullblue {
+        	color: #000080;
+        }
+
+        /* Used for the room squares in the World map in the Index (which is currently
+        a table with one row of one column) */
+
+        table.indexmaproom {
+        	border-color: #000000;
+        }
+
+        /* Used in the numbering of levels of the World map in the Index */
+
+        span.indexmaplevelnumbers {
+        	color: #c0c0c0;
+        }
+
+        /* Used e.g. for title rows in the Chart of basic kinds in the Index */
+
+        tr.headingrow {
+        	background-color: #e0e0e0;
+        }
+
+        /* Standard rows have black text on striped background colours, these being
+        the usual ones seen in Mac OS X applications such as iTunes. */
+
+        tr.stripeone {
+        	background-color: #ffffff;
+        }
+
+        tr.stripetwo {
+        	background-color: #f3f6fa;
+        }
+
+        tr.tintedrow {
+        	background-color: #808080;
+        }
+
+        /* In the Figures index, this is the background colour used behind images
+        (though in fact it will only be visible if the image fails to load, or uses
+        transparency): */
+
+        div.figureindexbox {
+        	background-color: #6495ed;
+        }
+
+        /* To get the book-contents-page style leaders on the Contents element of
+           the index to work, these must use the background colour of the body of
+           the page, whatever that is: */
+
+        ul.leaders li.leaded span:first-child {
+        	background: white;
+        }
+        ul.leaders li.leaded span + span {
+        	background: white;
+        }
+
+        /* On Registry index pages (such as the Public Library), these are used for
+        download buttons and the like: */
+
+        span.registrybuttontext {
+        	font-size: 11px;
+        	border-color: #000000;
+        }
+
+        span.registryminibuttontext {
+        	font-size: 10px;
+        	border-color: #000000;
+        }
+
+        span.registrybuttonuninstalled {
+        	color: #000000;
+        	background: #ffffdd;
+        }
+
+        span.registrybuttoninstalled {
+        	color: #000000;
+        	background: #ffffff;
+        	pointer-events: none;
+        }
+
+        span.registrybuttonbuiltin {
+        	color: #888888;
+        	background: #ffffff;
+        	pointer-events: none;
+        }
+
+        span.registrybuttonupdate {
+        	color: #000000;
+        	background: #aaddff;
+        }
+
+        span.registrybuttonrevert {
+        	color: #000000;
+        	background: #ddaaff;
+        }
+
+        span.registrybuttonrevealer {
+        	color: #ffffff;
+        	background: #444444;
+        }
+
+        /* Registry index section headings: */
+
+        span.registrysectionname {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 16px;
+        	line-height: 18px;
+        }
+        span.registrysubsectionname {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 14px;
+        	line-height: 16px;
+        }
+
+        /* These are for the "mark" for a section, usually a section-symbol and number */
+
+        span.registrysectionmark {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 16px;
+        	line-height: 18px;
+        	color: #666;
+        }
+        span.registrysubsectionmark {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 14px;
+        	line-height: 16px;
+        	color: #666;
+        }
+
+        /* Text of an item listed in a registry: */
+
+        span.registryitemtext {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 12px;
+        	line-height: 16px;
+        }
+
+        /* And how the links in a registry index page behave: */
+
+        a.registrysilentlink {
+        	text-decoration: none;
+        	color: #000;
+        }
+        a.registrybuttonlink {
+        	text-decoration: none;
+        }
+        a.registrycontentslink:link {
+        	text-decoration: none;
+        	color: #202020;
+        }
+        a.registrycontentslink:visited {
+        	text-decoration: none;
+        	color: #202020;
+        }
+        a.registrycontentslink:hover {
+        	text-decoration: none;
+        	color: #D00000;
+        }
+        a.registrycontentslink:active {
+        	text-decoration: none;
+        	color: #D00000;
+        }
+
+        -->
+    </style>
+    <style type="text/css">
+        <!--
+        /* (1) General layout material */
+
+        *, *:before, *:after {
+        	-moz-box-sizing: border-box;
+        	-webkit-box-sizing: border-box;
+        	box-sizing: border-box;
+        }
+        .headingpanellayout {
+        	position: relative;
+        	height: 56px;
+        	padding: 0px;
+        	white-space:nowrap;
+        }
+        .headingpanellayoutdeeper {
+        	position: relative;
+        	height: 117px;
+        	padding: 0px;
+        	white-space:nowrap;
+        }
+        .headingtext {
+        	position: absolute;
+        	top: -4px;
+        	left: -1px;
+        	width: 100%;
+        	padding: 14px 10px 0px 10px;
+        }
+        .headingrubric {
+        	position: absolute;
+        	top: 36px;
+        	width: 100%;
+        	padding: 0px 10px 0px 10px;
+        }
+        h3.tighter {
+        	margin-top: 0px;
+        }
+        p.hang {
+        	padding-left: 25px;
+        	text-indent: -25px;
+        	margin-top: 0px;
+        	margin-bottom: 0px;
+        }
+        p.in1 {
+        	padding-left: 0px;
+        }
+        p.tightin1 {
+        	padding-left: 0px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin1 {
+        	padding-left: 0px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin1 {
+        	padding-left: 50px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in2 {
+        	padding-left: 25px;
+        }
+        p.tightin2 {
+        	padding-left: 25px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin2 {
+        	padding-left: 25px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin2 {
+        	padding-left: 75px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in3 {
+        	padding-left: 50px;
+        }
+        p.tightin3 {
+        	padding-left: 50px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin3 {
+        	padding-left: 50px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin3 {
+        	padding-left: 100px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in4 {
+        	padding-left: 75px;
+        }
+        p.tightin4 {
+        	padding-left: 75px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin4 {
+        	padding-left: 75px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin4 {
+        	padding-left: 125px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in5 {
+        	padding-left: 100px;
+        }
+        p.tightin5 {
+        	padding-left: 100px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin5 {
+        	padding-left: 100px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin5 {
+        	padding-left: 150px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in6 {
+        	padding-left: 125px;
+        }
+        p.tightin6 {
+        	padding-left: 125px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin6 {
+        	padding-left: 125px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin6 {
+        	padding-left: 175px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in7 {
+        	padding-left: 150px;
+        }
+        p.tightin7 {
+        	padding-left: 150px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin7 {
+        	padding-left: 150px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin7 {
+        	padding-left: 200px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in8 {
+        	padding-left: 175px;
+        }
+        p.tightin8 {
+        	padding-left: 175px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin8 {
+        	padding-left: 175px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin8 {
+        	padding-left: 225px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in9 {
+        	padding-left: 200px;
+        }
+        p.tightin9 {
+        	padding-left: 200px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin9 {
+        	padding-left: 200px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin9 {
+        	padding-left: 250px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+
+        /* (2) Index page layout material */
+
+        /* The periodic table display has "sidebars", usually grey and taller than they
+        are wide; they contain no text. */
+
+        div.periodictablesidebar {
+        	height: 56px;
+        	width: 16px;
+        }
+        .periodictablesidebar a:link { text-decoration: none; }
+        .periodictablesidebar a:visited { text-decoration: none; }
+        .periodictablesidebar a:active { text-decoration: none; }
+
+        /* The "element boxes" are the cells appearing in the periodic-table display
+        on the welcome page of the index: */
+
+        .elementbox {
+        	position: relative;
+        	height: 56px;
+        	width: 56px;
+        	padding: 0px;
+        }
+
+        .elementbox a:link { text-decoration: none; }
+        .elementbox a:visited { text-decoration: none; }
+        .elementbox a:active { text-decoration: none; }
+        .elementbox a:hover { text-decoration: none; }
+        .elementbox:hover {
+        	opacity: 0.6;
+        }
+
+        /* The "small element boxes" look like those, but are smaller, and used on
+        the headings of the content which those original boxes link to: */
+
+        .smallelementbox {
+        	position: relative;
+        	height: 40px;
+        	width: 40px;
+        	padding: 0px;
+        }
+
+        .smallelementbox a:link { text-decoration: none; }
+        .smallelementbox a:visited { text-decoration: none; }
+        .smallelementbox a:active { text-decoration: none; }
+        .smallelementbox a:hover { text-decoration: none; }
+        .smallelementbox:hover {
+        	opacity: 0.6;
+        }
+
+        /* This is a class for the links formed by the element boxes: */
+
+        a.elementlink {
+        	position: absolute;
+        	top: -4px;
+        	left: -1px;
+        	width: 100%;
+        	padding: 14px 0px 14px 1px;
+        	text-align: center;
+        }
+
+        /* Similarly for the "atomic number" - a single digit - in the top left corner
+        of these boxes: */
+
+        div.elementnumber {
+        	position: absolute;
+        	top: 1px;
+        	left: 3px;
+        	text-align: left;
+        }
+
+        /* For the text of the element title, to the right of the element box: */
+
+        div.elementtitle {
+        	position: absolute;
+        	top: 35px;
+        	width: 100%;
+        	text-align: center;
+        }
+
+        /* Used for the book-contents-page style leaders on the Contents element of
+           the index: */
+
+        ul.leaders {
+        	padding: 0;
+        	margin-top: 1px;
+        	margin-bottom: 0;
+        	overflow-x: hidden;
+        	list-style: none}
+        ul.leaders li.leaded:before {
+        	float: left;
+        	width: 0;
+        	white-space: nowrap;
+        	content:
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "}
+        ul.leaders li.leaded span:first-child {
+        	padding-right: 0.33em;
+        }
+        ul.leaders li.leaded span + span {
+        	float: right;
+        	padding-left: 0.33em;
+        }
+        li.indent1 span:first-child {
+        	padding-left: 25px;
+        }
+        li.indent2 span:first-child {
+        	padding-left: 50px;
+        }
+        li.indent3 span:first-child {
+        	padding-left: 75px;
+        }
+        li.indent4 span:first-child {
+        	padding-left: 100px;
+        }
+        li.indent5 span:first-child {
+        	padding-left: 125px;
+        }
+        li.indent6 span:first-child {
+        	padding-left: 150px;
+        }
+        li.indent7 span:first-child {
+        	padding-left: 175px;
+        }
+        li.indent8 span:first-child {
+        	padding-left: 200px;
+        }
+        li.indent9 span:first-child {
+        	padding-left: 225px;
+        }
+
+        li.unleaded:before {
+        	content: "";
+        }
+
+        /* On Registry index pages (such as the Public Library), these are used for
+        download buttons and the like: */
+
+        span.registrybuttons {
+        	height: 20px;
+        	padding: 2px 8px 2px 8px;
+        	margin: 2px;
+        	border:1px solid;
+        	border-radius: 5px;
+        }
+
+        span.registryminibuttons {
+        	height: 14px;
+        	padding: 2px 5px 2px 5px;
+        	margin: 2px;
+        	border:1px solid;
+        	border-radius: 4px;
+        }
+
+        /* Used to hide or display sections in the Registry pages: */
+
+        div.registrysectionitemsopen {
+        	display: block;
+        }
+
+        div.registrysectionitemsclosed {
+        	display: none;
+        }
+
+        /* Hanging indentation for Registry item paragraphs: */
+
+        p.registryitem {
+        	padding-left: 80px;
+        	text-indent: -40px;
+        }
+
+        p.registryaddition {
+        	padding-left: 40px;
+        	text-indent: -40px;
+        }
+
+        -->
+    </style>
+    <script type="text/javascript">
+        function project() {
+            return window.Project;
+        }
+        function showExtra(id, imid) {
+        	if (document.getElementById(id).style.display == 'block') {
+        		document.getElementById(id).style.display = 'none';
+        		document.getElementById(imid).src = 'inform:/extra.png';
+        	} else {
+        		document.getElementById(id).style.display = 'block';
+        		document.getElementById(imid).src = 'inform:/extraclose.png';
+        	}
+        }
+        function openExtra(id, imid) {
+        	document.getElementById(id).style.display = 'block';
+        	document.getElementById(imid).src = 'inform:/extraclose.png';
+        }
+        function closeExtra(id, imid) {
+        	document.getElementById(id).style.display = 'none';
+        	document.getElementById(imid).src = 'inform:/extra.png';
+        }
+        function pasteCode(code) {
+            var myProject = project();
+
+            myProject.selectView('source');
+            myProject.pasteCode(code);
+        }
+
+    </script>
+</head>
+<body>
+    <!--CONTENT BEGINS-->
+    <table CELLPADDING=0 CELLSPACING=0 width="100%" bgcolor="#000000"><tr><TD width=38px height=26px align="center" valign="center"><a href="inform://Extensions/Extensions.html" border=0><img border=0 src="inform:/doc_images/Hookindex.png" border=0></a></td><TD width=38px height=26px align="center" valign="center"></td><td halign="left" valign="center" CELLPADDING=0 CELLSPACING=0><font color="#FFFFFF" size=2>Extensions</font></a></td><TD width=56px height=26px align="right" valign="center"><a href="inform:/index.html" border=0><img border=0 src="inform:/doc_images/Hookup.png" border=0></a></td></tr></table>
+
+    <p><a href="javascript:pasteCode('Include In-Line Topical Hints by Andrew Schultz.[=0x000A=][=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a>&nbsp;<b>In-Line Topical Hints<span class="extensionindexentry"> by </span>Andrew Schultz</b></p>
+    <p><span class="smaller">Version 2.0.200530</span></p>
+    <p>Lets the author offer the player in-line hints, with options for presentation. This extension requires Inform 6M62 or higher to run.</p>
+    <p></p>
+    </p>
+
+    <p> PURPOSE</p>
+
+    <p> In-Line Topical Hints is meant to circumnavigate hint menus, which can break immersion for the player. Also, it tries to keep unwieldy hint menus under control. While it offers progressive hinting, it also tries not to overwhelm the reader with text. The basic use case is that a player asks for hints and is given a list of potential topics. Then he types the topic number, and he can type H to see the next hint. By default, hints are shown one at a time if the player requests them continually, but if the player performs a few actions and comes back, the whole list is shown again. This is what the extension terms flexible hinting. The programmer can also force the default to showing all hints in a topic or only the last one, but the player can override these with special commands.</p>
+
+    <p> There are two ways for a programmer to decide whether to display a specific hint topics. You can either label it active to inactive, or you can make it rule-based and create a rule whether you can display them. If you are comfortable with rules, it may be smoother for you to establish a rule (e.g. if escape hatch is visited and typed-security-code is false).</p>
+
+    <p> One special case worth mentioning is if there is only one available hint topic. HINT AUTO lets the player toggle whether to skip to the hint in the topic or to avoid spoilers. The default is to avoid spoilers, but the programmer can change this by setting the hint-auto flag to true.</p>
+
+    <p> So if hint-auto is set to true, and a player tries hints, and there is only one available hint topic, the game chooses that. If not, the player is offered an option from one to the available number of hint topics. Whichever number they choose, they see the next hint they haven't seen yet. Once they choose that option, H goes to the next clue in the topic. It also, by default, only shows the next clue. The player can change this behavior if they want, but the point is to make the hints as unintrusive as possible.</p>
+
+    <p> One fine-tuning feature is that you are able to create a show-rule in a hint table. If this is left blank, the hint will always be shown. However, it can be changed to eliminate a hint the player should already know about. Let's take potential hints from a formerly popular RPG. While conditional text is possible, the player may appreciate having longer hint topics cut down as much as possible.</p>
+
+    <p><blockquote><span class="indexdullblue"> &quot;You still need the bell, book and candle before continuing. That hint topic should be available.&quot; -- need-all-three rule<br>
+     &quot;You still need a party of eight players for the journey through the abyss. That hint topic should be available.&quot; -- need-all-eight rule<br>
+     &quot;You still need the mystic weapons and mystic armor. That hint topic should be available.&quot; -- need-weapons-and-armor rule<br>
+     &quot;[if have-everything]Okay, you're ready to enter the Abyss and get the Codex of Ultimate Wisdom[else]It's a long way down, and you'll be frustrated if you get to level 8 without auto-save and get rejected. Still, let's go ahead[end if].&quot;</span></blockquote>
+
+    <p> Another fine-tuning feature is to label certain hints topics noncritical. If the player just wants to win the game, they may not want to be distracted by a side quest this time around. By default, no hint topics are noncritical, but adjusting the hint-crit-only flag (default false) can change the default behavior, which is showing all hints. HINT CRIT will let the player toggle this at any time.</p>
+
+    <p> Also, feel free to modify the hint-usage and HINT VERBOSE documentation. I'd be interested how it could be tweaked.</p>
+
+    <p> Second of all, there are things you may wish to change and variables you may wish to set in a When Play Begins rule. These variables are listed below. There doesn't seem to be much reason to change them afterwards.</p>
+
+    <p> DEFAULTS POTENTIALLY WORTH CHANGING</p>
+
+    <p> See &quot;Section Variables the player can change&quot; in the source for this.</p>
+
+    <p> DEBUGGING WHICH HINTS APPEAR WHEN</p>
+
+    <p> One of the big problems with a hint system is that your testers can't tell you what's being hinted, when. Or if they do, it sort of spoils the game.</p>
+
+    <p> Some basic debugging is provided with In-Line Topical Hints so that you are able to verify a test walkthrough works. HINTDEBUG is a not-for-release command that prints out all the topics available every move. This is probably more useful for the programmer than a player, who may get overwhelmed with the text.</p>
+
+    <p> RECORDHINTS is available for the tester if they wish to create a text file of topics they would've seen. It is Glulx-only, since it requires output to a file. The format is &gt;&gt; (command): (List of topics).</p>
+
+    <p> ALLHINTNAMES simply shows all the hint names, so you can see if there are any egregious duplicates, or if one sticks out as out-of-place.</p>
+
+    <p> CREDITS</p>
+
+    <p> I'd like to thank Alice Grove, who tested this extension for inclusion in Delphina's House, which you should play, even if you ignore the hinting. Her suggestions and bug reports (technical and aesthetic) helped me focus on the big picture and also reminded me of scattered features I'd written up for myself but never written out formally.</p>
+
+    <p> PREVIOUS VERSIONS</p>
+
+    <p> 1/150214 was part of Delphina's House and featured basic debugging, HA/HL and the basic commands. 2/150418 added debugging exported to a file. 2/200530 includes small tweaks by Gavin Lambert to fix some code that didn't compile in 6M62; also changed the hint-topic to be a kind of object rather than a thing so that it cannot possibly be confused with in-world things.</p>
+
+    <p> EXAMPLE</p>
+
+    <p><hr>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td halign="left" valign="top" cellpadding=0 cellspacing=0 width=38px>
+                <span id=eg1><table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="oval">
+                        <td width=38px height=30px align="left" valign="center">
+                            <a href="In-Line Topical Hints-eg1.html#eg1" style="text-decoration: none"><div class="paragraph Body" style="line-height: 1px; margin-bottom: 0px; margin-top: 0px; padding-bottom: 0pt; padding-top: 0px; text-align: center;">
+                                <span class="extensionexampleletter">A</span></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                </span>
+            </td>
+            <td cellpadding=0 cellspacing=0 halign="left" valign="top">
+                <a href="In-Line Topical Hints-eg1.html#eg1" style="text-decoration: none"><img border="0" src='inform:/doc_images/asterisk.png'><img border="0" src='inform:/doc_images/asterisk.png'><b><span class="indexdarkgrey">&nbsp;Example&nbsp;</span><span class="indexblack">Fetch Quest</span></b></a><br>
+                <p>A minimal game with hints, rule-dependent and not</p>
+
+            </td>
+        </tr>
+    </table>
+    </p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p><hr>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td halign="left" valign="top" cellpadding=0 cellspacing=0 width=38px>
+                <span id=eg2><table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="oval">
+                        <td width=38px height=30px align="left" valign="center">
+                            <a href="In-Line Topical Hints.html#eg2" style="text-decoration: none"><div class="paragraph Body" style="line-height: 1px; margin-bottom: 0px; margin-top: 0px; padding-bottom: 0pt; padding-top: 0px; text-align: center;">
+                                <span class="extensionexampleletter">B</span></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                </span>
+            </td>
+            <td cellpadding=0 cellspacing=0 halign="left" valign="top">
+                <a href="In-Line Topical Hints.html#eg2" style="text-decoration: none"><img border="0" src='inform:/doc_images/asterisk.png'><img border="0" src='inform:/doc_images/asterisk.png'><img border="0" src='inform:/doc_images/asterisk.png'><b><span class="indexdarkgrey">&nbsp;Example&nbsp;</span><span class="indexblack">Gems</span></b></a><br>
+                <p>a small game with strictly rule-based hints</p>
+
+            </td>
+        </tr>
+    </table>
+    <table border="0" cellspacing="0" cellpadding="0" class="extensionexample" width=100%>
+        <tr>
+            <td align="left" valign="top">
+                <p></p>
+
+                <p><blockquote><span class="indexdullblue"><a href="javascript:pasteCode('[=0x0022=]Gems[=0x0022=] by Andrew[=0x000A=][=0x000A=]include In-Line Topical Hints by Andrew Schultz.[=0x000A=][=0x000A=]use scoring.[=0x000A=][=0x000A=]the maximum score is 6.[=0x000A=][=0x000A=]chapter define gems[=0x000A=][=0x000A=]a gem is a kind of thing. a gem has a direction called open-dir. a gem has a direction called start-dir. a gem has an object called in-item.[=0x000A=][=0x000A=]check dropping a gem:[=0x000A=][=0x0009=]say [=0x0022=]No. The gem is probably valuable[if score [=0x003E=] 0]. Especially since you already did something with another gem[end if].[=0x0022=] instead;[=0x000A=][=0x000A=]chapter which gems[=0x000A=][=0x000A=]chapter Branching Room[=0x000A=][=0x000A=]a room can be gemmish. a room is usually gemmish.[=0x000A=][=0x000A=]Branching Room is a not gemmish room.[=0x000A=][=0x000A=]the gaudy hatch is a supporter in Branching room. [=0x0022=]A gaudy hatch blocks the way south. It seems to be indented. You can go any other way from west clockwise to east.[=0x0022=][=0x000A=][=0x000A=]the blue hole is a container. the blue hole is part of the gaudy hatch.[=0x000A=]the green hole is a container. the green hole is part of the gaudy hatch.[=0x000A=]the white hole is a container. the white hole is part of the gaudy hatch.[=0x000A=]the red hole is a container. the red hole is part of the gaudy hatch.[=0x000A=]the yellow hole is a container. the yellow hole is part of the gaudy hatch.[=0x000A=]the black hole is a container. the black hole is part of the gaudy hatch.[=0x000A=][=0x000A=]description of gaudy hatch is [=0x0022=]The gaudy hatch has holes positioned in a half-circle: yellow[filled of yellow] on the left, then clockwise: blue[filled of blue], green[filled of green hole], red[filled of red hole], white[filled of white], and finally black[filled of black hole] below them all, opposite the red.[=0x0022=][=0x000A=][=0x000A=]to say filled of (c - a container):[=0x000A=][=0x0009=]if number of things in c is 1:[=0x000A=][=0x0009=][=0x0009=]say [=0x0022=] (filled by the [random thing in c])[=0x0022=];[=0x000A=][=0x000A=]chapter forest room[=0x000A=][=0x000A=]Forest Room is northwest of Branching Room.[=0x000A=][=0x000A=]chapter big sky room[=0x000A=][=0x000A=]Big Sky Room is north of Branching Room.[=0x000A=][=0x000A=]chapter lava room[=0x000A=][=0x000A=]Lava Room is west of Branching Room.[=0x000A=][=0x000A=]chapter snow room[=0x000A=][=0x000A=]Snow Room is east of Branching Room.[=0x000A=][=0x000A=]chapter sunlight room[=0x000A=][=0x000A=]Sunlight Room is northeast of Branching Room.[=0x000A=][=0x000A=]chapter going[=0x000A=][=0x000A=]check going when player is in Branching Room:[=0x000A=][=0x0009=]if the room noun of Branching Room is nowhere:[=0x000A=][=0x0009=][=0x0009=]say [=0x0022=]You can go south, or any direction clockwise from west to east.[=0x0022=] instead;[=0x000A=][=0x0009=]repeat with Q running through gems:[=0x000A=][=0x0009=][=0x0009=]if open-dir of Q is noun:[=0x000A=][=0x0009=][=0x0009=][=0x0009=]if in-item of Q encloses Q:[=0x000A=][=0x0009=][=0x0009=][=0x0009=][=0x0009=]continue the action;[=0x000A=][=0x0009=]say [=0x0022=]An invisible force repels you.[=0x0022=] instead;[=0x000A=][=0x000A=]check going south when player is in Branching Room:[=0x000A=][=0x0009=]if gaudy hatch is visible:[=0x000A=][=0x0009=][=0x0009=]say [=0x0022=]The hatch blocks you.[=0x0022=] instead;[=0x000A=][=0x0009=]say [=0x0022=]You walk through the hatch to some place that grants you ultimate wisdom, or something.[=0x0022=];[=0x000A=][=0x0009=]end the story saying [=0x0022=]YOU WIN[=0x0022=];[=0x000A=][=0x000A=]chapter gems[=0x000A=][=0x000A=]check inserting a gem into:[=0x000A=][=0x0009=]if second noun is gaudy hatch:[=0x000A=][=0x0009=][=0x0009=]if noun is onyx:[=0x000A=][=0x0009=][=0x0009=][=0x0009=]say [=0x0022=]There[=0x0027=]s only one hole left, so...[=0x0022=];[=0x000A=][=0x0009=][=0x0009=][=0x0009=]try inserting onyx into black hole instead;[=0x000A=][=0x0009=][=0x0009=]say [=0x0022=]You may want to specify which hole.[=0x0022=] instead;[=0x000A=][=0x0009=]if second noun is not in-item of noun:[=0x000A=][=0x0009=][=0x0009=]say [=0x0022=]The [noun] doesn[=0x0027=]t fit there.[=0x0022=] instead;[=0x000A=][=0x0009=]else:[=0x000A=][=0x0009=][=0x0009=]say [=0x0022=]The [noun] fits in naturally.[=0x0022=];[=0x000A=][=0x0009=][=0x0009=]increment the score;[=0x000A=][=0x0009=][=0x0009=]if score is 6:[=0x000A=][=0x0009=][=0x0009=][=0x0009=]say [=0x0022=]The hatch clicks open, revealing a way down.[=0x0022=];[=0x000A=][=0x0009=][=0x0009=][=0x0009=]now gaudy hatch is off-stage;[=0x000A=][=0x000A=]report inserting a gem into:[=0x000A=][=0x0009=]do nothing instead;[=0x000A=][=0x000A=]check taking a gem:[=0x000A=][=0x0009=]if noun is enclosed by in-item of noun:[=0x000A=][=0x0009=][=0x0009=]say [=0x0022=]You can[=0x0027=]t pull it out.[=0x0022=] instead;[=0x000A=][=0x000A=]the sapphire is a gem. open-dir of sapphire is north. start-dir of sapphire is northwest. in-item of sapphire is blue hole.[=0x000A=]the emerald is a gem. open-dir of emerald is northwest. start-dir of emerald is west. in-item of emerald is green hole.[=0x000A=]the ruby is a gem. open-dir of ruby is west. start-dir of ruby is east. in-item of ruby is red hole.[=0x000A=]the diamond is a gem. open-dir of diamond is east. start-dir of diamond is northeast. in-item of diamond is white hole.[=0x000A=]the amethyst is a gem. open-dir of amethyst is northeast. start-dir of amethyst is north. in-item of amethyst is yellow hole.[=0x000A=][=0x000A=]the onyx is a gem. open-dir of onyx is south. in-item of onyx is black hole.[=0x000A=][=0x000A=]when play begins:[=0x000A=][=0x0009=]move onyx to a random gemmish room;[=0x000A=][=0x0009=]repeat with Q running through gems:[=0x000A=][=0x0009=][=0x0009=]if Q is not onyx:[=0x000A=][=0x0009=][=0x0009=][=0x0009=]let J be the room start-dir of Q from Branching Room;[=0x000A=][=0x0009=][=0x0009=][=0x0009=]if onyx is not in J:[=0x000A=][=0x0009=][=0x0009=][=0x0009=][=0x0009=]now Q is in the room start-dir of Q from Branching Room;[=0x000A=][=0x0009=][=0x0009=][=0x0009=]else:[=0x000A=][=0x0009=][=0x0009=][=0x0009=][=0x0009=]now player carries Q;[=0x000A=][=0x000A=]volume hintsies[=0x000A=][=0x000A=]chapter emerald[=0x000A=][=0x000A=]emerald-hint is a rule-dependent hint-topic. printed name is [=0x0022=]using the emerald[=0x0022=][=0x000A=][=0x000A=]avail-rule of emerald-hint is emerald-hint rule.[=0x000A=][=0x000A=]this is the emerald-hint rule:[=0x000A=][=0x0009=]if emerald is in green hole:[=0x000A=][=0x0009=][=0x0009=]the rule fails;[=0x000A=][=0x0009=]if player has emerald or location of emerald is visited:[=0x000A=][=0x0009=][=0x0009=]the rule succeeds;[=0x000A=][=0x0009=]the rule fails;[=0x000A=][=0x000A=]hint-list of emerald-hint is table of emerald hints.[=0x000A=][=0x000A=]table of emerald hints[=0x000A=]hint-text[=0x0009=]done-yet[=0x0009=]show-rule[=0x000A=][=0x0022=]The emerald is a nice treasure, but you have no treasure horde.[=0x0022=][=0x0009=]false[=0x0009=]a rule[=0x000A=][=0x0022=]You can put the emerald in the green hole.[=0x0022=][=0x000A=][=0x000A=]chapter amethyst[=0x000A=][=0x000A=]amethyst-hint is a rule-dependent hint-topic. printed name is [=0x0022=]using the amethyst[=0x0022=][=0x000A=][=0x000A=]avail-rule of amethyst-hint is amethyst-hint rule.[=0x000A=][=0x000A=]this is the amethyst-hint rule:[=0x000A=][=0x0009=]if amethyst is in yellow hole:[=0x000A=][=0x0009=][=0x0009=]the rule fails;[=0x000A=][=0x0009=]if player has amethyst or location of amethyst is visited:[=0x000A=][=0x0009=][=0x0009=]the rule succeeds;[=0x000A=][=0x000A=]hint-list of amethyst-hint is table of amethyst hints.[=0x000A=][=0x000A=]table of amethyst hints[=0x000A=]hint-text[=0x0009=]done-yet[=0x0009=]show-rule[=0x000A=][=0x0022=]The amethyst is a nice treasure, but you have no treasure horde.[=0x0022=][=0x0009=]false[=0x0009=]a rule[=0x000A=][=0x0022=]You can put the amethyst in the yellow hole.[=0x0022=][=0x000A=][=0x000A=]chapter sapphire[=0x000A=][=0x000A=]sapphire-hint is a rule-dependent hint-topic. printed name is [=0x0022=]using the sapphire[=0x0022=][=0x000A=][=0x000A=]avail-rule of sapphire-hint is sapphire-hint rule.[=0x000A=][=0x000A=]this is the sapphire-hint rule:[=0x000A=][=0x0009=]if sapphire is in blue hole:[=0x000A=][=0x0009=][=0x0009=]the rule fails;[=0x000A=][=0x0009=]if player has sapphire or location of sapphire is visited:[=0x000A=][=0x0009=][=0x0009=]the rule succeeds;[=0x000A=][=0x000A=]hint-list of sapphire-hint is table of sapphire hints.[=0x000A=][=0x000A=]table of sapphire hints[=0x000A=]hint-text[=0x0009=]done-yet[=0x0009=]show-rule[=0x000A=][=0x0022=]The sapphire is a nice treasure, but you have no treasure horde.[=0x0022=][=0x0009=]false[=0x0009=]a rule[=0x000A=][=0x0022=]You can put the sapphire in the blue hole.[=0x0022=][=0x000A=][=0x000A=]chapter diamond[=0x000A=][=0x000A=]diamond-hint is a rule-dependent hint-topic. printed name is [=0x0022=]using the diamond[=0x0022=][=0x000A=][=0x000A=]avail-rule of diamond-hint is diamond-hint rule.[=0x000A=][=0x000A=]this is the diamond-hint rule:[=0x000A=][=0x0009=]if diamond is in white hole:[=0x000A=][=0x0009=][=0x0009=]the rule fails;[=0x000A=][=0x0009=]if player has diamond or location of diamond is visited:[=0x000A=][=0x0009=][=0x0009=]the rule succeeds;[=0x000A=][=0x000A=]hint-list of diamond-hint is table of diamond hints.[=0x000A=][=0x000A=]table of diamond hints[=0x000A=]hint-text[=0x0009=]done-yet[=0x0009=]show-rule[=0x000A=][=0x0022=]The diamond is a nice treasure, but you have no treasure horde.[=0x0022=][=0x0009=]false[=0x0009=]a rule[=0x000A=][=0x0022=]You can put the diamond in the white hole.[=0x0022=][=0x000A=][=0x000A=]chapter ruby[=0x000A=][=0x000A=]ruby-hint is a rule-dependent hint-topic. printed name is [=0x0022=]using the ruby[=0x0022=][=0x000A=][=0x000A=]avail-rule of ruby-hint is ruby-hint rule.[=0x000A=][=0x000A=]this is the ruby-hint rule:[=0x000A=][=0x0009=]if ruby is in red hole:[=0x000A=][=0x0009=][=0x0009=]the rule fails;[=0x000A=][=0x0009=]if player has ruby or location of ruby is visited:[=0x000A=][=0x0009=][=0x0009=]the rule succeeds;[=0x000A=][=0x000A=]hint-list of ruby-hint is table of ruby hints.[=0x000A=][=0x000A=]table of ruby hints[=0x000A=]hint-text[=0x0009=]done-yet[=0x0009=]show-rule[=0x000A=][=0x0022=]The ruby is a nice treasure, but you have no treasure horde.[=0x0022=][=0x0009=]false[=0x0009=]a rule[=0x000A=][=0x0022=]You can put the ruby in the red hole.[=0x0022=][=0x000A=][=0x000A=]chapter onyx[=0x000A=][=0x000A=]onyx-hint is a rule-dependent hint-topic. printed name is [=0x0022=]using the onyx[=0x0022=][=0x000A=][=0x000A=]avail-rule of onyx-hint is onyx-hint rule.[=0x000A=][=0x000A=]this is the onyx-hint rule:[=0x000A=][=0x0009=]if onyx is in black hole:[=0x000A=][=0x0009=][=0x0009=]the rule fails;[=0x000A=][=0x0009=]if player has onyx or location of onyx is visited:[=0x000A=][=0x0009=][=0x0009=]the rule succeeds;[=0x000A=][=0x000A=]hint-list of onyx-hint is table of onyx hints.[=0x000A=][=0x000A=]table of onyx hints[=0x000A=]hint-text[=0x0009=]done-yet[=0x0009=]show-rule[=0x000A=][=0x0022=]The onyx is a nice treasure, but you have no treasure horde.[=0x0022=][=0x0009=]false[=0x0009=]a rule[=0x000A=][=0x0022=]You can put the onyx in the black hole.[=0x0022=][=0x000A=][=0x000A=]chapter hatch[=0x000A=][=0x000A=]hatch-opening is a hint-topic. hatch-opening is active. printed name of hatch-opening is [=0x0022=]opening the hatch[=0x0022=].[=0x000A=][=0x000A=]check opening the gaudy hatch:[=0x000A=][=0x0009=]if onyx is in the black hole:[=0x000A=][=0x0009=][=0x0009=]say [=0x0022=]Already is.[=0x0022=];[=0x000A=][=0x0009=]else:[=0x000A=][=0x0009=][=0x0009=]say [=0x0022=]The hatch won[=0x0027=]t budge. You have no way to grip it.[=0x0022=];[=0x000A=][=0x0009=]the rule succeeds;[=0x000A=][=0x000A=]check closing the gaudy hatch:[=0x000A=][=0x0009=]if onyx is in the black hole:[=0x000A=][=0x0009=][=0x0009=]say [=0x0022=]You don[=0x0027=]t want to risk it locking again.[=0x0022=];[=0x000A=][=0x0009=]else:[=0x000A=][=0x0009=][=0x0009=]say [=0x0022=]Already is.[=0x0022=];[=0x000A=][=0x0009=]the rule succeeds;[=0x000A=][=0x000A=]hint-list of hatch-opening is table of hatch hints.[=0x000A=][=0x000A=]table of hatch hints[=0x000A=]hint-text[=0x0009=]done-yet[=0x0009=]show-rule[=0x000A=][=0x0022=]The hatch[=0x0027=]s holes provide a clue what to do.[=0x0022=][=0x000A=][=0x0022=]Each one requires a different gem.[=0x0022=][=0x000A=][=0x0022=]Once you[=0x0027=]ve put all the gems in the hatch, just go south.[=0x0022=][=0x000A=][=0x000A=]chapter tests[=0x000A=][=0x000A=]test win-di with [=0x0022=]put diamond in white/e/get ruby/w/put ruby in red/w/get emerald/e/put emerald in green/nw/get sapphire/se/put sapphire in blue/n/get amethyst/s/put amethyst in yellow/ne/get onyx/sw/put onyx in hatch/s[=0x0022=][=0x000A=][=0x000A=]test win-ru with [=0x0022=]put ruby in red/w/get emerald/e/put emerald in green/nw/get sapphire/se/put sapphire in blue/n/get amethyst/s/put amethyst in yellow/ne/get diamond/sw/put diamond in white/e/get onyx/w/put onyx in black/s[=0x0022=][=0x000A=][=0x000A=]test win-am with [=0x0022=]put amethyst in yellow/ne/get diamond/sw/put diamond in white/e/get ruby/w/put ruby in red/w/get emerald/e/put emerald in green/nw/get sapphire/se/put sapphire in blue/n/get onyx/s/put onyx in black/s[=0x0022=][=0x000A=][=0x000A=]test win-em with [=0x0022=]e/put emerald in green/nw/get sapphire/se/put sapphire in blue/n/get amethyst/s/put amethyst in yellow/ne/get diamond/sw/put diamond in white/e/get ruby/w/put ruby in red/w/get onyx/e/put onyx in hatch/s[=0x0022=][=0x000A=][=0x000A=]test win-sa with [=0x0022=]put sapphire in blue/n/get amethyst/s/put amethyst in yellow/ne/get diamond/sw/put diamond in white/e/get ruby/w/put ruby in red/w/get emerald/e/put emerald in green/nw/get onyx/se/put onyx in hatch/s[=0x0022=][=0x000A=][=0x000A=]test win-1 with [=0x0022=]i/test win-di/test win-ru/test win-am/test win-em/test win-sa[=0x0022=][=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a> &quot;Gems&quot; by Andrew</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> include In-Line Topical Hints by Andrew Schultz.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> use scoring.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> the maximum score is 6.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> chapter define gems</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> a gem is a kind of thing. a gem has a direction called open-dir. a gem has a direction called start-dir. a gem has an object called in-item.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> check dropping a gem:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; say &quot;No. The gem is probably valuable[if score &gt; 0]. Especially since you already did something with another gem[end if].&quot; instead;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> chapter which gems</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> chapter Branching Room</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> a room can be gemmish. a room is usually gemmish.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Branching Room is a not gemmish room.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> the gaudy hatch is a supporter in Branching room. &quot;A gaudy hatch blocks the way south. It seems to be indented. You can go any other way from west clockwise to east.&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> the blue hole is a container. the blue hole is part of the gaudy hatch.<br>
+                 the green hole is a container. the green hole is part of the gaudy hatch.<br>
+                 the white hole is a container. the white hole is part of the gaudy hatch.<br>
+                 the red hole is a container. the red hole is part of the gaudy hatch.<br>
+                 the yellow hole is a container. the yellow hole is part of the gaudy hatch.<br>
+                 the black hole is a container. the black hole is part of the gaudy hatch.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> description of gaudy hatch is &quot;The gaudy hatch has holes positioned in a half-circle: yellow[filled of yellow] on the left, then clockwise: blue[filled of blue], green[filled of green hole], red[filled of red hole], white[filled of white], and finally black[filled of black hole] below them all, opposite the red.&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> to say filled of (c - a container):<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; if number of things in c is 1:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say &quot; (filled by the [random thing in c])&quot;;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> chapter forest room</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Forest Room is northwest of Branching Room.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> chapter big sky room</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Big Sky Room is north of Branching Room.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> chapter lava room</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Lava Room is west of Branching Room.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> chapter snow room</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Snow Room is east of Branching Room.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> chapter sunlight room</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Sunlight Room is northeast of Branching Room.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> chapter going</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> check going when player is in Branching Room:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; if the room noun of Branching Room is nowhere:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say &quot;You can go south, or any direction clockwise from west to east.&quot; instead;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; repeat with Q running through gems:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if open-dir of Q is noun:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if in-item of Q encloses Q:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; continue the action;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; say &quot;An invisible force repels you.&quot; instead;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> check going south when player is in Branching Room:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; if gaudy hatch is visible:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say &quot;The hatch blocks you.&quot; instead;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; say &quot;You walk through the hatch to some place that grants you ultimate wisdom, or something.&quot;;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; end the story saying &quot;YOU WIN&quot;;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> chapter gems</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> check inserting a gem into:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; if second noun is gaudy hatch:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if noun is onyx:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say &quot;There's only one hole left, so...&quot;;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; try inserting onyx into black hole instead;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say &quot;You may want to specify which hole.&quot; instead;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; if second noun is not in-item of noun:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say &quot;The [noun] doesn't fit there.&quot; instead;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; else:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say &quot;The [noun] fits in naturally.&quot;;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; increment the score;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if score is 6:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say &quot;The hatch clicks open, revealing a way down.&quot;;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; now gaudy hatch is off-stage;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> report inserting a gem into:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; do nothing instead;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> check taking a gem:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; if noun is enclosed by in-item of noun:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say &quot;You can't pull it out.&quot; instead;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> the sapphire is a gem. open-dir of sapphire is north. start-dir of sapphire is northwest. in-item of sapphire is blue hole.<br>
+                 the emerald is a gem. open-dir of emerald is northwest. start-dir of emerald is west. in-item of emerald is green hole.<br>
+                 the ruby is a gem. open-dir of ruby is west. start-dir of ruby is east. in-item of ruby is red hole.<br>
+                 the diamond is a gem. open-dir of diamond is east. start-dir of diamond is northeast. in-item of diamond is white hole.<br>
+                 the amethyst is a gem. open-dir of amethyst is northeast. start-dir of amethyst is north. in-item of amethyst is yellow hole.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> the onyx is a gem. open-dir of onyx is south. in-item of onyx is black hole.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> when play begins:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; move onyx to a random gemmish room;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; repeat with Q running through gems:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if Q is not onyx:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; let J be the room start-dir of Q from Branching Room;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if onyx is not in J:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; now Q is in the room start-dir of Q from Branching Room;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; else:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; now player carries Q;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> volume hintsies</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> chapter emerald</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> emerald-hint is a rule-dependent hint-topic. printed name is &quot;using the emerald&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> avail-rule of emerald-hint is emerald-hint rule.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> this is the emerald-hint rule:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; if emerald is in green hole:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; the rule fails;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; if player has emerald or location of emerald is visited:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; the rule succeeds;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; the rule fails;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> hint-list of emerald-hint is table of emerald hints.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> table of emerald hints</span><br>
+                <table border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> hint-text</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> done-yet</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> show-rule
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;The emerald is a nice treasure, but you have no treasure horde.&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> false</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> a rule
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;You can put the emerald in the green hole.&quot;</span>
+                        </td>
+                    </tr>
+                </table>
+                </blockquote>
+
+                <p><blockquote><span class="indexdullblue"> chapter amethyst</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> amethyst-hint is a rule-dependent hint-topic. printed name is &quot;using the amethyst&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> avail-rule of amethyst-hint is amethyst-hint rule.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> this is the amethyst-hint rule:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; if amethyst is in yellow hole:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; the rule fails;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; if player has amethyst or location of amethyst is visited:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; the rule succeeds;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> hint-list of amethyst-hint is table of amethyst hints.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> table of amethyst hints</span><br>
+                <table border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> hint-text</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> done-yet</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> show-rule
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;The amethyst is a nice treasure, but you have no treasure horde.&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> false</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> a rule
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;You can put the amethyst in the yellow hole.&quot;</span>
+                        </td>
+                    </tr>
+                </table>
+                </blockquote>
+
+                <p><blockquote><span class="indexdullblue"> chapter sapphire</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> sapphire-hint is a rule-dependent hint-topic. printed name is &quot;using the sapphire&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> avail-rule of sapphire-hint is sapphire-hint rule.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> this is the sapphire-hint rule:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; if sapphire is in blue hole:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; the rule fails;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; if player has sapphire or location of sapphire is visited:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; the rule succeeds;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> hint-list of sapphire-hint is table of sapphire hints.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> table of sapphire hints</span><br>
+                <table border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> hint-text</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> done-yet</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> show-rule
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;The sapphire is a nice treasure, but you have no treasure horde.&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> false</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> a rule
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;You can put the sapphire in the blue hole.&quot;</span>
+                        </td>
+                    </tr>
+                </table>
+                </blockquote>
+
+                <p><blockquote><span class="indexdullblue"> chapter diamond</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> diamond-hint is a rule-dependent hint-topic. printed name is &quot;using the diamond&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> avail-rule of diamond-hint is diamond-hint rule.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> this is the diamond-hint rule:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; if diamond is in white hole:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; the rule fails;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; if player has diamond or location of diamond is visited:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; the rule succeeds;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> hint-list of diamond-hint is table of diamond hints.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> table of diamond hints</span><br>
+                <table border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> hint-text</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> done-yet</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> show-rule
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;The diamond is a nice treasure, but you have no treasure horde.&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> false</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> a rule
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;You can put the diamond in the white hole.&quot;</span>
+                        </td>
+                    </tr>
+                </table>
+                </blockquote>
+
+                <p><blockquote><span class="indexdullblue"> chapter ruby</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> ruby-hint is a rule-dependent hint-topic. printed name is &quot;using the ruby&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> avail-rule of ruby-hint is ruby-hint rule.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> this is the ruby-hint rule:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; if ruby is in red hole:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; the rule fails;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; if player has ruby or location of ruby is visited:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; the rule succeeds;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> hint-list of ruby-hint is table of ruby hints.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> table of ruby hints</span><br>
+                <table border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> hint-text</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> done-yet</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> show-rule
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;The ruby is a nice treasure, but you have no treasure horde.&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> false</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> a rule
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;You can put the ruby in the red hole.&quot;</span>
+                        </td>
+                    </tr>
+                </table>
+                </blockquote>
+
+                <p><blockquote><span class="indexdullblue"> chapter onyx</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> onyx-hint is a rule-dependent hint-topic. printed name is &quot;using the onyx&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> avail-rule of onyx-hint is onyx-hint rule.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> this is the onyx-hint rule:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; if onyx is in black hole:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; the rule fails;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; if player has onyx or location of onyx is visited:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; the rule succeeds;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> hint-list of onyx-hint is table of onyx hints.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> table of onyx hints</span><br>
+                <table border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> hint-text</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> done-yet</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> show-rule
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;The onyx is a nice treasure, but you have no treasure horde.&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> false</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> a rule
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;You can put the onyx in the black hole.&quot;</span>
+                        </td>
+                    </tr>
+                </table>
+                </blockquote>
+
+                <p><blockquote><span class="indexdullblue"> chapter hatch</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> hatch-opening is a hint-topic. hatch-opening is active. printed name of hatch-opening is &quot;opening the hatch&quot;.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> check opening the gaudy hatch:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; if onyx is in the black hole:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say &quot;Already is.&quot;;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; else:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say &quot;The hatch won't budge. You have no way to grip it.&quot;;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; the rule succeeds;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> check closing the gaudy hatch:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; if onyx is in the black hole:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say &quot;You don't want to risk it locking again.&quot;;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; else:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say &quot;Already is.&quot;;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; the rule succeeds;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> hint-list of hatch-opening is table of hatch hints.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> table of hatch hints</span><br>
+                <table border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> hint-text</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> done-yet</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> show-rule
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;The hatch's holes provide a clue what to do.&quot;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;Each one requires a different gem.&quot;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;Once you've put all the gems in the hatch, just go south.&quot;</span>
+                        </td>
+                    </tr>
+                </table>
+                </blockquote>
+
+                <p><blockquote><span class="indexdullblue"> chapter tests</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> test win-di with &quot;put diamond in white/e/get ruby/w/put ruby in red/w/get emerald/e/put emerald in green/nw/get sapphire/se/put sapphire in blue/n/get amethyst/s/put amethyst in yellow/ne/get onyx/sw/put onyx in hatch/s&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> test win-ru with &quot;put ruby in red/w/get emerald/e/put emerald in green/nw/get sapphire/se/put sapphire in blue/n/get amethyst/s/put amethyst in yellow/ne/get diamond/sw/put diamond in white/e/get onyx/w/put onyx in black/s&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> test win-am with &quot;put amethyst in yellow/ne/get diamond/sw/put diamond in white/e/get ruby/w/put ruby in red/w/get emerald/e/put emerald in green/nw/get sapphire/se/put sapphire in blue/n/get onyx/s/put onyx in black/s&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> test win-em with &quot;e/put emerald in green/nw/get sapphire/se/put sapphire in blue/n/get amethyst/s/put amethyst in yellow/ne/get diamond/sw/put diamond in white/e/get ruby/w/put ruby in red/w/get onyx/e/put onyx in hatch/s&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> test win-sa with &quot;put sapphire in blue/n/get amethyst/s/put amethyst in yellow/ne/get diamond/sw/put diamond in white/e/get ruby/w/put ruby in red/w/get emerald/e/put emerald in green/nw/get onyx/se/put onyx in hatch/s&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> test win-1 with &quot;i/test win-di/test win-ru/test win-am/test win-em/test win-sa&quot;</span></blockquote>
+
+                <p></p>
+
+            </td>
+        </tr>
+    </table>
+    </p>
+
+    <p>
+    <!--CONTENT ENDS-->
+</body>
+</html>

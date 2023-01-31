@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ifindex version="1.0" xmlns="http://babel.ifarchive.org/protocol/iFiction/">
+    <story>
+        <identification>
+            <ifid>3A5869B9-B465-4B91-886E-A2912FFCAC24</ifid>
+            <format>glulx</format>
+        </identification>
+        <bibliographic>
+            <title>La cama</title>
+            <author>Lou Reed, Ruber Eaglenest</author>
+            <headline>Una canción triste</headline>
+            <genre>Gothic</genre>
+            <firstpublished>2019</firstpublished>
+            <description>Esta obra no es más que una copia y remezcla de la canción The Bed, de Lou Reed, con versos adicionales, y remezclas de otras canciones del album Berlin. Pero ambientado en una época anterior, como la historia de una pareja victoriana.</description>
+            <language>es</language>
+            <group>Inform</group>
+        </bibliographic>
+        <releases>
+            <attached>
+                <release>
+                    <releasedate>2020-11-07</releasedate>
+                    <version>1</version>
+                    <compiler>Inform 7</compiler>
+                    <compilerversion>6M62</compilerversion>
+                </release>
+            </attached>
+        </releases>
+        <colophon>
+            <generator>Inform 7</generator>
+            <generatorversion>6M62</generatorversion>
+            <originated>2020-11-07</originated>
+        </colophon>
+        <glulx>
+            <serial>201107</serial>
+            <release>1</release>
+            <compiler>Inform 7 build 6M62</compiler>
+        </glulx>
+    </story>
+</ifindex>

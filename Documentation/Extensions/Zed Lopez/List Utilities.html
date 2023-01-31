@@ -1,0 +1,1089 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Extension</title>
+    <style type="text/css">
+        <!--
+        /* The default font (family) and size */
+
+        body, p, td {
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.8rem; /* 100/125 */
+        }
+
+        /* For fixed-point material within text, such as the typing on the Library Card index page */
+
+        span.typewritten {
+        	font-family: monospace;
+        	font-size: 0.867rem; /* 13/12 * 100/125 */
+        }
+
+        /* For less important material: the small print */
+
+        span.smaller {
+        	font-size: 80%;
+        }
+
+        /* The "heading panel" is the coloured box, high up on the page. The colours
+        vary depending on the page: for example, the style on a report of a translation
+        with no problems is "headingpanelsucceeded", usually green, but if there were
+        problems then "headingpanelfailed" is used, which is usually red. "headingpanel"
+        itself is a more neutral grey by default. "headingpanelDark" is an alternative
+        look to make the extensions index pages have some visual contrast with the others;
+        by default they are a darker grey. */
+
+        .headingpanel {
+        	background: #eeeeee;
+        }
+        .headingpanelsucceeded {
+        	background: #E6FFE6;
+        }
+        .headingpanelfailed {
+        	background: #f69Ca6;
+        }
+        .headingpanelalt {
+        	background: #808080;
+        }
+
+        /* Heading panels have two lines of text: an upper one in a larger size, and a
+        lower one in a smaller. Again, the alt versions are meant to contrast.
+
+        	Report on Translation: Succeeded                <-- headingpaneltext
+        	Produced by Inform 10.1.0 (build 6U97)          <-- headingpanelrubric
+
+        	Installed Extensions                            <-- headingpaneltextalt
+        	Bundles of extra rules or phrases to...         <-- headingpanelrubricalt
+
+        */
+
+        span.headingpaneltext {
+        	color: #222222;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+        span.headingpaneltextalt {
+        	color: #ffffff;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        span.headingpanelrubric {
+        	color: #222222;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.733rem; /* 11/12 * 100/125 */
+        	font-weight: bold;
+        }
+        span.headingpanelrubricalt {
+        	color: #ffffff;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.733rem; /* 11/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* Horizontal rule styling */
+
+        div.hr {
+        	border: 0;
+        	width: 100%;
+        	color: #707070;
+        	background-color: #707070;
+        	height: 5px;
+        }
+
+        /* This styles the (usually white) text of the example numbers written inside
+        oval blobs in the extension documentation, which mimic the look of the in-app
+        documentation. */
+
+        .oval, .oval td {
+        	background-image:url('inform:/doc_images/ovoid.png');
+        	color:white;
+        }
+
+        /* Styling used in the extension documentation indexes: */
+
+        /* Used for extension names in the extensions pane of the app */
+
+        span.extensioncensusentry {
+        	color: #ffffff;
+        }
+
+        span.extensionindexentry {
+        	color: #404040;
+        }
+
+        span.extensionindexerror {
+        	color: #ff8080;
+        }
+
+        /* This is used in extension documentation, where an example is presented
+        in a slightly tinted box: */
+
+        table.extensionexample {
+        	background-color: #f0f0f0;
+        }
+
+        span.extensionexampleletter {
+        	color: #202020;
+        	font-size: 14px;
+        	font-weight: bold;
+        }
+
+        /* Seen in problem messages: */
+
+        span.problemred {
+        	color: #800000;
+        }
+
+        span.problemgreen {
+        	color: #008000;
+        }
+
+        span.phraseword {
+        	color: #808080;
+        }
+
+        span.phrasetokentext {
+        	color: #e00060;
+        }
+
+        span.phrasetokendesctext {
+        	color: #4040ff;
+        }
+
+        span.phrasetokenvaluetext {
+        	color: #ff4040;
+        }
+
+        /* Now we move on to styling used in the Index pages only: */
+
+        /* The periodic table display has "sidebars", usually grey and taller than they
+        are wide; they contain no text. */
+
+        div.periodictablesidebarcolour {
+        	background: #888;
+        }
+        div.periodictablesidebar:hover {
+        	background: #222;
+        }
+
+        /* The text of the element-abbreviation, such as "Lx" or "Ph", uses: */
+
+        span.elementtext {
+        	color: #ffffff;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* Similarly for the "atomic number" - a single digit - in the top left corner
+        of these boxes: */
+
+        span.elementnumbertext {
+        	color: #ffffff;
+        	font-size: 0.622rem; /* 7/12 * 96/72 * 100/125 */
+        }
+
+        /* For the text of the element title, to the right of the element box: */
+
+        span.elementtitletext {
+        	color: #ffffff;
+        	font-size: 0.6rem; /* 9/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* The banner at the top of each element: */
+
+        table.elementbanner {
+        	background: #eeeeee;
+        }
+
+        /* For the typewriting on the Library Card: */
+
+        span.librarycardtitle {
+        	color: #803030;
+        }
+
+        span.librarycardother {
+        	color: #303030;
+        }
+
+        /* Generically used for "more details" boxes in the index: */
+
+        table.indexmorebox {
+        	background-color: #e0e0e0;
+            border-radius: 8px;
+        }
+
+        /* But not for activity contents: */
+
+        table.indexactivitycontents {
+        	background-color: #e8e0c0;
+            border-radius: 8px;
+        }
+
+        /* For responses in index entries about rules: */
+
+        span.indexresponseletter {
+        	color: #ffffff;
+        	font-family: 'Courier New', Courier, monospace;
+        	background-color: #8080ff;
+        }
+
+        span.indexresponsetext {
+        	color: #000066;
+        }
+
+        /* Used ubiquitously throughout the index and extension documentation: */
+
+        span.indexblack {
+        	color: #000000;
+        }
+
+        span.indexgrey {
+        	color: #808080;
+        }
+
+        span.indexdarkgrey {
+            color: #505050;
+        }
+
+        span.indexdullred {
+        	color: #800000;
+        }
+
+        span.indexdullgreen {
+        	color: #008000;
+        }
+
+        span.indexdullblue {
+        	color: #000080;
+        }
+
+        /* Used for the room squares in the World map in the Index (which is currently
+        a table with one row of one column) */
+
+        table.indexmaproom {
+        	border-color: #000000;
+        }
+
+        /* Used in the numbering of levels of the World map in the Index */
+
+        span.indexmaplevelnumbers {
+        	color: #c0c0c0;
+        }
+
+        /* Used e.g. for title rows in the Chart of basic kinds in the Index */
+
+        tr.headingrow {
+        	background-color: #e0e0e0;
+        }
+
+        /* Standard rows have black text on striped background colours, these being
+        the usual ones seen in Mac OS X applications such as iTunes. */
+
+        tr.stripeone {
+        	background-color: #ffffff;
+        }
+
+        tr.stripetwo {
+        	background-color: #f3f6fa;
+        }
+
+        tr.tintedrow {
+        	background-color: #808080;
+        }
+
+        /* In the Figures index, this is the background colour used behind images
+        (though in fact it will only be visible if the image fails to load, or uses
+        transparency): */
+
+        div.figureindexbox {
+        	background-color: #6495ed;
+        }
+
+        /* To get the book-contents-page style leaders on the Contents element of
+           the index to work, these must use the background colour of the body of
+           the page, whatever that is: */
+
+        ul.leaders li.leaded span:first-child {
+        	background: white;
+        }
+        ul.leaders li.leaded span + span {
+        	background: white;
+        }
+
+        /* On Registry index pages (such as the Public Library), these are used for
+        download buttons and the like: */
+
+        span.registrybuttontext {
+        	font-size: 11px;
+        	border-color: #000000;
+        }
+
+        span.registryminibuttontext {
+        	font-size: 10px;
+        	border-color: #000000;
+        }
+
+        span.registrybuttonuninstalled {
+        	color: #000000;
+        	background: #ffffdd;
+        }
+
+        span.registrybuttoninstalled {
+        	color: #000000;
+        	background: #ffffff;
+        	pointer-events: none;
+        }
+
+        span.registrybuttonbuiltin {
+        	color: #888888;
+        	background: #ffffff;
+        	pointer-events: none;
+        }
+
+        span.registrybuttonupdate {
+        	color: #000000;
+        	background: #aaddff;
+        }
+
+        span.registrybuttonrevert {
+        	color: #000000;
+        	background: #ddaaff;
+        }
+
+        span.registrybuttonrevealer {
+        	color: #ffffff;
+        	background: #444444;
+        }
+
+        /* Registry index section headings: */
+
+        span.registrysectionname {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 16px;
+        	line-height: 18px;
+        }
+        span.registrysubsectionname {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 14px;
+        	line-height: 16px;
+        }
+
+        /* These are for the "mark" for a section, usually a section-symbol and number */
+
+        span.registrysectionmark {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 16px;
+        	line-height: 18px;
+        	color: #666;
+        }
+        span.registrysubsectionmark {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 14px;
+        	line-height: 16px;
+        	color: #666;
+        }
+
+        /* Text of an item listed in a registry: */
+
+        span.registryitemtext {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 12px;
+        	line-height: 16px;
+        }
+
+        /* And how the links in a registry index page behave: */
+
+        a.registrysilentlink {
+        	text-decoration: none;
+        	color: #000;
+        }
+        a.registrybuttonlink {
+        	text-decoration: none;
+        }
+        a.registrycontentslink:link {
+        	text-decoration: none;
+        	color: #202020;
+        }
+        a.registrycontentslink:visited {
+        	text-decoration: none;
+        	color: #202020;
+        }
+        a.registrycontentslink:hover {
+        	text-decoration: none;
+        	color: #D00000;
+        }
+        a.registrycontentslink:active {
+        	text-decoration: none;
+        	color: #D00000;
+        }
+
+        -->
+    </style>
+    <style type="text/css">
+        <!--
+        /* (1) General layout material */
+
+        *, *:before, *:after {
+        	-moz-box-sizing: border-box;
+        	-webkit-box-sizing: border-box;
+        	box-sizing: border-box;
+        }
+        .headingpanellayout {
+        	position: relative;
+        	height: 56px;
+        	padding: 0px;
+        	white-space:nowrap;
+        }
+        .headingpanellayoutdeeper {
+        	position: relative;
+        	height: 117px;
+        	padding: 0px;
+        	white-space:nowrap;
+        }
+        .headingtext {
+        	position: absolute;
+        	top: -4px;
+        	left: -1px;
+        	width: 100%;
+        	padding: 14px 10px 0px 10px;
+        }
+        .headingrubric {
+        	position: absolute;
+        	top: 36px;
+        	width: 100%;
+        	padding: 0px 10px 0px 10px;
+        }
+        h3.tighter {
+        	margin-top: 0px;
+        }
+        p.hang {
+        	padding-left: 25px;
+        	text-indent: -25px;
+        	margin-top: 0px;
+        	margin-bottom: 0px;
+        }
+        p.in1 {
+        	padding-left: 0px;
+        }
+        p.tightin1 {
+        	padding-left: 0px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin1 {
+        	padding-left: 0px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin1 {
+        	padding-left: 50px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in2 {
+        	padding-left: 25px;
+        }
+        p.tightin2 {
+        	padding-left: 25px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin2 {
+        	padding-left: 25px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin2 {
+        	padding-left: 75px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in3 {
+        	padding-left: 50px;
+        }
+        p.tightin3 {
+        	padding-left: 50px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin3 {
+        	padding-left: 50px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin3 {
+        	padding-left: 100px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in4 {
+        	padding-left: 75px;
+        }
+        p.tightin4 {
+        	padding-left: 75px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin4 {
+        	padding-left: 75px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin4 {
+        	padding-left: 125px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in5 {
+        	padding-left: 100px;
+        }
+        p.tightin5 {
+        	padding-left: 100px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin5 {
+        	padding-left: 100px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin5 {
+        	padding-left: 150px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in6 {
+        	padding-left: 125px;
+        }
+        p.tightin6 {
+        	padding-left: 125px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin6 {
+        	padding-left: 125px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin6 {
+        	padding-left: 175px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in7 {
+        	padding-left: 150px;
+        }
+        p.tightin7 {
+        	padding-left: 150px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin7 {
+        	padding-left: 150px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin7 {
+        	padding-left: 200px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in8 {
+        	padding-left: 175px;
+        }
+        p.tightin8 {
+        	padding-left: 175px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin8 {
+        	padding-left: 175px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin8 {
+        	padding-left: 225px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in9 {
+        	padding-left: 200px;
+        }
+        p.tightin9 {
+        	padding-left: 200px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin9 {
+        	padding-left: 200px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin9 {
+        	padding-left: 250px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+
+        /* (2) Index page layout material */
+
+        /* The periodic table display has "sidebars", usually grey and taller than they
+        are wide; they contain no text. */
+
+        div.periodictablesidebar {
+        	height: 56px;
+        	width: 16px;
+        }
+        .periodictablesidebar a:link { text-decoration: none; }
+        .periodictablesidebar a:visited { text-decoration: none; }
+        .periodictablesidebar a:active { text-decoration: none; }
+
+        /* The "element boxes" are the cells appearing in the periodic-table display
+        on the welcome page of the index: */
+
+        .elementbox {
+        	position: relative;
+        	height: 56px;
+        	width: 56px;
+        	padding: 0px;
+        }
+
+        .elementbox a:link { text-decoration: none; }
+        .elementbox a:visited { text-decoration: none; }
+        .elementbox a:active { text-decoration: none; }
+        .elementbox a:hover { text-decoration: none; }
+        .elementbox:hover {
+        	opacity: 0.6;
+        }
+
+        /* The "small element boxes" look like those, but are smaller, and used on
+        the headings of the content which those original boxes link to: */
+
+        .smallelementbox {
+        	position: relative;
+        	height: 40px;
+        	width: 40px;
+        	padding: 0px;
+        }
+
+        .smallelementbox a:link { text-decoration: none; }
+        .smallelementbox a:visited { text-decoration: none; }
+        .smallelementbox a:active { text-decoration: none; }
+        .smallelementbox a:hover { text-decoration: none; }
+        .smallelementbox:hover {
+        	opacity: 0.6;
+        }
+
+        /* This is a class for the links formed by the element boxes: */
+
+        a.elementlink {
+        	position: absolute;
+        	top: -4px;
+        	left: -1px;
+        	width: 100%;
+        	padding: 14px 0px 14px 1px;
+        	text-align: center;
+        }
+
+        /* Similarly for the "atomic number" - a single digit - in the top left corner
+        of these boxes: */
+
+        div.elementnumber {
+        	position: absolute;
+        	top: 1px;
+        	left: 3px;
+        	text-align: left;
+        }
+
+        /* For the text of the element title, to the right of the element box: */
+
+        div.elementtitle {
+        	position: absolute;
+        	top: 35px;
+        	width: 100%;
+        	text-align: center;
+        }
+
+        /* Used for the book-contents-page style leaders on the Contents element of
+           the index: */
+
+        ul.leaders {
+        	padding: 0;
+        	margin-top: 1px;
+        	margin-bottom: 0;
+        	overflow-x: hidden;
+        	list-style: none}
+        ul.leaders li.leaded:before {
+        	float: left;
+        	width: 0;
+        	white-space: nowrap;
+        	content:
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "}
+        ul.leaders li.leaded span:first-child {
+        	padding-right: 0.33em;
+        }
+        ul.leaders li.leaded span + span {
+        	float: right;
+        	padding-left: 0.33em;
+        }
+        li.indent1 span:first-child {
+        	padding-left: 25px;
+        }
+        li.indent2 span:first-child {
+        	padding-left: 50px;
+        }
+        li.indent3 span:first-child {
+        	padding-left: 75px;
+        }
+        li.indent4 span:first-child {
+        	padding-left: 100px;
+        }
+        li.indent5 span:first-child {
+        	padding-left: 125px;
+        }
+        li.indent6 span:first-child {
+        	padding-left: 150px;
+        }
+        li.indent7 span:first-child {
+        	padding-left: 175px;
+        }
+        li.indent8 span:first-child {
+        	padding-left: 200px;
+        }
+        li.indent9 span:first-child {
+        	padding-left: 225px;
+        }
+
+        li.unleaded:before {
+        	content: "";
+        }
+
+        /* On Registry index pages (such as the Public Library), these are used for
+        download buttons and the like: */
+
+        span.registrybuttons {
+        	height: 20px;
+        	padding: 2px 8px 2px 8px;
+        	margin: 2px;
+        	border:1px solid;
+        	border-radius: 5px;
+        }
+
+        span.registryminibuttons {
+        	height: 14px;
+        	padding: 2px 5px 2px 5px;
+        	margin: 2px;
+        	border:1px solid;
+        	border-radius: 4px;
+        }
+
+        /* Used to hide or display sections in the Registry pages: */
+
+        div.registrysectionitemsopen {
+        	display: block;
+        }
+
+        div.registrysectionitemsclosed {
+        	display: none;
+        }
+
+        /* Hanging indentation for Registry item paragraphs: */
+
+        p.registryitem {
+        	padding-left: 80px;
+        	text-indent: -40px;
+        }
+
+        p.registryaddition {
+        	padding-left: 40px;
+        	text-indent: -40px;
+        }
+
+        -->
+    </style>
+    <script type="text/javascript">
+        function project() {
+            return window.Project;
+        }
+        function showExtra(id, imid) {
+        	if (document.getElementById(id).style.display == 'block') {
+        		document.getElementById(id).style.display = 'none';
+        		document.getElementById(imid).src = 'inform:/extra.png';
+        	} else {
+        		document.getElementById(id).style.display = 'block';
+        		document.getElementById(imid).src = 'inform:/extraclose.png';
+        	}
+        }
+        function openExtra(id, imid) {
+        	document.getElementById(id).style.display = 'block';
+        	document.getElementById(imid).src = 'inform:/extraclose.png';
+        }
+        function closeExtra(id, imid) {
+        	document.getElementById(id).style.display = 'none';
+        	document.getElementById(imid).src = 'inform:/extra.png';
+        }
+        function pasteCode(code) {
+            var myProject = project();
+
+            myProject.selectView('source');
+            myProject.pasteCode(code);
+        }
+
+    </script>
+</head>
+<body>
+    <!--CONTENT BEGINS-->
+    <table CELLPADDING=0 CELLSPACING=0 width="100%" bgcolor="#000000"><tr><TD width=38px height=26px align="center" valign="center"><a href="inform://Extensions/Extensions.html" border=0><img border=0 src="inform:/doc_images/Hookindex.png" border=0></a></td><TD width=38px height=26px align="center" valign="center"></td><td halign="left" valign="center" CELLPADDING=0 CELLSPACING=0><font color="#FFFFFF" size=2>Extensions</font></a></td><TD width=56px height=26px align="right" valign="center"><a href="inform:/index.html" border=0><img border=0 src="inform:/doc_images/Hookup.png" border=0></a></td></tr></table>
+
+    <p><a href="javascript:pasteCode('Include List Utilities by Zed Lopez.[=0x000A=][=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a>&nbsp;<b>List Utilities<span class="extensionindexentry"> by </span>Zed Lopez</b></p>
+    <p><span class="smaller">Version 1.0.220327</span></p>
+    <p>List utility functions</p>
+    <p></p>
+    </p>
+
+    <p> Chapter Examples</p>
+
+    <p><hr>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td halign="left" valign="top" cellpadding=0 cellspacing=0 width=38px>
+                <span id=eg1><table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="oval">
+                        <td width=38px height=30px align="left" valign="center">
+                            <a href="List Utilities-eg1.html#eg1" style="text-decoration: none"><div class="paragraph Body" style="line-height: 1px; margin-bottom: 0px; margin-top: 0px; padding-bottom: 0pt; padding-top: 0px; text-align: center;">
+                                <span class="extensionexampleletter">A</span></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                </span>
+            </td>
+            <td cellpadding=0 cellspacing=0 halign="left" valign="top">
+                <a href="List Utilities-eg1.html#eg1" style="text-decoration: none"><img border="0" src='inform:/doc_images/asterisk.png'><img border="0" src='inform:/doc_images/asterisk.png'><b><span class="indexdarkgrey">&nbsp;Example&nbsp;</span><span class="indexblack">List tests</p>
+
+                <p><blockquote><span class="indexdullblue"><a href="javascript:pasteCode('[=0x0022=]List tests[=0x0022=][=0x000A=]Include List Utilities by Zed Lopez.[=0x000A=]Include Unit Tests by Zed Lopez.[=0x000A=][=0x000A=]Use test automatically.[=0x000A=][=0x000A=]Lab is a room.[=0x000A=][=0x000A=]emptying is a unit test. [=0x0022=]Emptying[=0x0022=].[=0x000A=][=0x000A=]empty-l is a list of numbers that varies.[=0x000A=]empty-l is usually { }.[=0x000A=]ref is always { 0, 1, 2 }.[=0x000A=]rev-ref is always { 2, 1, 0 }.[=0x000A=]lol is always { { 0, 1, 2 }, { 0, 2, 1 }, { 1, 0, 2 }, { 1, 2, 0 }, { 2, 0, 1 }, { 2, 1, 0 } }.[=0x000A=]list9 is always { 1, 2, 3, 4, 5, 6, 7, 8, 9 }.[=0x000A=]loneliest is always { 1 }.[=0x000A=]teens is always { 13, 14, 15, 16, 17, 18, 19 }.[=0x000A=][=0x000A=]For testing emptying:[=0x000A=]let L be a list of numbers;[=0x000A=]empty L;[=0x000A=]for [=0x0022=]emptying an empty list[=0x0022=] assert L is empty;[=0x000A=]let L2 be { 1, 2, 3 };[=0x000A=]empty L2;[=0x000A=]for [=0x0022=]emptying a non-empty list[=0x0022=] assert the number of entries in L2 is 0;[=0x000A=][=0x000A=]Random entry is a unit test. [=0x0022=]Random entry[=0x0022=][=0x000A=][=0x000A=]test-num is initially 0.[=0x000A=][=0x000A=]For testing random entry:[=0x000A=]let z be a random entry from empty-l;[=0x000A=]for [=0x0022=]random entry from empty list[=0x0022=] assert z is 0;[=0x000A=]for [=0x0022=]random entry from empty list error[=0x0022=] assert [=0x0022=][test random entry from empty-l is 0][=0x0022=] reports an error;[=0x000A=]let z2 be a random entry from empty-l or improbable number;[=0x000A=]for [=0x0022=]random entry from empty list or backup[=0x0022=] assert z2 is improbable number;[=0x000A=]let count be { 0, 0, 0 };[=0x000A=]repeat with i running from 1 to 300 begin;[=0x000A=]let x be a random entry in ref;[=0x000A=]increment entry (x + 1) in count;[=0x000A=]end repeat;[=0x000A=]let label be [=0x0022=]monte carlo [count][=0x0022=];[=0x000A=]repeat with i running through ref begin;[=0x000A=]let j be i + 1;[=0x000A=]if entry j in count [=0x003C=] 50 or entry j in count [=0x003E=] 200 begin;[=0x000A=]for label fail;[=0x000A=]rule fails;[=0x000A=]end if;[=0x000A=]end repeat;[=0x000A=]for label pass;[=0x000A=][=0x000A=]Shuffle is a unit test. [=0x0022=]Returning shuffled list[=0x0022=].[=0x000A=][=0x000A=]For testing shuffle:[=0x000A=]let empty-shuffling be shuffled empty-l;[=0x000A=]for [=0x0022=]empty list shuffled[=0x0022=] assert empty-shuffling is empty;[=0x000A=]let count be a list of numbers;[=0x000A=]let indices be { 6, 8, 12, 16, 20, 22 };[=0x000A=]extend count to 22 entries;[=0x000A=]let result be a list of numbers;[=0x000A=]let orig be { 0, 1, 2 };[=0x000A=]repeat with i running from 1 to 300 begin;[=0x000A=]let M be shuffled ref;[=0x000A=]let val be 1 + (entry 1 of M) + ((entry 2 of M) * 3) + ((entry 3 of M) * 9);[=0x000A=]now entry val of count is (entry val of count) + 1;[=0x000A=]end repeat;[=0x000A=]repeat with i running through indices begin;[=0x000A=]add entry i of count to result;[=0x000A=]end repeat;[=0x000A=]for [=0x0022=]Original unchanged[=0x0022=] assert orig is { 0, 1, 2 };[=0x000A=]let label be [=0x0022=]Shuffle [result][=0x0022=];[=0x000A=]repeat with i running through result begin;[=0x000A=]if i [=0x003C=] 22 or i [=0x003E=] 86 begin;[=0x000A=]for label fail;[=0x000A=]rule fails;[=0x000A=]end if;[=0x000A=]end repeat;[=0x000A=]for label pass;[=0x000A=][=0x000A=]Sort is a unit test.[=0x000A=][=0x000A=]For testing sort:[=0x000A=]let empty-sorted be sorted empty-l;[=0x000A=]for [=0x0022=]empty list sorted[=0x0022=] assert empty-sorted is empty;[=0x000A=]for [=0x0022=]empty list sorted backwards[=0x0022=] assert sorted empty-l backwards is empty;[=0x000A=]repeat with l running through lol begin;[=0x000A=]let orig be l;[=0x000A=]for [=0x0022=]sort [l][=0x0022=] assert sorted l is ref;[=0x000A=]unless l is orig, for [=0x0022=]sort [l] original changed[=0x0022=] fail;[=0x000A=]for [=0x0022=]sort [l] backwards[=0x0022=] assert sorted l backwards is rev-ref;[=0x000A=]end repeat;[=0x000A=][=0x000A=]Reverse is a unit test. [=0x0022=]Returning reversed list[=0x0022=].[=0x000A=][=0x000A=]For testing reverse:[=0x000A=]let empty-reverse be reverse empty-l;[=0x000A=]for [=0x0022=]empty list reverse[=0x0022=] assert empty-reverse is empty;[=0x000A=]repeat with l running through lol begin;[=0x000A=]let orig be l;[=0x000A=]let r be reverse l;[=0x000A=]let len be number of entries in l;[=0x000A=]repeat with i running from 1 to len begin;[=0x000A=]unless entry i of r is entry (len + 1[=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a> &quot;List tests&quot;<br>
+                 Include List Utilities by Zed Lopez.<br>
+                 Include Unit Tests by Zed Lopez.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Use test automatically.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Lab is a room.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> emptying is a unit test. &quot;Emptying&quot;.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> empty-l is a list of numbers that varies.<br>
+                 empty-l is usually { }.<br>
+                 ref is always { 0, 1, 2 }.<br>
+                 rev-ref is always { 2, 1, 0 }.<br>
+                 lol is always { { 0, 1, 2 }, { 0, 2, 1 }, { 1, 0, 2 }, { 1, 2, 0 }, { 2, 0, 1 }, { 2, 1, 0 } }.<br>
+                 list9 is always { 1, 2, 3, 4, 5, 6, 7, 8, 9 }.<br>
+                 loneliest is always { 1 }.<br>
+                 teens is always { 13, 14, 15, 16, 17, 18, 19 }.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> For testing emptying:<br>
+                 let L be a list of numbers;<br>
+                 empty L;<br>
+                 for &quot;emptying an empty list&quot; assert L is empty;<br>
+                 let L2 be { 1, 2, 3 };<br>
+                 empty L2;<br>
+                 for &quot;emptying a non-empty list&quot; assert the number of entries in L2 is 0;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Random entry is a unit test. &quot;Random entry&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> test-num is initially 0.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> For testing random entry:<br>
+                 let z be a random entry from empty-l;<br>
+                 for &quot;random entry from empty list&quot; assert z is 0;<br>
+                 for &quot;random entry from empty list error&quot; assert &quot;[test random entry from empty-l is 0]&quot; reports an error;<br>
+                 let z2 be a random entry from empty-l or improbable number;<br>
+                 for &quot;random entry from empty list or backup&quot; assert z2 is improbable number;<br>
+                 let count be { 0, 0, 0 };<br>
+                 repeat with i running from 1 to 300 begin;<br>
+                 let x be a random entry in ref;<br>
+                 increment entry (x + 1) in count;<br>
+                 end repeat;<br>
+                 let label be &quot;monte carlo [count]&quot;;<br>
+                 repeat with i running through ref begin;<br>
+                 let j be i + 1;<br>
+                 if entry j in count &lt; 50 or entry j in count &gt; 200 begin;<br>
+                 for label fail;<br>
+                 rule fails;<br>
+                 end if;<br>
+                 end repeat;<br>
+                 for label pass;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Shuffle is a unit test. &quot;Returning shuffled list&quot;.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> For testing shuffle:<br>
+                 let empty-shuffling be shuffled empty-l;<br>
+                 for &quot;empty list shuffled&quot; assert empty-shuffling is empty;<br>
+                 let count be a list of numbers;<br>
+                 let indices be { 6, 8, 12, 16, 20, 22 };<br>
+                 extend count to 22 entries;<br>
+                 let result be a list of numbers;<br>
+                 let orig be { 0, 1, 2 };<br>
+                 repeat with i running from 1 to 300 begin;<br>
+                 let M be shuffled ref;<br>
+                 let val be 1 + (entry 1 of M) + ((entry 2 of M) * 3) + ((entry 3 of M) * 9);<br>
+                 now entry val of count is (entry val of count) + 1;<br>
+                 end repeat;<br>
+                 repeat with i running through indices begin;<br>
+                 add entry i of count to result;<br>
+                 end repeat;<br>
+                 for &quot;Original unchanged&quot; assert orig is { 0, 1, 2 };<br>
+                 let label be &quot;Shuffle [result]&quot;;<br>
+                 repeat with i running through result begin;<br>
+                 if i &lt; 22 or i &gt; 86 begin;<br>
+                 for label fail;<br>
+                 rule fails;<br>
+                 end if;<br>
+                 end repeat;<br>
+                 for label pass;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Sort is a unit test.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> For testing sort:<br>
+                 let empty-sorted be sorted empty-l;<br>
+                 for &quot;empty list sorted&quot; assert empty-sorted is empty;<br>
+                 for &quot;empty list sorted backwards&quot; assert sorted empty-l backwards is empty;<br>
+                 repeat with l running through lol begin;<br>
+                 let orig be l;<br>
+                 for &quot;sort [l]&quot; assert sorted l is ref;<br>
+                 unless l is orig, for &quot;sort [l] original changed&quot; fail;<br>
+                 for &quot;sort [l] backwards&quot; assert sorted l backwards is rev-ref;<br>
+                 end repeat;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Reverse is a unit test. &quot;Returning reversed list&quot;.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> For testing reverse:<br>
+                 let empty-reverse be reverse empty-l;<br>
+                 for &quot;empty list reverse&quot; assert empty-reverse is empty;<br>
+                 repeat with l running through lol begin;<br>
+                 let orig be l;<br>
+                 let r be reverse l;<br>
+                 let len be number of entries in l;<br>
+                 repeat with i running from 1 to len begin;<br>
+                 unless entry i of r is entry (len + 1</span></b></a><br>
+                <p>i) of l begin;<blockquote><span class="indexdullblue"> for &quot;sort [r] backwards&quot; fail;<br>
+                 rule fails;<br>
+                 end unless;<br>
+                 end repeat;<br>
+                 end repeat;<br>
+                 for &quot;sort backwards&quot; pass;</p>
+
+            </td>
+        </tr>
+    </table>
+    </p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p>
+    <!--CONTENT ENDS-->
+</body>
+</html>

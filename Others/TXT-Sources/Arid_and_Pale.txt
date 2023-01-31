@@ -1,0 +1,55 @@
+"Arid and Pale" by "Michael R. Bacon"
+[Using Inform 7 5Z71]
+
+The story headline is "A Short Interactive Poem".
+The story description is "A short interactive poem."
+The story genre is "Poetry".
+The release number is 2.
+The story creation year is 2009.
+Release along with cover art, a website and a source text.
+
+Include Version 2 of Interactive Poetry by Michael Bacon.
+Include Extended Banner by Stephen Granade.
+
+The story copyright string is "2009".
+
+The story rights statement is "Released under the Creative Commons Attribution 3.0 License".
+
+[Rule for printing the banner text:
+     say "[bold type][story title][roman type][line break][extended story headline][if story author is not blank] by [story author][end if][line break]Release [release number] / Serial number [story serial number] / Inform 7 build [I7 version number][line break]" instead.]
+
+Table of Possible Lines (continued)
+Topic	line-number	Line
+--	1	"Arid and pale"
+"Arid"	2	"tan sandy dust"
+"Pale"	2	"cracked skin[period or dash]"
+"Tan"	3	"like her skin [period or dash]"
+"Sandy"	3	"crunches soundlessly"
+"Dust"	3	"whirls in a devil"
+"Cracked"	3	"dried clay -"
+"Skin"	3	"raw, bloody and dry -"
+"Like"	4	"her heart. [fin]"
+"Her"	4	"dried after rain. [fin]"
+"Skin"	4	"envelopes form. [fin]"
+"Crunches"	4	"but not her bones. [fin]"
+"Soundlessly"	4	"under her bare feet. [fin]"
+"Whirls"	4	"so she squints. [fin]"
+"Devil"	4	"as she prays. [fin]"
+"Dried"	4	"she waits. [fin]"
+"Clay"	4	"she cannot shape. [fin]"
+"Raw"	4	"preparing a meal. [fin]"
+"Bloody"	4	"sleeves discolored. [fin]"
+"Dry"	4	"her eyes itch tearlessly. [fin]"
+
+Remember punc is some text that varies. Remember punc is usually "".
+To say period or dash:
+	if the current line is 3, change remember punc to "";
+if the current line is 4 begin;
+		if the topic understood matches "skin", change remember punc to "-";
+		if the topic understood matches "cracked", change remember punc to ". ";
+	end if;
+	if the current line is 4, change remember punc to "";
+if the current line is 5 begin;
+		if the topic understood matches "like", change remember punc to "-";
+	end if;
+	say remember punc.

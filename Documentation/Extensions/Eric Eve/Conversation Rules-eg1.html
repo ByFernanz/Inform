@@ -1,0 +1,1920 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Extension</title>
+    <style type="text/css">
+        <!--
+        /* The default font (family) and size */
+
+        body, p, td {
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.8rem; /* 100/125 */
+        }
+
+        /* For fixed-point material within text, such as the typing on the Library Card index page */
+
+        span.typewritten {
+        	font-family: monospace;
+        	font-size: 0.867rem; /* 13/12 * 100/125 */
+        }
+
+        /* For less important material: the small print */
+
+        span.smaller {
+        	font-size: 80%;
+        }
+
+        /* The "heading panel" is the coloured box, high up on the page. The colours
+        vary depending on the page: for example, the style on a report of a translation
+        with no problems is "headingpanelsucceeded", usually green, but if there were
+        problems then "headingpanelfailed" is used, which is usually red. "headingpanel"
+        itself is a more neutral grey by default. "headingpanelDark" is an alternative
+        look to make the extensions index pages have some visual contrast with the others;
+        by default they are a darker grey. */
+
+        .headingpanel {
+        	background: #eeeeee;
+        }
+        .headingpanelsucceeded {
+        	background: #E6FFE6;
+        }
+        .headingpanelfailed {
+        	background: #f69Ca6;
+        }
+        .headingpanelalt {
+        	background: #808080;
+        }
+
+        /* Heading panels have two lines of text: an upper one in a larger size, and a
+        lower one in a smaller. Again, the alt versions are meant to contrast.
+
+        	Report on Translation: Succeeded                <-- headingpaneltext
+        	Produced by Inform 10.1.0 (build 6U97)          <-- headingpanelrubric
+
+        	Installed Extensions                            <-- headingpaneltextalt
+        	Bundles of extra rules or phrases to...         <-- headingpanelrubricalt
+
+        */
+
+        span.headingpaneltext {
+        	color: #222222;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+        span.headingpaneltextalt {
+        	color: #ffffff;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        span.headingpanelrubric {
+        	color: #222222;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.733rem; /* 11/12 * 100/125 */
+        	font-weight: bold;
+        }
+        span.headingpanelrubricalt {
+        	color: #ffffff;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.733rem; /* 11/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* Horizontal rule styling */
+
+        div.hr {
+        	border: 0;
+        	width: 100%;
+        	color: #707070;
+        	background-color: #707070;
+        	height: 5px;
+        }
+
+        /* This styles the (usually white) text of the example numbers written inside
+        oval blobs in the extension documentation, which mimic the look of the in-app
+        documentation. */
+
+        .oval, .oval td {
+        	background-image:url('inform:/doc_images/ovoid.png');
+        	color:white;
+        }
+
+        /* Styling used in the extension documentation indexes: */
+
+        /* Used for extension names in the extensions pane of the app */
+
+        span.extensioncensusentry {
+        	color: #ffffff;
+        }
+
+        span.extensionindexentry {
+        	color: #404040;
+        }
+
+        span.extensionindexerror {
+        	color: #ff8080;
+        }
+
+        /* This is used in extension documentation, where an example is presented
+        in a slightly tinted box: */
+
+        table.extensionexample {
+        	background-color: #f0f0f0;
+        }
+
+        span.extensionexampleletter {
+        	color: #202020;
+        	font-size: 14px;
+        	font-weight: bold;
+        }
+
+        /* Seen in problem messages: */
+
+        span.problemred {
+        	color: #800000;
+        }
+
+        span.problemgreen {
+        	color: #008000;
+        }
+
+        span.phraseword {
+        	color: #808080;
+        }
+
+        span.phrasetokentext {
+        	color: #e00060;
+        }
+
+        span.phrasetokendesctext {
+        	color: #4040ff;
+        }
+
+        span.phrasetokenvaluetext {
+        	color: #ff4040;
+        }
+
+        /* Now we move on to styling used in the Index pages only: */
+
+        /* The periodic table display has "sidebars", usually grey and taller than they
+        are wide; they contain no text. */
+
+        div.periodictablesidebarcolour {
+        	background: #888;
+        }
+        div.periodictablesidebar:hover {
+        	background: #222;
+        }
+
+        /* The text of the element-abbreviation, such as "Lx" or "Ph", uses: */
+
+        span.elementtext {
+        	color: #ffffff;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* Similarly for the "atomic number" - a single digit - in the top left corner
+        of these boxes: */
+
+        span.elementnumbertext {
+        	color: #ffffff;
+        	font-size: 0.622rem; /* 7/12 * 96/72 * 100/125 */
+        }
+
+        /* For the text of the element title, to the right of the element box: */
+
+        span.elementtitletext {
+        	color: #ffffff;
+        	font-size: 0.6rem; /* 9/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* The banner at the top of each element: */
+
+        table.elementbanner {
+        	background: #eeeeee;
+        }
+
+        /* For the typewriting on the Library Card: */
+
+        span.librarycardtitle {
+        	color: #803030;
+        }
+
+        span.librarycardother {
+        	color: #303030;
+        }
+
+        /* Generically used for "more details" boxes in the index: */
+
+        table.indexmorebox {
+        	background-color: #e0e0e0;
+            border-radius: 8px;
+        }
+
+        /* But not for activity contents: */
+
+        table.indexactivitycontents {
+        	background-color: #e8e0c0;
+            border-radius: 8px;
+        }
+
+        /* For responses in index entries about rules: */
+
+        span.indexresponseletter {
+        	color: #ffffff;
+        	font-family: 'Courier New', Courier, monospace;
+        	background-color: #8080ff;
+        }
+
+        span.indexresponsetext {
+        	color: #000066;
+        }
+
+        /* Used ubiquitously throughout the index and extension documentation: */
+
+        span.indexblack {
+        	color: #000000;
+        }
+
+        span.indexgrey {
+        	color: #808080;
+        }
+
+        span.indexdarkgrey {
+            color: #505050;
+        }
+
+        span.indexdullred {
+        	color: #800000;
+        }
+
+        span.indexdullgreen {
+        	color: #008000;
+        }
+
+        span.indexdullblue {
+        	color: #000080;
+        }
+
+        /* Used for the room squares in the World map in the Index (which is currently
+        a table with one row of one column) */
+
+        table.indexmaproom {
+        	border-color: #000000;
+        }
+
+        /* Used in the numbering of levels of the World map in the Index */
+
+        span.indexmaplevelnumbers {
+        	color: #c0c0c0;
+        }
+
+        /* Used e.g. for title rows in the Chart of basic kinds in the Index */
+
+        tr.headingrow {
+        	background-color: #e0e0e0;
+        }
+
+        /* Standard rows have black text on striped background colours, these being
+        the usual ones seen in Mac OS X applications such as iTunes. */
+
+        tr.stripeone {
+        	background-color: #ffffff;
+        }
+
+        tr.stripetwo {
+        	background-color: #f3f6fa;
+        }
+
+        tr.tintedrow {
+        	background-color: #808080;
+        }
+
+        /* In the Figures index, this is the background colour used behind images
+        (though in fact it will only be visible if the image fails to load, or uses
+        transparency): */
+
+        div.figureindexbox {
+        	background-color: #6495ed;
+        }
+
+        /* To get the book-contents-page style leaders on the Contents element of
+           the index to work, these must use the background colour of the body of
+           the page, whatever that is: */
+
+        ul.leaders li.leaded span:first-child {
+        	background: white;
+        }
+        ul.leaders li.leaded span + span {
+        	background: white;
+        }
+
+        /* On Registry index pages (such as the Public Library), these are used for
+        download buttons and the like: */
+
+        span.registrybuttontext {
+        	font-size: 11px;
+        	border-color: #000000;
+        }
+
+        span.registryminibuttontext {
+        	font-size: 10px;
+        	border-color: #000000;
+        }
+
+        span.registrybuttonuninstalled {
+        	color: #000000;
+        	background: #ffffdd;
+        }
+
+        span.registrybuttoninstalled {
+        	color: #000000;
+        	background: #ffffff;
+        	pointer-events: none;
+        }
+
+        span.registrybuttonbuiltin {
+        	color: #888888;
+        	background: #ffffff;
+        	pointer-events: none;
+        }
+
+        span.registrybuttonupdate {
+        	color: #000000;
+        	background: #aaddff;
+        }
+
+        span.registrybuttonrevert {
+        	color: #000000;
+        	background: #ddaaff;
+        }
+
+        span.registrybuttonrevealer {
+        	color: #ffffff;
+        	background: #444444;
+        }
+
+        /* Registry index section headings: */
+
+        span.registrysectionname {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 16px;
+        	line-height: 18px;
+        }
+        span.registrysubsectionname {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 14px;
+        	line-height: 16px;
+        }
+
+        /* These are for the "mark" for a section, usually a section-symbol and number */
+
+        span.registrysectionmark {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 16px;
+        	line-height: 18px;
+        	color: #666;
+        }
+        span.registrysubsectionmark {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 14px;
+        	line-height: 16px;
+        	color: #666;
+        }
+
+        /* Text of an item listed in a registry: */
+
+        span.registryitemtext {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 12px;
+        	line-height: 16px;
+        }
+
+        /* And how the links in a registry index page behave: */
+
+        a.registrysilentlink {
+        	text-decoration: none;
+        	color: #000;
+        }
+        a.registrybuttonlink {
+        	text-decoration: none;
+        }
+        a.registrycontentslink:link {
+        	text-decoration: none;
+        	color: #202020;
+        }
+        a.registrycontentslink:visited {
+        	text-decoration: none;
+        	color: #202020;
+        }
+        a.registrycontentslink:hover {
+        	text-decoration: none;
+        	color: #D00000;
+        }
+        a.registrycontentslink:active {
+        	text-decoration: none;
+        	color: #D00000;
+        }
+
+        -->
+    </style>
+    <style type="text/css">
+        <!--
+        /* (1) General layout material */
+
+        *, *:before, *:after {
+        	-moz-box-sizing: border-box;
+        	-webkit-box-sizing: border-box;
+        	box-sizing: border-box;
+        }
+        .headingpanellayout {
+        	position: relative;
+        	height: 56px;
+        	padding: 0px;
+        	white-space:nowrap;
+        }
+        .headingpanellayoutdeeper {
+        	position: relative;
+        	height: 117px;
+        	padding: 0px;
+        	white-space:nowrap;
+        }
+        .headingtext {
+        	position: absolute;
+        	top: -4px;
+        	left: -1px;
+        	width: 100%;
+        	padding: 14px 10px 0px 10px;
+        }
+        .headingrubric {
+        	position: absolute;
+        	top: 36px;
+        	width: 100%;
+        	padding: 0px 10px 0px 10px;
+        }
+        h3.tighter {
+        	margin-top: 0px;
+        }
+        p.hang {
+        	padding-left: 25px;
+        	text-indent: -25px;
+        	margin-top: 0px;
+        	margin-bottom: 0px;
+        }
+        p.in1 {
+        	padding-left: 0px;
+        }
+        p.tightin1 {
+        	padding-left: 0px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin1 {
+        	padding-left: 0px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin1 {
+        	padding-left: 50px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in2 {
+        	padding-left: 25px;
+        }
+        p.tightin2 {
+        	padding-left: 25px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin2 {
+        	padding-left: 25px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin2 {
+        	padding-left: 75px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in3 {
+        	padding-left: 50px;
+        }
+        p.tightin3 {
+        	padding-left: 50px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin3 {
+        	padding-left: 50px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin3 {
+        	padding-left: 100px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in4 {
+        	padding-left: 75px;
+        }
+        p.tightin4 {
+        	padding-left: 75px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin4 {
+        	padding-left: 75px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin4 {
+        	padding-left: 125px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in5 {
+        	padding-left: 100px;
+        }
+        p.tightin5 {
+        	padding-left: 100px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin5 {
+        	padding-left: 100px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin5 {
+        	padding-left: 150px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in6 {
+        	padding-left: 125px;
+        }
+        p.tightin6 {
+        	padding-left: 125px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin6 {
+        	padding-left: 125px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin6 {
+        	padding-left: 175px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in7 {
+        	padding-left: 150px;
+        }
+        p.tightin7 {
+        	padding-left: 150px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin7 {
+        	padding-left: 150px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin7 {
+        	padding-left: 200px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in8 {
+        	padding-left: 175px;
+        }
+        p.tightin8 {
+        	padding-left: 175px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin8 {
+        	padding-left: 175px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin8 {
+        	padding-left: 225px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in9 {
+        	padding-left: 200px;
+        }
+        p.tightin9 {
+        	padding-left: 200px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin9 {
+        	padding-left: 200px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin9 {
+        	padding-left: 250px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+
+        /* (2) Index page layout material */
+
+        /* The periodic table display has "sidebars", usually grey and taller than they
+        are wide; they contain no text. */
+
+        div.periodictablesidebar {
+        	height: 56px;
+        	width: 16px;
+        }
+        .periodictablesidebar a:link { text-decoration: none; }
+        .periodictablesidebar a:visited { text-decoration: none; }
+        .periodictablesidebar a:active { text-decoration: none; }
+
+        /* The "element boxes" are the cells appearing in the periodic-table display
+        on the welcome page of the index: */
+
+        .elementbox {
+        	position: relative;
+        	height: 56px;
+        	width: 56px;
+        	padding: 0px;
+        }
+
+        .elementbox a:link { text-decoration: none; }
+        .elementbox a:visited { text-decoration: none; }
+        .elementbox a:active { text-decoration: none; }
+        .elementbox a:hover { text-decoration: none; }
+        .elementbox:hover {
+        	opacity: 0.6;
+        }
+
+        /* The "small element boxes" look like those, but are smaller, and used on
+        the headings of the content which those original boxes link to: */
+
+        .smallelementbox {
+        	position: relative;
+        	height: 40px;
+        	width: 40px;
+        	padding: 0px;
+        }
+
+        .smallelementbox a:link { text-decoration: none; }
+        .smallelementbox a:visited { text-decoration: none; }
+        .smallelementbox a:active { text-decoration: none; }
+        .smallelementbox a:hover { text-decoration: none; }
+        .smallelementbox:hover {
+        	opacity: 0.6;
+        }
+
+        /* This is a class for the links formed by the element boxes: */
+
+        a.elementlink {
+        	position: absolute;
+        	top: -4px;
+        	left: -1px;
+        	width: 100%;
+        	padding: 14px 0px 14px 1px;
+        	text-align: center;
+        }
+
+        /* Similarly for the "atomic number" - a single digit - in the top left corner
+        of these boxes: */
+
+        div.elementnumber {
+        	position: absolute;
+        	top: 1px;
+        	left: 3px;
+        	text-align: left;
+        }
+
+        /* For the text of the element title, to the right of the element box: */
+
+        div.elementtitle {
+        	position: absolute;
+        	top: 35px;
+        	width: 100%;
+        	text-align: center;
+        }
+
+        /* Used for the book-contents-page style leaders on the Contents element of
+           the index: */
+
+        ul.leaders {
+        	padding: 0;
+        	margin-top: 1px;
+        	margin-bottom: 0;
+        	overflow-x: hidden;
+        	list-style: none}
+        ul.leaders li.leaded:before {
+        	float: left;
+        	width: 0;
+        	white-space: nowrap;
+        	content:
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "}
+        ul.leaders li.leaded span:first-child {
+        	padding-right: 0.33em;
+        }
+        ul.leaders li.leaded span + span {
+        	float: right;
+        	padding-left: 0.33em;
+        }
+        li.indent1 span:first-child {
+        	padding-left: 25px;
+        }
+        li.indent2 span:first-child {
+        	padding-left: 50px;
+        }
+        li.indent3 span:first-child {
+        	padding-left: 75px;
+        }
+        li.indent4 span:first-child {
+        	padding-left: 100px;
+        }
+        li.indent5 span:first-child {
+        	padding-left: 125px;
+        }
+        li.indent6 span:first-child {
+        	padding-left: 150px;
+        }
+        li.indent7 span:first-child {
+        	padding-left: 175px;
+        }
+        li.indent8 span:first-child {
+        	padding-left: 200px;
+        }
+        li.indent9 span:first-child {
+        	padding-left: 225px;
+        }
+
+        li.unleaded:before {
+        	content: "";
+        }
+
+        /* On Registry index pages (such as the Public Library), these are used for
+        download buttons and the like: */
+
+        span.registrybuttons {
+        	height: 20px;
+        	padding: 2px 8px 2px 8px;
+        	margin: 2px;
+        	border:1px solid;
+        	border-radius: 5px;
+        }
+
+        span.registryminibuttons {
+        	height: 14px;
+        	padding: 2px 5px 2px 5px;
+        	margin: 2px;
+        	border:1px solid;
+        	border-radius: 4px;
+        }
+
+        /* Used to hide or display sections in the Registry pages: */
+
+        div.registrysectionitemsopen {
+        	display: block;
+        }
+
+        div.registrysectionitemsclosed {
+        	display: none;
+        }
+
+        /* Hanging indentation for Registry item paragraphs: */
+
+        p.registryitem {
+        	padding-left: 80px;
+        	text-indent: -40px;
+        }
+
+        p.registryaddition {
+        	padding-left: 40px;
+        	text-indent: -40px;
+        }
+
+        -->
+    </style>
+    <script type="text/javascript">
+        function project() {
+            return window.Project;
+        }
+        function showExtra(id, imid) {
+        	if (document.getElementById(id).style.display == 'block') {
+        		document.getElementById(id).style.display = 'none';
+        		document.getElementById(imid).src = 'inform:/extra.png';
+        	} else {
+        		document.getElementById(id).style.display = 'block';
+        		document.getElementById(imid).src = 'inform:/extraclose.png';
+        	}
+        }
+        function openExtra(id, imid) {
+        	document.getElementById(id).style.display = 'block';
+        	document.getElementById(imid).src = 'inform:/extraclose.png';
+        }
+        function closeExtra(id, imid) {
+        	document.getElementById(id).style.display = 'none';
+        	document.getElementById(imid).src = 'inform:/extra.png';
+        }
+        function pasteCode(code) {
+            var myProject = project();
+
+            myProject.selectView('source');
+            myProject.pasteCode(code);
+        }
+
+    </script>
+</head>
+<body>
+    <!--CONTENT BEGINS-->
+    <table CELLPADDING=0 CELLSPACING=0 width="100%" bgcolor="#000000"><tr><TD width=38px height=26px align="center" valign="center"><a href="inform://Extensions/Extensions.html" border=0><img border=0 src="inform:/doc_images/Hookindex.png" border=0></a></td><TD width=38px height=26px align="center" valign="center"></td><td halign="left" valign="center" CELLPADDING=0 CELLSPACING=0><font color="#FFFFFF" size=2>Extensions</font></a></td><TD width=56px height=26px align="right" valign="center"><a href="inform:/index.html" border=0><img border=0 src="inform:/doc_images/Hookup.png" border=0></a></td></tr></table>
+
+    <p><a href="javascript:pasteCode('Include Conversation Rules by Eric Eve.[=0x000A=][=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a>&nbsp;<b>Conversation Rules<span class="extensionindexentry"> by </span>Eric Eve</b></p>
+    <p><span class="smaller">Version 7</span></p>
+    <p>A way of controlling conversations using rules and tables. Also implements topic suggestions and Conversation nodes. Requires Plurality by Emily Short and Conversation Framework, Epistemology and List Control by Eric Eve.</p>
+    <p></p>
+    <hr>
+    <p><span class="indexblack"><b><a style="text-decoration: none" href=#docsec1>Chapter 1: </a></b></span>THE BASICS<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec2>Chapter 2: </a></b></span>DEFAULT RESPONSES<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec3>Chapter 3: </a></b></span>CONTROLLING RESPONSE ACCESSIBILITY<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec4>Chapter 4: </a></b></span>COMBINING ASK AND TELL<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec5>Chapter 5: </a></b></span>CONVERSATION NODES<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec6>Chapter 6: </a></b></span>SAYING YES AND NO<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec7>Chapter 7: </a></b></span>SUGGESTED TOPICS<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec8>Chapter 8: </a></b></span>DISAMBIGUATION AND PRIMARY SUBJECTS<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec9>Chapter 9: </a></b></span>. OTHER FEATURES<br>
+    <br>
+    <b>Examples</b><br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href="Conversation Rules-eg1.html#eg1">A &mdash; The Tribune's Report</a></span><br>
+    </p>
+    <hr>
+    <p></p>
+    </p>
+
+    <p><p><span class="indexdullred"><b><span id=docsec1>Chapter 1: THE BASICS</span></b></span></p>
+    </p>
+
+    <p> Conversation Rules builds on Conversation Framework, List Control and Epistemology (which it uses, and which therefore must be present for it to use) to provide a sophisticated (and fairly complex) means of handling conversations of the ASK/TELL type. It can also suggest to the player which topics are available to be asked about and told about. Finally, it allows the use of Conversation Nodes -- points in a conversation when the player can types responses outside the normal ask/tell paradigm in reply to a question or comment by the NPC. (If this all sounds a bit like the TADS 3 conversation system, there is a reason for that; I originally developed this extension in the course of porting part of a TADS 3 game to Inform 7).</p>
+
+    <p> The first point to bear in mind about Conversation Rules is that it supports asking and telling NPCs about things rather than topics; that is it uses the quizzing it about and informing it about actions defined in Conversation Framework (the documentation of which should also be consulted at this point if it is not already familiar), rather than the standard asking it about and telling it about actions that come with Inform 7. That doesn't mean that we can't use asking it about (a topic) and telling it about (a topic) with Conversation Rules; it's just that Conversation Rules provides no additional support for these actions. Instead, it provides support for quizzing and informing NPCs about things (which may include things or subjects -- for which see the Epistemology documentation -- used to represent abstract ideas like love, liberty or the rate of inflation).</p>
+
+    <p> Within Conversation Rules each NPC's responses to being quizzed about or informed about something is controlled through a pair of tables we need to define for the purpose: the NPC's quizzing table and informing table. Thus we might define:</p>
+
+    <p><blockquote><span class="indexdullblue"> Bob is a man. The quizzing table is The Table of Bob's Quizzes. The informing table is The Table of Bob's Informs.</span></blockquote>
+
+    <p> We then need to supply these tables, which take the form:</p>
+
+    <p><blockquote><span class="indexdullblue"> Table of Bob's Quizzes</span><br>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> subject</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> response rule</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> response table</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> suggest
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> bob</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> bob himself rule</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> --</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> 1</span>
+            </td>
+        </tr>
+    </table>
+    </blockquote>
+
+    <p> This will cause the bob himself rule to be invoked in response to the command ASK BOB ABOUT BOB or ASK BOB ABOUT HIMSELF. It will also cause 'you could ask Bob about himself' to be suggested as a possible topic of conversation with Bob, until we had actually asked him about himself for the first time. If we didn't want this to appear as a suggested topic we could put a 0 in the suggest column (or leave it blank). If we wanted it to be suggested more than once, we would put the number of times Bob could be asked about himself before this ceased to be suggested in the suggest column.</p>
+
+    <p> Obviously, we also need to provide an appropriate bob himself rule, for example:</p>
+
+    <p><blockquote><span class="indexdullblue"> This is the bob himself rule:<br>
+     say &quot;'How are you today, Bob?' you enquire.<br>
+    <br>
+    'Fine, just fine,' he replies.&quot;</span></blockquote>
+
+    <p> If Bob's responses varied according to circumstances, we could write a more complex rule, or else use a rulebook to decide Bob's response:</p>
+
+    <p><blockquote><span class="indexdullblue"> Table of Bob's Quizzes</span><br>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> subject</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> response rule</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> response table</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> suggest
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> Fred</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> bob fred rules</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> --</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> 3</span>
+            </td>
+        </tr>
+    </table>
+    </blockquote>
+
+    <p><blockquote><span class="indexdullblue"> The bob fred rules is a rulebook.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> A bob fred rule when fred is unseen: say &quot;Who is Fred anyway?' you ask.<br>
+    <br>
+    'He's my cousin,' Bob tells you.&quot;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> A bob fred rule when fred is seen:<br>
+     say &quot;'Fred looks quite ill, don't you think?' you remark.<br>
+    <br>
+    'Yes - he contracted Dutch Elm Disease last week,' Bob tells you.&quot;</span></blockquote>
+
+    <p> A common situation is where we want an NPC to run through a list of responses, supplying a new one each time he is asked until the last is reached, or maybe supplying a random one drawn from a list of possible responses on each occasion. The extension List Control, which Conversation Rules uses, provides a mechanism for running through such a list, while Conversation Rule provides a means of getting the next response from such a list automatically, instead of of explicitly having to write a rule to do it. Just put the name of the table containing the list of responses in the appropriate response table column, e.g.:</p>
+
+    <p><blockquote><span class="indexdullblue"> Table of Bob's Quizzes</span><br>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> subject</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> response rule</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> response table</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> suggest
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> bob</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> --</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> Table of Bob Himself</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> 3</span>
+            </td>
+        </tr>
+    </table>
+    </blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Table of Bob Himself</span><br>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> response
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;'How are you today?' you ask.<br>
+                <br>
+                'Fine, just fine,' he assures you.&quot;
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;'Are you sure you're all right, Bob?' you enquire, 'you look a bit off colour.'<br>
+                <br>
+                'I'm absolutely fine,' he insists.&quot;
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;Are you absolutely sure you're all right?' you ask.<br>
+                <br>
+                'How many times do I have to tell you?' he snaps, 'I'm completely all right!'&quot;</span>
+            </td>
+        </tr>
+    </table>
+    </blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Table of Table Types (continued)</span><br>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> tabname</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> index</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> tabtype
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> Table of Bob Himself</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> 0</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> stop-list</span>
+            </td>
+        </tr>
+    </table>
+    </blockquote>
+
+    <p> See the List Control documentation for an explanation of how the above two tables work. It is, by the way, perfectly legal to include both a rule and table name in the same row, in which case the rule will be executed before the next response from the table is shown. This may be useful if, say, we want quizzing someone about something to have a side effect in addition to the display of a conversational exchange.</p>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec2>Chapter 2: DEFAULT RESPONSES</span></b></span></p>
+    </p>
+
+    <p> We next need a means of having our NPC respond to things we haven't explicitly provided for. Two rules are provided for this, the NPC's unknown quizzing rule and the NPC's unknown informing rule, which by default are set to the no response rule (which in turn simply says that there's no response). To customize this, we need to change these rules to something different; e.g.</p>
+
+    <p><blockquote><span class="indexdullblue"> The unknown quizzing rule of Bob is the Bob no quiz rule. The unknown informing rule of Bob is the Bob no inform rule.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> This is the Bob no quiz rule: say &quot;Bob scratches his head and looks puzzled by your question.&quot;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> This is the Bob no inform rule: say &quot;Bob listens to what you have to say, but merely grunts in reply.&quot;</span></blockquote>
+
+    <p> Of course, these rules could be more elaborate; we might, for example, want Bob's response to be a random response from a selection of defaults:</p>
+
+    <p><blockquote><span class="indexdullblue"> This is the Bob no quiz rule: show the next response from the Table of Bob's Default Quiz Responses.</span></blockquote>
+
+    <p> Obviously, we'd then need to define this table (again see the List Control documentation).</p>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec3>Chapter 3: CONTROLLING RESPONSE ACCESSIBILITY</span></b></span></p>
+    </p>
+
+    <p> A further sophistication is that Conversation Rules makes use of the Epistemology extension, which keeps track of which objects the player knows about. If the player asks an NPC about a thing the player character does not (yet) know about, the default response will be used even if a custom response has been supplied (in the relevant table) for that object. This prevents the player stumbling on something prematurely, or getting a response that presupposes something the player character does not know about (i.e. a thing which is still unfamiliar and unseen, as defined by the Epistemology extension). For example, suppose the PC doesn't know that Bob has a cousin called Fred until Bob mentions the fact in conversation; we could write:</p>
+
+    <p><blockquote><span class="indexdullblue"> Table of Bob's Quizzes</span><br>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> subject</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> response rule</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> response table</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> suggest
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> bob</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> --</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> Table of Bob Himself</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> 2
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> fred</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> bob-fred rule</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> --</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> 1</span>
+            </td>
+        </tr>
+    </table>
+    </blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Table of Bob Himself</span><br>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> response
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;'How are you today, Bob?' you ask.<br>
+                <br>
+                'Better than my cousin Fred, at any rate.' he mutters[reveal Fred].&quot;
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;'How are you doing?' you wonder.
+                'Oh I'm doing fine, just fine,' he assures you.&quot;</span>
+            </td>
+        </tr>
+    </table>
+    </blockquote>
+
+    <p><blockquote><span class="indexdullblue"> This is the bob-fred rule:<br>
+     say &quot;'What's the matter with your cousin Fred?' you ask.<br>
+    <br>
+    'He's suffering an acute attack of Dutch Elm Disease,' he tells you.&quot;</span></blockquote>
+
+    <p> Now if we type ASK BOB ABOUT FRED before asking Bob about himself for the first time, we'll only get Bob's default response. The special tag &quot;[reveal Fred]&quot; changes Fred from unfamiliar to familiar (it's a to say rule that doesn't actually say anything), so that we can ask Bob (or anyone else) about Fred thereafter. Note that the 'To reveal X' rule is built into the Conversation Rules extension; it's not something we need to supply in our game code.</p>
+
+    <p> This mechanism is fine for stopping the player character talking about things that aren't yet known to him or her, but there may be other reasons why we want to make a response temoparily unreachable, e.g because the NPC doesn't know about it yet, or it doesn't make sense to talk about it with this particular NPC until something else has been said. One way to deal with this situation would be to test for the appropriate condition (s) in the relevant response rule, but this may not always be convenient, particularly if we are using a response table to provide the response. Another method we can use is to set the value in the suggest to -1, which makes the topic unavailable (and, of course, not suggested) until the suggest value is changed to something else. Just as we can use &quot;[reveal Fred]&quot; to change Fred to familiar, so we can use &quot;[quiz x to n]&quot; or &quot;[inform x to n]&quot; to change the suggest column corresponding to x to n in the quizzing table or informing table of the current interlocutor (the NPC we're current talking to). So, for example, if it's possible that the player character already knows of the existence of Fred, but we don't want him asking Bob about Fred until Bob has mentioned Fred, we could change the above example to:</p>
+
+    <p><blockquote><span class="indexdullblue"> Table of Bob's Quizzes</span><br>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> subject</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> response rule</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> response table</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> suggest
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> bob</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> --</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> Table of Bob Himself</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> 2
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> fred</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> bob-fred rule</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> --</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> -1</span>
+            </td>
+        </tr>
+    </table>
+    </blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Table of Bob Himself</span><br>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> response
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;'How are you today, Bob?' you ask.<br>
+                <br>
+                'Better than my cousin Fred, at any rate.' he mutters[quiz Fred to 1].&quot;
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;'How are you doing?' you wonder.
+                'Oh I'm doing fine, just fine,' he assures you.&quot;</span>
+            </td>
+        </tr>
+    </table>
+    </blockquote>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec4>Chapter 4: COMBINING ASK AND TELL</span></b></span></p>
+    </p>
+
+    <p> Sometimes we want ASK FOO ABOUT BAR to give the same response as TELL FOO ABOUT BAR. If this is always the case for every NPC we can simply write:</p>
+
+    <p><blockquote><span class="indexdullblue"> Instead of informing someone about something, try quizzing the noun about the second noun.</span></blockquote>
+
+    <p> We can do something similar if we want this to apply only to a particular NPC:</p>
+
+    <p><blockquote><span class="indexdullblue"> Instead of informing Bob about something, try quizzing Bob about the second noun.</span></blockquote>
+
+    <p> Sometimes, however, we may want ASK and TELL to be equivalent only for certain topics. We could cope for this by writing a series of Instead rules:</p>
+
+    <p><blockquote><span class="indexdullblue"> Instead of informing Bob about Fred, try asking Bob about Fred.<br>
+     Instead of informing Bob about the lighthouse, try asking Bob about the lighthouse.</span></blockquote>
+
+    <p> But this could become a bit tedious and long-winded if we have quite a few topics to redirect like this. An alternative is to use the supplied quiz-inform and inform-quiz rules within the apprropriate table to redirect quizzing to informing or informing to quizzing, e.g.:</p>
+
+    <p><blockquote><span class="indexdullblue"> Table of Bob's Informs</span><br>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> subject</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> response rule</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> response table</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> suggest
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> fred</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> inform-quiz rule</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> a table-name</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> 0
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> lighthouse</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> inform-quiz rule</span>
+            </td>
+        </tr>
+    </table>
+    </blockquote>
+
+    <p> It may seem that we could simply have written &quot;bob-fred rule&quot; in the response column to get the same effect, since the same rule would be triggered whether we ASK BOB ABOUT FRED or TELL BOB ABOUT FRED. The problem is that we'd then have to worry about keeping the values in the suggest columns of both tables in sync, and this is a complication best avoided.</p>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec5>Chapter 5: CONVERSATION NODES</span></b></span></p>
+    </p>
+
+    <p> There may come a point in a conversation when an NPC asks a question or makes a statement to which ASK BOB ABOUT X or TELL BOB ABOUT X would be a clumsy response at best. It may be that a simple yes or no would be better, or it may be that a more elaborate reply is called for. For this type of situation we can use a Conversation Node. Suppose, for example, that Bob asks a question to which the possible answers are YES, NO and I DON'T KNOW. Perhaps the question was &quot;Have you met my cousin Fred?&quot;, so we might call our conversation node the bob-fred node:</p>
+
+    <p><blockquote><span class="indexdullblue"> The bob-fred node is a Conversation Node.</span></blockquote>
+
+    <p> Next we need to have some means of letting the player know what responses are possible while we're in this node. For this purpose we can set the Conversation Node's suggestions property:</p>
+
+    <p><blockquote><span class="indexdullblue"> The bob-fred node is a Conversation Node. The suggestions is &quot;say yes or no, or say that you don't know&quot;</span></blockquote>
+
+    <p> The rule here is that the text in the suggestions property is something that can reasonably follow &quot;You could&quot;. In the above example the player would see a prompt like &quot;(You could say yes or no, or say that you don't know.&quot;). A further refinement is that a Conversation Node can be limited (the default) or unlimited. If the Conversation Node is limited then the suggestions in its suggestions property are the only suggested conversation topics that will be shown. If it is unlimited then all the other topics currently available for suggestion (i.e. all the quizzing and informing topics with a suggest entry greater than 0 in the appropriate table) will be listed too.</p>
+
+    <p> We still need a means for the Conversation Node to respond to the player's special response (in this case yes, no, or don't know). To do this we need to give the Conversation Node a node rule (which in practice will usually be a rulebook):</p>
+
+    <p><blockquote><span class="indexdullblue"> The bob-fred-node rules is a rulebook.<br>
+     The node rule of the bob-fred node is the bob-fred-node rules.</span></blockquote>
+
+    <p> Then we need to define the appropriate rules for handling the player's possible responses. We'll start by handling the straightforward YES and NO responses:</p>
+
+    <p><blockquote><span class="indexdullblue"> A bob-fred-node rule when saying yes:<br>
+     say &quot;'Yes, I ran into him the other day,' you say.<br>
+    <br>
+    'In that case you know he's not very well.' Bob replies[convnode null-node].&quot;; rule suceeds.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> A bob-fred-node-rule when saying no:<br>
+     say &quot;'No, I didn't even know you had a cousin called Fred,' you reply.<br>
+    <br>
+    'Unless he recovers soon, I probably won't for much longer,' he replies darkly[convnode null-node].&quot;;<br>
+     rule suceeds.</span></blockquote>
+
+    <p> These rules will handle YES or NO or BOB, YES or BOB, NO or SAY YES TO BOB or SAY NO TO BOB (since Conversation Framework, included by Conversation Rules) takes care of converting the other forms to YES and NO respectively). Note that we need to end each rule with &quot;rule succeeds&quot; to prevent fall through to the normal conversation processing (unless, of course, we want to allow this). Not also the &quot;[convnode null-node]&quot;, which is used to reset the current conversation node to nothing once we are done with it (this will be explained further below).</p>
+
+    <p> Next, we may want a special rule to make Bob insist on an answer if we don't give him one:</p>
+
+    <p><blockquote><span class="indexdullblue"> The last bob-fred-node rule:<br>
+     say &quot;'I asked you if you'd met my cousin Fred,' Bob reminds you.&quot;; rule succeeds.</span></blockquote>
+
+    <p> Here we don't include &quot;[convnode null-node]&quot;, since we want the current node to remain active when Bob doesn't get a satisfactory reply. If we were instead happy for Bob's question to be ignored (say by the player asking about something else) we'd instead write:</p>
+
+    <p><blockquote><span class="indexdullblue"> The last bob-fred-node rule:<br>
+     Change the current convnode to the null-node;</span></blockquote>
+
+    <p> This resets the current convnode so that the bob-fred-node rule doesn't stay current once the player has ignored the question that triggered it; we also make sure that this rule doesn't succeed so that we can go on to the ordinary handling of the topic asked about.</p>
+
+    <p> This still leaves the question of how we respond to I DON'T KNOW. This is a bit trickier; the first part of the trick is to think of all the ways the player might signal I DON'T KNOW and then wrap them up in an Understand statement:</p>
+
+    <p><blockquote><span class="indexdullblue"> Understand &quot;you don't/dont know&quot; or &quot;i don't/dont know&quot; or &quot;don't know&quot; or &quot;dont know&quot; as &quot;[dont know]&quot;.</span></blockquote>
+
+    <p> Next we have to make these responses understood as a special action, but only when this conversation node is active. A special wierdly-named Xspcing action (most unlikely to clash with anything else) is provided for the purpose. In this case we'd use it thus:</p>
+
+    <p><blockquote><span class="indexdullblue"> Understand &quot;[dont know]&quot; as Xspcing when the current convnode is the bob-fred node.</span></blockquote>
+
+    <p> Then we provide a bob-fred-node rule to respond to this input:</p>
+
+    <p><blockquote><span class="indexdullblue"> A bob-fred-node rule when Xspcing:<br>
+     if the player's response matches &quot;[dont know]&quot; begin;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; say &quot;[dont know fred].&quot;;<br>
+     rule succeeds;<br>
+     end if.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> A bob-fred-node rule when answering and the topic understood matches &quot;[dont know]&quot;:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; say &quot;[dont know fred].&quot;;<br>
+     rule succeeds;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> To say dont know fred:<br>
+     say &quot;'I have met someone called Fred, but I don't know whether he's your cousin,' you reply.
+    'He's a tall, thin, bald man with a limp,' Bob tells you, 'anyway -- he's also very sick[convnode null-node].'&quot;</span></blockquote>
+
+    <p> Note that in this case we need the 'when answering' rule to cover the possibility that the player types SAY I DON'T KNOW or the like.</p>
+
+    <p> Finally, we need some way to trigger the conversation node. At root, the way to activate a Conversation Node is to make it the current convnode, e.g.:</p>
+
+    <p><blockquote><span class="indexdullblue"> Change the current convnode to the bob-fred node.</span></blockquote>
+
+    <p> More normally, though, we'd use a &quot;[convnode whatevernode]&quot; tag inside a text string, e.g.:</p>
+
+    <p><blockquote><span class="indexdullblue"> Table of Bob Himself</span><br>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> response
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;'How are you today, Bob?' you ask.<br>
+                <br>
+                'Better than my cousin Fred, at any rate.' he mutters, 'Have you met him?'[quiz Fred to 1][convnode bob-fred node]&quot;
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;'How are you doing?' you wonder.
+                'Oh I'm doing fine, just fine,' he assures you.&quot;</span>
+            </td>
+        </tr>
+    </table>
+    </blockquote>
+
+    <p> Not only does &quot;[convnode whatevernode]&quot; change the current convnode from within a text string, it also causes the topics associated with the node to be suggested so that the player can see what responses are available.</p>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec6>Chapter 6: SAYING YES AND NO</span></b></span></p>
+    </p>
+
+    <p> As mentioned above, Conversation Framework (included by Conversation Rules) takes care of directing the commands WHOEVER, YES and SAY YES TO WHOEVER to a simple YES command (and likewise with NO). In addition commands like FRED, YES or SAY YES TO FRED will trigger an implicit greeting of Fred (for which see the Conversation Framework documentation) if Fred is not already the current interlocutor (actually, most of the work for this is now carried oun by Conversation Framework).</p>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec7>Chapter 7: SUGGESTED TOPICS</span></b></span></p>
+    </p>
+
+    <p> As noted under section 1 above, Conversation Rules provides a mechanism for showing the player a list of things s/he can ask or tell the current interlocutor about. As already explained, this is managed by entering a number (greater than zero) in the suggest column against the appropriate item in the appropriate table. This number is reduced by one each time the subject is asked about (or told about, as the case may be) until it reaches zero. The number should therefore start at the number of times you want the suggestion to remain active.</p>
+
+    <p> Whether the suggestion appears as a suggested tell topic (&quot;You could tell Bob about Fred&quot;) or a suggested ask topic (&quot;You could ask Bob about Fred&quot;) depends on whether it appears in the NPC's informing table or its quizzing table (again, as described above).</p>
+
+    <p> By default, a list of suggested topics is displayed:</p>
+
+    <p> 1) In response to an explicit TOPICS command typed by the player; and</p>
+
+    <p> 2) When a Conversation Node is entered via a &quot;[convnode whatevernode]&quot; tag in a text string, and the Conversation Node in question has a suggestions property that is not &quot;blank&quot;.</p>
+
+    <p> It may be that we would also like to see a list of suggested topics displayed in response to an explict greeting (such as TALK TO BOB, or BOB, HELLO). To do this we need to dd something like (assuming we have elsewhere defined a Table of Bob's Greetings):</p>
+
+    <p><blockquote><span class="indexdullblue"> After saying hello to Bob:<br>
+     show the next response from the Table of Bob's Greetings;<br>
+     if the greeting type is explicit then consider the standard list suggested topics rule.</span></blockquote>
+
+    <p> Note that in this case it is preferable to use 'consider the standard list suggested topics rule' rather than 'try requesting suggested topics', since if the latter is used the turn count will not be advance (requesting suggested topics is an action out of world, since it seems reasonable that it shouldn't consume any game time).</p>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec8>Chapter 8: DISAMBIGUATION AND PRIMARY SUBJECTS</span></b></span></p>
+    </p>
+
+    <p> Since quizzing about and informing about are actions that potentially apply to all objects defined in our game, there is a danger that trying to converse with someone about something may result in an ungainly disambiguation prompt:</p>
+
+    <p> &gt;ASK JIM ABOUT BALL</p>
+
+    <p> Which do you mean, the red rubber ball, the ball gown, the masked ball or the ball bearing?</p>
+
+    <p> Conversation Rules takes care of this to some extent by preferring subjects that are known about to those that aren't in such contexts, which may help cut down the list (and avoid revealing the existence of something the player isn't meant to know about yet), but this may not be enough to avoid all instances of ungainly disambiguation, especially in the later stages of a game when most things are known about. Conversation Rules offers partial relief in the form of the primary/secondary condition applied to all objects. Other things being equal, Conversation Rules will pick a primary thing in preference to a secondary thing in a context such as this (provided the primary thing is known). So, for example, if we want all conversational references to BALL, not otherwise qualified, to refer to the masked ball, then we could define:</p>
+
+    <p><blockquote><span class="indexdullblue"> The masked ball is a primary subject.</span></blockquote>
+
+    <p> The problem is, the masked ball is then the primary meaning of 'ball' for all interlocutors in the game. If little Billy is more likely to be more interested in his red rubber ball, we should have to supply special grammar lines for this particular exception:</p>
+
+    <p><blockquote><span class="indexdullblue"> Understand &quot;ask [billy] about [red subber ball]&quot; as quizzing it about.<br>
+     Understand &quot;a [red rubber ball]&quot; as quizzing it about when the default interlocutor is Billy.</span></blockquote>
+
+    <p> But it could become quite cumbersome to do this for a lot of subject/interlocutor combinations.</p>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec9>Chapter 9: . OTHER FEATURES</span></b></span></p>
+    </p>
+
+    <p> Note that Conversation Rules is fully compatible with the greeting protocols defined in Conversation Framework (for which consult the Conversation Framework documentation). To take full advantage of this it may be necessary to write rules for saying hello and goodbye to particular NPCs in addition to the various types of conversation rule described above.</p>
+
+    <p> Conversation Rules is also compatible with the abbreviated conversation commands A THIS or T THAT implemented in Conversation Framework.</p>
+
+    <p><hr>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td halign="left" valign="top" cellpadding=0 cellspacing=0 width=38px>
+                <span id=eg1><table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="oval">
+                        <td width=38px height=30px align="left" valign="center">
+                            <a href="Conversation Rules.html#eg1" style="text-decoration: none"><div class="paragraph Body" style="line-height: 1px; margin-bottom: 0px; margin-top: 0px; padding-bottom: 0pt; padding-top: 0px; text-align: center;">
+                                <span class="extensionexampleletter">A</span></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                </span>
+            </td>
+            <td cellpadding=0 cellspacing=0 halign="left" valign="top">
+                <a href="Conversation Rules.html#eg1" style="text-decoration: none"><img border="0" src='inform:/doc_images/asterisk.png'><img border="0" src='inform:/doc_images/asterisk.png'><b><span class="indexdarkgrey">&nbsp;Example&nbsp;</span><span class="indexblack">The Tribune's Report</span></b></a><br>
+                <p>A Sample Conversation</p>
+
+            </td>
+        </tr>
+    </table>
+    <table border="0" cellspacing="0" cellpadding="0" class="extensionexample" width=100%>
+        <tr>
+            <td align="left" valign="top">
+                <p></p>
+
+                <p> Conversation Rules doesn't handle asking it about and telling it about, so we include rules in Part 1 to provide graceful handling for ASK ABOUT FOO and TELL ABOUT BAR where foo and bar don't correspond to any objects in the game. Other games may want to handle these commands differently, though this is quite a good default.</p>
+
+                <p><blockquote><span class="indexdullblue"><a href="javascript:pasteCode('[=0x0022=]The Tribune[=0x0027=]s Report[=0x0022=][=0x000A=][=0x000A=]Part 1 - Conversation Model[=0x000A=][=0x000A=]Include Conversation Rules by Eric Eve.[=0x000A=][=0x000A=]Instead of asking someone about something:[=0x000A=]follow the unknown quizzing rule of the noun.[=0x000A=][=0x000A=]Instead of telling someone about something:[=0x000A=]follow the unknown informing rule of the noun.[=0x000A=][=0x000A=]Part 2 - Scenario[=0x000A=][=0x000A=]Chapter 1 - The Location[=0x000A=][=0x000A=]The Great Hall is a Room. [=0x0022=]The strong morning sunlight filters in through the unglazed windows overlooking the Upper City and the Temple compound.[=0x0022=][=0x000A=][=0x000A=]Some unglazed windows are scenery in the Great Hall.[=0x000A=][=0x000A=]Chapter 2 - Pilate[=0x000A=][=0x000A=]Section 1 - The Man[=0x000A=][=0x000A=]Pontius Pilate is a man in the Great Hall. [=0x0022=]The governor is standing at the centre of the hall, frowning in thought.[=0x0022=] The description is [=0x0022=]He[=0x0027=]s a stout, balding man, dressed in the tunic of the equestrian order.[=0x0022=] The quizzing table is the Table of Pilate[=0x0027=]s Answers. The informing table is the Table of Pilate[=0x0027=]s Remarks. The unknown quizzing rule is the Pilate[=0x0027=]s default-quiz-response rule. The unknown informing rule is the Pilate[=0x0027=]s default-inform-response rule.[=0x000A=][=0x000A=]Understand [=0x0022=]man[=0x0022=] or [=0x0022=]governor[=0x0022=] or [=0x0022=]prefect[=0x0022=] or [=0x0022=]procurator[=0x0022=] or [=0x0022=]roman[=0x0022=] or [=0x0022=]stout[=0x0022=] or [=0x0022=]balding[=0x0022=] as Pontius Pilate.[=0x000A=][=0x000A=]Section 2 - Greeting[=0x000A=][=0x000A=]After saying hello to Pontius Pilate:[=0x000A=]say [=0x0022=][=0x0027=]Good morning, your excellency,[=0x0027=] you greet him.[=0x000A=][=0x000A=][=0x0027=]I don[=0x0027=]t know what[=0x0027=]s good about it, tribune,[=0x0027=] Pilate grunts in reply.[=0x0022=];[=0x000A=]if the greeting type is explicit, follow the standard list suggested topics rule.[=0x000A=][=0x000A=]Section 3 - Conversation Topics[=0x000A=][=0x000A=]Table of Pilate[=0x0027=]s Answers[=0x000A=]subject[=0x0009=]response rule[=0x0009=]response table[=0x0009=]suggest[=0x000A=]Pilate[=0x0009=]--[=0x0009=]Table of Pilate Self[=0x0009=]3[=0x000A=]Caiaphas[=0x0009=]caiaphas rule[=0x0009=]--[=0x0009=]1[=0x000A=]jerusalem[=0x0009=]jerusalem rule[=0x0009=]--[=0x0009=]1[=0x000A=]emperor[=0x0009=]--[=0x0009=]Table of Caesar[=0x0009=]-1[=0x000A=][=0x000A=]Table of Pilate[=0x0027=]s Remarks[=0x000A=]subject[=0x0009=]response rule[=0x0009=]response table[=0x0009=]suggest[=0x000A=]jesus[=0x0009=]--[=0x0009=]Table of Jesus[=0x0009=]2[=0x000A=][=0x000A=]Table of Pilate Self[=0x000A=]response[=0x000A=][=0x0022=][=0x0027=]How are you today, sir?[=0x0027=] you enquire politely.[=0x000A=][=0x000A=][=0x0027=]Terrible,[=0x0027=] he grunts. [=0x0027=]I slept badly, dreamed nastily, and woke up with a mouth tasting like a whore[=0x0027=]s armpit.[=0x0027=][=0x0022=][=0x000A=][=0x0022=][=0x0027=]Do you like it in Judaea?[=0x0027=] you ask.[=0x000A=][=0x000A=][=0x0027=]Caesarea[=0x0027=]s okay,[=0x0027=] he replies, [=0x0027=]but Jerusalem is too hot, too crowded, and too dangerous[reveal jerusalem].[=0x0027=][=0x0022=][=0x000A=][=0x0022=][=0x0027=]But things aren[=0x0027=]t going too badly for you here, are they sir?[=0x0027=] you ask.[=0x000A=][=0x000A=][=0x0027=]No, not too badly,[=0x0027=] he agrees. [=0x0027=]At least I still seem to be in favour with the Emperor[quiz emperor to 2].[=0x0027=][=0x0022=][=0x000A=][=0x000A=]This is the caiaphas rule:[=0x000A=]say [=0x0022=][=0x0027=]How is the High Priest these days?[=0x0027=] you ask.[=0x000A=][=0x000A=][=0x0027=]As devious as ever,[=0x0027=] Pilate tells you.[=0x0022=][=0x000A=][=0x000A=]This is the jerusalem rule:[=0x000A=]say [=0x0022=][=0x0027=]What did you mean by Jerusalem being too dangerous?[=0x0027=] you wonder. [=0x0027=]Surely there[=0x0027=]s nothing our two cohorts of auxiliaries can[=0x0027=]t deal with?[=0x0027=][=0x000A=][=0x000A=]Pilate lets out a heavy sigh. [=0x0027=]Nothing except a crowd of volatile Jews celebrating their Passover -- with all the undercurrents for revolutionary sentiment that implies.[=0x0027=][=0x0022=][=0x000A=][=0x000A=]Table of Jesus[=0x000A=]response[=0x000A=][=0x0022=][=0x0027=]I[=0x0027=]ve just come from the Temple, sir,[=0x0027=] you report, [=0x0027=]there was some scruffy Galilean called Jesus causing a disturbance there. The priests seemed quite upset by it all![=0x0027=][=0x000A=][=0x000A=][=0x0027=]Did you arrest this Jesus fellow then?[=0x0027=] Pilate demands.[convnode arrest-node][run paragraph on][=0x0022=][=0x000A=][=0x0022=][=0x0027=]This Jesus fellow seems to be some sort of prophet,[=0x0027=] you tell him.[=0x000A=][=0x000A=][=0x0027=]Prophet![=0x0027=] Pilate almost spits the word. [=0x0027=]They[=0x0027=]re almost as bad as brigands round here, tribune, you mark my words! Charlatans the lot of them -- whipping up the people with false hopes of liberation. If this Jesus fellow is a prophet we should have him executed -- a crucifixion or two at the height of the festival should show these Jews who[=0x0027=]s in charge round here![=0x0027=][=0x0022=][=0x000A=][=0x000A=]Table of Caesar[=0x000A=]response[=0x000A=][=0x0022=][=0x0027=]How is the Emperor?[=0x0027=] you enquire, [=0x0027=]Is he still on Capri?[=0x0027=][=0x000A=][=0x000A=][=0x0027=]Last I heard,[=0x0027=] Pilate nods.[=0x0022=][=0x000A=][=0x0022=][=0x0027=]And the Emperor[=0x0027=]s health?[=0x0027=] you ask.[=0x000A=][=0x000A=]Pilate gives a little shudder, [=0x0027=]It is not always healthy to discuss Caesar[=0x0027=]s health, tribune,[=0x0027=] he warns you.[=0x0022=][=0x000A=][=0x000A=]This is the Pilate[=0x0027=]s default-quiz-response rule:[=0x000A=]show the next response from the Table of Pilate[=0x0027=]s Default Quiz Responses.[=0x000A=][=0x000A=]This is the Pilate[=0x0027=]s default-inform-response rule:[=0x000A=]show the next response from the Table of Pilate[=0x0027=]s Default Inform Responses.[=0x000A=][=0x000A=]Table of Pilate[=0x0027=]s Default Quiz Responses[=0x000A=]response[=0x000A=][=0x0022=]The governor seems momentarily lost in thought, and apparently fails to hear your question.[=0x0022=][=0x000A=][=0x0022=][=0x0027=]We[=0x0027=]ll discuss that some other time, tribune,[=0x0027=] Pilate tells you.[=0x0022=][=0x000A=][=0x0022=]The prefect mutters something under his breath, which you fail to catch.[=0x0022=][=0x000A=][=0x0022=]Pilate looks annoyed by your question, for some reason, and declines to answer.[=0x0022=][=0x000A=][=0x000A=]Table of Pilate[=0x0027=]s Default Inform Responses[=0x000A=]responses[=0x000A=][=0x0022=]Pilate listens to what you have to say with feigned interest.[=0x0022=][=0x000A=][=0x0022=][=0x0027=]Indeed,[=0x0027=] the governor remarks.[=0x0022=][=0x000A=][=0x0022=]Pilate frowns in evident impatience at your irrelevant remarks.[=0x0022=][=0x000A=][=0x000A=]Table of Table Types (continued)[=0x000A=]tabname[=0x0009=]index[=0x0009=]tabtype[=0x000A=]Table of Pilate Self[=0x0009=]0[=0x0009=]stop-list[=0x000A=]Table of Jesus[=0x0009=]0[=0x0009=]stop-list[=0x000A=]Table of Pilate[=0x0027=]s Default Quiz Responses[=0x0009=]0[=0x0009=]shuffled-list[=0x000A=]Table of Pilate[=0x0027=]s Default Inform Responses[=0x0009=]0[=0x0009=]shuffled-list[=0x000A=]Table of Caesar[=0x0009=]0[=0x0009=]stop-list[=0x000A=][=0x000A=]Section 4 - Objects referred to[=0x000A=][=0x000A=]Caiaphas is a familiar man.[=0x000A=]Understand [=0x0022=]high[=0x0022=] or [=0x0022=]priest[=0x0022=] as Caiaphas.[=0x000A=][=0x000A=]Jesus is a familiar man. Understand [=0x0022=]of nazareth[=0x0022=] or [=0x0022=]galilean[=0x0022=] or [=0x0022=]joshua[=0x0022=] or [=0x0022=]yeshua[=0x0022=] as Jesus.[=0x000A=][=0x000A=]Jerusalem is a subject.[=0x000A=][=0x000A=]The Emperor is a familiar man. Understand [=0x0022=]caesar[=0x0022=] or [=0x0022=]tiberius[=0x0022=] or [=0x0022=]princeps[=0x0022=] as the Emperor.[=0x000A=][=0x000A=]Section 5 - Conversation Node[=0x000A=][=0x000A=]The arrest rules is a rulebook.[=0x000A=][=0x000A=]The arrest-node is a Conversation Node. The suggestions are [=0x0022=]say yes or no[=0x0022=]. The node rule is the arrest rules.[=0x000A=][=0x000A=]An arrest rule when saying no:[=0x000A=]say [=0x0022=][=0x0027=]No, sir, I[=0x0027=]m afraid he managed to slip away,[=0x0027=] you confess.[=0x000A=][=0x000A=][=0x0027=]Damn![=0x0027=] Pilate swears, [=0x0027=]We[=0x0027=]ll have to see if Caiaphas can track him down for us.[=0x0027=][convnode null-node][=0x0022=];[=0x000A=]rule succeeds.[=0x000A=][=0x000A=]An arrest rule when saying yes:[=0x000A=]say [=0x0022=][=0x0027=]Yes, sir -- or at least we tried to, but the temple police got in our way and the wretched fellow managed to escape.[=0x0027=][=0x000A=][=0x000A=][=0x0027=]Damn![=0x0027=] Pilate swears. [=0x0027=]We[=0x0027=]ll have to see if Caiaphas can track him down for us.[=0x0027=][convnode null-node][=0x0022=];[=0x000A=]rule succeeds.[=0x000A=][=0x000A=]The last arrest rule:[=0x000A=]say [=0x0022=][=0x0027=]Never mind that,[=0x0027=] snaps Pilate. [=0x0027=]I asked you whether you arrested this Jesus fellow. Well -- did you?[=0x0027=][=0x0022=];[=0x000A=]rule succeeds.[=0x000A=][=0x000A=]Part 3 - Testing[=0x000A=][=0x000A=]test me with [=0x0022=]talk to pilate/a emperor/a himself/g/a jerusalem/topics/t jesus/no/a caiaphas/a pilate/a emperor/g/topics/t jesus[=0x0022=][=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a> &quot;The Tribune's Report&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Part 1 - Conversation Model</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Include Conversation Rules by Eric Eve.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Instead of asking someone about something:<br>
+                 follow the unknown quizzing rule of the noun.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Instead of telling someone about something:<br>
+                 follow the unknown informing rule of the noun.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Part 2 - Scenario</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Chapter 1 - The Location</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The Great Hall is a Room. &quot;The strong morning sunlight filters in through the unglazed windows overlooking the Upper City and the Temple compound.&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Some unglazed windows are scenery in the Great Hall.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Chapter 2 - Pilate</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Section 1 - The Man</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Pontius Pilate is a man in the Great Hall. &quot;The governor is standing at the centre of the hall, frowning in thought.&quot; The description is &quot;He's a stout, balding man, dressed in the tunic of the equestrian order.&quot; The quizzing table is the Table of Pilate's Answers. The informing table is the Table of Pilate's Remarks. The unknown quizzing rule is the Pilate's default-quiz-response rule. The unknown informing rule is the Pilate's default-inform-response rule.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Understand &quot;man&quot; or &quot;governor&quot; or &quot;prefect&quot; or &quot;procurator&quot; or &quot;roman&quot; or &quot;stout&quot; or &quot;balding&quot; as Pontius Pilate.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Section 2 - Greeting</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> After saying hello to Pontius Pilate:<br>
+                 say &quot;'Good morning, your excellency,' you greet him.<br>
+                <br>
+                'I don't know what's good about it, tribune,' Pilate grunts in reply.&quot;;<br>
+                 if the greeting type is explicit, follow the standard list suggested topics rule.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Section 3 - Conversation Topics</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Table of Pilate's Answers</span><br>
+                <table border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> subject</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> response rule</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> response table</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> suggest
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> Pilate</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> --</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> Table of Pilate Self</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> 3
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> Caiaphas</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> caiaphas rule</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> --</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> 1
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> jerusalem</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> jerusalem rule</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> --</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> 1
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> emperor</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> --</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> Table of Caesar</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> -1</span>
+                        </td>
+                    </tr>
+                </table>
+                </blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Table of Pilate's Remarks</span><br>
+                <table border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> subject</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> response rule</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> response table</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> suggest
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> jesus</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> --</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> Table of Jesus</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> 2</span>
+                        </td>
+                    </tr>
+                </table>
+                </blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Table of Pilate Self</span><br>
+                <table border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> response
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;'How are you today, sir?' you enquire politely.<br>
+                            <br>
+                            'Terrible,' he grunts. 'I slept badly, dreamed nastily, and woke up with a mouth tasting like a whore's armpit.'&quot;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;'Do you like it in Judaea?' you ask.<br>
+                            <br>
+                            'Caesarea's okay,' he replies, 'but Jerusalem is too hot, too crowded, and too dangerous[reveal jerusalem].'&quot;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;'But things aren't going too badly for you here, are they sir?' you ask.<br>
+                            <br>
+                            'No, not too badly,' he agrees. 'At least I still seem to be in favour with the Emperor[quiz emperor to 2].'&quot;</span>
+                        </td>
+                    </tr>
+                </table>
+                </blockquote>
+
+                <p><blockquote><span class="indexdullblue"> This is the caiaphas rule:<br>
+                 say &quot;'How is the High Priest these days?' you ask.<br>
+                <br>
+                'As devious as ever,' Pilate tells you.&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> This is the jerusalem rule:<br>
+                 say &quot;'What did you mean by Jerusalem being too dangerous?' you wonder. 'Surely there's nothing our two cohorts of auxiliaries can't deal with?'<br>
+                <br>
+                Pilate lets out a heavy sigh. 'Nothing except a crowd of volatile Jews celebrating their Passover -- with all the undercurrents for revolutionary sentiment that implies.'&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Table of Jesus</span><br>
+                <table border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> response
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;'I've just come from the Temple, sir,' you report, 'there was some scruffy Galilean called Jesus causing a disturbance there. The priests seemed quite upset by it all!'<br>
+                            <br>
+                            'Did you arrest this Jesus fellow then?' Pilate demands.[convnode arrest-node][run paragraph on]&quot;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;'This Jesus fellow seems to be some sort of prophet,' you tell him.<br>
+                            <br>
+                            'Prophet!' Pilate almost spits the word. 'They're almost as bad as brigands round here, tribune, you mark my words! Charlatans the lot of them -- whipping up the people with false hopes of liberation. If this Jesus fellow is a prophet we should have him executed -- a crucifixion or two at the height of the festival should show these Jews who's in charge round here!'&quot;</span>
+                        </td>
+                    </tr>
+                </table>
+                </blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Table of Caesar</span><br>
+                <table border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> response
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;'How is the Emperor?' you enquire, 'Is he still on Capri?'<br>
+                            <br>
+                            'Last I heard,' Pilate nods.&quot;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;'And the Emperor's health?' you ask.<br>
+                            <br>
+                            Pilate gives a little shudder, 'It is not always healthy to discuss Caesar's health, tribune,' he warns you.&quot;</span>
+                        </td>
+                    </tr>
+                </table>
+                </blockquote>
+
+                <p><blockquote><span class="indexdullblue"> This is the Pilate's default-quiz-response rule:<br>
+                 show the next response from the Table of Pilate's Default Quiz Responses.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> This is the Pilate's default-inform-response rule:<br>
+                 show the next response from the Table of Pilate's Default Inform Responses.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Table of Pilate's Default Quiz Responses</span><br>
+                <table border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> response
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;The governor seems momentarily lost in thought, and apparently fails to hear your question.&quot;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;'We'll discuss that some other time, tribune,' Pilate tells you.&quot;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;The prefect mutters something under his breath, which you fail to catch.&quot;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;Pilate looks annoyed by your question, for some reason, and declines to answer.&quot;</span>
+                        </td>
+                    </tr>
+                </table>
+                </blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Table of Pilate's Default Inform Responses</span><br>
+                <table border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> responses
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;Pilate listens to what you have to say with feigned interest.&quot;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;'Indeed,' the governor remarks.&quot;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;Pilate frowns in evident impatience at your irrelevant remarks.&quot;</span>
+                        </td>
+                    </tr>
+                </table>
+                </blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Table of Table Types (continued)</span><br>
+                <table border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> tabname</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> index</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> tabtype
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> Table of Pilate Self</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> 0</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> stop-list
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> Table of Jesus</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> 0</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> stop-list
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> Table of Pilate's Default Quiz Responses</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> 0</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> shuffled-list
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> Table of Pilate's Default Inform Responses</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> 0</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> shuffled-list
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> Table of Caesar</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> 0</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> stop-list</span>
+                        </td>
+                    </tr>
+                </table>
+                </blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Section 4 - Objects referred to</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Caiaphas is a familiar man.<br>
+                 Understand &quot;high&quot; or &quot;priest&quot; as Caiaphas.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Jesus is a familiar man. Understand &quot;of nazareth&quot; or &quot;galilean&quot; or &quot;joshua&quot; or &quot;yeshua&quot; as Jesus.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Jerusalem is a subject.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The Emperor is a familiar man. Understand &quot;caesar&quot; or &quot;tiberius&quot; or &quot;princeps&quot; as the Emperor.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Section 5 - Conversation Node</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The arrest rules is a rulebook.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The arrest-node is a Conversation Node. The suggestions are &quot;say yes or no&quot;. The node rule is the arrest rules.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> An arrest rule when saying no:<br>
+                 say &quot;'No, sir, I'm afraid he managed to slip away,' you confess.<br>
+                <br>
+                'Damn!' Pilate swears, 'We'll have to see if Caiaphas can track him down for us.'[convnode null-node]&quot;;<br>
+                 rule succeeds.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> An arrest rule when saying yes:<br>
+                 say &quot;'Yes, sir -- or at least we tried to, but the temple police got in our way and the wretched fellow managed to escape.'<br>
+                <br>
+                'Damn!' Pilate swears. 'We'll have to see if Caiaphas can track him down for us.'[convnode null-node]&quot;;<br>
+                 rule succeeds.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The last arrest rule:<br>
+                 say &quot;'Never mind that,' snaps Pilate. 'I asked you whether you arrested this Jesus fellow. Well -- did you?'&quot;;<br>
+                 rule succeeds.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Part 3 - Testing</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> test me with &quot;talk to pilate/a emperor/a himself/g/a jerusalem/topics/t jesus/no/a caiaphas/a pilate/a emperor/g/topics/t jesus&quot;</span></blockquote>
+
+                <p></p>
+
+            </td>
+        </tr>
+    </table>
+    </p>
+
+    <p>
+    <!--CONTENT ENDS-->
+</body>
+</html>

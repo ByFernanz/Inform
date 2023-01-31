@@ -1,0 +1,490 @@
+"No es culpa tuya, Maria" by Grendelkhan y Depresiv
+
+Part 0 - Library Card, Includes y Uses
+
+ [ Datos bibliográficos ]
+ The story title is "No es culpa tuya, Maria".
+The story author is "Grendelkhan y Depresiv".
+The story headline is "'No te preocupes, todo va bien.'".
+ The story genre is "Surreal".
+ The release number is 2.
+ The story creation year is 2008.
+ The story description is "Eres una exhuberante morena embutida en un espectacular traje de azafata con la falda demasiado estrecha. Llevas muchas horas de vuelo y necesitas descansar urgentemente. Pero algo ha sucedido, lo notas en la mirada de la gente. Todos te miran con pesadumbre, inquietos. Pocos te miran fijamente a los ojos... pero tú tranquila. Después de todo, no es culpa tuya.".
+
+Release along with cover art, a file of "Manual de juego" called "manual.pdf", a file of "Licencia" called "LICENCIA.txt" and the source text and a website.
+
+Include Spanish by Sebastian Arg.
+Include Basic Screen Effects Sp by Emily Short.
+Include Quip-Based Conversation by Michael Martin.
+	
+
+Use full-length room descriptions and no scoring.
+
+Rule for constructing the status line:
+     center "[story title]" at row 1;
+     rule succeeds.
+
+Rule for deciding whether all includes scenery: it does not. [para que no entren en 'coge todo']
+
+The greeting of yourself is selftalk.
+
+
+[Cuando el jugador pide ayuda]
+
+Asking for help is an action out of world. Understand "instrucciones" or "ayuda" as asking for help.
+
+Carry out asking for help:
+   say "Bienvenido al mundo de los relatos interactivos. En éstos juegos interaccionas escribiendo frases como EXAMINA SILLA o ABRE PUERTA (también puedes usar los verbos en infinitivo, si lo prefieres, como en ABRIR PUERTA). El juego responde describiéndote cómo es el mundo que te rodea y el resultado de tus acciones.
+[paragraph break]Hay una serie de comandos comunes a todos los juegos conversacionales. Puedes caminar simplemente indicando el punto cardinal hacia el que quieres ir; por ejemplo NORTE o SUDESTE. Todas las direcciones pueden abreviarse a una o dos letras; en el caso anterior N o SE. También puedes ir ARRIBA o ABAJO o sus sinónimos SUBE y BAJA. En algunos lugares puedes poner también ENTRA o SAL. Además puedes usar 'ENTRA EN' o 'TREPA A' con algunas cosas.[paragraph break]Cada vez que entres en un lugar, el juego te lo describirá con detalle. Sin embargo, para volver a ver la descripción completa en cualquier momento, usa el comando MIRA (abreviatura M).";
+wait for any key;
+say "[paragraph break]Puedes interactuar con tu entorno de varias formas. Puedes COGER objetos (o TOMAR en el dialecto sudamericano) y SOLTAR objetos. Tambíen puedes PONER objetos EN cosas, o SACAR objetos DE otros. Puedes llegar a crear frases complejas, como por ejemplo SACA EL LADRILLO ROJO Y LA PELOTA AZUL DE LA CAJA DE METAL Y DESPUES TIRA EL LADRILLO CONTRA LA VENTANA. El juego comprenderá esta frase, pero normalmente no necesitarás escribir nada tan complejo.
+[paragraph break]Para mirar un objeto más de cerca, EXAMINA el objeto (abreviatura X). Para obtener un listado de todo lo que llevas contigo escribe INVENTARIO (o I). Otros comandos útiles que puedes intentar son EMPUJA, REGISTRA, SACUDE, LANZA, FROTA, PATEA, TREPA, MIRA POR, o LEE.
+[paragraph break]También puedes interaccionar con otros personajes mediante órdenes como PREGUNTA A (personaje) SOBRE (tema). Por ejemplo, PREGUNTA A REY SOBRE CASTILLO.
+[paragraph break]Parte de un juego conversacional consiste en averiguar lo que el juego entiende. Éste relato conoce cientos de palabras, así que intenta todo lo que se te ocurra.[line break]Si finalmente no encuentras la solución puedes acudir a los foros del CAAD en www.caad.es/foro, lugar donde se reúnen los aficionados a los juegos conversacionales.".
+
+Part 1 - Inicializando
+
+
+[ Redefiniremos algunos de los mensajes estándares de la librería.]
+ When play begins: change the command prompt to "  - ";
+ Rule for printing a parser error when parser error is I beg your pardon: say " " instead.
+ Check requesting the score: say "No te preocupes por eso, Maria." instead.
+ Check examining a direction (called target):
+	if the target is up then say "No veo nada en especial." instead;
+	if the target is down then say "No veo nada en especial." instead.
+
+When play begins:
+clear the screen;
+     display the boxed quotation
+     "No es culpa tuya, Maria.
+Serie Minúscula (c) 2008. 
+por Grendelkhan y Depresiv";
+     show the current quotation;
+say "[paragraph break][italic type]El aterrizaje fue perfecto y todos los pasajeros salieron contentos del avión que cubría el vuelo entre Ámsterdam y Barcelona. La luz de un radiante sol de verano entra a través de las ventanillas. Una azafata muy simpática despide a los pasajeros con una blanca sonrisa de anuncio, deseándoles una feliz estancia en la ciudad condal.[roman type]";
+wait for any key;
+clear the screen;
+say "[paragraph break]La simpática azafata eres tú, Maria. Una exhuberante morena embutida en un uniforme azul con el logo dorado de la compañía. Los semblantes relajados de los pasajeros cambian de repente cuando llegan a tu altura. Normalmente lo que suelen hacer, sobretodo los hombres, es mirarte las piernas, pero hoy te miran de una extraña manera, con cierta preocupación en sus rostros. Un tipo se acerca a tí, visiblemente afectado...
+[paragraph break]   - No te preocupes, Maria. No es culpa tuya.[paragraph break]";
+wait for any key;
+
+Maria is a woman. Maria is in the Avion. The description is "[if Conclave is unvisited]Eres una exhuberante morena embutida en un espectacular traje de azafata con la falda demasiado estrecha. Llevas muchas horas de vuelo y necesitas descansar urgentemente.[else]Eres la reencarnación de una antigua y poderosa guerrera del espacio, eres el brazo ejecutor de los áuleos.". The player is Maria.
+
+Part 2 - El Juego
+
+Section 1 - En el aeropuerto
+
+Avion is a room. The printed name of Avion is "En el avión". The description is "Te encuentras en el pasillo que forman las dos hileras de butacas del avión. Todos los pasajeros se han marchado ya, dejándote sola con tus pensamientos. Lo único que puedes hacer aquí es dejarlo todo y volver a casa a descansar.".
+
+Instead of sleeping, say "[if Conclave is unvisited]Tengo muchas ganas de descansar, pero esperaré a llegar a casa.[else]Tengo una misión que cumplir, no hay descanso para los elegidos por los áuleos.".
+
+Some butacas are here. They are female. They are scenery, container and enterable. The description is "El pasillo del avión está formado por varias hileras de butacas de colores ocres, que conducen a la salida.". Understand "asiento", "butaca", "hilera", "hileras", "salida", "avion" and "pasillo" as the butacas.
+
+Before entering the butacas, say "Te sientas en una butaca, pero al rato te levantas de nuevo. Estás muy cansada y tienes mucho sueño, pero pero prefieres descansar al llegar a casa." instead.
+
+Some ventanillas are here. They are female. They are scenery. The description is "Hace un dia espléndido ahí fuera, el sol tardío de verano entra por las ventanillas invitándote a salir a pasear bajo su luz.". Understand "sol", "ventanilla", "ventanas" as the ventanillas.
+
+Before going outside when player is in Avion, try going east instead.
+
+Instead of going nowhere from Avion:
+say "[paragraph break][if Conclave is unvisited]Es mejor así. Es mejor marcharse y dejar de darle vueltas. Después de todo, estaba escrito y tenía que pasar. Caminas por el aeropuerto, con tus tacones repicando en el suelo pero nadie se gira para mirarte con el deseo al que estás acostumbrada. Sus caras son serias. [paragraph break]Un señor mayor se para al verte pasar, tiembla ligeramente pero con voz quebrada y triste te dice...[paragraph break]  - No es culpa tuya, Maria...[paragraph break][else]No encontrarás a tu enemigo deambulando por aquí, debes salir a la calle, pues ya ha empezado a someter a los humanos...";
+wait for any key;
+move the player to the Aeropuerto;
+rule succeeds.
+
+Aeropuerto is outside from Avion. "Te encuentras en mitad del aeropuerto, en una gran sala atestada de gente que empuja carritos, sube y baja escaleras y corre apresuradamente para no perder el último vuelo. Sin embargo te parece estar completamente vigilada, rodeada por un mar de extraños que saben de tí hasta el último de tus secretos inconfesables.
+[paragraph break]Hacia el este se puede salir al exterior del aeropuerto. [if losa is closed][paragraph break]Notas que una losa se mueve bajo tus pies...[else][paragraph break] Una losa a tu lado deja al descubierto un oscuro túnel...[end if]"
+
+The gente are women. "La gente a tu alrededor se mueve en todas direcciones por la sala del aeropuerto. ¿No notas que de tanto en tanto una mirada furtiva se dirige hacia tí con lástima?" They are scenery. They are in Aeropuerto. Understand "hombre", "mujer", "hombres", "mujeres", "persona", "personas", "extraño", "extraños" as gente.
+
+The miradas are female. "Todos simulan estar ajetreados pero sus miradas se dirijen invariablemente hacia tí. Sus ojos acusadores te persiguen allá donde vas." They are scenery. They are in Aeropuerto. Understand "mirada", "ojo", "ojos", "mar", "furtiva" as miradas.
+
+Instead of telling someone about something, try asking the noun about it. Instead of answering the noun that something, try asking the noun about it. 
+Instead of asking the gente about something, say "Cuando intentas acercarte a alguien para preguntarle, ves cómo se aparta de tí, con los ojos brillantes de lástima, susurrando `No es culpa tuya, María'. ¿Cómo es que todos saben tu nombre...?"
+
+A losa is a female scenery in Aeropuerto. It is an openable container. It is closed. "[if losa is closed]Parece que podría levantarse con facilidad...[else]La losa está a un lado, dejando al descubierto un oscuro túnel.[end if]".
+
+Instead of dropping the espada when Maria is in Aeropuerto, say "No debes desprenderte de ella hasta que haya terminado tu misión...".
+
+Instead of searching the losa, try examining the losa.
+
+Instead of opening the losa when the losa is closed:
+   say "Te agachas en el suelo del aeropuerto y levantas la pesada losa, colocándola a tu lado. Miras a tu alrededor con preocupación, pero te da la impresión de que todo el mundo finge no darse cuenta de lo que estás haciendo. Como si te empujaran a hacerlo...";
+   now the losa is open;
+   move the tunel to Aeropuerto;
+   rule succeeds.
+
+Instead of closing the losa when the losa is open:
+   say "Vuelves a colocar la losa en su sitio. ¿Es imaginación tuya o has escuchado a alguien suspirar con fastidio a tu lado?";
+   now the losa is closed;
+   remove the tunel from play;
+   rule succeeds.
+
+Instead of pushing the losa:
+   if the losa is closed, try opening the losa;
+   else try closing the losa.
+
+Instead of entering the losa:
+   if the tunel is in Aeropuerto, try entering the tunel;
+   else say "La losa está cerrada. ¿No te has dado cuenta?";
+   rule succeeds.
+
+The tunel is a scenery. "Un oscuro túnel desciende a algún tenebroso lugar en las profundidades del Aeropuerto...".
+
+Before going down when player is in  Aeropuerto and the tunel is in Aeropuerto, try entering the tunel instead.
+
+Instead of entering the tunel when Maria has espada, say "Una voz parece emerger del túnel: '¡Ni se te ocurra otra vez! ¡Ahora cumple tu misión!'".
+
+Instead of entering the tunel:
+   say "[paragraph break]Desciendes con tu incómoda ropa de trabajo por el oscuro y grasiento túnel. En determinado momento pierdes el equilibrio y... ¡Caes! Caes interminablemente en la oscuridad. A tu alrededor rozas con tu cuerpo telas de araña, paredes cubiertas de moho y musgo...";
+   wait for any key;
+   say "[paragraph break]...hasta caer sobre un montón de estiércol en una caverna iluminada, de paredes redondeadas. Una voz te saca del horror del momento.[paragraph break]'Bienvenida, María. ¿Vienes a descubrir tu problema?'";
+   wait for any key;
+   move the player to Subterraneo;
+   rule succeeds.
+
+Before going outside when player is in Aeropuerto, try going east instead.
+
+Instead of going east when player is in Aeropuerto:
+   say "[paragraph break][if Conclave is unvisited]Aterrada por la situación de lástima hacia tí, te diriges corriendo hacia el exterior, en busca de un taxi, lo que sea, que te permita llegar a un hotel, esconderte a las miradas de la gente...[else]Te diriges hacia el exterior, en busca del ser que tanto preocupa a los áuleos, un ser capaz de destruir a los humanos...";
+   wait for any key;
+   say "[paragraph break]Pero en el exterior nada te prepara para lo que estás a punto de ver. El resplandor te impide abrir los ojos un momento, pero por fin, cuando tus delicadas pupilas se acostumbran a la luminosidad, logras ver la larga fila de personas agachada sumisamente en el suelo, y frente a tí... Él...";
+   wait for any key;
+   say "[paragraph break]'Bienvenida, María. Te estaba esperando.'[paragraph break]";
+   wait for any key;
+   move the player to Exterior;
+   rule succeeds.
+
+Section 2 - Subterraneo
+
+Subterraneo is a room. "Te encuentras en la semi-iluminada caverna en las catacumbas del Aeropuerto. Todo el suelo está cubierto de maloliente estiércol. En un lado de la caverna, fumando de un narguilé y con el aspecto de llevar años drogado, hay un hombre-topo. Es extraño. Pensabas que nunca había hombres-topo en los edificios públicos.". The printed name of Subterraneos is "Subterráneo".
+
+The estiercol is scenery in Subterraneo. The description of the estiercol is "Huele mal, pero parece que el extraño ser que aquí habita no se siente a disgusto en absoluto.". Understand "subterraneo", "catacumbas" and "caverna" as the estiercol.
+
+Instead of taking or smelling the estiercol , say "¿Bromeas? ¡Huele fatal!".
+Instead of tasting or eating the estiercol, say "No parece que sea muy apetitoso.".
+
+Section 2.1 - El hombre-topo fumador
+
+Hombre-topo is a man in Subterraneo. "El hombre-topo te observa con mirada vidriosa desde su rincón.". The description is "Es un hombre-topo fumador que por su aspecto parece ser oriundo de Girgonz, la otrora gran ciudad de los meta-roedores. Parece estar muy drogado, por lo que hay que andarse con cuidado.". The printed name is "hombre-topo". The litany of Hombre-topo is the Table of Hombre-topo Comments.
+
+Understand "figura", "hombre", "topo", "fumador", "oli" as Hombre-topo.
+
+
+Instead of touching Hombre-topo, say "  - Soy real, Mariaaa. No haaace faltaaa queee me toquesss paraaa aseguraaaarte pooorque sabesss que lo has hechoooo.".
+Instead of kissing Hombre-topo, try touching Hombre-topo.
+Instead of attacking Hombre-topo, try touching Hombre-topo.
+
+
+Table of Quip Texts (continued)
+	quip		quiptext
+	selftalk		"Hablar contigo misma es igual de inquietante."
+	quien-eres	"En el momento en que vas a hablar el hombre-topo gruñe y se incorpora con dificultad.[paragraph break]  '- Mi nooombre es Oli... y tú sabessss que noooo deberíaaaa estaaar aaaquí. '"
+	que-llevas	"' - Looosssss áuleeosss y otrosss seeresss de la Tieerraaa lo llaaaman naarguilé. Es algo que se utilizaaa para fumaarrr... y la verdad, no entieeendo como éssste chisssmee no pudo superarrr la irreealidaaad.'"
+	que-fumas	"El meta-roedor te observa entristecido y vuelve a sentarse en su rincón, fumando con el narguilé...[paragraph break]  '- Eseeenciasssss de realidaaadessss ¿quieresss un poooco?'"
+	dar-calada	"El hombre-topo alarga su brazo y te cede el narguilé, mostrando una sonrisa repleta de dientes podridos."
+	que-pasa	"' - ¿Qué hasss echooo con el maaanto de las realidaaades posiblesss?'"
+	donde-estamos	"' - En un lugarrr donde no deberíamossss estar ni tú ni yooo, mujer. Estaaamossss allá donde moran los experimeeentosss torcidosss de los áuleosss, el pandemónium de la infiniiiita variedad de realidaaadessss posiiiblessss y descartaaadasss.[paragraph break] - Aquello que nuuncaa naace o que mueeere se materializa en éssste lugaarrr y recibe una eneerrrgía poderosssaa que lo mantieene viiivo... veo en tí una graaan eneerrrgía.'"
+	nave-avion	"' - Todavía te aferrasss al cuerpoo que albergassss, pero tu eneerrgía es la de una poderosssaaa guerreeeraaa que de alguna forrmaaa ha atravesssado el manto irreal que envueeelve el planetaaa de los áuleosss, con tooodo lo que ello implicaaa y que ahora desconocessss por tu bieen. [paragraph break]  - Hasss de sabeeerr que has muerrrto doss veecesss. La primera muerrrte fue cuaando los áuleosss te escogieeeron y sacaron la enerrrgía de tu antiguo cueerpooo, aquello que llaaaman almaaa. La segundaaa cuando tu almaaa ocupó el cuerrrpo de la mujerr terrícolaaa, antessss llamaaada María. Pero aalgo ssalió mal. Algo sssalió muuuuy mal, pero tranquilaaa, nooo essss culpa tuyaaa.'"
+	no-recuerdo	"' - ¿No recueeerdasss la naaave en la que viniiisteee?'[paragraph break]El meta-roedor te observa con mirada vidriosa y enigmática."
+	volverse-loca	"'-Nooo te preocuuupesss... nooo essss culpa tuyaaa, Mariaaa...'"
+	nada-que-decir	"Prefieres no decir nada después de eso."
+	culpa-mia	"'Nooo essss culpa tuyaaa, sino de los áuleos. Ellossss no sabían lo que estaaaaba passsandooo cuaaando sacaaaaron tu almaaa del cueeerrrpo de la guerreeeraaa. Ellossss no podían imaginaaaar... nooo, definitivamenteee no essss culpa tuyaaa, Mariaaa.'"
+	estar-dormida	"' - Podría decirrrssseee que estaaamos viviendooo un sueeeño, el sueeeño de los áuleossss. El planeta Tierra esss la moraaada de todo aqueeello que podría haberrr sido reaaal, pero nuuunca existió. Los áuleos mantieeenen todos los sueños del univeeerso vivos en éste planetaaa, que tieeene la mayor diverssssidaaad de especiessss conocidaaa.[paragraph break] - Todasss ellasss son imaginaaariasss, claaaro... viven sssólo en el recueeerdo de unosss pocosss y en las meeentesss de los áuleosss. En verdaaaad... realmeeente estamossss en un ssssueñooo.'"
+
+	Table of Hombre-topo Comments
+	prompt					response	enabled
+	"¿Quién eres?"				quien-eres	1
+	"¿Qué es eso que llevas?"			que-llevas	0
+	"¿Qué estás fumando?"			que-fumas	0
+	"¿Me dejas darle una calada a éso?"		dar-calada	0
+	"¿Qué es lo que está pasando aquí?"		que-pasa	0
+	"¿Qué lugar es éste?"			donde-estamos	1
+	"¿Una nave? ¡Yo he venido en un avión!"	nave-avion	0
+	"¿Quién soy yo?"				no-recuerdo	0
+	"Creo que me estoy volviendo loca..."	volverse-loca	0
+	"No decir nada"				nada-que-decir	1
+	"¿Porqué no es culpa mía?"		culpa-mia	0
+	"¿Estoy soñando?"			estar-dormida	0
+
+
+	After quipping when the current quip is quien-eres:
+	  enable the que-llevas quip;
+	  enable the que-pasa quip.
+
+	After quipping when the current quip is que-llevas:
+	  enable the que-fumas quip.
+
+	After quipping when the current quip is que-fumas:
+	  disable the donde-estamos quip;
+	  enable the dar-calada quip;
+
+	After quipping when the current quip is no-recuerdo:
+	  enable the nave-avion quip;
+	  enable the volverse-loca quip.
+
+	After quipping when the current quip is nada-que-decir:
+	  enable the nada-que-decir quip;
+	  terminate the conversation.
+
+	After quipping when the current quip is donde-estamos:
+	  enable the no-recuerdo quip;
+	  enable the estar-dormida quip.
+
+	After quipping when the current quip is volverse-loca:
+	  enable the culpa-mia quip.
+
+	After quipping when the current quip is quien-eres: now the printed name of Hombre-topo is "Oli".
+
+	After quipping when the current quip is dar-calada: 
+		remove the narguile2 from play;
+		now the description of Subterraneo is "Te encuentras en la semi-iluminada caverna en las catacumbas del Aeropuerto. Todo el suelo está cubierto de maloliente estiércol. Tumbado en el suelo puedes ver a Oli, sumido en un extraño trance.";
+		move the narguile to Maria.
+
+
+Section 2.2 - El narguilé
+
+The narguile is a thing. The printed name of narguile is "narguilé". The description is "Una especie de pipa alargada y humeante, las hierbas que contiene son un misterio para tí". Understand "pipa", "hierbas", "opio", "realidades", "alternativas" or "chisme" as the narguile. 
+
+Instead of fumaring the narguile:
+remove the narguile from play;
+clear the screen;
+say "[paragraph break]Acercas el narguilé hacia tus labios y le das una profunda calada. El opio mezclado con extrañas sustancias invade tus pulmones y el humo produce estragos en tu razón. Tus ojos miran a un indeterminado punto del subterráneo y mecánicamente vuelves a dar otra calada...[paragraph break]Es tan fuerte que parece que te hayan dado un puñetazo en el estómago, todo te da vueltas y deseas vomitar con todas las fuerzas de tu ser...";
+wait for any key;
+say "[paragraph break]Te quedas inmóvil mirando al suelo, con los ojos vidriosos intentando enfocar los diminutos puntos de colores voladores. Tu fuerza se escapa y notas como tu cuerpo se vuelve lento y pesado. Desearías salir de él y volar libre. [paragraph break]El narguilé se te escapa de las manos y cae al suelo transformándose en un siseante serpiente que se aleja culebreando sobre el estiércol. Todo se vuelve oscuro y notas como tu cuerpo asciende a otro nivel de consciencia...[paragraph break]";
+wait for any key;
+move Maria to Conclave;
+rule succeeds.
+
+The narguile2 is a scenery thing in subterraneo. The description is "Una especie de pipa alargada y humeante, las hierbas que contiene son un misterio para tí". Understand "pipa" or "chisme" or "narguile" as the narguile2. 
+
+Instead of fumaring or taking the narguile2, say "No parece que el topo esté dispuesto a dártelo sin más, habla con él antes...".
+
+Section 3 - Exterior
+
+Exterior is a room. "Frente a tí se encuentra uno de los gloriosos, prodigiosos Hombres-Alce, señores de todos los seres inteligentes de la tierra conocida. Su cuerpo emana una gran luminosidad, producto de su inenarrable pureza interior. ¡Y te está mirando a tí! Sin duda es un gran honor... A tu lado, centenares de personas agachan su cabeza, en señal de sumisión.".
+
+The personas are women. "Centenares de personas arrodilladas, agachando sus cabezas hasta el suelo de manera sumisa, como se debe hacer a los dioses. Evidentemente fueron sorprendidos por la presencia del Hombre-Alce en el momento en que se dirigían a sus casas, y allí quedaron, humillados en adoración hacia uno de los señores de todos los seres de la creación." They are scenery. They are in Exterior. Understand "hombre", "mujer", "hombres", "mujeres", "persona", "personas", "cabeza", "cabezas" as personas.
+
+Instead of asking the personas about something, say "Como es obvio, ninguno de ellos parece prestarte la más mínima atención. Pero... ¿No notas una cierta angustia cuando te acercas a ellos...?".
+
+Section 3.1 - El hombre-alce
+
+Hombre-alce is a man in Exterior. Hombre-alce is scenery. The description is "Es tal la magnánima y serena belleza de su pelaje, la grandiosidad de su prodigiosa cornamenta, que fallan las palabras para describir a un ser tan excelso. Te observa con ojos tranquilos y serenos, cargados de amor.". The printed name is "hombre-alce". The litany of Hombre-alce is the Table of Hombre-alce Comments.
+
+Understand "figura", "hombre", "cuernos", "astado", "cornamenta", "ojos" and "alce" as Hombre-alce.
+
+
+Instead of touching Hombre-alce, say "Un temor reverencial te impide tocarle...".
+
+Instead of kissing Hombre-alce:
+   say "Cuando besas al hombre-alce, notas un cambio profundo en su fisionomía... ¡Lejos queda la belleza de su osamenta proporcionada! Ahora la criatura a la que besas es una bestia horripilante, de ojos rojos, hedionda pelambre negra, y colmillos ensangrentados...";
+   wait for any key;
+   say "[paragraph break]
+Con esos colmillos, te desgarra y se come tu cara. Extraña y horriblemente, permaneces viva durante todo el proceso, sintiendo sus dientes desgarrar tu piel hasta que no queda un solo pedazo de carne sobre tus huesos...";
+   end the game in death.
+
+Instead of attacking Hombre-alce with espada, try attacking Hombre-alce.
+
+Instead of attacking Hombre-alce:
+   if Maria has espada begin;
+      say "Levantas tu espada, con la repentina convicción de que esa, y no otra, ha sido tu tarea durante tu vida. ¡Nada de ejercer de azafata en vuelos hacia Amsterdam nunca mas! ¡No, tu misión es mucho más elevada, salvar a la humanidad de las criaturas absurdas, y de la esclavitud del sinsentido!";
+      wait for any key;
+      say "[paragraph break]Golpeas al Hombre-alce, que levanta sus brazos hacia tí suplicando por su vida. Su sangre derramada cae al suelo, y a medida que esto sucede, la criatura mengua, se hace menos terrible, menos perfecta, hasta llegar a mostrar su verdadera entidad...";
+      wait for any key;
+      say "[paragraph break]...la de una historia que nunca debió inventarse, y que huye ahora de tí, escondiéndose entre las sombras.";
+      wait for any key;
+      say "[paragraph break]Escuchas las risas de la gente a tu alrededor, durante unos minutos te quedas desorientada en mitad de la calle mientras las carcajadas de la muchedumbre te golpean en los tímpanos. Después, la gente se encoge de hombros y prosigue su vida, como si nada hubiera tenido lugar. ";
+      wait for any key;
+      say "[paragraph break]En el suelo, delante tuyo, puedes ver lo que queda de una bicicleta, y en tus manos mantienes agarrado un paraguas bastante deteriorado. [paragraph break]'Pero tranquila, que no es culpa tuya, Maria.'";
+      wait for any key;
+      end the game in victory;
+   else;
+      try touching Hombre-alce;
+      rule succeeds;
+   end if;
+
+
+
+Table of Quip Texts (continued)
+	quip		quiptext
+	me-esperabas	"'Te esperaba porque eres el ser más bello de toda la humanidad, el especimen más perfecto. Todos los humanos y las humanas te envidian. ¿Cómo, si no, yo habría de buscarte para darte un beso?'"
+	un-beso	"'¡Sí, un beso! Y con un beso de los de mi especie, lograrás ascender a un nuevo estadio evolutivo. Así pues, ven, criatura hermosa, y deposita un tierno beso en mis labios de criatura superior...'"
+
+	Table of Hombre-alce Comments
+	prompt					response	enabled
+	"¿Para qué me esperabas?"				me-esperabas	1
+	"¿Un beso?"				un-beso	0
+
+	After quipping when the current quip is me-esperabas:
+	  enable the un-beso quip.
+
+Section 4 - Cónclave
+
+Conclave is a room. The printed name of Conclave is "Cónclave áulico". The description is "Innumerables estrellas y constelaciones revolotean alrededor de capuchas ignotas de seres extraordinarios. El cónclave de los áuleos se reune en círculo alrededor de tí, girando lentamente como planetas de un mismo sol. El sonido de una extraña música con la que parecen danzar todas las cosas te embota los sentidos.".
+
+Some estrellas are in Conclave. They are female and scenery. The description is "Infinitas estrellas y constelaciones iluminan el espacio estelar. Mas allá, a lo lejos, puedes ver el orbe azul y blanco que es la Tierra.". Understand "estrella", "galaxias", "galaxia", "constelaciones" and "constelacion" as the estrellas.
+
+The tierra is female and scenery in Conclave. The printed name of tierra is "Tierra". The description of the tierra is "El hogar de los áuleos, un lugar irreal en una galaxia imaginaria donde los héroes de otros mundos se transforman en los dioses de las criaturas que pueblan el planeta Tierra.". Understand "orbe", "planeta" and "hogar" as the tierra.
+
+The agujero negro is a thing. "Un vórtice de energía emerge entre los áuleos danzantes, que te invitan a entrar en él."  The printed name is "vórtice de energía". The description is "Es un agujero por donde atravesar mundos y realidades alternativas del tejido infinito del universo hasta llegar a tu antiguo cuerpo." Understand "agujero" or "negro" or "vortice" or "energia" or "tejido" as the agujero negro.
+
+Before doing anything when Maria is in Conclave:
+   if Maria has espada
+   begin;
+      say "Uno de los áuleos te observa repentinamente y repara en que tienes la espada.[paragraph break]'Has cumplido con la primera parte de tu misión. Ahora derrota al terrible astado.'";
+wait for any key;
+say "[paragraph break]Una luz se aparece ante tus ojos cegándote. Cuando los vuelves a abrir, ya no te encuentras en el mismo sitio...";
+      move the player to Aeropuerto;
+      rule succeeds;
+   end if.
+
+Before entering the agujero negro:
+say "[paragraph break]Atraviesas el vórtice espacial, abandonando tu cuerpo y volando libre por los caminos del cosmos en tu forma astral, hasta llegar al lugar donde la llamada de los áuleos despertó a tu alma...[paragraph break]";
+wait for any key;
+move the player to Espacio sideral;
+rule succeeds.
+
+Instead of singing when the player is in Conclave:
+say "Danzas y cantas frenéticas melodías absolutas en comunión áulica, entre caleidoscopio estelar emergente que irradia energía y amor a todos los confines del tejido del infinito. [paragraph break]Baile sin fin donde danzan criaturas de todas las realidades alrededor de un ídolo dorado que sonríe complaciente a sus pequeños. [paragraph break]";
+wait for any key;
+say "Locura que alcanza tu cuerpo y abre puertas a tu interior más oculto llenándolo de luz y alegría, baila la danza de los áuleos que nunca lloran sino que emergen con una gran sonrisa alzándose a los cielos y observando con gozo las múltiples realidades y mundos de colores que viven bajo las mismas estrellas. [paragraph break]Música que suena y retumba en el espacio desnudando tu alma y mostrando toda la fuerza y poder de tu ser.[paragraph break]".
+
+Some sonidos are in Conclave. They are scenery. Understand "musica", "sonido" and "melodias" as the sonidos.
+Instead of examining the sonidos, try listening.
+Instead of listening when the player is in Conclave, say "Sonidos, sonidos por todas partes, de miles de instrumentos, sonidos absolutos, de locura, y todos a la vez... formando tal vez melodías dementes y acaso absolutas, sin duda no aptas para tus delicados tímpanos. Pero indudablemente hacen que algo surja de tu interior, algo nuevo que modifica tu percepción, tus sentidos, tu supraesencia, invitándote a danzar junto a los áuleos...".
+
+Section 4.1 - Los áuleos
+
+Some auleos are in Conclave. "' - Baila con nosotros la danza de la creación, Maria.'". They are man. The printed name of auleos is "áuleos". The description of the auleos is "Varios áuleos se arremolinan a tu alrededor, encapuchados e iluminados por un halo místico... ¿son acaso ellos los que deciden el devenir de las futuras realidades? Levantan su dedo acusador erradicando posibilidades y creando mundos a placer.". The litany of auleos is the Table of auleos Comments.
+
+Table of Quip Texts (continued)
+	quip		quiptext
+	selftalk		"Hablar contigo misma es igual de inquietante."
+	quienes-sois	"' - Somos todo-somos nada infinitos en tiempo-espacio-lugar, veloces-oyes-voces forjando realidades mitos edades. Cónclave de áuleos somos-reunión del cambio de las cosas que están por venir.' [paragraph break] '-Augurando catastróficas desdichas para criaturas ignorando fin de los tiempos. Traicionados por un igual, una misión aguarda para Maria cuyo papel en ésta historia es relevante para el devenir de la nueva edad del tiempo.'"
+	que-lugar	"' - Ningún lugar en especial y todos a la vez. El universo es todo y nada, un gran vacío de silenciosa oscuridad que, sin embargo, explota rebosando vida en determinadas realidades, vida que brota de la nada, rabiando por salir, explotando y atravesando el tiempo y el espacio.'[paragraph break]  '- Felicidad-energía-rabia-colores en el firmamento que unidos forman mundos de cuento.'"
+	que-humanidad	"' -Es felicidad arrolladora empujando a la realidad a la deriva ignorando consecuencias funestas pero viviendo intensamente hasta el último minuto de su vida. Criaturas sin rumbo que existen para el disfrute, el gozo, la sabiduría de las cosas pequeñas, el amor y la suerte.'[paragraph break]  '- Humanos que no han de sobrevivir, viviendo con sus reglas en un mundo aparte de la realidad, que jamás tendrá existencia excepto en la cabeza de los soñadores, los locos y los danzantes del cosmos que, unidos, forman nuestro pequeño cónclave.'"
+	que-problema	"' - El motivo es preocupante. Konix desatado abre y cierra realidades provocando catástrofes en el tejido del infinito, mundos que existen, que existieron y que están por existir se mezclan en una vorágine sin control para la que los áuleos no estamos preparados.'[paragraph break]  '- Necesitamos de la fuerza de los guerreros, de la inteligencia de los sabios y del amor de los soñadores para reparar el daño. Algo real que está por existir se ha colado en nuestro planeta imaginario y amenaza con destruirlo. Es tu deber hacer frente a la amenaza y erradicar el peligro que se cierne sobre los humanos.'"
+	quien-soy2	"' - En nuestro mundo eres Maria, pero tu alma alberga el alma de una poderosa guerrera del espacio... no la mejor, pero sí la que nos ha llegado... difícil explicar... algo salió mal. En realidad no eres la elegida, pero el destino ha querido que estés hoy aquí... pero no es culpa tuya, María.'"
+	no-esculpa	"' - Está bien, explicación damos, porque debes saber que todos lo saben, pues el tejido que afecta a todas las criaturas está conectado, y de tí depende salvar a toda la existencia. Kaviedex El Portador era el elegido para salvar todas las realidades y mantener el tejido del infinito a salvo... pero fue derrotado por Konix El Devorador.'[paragraph break]' - Por extraña razón al llamar a Kaviedex tu energía fue absorbida y llevada al cuerpo de María, por lo cual Kaviedex ha muerto y tú has renacido en éste cuerpo. El destino ha tenido a bien al menos a traernos a una gran guerrera, aunque debes desmostar aún lo que vales.'"
+	que-era	"' - Podrás descubrirlo tu misma, pues vas a ir en busca de tu antiguo cuerpo en viaje astral. Conseguir tu arma legendaria y derrotar con ella al ser de pesadilla que amenaza la Tierra es tu misión. Quizás a donde vas encuentras más respuestas a tus preguntas...'"
+	que-kaviedex	"' - El Portador de Llaves, Kaviedex, el mejor guerrero del universo, capitán del ejército vulcaniano, pero fue derrotado por Konix en la sangrienta batalla de Kaifas. Logró sobrevivir pero perdió las llaves en Kuaran. Nuestra llamada lo encontró a varios universos de allí en los dominios de Zyrcan.'"
+	que-konix	" ' - El propietario de las llaves del universo, peligroso enemigo para el próximo renacer.'"
+	que-renacer	"' - El momento en que todo cambia, mundos mueren, mundos nacen y otros tantos sobreviven sin inmutarse. Pero un mal renacer puede precipitar realidades y colapsar el tejido del infinito, provocando una catástrofe de proporciones inimaginables. Es lo que Konix pretende conseguir.'"
+
+	Table of auleos Comments
+	prompt						response	enabled
+	"¿Qué es este lugar?"				que-lugar	1
+	"¿Quiénes sois vosotros?"				quienes-sois	1
+	"¿Qué peligro hay para los humanos?"		que-humanidad	0
+	"¿Cuál es mi misión?"				que-problema	0
+	"¿Quién soy yo?"					quien-soy2	0
+	"¡Ya estoy harta de que me digan que no es culpa mía! ¿Qué he hecho mal?"	no-esculpa	0
+	"¿Qué pudo pasar para que os equivocárais de persona?"	que-era		0
+	"¿Quién es Kaviedex?"				que-kaviedex	0
+	"¿Quién es Konix?"				que-konix	0
+	"No decir nada"					nada-que-decir	1
+	"¿Qué significa lo del próximo renacer?"		que-renacer	0
+
+
+	After quipping when the current quip is que-lugar:
+	  enable the quien-soy2 quip.
+
+	After quipping when the current quip is quienes-sois:
+	  enable the que-problema quip.
+
+	After quipping when the current quip is que-problema:
+	  enable the que-humanidad quip.
+
+	After quipping when the current quip is quien-soy2:
+	  enable the no-esculpa quip;
+	  enable the que-era quip.
+
+	After quipping when the current quip is nada-que-decir:
+	  enable the nada-que-decir quip;
+	  terminate the conversation.
+
+	After quipping when the current quip is no-esculpa:
+	  enable the que-kaviedex quip;
+	  enable the que-konix quip.
+
+	After quipping when the current quip is que-konix:
+	  enable the que-renacer quip.
+
+	After quipping when the current quip is que-problema: 
+		move the agujero negro to Conclave.
+
+
+Section 5 - La nave
+
+Espacio sideral is a room. "Rodeada de estrellas y lejanos asteroides te encuentras en mitad del espacio sideral danzando tu alma entre los oscuros pliegues del tejido y el tiempo."
+
+Some estrellitas are in Espacio sideral. The printed name of estrellitas is "estrellas". They are female and scenery. The description is "Infinitas estrellas y constelaciones iluminan el espacio estelar salpicado de lejanos asteroides.". Understand "estrella", "estrellas", "galaxias", "espacio", "sideral", "galaxia", "constelaciones" and "constelacion" as the estrellitas.
+
+Some asteroides are in Espacio sideral. They are scenery. The description is "Puede que alguno de éstos impactara contra la nave, provocando una fuga de oxígeno letal para sus ocupantes. Tal vez los ocupantes de la nave decidieran entonces aprovechar los últimos minutos de su vida en regalarse amor en lugar de muerte.". 
+
+The vortice is a thing in Espacio sideral. "Un vórtice de energía se mueve sinuoso a tu alrededor."  The printed name is "vórtice de energía". The description is "Es un agujero por donde atravesar mundos y realidades alternativas del tejido infinito del universo hasta llegar a tu nuevo cuerpo." Understand "agujero" or "negro" or "vortice" or "energia" or "tejido" as the agujero negro.
+
+Before entering the vortice:
+say "[paragraph break]Atraviesas de nuevo el vórtice espacial...[paragraph break]";
+wait for any key;
+move the player to Conclave;
+rule succeeds.
+
+The nave espacial is a female closed vehicle in Espacio sideral. "Una humeante nave espacial se encuentra flotando a la deriva en mitad de la nada." The description is "Es como una especie de huevo de un extraño metal que no logras reconocer, aunque te suena muy familiar. No puedes ver marcas ni emblemas en la superfície lisa y blanca de la nave.". Understand "capsula", "humo", "superficie" and "huevo" as the nave espacial.
+
+Instead of touching or pushing or entering the nave espacial, try opening the nave espacial.
+
+Instead of opening the nave espacial for the first time:
+say "Gracias a tu cuerpo astral atraviesas sin dificultad la nave espacial, logrando entrar en su interior...";
+now the nave espacial is open;
+move the player to the nave espacial;
+now the description of the nave espacial is "El interior de la nave espacial está completamente destrozado. En su interior dos cuerpos desnudos se abrazan unidos por siempre hasta el fin del mundo. Los cuerpos inertes de dos guerreros que se amaron y se dieron vida justo en el momento de su muerte.".
+
+Some cuerpos are in the nave espacial. The description is "El cuerpo de un hombre vigoroso y el de una mujer igualmente poderosa, ambos guerreros a juzgar por su aspecto, abrazados y desnudos alrededor de una nave destruida por completo, que no logró superar las adversidades del espacio. El hombre tiene una brecha en la cabeza, la mujer no parece tener heridas de gravedad, aunque ambos están muertos.". Understand "hombre", "mujer", "brecha", "heridas", "cuerpo", "cabeza" and "abrazo" as the cuerpos.
+
+Instead of searching or touching or taking the cuerpos, try pushing the cuerpos.
+Instead of pushing the cuerpos for the first time:
+move the espada to the player;
+say "Empiezas a buscar algún tipo de arma según te han indicado los áuleos, para poder hacer frente a la amenaza que asola el planeta Tierra... [paragraph break]Entonces la encuentras. Una espada. No recuerdas que fuera especialmente poderosa, pero algo te dice que no es la primera vez que la empuñas. Un sibilino susurro parece emitir la hoja de la espada al tocarla, como si quisiera reivindicar su importancia en ésta historia, como si no se tratara de una espada cualquiera de un olvidado ejército de un imperio remoto.";
+rule succeeds.
+
+Instead of pushing the cuerpos, say "No deseas perturbar más el descanso de los muertos.".
+
+The espada is female. The description is "Es una larga y pesada espada de extraño metal cuya hoja extremadamente afilada parece cantar melodías de muerte.". Understand "melodias" and "muerte" as the espada.
+
+Instead of listening when the player carries the espada, say "Escuchas melodías sangrientas que parecen provenir de la espada que has encontrado en la nave espacial.".
+
+
+Section 5.1 Interior de la nave espacial
+
+The container interior rule is listed before the room description body text rule in the carry out looking rules. 
+
+This is the container interior rule: 
+    if the actor is the player and the player is in an enterable thing (called current cage), carry out the describing the interior activity with the current cage. 
+
+Describing the interior of something is an activity. 
+
+Rule for describing the interior of the nave espacial: 
+    say "El interior de la nave espacial está completamente destrozado. En su interior dos cuerpos desnudos se abrazan unidos por siempre hasta el fin del mundo. Los cuerpos inertes de dos guerreros que se amaron y se dieron vida justo en el momento de su muerte.[line break]' - Así que era ésto... los áuleos reclamaron el alma de éste hombre, pero en ése momento su alma estaba unida a la de ésta mujer... y volví yo a la vida en su lugar.'" 
+
+Rule for describing the interior of the nave espacial when the nave espacial contains more than one thing: 
+    say "El interior de la nave espacial está completamente destrozado. En su interior dos cuerpos desnudos se abrazan unidos por siempre hasta el fin del mundo. Los cuerpos inertes de dos guerreros que se amaron y se dieron vida justo en el momento de su muerte.[line break]' - Así que era ésto... los áuleos reclamaron el alma de éste hombre, pero en ése momento su alma estaba unida a la de ésta mujer... y volví yo a la vida en su lugar.'" 
+
+Definition: a thing is other if it is not the player. 
+
+Rule for listing nondescript items of the nave espacial when the player is in the nave espacial: do nothing. 
+
+Section 8 - Verbos nuevos
+
+Understand "aparta [something]", or "acercate a [something]", or "aproximate a [something]", or "remove [something]", or "remueve [something]", or "levanta [something]" as pushing.
+
+Understand "baila" or "danza" as singing.
+
+Understand "vestir [something]", "viste [something]", "poner [something]" as wearing.
+
+Attacking it with is an action applying to two things.
+Understand "ataca [someone] con [something]", or "mata [someone] con [something]", or "ataca a [someone] con [something]", or "mata a [someone] con [something]" as attacking it with.
+
+Fumaring is an action applying to one touchable thing.
+Understand "fuma [something]" or  "inhala [something]" as fumaring.
+Report fumaring: say "No parece que [the noun] se pueda fumar."

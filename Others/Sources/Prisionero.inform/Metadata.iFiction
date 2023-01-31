@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ifindex version="1.0" xmlns="http://babel.ifarchive.org/protocol/iFiction/">
+    <story>
+        <identification>
+            <ifid>8C9A0B3D-0D18-4E3A-B4F1-90203DC70589</ifid>
+            <format>glulx</format>
+        </identification>
+        <bibliographic>
+            <title>Prisionero de la tormenta</title>
+            <author>Ruber Eaglenest</author>
+            <headline>Una huida desesperada</headline>
+            <genre>Ficción</genre>
+            <firstpublished>2017</firstpublished>
+            <description>Perseguido y buscado como uno de los fugitivos más escurridizos de todo el sistema solar, fuiste atrapado y llevado a una de las cárceles de mayor seguridad en todo el universo: la prisión de la tormenta. Rodeada de desierto y pantanos, con una policía implacable, está situada, precisamente, en las afueras de tu ciudad natal: una mancha fronteriza abrasada por el sol, en mitad de ninguna parte. Pero una vez más has logrado fugarte.</description>
+            <language>es</language>
+            <group>Inform</group>
+        </bibliographic>
+        <releases>
+            <attached>
+                <release>
+                    <releasedate>2021-12-11</releasedate>
+                    <version>1</version>
+                    <compiler>Inform 7</compiler>
+                    <compilerversion>6M62</compilerversion>
+                </release>
+            </attached>
+        </releases>
+        <colophon>
+            <generator>Inform 7</generator>
+            <generatorversion>6M62</generatorversion>
+            <originated>2021-12-11</originated>
+        </colophon>
+        <glulx>
+            <serial>211211</serial>
+            <release>1</release>
+            <compiler>Inform 7 build 6M62</compiler>
+        </glulx>
+    </story>
+</ifindex>

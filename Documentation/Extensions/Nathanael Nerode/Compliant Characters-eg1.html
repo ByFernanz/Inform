@@ -1,0 +1,1223 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Extension</title>
+    <style type="text/css">
+        <!--
+        /* The default font (family) and size */
+
+        body, p, td {
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.8rem; /* 100/125 */
+        }
+
+        /* For fixed-point material within text, such as the typing on the Library Card index page */
+
+        span.typewritten {
+        	font-family: monospace;
+        	font-size: 0.867rem; /* 13/12 * 100/125 */
+        }
+
+        /* For less important material: the small print */
+
+        span.smaller {
+        	font-size: 80%;
+        }
+
+        /* The "heading panel" is the coloured box, high up on the page. The colours
+        vary depending on the page: for example, the style on a report of a translation
+        with no problems is "headingpanelsucceeded", usually green, but if there were
+        problems then "headingpanelfailed" is used, which is usually red. "headingpanel"
+        itself is a more neutral grey by default. "headingpanelDark" is an alternative
+        look to make the extensions index pages have some visual contrast with the others;
+        by default they are a darker grey. */
+
+        .headingpanel {
+        	background: #eeeeee;
+        }
+        .headingpanelsucceeded {
+        	background: #E6FFE6;
+        }
+        .headingpanelfailed {
+        	background: #f69Ca6;
+        }
+        .headingpanelalt {
+        	background: #808080;
+        }
+
+        /* Heading panels have two lines of text: an upper one in a larger size, and a
+        lower one in a smaller. Again, the alt versions are meant to contrast.
+
+        	Report on Translation: Succeeded                <-- headingpaneltext
+        	Produced by Inform 10.1.0 (build 6U97)          <-- headingpanelrubric
+
+        	Installed Extensions                            <-- headingpaneltextalt
+        	Bundles of extra rules or phrases to...         <-- headingpanelrubricalt
+
+        */
+
+        span.headingpaneltext {
+        	color: #222222;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+        span.headingpaneltextalt {
+        	color: #ffffff;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        span.headingpanelrubric {
+        	color: #222222;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.733rem; /* 11/12 * 100/125 */
+        	font-weight: bold;
+        }
+        span.headingpanelrubricalt {
+        	color: #ffffff;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.733rem; /* 11/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* Horizontal rule styling */
+
+        div.hr {
+        	border: 0;
+        	width: 100%;
+        	color: #707070;
+        	background-color: #707070;
+        	height: 5px;
+        }
+
+        /* This styles the (usually white) text of the example numbers written inside
+        oval blobs in the extension documentation, which mimic the look of the in-app
+        documentation. */
+
+        .oval, .oval td {
+        	background-image:url('inform:/doc_images/ovoid.png');
+        	color:white;
+        }
+
+        /* Styling used in the extension documentation indexes: */
+
+        /* Used for extension names in the extensions pane of the app */
+
+        span.extensioncensusentry {
+        	color: #ffffff;
+        }
+
+        span.extensionindexentry {
+        	color: #404040;
+        }
+
+        span.extensionindexerror {
+        	color: #ff8080;
+        }
+
+        /* This is used in extension documentation, where an example is presented
+        in a slightly tinted box: */
+
+        table.extensionexample {
+        	background-color: #f0f0f0;
+        }
+
+        span.extensionexampleletter {
+        	color: #202020;
+        	font-size: 14px;
+        	font-weight: bold;
+        }
+
+        /* Seen in problem messages: */
+
+        span.problemred {
+        	color: #800000;
+        }
+
+        span.problemgreen {
+        	color: #008000;
+        }
+
+        span.phraseword {
+        	color: #808080;
+        }
+
+        span.phrasetokentext {
+        	color: #e00060;
+        }
+
+        span.phrasetokendesctext {
+        	color: #4040ff;
+        }
+
+        span.phrasetokenvaluetext {
+        	color: #ff4040;
+        }
+
+        /* Now we move on to styling used in the Index pages only: */
+
+        /* The periodic table display has "sidebars", usually grey and taller than they
+        are wide; they contain no text. */
+
+        div.periodictablesidebarcolour {
+        	background: #888;
+        }
+        div.periodictablesidebar:hover {
+        	background: #222;
+        }
+
+        /* The text of the element-abbreviation, such as "Lx" or "Ph", uses: */
+
+        span.elementtext {
+        	color: #ffffff;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* Similarly for the "atomic number" - a single digit - in the top left corner
+        of these boxes: */
+
+        span.elementnumbertext {
+        	color: #ffffff;
+        	font-size: 0.622rem; /* 7/12 * 96/72 * 100/125 */
+        }
+
+        /* For the text of the element title, to the right of the element box: */
+
+        span.elementtitletext {
+        	color: #ffffff;
+        	font-size: 0.6rem; /* 9/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* The banner at the top of each element: */
+
+        table.elementbanner {
+        	background: #eeeeee;
+        }
+
+        /* For the typewriting on the Library Card: */
+
+        span.librarycardtitle {
+        	color: #803030;
+        }
+
+        span.librarycardother {
+        	color: #303030;
+        }
+
+        /* Generically used for "more details" boxes in the index: */
+
+        table.indexmorebox {
+        	background-color: #e0e0e0;
+            border-radius: 8px;
+        }
+
+        /* But not for activity contents: */
+
+        table.indexactivitycontents {
+        	background-color: #e8e0c0;
+            border-radius: 8px;
+        }
+
+        /* For responses in index entries about rules: */
+
+        span.indexresponseletter {
+        	color: #ffffff;
+        	font-family: 'Courier New', Courier, monospace;
+        	background-color: #8080ff;
+        }
+
+        span.indexresponsetext {
+        	color: #000066;
+        }
+
+        /* Used ubiquitously throughout the index and extension documentation: */
+
+        span.indexblack {
+        	color: #000000;
+        }
+
+        span.indexgrey {
+        	color: #808080;
+        }
+
+        span.indexdarkgrey {
+            color: #505050;
+        }
+
+        span.indexdullred {
+        	color: #800000;
+        }
+
+        span.indexdullgreen {
+        	color: #008000;
+        }
+
+        span.indexdullblue {
+        	color: #000080;
+        }
+
+        /* Used for the room squares in the World map in the Index (which is currently
+        a table with one row of one column) */
+
+        table.indexmaproom {
+        	border-color: #000000;
+        }
+
+        /* Used in the numbering of levels of the World map in the Index */
+
+        span.indexmaplevelnumbers {
+        	color: #c0c0c0;
+        }
+
+        /* Used e.g. for title rows in the Chart of basic kinds in the Index */
+
+        tr.headingrow {
+        	background-color: #e0e0e0;
+        }
+
+        /* Standard rows have black text on striped background colours, these being
+        the usual ones seen in Mac OS X applications such as iTunes. */
+
+        tr.stripeone {
+        	background-color: #ffffff;
+        }
+
+        tr.stripetwo {
+        	background-color: #f3f6fa;
+        }
+
+        tr.tintedrow {
+        	background-color: #808080;
+        }
+
+        /* In the Figures index, this is the background colour used behind images
+        (though in fact it will only be visible if the image fails to load, or uses
+        transparency): */
+
+        div.figureindexbox {
+        	background-color: #6495ed;
+        }
+
+        /* To get the book-contents-page style leaders on the Contents element of
+           the index to work, these must use the background colour of the body of
+           the page, whatever that is: */
+
+        ul.leaders li.leaded span:first-child {
+        	background: white;
+        }
+        ul.leaders li.leaded span + span {
+        	background: white;
+        }
+
+        /* On Registry index pages (such as the Public Library), these are used for
+        download buttons and the like: */
+
+        span.registrybuttontext {
+        	font-size: 11px;
+        	border-color: #000000;
+        }
+
+        span.registryminibuttontext {
+        	font-size: 10px;
+        	border-color: #000000;
+        }
+
+        span.registrybuttonuninstalled {
+        	color: #000000;
+        	background: #ffffdd;
+        }
+
+        span.registrybuttoninstalled {
+        	color: #000000;
+        	background: #ffffff;
+        	pointer-events: none;
+        }
+
+        span.registrybuttonbuiltin {
+        	color: #888888;
+        	background: #ffffff;
+        	pointer-events: none;
+        }
+
+        span.registrybuttonupdate {
+        	color: #000000;
+        	background: #aaddff;
+        }
+
+        span.registrybuttonrevert {
+        	color: #000000;
+        	background: #ddaaff;
+        }
+
+        span.registrybuttonrevealer {
+        	color: #ffffff;
+        	background: #444444;
+        }
+
+        /* Registry index section headings: */
+
+        span.registrysectionname {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 16px;
+        	line-height: 18px;
+        }
+        span.registrysubsectionname {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 14px;
+        	line-height: 16px;
+        }
+
+        /* These are for the "mark" for a section, usually a section-symbol and number */
+
+        span.registrysectionmark {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 16px;
+        	line-height: 18px;
+        	color: #666;
+        }
+        span.registrysubsectionmark {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 14px;
+        	line-height: 16px;
+        	color: #666;
+        }
+
+        /* Text of an item listed in a registry: */
+
+        span.registryitemtext {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 12px;
+        	line-height: 16px;
+        }
+
+        /* And how the links in a registry index page behave: */
+
+        a.registrysilentlink {
+        	text-decoration: none;
+        	color: #000;
+        }
+        a.registrybuttonlink {
+        	text-decoration: none;
+        }
+        a.registrycontentslink:link {
+        	text-decoration: none;
+        	color: #202020;
+        }
+        a.registrycontentslink:visited {
+        	text-decoration: none;
+        	color: #202020;
+        }
+        a.registrycontentslink:hover {
+        	text-decoration: none;
+        	color: #D00000;
+        }
+        a.registrycontentslink:active {
+        	text-decoration: none;
+        	color: #D00000;
+        }
+
+        -->
+    </style>
+    <style type="text/css">
+        <!--
+        /* (1) General layout material */
+
+        *, *:before, *:after {
+        	-moz-box-sizing: border-box;
+        	-webkit-box-sizing: border-box;
+        	box-sizing: border-box;
+        }
+        .headingpanellayout {
+        	position: relative;
+        	height: 56px;
+        	padding: 0px;
+        	white-space:nowrap;
+        }
+        .headingpanellayoutdeeper {
+        	position: relative;
+        	height: 117px;
+        	padding: 0px;
+        	white-space:nowrap;
+        }
+        .headingtext {
+        	position: absolute;
+        	top: -4px;
+        	left: -1px;
+        	width: 100%;
+        	padding: 14px 10px 0px 10px;
+        }
+        .headingrubric {
+        	position: absolute;
+        	top: 36px;
+        	width: 100%;
+        	padding: 0px 10px 0px 10px;
+        }
+        h3.tighter {
+        	margin-top: 0px;
+        }
+        p.hang {
+        	padding-left: 25px;
+        	text-indent: -25px;
+        	margin-top: 0px;
+        	margin-bottom: 0px;
+        }
+        p.in1 {
+        	padding-left: 0px;
+        }
+        p.tightin1 {
+        	padding-left: 0px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin1 {
+        	padding-left: 0px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin1 {
+        	padding-left: 50px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in2 {
+        	padding-left: 25px;
+        }
+        p.tightin2 {
+        	padding-left: 25px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin2 {
+        	padding-left: 25px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin2 {
+        	padding-left: 75px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in3 {
+        	padding-left: 50px;
+        }
+        p.tightin3 {
+        	padding-left: 50px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin3 {
+        	padding-left: 50px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin3 {
+        	padding-left: 100px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in4 {
+        	padding-left: 75px;
+        }
+        p.tightin4 {
+        	padding-left: 75px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin4 {
+        	padding-left: 75px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin4 {
+        	padding-left: 125px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in5 {
+        	padding-left: 100px;
+        }
+        p.tightin5 {
+        	padding-left: 100px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin5 {
+        	padding-left: 100px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin5 {
+        	padding-left: 150px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in6 {
+        	padding-left: 125px;
+        }
+        p.tightin6 {
+        	padding-left: 125px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin6 {
+        	padding-left: 125px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin6 {
+        	padding-left: 175px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in7 {
+        	padding-left: 150px;
+        }
+        p.tightin7 {
+        	padding-left: 150px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin7 {
+        	padding-left: 150px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin7 {
+        	padding-left: 200px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in8 {
+        	padding-left: 175px;
+        }
+        p.tightin8 {
+        	padding-left: 175px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin8 {
+        	padding-left: 175px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin8 {
+        	padding-left: 225px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in9 {
+        	padding-left: 200px;
+        }
+        p.tightin9 {
+        	padding-left: 200px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin9 {
+        	padding-left: 200px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin9 {
+        	padding-left: 250px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+
+        /* (2) Index page layout material */
+
+        /* The periodic table display has "sidebars", usually grey and taller than they
+        are wide; they contain no text. */
+
+        div.periodictablesidebar {
+        	height: 56px;
+        	width: 16px;
+        }
+        .periodictablesidebar a:link { text-decoration: none; }
+        .periodictablesidebar a:visited { text-decoration: none; }
+        .periodictablesidebar a:active { text-decoration: none; }
+
+        /* The "element boxes" are the cells appearing in the periodic-table display
+        on the welcome page of the index: */
+
+        .elementbox {
+        	position: relative;
+        	height: 56px;
+        	width: 56px;
+        	padding: 0px;
+        }
+
+        .elementbox a:link { text-decoration: none; }
+        .elementbox a:visited { text-decoration: none; }
+        .elementbox a:active { text-decoration: none; }
+        .elementbox a:hover { text-decoration: none; }
+        .elementbox:hover {
+        	opacity: 0.6;
+        }
+
+        /* The "small element boxes" look like those, but are smaller, and used on
+        the headings of the content which those original boxes link to: */
+
+        .smallelementbox {
+        	position: relative;
+        	height: 40px;
+        	width: 40px;
+        	padding: 0px;
+        }
+
+        .smallelementbox a:link { text-decoration: none; }
+        .smallelementbox a:visited { text-decoration: none; }
+        .smallelementbox a:active { text-decoration: none; }
+        .smallelementbox a:hover { text-decoration: none; }
+        .smallelementbox:hover {
+        	opacity: 0.6;
+        }
+
+        /* This is a class for the links formed by the element boxes: */
+
+        a.elementlink {
+        	position: absolute;
+        	top: -4px;
+        	left: -1px;
+        	width: 100%;
+        	padding: 14px 0px 14px 1px;
+        	text-align: center;
+        }
+
+        /* Similarly for the "atomic number" - a single digit - in the top left corner
+        of these boxes: */
+
+        div.elementnumber {
+        	position: absolute;
+        	top: 1px;
+        	left: 3px;
+        	text-align: left;
+        }
+
+        /* For the text of the element title, to the right of the element box: */
+
+        div.elementtitle {
+        	position: absolute;
+        	top: 35px;
+        	width: 100%;
+        	text-align: center;
+        }
+
+        /* Used for the book-contents-page style leaders on the Contents element of
+           the index: */
+
+        ul.leaders {
+        	padding: 0;
+        	margin-top: 1px;
+        	margin-bottom: 0;
+        	overflow-x: hidden;
+        	list-style: none}
+        ul.leaders li.leaded:before {
+        	float: left;
+        	width: 0;
+        	white-space: nowrap;
+        	content:
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "}
+        ul.leaders li.leaded span:first-child {
+        	padding-right: 0.33em;
+        }
+        ul.leaders li.leaded span + span {
+        	float: right;
+        	padding-left: 0.33em;
+        }
+        li.indent1 span:first-child {
+        	padding-left: 25px;
+        }
+        li.indent2 span:first-child {
+        	padding-left: 50px;
+        }
+        li.indent3 span:first-child {
+        	padding-left: 75px;
+        }
+        li.indent4 span:first-child {
+        	padding-left: 100px;
+        }
+        li.indent5 span:first-child {
+        	padding-left: 125px;
+        }
+        li.indent6 span:first-child {
+        	padding-left: 150px;
+        }
+        li.indent7 span:first-child {
+        	padding-left: 175px;
+        }
+        li.indent8 span:first-child {
+        	padding-left: 200px;
+        }
+        li.indent9 span:first-child {
+        	padding-left: 225px;
+        }
+
+        li.unleaded:before {
+        	content: "";
+        }
+
+        /* On Registry index pages (such as the Public Library), these are used for
+        download buttons and the like: */
+
+        span.registrybuttons {
+        	height: 20px;
+        	padding: 2px 8px 2px 8px;
+        	margin: 2px;
+        	border:1px solid;
+        	border-radius: 5px;
+        }
+
+        span.registryminibuttons {
+        	height: 14px;
+        	padding: 2px 5px 2px 5px;
+        	margin: 2px;
+        	border:1px solid;
+        	border-radius: 4px;
+        }
+
+        /* Used to hide or display sections in the Registry pages: */
+
+        div.registrysectionitemsopen {
+        	display: block;
+        }
+
+        div.registrysectionitemsclosed {
+        	display: none;
+        }
+
+        /* Hanging indentation for Registry item paragraphs: */
+
+        p.registryitem {
+        	padding-left: 80px;
+        	text-indent: -40px;
+        }
+
+        p.registryaddition {
+        	padding-left: 40px;
+        	text-indent: -40px;
+        }
+
+        -->
+    </style>
+    <script type="text/javascript">
+        function project() {
+            return window.Project;
+        }
+        function showExtra(id, imid) {
+        	if (document.getElementById(id).style.display == 'block') {
+        		document.getElementById(id).style.display = 'none';
+        		document.getElementById(imid).src = 'inform:/extra.png';
+        	} else {
+        		document.getElementById(id).style.display = 'block';
+        		document.getElementById(imid).src = 'inform:/extraclose.png';
+        	}
+        }
+        function openExtra(id, imid) {
+        	document.getElementById(id).style.display = 'block';
+        	document.getElementById(imid).src = 'inform:/extraclose.png';
+        }
+        function closeExtra(id, imid) {
+        	document.getElementById(id).style.display = 'none';
+        	document.getElementById(imid).src = 'inform:/extra.png';
+        }
+        function pasteCode(code) {
+            var myProject = project();
+
+            myProject.selectView('source');
+            myProject.pasteCode(code);
+        }
+
+    </script>
+</head>
+<body>
+    <!--CONTENT BEGINS-->
+    <table CELLPADDING=0 CELLSPACING=0 width="100%" bgcolor="#000000"><tr><TD width=38px height=26px align="center" valign="center"><a href="inform://Extensions/Extensions.html" border=0><img border=0 src="inform:/doc_images/Hookindex.png" border=0></a></td><TD width=38px height=26px align="center" valign="center"></td><td halign="left" valign="center" CELLPADDING=0 CELLSPACING=0><font color="#FFFFFF" size=2>Extensions</font></a></td><TD width=56px height=26px align="right" valign="center"><a href="inform:/index.html" border=0><img border=0 src="inform:/doc_images/Hookup.png" border=0></a></td></tr></table>
+
+    <p><a href="javascript:pasteCode('Include Compliant Characters by Nathanael Nerode.[=0x000A=][=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a>&nbsp;<b>Compliant Characters<span class="extensionindexentry"> by </span>Nathanael Nerode</b></p>
+    <p><span class="smaller">Version 4.0.210328</span></p>
+    <p>Report parsing errors to the player when ordering other characters to do things.  Inform 7 normally redirects these errors to 'answer <topic>' so that the character can respond to arbitrary statements.  But in an story with compliant characters who the player orders around routinely, that is frustrating to a player who has made a typo; this helps out the player.  Requires Parser Error Number Bugfix and version 4 of Neutral Standard Responses.  Tested with Inform 6M62.</p>
+    <p></p>
+    <hr>
+    <p><span class="indexblack"><b><a style="text-decoration: none" href=#docsec1>Chapter 1: </a></b></span>Why to use<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec2>Chapter 2: </a></b></span>How to Use<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec3>Chapter 3: </a></b></span>Notable restrictions<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec4>Chapter 4: </a></b></span>Additional Ways To Give Orders<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec5>Chapter 5: </a></b></span>Holdall Enhancements<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec6>Chapter 6: </a></b></span>Giving<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec7>Chapter 7: </a></b></span>How to change and extend the extension's behavior<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec8>Section 7.1: </a></span>Getting in before the parser errors are printed<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec9>Section 7.2: </a></span>Making your own unsuccessful attempt rules<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec10>Chapter 8: </a></b></span>Say, Tell, Answer, etc.<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec11>Section 8.1: </a></span>Stripping quotation marks from a topic<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec12>Section 8.2: </a></span>Non-Commands<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec13>Section 8.3: </a></span>Disabling rules<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec14>Chapter 9: </a></b></span>Interactions with other Extensions<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec15>Chapter 10: </a></b></span>Changelog<br>
+    <br>
+    <b>Examples</b><br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href="Compliant Characters-eg1.html#eg1">A &mdash; Jane</a></span><br>
+    </p>
+    <hr>
+    <p></p>
+    </p>
+
+    <p><p><span class="indexdullred"><b><span id=docsec1>Chapter 1: Why to use</span></b></span></p>
+    </p>
+
+    <p> Suppose you're writing an IF story with several compliant characters who do whatever you tell them to. (Such as Infocom's Suspended.)</p>
+
+    <p> When writing an IF story with compliant characters who generally do what they're told, it is somewhat frustrating to type<blockquote><span class="indexdullblue"> John, get the hat and get the response:<br>
+     There is no reply. When the reason is that there is no hat object.</span></blockquote>
+
+    <p> Inform 7 normally redirects parser errors from commands like this to 'answer &lt;topic&gt;' so that the character can respond to arbitrary statements. But in an story -- such as Infocom's &quot;Suspended&quot; -- which features compliant characters who the player orders around a lot, this is simply frustrating to a player who has made a typo or conceptual error.</p>
+
+    <p> This extension instead reports those parser errors. It uses variants of the messages from Neutral Standard Responses, adapted to the context of giving other characters orders. (It depends on Neutral Standard Responses partly because the default responses in the Standard Rules don't work very well for a Suspended-style game focused on ordering other characters around, and partly to use the low-level code there.)</p>
+
+    <p> This extension produces the sort of parser errors which would be given to the player by Neutral Standard Responses if she had tried to 'get the hat' herself:</p>
+
+    <p> For the same reason, it is frustrating in a game with compliant characters to type<blockquote><span class="indexdullblue"> John, wear the white socks And get the rather useless response:<br>
+     John is unable to do that.</span></blockquote>
+
+    <p> This extension provides default unsuccessful attempt responses for various actions to give more informative responses similar to those given to the player, such as:<blockquote><span class="indexdullblue"> John can't wear the socks.<br>
+     John isn't holding the socks.<br>
+     John is already wearing the socks.</span></blockquote>
+
+    <p> So far, &quot;take&quot;, &quot;remove&quot;, &quot;drop&quot;, &quot;put on (supporter)&quot;, &quot;insert into (container)&quot;, &quot;wear&quot;, &quot;take off (clothes)&quot;, and &quot;give&quot; actions are implemented. This is because I was writing a dress-up game where characters can be ordered to change clothes.</p>
+
+    <p> I haven't finished the rest of the verbs yet, though I plan to.</p>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec2>Chapter 2: How to Use</span></b></span></p>
+    </p>
+
+    <p> First, download:<blockquote><span class="indexdullblue"> Parser Error Number Bugfix by Nathanael Nerode<br>
+     Neutral Standard Responses by Nathanael Nerode<br>
+     and this extension</span></blockquote>
+
+    <p> Then add to your story file:<blockquote><span class="indexdullblue"> Include Compliant Characters by Nathanael Nerode.</span></blockquote>
+
+    <p> You will still have to write a persuasion rule (as documented in Writing With Inform), such as:<blockquote><span class="indexdullblue"> Persuasion rule for asking John to try taking or removing or dropping or putting on or inserting into:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; persuasion succeeds.<br>
+     Persuasion rule for asking John to try wearing or taking off or giving:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; persuasion succeeds.</span></blockquote>
+
+    <p> You'll also still need to write an implementation for the verbs which aren't implemented in the standard rules; but many are implemented in the Standard Rules.</p>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec3>Chapter 3: Notable restrictions</span></b></span></p>
+    </p>
+
+    <p> One additional restriction has been added. A character can't pick up an enterable container which contains a person. This is to avoid certain rather tricky situations where a person is inside a container carried by another person, which requires a complicated implementation to work right.</p>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec4>Chapter 4: Additional Ways To Give Orders</span></b></span></p>
+    </p>
+
+    <p> If the characters in your story are mostly there to be ordered around, it's nice if several ways of giving orders work. While &quot;character, command&quot; has been the standard for a long time, Zork II used a completely different syntax -- 'tell robot &quot;command&quot; ', which is perhaps more natural.</p>
+
+    <p> This extension translates<blockquote><span class="indexdullblue"> say &quot;command&quot; to person<br>
+     tell person &quot;command&quot;<br>
+     order person to command<br>
+     instruct person to command<br>
+     tell person to command</span></blockquote>
+
+    <p> Into the standard form:<blockquote><span class="indexdullblue"> person, command</span></blockquote>
+
+    <p> It also catches and rejects<blockquote><span class="indexdullblue"> person, order/instruct/tell other person to command<br>
+     tell person to tell other person to command</span></blockquote>
+
+    <p> It won't catch<blockquote><span class="indexdullblue"> tell person &quot;other person, command&quot;<br>
+     say &quot;other person, command&quot; to person</span></blockquote>
+
+    <p> These will turn into<blockquote><span class="indexdullblue"> person, other person, command</span></blockquote>
+
+    <p> And then fail with the usual error for that.</p>
+
+    <p> You can disable all of these with:<blockquote><span class="indexdullblue"> Volume - Disabled (in place of Volume - Additional Ways To Give Orders in Compliant Characters by Nathanael Nerode)</span></blockquote>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec5>Chapter 5: Holdall Enhancements</span></b></span></p>
+    </p>
+
+    <p> This extension makes sure a message is emitted for an actor putting something in the actor's holdall, which it isn't in the Standard Rules.</p>
+
+    <p> It also allows the actor to put things in the holdall to make room for clothes being removed, which was previously a missing implicit action. (This is out of scope for this extension, perhaps, but I did it anyway.) Likewise, someone can now put things in their holdall to make room for gifts.</p>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec6>Chapter 6: Giving</span></b></span></p>
+    </p>
+
+    <p> As you might expect, compliant characters accept gifts and give gifts when ordered to. This extension eliminates the &quot;block giving&quot; rule and gives parser error feedback for all other gifts.</p>
+
+    <p> However, to avoid some real complications, a character cannot give an enterable containing a person to another person. This is usually impossible because the character couldn't take the enterable in the first place, but if the author has overridden that, the giving rules still prohibit it.</p>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec7>Chapter 7: How to change and extend the extension's behavior</span></b></span></p>
+    </p>
+
+    <p><p><span class="indexblack"><b><span id=docsec8>Section 7.1: Getting in before the parser errors are printed</span></b></span></p>
+    </p>
+
+    <p> This sort of rule is where the parser messages are printed:<blockquote><span class="indexdullblue"> Check an actor answering something (called commandee) that when the latest parser error is the can't see any such thing error:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; say &quot;[The commandee] can't see any such thing.&quot;;</span></blockquote>
+
+    <p> This also short-circuits the answering process; no carry out answering or report answering rules will be run.</p>
+
+    <p> If you make your own check answering rules, they will go before the rules in this extension and can overrride them. If your own check answering rule returns success, it will allow the carry out answering and report answering rules to take place.</p>
+
+    <p> By default the report answering rulebook contains one rule, the &quot;block answering rule&quot;, which simply says &quot;You speak.&quot; But if you write your own rules, you can use this technique to allow a character to respond to one specific arbitrary topic which isn't a command (such as &quot;veronica, 17&quot;) -- while still using this extension to check for parser errors all other commands given to veronica.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec9>Section 7.2: Making your own unsuccessful attempt rules</span></b></span></p>
+    </p>
+
+    <p> Unsuccessful attempt rules are the way to get helpful &quot;John can't wear the refrigerator&quot; messages rather than generic &quot;John can't do that&quot; messages.</p>
+
+    <p> You may have to do this for additional verbs which I have not implemented, especially for verbs which you have given a lot of custom behavior.</p>
+
+    <p> There are several undocumented gotchas in doing this relating to default rulebook behavior.</p>
+
+    <p> Unsuccessful attempt rules which return *no decision* will pass along to the next rule, and will eventually pass through to the default &quot;Jane can't do that&quot; response. (&quot;rfalse&quot; in I6.)<blockquote><span class="indexdullblue"> make no decision; But if the rule succeeds it will suppress the default response. (&quot;rtrue&quot; in I6.)<br>
+     rule succeeds; And if the rule fails it will ALSO suppress the default response! (&quot;rtrue&quot; in I6.)<br>
+     rule fails;</span></blockquote>
+
+    <p> Extremely unfortunately, the default outcome for an unsuccessful attempt rule is success. (This was checked by reading I6 generated source code). This means that the default response is suppressed by the mere existence of a rule, even if it does nothing. So this code doesn't work:<blockquote><span class="indexdullblue"> if the reason the action failed is:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; -- the can't take off what's not worn rule:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say &quot;[The actor] [aren't] wearing [the noun].&quot; (A); Instead, it will end action processing completely, and give no output if the action failed for any reason other than the can't take off what's not worn rule -- not desirable.</span></blockquote>
+
+    <p> So whenever you don't match your special cases and want to pass along to the default rule, you must EXPLICITLY &quot;make no decision&quot;.</p>
+
+    <p> It gets worse if you use a switch statement, like this (using an explict make no decision):<blockquote><span class="indexdullblue"> if the reason the action failed is:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; -- the can't take off what's not worn rule:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say &quot;[The actor] [aren't] wearing [the noun].&quot; (A);<br>
+     make no decision;</span></blockquote>
+
+    <p> The compiler adds an implicit otherwise which ends the rule.<blockquote><span class="indexdullblue"> if the reason the action failed is:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; -- the can't take off what's not worn rule:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say &quot;[The actor] [aren't] wearing [the noun].&quot; (A);<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; -- otherwise:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; rule fails;<br>
+     make no decision;</span></blockquote>
+
+    <p> This breaking your fallback to the default! So you must explicitly write this:<blockquote><span class="indexdullblue"> if the reason the action failed is:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; -- the can't take off what's not worn rule:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say &quot;[The actor] [aren't] wearing [the noun].&quot; (A);<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; -- otherwise:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; make no decision;</span></blockquote>
+
+    <p> This actually works and is the form you should use. The actual code in this extension is:<blockquote><span class="indexdullblue"> Unsuccessful attempt by an actor taking off (this is the actor failed to take off rule):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; if the reason the action failed is:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -- the can't take off what's not worn rule:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say &quot;[The actor] [aren't] wearing [the noun].&quot; (A);<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -- the can't exceed carrying capacity when taking off rule:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say &quot;[The actor] [are] carrying too many things already.&quot; (B);<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -- otherwise:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; make no decision;</span></blockquote>
+
+    <p> If you've already printed a failure message in a check rule, you'll need to suppress the unsuccessful attempt message, such as this example:<blockquote><span class="indexdullblue"> Check an actor giving something enterable to (this is the don't accept things with people in them rule):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; if the noun contains a person:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if the second noun is the player:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say &quot;[The noun] [look] too heavy for [us] to carry.&quot; (A);<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; otherwise if the actor is the player:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say &quot;[We] [offer] [the noun] to [the second noun], but [the second noun] [decline], saying '[The noun] [look] too heavy to carry.'&quot; (B);<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; otherwise if actor is visible:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say &quot;[The actor] [offer] [the noun] to [the second noun], but [the second noun] [decline], saying '[The noun] [look] too heavy to carry.'&quot; (C);<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; stop the action;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Unsuccessful attempt by someone trying giving something enterable to:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; if the reason the action failed is the don't accept things with people in them rule:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; do nothing;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; otherwise:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; make no decision.</span></blockquote>
+
+    <p> If you want to override the rules in this extension, make sure your rules are listed earlier in the unsuccessful attempt rulebook.</p>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec10>Chapter 8: Say, Tell, Answer, etc.</span></b></span></p>
+    </p>
+
+    <p> In addition to the usual &quot;Jane, go north&quot;, several other ways to issue orders are implemented for player convenience:</p>
+
+    <p><blockquote><span class="indexdullblue"> tell Jane to go north<br>
+     instruct Jane to go north<br>
+     order Jane to go north</span></blockquote>
+
+    <p> These all pass through the &quot;ordering it to&quot; action in the Check stage, which rewrites it as &quot;Jane, go north&quot; and tells it to reparse. You can intercept it first if you like:<blockquote><span class="indexdullblue"> Check ordering something (called target) to (this is the new ordering rule):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;...<br>
+     The new ordering rule is listed before the reparse as command rule in the ordering it to rulebook.</span></blockquote>
+
+    <p> Several other methods of talking are also rewritten as commands:<blockquote><span class="indexdullblue"> say go north to Jane<br>
+     speak go north to Jane<br>
+     answer go north to Jane<br>
+     shout go north to Jane</span></blockquote>
+
+    <p> These, however, are first run through the &quot;speaking it to&quot; action, which redirects to the &quot;ordering it to&quot; action. So you can intercept only these if you like; perhaps you don't want these to be processed as orders:<blockquote><span class="indexdullblue"> Check speaking to something (called target) (this is the new speaking rule):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;...<br>
+     The new speaking rule is listed before the redirect speaking to ordering rule in the speaking it to rulebook.</span></blockquote>
+
+    <p> The reparse as command rule will also strip quotation marks from the topic, so it can successfully handle:<blockquote><span class="indexdullblue"> tell Jane to &quot;go north&quot;<br>
+     instruct Jane to 'go north'<br>
+     say &quot;go north&quot; to Jane<br>
+     answer 'go north' to Jane<br>
+     shout &quot;go north&quot; to Jane</span></blockquote>
+
+    <p>... et cetera.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec11>Section 8.1: Stripping quotation marks from a topic</span></b></span></p>
+    </p>
+
+    <p> In addition to its use within the reparse as command rule, stripping quotation marks from &quot;the topic understood&quot; may be a generally useful thing to do. Accordingly, it is provided as a say-phrase:</p>
+
+    <p> This will turn all of the following:<blockquote><span class="indexdullblue"> &quot;foo bar&quot;<br>
+     'foo bar'<br>
+     foo bar into the same &quot;foo bar&quot; (without quotation marks).</span></blockquote>
+
+    <p><p><span class="indexblack"><b><span id=docsec12>Section 8.2: Non-Commands</span></b></span></p>
+    </p>
+
+    <p> Even in a game with a lot of commands, you may want to handle some things not as commands. Note that the following will not be handled as commands; this extension does not change their behavior at all:<blockquote><span class="indexdullblue"> ask Jane about topic<br>
+     tell Jane about topic</span></blockquote>
+
+    <p> More interesting are these cases:<blockquote><span class="indexdullblue"> say password to Jane<br>
+     tell Jane password<br>
+     Jane, password</span></blockquote>
+
+    <p> These will all end up in the &quot;answering it that&quot; action, and will be processed by this extension as a command, finally coming up with a parser error (assuming password isn't a verb!). You can deal with this in one of three ways.</p>
+
+    <p> First, you could make password a verb.</p>
+
+    <p> Second, you can intercept &quot;answering it that&quot; before this extension gets to it, just for the word &quot;password&quot;. Note the British spelling of recognise in the error name:<blockquote><span class="indexdullblue"> Check an actor answering something (called the commandee) that when the latest parser error is the not a verb I recognise error (this is the divert the password rule):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; let tmp be a text;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; now tmp is &quot;[quote-stripped topic understood]&quot;;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; if tmp exactly matches the text &quot;password&quot;:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; try passing the test with the commandee instead;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Passing the test with is an action applying to one thing.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Report passing the test with something (called the commandee):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; say &quot;[Commandee] accepts your password!&quot;;</span></blockquote>
+
+    <p> Third, you could intercept &quot;answering it that&quot; for all unknown verbs. Again, remember the British spelling of recognise:<blockquote><span class="indexdullblue"> Check an actor answering something (called the commandee) that when the latest parser error is the not a verb I recognise error (this is the divert the password rule):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; let tmp be a text;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; now tmp is &quot;[quote-stripped topic understood]&quot;;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; if tmp exactly matches the text &quot;password&quot;:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; try passing the test with the commandee instead;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; otherwise:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; try giving incorrect password the topic understood to the commandee instead;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Passing the test with is an action applying to one thing.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Giving incorrect password it to is an action applying to one topic and one thing.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Report passing the test with something (called the commandee):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; say &quot;[Commandee] accepts your password!&quot;;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Report giving incorrect password to something (called the commandee):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; say &quot;[Commandee] says, 'Sorry, ['][the quote-stripped topic understood]['] is not the right password.'&quot;;</span></blockquote>
+
+    <p> Note that in this context, the topic understood is the entire statement given to the commandee. So if you write &quot;Jane, alpha beta gamma&quot;, the topic understood will be &quot;alpha beta gamma&quot;. So you can check for multi-word passwords.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec13>Section 8.3: Disabling rules</span></b></span></p>
+    </p>
+
+    <p> Obviously, you can also turn off or replace the enhanced holdall rules or the rules prohibiting taking enterables containing people, by the usual methods described in Writing With Inform: &quot;not listed in any rulebook&quot; or &quot;listed instead of&quot;.</p>
+
+    <p> The additonal ways to give orders can be disabled as noted above.</p>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec14>Chapter 9: Interactions with other Extensions</span></b></span></p>
+    </p>
+
+    <p> This extension depends on Parser Error Number Bugfix by Nathanael Nerode, which fixes a bug in the Standard Rules which left two parser errors misnamed. This extension depends on version 4 or later Neutral Standard Responses by Nathanael Nerode; it uses low-level code from that extension and reuses some of those responses (so that the story author only has to override the response in one place).</p>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec15>Chapter 10: Changelog</span></b></span></p>
+    </p>
+
+    <p> 4/210328 - Slicker handling for &quot;say take box to jane&quot;. - Much slicker and faster handling for &quot;say 'x' to jane&quot; and other quotation marks typed by the player. - Documentation of ways to handle passwords and similar special cases. - More Chapters, Volumes, Parts, etc. for better overriding. 3/210313 - Additional handling for &quot;say 'x' to jane&quot;, &quot;tell jane 'x'&quot; - Additional handling for indirect orders - Additional handling for &quot;jane, take all&quot; - Additional handling for other corner cases 2/171007 - Update in association with version 4 of Neutral Standard Responses - Fix misunderstood word reporting. - Fix several tricky paragraph break errors. 1/171003 - Fix line break issue in scenery message. 1/171002 - First version.</p>
+
+    <p><hr>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td halign="left" valign="top" cellpadding=0 cellspacing=0 width=38px>
+                <span id=eg1><table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="oval">
+                        <td width=38px height=30px align="left" valign="center">
+                            <a href="Compliant Characters.html#eg1" style="text-decoration: none"><div class="paragraph Body" style="line-height: 1px; margin-bottom: 0px; margin-top: 0px; padding-bottom: 0pt; padding-top: 0px; text-align: center;">
+                                <span class="extensionexampleletter">A</span></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                </span>
+            </td>
+            <td cellpadding=0 cellspacing=0 halign="left" valign="top">
+                <a href="Compliant Characters.html#eg1" style="text-decoration: none"><img border="0" src='inform:/doc_images/asterisk.png'><img border="0" src='inform:/doc_images/asterisk.png'><img border="0" src='inform:/doc_images/asterisk.png'><b><span class="indexdarkgrey">&nbsp;Example&nbsp;</span><span class="indexblack">Jane</span></b></a><br>
+                <p>Regression test</p>
+
+            </td>
+        </tr>
+    </table>
+    <table border="0" cellspacing="0" cellpadding="0" class="extensionexample" width=100%>
+        <tr>
+            <td align="left" valign="top">
+                <p></p>
+
+                <p><blockquote><span class="indexdullblue"><a href="javascript:pasteCode('[=0x0022=]Jane[=0x0022=][=0x000A=][=0x000A=]Include Neutral Standard Responses by Nathanael Nerode.[=0x000A=]Include Compliant Characters by Nathanael Nerode.[=0x000A=][=0x000A=]Jane[=0x0027=]s house is a room. [=0x0022=]It[=0x0027=]s Jane[=0x0027=]s house.[=0x0022=][=0x000A=]Jane is a person in the house. The description of Jane is [=0x0022=]It[=0x0027=]s Jane![=0x0022=][=0x000A=]Persuasion rule for asking Jane to try doing something:[=0x000A=][=0x0009=]persuasion succeeds.[=0x000A=][=0x000A=]The furniture is a plural-named scenery thing in the house. The description of the furniture is [=0x0022=]The furniture is not meant to be used.[=0x0022=][=0x000A=]The decorations is a plural-named scenery thing in the house. The description of the decorations is [=0x0022=]Decorative.[=0x0022=][=0x000A=][=0x000A=]A banana is a thing.[=0x000A=]A red dress is a thing in the house.[=0x000A=][=0x000A=]test scenery with [=0x0022=]jane, take furniture/jane, take furniture and decorations[=0x0022=].[=0x000A=]test cantsee with [=0x0022=]jane, take banana/jane, take asdf/jane, take dress[=0x0022=].[=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a> &quot;Jane&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Include Neutral Standard Responses by Nathanael Nerode.<br>
+                 Include Compliant Characters by Nathanael Nerode.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Jane's house is a room. &quot;It's Jane's house.&quot;<br>
+                 Jane is a person in the house. The description of Jane is &quot;It's Jane!&quot;<br>
+                 Persuasion rule for asking Jane to try doing something:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; persuasion succeeds.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The furniture is a plural-named scenery thing in the house. The description of the furniture is &quot;The furniture is not meant to be used.&quot;<br>
+                 The decorations is a plural-named scenery thing in the house. The description of the decorations is &quot;Decorative.&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> A banana is a thing.<br>
+                 A red dress is a thing in the house.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> test scenery with &quot;jane, take furniture/jane, take furniture and decorations&quot;.<br>
+                 test cantsee with &quot;jane, take banana/jane, take asdf/jane, take dress&quot;.</span></blockquote>
+
+                <p></p>
+
+            </td>
+        </tr>
+    </table>
+    </p>
+
+    <p>
+    <!--CONTENT ENDS-->
+</body>
+</html>

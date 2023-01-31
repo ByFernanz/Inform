@@ -1,0 +1,1442 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Extension</title>
+    <style type="text/css">
+        <!--
+        /* The default font (family) and size */
+
+        body, p, td {
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.8rem; /* 100/125 */
+        }
+
+        /* For fixed-point material within text, such as the typing on the Library Card index page */
+
+        span.typewritten {
+        	font-family: monospace;
+        	font-size: 0.867rem; /* 13/12 * 100/125 */
+        }
+
+        /* For less important material: the small print */
+
+        span.smaller {
+        	font-size: 80%;
+        }
+
+        /* The "heading panel" is the coloured box, high up on the page. The colours
+        vary depending on the page: for example, the style on a report of a translation
+        with no problems is "headingpanelsucceeded", usually green, but if there were
+        problems then "headingpanelfailed" is used, which is usually red. "headingpanel"
+        itself is a more neutral grey by default. "headingpanelDark" is an alternative
+        look to make the extensions index pages have some visual contrast with the others;
+        by default they are a darker grey. */
+
+        .headingpanel {
+        	background: #eeeeee;
+        }
+        .headingpanelsucceeded {
+        	background: #E6FFE6;
+        }
+        .headingpanelfailed {
+        	background: #f69Ca6;
+        }
+        .headingpanelalt {
+        	background: #808080;
+        }
+
+        /* Heading panels have two lines of text: an upper one in a larger size, and a
+        lower one in a smaller. Again, the alt versions are meant to contrast.
+
+        	Report on Translation: Succeeded                <-- headingpaneltext
+        	Produced by Inform 10.1.0 (build 6U97)          <-- headingpanelrubric
+
+        	Installed Extensions                            <-- headingpaneltextalt
+        	Bundles of extra rules or phrases to...         <-- headingpanelrubricalt
+
+        */
+
+        span.headingpaneltext {
+        	color: #222222;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+        span.headingpaneltextalt {
+        	color: #ffffff;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        span.headingpanelrubric {
+        	color: #222222;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.733rem; /* 11/12 * 100/125 */
+        	font-weight: bold;
+        }
+        span.headingpanelrubricalt {
+        	color: #ffffff;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.733rem; /* 11/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* Horizontal rule styling */
+
+        div.hr {
+        	border: 0;
+        	width: 100%;
+        	color: #707070;
+        	background-color: #707070;
+        	height: 5px;
+        }
+
+        /* This styles the (usually white) text of the example numbers written inside
+        oval blobs in the extension documentation, which mimic the look of the in-app
+        documentation. */
+
+        .oval, .oval td {
+        	background-image:url('inform:/doc_images/ovoid.png');
+        	color:white;
+        }
+
+        /* Styling used in the extension documentation indexes: */
+
+        /* Used for extension names in the extensions pane of the app */
+
+        span.extensioncensusentry {
+        	color: #ffffff;
+        }
+
+        span.extensionindexentry {
+        	color: #404040;
+        }
+
+        span.extensionindexerror {
+        	color: #ff8080;
+        }
+
+        /* This is used in extension documentation, where an example is presented
+        in a slightly tinted box: */
+
+        table.extensionexample {
+        	background-color: #f0f0f0;
+        }
+
+        span.extensionexampleletter {
+        	color: #202020;
+        	font-size: 14px;
+        	font-weight: bold;
+        }
+
+        /* Seen in problem messages: */
+
+        span.problemred {
+        	color: #800000;
+        }
+
+        span.problemgreen {
+        	color: #008000;
+        }
+
+        span.phraseword {
+        	color: #808080;
+        }
+
+        span.phrasetokentext {
+        	color: #e00060;
+        }
+
+        span.phrasetokendesctext {
+        	color: #4040ff;
+        }
+
+        span.phrasetokenvaluetext {
+        	color: #ff4040;
+        }
+
+        /* Now we move on to styling used in the Index pages only: */
+
+        /* The periodic table display has "sidebars", usually grey and taller than they
+        are wide; they contain no text. */
+
+        div.periodictablesidebarcolour {
+        	background: #888;
+        }
+        div.periodictablesidebar:hover {
+        	background: #222;
+        }
+
+        /* The text of the element-abbreviation, such as "Lx" or "Ph", uses: */
+
+        span.elementtext {
+        	color: #ffffff;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* Similarly for the "atomic number" - a single digit - in the top left corner
+        of these boxes: */
+
+        span.elementnumbertext {
+        	color: #ffffff;
+        	font-size: 0.622rem; /* 7/12 * 96/72 * 100/125 */
+        }
+
+        /* For the text of the element title, to the right of the element box: */
+
+        span.elementtitletext {
+        	color: #ffffff;
+        	font-size: 0.6rem; /* 9/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* The banner at the top of each element: */
+
+        table.elementbanner {
+        	background: #eeeeee;
+        }
+
+        /* For the typewriting on the Library Card: */
+
+        span.librarycardtitle {
+        	color: #803030;
+        }
+
+        span.librarycardother {
+        	color: #303030;
+        }
+
+        /* Generically used for "more details" boxes in the index: */
+
+        table.indexmorebox {
+        	background-color: #e0e0e0;
+            border-radius: 8px;
+        }
+
+        /* But not for activity contents: */
+
+        table.indexactivitycontents {
+        	background-color: #e8e0c0;
+            border-radius: 8px;
+        }
+
+        /* For responses in index entries about rules: */
+
+        span.indexresponseletter {
+        	color: #ffffff;
+        	font-family: 'Courier New', Courier, monospace;
+        	background-color: #8080ff;
+        }
+
+        span.indexresponsetext {
+        	color: #000066;
+        }
+
+        /* Used ubiquitously throughout the index and extension documentation: */
+
+        span.indexblack {
+        	color: #000000;
+        }
+
+        span.indexgrey {
+        	color: #808080;
+        }
+
+        span.indexdarkgrey {
+            color: #505050;
+        }
+
+        span.indexdullred {
+        	color: #800000;
+        }
+
+        span.indexdullgreen {
+        	color: #008000;
+        }
+
+        span.indexdullblue {
+        	color: #000080;
+        }
+
+        /* Used for the room squares in the World map in the Index (which is currently
+        a table with one row of one column) */
+
+        table.indexmaproom {
+        	border-color: #000000;
+        }
+
+        /* Used in the numbering of levels of the World map in the Index */
+
+        span.indexmaplevelnumbers {
+        	color: #c0c0c0;
+        }
+
+        /* Used e.g. for title rows in the Chart of basic kinds in the Index */
+
+        tr.headingrow {
+        	background-color: #e0e0e0;
+        }
+
+        /* Standard rows have black text on striped background colours, these being
+        the usual ones seen in Mac OS X applications such as iTunes. */
+
+        tr.stripeone {
+        	background-color: #ffffff;
+        }
+
+        tr.stripetwo {
+        	background-color: #f3f6fa;
+        }
+
+        tr.tintedrow {
+        	background-color: #808080;
+        }
+
+        /* In the Figures index, this is the background colour used behind images
+        (though in fact it will only be visible if the image fails to load, or uses
+        transparency): */
+
+        div.figureindexbox {
+        	background-color: #6495ed;
+        }
+
+        /* To get the book-contents-page style leaders on the Contents element of
+           the index to work, these must use the background colour of the body of
+           the page, whatever that is: */
+
+        ul.leaders li.leaded span:first-child {
+        	background: white;
+        }
+        ul.leaders li.leaded span + span {
+        	background: white;
+        }
+
+        /* On Registry index pages (such as the Public Library), these are used for
+        download buttons and the like: */
+
+        span.registrybuttontext {
+        	font-size: 11px;
+        	border-color: #000000;
+        }
+
+        span.registryminibuttontext {
+        	font-size: 10px;
+        	border-color: #000000;
+        }
+
+        span.registrybuttonuninstalled {
+        	color: #000000;
+        	background: #ffffdd;
+        }
+
+        span.registrybuttoninstalled {
+        	color: #000000;
+        	background: #ffffff;
+        	pointer-events: none;
+        }
+
+        span.registrybuttonbuiltin {
+        	color: #888888;
+        	background: #ffffff;
+        	pointer-events: none;
+        }
+
+        span.registrybuttonupdate {
+        	color: #000000;
+        	background: #aaddff;
+        }
+
+        span.registrybuttonrevert {
+        	color: #000000;
+        	background: #ddaaff;
+        }
+
+        span.registrybuttonrevealer {
+        	color: #ffffff;
+        	background: #444444;
+        }
+
+        /* Registry index section headings: */
+
+        span.registrysectionname {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 16px;
+        	line-height: 18px;
+        }
+        span.registrysubsectionname {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 14px;
+        	line-height: 16px;
+        }
+
+        /* These are for the "mark" for a section, usually a section-symbol and number */
+
+        span.registrysectionmark {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 16px;
+        	line-height: 18px;
+        	color: #666;
+        }
+        span.registrysubsectionmark {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 14px;
+        	line-height: 16px;
+        	color: #666;
+        }
+
+        /* Text of an item listed in a registry: */
+
+        span.registryitemtext {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 12px;
+        	line-height: 16px;
+        }
+
+        /* And how the links in a registry index page behave: */
+
+        a.registrysilentlink {
+        	text-decoration: none;
+        	color: #000;
+        }
+        a.registrybuttonlink {
+        	text-decoration: none;
+        }
+        a.registrycontentslink:link {
+        	text-decoration: none;
+        	color: #202020;
+        }
+        a.registrycontentslink:visited {
+        	text-decoration: none;
+        	color: #202020;
+        }
+        a.registrycontentslink:hover {
+        	text-decoration: none;
+        	color: #D00000;
+        }
+        a.registrycontentslink:active {
+        	text-decoration: none;
+        	color: #D00000;
+        }
+
+        -->
+    </style>
+    <style type="text/css">
+        <!--
+        /* (1) General layout material */
+
+        *, *:before, *:after {
+        	-moz-box-sizing: border-box;
+        	-webkit-box-sizing: border-box;
+        	box-sizing: border-box;
+        }
+        .headingpanellayout {
+        	position: relative;
+        	height: 56px;
+        	padding: 0px;
+        	white-space:nowrap;
+        }
+        .headingpanellayoutdeeper {
+        	position: relative;
+        	height: 117px;
+        	padding: 0px;
+        	white-space:nowrap;
+        }
+        .headingtext {
+        	position: absolute;
+        	top: -4px;
+        	left: -1px;
+        	width: 100%;
+        	padding: 14px 10px 0px 10px;
+        }
+        .headingrubric {
+        	position: absolute;
+        	top: 36px;
+        	width: 100%;
+        	padding: 0px 10px 0px 10px;
+        }
+        h3.tighter {
+        	margin-top: 0px;
+        }
+        p.hang {
+        	padding-left: 25px;
+        	text-indent: -25px;
+        	margin-top: 0px;
+        	margin-bottom: 0px;
+        }
+        p.in1 {
+        	padding-left: 0px;
+        }
+        p.tightin1 {
+        	padding-left: 0px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin1 {
+        	padding-left: 0px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin1 {
+        	padding-left: 50px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in2 {
+        	padding-left: 25px;
+        }
+        p.tightin2 {
+        	padding-left: 25px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin2 {
+        	padding-left: 25px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin2 {
+        	padding-left: 75px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in3 {
+        	padding-left: 50px;
+        }
+        p.tightin3 {
+        	padding-left: 50px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin3 {
+        	padding-left: 50px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin3 {
+        	padding-left: 100px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in4 {
+        	padding-left: 75px;
+        }
+        p.tightin4 {
+        	padding-left: 75px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin4 {
+        	padding-left: 75px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin4 {
+        	padding-left: 125px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in5 {
+        	padding-left: 100px;
+        }
+        p.tightin5 {
+        	padding-left: 100px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin5 {
+        	padding-left: 100px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin5 {
+        	padding-left: 150px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in6 {
+        	padding-left: 125px;
+        }
+        p.tightin6 {
+        	padding-left: 125px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin6 {
+        	padding-left: 125px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin6 {
+        	padding-left: 175px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in7 {
+        	padding-left: 150px;
+        }
+        p.tightin7 {
+        	padding-left: 150px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin7 {
+        	padding-left: 150px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin7 {
+        	padding-left: 200px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in8 {
+        	padding-left: 175px;
+        }
+        p.tightin8 {
+        	padding-left: 175px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin8 {
+        	padding-left: 175px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin8 {
+        	padding-left: 225px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in9 {
+        	padding-left: 200px;
+        }
+        p.tightin9 {
+        	padding-left: 200px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin9 {
+        	padding-left: 200px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin9 {
+        	padding-left: 250px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+
+        /* (2) Index page layout material */
+
+        /* The periodic table display has "sidebars", usually grey and taller than they
+        are wide; they contain no text. */
+
+        div.periodictablesidebar {
+        	height: 56px;
+        	width: 16px;
+        }
+        .periodictablesidebar a:link { text-decoration: none; }
+        .periodictablesidebar a:visited { text-decoration: none; }
+        .periodictablesidebar a:active { text-decoration: none; }
+
+        /* The "element boxes" are the cells appearing in the periodic-table display
+        on the welcome page of the index: */
+
+        .elementbox {
+        	position: relative;
+        	height: 56px;
+        	width: 56px;
+        	padding: 0px;
+        }
+
+        .elementbox a:link { text-decoration: none; }
+        .elementbox a:visited { text-decoration: none; }
+        .elementbox a:active { text-decoration: none; }
+        .elementbox a:hover { text-decoration: none; }
+        .elementbox:hover {
+        	opacity: 0.6;
+        }
+
+        /* The "small element boxes" look like those, but are smaller, and used on
+        the headings of the content which those original boxes link to: */
+
+        .smallelementbox {
+        	position: relative;
+        	height: 40px;
+        	width: 40px;
+        	padding: 0px;
+        }
+
+        .smallelementbox a:link { text-decoration: none; }
+        .smallelementbox a:visited { text-decoration: none; }
+        .smallelementbox a:active { text-decoration: none; }
+        .smallelementbox a:hover { text-decoration: none; }
+        .smallelementbox:hover {
+        	opacity: 0.6;
+        }
+
+        /* This is a class for the links formed by the element boxes: */
+
+        a.elementlink {
+        	position: absolute;
+        	top: -4px;
+        	left: -1px;
+        	width: 100%;
+        	padding: 14px 0px 14px 1px;
+        	text-align: center;
+        }
+
+        /* Similarly for the "atomic number" - a single digit - in the top left corner
+        of these boxes: */
+
+        div.elementnumber {
+        	position: absolute;
+        	top: 1px;
+        	left: 3px;
+        	text-align: left;
+        }
+
+        /* For the text of the element title, to the right of the element box: */
+
+        div.elementtitle {
+        	position: absolute;
+        	top: 35px;
+        	width: 100%;
+        	text-align: center;
+        }
+
+        /* Used for the book-contents-page style leaders on the Contents element of
+           the index: */
+
+        ul.leaders {
+        	padding: 0;
+        	margin-top: 1px;
+        	margin-bottom: 0;
+        	overflow-x: hidden;
+        	list-style: none}
+        ul.leaders li.leaded:before {
+        	float: left;
+        	width: 0;
+        	white-space: nowrap;
+        	content:
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "}
+        ul.leaders li.leaded span:first-child {
+        	padding-right: 0.33em;
+        }
+        ul.leaders li.leaded span + span {
+        	float: right;
+        	padding-left: 0.33em;
+        }
+        li.indent1 span:first-child {
+        	padding-left: 25px;
+        }
+        li.indent2 span:first-child {
+        	padding-left: 50px;
+        }
+        li.indent3 span:first-child {
+        	padding-left: 75px;
+        }
+        li.indent4 span:first-child {
+        	padding-left: 100px;
+        }
+        li.indent5 span:first-child {
+        	padding-left: 125px;
+        }
+        li.indent6 span:first-child {
+        	padding-left: 150px;
+        }
+        li.indent7 span:first-child {
+        	padding-left: 175px;
+        }
+        li.indent8 span:first-child {
+        	padding-left: 200px;
+        }
+        li.indent9 span:first-child {
+        	padding-left: 225px;
+        }
+
+        li.unleaded:before {
+        	content: "";
+        }
+
+        /* On Registry index pages (such as the Public Library), these are used for
+        download buttons and the like: */
+
+        span.registrybuttons {
+        	height: 20px;
+        	padding: 2px 8px 2px 8px;
+        	margin: 2px;
+        	border:1px solid;
+        	border-radius: 5px;
+        }
+
+        span.registryminibuttons {
+        	height: 14px;
+        	padding: 2px 5px 2px 5px;
+        	margin: 2px;
+        	border:1px solid;
+        	border-radius: 4px;
+        }
+
+        /* Used to hide or display sections in the Registry pages: */
+
+        div.registrysectionitemsopen {
+        	display: block;
+        }
+
+        div.registrysectionitemsclosed {
+        	display: none;
+        }
+
+        /* Hanging indentation for Registry item paragraphs: */
+
+        p.registryitem {
+        	padding-left: 80px;
+        	text-indent: -40px;
+        }
+
+        p.registryaddition {
+        	padding-left: 40px;
+        	text-indent: -40px;
+        }
+
+        -->
+    </style>
+    <script type="text/javascript">
+        function project() {
+            return window.Project;
+        }
+        function showExtra(id, imid) {
+        	if (document.getElementById(id).style.display == 'block') {
+        		document.getElementById(id).style.display = 'none';
+        		document.getElementById(imid).src = 'inform:/extra.png';
+        	} else {
+        		document.getElementById(id).style.display = 'block';
+        		document.getElementById(imid).src = 'inform:/extraclose.png';
+        	}
+        }
+        function openExtra(id, imid) {
+        	document.getElementById(id).style.display = 'block';
+        	document.getElementById(imid).src = 'inform:/extraclose.png';
+        }
+        function closeExtra(id, imid) {
+        	document.getElementById(id).style.display = 'none';
+        	document.getElementById(imid).src = 'inform:/extra.png';
+        }
+        function pasteCode(code) {
+            var myProject = project();
+
+            myProject.selectView('source');
+            myProject.pasteCode(code);
+        }
+
+    </script>
+</head>
+<body>
+    <!--CONTENT BEGINS-->
+    <table CELLPADDING=0 CELLSPACING=0 width="100%" bgcolor="#000000"><tr><TD width=38px height=26px align="center" valign="center"><a href="inform://Extensions/Extensions.html" border=0><img border=0 src="inform:/doc_images/Hookindex.png" border=0></a></td><TD width=38px height=26px align="center" valign="center"></td><td halign="left" valign="center" CELLPADDING=0 CELLSPACING=0><font color="#FFFFFF" size=2>Extensions</font></a></td><TD width=56px height=26px align="right" valign="center"><a href="inform:/index.html" border=0><img border=0 src="inform:/doc_images/Hookup.png" border=0></a></td></tr></table>
+
+    <p><a href="javascript:pasteCode('Include Quip-Based Conversation by Michael Martin.[=0x000A=][=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a>&nbsp;<b>Quip-Based Conversation<span class="extensionindexentry"> by </span>Michael Martin</b></p>
+    <p><span class="smaller">Version 5.0.171116</span></p>
+    <p>An extension to Reactable Quips to allow for more traditional menu-based conversation.</p>
+    <p></p>
+    <hr>
+    <p><span class="indexblack"><a style="text-decoration: none" href=#docsec1>Section 1: </a></span>Defining quips<br>
+    <span class="indexblack"><a style="text-decoration: none" href=#docsec2>Section 2: </a></span>Making people talk<br>
+    <span class="indexblack"><a style="text-decoration: none" href=#docsec3>Section 3: </a></span>Intermingling conversation with other activities<br>
+    <span class="indexblack"><a style="text-decoration: none" href=#docsec4>Section 4: </a></span>Customizing messages<br>
+    <br>
+    <b>Examples</b><br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href="Quip-Based Conversation-eg1.html#eg1">A &mdash; Joe Schmoe Revisited</a></span><br>
+    </p>
+    <hr>
+    <p></p>
+    </p>
+
+    <p> Quip-Based Conversation builds upon the Reactable Quips extension to provide a table-driven conversation system for NPCs smoothly handles Photopia or LucasArts-style conversation menus. The player character may initiate conversation with a &gt;TALK TO NPC command. After an optional greeting exchange, the player selects dialogue from a menu. Options may become available or unavailable as a result of these statements. The basic functionality of Reactable Quips is retained; NPCs may occasionally say or do things that demand or imply some kind of reaction from the PC -- the player must then choose some option off a new menu to characterize the reaction. After the reaction is selected, the traditional menus return.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec1>Section 1: Defining quips</span></b></span></p>
+    </p>
+
+    <p> The most fundamental concept in the extension is the &quot;quip&quot;. Quips are values, not things; they are used to index into the quip tables.</p>
+
+    <p> Thus, the one task we must always perform is filling in the Table of Quip Texts. A default table is provided by the extension, so you will need to continue the table in your own code:</p>
+
+    <p><blockquote><span class="indexdullblue"> Table of Quip Texts (continued)</span><br>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> quip</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> quiptext
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> greeting</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;'Why, hello there!'&quot;
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> discuss weather</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;'Looks like rain, or my name isn't George Washington.'&quot;
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> standoff</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;'What's it to you, Mac?'&quot;
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> silence</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;You decide to remain silent for the moment.&quot;</span>
+            </td>
+        </tr>
+    </table>
+    </blockquote>
+
+    <p><p><span class="indexblack"><b><span id=docsec2>Section 2: Making people talk</span></b></span></p>
+    </p>
+
+    <p> People have a &quot;greeting&quot; which is a quip that is delivered when you TALK TO them. This defaults to the internal value &quot;quip_null&quot; which will result in no greeting and all, moving straight to options.</p>
+
+    <p> People also have a &quot;litany&quot; which is a table that holds their actual conversational options. This defaults to the Table of No Conversation, in which no options are presented at all. Other litanies have three columns: &quot;prompt&quot; - a string indicating the player's prospective line of dialogue; &quot;response&quot; - a quip that is the NPC's reply; and &quot;enabled&quot;, a number that should be 1 if the line is available the first time the character is spoken to, and 0 otherwise.</p>
+
+    <p><blockquote><span class="indexdullblue"> George is a man in the Cherry Orchard. The greeting of George is greeting. The litany of George is the Table of George Conversation.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Table of George Conversation</span><br>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> prompt</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> response</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> enabled
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;How's the weather look?&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> discuss weather</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> 1
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;How're your teeth doing?&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> standoff</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> 1
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;Say nothing&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> silence</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> 1</span>
+            </td>
+        </tr>
+    </table>
+    </blockquote>
+
+    <p> Rules may be attached to quips as usual; see the Reactable Quips documentation for how this works in detail. Briefly, we use rulebooks associated with the quipping activity, and refer to the variable &quot;the current quip&quot; to determine which ones are in use.</p>
+
+    <p> A wide variety of phrases are available for use in these rules; most relevant are &quot;enable the X quip&quot; and &quot;disable the X quip&quot;, where X is the name of the response quip you wish to make available in the current litany. If you wish to enable or disable quips in other litanies, you may &quot;enable/disable the X quip for Y&quot; where Y is the name of the person in whose litany you wish to modify the option. To modify or eliminate the default conversation characteristics of a character, the greeting or litany may be changed normally with commands like &quot;change the litany of X to Y&quot; -- however, changing the litany of a character will not modify the current conversation. To modify that, you instead &quot;shift the conversation to X&quot;. To run a conversation without an attached person, you may &quot;run a conversation on X&quot;. This will not deliver a greeting quip. Finally, when talking is done, one may &quot;terminate the conversation&quot;. This is an appropriate reaction to good-bye or say-nothing quips, depending on how they are handled.</p>
+
+    <p> Quips disable themselves by default when used. For permanent quips (such as &quot;say nothing&quot;, above), we must re-enable them by hand:</p>
+
+    <p><blockquote><span class="indexdullblue"> After quipping when the current quip is silence: enable the silence quip.</span></blockquote>
+
+    <p> If &quot;silence&quot; is shared across NPCs, this one rule will work for all of them. For custom farewell quips, individual rules will be used.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec3>Section 3: Intermingling conversation with other activities</span></b></span></p>
+    </p>
+
+    <p> Quips in a litany may have followups defined as per Reactable Quips; see the Reactable Quips documentation for details on how this works. Note that while Reactions require a response from the player, ordinary conversation does not. This is a departure from the Phototalk model, but tracks more modern works such as City of Secrets or Beyond. If you wish to require conversation to continue until stopped, include the following code in your project.</p>
+
+    <p><blockquote><span class="indexdullblue"> Before doing something when QBC is active (this is the QBC force conversation rule):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; unless the current action is QBC responding with or the current action is QBC recap, say &quot;[bracket]I need some kind of reaction from you to continue the scene.  Enter a number, or say REPEAT to reacquaint yourself with your options.[close bracket][paragraph break]&quot; instead.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> The QBC force conversation rule is listed first in the before rules.</span></blockquote>
+
+    <p> This code may change across versions of Quip-Based Conversations, so if you upgrade mid-project, check this section again. Also, make sure that all conversations have some option that that both re-enables itself and terminates the conversation, or players will get stuck!</p>
+
+    <p> If you keep the default, interruptible conversations, you will need to ensure that conversations terminate when the PC and the NPC being spoken to are no longer in the same location. If NPCs do not move, a simple</p>
+
+    <p><blockquote><span class="indexdullblue"> Before going: terminate the conversation.</span></blockquote>
+
+    <p> will suffice; terminating a conversation that is not in progress is harmless. If you wish to check to see if you are in a conversation, as we did above in the force conversation rule, the condition to check is</p>
+
+    <p><blockquote><span class="indexdullblue"> if QBC is active</span></blockquote>
+
+    <p><p><span class="indexblack"><b><span id=docsec4>Section 4: Customizing messages</span></b></span></p>
+    </p>
+
+    <p> QBC builds upon Reactable Quips, and so most of the text customizations available there also apply to QBC. The most relevant are the &quot;generic ask quip&quot;, which is printed if the player attempts to speak to an NPC whose litany is entirely exhausted and who has no greeting defined, and the RQ out of range rules, which are followed on invalid input.</p>
+
+    <p> QBC also defines two new text variables: The two new ones are the &quot;QBC talking cue&quot; - the hint to the player that TALK TO is the preferred verb for conversation - and the &quot;QBC no conversation error&quot;, which is printed if a recap is forced when no conversation is active. The latter is unlikely to see use in normal circumstances.</p>
+
+    <p><hr>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td halign="left" valign="top" cellpadding=0 cellspacing=0 width=38px>
+                <span id=eg1><table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="oval">
+                        <td width=38px height=30px align="left" valign="center">
+                            <a href="Quip-Based Conversation.html#eg1" style="text-decoration: none"><div class="paragraph Body" style="line-height: 1px; margin-bottom: 0px; margin-top: 0px; padding-bottom: 0pt; padding-top: 0px; text-align: center;">
+                                <span class="extensionexampleletter">A</span></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                </span>
+            </td>
+            <td cellpadding=0 cellspacing=0 halign="left" valign="top">
+                <a href="Quip-Based Conversation.html#eg1" style="text-decoration: none"><img border="0" src='inform:/doc_images/asterisk.png'><img border="0" src='inform:/doc_images/asterisk.png'><img border="0" src='inform:/doc_images/asterisk.png'><b><span class="indexdarkgrey">&nbsp;Example&nbsp;</span><span class="indexblack">Joe Schmoe Revisited</span></b></a><br>
+                <p>A reimplementation of David Glasser's PHTALKOO. H example, with additions showing interaction with Reactable Quips and independent conversations.</p>
+
+            </td>
+        </tr>
+    </table>
+    <table border="0" cellspacing="0" cellpadding="0" class="extensionexample" width=100%>
+        <tr>
+            <td align="left" valign="top">
+                <p></p>
+
+                <p><blockquote><span class="indexdullblue"><a href="javascript:pasteCode('[=0x0022=]Joe Schmoe Revisited[=0x0022=][=0x000A=][=0x000A=]The story headline is [=0x0022=]An Interactive Revisiting of the phtalkoo.h Test[=0x0022=].[=0x000A=]Include Quip-Based Conversation by Michael Martin.[=0x000A=]Use no scoring and no deprecated features.[=0x000A=][=0x000A=]Chapter 1 - The Setup[=0x000A=][=0x000A=]When play begins, say [=0x0022=]Joe Schmoe is yor frend![=0x0022=][=0x000A=][=0x000A=]Joe Schmoe[=0x0027=]s Place is a room. [=0x0022=]You are in Joe Schmoe[=0x0027=]s place.[=0x0022=][=0x000A=][=0x000A=]Joe Schmoe is a man in Joe Schmoe[=0x0027=]s Place. The description is [=0x0022=]This is Joe. It[=0x0027=]s yor frend![=0x0022=] The litany of Joe Schmoe is the Table of Joe Comments.[=0x000A=][=0x000A=]The greeting of yourself is selftalk.[=0x000A=][=0x000A=]Casting Xyzzy is an action applying to nothing. Understand [=0x0022=]xyzzy[=0x0022=] as casting xyzzy. Carry out casting xyzzy: deliver the xyzzy quip; run a conversation on the Table of Magic Followups.[=0x000A=][=0x000A=]Chapter 2 - The Script[=0x000A=][=0x000A=]Section 1 - The Text[=0x000A=][=0x000A=]Table of Quip Texts (continued)[=0x000A=]quip[=0x0009=]quiptext[=0x000A=]selftalk[=0x0009=][=0x0022=]Talking to yourself is not particularly fun.[=0x0022=][=0x000A=]who-am-i[=0x0009=][=0x0022=][=0x0027=]My name is Joe Schmoe and Inform hates me.[=0x0027=][=0x0022=][=0x000A=]why-hate[=0x0009=][=0x0022=][=0x0027=]I tried to compile a game and it gave me 40 Problem messages.[=0x0027=][=0x0022=][=0x000A=]yay-inform[=0x0009=][=0x0022=][=0x0027=]Thanks so much! You[=0x0027=]re the greatest![=0x0027=][=0x0022=][=0x000A=]hate-you[=0x0009=][=0x0022=][=0x0027=]I hate you![=0x0027=][paragraph break] Joe kills you.[=0x0022=][=0x000A=]hate-you-2[=0x0009=][=0x0022=][=0x0027=]I hate you![=0x0027=][paragraph break] Joe kills you.[=0x0022=][=0x000A=]hate-you-3[=0x0009=][=0x0022=][=0x0027=]I hate you![=0x0027=][paragraph break] Joe kills you.[=0x0022=][=0x000A=]hate-pedants[=0x0009=][=0x0022=][=0x0027=]I hate pedants![=0x0027=][paragraph break] Joe kills you.[=0x0022=][=0x000A=]yay-monkeys[=0x0009=][=0x0022=][=0x0027=]Of course I like monkeys.[=0x0027=][=0x0022=][=0x000A=]yay-you[=0x0009=][=0x0022=][=0x0027=]Now we can be friends![=0x0027=][=0x0022=][=0x000A=]say-nothing[=0x0009=][=0x0022=]You decide not to say anything after all.[=0x0022=][=0x000A=]ehn-apes[=0x0009=][=0x0022=][=0x0027=]Apes are OK, I guess.[=0x0027=][=0x0022=][=0x000A=]ehn-lemurs[=0x0009=][=0x0022=][=0x0027=]I don[=0x0027=]t really have an opinion on lemurs.[=0x0027=][=0x0022=][=0x000A=]xyzzy[=0x0009=][=0x0022=]What[=0x0027=]s the other magic word?[=0x0022=][=0x000A=][=0x000A=]Table of Joe Comments[=0x000A=]prompt[=0x0009=]response[=0x0009=]enabled[=0x000A=][=0x0022=]Who are you?[=0x0022=][=0x0009=]who-am-i[=0x0009=]1[=0x000A=][=0x0022=]Why does Inform hate you?[=0x0022=][=0x0009=]why-hate[=0x0009=]0[=0x000A=][=0x0022=]You probably just left out a semi-colon.[=0x0022=][=0x0009=]yay-inform[=0x0009=]0[=0x000A=][=0x0022=]I don[=0x0027=]t care.[=0x0022=][=0x0009=]hate-you[=0x0009=]0[=0x000A=][=0x0022=]Ha, ha. Inform hates you.[=0x0022=][=0x0009=]hate-you-2[=0x0009=]0[=0x000A=][=0x0022=]Do you like a monkey?[=0x0022=][=0x0009=]yay-monkeys[=0x0009=]1[=0x000A=][=0x0022=]Only crazy people like monkeys.[=0x0022=][=0x0009=]hate-you-3[=0x0009=]0[=0x000A=][=0x0022=]No, I said [=0x0027=]a monkey[=0x0027=], not [=0x0027=]monkeys[=0x0027=].[=0x0022=][=0x0009=]hate-pedants[=0x0009=]0[=0x000A=][=0x0022=]I like monkeys too.[=0x0022=][=0x0009=]yay-you[=0x0009=]0[=0x000A=][=0x0022=]Say nothing[=0x0022=][=0x0009=]say-nothing[=0x0009=]1[=0x000A=][=0x000A=]Table of Quip Followups (continued)[=0x000A=]quip[=0x0009=]option[=0x0009=]result[=0x000A=]yay-monkeys[=0x0009=][=0x0022=]What about apes?[=0x0022=][=0x0009=]ehn-apes[=0x000A=]yay-monkeys[=0x0009=][=0x0022=]What about lemurs?[=0x0022=][=0x0009=]ehn-lemurs[=0x000A=][=0x000A=]Table of Magic Followups[=0x000A=]prompt[=0x0009=]response[=0x0009=]enabled[=0x000A=][=0x0022=]PLUGH[=0x0022=][=0x0009=]yay-you[=0x0009=]1[=0x000A=][=0x0022=]There are at least two; which one?[=0x0022=][=0x0009=]hate-pedants[=0x0009=]1[=0x000A=][=0x000A=]Section 2 - Dialogue affects itself[=0x000A=][=0x000A=]After quipping when the current quip is who-am-i:[=0x000A=][=0x0009=]enable the why-hate quip;[=0x000A=][=0x0009=]enable the hate-you quip.[=0x000A=][=0x000A=]After quipping when the current quip is why-hate:[=0x000A=][=0x0009=]disable the hate-you quip;[=0x000A=][=0x0009=]enable the hate-you-2 quip;[=0x000A=][=0x0009=]enable the yay-inform quip.[=0x000A=][=0x000A=]After quipping when the current quip is yay-monkeys:[=0x000A=][=0x0009=]enable the hate-you-3 quip;[=0x000A=][=0x0009=]enable the hate-pedants quip;[=0x000A=][=0x0009=]enable the yay-you quip.[=0x000A=][=0x000A=]After quipping when the current quip is say-nothing:[=0x000A=][=0x0009=]enable the say-nothing quip;[=0x000A=][=0x0009=]terminate the conversation.[=0x000A=][=0x000A=]Section 3 - Dialogue affects the game[=0x000A=][=0x000A=]After quipping when the current quip is hate-you: end the story saying [=0x0022=]You have died[=0x0022=].[=0x000A=]After quipping when the current quip is hate-you-2: end the story saying [=0x0022=]You have died[=0x0022=].[=0x000A=]After quipping when the current quip is hate-you-3: end the story saying [=0x0022=]You have died[=0x0022=].[=0x000A=]After quipping when the current quip is hate-pedants: end the story saying [=0x0022=]You have died[=0x0022=].[=0x000A=]After quipping when the current quip is yay-inform: end the story finally saying [=0x0022=]You have won[=0x0022=].[=0x000A=]After quipping when the current quip is yay-you: end the story finally saying [=0x0022=]You have won[=0x0022=].[=0x000A=][=0x000A=]Section 4 - Tests[=0x000A=][=0x000A=]test me with [=0x0022=]talk to me / x joe / talk to joe / 1 / x me / 1 / repeat / 3 / x me / 1 / 1[=0x0022=].[=0x000A=]test xyzzy with [=0x0022=]xyzzy / 1[=0x0022=].[=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a> &quot;Joe Schmoe Revisited&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The story headline is &quot;An Interactive Revisiting of the phtalkoo.h Test&quot;.<br>
+                 Include Quip-Based Conversation by Michael Martin.<br>
+                 Use no scoring and no deprecated features.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Chapter 1 - The Setup</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> When play begins, say &quot;Joe Schmoe is yor frend!&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Joe Schmoe's Place is a room. &quot;You are in Joe Schmoe's place.&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Joe Schmoe is a man in Joe Schmoe's Place. The description is &quot;This is Joe. It's yor frend!&quot; The litany of Joe Schmoe is the Table of Joe Comments.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The greeting of yourself is selftalk.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Casting Xyzzy is an action applying to nothing. Understand &quot;xyzzy&quot; as casting xyzzy. Carry out casting xyzzy: deliver the xyzzy quip; run a conversation on the Table of Magic Followups.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Chapter 2 - The Script</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Section 1 - The Text</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Table of Quip Texts (continued)</span><br>
+                <table border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> quip</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> quiptext
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> selftalk</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;Talking to yourself is not particularly fun.&quot;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> who-am-i</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;'My name is Joe Schmoe and Inform hates me.'&quot;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> why-hate</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;'I tried to compile a game and it gave me 40 Problem messages.'&quot;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> yay-inform</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;'Thanks so much! You're the greatest!'&quot;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> hate-you</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;'I hate you!'[paragraph break] Joe kills you.&quot;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> hate-you-2</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;'I hate you!'[paragraph break] Joe kills you.&quot;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> hate-you-3</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;'I hate you!'[paragraph break] Joe kills you.&quot;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> hate-pedants</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;'I hate pedants!'[paragraph break] Joe kills you.&quot;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> yay-monkeys</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;'Of course I like monkeys.'&quot;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> yay-you</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;'Now we can be friends!'&quot;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> say-nothing</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;You decide not to say anything after all.&quot;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> ehn-apes</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;'Apes are OK, I guess.'&quot;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> ehn-lemurs</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;'I don't really have an opinion on lemurs.'&quot;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> xyzzy</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;What's the other magic word?&quot;</span>
+                        </td>
+                    </tr>
+                </table>
+                </blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Table of Joe Comments</span><br>
+                <table border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> prompt</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> response</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> enabled
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;Who are you?&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> who-am-i</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> 1
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;Why does Inform hate you?&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> why-hate</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> 0
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;You probably just left out a semi-colon.&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> yay-inform</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> 0
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;I don't care.&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> hate-you</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> 0
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;Ha, ha. Inform hates you.&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> hate-you-2</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> 0
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;Do you like a monkey?&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> yay-monkeys</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> 1
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;Only crazy people like monkeys.&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> hate-you-3</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> 0
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;No, I said 'a monkey', not 'monkeys'.&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> hate-pedants</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> 0
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;I like monkeys too.&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> yay-you</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> 0
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;Say nothing&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> say-nothing</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> 1</span>
+                        </td>
+                    </tr>
+                </table>
+                </blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Table of Quip Followups (continued)</span><br>
+                <table border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> quip</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> option</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> result
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> yay-monkeys</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;What about apes?&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> ehn-apes
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> yay-monkeys</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;What about lemurs?&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> ehn-lemurs</span>
+                        </td>
+                    </tr>
+                </table>
+                </blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Table of Magic Followups</span><br>
+                <table border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> prompt</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> response</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> enabled
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;PLUGH&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> yay-you</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> 1
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;There are at least two; which one?&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> hate-pedants</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> 1</span>
+                        </td>
+                    </tr>
+                </table>
+                </blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Section 2 - Dialogue affects itself</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> After quipping when the current quip is who-am-i:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; enable the why-hate quip;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; enable the hate-you quip.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> After quipping when the current quip is why-hate:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; disable the hate-you quip;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; enable the hate-you-2 quip;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; enable the yay-inform quip.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> After quipping when the current quip is yay-monkeys:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; enable the hate-you-3 quip;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; enable the hate-pedants quip;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; enable the yay-you quip.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> After quipping when the current quip is say-nothing:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; enable the say-nothing quip;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; terminate the conversation.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Section 3 - Dialogue affects the game</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> After quipping when the current quip is hate-you: end the story saying &quot;You have died&quot;.<br>
+                 After quipping when the current quip is hate-you-2: end the story saying &quot;You have died&quot;.<br>
+                 After quipping when the current quip is hate-you-3: end the story saying &quot;You have died&quot;.<br>
+                 After quipping when the current quip is hate-pedants: end the story saying &quot;You have died&quot;.<br>
+                 After quipping when the current quip is yay-inform: end the story finally saying &quot;You have won&quot;.<br>
+                 After quipping when the current quip is yay-you: end the story finally saying &quot;You have won&quot;.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Section 4 - Tests</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> test me with &quot;talk to me / x joe / talk to joe / 1 / x me / 1 / repeat / 3 / x me / 1 / 1&quot;.<br>
+                 test xyzzy with &quot;xyzzy / 1&quot;.</span></blockquote>
+
+                <p></p>
+
+            </td>
+        </tr>
+    </table>
+    </p>
+
+    <p>
+    <!--CONTENT ENDS-->
+</body>
+</html>

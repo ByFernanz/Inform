@@ -1,0 +1,1163 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Extension</title>
+    <style type="text/css">
+        <!--
+        /* The default font (family) and size */
+
+        body, p, td {
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.8rem; /* 100/125 */
+        }
+
+        /* For fixed-point material within text, such as the typing on the Library Card index page */
+
+        span.typewritten {
+        	font-family: monospace;
+        	font-size: 0.867rem; /* 13/12 * 100/125 */
+        }
+
+        /* For less important material: the small print */
+
+        span.smaller {
+        	font-size: 80%;
+        }
+
+        /* The "heading panel" is the coloured box, high up on the page. The colours
+        vary depending on the page: for example, the style on a report of a translation
+        with no problems is "headingpanelsucceeded", usually green, but if there were
+        problems then "headingpanelfailed" is used, which is usually red. "headingpanel"
+        itself is a more neutral grey by default. "headingpanelDark" is an alternative
+        look to make the extensions index pages have some visual contrast with the others;
+        by default they are a darker grey. */
+
+        .headingpanel {
+        	background: #eeeeee;
+        }
+        .headingpanelsucceeded {
+        	background: #E6FFE6;
+        }
+        .headingpanelfailed {
+        	background: #f69Ca6;
+        }
+        .headingpanelalt {
+        	background: #808080;
+        }
+
+        /* Heading panels have two lines of text: an upper one in a larger size, and a
+        lower one in a smaller. Again, the alt versions are meant to contrast.
+
+        	Report on Translation: Succeeded                <-- headingpaneltext
+        	Produced by Inform 10.1.0 (build 6U97)          <-- headingpanelrubric
+
+        	Installed Extensions                            <-- headingpaneltextalt
+        	Bundles of extra rules or phrases to...         <-- headingpanelrubricalt
+
+        */
+
+        span.headingpaneltext {
+        	color: #222222;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+        span.headingpaneltextalt {
+        	color: #ffffff;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        span.headingpanelrubric {
+        	color: #222222;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.733rem; /* 11/12 * 100/125 */
+        	font-weight: bold;
+        }
+        span.headingpanelrubricalt {
+        	color: #ffffff;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.733rem; /* 11/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* Horizontal rule styling */
+
+        div.hr {
+        	border: 0;
+        	width: 100%;
+        	color: #707070;
+        	background-color: #707070;
+        	height: 5px;
+        }
+
+        /* This styles the (usually white) text of the example numbers written inside
+        oval blobs in the extension documentation, which mimic the look of the in-app
+        documentation. */
+
+        .oval, .oval td {
+        	background-image:url('inform:/doc_images/ovoid.png');
+        	color:white;
+        }
+
+        /* Styling used in the extension documentation indexes: */
+
+        /* Used for extension names in the extensions pane of the app */
+
+        span.extensioncensusentry {
+        	color: #ffffff;
+        }
+
+        span.extensionindexentry {
+        	color: #404040;
+        }
+
+        span.extensionindexerror {
+        	color: #ff8080;
+        }
+
+        /* This is used in extension documentation, where an example is presented
+        in a slightly tinted box: */
+
+        table.extensionexample {
+        	background-color: #f0f0f0;
+        }
+
+        span.extensionexampleletter {
+        	color: #202020;
+        	font-size: 14px;
+        	font-weight: bold;
+        }
+
+        /* Seen in problem messages: */
+
+        span.problemred {
+        	color: #800000;
+        }
+
+        span.problemgreen {
+        	color: #008000;
+        }
+
+        span.phraseword {
+        	color: #808080;
+        }
+
+        span.phrasetokentext {
+        	color: #e00060;
+        }
+
+        span.phrasetokendesctext {
+        	color: #4040ff;
+        }
+
+        span.phrasetokenvaluetext {
+        	color: #ff4040;
+        }
+
+        /* Now we move on to styling used in the Index pages only: */
+
+        /* The periodic table display has "sidebars", usually grey and taller than they
+        are wide; they contain no text. */
+
+        div.periodictablesidebarcolour {
+        	background: #888;
+        }
+        div.periodictablesidebar:hover {
+        	background: #222;
+        }
+
+        /* The text of the element-abbreviation, such as "Lx" or "Ph", uses: */
+
+        span.elementtext {
+        	color: #ffffff;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* Similarly for the "atomic number" - a single digit - in the top left corner
+        of these boxes: */
+
+        span.elementnumbertext {
+        	color: #ffffff;
+        	font-size: 0.622rem; /* 7/12 * 96/72 * 100/125 */
+        }
+
+        /* For the text of the element title, to the right of the element box: */
+
+        span.elementtitletext {
+        	color: #ffffff;
+        	font-size: 0.6rem; /* 9/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* The banner at the top of each element: */
+
+        table.elementbanner {
+        	background: #eeeeee;
+        }
+
+        /* For the typewriting on the Library Card: */
+
+        span.librarycardtitle {
+        	color: #803030;
+        }
+
+        span.librarycardother {
+        	color: #303030;
+        }
+
+        /* Generically used for "more details" boxes in the index: */
+
+        table.indexmorebox {
+        	background-color: #e0e0e0;
+            border-radius: 8px;
+        }
+
+        /* But not for activity contents: */
+
+        table.indexactivitycontents {
+        	background-color: #e8e0c0;
+            border-radius: 8px;
+        }
+
+        /* For responses in index entries about rules: */
+
+        span.indexresponseletter {
+        	color: #ffffff;
+        	font-family: 'Courier New', Courier, monospace;
+        	background-color: #8080ff;
+        }
+
+        span.indexresponsetext {
+        	color: #000066;
+        }
+
+        /* Used ubiquitously throughout the index and extension documentation: */
+
+        span.indexblack {
+        	color: #000000;
+        }
+
+        span.indexgrey {
+        	color: #808080;
+        }
+
+        span.indexdarkgrey {
+            color: #505050;
+        }
+
+        span.indexdullred {
+        	color: #800000;
+        }
+
+        span.indexdullgreen {
+        	color: #008000;
+        }
+
+        span.indexdullblue {
+        	color: #000080;
+        }
+
+        /* Used for the room squares in the World map in the Index (which is currently
+        a table with one row of one column) */
+
+        table.indexmaproom {
+        	border-color: #000000;
+        }
+
+        /* Used in the numbering of levels of the World map in the Index */
+
+        span.indexmaplevelnumbers {
+        	color: #c0c0c0;
+        }
+
+        /* Used e.g. for title rows in the Chart of basic kinds in the Index */
+
+        tr.headingrow {
+        	background-color: #e0e0e0;
+        }
+
+        /* Standard rows have black text on striped background colours, these being
+        the usual ones seen in Mac OS X applications such as iTunes. */
+
+        tr.stripeone {
+        	background-color: #ffffff;
+        }
+
+        tr.stripetwo {
+        	background-color: #f3f6fa;
+        }
+
+        tr.tintedrow {
+        	background-color: #808080;
+        }
+
+        /* In the Figures index, this is the background colour used behind images
+        (though in fact it will only be visible if the image fails to load, or uses
+        transparency): */
+
+        div.figureindexbox {
+        	background-color: #6495ed;
+        }
+
+        /* To get the book-contents-page style leaders on the Contents element of
+           the index to work, these must use the background colour of the body of
+           the page, whatever that is: */
+
+        ul.leaders li.leaded span:first-child {
+        	background: white;
+        }
+        ul.leaders li.leaded span + span {
+        	background: white;
+        }
+
+        /* On Registry index pages (such as the Public Library), these are used for
+        download buttons and the like: */
+
+        span.registrybuttontext {
+        	font-size: 11px;
+        	border-color: #000000;
+        }
+
+        span.registryminibuttontext {
+        	font-size: 10px;
+        	border-color: #000000;
+        }
+
+        span.registrybuttonuninstalled {
+        	color: #000000;
+        	background: #ffffdd;
+        }
+
+        span.registrybuttoninstalled {
+        	color: #000000;
+        	background: #ffffff;
+        	pointer-events: none;
+        }
+
+        span.registrybuttonbuiltin {
+        	color: #888888;
+        	background: #ffffff;
+        	pointer-events: none;
+        }
+
+        span.registrybuttonupdate {
+        	color: #000000;
+        	background: #aaddff;
+        }
+
+        span.registrybuttonrevert {
+        	color: #000000;
+        	background: #ddaaff;
+        }
+
+        span.registrybuttonrevealer {
+        	color: #ffffff;
+        	background: #444444;
+        }
+
+        /* Registry index section headings: */
+
+        span.registrysectionname {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 16px;
+        	line-height: 18px;
+        }
+        span.registrysubsectionname {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 14px;
+        	line-height: 16px;
+        }
+
+        /* These are for the "mark" for a section, usually a section-symbol and number */
+
+        span.registrysectionmark {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 16px;
+        	line-height: 18px;
+        	color: #666;
+        }
+        span.registrysubsectionmark {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 14px;
+        	line-height: 16px;
+        	color: #666;
+        }
+
+        /* Text of an item listed in a registry: */
+
+        span.registryitemtext {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 12px;
+        	line-height: 16px;
+        }
+
+        /* And how the links in a registry index page behave: */
+
+        a.registrysilentlink {
+        	text-decoration: none;
+        	color: #000;
+        }
+        a.registrybuttonlink {
+        	text-decoration: none;
+        }
+        a.registrycontentslink:link {
+        	text-decoration: none;
+        	color: #202020;
+        }
+        a.registrycontentslink:visited {
+        	text-decoration: none;
+        	color: #202020;
+        }
+        a.registrycontentslink:hover {
+        	text-decoration: none;
+        	color: #D00000;
+        }
+        a.registrycontentslink:active {
+        	text-decoration: none;
+        	color: #D00000;
+        }
+
+        -->
+    </style>
+    <style type="text/css">
+        <!--
+        /* (1) General layout material */
+
+        *, *:before, *:after {
+        	-moz-box-sizing: border-box;
+        	-webkit-box-sizing: border-box;
+        	box-sizing: border-box;
+        }
+        .headingpanellayout {
+        	position: relative;
+        	height: 56px;
+        	padding: 0px;
+        	white-space:nowrap;
+        }
+        .headingpanellayoutdeeper {
+        	position: relative;
+        	height: 117px;
+        	padding: 0px;
+        	white-space:nowrap;
+        }
+        .headingtext {
+        	position: absolute;
+        	top: -4px;
+        	left: -1px;
+        	width: 100%;
+        	padding: 14px 10px 0px 10px;
+        }
+        .headingrubric {
+        	position: absolute;
+        	top: 36px;
+        	width: 100%;
+        	padding: 0px 10px 0px 10px;
+        }
+        h3.tighter {
+        	margin-top: 0px;
+        }
+        p.hang {
+        	padding-left: 25px;
+        	text-indent: -25px;
+        	margin-top: 0px;
+        	margin-bottom: 0px;
+        }
+        p.in1 {
+        	padding-left: 0px;
+        }
+        p.tightin1 {
+        	padding-left: 0px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin1 {
+        	padding-left: 0px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin1 {
+        	padding-left: 50px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in2 {
+        	padding-left: 25px;
+        }
+        p.tightin2 {
+        	padding-left: 25px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin2 {
+        	padding-left: 25px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin2 {
+        	padding-left: 75px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in3 {
+        	padding-left: 50px;
+        }
+        p.tightin3 {
+        	padding-left: 50px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin3 {
+        	padding-left: 50px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin3 {
+        	padding-left: 100px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in4 {
+        	padding-left: 75px;
+        }
+        p.tightin4 {
+        	padding-left: 75px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin4 {
+        	padding-left: 75px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin4 {
+        	padding-left: 125px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in5 {
+        	padding-left: 100px;
+        }
+        p.tightin5 {
+        	padding-left: 100px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin5 {
+        	padding-left: 100px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin5 {
+        	padding-left: 150px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in6 {
+        	padding-left: 125px;
+        }
+        p.tightin6 {
+        	padding-left: 125px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin6 {
+        	padding-left: 125px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin6 {
+        	padding-left: 175px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in7 {
+        	padding-left: 150px;
+        }
+        p.tightin7 {
+        	padding-left: 150px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin7 {
+        	padding-left: 150px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin7 {
+        	padding-left: 200px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in8 {
+        	padding-left: 175px;
+        }
+        p.tightin8 {
+        	padding-left: 175px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin8 {
+        	padding-left: 175px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin8 {
+        	padding-left: 225px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in9 {
+        	padding-left: 200px;
+        }
+        p.tightin9 {
+        	padding-left: 200px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin9 {
+        	padding-left: 200px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin9 {
+        	padding-left: 250px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+
+        /* (2) Index page layout material */
+
+        /* The periodic table display has "sidebars", usually grey and taller than they
+        are wide; they contain no text. */
+
+        div.periodictablesidebar {
+        	height: 56px;
+        	width: 16px;
+        }
+        .periodictablesidebar a:link { text-decoration: none; }
+        .periodictablesidebar a:visited { text-decoration: none; }
+        .periodictablesidebar a:active { text-decoration: none; }
+
+        /* The "element boxes" are the cells appearing in the periodic-table display
+        on the welcome page of the index: */
+
+        .elementbox {
+        	position: relative;
+        	height: 56px;
+        	width: 56px;
+        	padding: 0px;
+        }
+
+        .elementbox a:link { text-decoration: none; }
+        .elementbox a:visited { text-decoration: none; }
+        .elementbox a:active { text-decoration: none; }
+        .elementbox a:hover { text-decoration: none; }
+        .elementbox:hover {
+        	opacity: 0.6;
+        }
+
+        /* The "small element boxes" look like those, but are smaller, and used on
+        the headings of the content which those original boxes link to: */
+
+        .smallelementbox {
+        	position: relative;
+        	height: 40px;
+        	width: 40px;
+        	padding: 0px;
+        }
+
+        .smallelementbox a:link { text-decoration: none; }
+        .smallelementbox a:visited { text-decoration: none; }
+        .smallelementbox a:active { text-decoration: none; }
+        .smallelementbox a:hover { text-decoration: none; }
+        .smallelementbox:hover {
+        	opacity: 0.6;
+        }
+
+        /* This is a class for the links formed by the element boxes: */
+
+        a.elementlink {
+        	position: absolute;
+        	top: -4px;
+        	left: -1px;
+        	width: 100%;
+        	padding: 14px 0px 14px 1px;
+        	text-align: center;
+        }
+
+        /* Similarly for the "atomic number" - a single digit - in the top left corner
+        of these boxes: */
+
+        div.elementnumber {
+        	position: absolute;
+        	top: 1px;
+        	left: 3px;
+        	text-align: left;
+        }
+
+        /* For the text of the element title, to the right of the element box: */
+
+        div.elementtitle {
+        	position: absolute;
+        	top: 35px;
+        	width: 100%;
+        	text-align: center;
+        }
+
+        /* Used for the book-contents-page style leaders on the Contents element of
+           the index: */
+
+        ul.leaders {
+        	padding: 0;
+        	margin-top: 1px;
+        	margin-bottom: 0;
+        	overflow-x: hidden;
+        	list-style: none}
+        ul.leaders li.leaded:before {
+        	float: left;
+        	width: 0;
+        	white-space: nowrap;
+        	content:
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "}
+        ul.leaders li.leaded span:first-child {
+        	padding-right: 0.33em;
+        }
+        ul.leaders li.leaded span + span {
+        	float: right;
+        	padding-left: 0.33em;
+        }
+        li.indent1 span:first-child {
+        	padding-left: 25px;
+        }
+        li.indent2 span:first-child {
+        	padding-left: 50px;
+        }
+        li.indent3 span:first-child {
+        	padding-left: 75px;
+        }
+        li.indent4 span:first-child {
+        	padding-left: 100px;
+        }
+        li.indent5 span:first-child {
+        	padding-left: 125px;
+        }
+        li.indent6 span:first-child {
+        	padding-left: 150px;
+        }
+        li.indent7 span:first-child {
+        	padding-left: 175px;
+        }
+        li.indent8 span:first-child {
+        	padding-left: 200px;
+        }
+        li.indent9 span:first-child {
+        	padding-left: 225px;
+        }
+
+        li.unleaded:before {
+        	content: "";
+        }
+
+        /* On Registry index pages (such as the Public Library), these are used for
+        download buttons and the like: */
+
+        span.registrybuttons {
+        	height: 20px;
+        	padding: 2px 8px 2px 8px;
+        	margin: 2px;
+        	border:1px solid;
+        	border-radius: 5px;
+        }
+
+        span.registryminibuttons {
+        	height: 14px;
+        	padding: 2px 5px 2px 5px;
+        	margin: 2px;
+        	border:1px solid;
+        	border-radius: 4px;
+        }
+
+        /* Used to hide or display sections in the Registry pages: */
+
+        div.registrysectionitemsopen {
+        	display: block;
+        }
+
+        div.registrysectionitemsclosed {
+        	display: none;
+        }
+
+        /* Hanging indentation for Registry item paragraphs: */
+
+        p.registryitem {
+        	padding-left: 80px;
+        	text-indent: -40px;
+        }
+
+        p.registryaddition {
+        	padding-left: 40px;
+        	text-indent: -40px;
+        }
+
+        -->
+    </style>
+    <script type="text/javascript">
+        function project() {
+            return window.Project;
+        }
+        function showExtra(id, imid) {
+        	if (document.getElementById(id).style.display == 'block') {
+        		document.getElementById(id).style.display = 'none';
+        		document.getElementById(imid).src = 'inform:/extra.png';
+        	} else {
+        		document.getElementById(id).style.display = 'block';
+        		document.getElementById(imid).src = 'inform:/extraclose.png';
+        	}
+        }
+        function openExtra(id, imid) {
+        	document.getElementById(id).style.display = 'block';
+        	document.getElementById(imid).src = 'inform:/extraclose.png';
+        }
+        function closeExtra(id, imid) {
+        	document.getElementById(id).style.display = 'none';
+        	document.getElementById(imid).src = 'inform:/extra.png';
+        }
+        function pasteCode(code) {
+            var myProject = project();
+
+            myProject.selectView('source');
+            myProject.pasteCode(code);
+        }
+
+    </script>
+</head>
+<body>
+    <!--CONTENT BEGINS-->
+    <table CELLPADDING=0 CELLSPACING=0 width="100%" bgcolor="#000000"><tr><TD width=38px height=26px align="center" valign="center"><a href="inform://Extensions/Extensions.html" border=0><img border=0 src="inform:/doc_images/Hookindex.png" border=0></a></td><TD width=38px height=26px align="center" valign="center"></td><td halign="left" valign="center" CELLPADDING=0 CELLSPACING=0><font color="#FFFFFF" size=2>Extensions</font></a></td><TD width=56px height=26px align="right" valign="center"><a href="inform:/index.html" border=0><img border=0 src="inform:/doc_images/Hookup.png" border=0></a></td></tr></table>
+
+    <p><a href="javascript:pasteCode('Include Flexible Windows by Jon Ingold.[=0x000A=][=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a>&nbsp;<b>Flexible Windows<span class="extensionindexentry"> by </span>Jon Ingold</b></p>
+    <p><span class="smaller">(For Glulx Only)&nbsp; <img border=0 src=inform:/doc_images/vm_glulx.png>&nbsp;Version 15.0.220305</span></p>
+    <p>Exposes the Glk windows system so authors can completely control the creation and use of windows</p>
+    <p></p>
+    <hr>
+    <p><span class="indexblack"><b><a style="text-decoration: none" href=#docsec1>Chapter 1: </a></b></span>Introduction<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec2>Chapter 2: </a></b></span>Window Types, Properties, and Styles<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec3>Section 2.1: </a></span>Window Type<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec4>Section 2.2: </a></span>Window Position<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec5>Section 2.3: </a></span>Window Size<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec6>Section 2.4: </a></span>Text Style and Background Color<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec7>Section 2.5: </a></span>Rock Number<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec8>Chapter 3: </a></b></span>Using Windows<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec9>Section 3.1: </a></span>Overview<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec10>Section 3.2: </a></span>Opening a Window<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec11>Section 3.3: </a></span>Closing a Window<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec12>Section 3.4: </a></span>Refreshing a Window<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec13>Section 3.5: </a></span>Checking if a Window is Present<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec14>Section 3.6: </a></span>Focusing a Window<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec15>Section 3.7: </a></span>Grid window co-ordinates<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec16>Section 3.8: </a></span>Clearing a Window<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec17>Section 3.9: </a></span>Checking Which Window is in Focus<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec18>Section 3.10: </a></span>Turning Off the Status Line<br>
+    <br>
+    <b>Examples</b><br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href="Flexible Windows-eg1.html#eg1">A &mdash; Inventory Window</a></span><br>
+    </p>
+    <hr>
+    <p></p>
+    </p>
+
+    <p><p><span class="indexdullred"><b><span id=docsec1>Chapter 1: Introduction</span></b></span></p>
+    </p>
+
+    <p> Flexible Windows allows the Glulx author to construct and fill a series of multiple windows, which can be created and destroyed safely during the course of play. Restarts and restores are all handled properly. Windows can be graphical, text-buffers (like the main window is) or text-grids (in which case, glk calls can be used to place characters anywhere within them).</p>
+
+    <p> Although Flexible Windows does not supply any rules for using graphical windows beyond the most basic, several can be found in Emily Short's Simple Graphical Window extension. Version 15/160929 of Flexible Windows is compatible with version 10/160929 of Simple Graphical Window. Older versions of these two extensions are not compatible with each other.</p>
+
+    <p> Flexible Windows requires Alternative Startup Rules by Dannii Willis, Glulx Entry Points by Emily Short, and Glulx Text Effects by Emily Short.</p>
+
+    <p> Note that Flexible Windows uses the container relation for windows. We'll need to keep this in mind if we iterate through all containers.</p>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec2>Chapter 2: Window Types, Properties, and Styles</span></b></span></p>
+    </p>
+
+    <p><p><span class="indexblack"><b><span id=docsec3>Section 2.1: Window Type</span></b></span></p>
+    </p>
+
+    <p> Each window is a thing of the kind g-window. There are three types of Glulx window: text buffer, text grid and graphics. A text buffer is a teletype-style stream of text (akin to the main window), a graphics screen cannot accept text but can render images, and a text grid (akin to the status bar) allows for flexible positioning of text characters (for instance, centering text).</p>
+
+    <p> There are two potential ways to define a window's type. One is to declare it to be of the appropriate kind:</p>
+
+    <p><blockquote><span class="indexdullblue"> The side window is a text buffer g-window.<br>
+     The side window is a text grid g-window.<br>
+     The side window is a graphics g-window.</span></blockquote>
+
+    <p> The other way is to set the &quot;type&quot; property to one of g-text-buffer, g-text-grid, or g-graphics. This is useful when we can't use one of the kinds given above. The following statements are true (although they don't actually appear anywhere in the extension):</p>
+
+    <p><blockquote><span class="indexdullblue"> The type of the main window is g-text-buffer.<br>
+     The type of the status window is g-text-grid.</span></blockquote>
+
+    <p><p><span class="indexblack"><b><span id=docsec4>Section 2.2: Window Position</span></b></span></p>
+    </p>
+
+    <p> All games start, by default, with a status bar along the top of the screen, and the main window below.</p>
+
+    <p> Glulx windows are formed from the main window by carving off segments using either horizontal or vertical strokes, with each stroke creating one new window, from which further windows can be cut. This automatically creates a tree-structure for windows, with each new window being sliced from one that came before. The extension refers to this process as &quot;spawning&quot;, and you set up your layout of windows by telling the game which window spawns which.</p>
+
+    <p> The position of each new window is specified using one of four positions: g-placeabove, g-placebelow, g-placeleft and g-placeright. Note that these indicate where the new window will be, rather than the direction of the slice taken.</p>
+
+    <p> So for example, to create a banner between the main screen and the status, we would write</p>
+
+    <p><blockquote><span class="indexdullblue"> The banner window is a g-window. The main window spawns the banner window. The position of the banner window is g-placeabove.</span></blockquote>
+
+    <p> For a more complicated layout, akin to a standard email client, with folder list, contacts, preview and files windows, we would write</p>
+
+    <p><blockquote><span class="indexdullblue"> The contacts pane, folder list and preview window are g-windows. The main window spawns the preview window and the contacts pane. The contacts pane spawns the folder list.<br>
+     The position of the preview window is g-placebelow. The position of the contacts pane is g-placeleft. The position of the folder list is g-placeabove.</span></blockquote>
+
+    <p> (Try sketching it out on a piece of paper.)</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec5>Section 2.3: Window Size</span></b></span></p>
+    </p>
+
+    <p> Once the rough positions of the windows have been decided, the next thing to allocate is their size. This can be done two ways: either by taking a proportional of the window being spawned from (so a 40% slice or a 15% slice), or taking a window of fixed size (in pixels for graphics windows, and in columns/rows for text windows). The proportion to take, or the width of a fixed size side window (equivalently, the height of a top or bottom window) is set using the &quot;measurement&quot; property of the g-window. So we could write</p>
+
+    <p><blockquote><span class="indexdullblue"> The scale method of the side window is g-proportional. The measurement of the side window is 25.<br>
+     The scale method of the banner window is g-fixed-size. The measurement of the banner window is 30.</span></blockquote>
+
+    <p> Finally, if we are using proportional windows, we can optionally set a &quot;minimum size&quot;, which if the window gets below, it will take, rather than using the proportional scale.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec6>Section 2.4: Text Style and Background Color</span></b></span></p>
+    </p>
+
+    <p> Flexible Windows adds a &quot;window&quot; column to the Table of User Styles found in the Glulx Text Effects extension. We can specify styles for individual windows by continuing the table. The &quot;window&quot; column is for the name of the window; the rest of the columns are described in the Glulx Text Effects documentation.</p>
+
+    <p><blockquote><span class="indexdullblue"> Table of User Styles (continued)</span><br>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> window (a g-window)</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> style name (a glulx text style)</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> background color (a text)</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> color (a text)</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> first line indentation (a number)</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> fixed width (a truth state)</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> font weight (a font weight)</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> indentation (a number)</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> italic (a truth state)</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> justification (a text justification)</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> relative size (a number)</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> reversed (a truth state)</span>
+            </td>
+        </tr>
+    </table>
+    </blockquote>
+
+    <p> Note that the &quot;background color&quot; column is for the background color of the text only, not the background color of the entire window.</p>
+
+    <p> To color the background of the entire window, we instead set the g-window property &quot;background color&quot; to a six-digit web color code (with or without the # symbol):</p>
+
+    <p><blockquote><span class="indexdullblue"> The background color of the side window is &quot;#CCCCFF&quot;.</span></blockquote>
+
+    <p> If the story will be running in a browser, we'll need to use CSS to set custom colors or styles. See the &quot;Rock Number&quot; section for how to refer to a particular window in CSS.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec7>Section 2.5: Rock Number</span></b></span></p>
+    </p>
+
+    <p> Internally, Glulx windows are dynamic objects, created as they are opened. Our g-windows, on the other hand, are static objects. When Flexible Windows opens a window, it gives the window a number, called the &quot;rock number.&quot; This rock number serves to identify the dynamic Glk/Glulx window object as the current instantiation of the static g-window object that shares the same rock number.</p>
+
+    <p> Normally, Flexible Windows will set the rock numbers for all g-windows automatically, and the whole process occurs behind the scenes. There may be times, however, when we want to set a g-window's rock number to a particular value. For example, Quixe, the javascript Glulx interpreter, uses rock numbers to identify windows for styling with CSS. In that system, the CSS for a window with rock number 1010 might look like this:</p>
+
+    <p><blockquote><span class="indexdullblue">. WindowRock_1010 { background-color: blue; }</span></blockquote>
+
+    <p> Rocks should be numbered 200 and above. This extension starts numbering them from 1000. It is customary, though not necessary, to skip 10 when adding a new window; that is, for three windows, we'd have 1000, 1010, and 1020. In fact, this is how Flexible Windows will assign them if we don't intervene. To ensure that a g-window gets a particular rock number, we can set it like so:</p>
+
+    <p><blockquote><span class="indexdullblue"> The rock number of the side window is 245.</span></blockquote>
+
+    <p> If we set numbers ending in 5 for our manual rock numbers, we will never conflict with the automated numbering.</p>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec8>Chapter 3: Using Windows</span></b></span></p>
+    </p>
+
+    <p><p><span class="indexblack"><b><span id=docsec9>Section 3.1: Overview</span></b></span></p>
+    </p>
+
+    <p> This extension provides little in the way of support for graphics windows or text grid windows, both of which can display images and draw shapes in a full range of colours. Text grids can also locate the cursor (so, say, could be used to make a pac-man game). A few useful phrases for text-buffer windows are supplied.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec10>Section 3.2: Opening a Window</span></b></span></p>
+    </p>
+
+    <p> To open a window (for instance, our example window named &quot;side window&quot;):</p>
+
+    <p><blockquote><span class="indexdullblue"> open side window</span></blockquote>
+
+    <p> The only point to note is that the &quot;open&quot; command will, if necessary, also open any sub-windows required to reach the window you've asked for. So if the side window is a spawn of the banner window, and the banner window is currently not open, the &quot;open side window&quot; command will open both.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec11>Section 3.3: Closing a Window</span></b></span></p>
+    </p>
+
+    <p> To close the window:</p>
+
+    <p><blockquote><span class="indexdullblue"> close side window</span></blockquote>
+
+    <p> The point above applies here, in reverse: shutting a window will also shut all sub-windows contained by it.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec12>Section 3.4: Refreshing a Window</span></b></span></p>
+    </p>
+
+    <p> The refreshing activity is for redrawing windows. We can invoke the refreshing activity like this:</p>
+
+    <p><blockquote><span class="indexdullblue"> refresh side window</span></blockquote>
+
+    <p> To refresh all the windows:</p>
+
+    <p><blockquote><span class="indexdullblue"> refresh all windows</span></blockquote>
+
+    <p> The refreshing activity will automatically first check if the window is present, focus the window, and clear the window, so we usually won't need to do those things manually.</p>
+
+    <p> Rules for the refreshing activity should (ideally) be able to reconstruct entirely the contents of the window (otherwise, after an UNDO or a RESTORE, information will be lost):</p>
+
+    <p><blockquote><span class="indexdullblue"> Rule for refreshing the side window (this is the display inventory in side window rule):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; try taking inventory;</span></blockquote>
+
+    <p><p><span class="indexblack"><b><span id=docsec13>Section 3.5: Checking if a Window is Present</span></b></span></p>
+    </p>
+
+    <p> To check the existence of a window at any time, we can test for the g-present property:</p>
+
+    <p><blockquote><span class="indexdullblue"> if side window is g-present<br>
+     if side window is g-unpresent</span></blockquote>
+
+    <p> When we refresh a window, this will be done automatically.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec14>Section 3.6: Focusing a Window</span></b></span></p>
+    </p>
+
+    <p> To manually move the focus to a particular window:</p>
+
+    <p><blockquote><span class="indexdullblue"> focus side window</span></blockquote>
+
+    <p> This is usually not necessary, as focusing is done automatically when we refresh a window.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec15>Section 3.7: Grid window co-ordinates</span></b></span></p>
+    </p>
+
+    <p> To set the cursor co-ordinates of a grid window, use this phrase:</p>
+
+    <p><blockquote><span class="indexdullblue"> set status window cursor to row 1 column 5</span></blockquote>
+
+    <p> Note that co-ordinate values are 1-indexed, ie. the top left is row 1, column 1.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec16>Section 3.8: Clearing a Window</span></b></span></p>
+    </p>
+
+    <p> To manually clear a window:</p>
+
+    <p><blockquote><span class="indexdullblue"> clear side window</span></blockquote>
+
+    <p> This is usually not necessary, as clearing is done automatically when we refresh a window.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec17>Section 3.9: Checking Which Window is in Focus</span></b></span></p>
+    </p>
+
+    <p> To find out which window is currently in focus, we can check the variable &quot;current focus window&quot;:</p>
+
+    <p><blockquote><span class="indexdullblue"> Rule for printing the name of the old book while taking inventory and the current focus window is side window:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; say &quot;The Meteor, the Stone (etc.)&quot; instead.</span></blockquote>
+
+    <p><p><span class="indexblack"><b><span id=docsec18>Section 3.10: Turning Off the Status Line</span></b></span></p>
+    </p>
+
+    <p> By default, Glulx games will incorporate a status line. To turn this off quickly, a use option is provided:</p>
+
+    <p><blockquote><span class="indexdullblue"> Use no status line.</span></blockquote>
+
+    <p><hr>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td halign="left" valign="top" cellpadding=0 cellspacing=0 width=38px>
+                <span id=eg1><table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="oval">
+                        <td width=38px height=30px align="left" valign="center">
+                            <a href="Flexible Windows-eg1.html#eg1" style="text-decoration: none"><div class="paragraph Body" style="line-height: 1px; margin-bottom: 0px; margin-top: 0px; padding-bottom: 0pt; padding-top: 0px; text-align: center;">
+                                <span class="extensionexampleletter">A</span></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                </span>
+            </td>
+            <td cellpadding=0 cellspacing=0 halign="left" valign="top">
+                <a href="Flexible Windows-eg1.html#eg1" style="text-decoration: none"><img border="0" src='inform:/doc_images/asterisk.png'><b><span class="indexdarkgrey">&nbsp;Example&nbsp;</span><span class="indexblack">Inventory Window</span></b></a><br>
+                <p>A simple example showing how to place a side window displaying the player's inventory.</p>
+
+            </td>
+        </tr>
+    </table>
+    </p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p>
+    <!--CONTENT ENDS-->
+</body>
+</html>

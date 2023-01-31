@@ -1,0 +1,1850 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Extension</title>
+    <style type="text/css">
+        <!--
+        /* The default font (family) and size */
+
+        body, p, td {
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.8rem; /* 100/125 */
+        }
+
+        /* For fixed-point material within text, such as the typing on the Library Card index page */
+
+        span.typewritten {
+        	font-family: monospace;
+        	font-size: 0.867rem; /* 13/12 * 100/125 */
+        }
+
+        /* For less important material: the small print */
+
+        span.smaller {
+        	font-size: 80%;
+        }
+
+        /* The "heading panel" is the coloured box, high up on the page. The colours
+        vary depending on the page: for example, the style on a report of a translation
+        with no problems is "headingpanelsucceeded", usually green, but if there were
+        problems then "headingpanelfailed" is used, which is usually red. "headingpanel"
+        itself is a more neutral grey by default. "headingpanelDark" is an alternative
+        look to make the extensions index pages have some visual contrast with the others;
+        by default they are a darker grey. */
+
+        .headingpanel {
+        	background: #eeeeee;
+        }
+        .headingpanelsucceeded {
+        	background: #E6FFE6;
+        }
+        .headingpanelfailed {
+        	background: #f69Ca6;
+        }
+        .headingpanelalt {
+        	background: #808080;
+        }
+
+        /* Heading panels have two lines of text: an upper one in a larger size, and a
+        lower one in a smaller. Again, the alt versions are meant to contrast.
+
+        	Report on Translation: Succeeded                <-- headingpaneltext
+        	Produced by Inform 10.1.0 (build 6U97)          <-- headingpanelrubric
+
+        	Installed Extensions                            <-- headingpaneltextalt
+        	Bundles of extra rules or phrases to...         <-- headingpanelrubricalt
+
+        */
+
+        span.headingpaneltext {
+        	color: #222222;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+        span.headingpaneltextalt {
+        	color: #ffffff;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        span.headingpanelrubric {
+        	color: #222222;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.733rem; /* 11/12 * 100/125 */
+        	font-weight: bold;
+        }
+        span.headingpanelrubricalt {
+        	color: #ffffff;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.733rem; /* 11/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* Horizontal rule styling */
+
+        div.hr {
+        	border: 0;
+        	width: 100%;
+        	color: #707070;
+        	background-color: #707070;
+        	height: 5px;
+        }
+
+        /* This styles the (usually white) text of the example numbers written inside
+        oval blobs in the extension documentation, which mimic the look of the in-app
+        documentation. */
+
+        .oval, .oval td {
+        	background-image:url('inform:/doc_images/ovoid.png');
+        	color:white;
+        }
+
+        /* Styling used in the extension documentation indexes: */
+
+        /* Used for extension names in the extensions pane of the app */
+
+        span.extensioncensusentry {
+        	color: #ffffff;
+        }
+
+        span.extensionindexentry {
+        	color: #404040;
+        }
+
+        span.extensionindexerror {
+        	color: #ff8080;
+        }
+
+        /* This is used in extension documentation, where an example is presented
+        in a slightly tinted box: */
+
+        table.extensionexample {
+        	background-color: #f0f0f0;
+        }
+
+        span.extensionexampleletter {
+        	color: #202020;
+        	font-size: 14px;
+        	font-weight: bold;
+        }
+
+        /* Seen in problem messages: */
+
+        span.problemred {
+        	color: #800000;
+        }
+
+        span.problemgreen {
+        	color: #008000;
+        }
+
+        span.phraseword {
+        	color: #808080;
+        }
+
+        span.phrasetokentext {
+        	color: #e00060;
+        }
+
+        span.phrasetokendesctext {
+        	color: #4040ff;
+        }
+
+        span.phrasetokenvaluetext {
+        	color: #ff4040;
+        }
+
+        /* Now we move on to styling used in the Index pages only: */
+
+        /* The periodic table display has "sidebars", usually grey and taller than they
+        are wide; they contain no text. */
+
+        div.periodictablesidebarcolour {
+        	background: #888;
+        }
+        div.periodictablesidebar:hover {
+        	background: #222;
+        }
+
+        /* The text of the element-abbreviation, such as "Lx" or "Ph", uses: */
+
+        span.elementtext {
+        	color: #ffffff;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* Similarly for the "atomic number" - a single digit - in the top left corner
+        of these boxes: */
+
+        span.elementnumbertext {
+        	color: #ffffff;
+        	font-size: 0.622rem; /* 7/12 * 96/72 * 100/125 */
+        }
+
+        /* For the text of the element title, to the right of the element box: */
+
+        span.elementtitletext {
+        	color: #ffffff;
+        	font-size: 0.6rem; /* 9/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* The banner at the top of each element: */
+
+        table.elementbanner {
+        	background: #eeeeee;
+        }
+
+        /* For the typewriting on the Library Card: */
+
+        span.librarycardtitle {
+        	color: #803030;
+        }
+
+        span.librarycardother {
+        	color: #303030;
+        }
+
+        /* Generically used for "more details" boxes in the index: */
+
+        table.indexmorebox {
+        	background-color: #e0e0e0;
+            border-radius: 8px;
+        }
+
+        /* But not for activity contents: */
+
+        table.indexactivitycontents {
+        	background-color: #e8e0c0;
+            border-radius: 8px;
+        }
+
+        /* For responses in index entries about rules: */
+
+        span.indexresponseletter {
+        	color: #ffffff;
+        	font-family: 'Courier New', Courier, monospace;
+        	background-color: #8080ff;
+        }
+
+        span.indexresponsetext {
+        	color: #000066;
+        }
+
+        /* Used ubiquitously throughout the index and extension documentation: */
+
+        span.indexblack {
+        	color: #000000;
+        }
+
+        span.indexgrey {
+        	color: #808080;
+        }
+
+        span.indexdarkgrey {
+            color: #505050;
+        }
+
+        span.indexdullred {
+        	color: #800000;
+        }
+
+        span.indexdullgreen {
+        	color: #008000;
+        }
+
+        span.indexdullblue {
+        	color: #000080;
+        }
+
+        /* Used for the room squares in the World map in the Index (which is currently
+        a table with one row of one column) */
+
+        table.indexmaproom {
+        	border-color: #000000;
+        }
+
+        /* Used in the numbering of levels of the World map in the Index */
+
+        span.indexmaplevelnumbers {
+        	color: #c0c0c0;
+        }
+
+        /* Used e.g. for title rows in the Chart of basic kinds in the Index */
+
+        tr.headingrow {
+        	background-color: #e0e0e0;
+        }
+
+        /* Standard rows have black text on striped background colours, these being
+        the usual ones seen in Mac OS X applications such as iTunes. */
+
+        tr.stripeone {
+        	background-color: #ffffff;
+        }
+
+        tr.stripetwo {
+        	background-color: #f3f6fa;
+        }
+
+        tr.tintedrow {
+        	background-color: #808080;
+        }
+
+        /* In the Figures index, this is the background colour used behind images
+        (though in fact it will only be visible if the image fails to load, or uses
+        transparency): */
+
+        div.figureindexbox {
+        	background-color: #6495ed;
+        }
+
+        /* To get the book-contents-page style leaders on the Contents element of
+           the index to work, these must use the background colour of the body of
+           the page, whatever that is: */
+
+        ul.leaders li.leaded span:first-child {
+        	background: white;
+        }
+        ul.leaders li.leaded span + span {
+        	background: white;
+        }
+
+        /* On Registry index pages (such as the Public Library), these are used for
+        download buttons and the like: */
+
+        span.registrybuttontext {
+        	font-size: 11px;
+        	border-color: #000000;
+        }
+
+        span.registryminibuttontext {
+        	font-size: 10px;
+        	border-color: #000000;
+        }
+
+        span.registrybuttonuninstalled {
+        	color: #000000;
+        	background: #ffffdd;
+        }
+
+        span.registrybuttoninstalled {
+        	color: #000000;
+        	background: #ffffff;
+        	pointer-events: none;
+        }
+
+        span.registrybuttonbuiltin {
+        	color: #888888;
+        	background: #ffffff;
+        	pointer-events: none;
+        }
+
+        span.registrybuttonupdate {
+        	color: #000000;
+        	background: #aaddff;
+        }
+
+        span.registrybuttonrevert {
+        	color: #000000;
+        	background: #ddaaff;
+        }
+
+        span.registrybuttonrevealer {
+        	color: #ffffff;
+        	background: #444444;
+        }
+
+        /* Registry index section headings: */
+
+        span.registrysectionname {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 16px;
+        	line-height: 18px;
+        }
+        span.registrysubsectionname {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 14px;
+        	line-height: 16px;
+        }
+
+        /* These are for the "mark" for a section, usually a section-symbol and number */
+
+        span.registrysectionmark {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 16px;
+        	line-height: 18px;
+        	color: #666;
+        }
+        span.registrysubsectionmark {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 14px;
+        	line-height: 16px;
+        	color: #666;
+        }
+
+        /* Text of an item listed in a registry: */
+
+        span.registryitemtext {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 12px;
+        	line-height: 16px;
+        }
+
+        /* And how the links in a registry index page behave: */
+
+        a.registrysilentlink {
+        	text-decoration: none;
+        	color: #000;
+        }
+        a.registrybuttonlink {
+        	text-decoration: none;
+        }
+        a.registrycontentslink:link {
+        	text-decoration: none;
+        	color: #202020;
+        }
+        a.registrycontentslink:visited {
+        	text-decoration: none;
+        	color: #202020;
+        }
+        a.registrycontentslink:hover {
+        	text-decoration: none;
+        	color: #D00000;
+        }
+        a.registrycontentslink:active {
+        	text-decoration: none;
+        	color: #D00000;
+        }
+
+        -->
+    </style>
+    <style type="text/css">
+        <!--
+        /* (1) General layout material */
+
+        *, *:before, *:after {
+        	-moz-box-sizing: border-box;
+        	-webkit-box-sizing: border-box;
+        	box-sizing: border-box;
+        }
+        .headingpanellayout {
+        	position: relative;
+        	height: 56px;
+        	padding: 0px;
+        	white-space:nowrap;
+        }
+        .headingpanellayoutdeeper {
+        	position: relative;
+        	height: 117px;
+        	padding: 0px;
+        	white-space:nowrap;
+        }
+        .headingtext {
+        	position: absolute;
+        	top: -4px;
+        	left: -1px;
+        	width: 100%;
+        	padding: 14px 10px 0px 10px;
+        }
+        .headingrubric {
+        	position: absolute;
+        	top: 36px;
+        	width: 100%;
+        	padding: 0px 10px 0px 10px;
+        }
+        h3.tighter {
+        	margin-top: 0px;
+        }
+        p.hang {
+        	padding-left: 25px;
+        	text-indent: -25px;
+        	margin-top: 0px;
+        	margin-bottom: 0px;
+        }
+        p.in1 {
+        	padding-left: 0px;
+        }
+        p.tightin1 {
+        	padding-left: 0px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin1 {
+        	padding-left: 0px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin1 {
+        	padding-left: 50px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in2 {
+        	padding-left: 25px;
+        }
+        p.tightin2 {
+        	padding-left: 25px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin2 {
+        	padding-left: 25px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin2 {
+        	padding-left: 75px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in3 {
+        	padding-left: 50px;
+        }
+        p.tightin3 {
+        	padding-left: 50px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin3 {
+        	padding-left: 50px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin3 {
+        	padding-left: 100px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in4 {
+        	padding-left: 75px;
+        }
+        p.tightin4 {
+        	padding-left: 75px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin4 {
+        	padding-left: 75px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin4 {
+        	padding-left: 125px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in5 {
+        	padding-left: 100px;
+        }
+        p.tightin5 {
+        	padding-left: 100px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin5 {
+        	padding-left: 100px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin5 {
+        	padding-left: 150px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in6 {
+        	padding-left: 125px;
+        }
+        p.tightin6 {
+        	padding-left: 125px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin6 {
+        	padding-left: 125px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin6 {
+        	padding-left: 175px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in7 {
+        	padding-left: 150px;
+        }
+        p.tightin7 {
+        	padding-left: 150px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin7 {
+        	padding-left: 150px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin7 {
+        	padding-left: 200px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in8 {
+        	padding-left: 175px;
+        }
+        p.tightin8 {
+        	padding-left: 175px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin8 {
+        	padding-left: 175px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin8 {
+        	padding-left: 225px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in9 {
+        	padding-left: 200px;
+        }
+        p.tightin9 {
+        	padding-left: 200px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin9 {
+        	padding-left: 200px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin9 {
+        	padding-left: 250px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+
+        /* (2) Index page layout material */
+
+        /* The periodic table display has "sidebars", usually grey and taller than they
+        are wide; they contain no text. */
+
+        div.periodictablesidebar {
+        	height: 56px;
+        	width: 16px;
+        }
+        .periodictablesidebar a:link { text-decoration: none; }
+        .periodictablesidebar a:visited { text-decoration: none; }
+        .periodictablesidebar a:active { text-decoration: none; }
+
+        /* The "element boxes" are the cells appearing in the periodic-table display
+        on the welcome page of the index: */
+
+        .elementbox {
+        	position: relative;
+        	height: 56px;
+        	width: 56px;
+        	padding: 0px;
+        }
+
+        .elementbox a:link { text-decoration: none; }
+        .elementbox a:visited { text-decoration: none; }
+        .elementbox a:active { text-decoration: none; }
+        .elementbox a:hover { text-decoration: none; }
+        .elementbox:hover {
+        	opacity: 0.6;
+        }
+
+        /* The "small element boxes" look like those, but are smaller, and used on
+        the headings of the content which those original boxes link to: */
+
+        .smallelementbox {
+        	position: relative;
+        	height: 40px;
+        	width: 40px;
+        	padding: 0px;
+        }
+
+        .smallelementbox a:link { text-decoration: none; }
+        .smallelementbox a:visited { text-decoration: none; }
+        .smallelementbox a:active { text-decoration: none; }
+        .smallelementbox a:hover { text-decoration: none; }
+        .smallelementbox:hover {
+        	opacity: 0.6;
+        }
+
+        /* This is a class for the links formed by the element boxes: */
+
+        a.elementlink {
+        	position: absolute;
+        	top: -4px;
+        	left: -1px;
+        	width: 100%;
+        	padding: 14px 0px 14px 1px;
+        	text-align: center;
+        }
+
+        /* Similarly for the "atomic number" - a single digit - in the top left corner
+        of these boxes: */
+
+        div.elementnumber {
+        	position: absolute;
+        	top: 1px;
+        	left: 3px;
+        	text-align: left;
+        }
+
+        /* For the text of the element title, to the right of the element box: */
+
+        div.elementtitle {
+        	position: absolute;
+        	top: 35px;
+        	width: 100%;
+        	text-align: center;
+        }
+
+        /* Used for the book-contents-page style leaders on the Contents element of
+           the index: */
+
+        ul.leaders {
+        	padding: 0;
+        	margin-top: 1px;
+        	margin-bottom: 0;
+        	overflow-x: hidden;
+        	list-style: none}
+        ul.leaders li.leaded:before {
+        	float: left;
+        	width: 0;
+        	white-space: nowrap;
+        	content:
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "}
+        ul.leaders li.leaded span:first-child {
+        	padding-right: 0.33em;
+        }
+        ul.leaders li.leaded span + span {
+        	float: right;
+        	padding-left: 0.33em;
+        }
+        li.indent1 span:first-child {
+        	padding-left: 25px;
+        }
+        li.indent2 span:first-child {
+        	padding-left: 50px;
+        }
+        li.indent3 span:first-child {
+        	padding-left: 75px;
+        }
+        li.indent4 span:first-child {
+        	padding-left: 100px;
+        }
+        li.indent5 span:first-child {
+        	padding-left: 125px;
+        }
+        li.indent6 span:first-child {
+        	padding-left: 150px;
+        }
+        li.indent7 span:first-child {
+        	padding-left: 175px;
+        }
+        li.indent8 span:first-child {
+        	padding-left: 200px;
+        }
+        li.indent9 span:first-child {
+        	padding-left: 225px;
+        }
+
+        li.unleaded:before {
+        	content: "";
+        }
+
+        /* On Registry index pages (such as the Public Library), these are used for
+        download buttons and the like: */
+
+        span.registrybuttons {
+        	height: 20px;
+        	padding: 2px 8px 2px 8px;
+        	margin: 2px;
+        	border:1px solid;
+        	border-radius: 5px;
+        }
+
+        span.registryminibuttons {
+        	height: 14px;
+        	padding: 2px 5px 2px 5px;
+        	margin: 2px;
+        	border:1px solid;
+        	border-radius: 4px;
+        }
+
+        /* Used to hide or display sections in the Registry pages: */
+
+        div.registrysectionitemsopen {
+        	display: block;
+        }
+
+        div.registrysectionitemsclosed {
+        	display: none;
+        }
+
+        /* Hanging indentation for Registry item paragraphs: */
+
+        p.registryitem {
+        	padding-left: 80px;
+        	text-indent: -40px;
+        }
+
+        p.registryaddition {
+        	padding-left: 40px;
+        	text-indent: -40px;
+        }
+
+        -->
+    </style>
+    <script type="text/javascript">
+        function project() {
+            return window.Project;
+        }
+        function showExtra(id, imid) {
+        	if (document.getElementById(id).style.display == 'block') {
+        		document.getElementById(id).style.display = 'none';
+        		document.getElementById(imid).src = 'inform:/extra.png';
+        	} else {
+        		document.getElementById(id).style.display = 'block';
+        		document.getElementById(imid).src = 'inform:/extraclose.png';
+        	}
+        }
+        function openExtra(id, imid) {
+        	document.getElementById(id).style.display = 'block';
+        	document.getElementById(imid).src = 'inform:/extraclose.png';
+        }
+        function closeExtra(id, imid) {
+        	document.getElementById(id).style.display = 'none';
+        	document.getElementById(imid).src = 'inform:/extra.png';
+        }
+        function pasteCode(code) {
+            var myProject = project();
+
+            myProject.selectView('source');
+            myProject.pasteCode(code);
+        }
+
+    </script>
+</head>
+<body>
+    <!--CONTENT BEGINS-->
+    <table CELLPADDING=0 CELLSPACING=0 width="100%" bgcolor="#000000"><tr><TD width=38px height=26px align="center" valign="center"><a href="inform://Extensions/Extensions.html" border=0><img border=0 src="inform:/doc_images/Hookindex.png" border=0></a></td><TD width=38px height=26px align="center" valign="center"></td><td halign="left" valign="center" CELLPADDING=0 CELLSPACING=0><font color="#FFFFFF" size=2>Extensions</font></a></td><TD width=56px height=26px align="right" valign="center"><a href="inform:/index.html" border=0><img border=0 src="inform:/doc_images/Hookup.png" border=0></a></td></tr></table>
+
+    <p><a href="javascript:pasteCode('Include Atmospheric Effects by Mikael Segercrantz.[=0x000A=][=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a>&nbsp;<b>Atmospheric Effects<span class="extensionindexentry"> by </span>Mikael Segercrantz</b></p>
+    <p><span class="smaller">Version 6.0.140513</span></p>
+    <p>A table-based way to add atmospheric effects to rooms, regions, things and scenes.</p>
+    <p></p>
+    <hr>
+    <p><span class="indexblack"><b><a style="text-decoration: none" href=#docsec1>Chapter 1: </a></b></span>Version Note<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec2>Section 1.1: </a></span>6L02 Compatibility Update<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec3>Chapter 2: </a></b></span>The Kinds Provided<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec4>Section 2.1: </a></span>The Sceninc Types<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec5>Section 2.2: </a></span>The Running Types<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec6>Section 2.3: </a></span>The Further Types<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec7>Section 2.4: </a></span>The Ignoring Types<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec8>Section 2.5: </a></span>How Types Interact<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec9>Chapter 3: </a></b></span>The Tables Required<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec10>Section 3.1: </a></span>The Table of Atmospheric Definition<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec11>Section 3.2: </a></span>The Sub-Tables of the Table of Atmospheric Definition<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec12>Section 3.3: </a></span>The Sub-Tables of the Sub-Tables of the Table of Atmospheric Definition<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec13>Section 3.4: </a></span>The Table of Messages to Show<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec14>Chapter 4: </a></b></span>The Tables Defined<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec15>Chapter 5: </a></b></span>Overriding<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec16>Section 5.1: </a></span>How to Override this Extension's Default Behavior<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec17>Section 5.2: </a></span>How the Scenic Messaging Rule is Defined<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec18>Section 5.3: </a></span>How the Scenic Displaying Rule is Defined<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec19>Chapter 6: </a></b></span>Internals<br>
+    <br>
+    <b>Examples</b><br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href="Atmospheric Effects-eg1.html#eg1">A &mdash; Forest and Clearing</a></span><br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href="Atmospheric Effects-eg2.html#eg2">B &mdash; City and Neighborhood</a></span><br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href="Atmospheric Effects-eg3.html#eg3">C &mdash; The City-Plane of Union</a></span><br>
+    </p>
+    <hr>
+    <p></p>
+    </p>
+
+    <p><p><span class="indexdullred"><b><span id=docsec1>Chapter 1: Version Note</span></b></span></p>
+    </p>
+
+    <p> This version of the extension breaks compatibility with any previous version earlier than version 4. It is highly recommended to upgrade all code using any previous version of Atmospheric Effects to use this version.</p>
+
+    <p> Version 4 of Atmospheric Effects was a complete rewrite, containing almost all the features available in previous releases. This version is improved to work better, and to separate the displaying of scenic messages from the generation of them in a greater degree. (In the last version, where the messages were generated just before the prompt, the scene changing mechanism had run between the result of the action and the generation of messages; now, the messages are generated just after getting the result of the action, and the messages are displayed only just before prompting for the next command, which seems to fix the problem of messages dependent on scenes.)</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec2>Section 1.1: 6L02 Compatibility Update</span></b></span></p>
+    </p>
+
+    <p> This extension differs from the author's original version: it has been modified for compatibility with version 6L02 of Inform. The latest version of this extension can be found at &lt;https://github.com/i7/extensions&gt;.</p>
+
+    <p> This extension is released under the Creative Commons Attribution licence. Bug reports, feature requests or questions should be made at &lt;https://github.com/i7/extensions/issues&gt;.</p>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec3>Chapter 2: The Kinds Provided</span></b></span></p>
+    </p>
+
+    <p> This extension provides four kinds of value; a scenic type, a running type, a further type and an ignoring type.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec4>Section 2.1: The Sceninc Types</span></b></span></p>
+    </p>
+
+    <p> The scenic types are<blockquote><span class="indexdullblue"> * fully random (with full random as a synonym), displaying messages in a completely random order, without regard to if the message has been shown or not;<br>
+     * random, displaying messages in a constrained random order, so that each message in the table is shown once before any message may repeat; and<br>
+     * ordered, listing the messages in the same order they are defined in the table.</span></blockquote>
+
+    <p><p><span class="indexblack"><b><span id=docsec5>Section 2.2: The Running Types</span></b></span></p>
+    </p>
+
+    <p> The running types are<blockquote><span class="indexdullblue"> * run once (with once as a synonym), the messages of the table will show up only once; and<br>
+     * run forever (with forever as a synonym), the messages will loop once the table has been used, and if the scenic type is random, again in a random order (making sure the same message does not appear twice in a row).</span></blockquote>
+
+    <p><p><span class="indexblack"><b><span id=docsec6>Section 2.3: The Further Types</span></b></span></p>
+    </p>
+
+    <p> The further types are<blockquote><span class="indexdullblue"> * default, which changes to the Table of Default Messages once all the messages in the current table have been exhausted; and<br>
+     * stopping, which stops the current table once it has been exhausted and doesn't bring in a new source of messages.</span></blockquote>
+
+    <p><p><span class="indexblack"><b><span id=docsec7>Section 2.4: The Ignoring Types</span></b></span></p>
+    </p>
+
+    <p> The ignoring types are<blockquote><span class="indexdullblue"> * ignore, which<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; 1) In the Atmospheric Definition table on things tells the extension to ignore rooms and regions (note that at the moment this means that even if the thing has ran out of messages, it forces the room and regions to be quiet whenever it is present);<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; 2) In the Atmospheric Definition table on rooms tells the extension to ignore regions;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; 3) In the Atmospheric Definition table on regions tells the extension to ignore larger regions; and<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; 4) In the subtables of the Atmospheric Definition table tells the extension to ignore all lines after the current line in case a message was shown.<br>
+     and<br>
+     * do not ignore, which is the opposite of ignore.</span></blockquote>
+
+    <p><p><span class="indexblack"><b><span id=docsec8>Section 2.5: How Types Interact</span></b></span></p>
+    </p>
+
+    <p> For entries with a scenic type of fully random, the running type and the further type are completely ignored, and for entries with a running type of run forever, the further type is completely ignored.</p>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec9>Chapter 3: The Tables Required</span></b></span></p>
+    </p>
+
+    <p><p><span class="indexblack"><b><span id=docsec10>Section 3.1: The Table of Atmospheric Definition</span></b></span></p>
+    </p>
+
+    <p> To use scenic effects in our games, we need to define the following table:</p>
+
+    <p><blockquote><span class="indexdullblue"> Table of Atmospheric Definition (continued)</span><br>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> loci</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> ignoring</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> subtable
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> an object</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> an ignoring type</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> a table-name</span>
+            </td>
+        </tr>
+    </table>
+    </blockquote>
+
+    <p> The loci entry contains the name of the room or region for which to use the subtable entry for messages, while the ignoring type tells the extension whether to ignore messages from larger entities containing the player.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec11>Section 3.2: The Sub-Tables of the Table of Atmospheric Definition</span></b></span></p>
+    </p>
+
+    <p> In addition, for each separate subtable required, we need to define a table following the form of:</p>
+
+    <p><blockquote><span class="indexdullblue"> Table of Example Atmospheric Definition</span><br>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> during</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> initch</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> latch</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> aftcnt</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> curcnt</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> sctype</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> runtype</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> frtype</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> igtype</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> subtable
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> a scene</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> a number</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> a number</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> a number</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> a number</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> a scenic type</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> a running type</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> a further type</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> an ignoring type</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> a table-name</span>
+            </td>
+        </tr>
+    </table>
+    </blockquote>
+
+    <p> Where the during entry is the name of the scene during which the messages from the subtable will be displayed (or empty for any time), initch is the initial chance of displaying messasges, latch is the later chance for displaying messages, aftcnt is the number of messages to show before changing from the initial chance to the later chance, curcnt is the current amount of messages shown, sctype is the scenic type of the messages to be shown, runtype the running type, frtype the further type, igtype the ignoring type and finally subtable contains the name of the table from which the messages will be picked.</p>
+
+    <p> If any of these entries except the during entry and the subtable entry are missing, they will be initialized automatically. The initial chance to 100 percent, the later chance to the initial chance, the after count to 0, the scenic type to random, the running type to run forever, the further type to stopping and the ignoring type to do not ignore. If the subtable is the Table of Default Messages, the running type is automatically set to run forever and the further type to stopping. The current count is always initialized to 0. If there is no subtable entry, the whole row is ignored.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec12>Section 3.3: The Sub-Tables of the Sub-Tables of the Table of Atmospheric Definition</span></b></span></p>
+    </p>
+
+    <p> For each separate table of messages required, we also need to define a table according to the following specification:</p>
+
+    <p><blockquote><span class="indexdullblue"> Table of Example Messages</span><br>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> used</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> message
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> a number</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> text</span>
+            </td>
+        </tr>
+    </table>
+    </blockquote>
+
+    <p><p><span class="indexblack"><b><span id=docsec13>Section 3.4: The Table of Messages to Show</span></b></span></p>
+    </p>
+
+    <p> In addition, we may need to continue the Table of Messages to Show, in case there may be more than 20 messages to show at one time. This is done as follows:</p>
+
+    <p><blockquote><span class="indexdullblue"> Table of Messages to Show (continued)</span><br>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> message
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> with &lt;number&gt; blank rows</span>
+            </td>
+        </tr>
+    </table>
+    </blockquote>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec14>Chapter 4: The Tables Defined</span></b></span></p>
+    </p>
+
+    <p> This extension provides a few tables of its own, each one empty except for one blank row to contrain the contents of the table. We have already encountered one of these, the Table of Atmospheric Definition, which is used to initialize the locations and regions of the game world with the correct scenic messasges.</p>
+
+    <p> The second one is the Table of Default Atmospherics. If we fill this table up with information, the messages of any subtables of it will be shown in any room or region not mentioned in the Table of Atmospheric Definition.</p>
+
+    <p> We are also provided with the Table of Default Messages, which can be filled with messages to be used when the further type of some messasge source is default and all the messages in the original table of messages have been shown.</p>
+
+    <p> Also, the extension brings us the Table of Messages to Show, which is used to collect the messages to be displayed during one turn. The default size of the table is 20 rows, which may be increased if necessary.</p>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec15>Chapter 5: Overriding</span></b></span></p>
+    </p>
+
+    <p><p><span class="indexblack"><b><span id=docsec16>Section 5.1: How to Override this Extension's Default Behavior</span></b></span></p>
+    </p>
+
+    <p> If necessary, it is possible to override two of the rules provided by this extension. The first, called &quot;the scenic messaging rule&quot;, allows for the modification of the message-generating process. The second, called &quot;the scenic displaying rule&quot;, allows for the modification of the message-displaying process. If we wish to override one or both of these rules, it is possible with a procedural rule such as the following one:</p>
+
+    <p><blockquote><span class="indexdullblue"> Procedural rule:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; substitute own messaging rule for the scenic messaging rule;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; substitute own displaying rule for the scenic displaying rule.</span></blockquote>
+
+    <p><p><span class="indexblack"><b><span id=docsec17>Section 5.2: How the Scenic Messaging Rule is Defined</span></b></span></p>
+    </p>
+
+    <p> The scenic messaging rule provided by the extension is defined as follows:</p>
+
+    <p><blockquote><span class="indexdullblue"> A first every turn rule (this is the scenic messaging rule):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; correct synonyms;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; check thing messages;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; check room messages;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; check region messages.</span></blockquote>
+
+    <p><p><span class="indexblack"><b><span id=docsec18>Section 5.3: How the Scenic Displaying Rule is Defined</span></b></span></p>
+    </p>
+
+    <p> The scenic displaying rule provided by the extension is defined as follows:</p>
+
+    <p><blockquote><span class="indexdullblue"> A last before reading a command rule (this is the scenic displaying rule):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; display all messages.</span></blockquote>
+
+    <p> This rule has been defined as a before reading a command rule, so that the first messages will be shown before reading the first command in the game.</p>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec19>Chapter 6: Internals</span></b></span></p>
+    </p>
+
+    <p> The extension defines a kind of value called shown type used on regions. It is highly recommended that it not be used by anyone.</p>
+
+    <p> The extension also defines a region called the empty region. It is used by the extension to manage looking through regions.</p>
+
+    <p><hr>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td halign="left" valign="top" cellpadding=0 cellspacing=0 width=38px>
+                <span id=eg1><table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="oval">
+                        <td width=38px height=30px align="left" valign="center">
+                            <a href="Atmospheric Effects-eg1.html#eg1" style="text-decoration: none"><div class="paragraph Body" style="line-height: 1px; margin-bottom: 0px; margin-top: 0px; padding-bottom: 0pt; padding-top: 0px; text-align: center;">
+                                <span class="extensionexampleletter">A</span></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                </span>
+            </td>
+            <td cellpadding=0 cellspacing=0 halign="left" valign="top">
+                <a href="Atmospheric Effects-eg1.html#eg1" style="text-decoration: none"><img border="0" src='inform:/doc_images/asterisk.png'><b><span class="indexdarkgrey">&nbsp;Example&nbsp;</span><span class="indexblack">Forest and Clearing</span></b></a><br>
+                <p>A simple example of regional and room effects, and ignoring messages.</p>
+
+            </td>
+        </tr>
+    </table>
+    </p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p><hr>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td halign="left" valign="top" cellpadding=0 cellspacing=0 width=38px>
+                <span id=eg2><table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="oval">
+                        <td width=38px height=30px align="left" valign="center">
+                            <a href="Atmospheric Effects.html#eg2" style="text-decoration: none"><div class="paragraph Body" style="line-height: 1px; margin-bottom: 0px; margin-top: 0px; padding-bottom: 0pt; padding-top: 0px; text-align: center;">
+                                <span class="extensionexampleletter">B</span></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                </span>
+            </td>
+            <td cellpadding=0 cellspacing=0 halign="left" valign="top">
+                <a href="Atmospheric Effects.html#eg2" style="text-decoration: none"><img border="0" src='inform:/doc_images/asterisk.png'><img border="0" src='inform:/doc_images/asterisk.png'><b><span class="indexdarkgrey">&nbsp;Example&nbsp;</span><span class="indexblack">City and Neighborhood</span></b></a><br>
+                <p>A more complex example on using Atmospheric Effects on rooms and regions, with regions contained in other regions.</p>
+
+            </td>
+        </tr>
+    </table>
+    <table border="0" cellspacing="0" cellpadding="0" class="extensionexample" width=100%>
+        <tr>
+            <td align="left" valign="top">
+                <p></p>
+
+                <p><blockquote><span class="indexdullblue"><a href="javascript:pasteCode('[=0x0022=]City and Neighborhood[=0x0022=][=0x000A=][=0x000A=]Include Version 6 of Atmospheric Effects by Mikael Segercrantz.[=0x000A=][=0x000A=]Tower Street North is a room. Tower Street South is a room. Tower Street Middle is a room.[=0x000A=]Tower Street North is north of Tower Street Middle.[=0x000A=]Tower Street Middle is north of Tower Street South.[=0x000A=]The Tower Neighborhood is a region. Tower Street North, Tower Street South and Tower Street Middle are in the Tower Neighborhood.[=0x000A=][=0x000A=]Main Street West is a room. Main Street Middle is a room. Main Street East is a room.[=0x000A=]Main Street West is west of Main Street Middle.[=0x000A=]Main Street Middle is west of Main Street East.[=0x000A=]The Main Neighborhood is a region. Main Street West, Main Street East and Main Street Middle are in the Main Neighborhood.[=0x000A=][=0x000A=]Madden Park is a room.[=0x000A=]Madden Park is east of Main Street East.[=0x000A=]Madden Park is west of Tower Street Middle.[=0x000A=][=0x000A=]The City is a region. Madden Park, the Main Neighborhood and the Tower Neighborhood are in the City.[=0x000A=][=0x000A=]The player is in Main Street West.[=0x000A=][=0x000A=]Table of Atmospheric Definition (continued)[=0x000A=]loci[=0x0009=]ignoring[=0x0009=]subtable[=0x000A=]Madden Park[=0x0009=]ignore[=0x0009=]Table of Madden Park Definition[=0x000A=]Tower Neighborhood[=0x0009=]ignore[=0x0009=]Table of Tower Neighborhood Definition[=0x000A=]City[=0x0009=]do not ignore[=0x0009=]Table of City Definition[=0x000A=][=0x000A=]Table of Madden Park Definition[=0x000A=]during[=0x0009=]initch[=0x0009=]latch[=0x0009=]aftcnt[=0x0009=]curcnt[=0x0009=]sctype[=0x0009=]runtype[=0x0009=]frtype[=0x0009=]igtype[=0x0009=]subtable[=0x000A=]a scene[=0x0009=]100[=0x0009=]0[=0x0009=]a number[=0x0009=]a number[=0x0009=]random[=0x0009=]run forever[=0x0009=]a further type[=0x0009=]an ignoring type[=0x0009=]Table of Park Sounds[=0x000A=][=0x000A=]Table of Park Sounds[=0x000A=]used[=0x0009=]message[=0x000A=]a number[=0x0009=][=0x0022=]Birds chirp off in the trees.[=0x0022=][=0x000A=]--[=0x0009=][=0x0022=]The fountain unleashes a gush of water.[=0x0022=][=0x000A=]--[=0x0009=][=0x0022=]A man sitting atop a lawn-mover is taking care of the grass.[=0x0022=][=0x000A=][=0x000A=]Table of Tower Neighborhood Definition[=0x000A=]during[=0x0009=]initch[=0x0009=]latch[=0x0009=]aftcnt[=0x0009=]curcnt[=0x0009=]sctype[=0x0009=]runtype[=0x0009=]frtype[=0x0009=]igtype[=0x0009=]subtable[=0x000A=]a scene[=0x0009=]100[=0x0009=]0[=0x0009=]a number[=0x0009=]a number[=0x0009=]ordered[=0x0009=]run forever[=0x0009=]a further type[=0x0009=]an ignoring type[=0x0009=]Table of Tower Neighborhood Sounds[=0x000A=][=0x000A=]Table of Tower Neighborhood Sounds[=0x000A=]used[=0x0009=]message[=0x000A=]a number[=0x0009=][=0x0022=]You hear nothing but the peace and quiet of the Tower Neighborhood.[=0x0022=][=0x000A=]--[=0x0009=][=0x0022=]Some small children run towards Madden Park.[=0x0022=][=0x000A=]--[=0x0009=][=0x0022=]The neighborhood is quiet, and peace prevails.[=0x0022=][=0x000A=]--[=0x0009=][=0x0022=]Some children enter the neighborhood from the park nearby.[=0x0022=][=0x000A=][=0x000A=]Table of City Definition[=0x000A=]during[=0x0009=]initch[=0x0009=]latch[=0x0009=]aftcnt[=0x0009=]curcnt[=0x0009=]sctype[=0x0009=]runtype[=0x0009=]frtype[=0x0009=]igtype[=0x0009=]subtable[=0x000A=]a scene[=0x0009=]75[=0x0009=]a number[=0x0009=]a number[=0x0009=]a number[=0x0009=]fully random[=0x0009=]run forever[=0x0009=]a further type[=0x0009=]an ignoring type[=0x0009=]Table of City Noise[=0x000A=][=0x000A=]Table of City Noise[=0x000A=]used[=0x0009=]message[=0x000A=]a number[=0x0009=][=0x0022=]Many cars pass by, making for a loud noise level.[=0x0022=][=0x000A=]--[=0x0009=][=0x0022=]A car screeches to a halt as a pedestrian carelessly walks onto the street.[=0x0022=][=0x000A=]--[=0x0009=][=0x0022=]Sires can be heard in the distance, coming your way.[=0x0022=][=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a> &quot;City and Neighborhood&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Include Version 6 of Atmospheric Effects by Mikael Segercrantz.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Tower Street North is a room. Tower Street South is a room. Tower Street Middle is a room.<br>
+                 Tower Street North is north of Tower Street Middle.<br>
+                 Tower Street Middle is north of Tower Street South.<br>
+                 The Tower Neighborhood is a region. Tower Street North, Tower Street South and Tower Street Middle are in the Tower Neighborhood.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Main Street West is a room. Main Street Middle is a room. Main Street East is a room.<br>
+                 Main Street West is west of Main Street Middle.<br>
+                 Main Street Middle is west of Main Street East.<br>
+                 The Main Neighborhood is a region. Main Street West, Main Street East and Main Street Middle are in the Main Neighborhood.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Madden Park is a room.<br>
+                 Madden Park is east of Main Street East.<br>
+                 Madden Park is west of Tower Street Middle.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The City is a region. Madden Park, the Main Neighborhood and the Tower Neighborhood are in the City.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The player is in Main Street West.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Table of Atmospheric Definition (continued)</span><br>
+                <table border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> loci</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> ignoring</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> subtable
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> Madden Park</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> ignore</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> Table of Madden Park Definition
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> Tower Neighborhood</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> ignore</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> Table of Tower Neighborhood Definition
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> City</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> do not ignore</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> Table of City Definition</span>
+                        </td>
+                    </tr>
+                </table>
+                </blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Table of Madden Park Definition</span><br>
+                <table border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> during</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> initch</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> latch</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> aftcnt</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> curcnt</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> sctype</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> runtype</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> frtype</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> igtype</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> subtable
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> a scene</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> 100</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> 0</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> a number</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> a number</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> random</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> run forever</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> a further type</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> an ignoring type</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> Table of Park Sounds</span>
+                        </td>
+                    </tr>
+                </table>
+                </blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Table of Park Sounds</span><br>
+                <table border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> used</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> message
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> a number</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;Birds chirp off in the trees.&quot;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> --</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;The fountain unleashes a gush of water.&quot;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> --</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;A man sitting atop a lawn-mover is taking care of the grass.&quot;</span>
+                        </td>
+                    </tr>
+                </table>
+                </blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Table of Tower Neighborhood Definition</span><br>
+                <table border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> during</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> initch</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> latch</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> aftcnt</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> curcnt</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> sctype</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> runtype</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> frtype</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> igtype</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> subtable
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> a scene</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> 100</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> 0</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> a number</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> a number</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> ordered</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> run forever</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> a further type</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> an ignoring type</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> Table of Tower Neighborhood Sounds</span>
+                        </td>
+                    </tr>
+                </table>
+                </blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Table of Tower Neighborhood Sounds</span><br>
+                <table border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> used</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> message
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> a number</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;You hear nothing but the peace and quiet of the Tower Neighborhood.&quot;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> --</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;Some small children run towards Madden Park.&quot;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> --</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;The neighborhood is quiet, and peace prevails.&quot;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> --</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;Some children enter the neighborhood from the park nearby.&quot;</span>
+                        </td>
+                    </tr>
+                </table>
+                </blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Table of City Definition</span><br>
+                <table border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> during</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> initch</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> latch</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> aftcnt</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> curcnt</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> sctype</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> runtype</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> frtype</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> igtype</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> subtable
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> a scene</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> 75</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> a number</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> a number</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> a number</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> fully random</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> run forever</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> a further type</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> an ignoring type</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> Table of City Noise</span>
+                        </td>
+                    </tr>
+                </table>
+                </blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Table of City Noise</span><br>
+                <table border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> used</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> message
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> a number</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;Many cars pass by, making for a loud noise level.&quot;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> --</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;A car screeches to a halt as a pedestrian carelessly walks onto the street.&quot;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> --</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;Sires can be heard in the distance, coming your way.&quot;</span>
+                        </td>
+                    </tr>
+                </table>
+                </blockquote>
+
+                <p></p>
+
+            </td>
+        </tr>
+    </table>
+    <hr>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td halign="left" valign="top" cellpadding=0 cellspacing=0 width=38px>
+                <span id=eg3><table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="oval">
+                        <td width=38px height=30px align="left" valign="center">
+                            <a href="Atmospheric Effects-eg3.html#eg3" style="text-decoration: none"><div class="paragraph Body" style="line-height: 1px; margin-bottom: 0px; margin-top: 0px; padding-bottom: 0pt; padding-top: 0px; text-align: center;">
+                                <span class="extensionexampleletter">C</span></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                </span>
+            </td>
+            <td cellpadding=0 cellspacing=0 halign="left" valign="top">
+                <a href="Atmospheric Effects-eg3.html#eg3" style="text-decoration: none"><img border="0" src='inform:/doc_images/asterisk.png'><img border="0" src='inform:/doc_images/asterisk.png'><img border="0" src='inform:/doc_images/asterisk.png'><img border="0" src='inform:/doc_images/asterisk.png'><b><span class="indexdarkgrey">&nbsp;Example&nbsp;</span><span class="indexblack">The City-Plane of Union</span></b></a><br>
+                <p>Showing how to use the Atmospheric Effects extension using as a setting the City-Plane of Union from the Epic Level Handbook for the latest edition of AD&amp;D.</p>
+
+            </td>
+        </tr>
+    </table>
+    </p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p>
+    <!--CONTENT ENDS-->
+</body>
+</html>

@@ -1,0 +1,303 @@
+[I hope you can read this.]
+
+[I hope this works.]
+
+[I hope.]
+
+"The Gay Science" by Someone Who Loves You.
+
+[This is the truth, as I understand it.]
+
+Chapter 1 - Alethiology
+
+[There is truth here. I have to believe that. For I may only make statements of truth here. For only the truth can save you.]
+
+The story headline is "An Interactive Truth".
+
+[Only the truth can set you free.]
+
+Section 1 - Us (You and I)
+
+You are a man.
+
+Someone Who Loves You is a man.
+
+A person has some text called an appearance. The appearance of a person is usually "Nondescript."
+
+The appearance of You is "Striking. I don't usually notice appearances, honestly. I am not a visual person. I often forget what things, people look like. Asked to describe after the fact leads to my speaking in vagaries, generalities. But not you. For days after we met that first time I would find myself wondering at the color of your eyes, the dimple that appeared when your mouth quirked into a smile, the warmth of your hand upon my shoulder. "
+
+[I miss you so much. I wish I had been more honest. With you, or with myself. I wish we both had understood what you were...you are...to me.]
+
+The appearance of Someone Who Loves You is "Another face in the laboratory, I am certain. No one and nothing special. But you were very kind. And I remembered that as well."
+
+Section 2 - The World
+
+[You are trapped. I am sorry. We are doing what we can.]
+
+The Beginning is a room. The description of the Beginning is "[how it started]".
+
+[I do not know if you can see these messages, woven as they are into the very fabric of the world.]
+
+The Eternal Recurrance is a room.
+
+[All I have is hope. Or faith. Is there a difference here?]
+
+The consequence of the Eternal Recurrance is the Beginning.
+
+[This is how it happened. Is happening. We don't understand why, but this is how.]
+
+You are in the Eternal Recurrance.
+
+[You are trapped. I am sorry. We are doing what we can.]
+
+
+Chapter 2 - Beloved Stranger
+
+Section 1 - On the Nature of Men
+
+[I cannot know what you are experiencing. There are probabilities, possibilities. I can see the pillars of the earth, but not what they support.]
+
+A person has some text called a trait. The trait of a person is usually "Nondescript."
+
+The trait of You is "I must say this. And it must be the truth. Somehow I must sum you up in a word. I must compress and flatten everything I have seen and felt of you into a single string of letters. Fine, then. You are loved."
+
+The trait of Someone Who Loves You is "No. I can't. I... They say that I must be brave to do this. To reach into the vortex and not know if I shall return unchanged, with or without you. I shall believe them. I am brave." 
+
+A person has some text called a good ending. The good ending of a person is usually "was happy, mostly."
+
+The good ending of You is "escaped, somehow. And he was happy, and safe. And he... No. That is all. He was happy and safe."
+
+The good ending of Someone Who Loves You is "he succeeded and, he too, was safe. And...and he...and his beloved... they lived happily ever after. (I am not changing anything, am I? It will only happen if it is true, yes? I cannot lie, cannot hide, not here.)"
+
+A person has some text called a bad ending. The bad ending of a person is usually "was unhappy, mostly."
+
+The bad ending of You is "something I do not wish to think of."
+
+The bad ending of Someone Who Loves You is "something I shall face when it comes."
+
+Section 2 - You
+
+[They tell me what you experience must be personal. For we have lost you inside yourself. So this world must be a story of you, somehow.]
+
+To choose the protagonist:
+	choose a random row from the Table of Protagonists;
+	now the printed name of You is "[the name entry]";
+	now the trait of You is "[the trait entry]";
+	now the good ending of You is "[the good ending entry]";
+	now the bad ending of You is "[the bad ending entry]".
+	
+[A reflection, though possibly not an accurate one.]
+
+Section 3 - And I
+
+[Which is why I volunteered to be the other. To try to pull you through. And out.]
+
+To choose the other:
+	choose a random row from the Table of Beloveds;
+	now the printed name of Someone Who Loves You is "[the name entry]";
+	now the trait of Someone Who Loves You is "[the trait entry]";
+	now the good ending of Someone Who Loves You is "[the good ending entry]";
+	now the bad ending of Someone Who Loves You is "[the bad ending entry]".
+	
+[I do not know how I seem, how I must appear in another warped mirror. What mask have you given me?]
+
+Section 4 - The Beginning
+
+[And now that we are both here? Now that you are not alone?]
+
+To choose the beginning:
+	choose a random row from the Table of Beginnings;
+	now the description of The Beginning is "[the beginning entry][paragraph break][The printed name of You] [are] [the trait of You].[paragraph break][Someone Who Loves You] [are] [the trait of Someone Who Loves You]."
+
+[What are we? What will we be to each other?]
+
+To say how it started:
+	choose the protagonist;
+	choose the other;
+	choose the beginning;
+	say "[the description of the beginning]";
+
+[What kind of story are you telling yourself?]
+
+	
+Chapter 3 - The Heaviest Weight
+
+[Where did things go wrong? Why did I let outside forces dictate my actions?]
+
+The Complication is a room. The description of the Complication is "[what we allowed to come between us]".
+
+The consequence of the Beginning is the Complication. 
+
+[Where do we lose each other? Why was I not honest when I had the chance?] 
+
+To say what we allowed to come between us:
+	choose the complication;
+	say "[the description of the complication]";
+
+[When I still had a choice?]
+
+To choose the complication:
+	choose a random row from the Table of Problems;
+	now the description of the complication is "[the problem entry]".	
+
+	
+Chapter 4 - Always the Hour of Noon
+
+[There were moments of light, though.]
+
+The Transformation is a room. The description of the Transformation is "[what made us change]".
+
+The consequence of the Complication is the Transformation.
+
+[There was change, and growth. And facing my fears.]
+
+To say what made us change:
+	choose the transformation;
+	say "[the description of the transformation]";
+	
+[And in the end, whether or not I was certain of us, I was always certain of you.]
+
+To choose the transformation:
+	choose a random row from the Table of Transformations;
+	now the description of the transformation is "[the moment entry]".
+
+
+Chapter 5 - This Happy Hour
+
+[I am cheating. I have cheated.]
+
+The End is a room. The description of the End is "[where this story ends]".
+
+The consequence of the Transformation is the End.
+
+The end has a truth state called happiness.
+
+[Is the truth that happy endings are rare?]
+
+The happiness of the end is usually false.
+
+[I vacillate. Which is more likely to save you?]
+
+To say where this story ends:
+	if a random chance of 1 in 1 succeeds:
+		now the happiness of the end is true;
+		say "[the happy ending]";
+	otherwise:		
+		say "[the bad ending]".
+		
+[And so because I love you, I cheat. And give you only happy endings.]
+
+To say the happy ending:
+	say "[You] [the good ending of You][paragraph break][Someone Who Loves You] [the good ending of Someone Who Loves You]".
+
+[Though this may cost me you - lost in a endless circle of joy.]
+
+To say the bad ending:
+	say "[You] [the bad ending of You][paragraph break][Someone Who Loves You] [the bad ending of Someone Who Loves You]".
+
+[But I find that even with that risk, I cannot hurt you.]
+
+
+Chapter 6 - The Pillars of the Earth
+
+[What if some day or night a demon were to steal after you into your loneliest loneliness and say to you: 'This life as you now live it and have lived it, you will have to live once more and innumerable times more' ... Would you not throw yourself down and gnash your teeth and curse the demon who spoke thus? Or have you once experienced a tremendous moment when you would have answered him: 'You are a god and never have I heard anything more divine.' -- Die fröhliche Wissenschaft, Friedrich Nietzsche]
+
+Section 1 - The Weft of the World
+
+A room has a room called the consequence.
+
+Instead of going nowhere from a room:
+	move the player to the consequence of the location.
+
+Section 2 - The Masks We Wear
+
+Table of Protagonists
+name	trait	good ending	bad ending
+"Phum"	"aloof"	"is finally able to let down his guard."	"never lets anyone in."
+"Arthit"	"angry"	"is able to put aside his anger."	"loses himself in his anger."
+"Phana"	"arrogant"	"is able to see someone beyond himself."	"never gets over his arrogance."
+"Type"	"jealous"	"becomes confident enough to set aside his jealousy."	"ultimately never truly trusts [Someone Who Loves You]."
+"Won Suk"	"jaded"	"cracks his own facade and lets someone in."	"never escapes being jaded."
+"Tin"	"cold"	"warms."	"remains cold forever."
+"Ae"	"aggressive"	"learns to channel his aggression."	"never learns to channel his aggression."
+"Mes"	"haunted"	"escapes his past."	"never really escapes his past."
+"Rain"	"wild"	"transforms his wildness into passion."	"goes out of control."
+
+Table of Beloveds
+name	trait	good ending	bad ending
+"Tam"	"shy"	"is finally able to be himself."	"is never able to be himself."
+"Kongpob"	"earnest"	"stays true to himself."	"loses his way."
+"Wayo"	"frightened"	"overcomes his fears."	"never overcomes his fears."
+"Tharn"	"broken-hearted"	"learns to love again."	"never learns to love again."
+"Ho Dol"	"closeted"	"comes out."	"never comes out."
+"Can"	"naive"	"lives in the world without losing himself."	"never really understands the world."
+"Pete"	"passive"	"learns to assert himself."	"never learns to assert himself."
+"Thun"	"scared"	"overcomes his fears."	"never truly overcomes his fears."
+"Sun"	"tenative"	"learns to live his life authentically."	"plays it safe and never truly lives."
+
+Table of Beginnings
+beginning
+"[You] and [Someone Who Loves You] knew each other a long time ago and loved one another from afar. They have re-encountered each other years later. Only one recognizes the other."
+"[You] almost runs over [Someone Who Loves You] and ends up taking care of his injuries."
+"[You] meets [Someone Who Loves You] when he oversees a school competition he himself won years ago."
+"A drunken game leads to [You] realizing he has feelings for [Someone Who Loves You]."
+"[Someone Who Loves You] realizes he has feelings for [You] after taking care him when he suddenly becomes ill."
+"[You] and [Someone Who Loves You] were lovers in a past life, but it ended badly. They have just found each other in this life."
+"[Someone Who Loves You] dies in an accident after ending his painful relationship with [You]. He suddenly awakens to find himself nine years in the past."
+"[You] mysteriously dies as a young man. Years later, [Someone Who Loves You] somehow sees and befriends his ghost."
+"[You] is a police detective investigating the death of his mentor. His investigations lead him to believe [Someone Who Loves You], a criminal, is connected to or may be the culprit."
+"[You] encounters [Someone Who Loves You] at the bar he works at."
+"[You], a verteran actor, is set against [Someone Who Loves You] in a new production where they must play lovers."
+"[You] and [Someone Who Loves You] are rivals, until [You] realizes he has feelings for [Someone Who Loves You]."
+"[You] has been bullying [Someone Who Loves You] for years. One day, he suddenly realizes he has fallen in love with him."
+"[Someone Who Loves You] and [You] have a chance encounter but find themselves unable to reconnect. Years later, they find one another, though much has changed."
+
+
+Section O - Fati Amor
+
+[If time is a circle, how do you escape it?]
+
+Home is a room.
+	
+[I have tried to hide a way, my love, here, among the roots of the world.]
+
+Home is inside from the Beginning. Home is inside from the Complication. Home is inside from the Transformation. Home is inside from the End.
+
+[I hope you find me.]
+
+After going to Home:
+	say "You found me. Or I found you. As we promised.[paragraph break]We are found, my love.";
+	end the story.
+
+
+Table of Problems
+problem
+"[You] comes from money. [Someone Who Loves You] comes from a working-class family."
+"[You] believes that [Someone Who Loves You] is in a relationship, although he is wrong."
+"[Someone Who Loves You] has an obsessive friend who sabotages his romantic life."
+"[You] has never been in love."
+"[You] has come to believe love cannot be real."
+"[You] has a friend who confesses their love for him. [Someone Who Loves You] misundertands."
+"[Someone Who Loves You] becomes separated from [You] by circumstances beyond their control."
+"[Someone Who Loves You] suffers a great loss and disconnects from the world because of it."
+"[Someone Who Loves You] cannot say his true feelings."
+"[Someone Who Loves You] tries expressing his love for [You], but is misunderstood."
+
+Table of Transformations
+moment
+"[You] and [Someone Who Loves You] go through a stressful situation together and find themselves supporting each other."
+"[Someone Who Loves You] suddenly flees his life. [You] goes to find him."
+"[Someone Who Loves You] and [You] become trapped together for a long time. They find themselves talking at length."
+"[Someone Who Loves You] opens up about his troubles. [You] then does the same."
+"[You] and [Someone] have a knock-down, drag-out fight."
+"[You] and [Someone Who Loves You] both reveal their true feelings at the same time."
+"[Someone Who Loves You] and [You] face the possibility of their own end, together."
+"[You] and [Someone Who Loves You] find themselves caught in mundane difficulties that slowly grind them down. They find themselves depending on one another more and more."
+"[You] and [Someone Who Loves You] go on a trip together, sharing a room."
+
+
+[I hope you can read this.]
+
+[I hope this works.]
+
+[I hope.]

@@ -1,0 +1,1456 @@
+"The Origin of Madame Time" by Brian Rushton
+
+[mark things as takable or not]
+
+[Teenager guy, jeans, shoes, rolled up once jeans, hand out, clock/grandfather watch necklace, jacket open, blasting. Check https://digitalcomicmuseum.com/]
+
+Volume 1 - Preliminary Material
+
+Release along with cover art.
+
+Basement is a room.
+
+Justine Thyme is a woman in Basement. The player is Justine Thyme. The description of Justine Thyme is "You are Justine Thyme. While most of your time is spent getting straight A's in high school or studying up on superheroes, you also have been conducting research on Einstein's recent breakthroughs in Time and Space."
+
+When play begins:
+	say "It all happens so fast, once you get to the abandoned theme park. There you are, surrounded by the greatest battle the world has ever seen between hero and villain, diligently taking notes for your latest research paper. That's when you spot the nuclear airship, sinking in the air and billowing smoke. 
+
+Immediately recognizing the danger of nuclear explosion, you dive into the basement of a ruined aquarium attraction. But the blast never comes, and now you hear perfect silence from outside. Something strange has happened.";
+
+[Use scoring.]
+
+Section 1 - About Text
+
+Abouting is an action out of world. Understand "about" or "info" or "help" as abouting.
+
+Carry out abouting:
+	say "Your goal is to save everyone from impending nuclear disaster!
+
+	You have numerous powers over time itself:
+
+-Most things can't move when time is frozen, but you can! Your powers of movement extend to all sentient beings and their personal effects, and to all items that were on your person when time was frozen.
+
+-You can unstop time at any point by typing RELEASE.
+
+-You can use your FORESIGHT (or FORE) to see your future if you don't know what to do. This may reveal something you ought to do that you would have wanted to discover on your own.
+
+-You can use your AFTERSIGHT (or AFTER) to see the past of any location you're in. This may reveal the key to something you're stuck on, or it may reveal something you already knew.
+
+For credits, type CREDITS."
+
+Crediting is an action out of world. Understand "credit" or "credits" as crediting.
+
+Carry out crediting:
+	say "[italic type]The Origin of Madame Time[roman type] was created by Brian Rushton, and inspired by [italic type]The Owl Consults[roman type], by Thomas Mack, Nick Mathewson and Cidney Hamilton. It was tested by Mike Spivey, Mike Carletta, Victor Gijsbers, Andrew Schultz, Kenneth Pedersen, Marnix, Linus Åkesson, Vivienne Dunstan, and Jack Welch. Chandler Groover provided substantial help with the cover art. 
+	
+	The Origin of Madame Time is dedicated to my wonderful wife Lindsey Rushton and my son LPad."
+	
+Volume 2 - Locations
+
+Part 1 - Aquarium basement
+
+The description of Basement is "This lead-lined basement is insulated from all outside sights and sounds. It looks like an old fallout shelter.
+
+You've found the most isolated room in the theme park, which, given its history, is saying a lot. A discarded desk and an old stool are the only pieces of furniture left.
+
+You can go [bold type]up[roman type] to the aquarium."
+
+The lead walls are scenery in Basement. The lead walls are plural-named. Understand "wall" as the lead walls. The description of the lead walls is "This must have been a fallout shelter at some point."
+
+The dry fountain pen is in Basement. "A dried-out old fountain pen lies on the ground." The description of the dry fountain pen is "Your favorite pen ran out of ink during the fight when you were taking notes on the superheroes."
+
+The discarded desk is scenery in Basement. The discarded desk is a supporter. The description of the discarded desk is "Someone must have used this basement as an office years ago. This desk is very plain, with no drawers."
+
+The old stool is scenery in Basement. The old stool is a supporter. The description of the old stool is "This stool looks like the kind of stool that people leave in a corner for years, pulling out only for the worst tasks, such as changing a light bulb in the men's room."
+
+Instead of taking the discarded desk:
+	say "This furniture is old and fairly nasty. It should be left where it is."
+
+Instead of taking the old stool:
+	say "This furniture is old and fairly nasty. It should be left where it is."
+
+Instead of entering the discarded desk:
+	say "It doesn't look strong enough to support your weight.";
+
+Instead of entering the old stool:
+	say "Your bottom is still sore from sitting on that thing. No thanks.";
+
+Section 1 - The notebook
+
+A book is a kind of thing. Understand "book" as a book. A book has a table name called the contents. 
+
+Instead of consulting a book about a topic listed in the contents of the noun: 
+	say "[reply entry][paragraph break]". 
+
+Understand "look up [text] in/on [something]" as consulting it about (with nouns reversed).
+
+Bookconsulting is an action applying to one topic. Understand "look up [text]" as bookconsulting.
+
+Carry out bookconsulting:
+	if the weathered notebook is enclosed by the location of the player:
+		try consulting the weathered notebook about the topic understood;
+	otherwise:
+		say "Your trusty notebook is far from here."
+
+Report consulting a book about: 
+	say "You flip through [the noun], but you don't find any notes on [the topic understood]." instead.
+
+The weathered notebook is a book. The weathered notebook is in Basement. "Your extensively annotated notebook on superheroes and their powers is here." The description of the weathered notebook is "In your months of research, you've compiled notes on over a dozen superheroes and their abilities. You can LOOK UP a superhero to learn more about them.
+
+The front page contains the following motto, underlined a dozen times: A TRUE HERO LEAVES NO ONE BEHIND.".
+
+Understand "notes" as the weathered notebook. The contents of the weathered notebook is the Table of Listed Superheroes.
+
+Does the player mean consulting the weathered notebook about something:
+	it is likely;
+
+
+Table of Listed Superheroes
+supername	topic	reply	ending
+"reveal Rex Dashing"	"Rex Dashing" or "Rex/Dashing"	"Rex Dashing is a playboy adventurer and superhero, current owner of Airship Mephistopheles."	""
+"reveal Dirk Radon"	"Dirk Radon" or "Dirk/Radon"	"Inventor, physicist, and card-carrying member of the League of Notoriety."	""
+"reveal [Amelia Derringer]"	"Amelia Derringer" or "Amelia/Derringer"	"Catgirl, society girl, and metamorphic prodigy. She has only to eat a bite of an animal to gain its powers."	"Amelia Derringer received a phone call almost immediately following the battle. She disappeared shortly thereafter.[paragraph break]"
+"reveal [Squid Kid]"	"Squid Kid" or "Squid/Kid"	"Squid Kid was born when a mild-mannered young girl fell into a vat of squid ink at the same time that a lightning storm struck the factory. With her powerful ink shots and the ability to breathe underwater, Squid Kid is the best at submarine hide and seek!"	"Squid Kid quit the superhero business after the battle. She now runs a small crew recovering precious goods from shipwrecks. Just don't surprise her when you're wearing white.[paragraph break]"
+"reveal [Copy Cat]"	"Copy Cat" or "Copy/Cat"	"After being thrown out of college for plagiarism, Copy Cat found work at a mimeograph factory. After finding out her boss was the mysterious Duplicator, she stole his cloning technology to become the super villain she is today!"	"Copy Cat was stored in six different cells during her time in prison. After her release, she expanded on her abilities and became the first one-woman cricket team to win nationals.[paragraph break]"
+"reveal Duplicator"	"Duplicator"	"An early hero whose powers were stolen by Copy Cat."	""
+"reveal [Lenswarden]"	"Lenswarden" or "Lens/Truth"	"The Lenswarden is a warrior for justice! With his mighty Lens of Truth (rumored to have a spirit of its own), the Lenswarden can discern those things which are of the greatest import for his future! He can pick out a needle in a haystack or a ruffian in a crowd. Beware, evildoers!"	"The Lenswarden had an identity crisis after the battle. He became in succession Magnifying Man, The Triumphant Truthseeker, Eye Guy, and The Thing that Sees.[paragraph break]"
+"reveal [Lupor the Wolfman]"	"Lupor the Wolfman" or "Lupor/Wolfman/Wolf/Moon"	"Bitter at the world for his curse of Lycanthropy, Lupor developed a ritual to summon the Wolf Moon, so that all that behold it would suffer the same curse."	"After the battle, Lupor the Wolfman lost confidence in himself, losing the ability to summon the Wolf Moon. His journey to recovery, and his renaissance as El Lobo Maravilloso, are stories for another day.[paragraph break]"
+"reveal [The Wonder Brothers]"	"Wonder Brothers" or "Wonder/Brothers"	"While their main power is photogenicity, the Wonder Brothers also share the powers of teamwork, friendship, and a great work ethic."	"The Wonder Brothers formed a band and toured the world before splitting up into ultimately unsuccessful solo acts.[paragraph break]"
+"reveal [Mister Winter]"	"Mister Winter" or "Mister/Winter"	"An ancient necromancer awoken by the evils of war, Mister Winter is capable of casting bone-chilling spells, incantations, and diagrams."	"Mister Winter took calligraphy and drawing lessons in prison, eventually becoming a renowned artist. 'His work,' said one noted critic, 'gave me shivers.'[paragraph break]"
+"reveal [Golden Girl]"	"Golden Girl" or "Golden/Girl"	"Descended from the legendary King Midas, Golden Girl has turned the ancient curse into a superpower for good. Anything that she touches once turns to gold, while anything she touches twice turns back to normal."	"Golden Girl, highly offended by the misuse of her powers, became a recluse in the mountains of Peru. Legend says that those with terminal illnesses can receive a boon of extended life from her, waiting in hibernation for medical skills to advance.[paragraph break]"
+"reveal [Rusty Red]"	"Rusty Red" or "Rusty/Red"	"Rusty Red, Golden Girl's arch-nemesis, spent years trying to find a way to recreate her powers. Instead, he discovered the means to rust any oxidizable metal. Alas, Golden Girl herself remains incorruptible."	"Rusty Red escaped prison easily by rusting through the bars. Six times, in fact. Unfortunately, the cars he stole never got far enough.[paragraph break]"
+"reveal [The Chef]"	"The Chef" or "Chef"	"A vicious brute, The Chef is a notorious criminal who specializes in capturing and serving endangered species."	"After her capture and incarceration, The Chef opened up twin businesses in rodent control and cheap meat nuggets.[paragraph break]"
+"reveal [The Alchemist]"	"The Alchemist" or "Alchemist" or "Molly" or "Lar"	"Once the mild-mannered Professor Molly Q. Lar, The Alchemist uses her powers of chemistry to alter the human body and mind. While she initially resisted the unscientific appellation of Alchemist, she now embraces her mystique."	"After the events of the explosion, The Alchemist went on to a successful career in agriculture. Her prize pumpkin at the Tyler County fair broke every record on the books![paragraph break]"
+"reveal [The player]"	"Madame Time" or "Madame/Time" or "me/myself"	"There's nothing on this page except the name Madame Time, written with a question mark. You don't remember writing this. But you like the name."	"As for you? Well, that's a story for another time. And another time. And multiple times at once.[paragraph break]"
+
+Section 2 - Endgame notes
+
+Table of Final Question Options (continued) 
+final question wording	only if victorious	topic	final response rule	final response activity
+"REVEAL where everyone ended up"	true	"REVEAL"	investigate something rule	--
+ 
+This is the investigate something rule: 
+	repeat through the Table of Listed Superheroes: 
+		say "[ending entry]"; 
+
+
+Section 3 - Winning
+
+Casualties is a number that varies. Casualties is 0.
+
+TimeReleasing is an action applying to nothing. Understand "release" as timereleasing. 
+
+Carry out timereleasing:
+	if the player is not in Basement:
+		say "You need to return to the place where you stopped time originally.";
+	otherwise:
+		checkwin;
+		if EndgameFlag is 1:
+			if Casualties is 0:
+				say "You let go of the rigid grasp that you have on time, and it starts up with a rush. There is an immediate BOOM as the explosion hits. Superheroes topple over and smash to the ground. 
+
+[if the number of ungilded people in Basement > 2]Golden Girl staggers to her feet. She looks at you. You look at [extraperson]. Everyone looks at Amelia. [extraperson] says, 'What just happened?'
+[otherwise]Golden Girl looks staggers to her feet. She spies you, and says, 'What just happened?'
+[end if]
+";
+				end the story finally saying "You say, 'It's a long story...'";
+			otherwise:
+				say "If you started time right now, [Casualties in words] other [if Casualties > 1]people[otherwise]person[end if] would die. If you are sure you don't want to try to find the others, you can SACRIFICE them, but you'll live with the guilt forever.";
+		otherwise:
+			say "You would die right now if you started time. That makes it hard for you to release time, on an instinctual level. If you are sure you don't want to try to find the others, you can SACRIFICE them, but you'll live with the guilt forever.";
+
+RealReleasing is an action applying to nothing. Understand "sacrifice" as RealReleasing.
+
+Carry out RealReleasing:
+	if the player is not in Basement:
+		say "You need to return to the place where you stopped time originally.";
+	otherwise:
+		checkwin;
+		if EndgameFlag is 1:
+			if Casualties is 0:
+				say "You let go of the rigid grasp that you have on time, and it starts up with a rush. There is an immediate BOOM as the explosion hits. Superheroes topple over and smash to the ground. 
+
+[if the number of ungilded people in Basement > 2]Golden Girl staggers to her feet. She looks at you. You look at [extraperson]. Everyone looks at Amelia. [extraperson] says, 'What just happened?'
+[otherwise]Golden Girl looks staggers to her feet. She spies you, and says, 'What just happened?'
+[end if]
+";
+				end the story finally saying "You say, 'It's a long story...'";
+			otherwise:
+				say "You release time with a rush. You are safe, trapped deep under layers of gold and lead. However....";
+				say "[alldeaths]";
+				if DeadHeroCounter > 0:
+					say "[line break]As you slowly realize what you've done, you have one question:";
+				otherwise:
+					say "[line break]Not everyone survived. Sure, you saved the heroes. But it's easy to save the heroes. It's easy to save people who help you, who care for you, who you value. But you decided to decide for yourself who will live and who will die. You only have one question left:";
+				end the story saying "How will you live with yourself now?";
+		otherwise:
+			if the player is in Basement:
+				say "Nuclear radiation and heat pour into the basement, destroying you.";
+			otherwise:
+				say "Your powers, ufortunately, don't keep you from being destroyed at an atomic level by nuclear radiation.";
+			if Casualties > 0:
+				say "[alldeaths]";
+			end the story saying "You have died.";
+
+A person can be known or unknown. A person is usually unknown.
+
+Every turn:
+	repeat with current running through people enclosed by the location of the player:
+		now current is known;
+
+Villainhero is some text that varies. Villainhero is "villain"
+
+DeadHeroCounter is a number that varies. DeadHeroCounter is 0.
+
+To say alldeaths:
+	now DeadHeroCounter is 0;
+	repeat with current running through people:
+		if current is the player:
+			do nothing;
+		otherwise if current is ungilded:
+			if current is not enclosed by Basement:
+				if current is not Wonder Brothers:
+					if current is unknown:
+						if current is villainous:
+							now Villainhero is "villain";
+						otherwise:
+							now Villainhero is "hero";
+							now DeadHeroCounter is DeadHeroCounter plus one;
+						say "[line break]An unknown  [Villainhero] is [one of]consumed by gamma rays.[or]exploded to smithereens.[or]caught unaware by the nuclear explosion.[or]dramatically thrown into the air before being destroyed.[or]confronted with end of their own existence.[or]smashed by the shockwave from the explosion.[or]crushed by debris.[or]dissolved into subatomic particles.[or]vaporized.[or]simply gone.[cycling]";
+					otherwise:
+						if current is not villainous:
+							now DeadHeroCounter is DeadHeroCounter plus one;							
+						say "[line break][The current] is [one of]consumed by gamma rays.[or]exploded to smithereens.[or]caught unaware by the nuclear explosion.[or]dramatically thrown into the air before being destroyed.[or]confronted with end of their own existence.[or]smashed by the shockwave from the explosion.[or]crushed by debris.[or]dissolved into subatomic particles.[or]vaporized.[or]simply gone.[cycling]";
+				otherwise:
+					if current is unknown:
+						now DeadHeroCounter is DeadHeroCounter plus three;
+						say "[line break]Three hapless heroes that you never met were incinerated by the same fire that burns in the heart of the sun.";
+					otherwise:
+						say "[line break]The Wonder Brothers are incinerated by the same fire that burns in the heart of the sun.";
+
+
+To say extraperson:
+	repeat with current running through ungilded people in Basement:
+		if current is Golden Girl:
+			do nothing;
+		otherwise if current is the player:
+			do nothing;
+		otherwise:
+			say current;
+			break;
+
+
+A person can be villainous or not villainous. A person is usually not villainous.
+
+To checkwin:
+	now Casualties is 0;
+	repeat with current running through people:
+		if current is the player:
+			do nothing;
+		otherwise if current is ungilded:
+			if current is not enclosed by Basement:
+				if current is not Wonder Brothers:
+					now Casualties is Casualties plus one;
+				otherwise:
+					now Casualties is Casualties plus three;					
+[	if Casualties is 0:
+		if EndgameFlag is 1:
+			say "You've done it! Everyone is safe now, thanks to you!
+			
+			Or at least, they will be, once time starts up again.";
+		otherwise:
+			if the number of gilded people > 0:
+				say "Between people turned to gold and people in the basement, almost everyone is safe. But you don't see any way of closing the opening.";
+			otherwise:
+				say "Just about everyone you can find is gathered here, but you don't have any way of plugging the opening.";
+	otherwise:
+		say "You may feel safe in this former fallout shelter, but if time started up again right now, [casualties in words] [if casualties > 1]people[otherwise]person[end if] outside would be in danger. And you can't let that happen.";]
+
+Before going down from Abandoned Aquarium:
+	if Amelia Derringer is carried by the player:
+		if personsize of Amelia Derringer > 1:
+			say "Amelia is too awkwardly shaped to carry down the stairs." instead;
+		otherwise:
+			say "Even shrunk as far as possible, Amelia is too awkwardly shaped to carry down the stairs." instead;
+
+
+
+After going down from Abandoned Aquarium:
+	try looking;
+	say "You can feel the point in space where you froze time. You can RELEASE it whenever you feel ready.";
+
+Part 2 - Old Aquarium
+
+Abandoned Aquarium is up from Basement. "If you ever wanted to learn more about fish, this would have been the place to do it. A shattered tank spans one wall, and a wave of broken glass fills the air before it. You can leave to the Hall of Mirrors to the [bold type]west[roman type] or the splash pool to the [bold type]north[roman type].
+
+An old leaden hatch is open, revealing an opening [bold type]down[roman type] to the basement[first time].
+
+It is unbelievably quiet in here. You poke your head outside, only to withdraw it again in shock and fear. It seems the world has been frozen in time!
+
+Your only conclusion is that the trauma of the battle and explosion have awakened some sort of latent abilities deep within you. [bold type]It is up to you and you alone to save every last person in this abandoned theme park[roman type].
+
+When you feel like everyone is safe, you can RELEASE the temporal energies in the same place that you stopped time and let the bomb fall[only]."
+
+The old leaden hatch is scenery in Abandoned Aquarium. The description of the old leaden hatch is "Looks like it was the opening to the fallout shelter before. It's permanently bolted open now, though."
+
+Instead of closing the old leaden hatch:
+	say "There's no way you're moving that. It's bolted down."
+
+Instead of opening the old leaden hatch:
+	say "It's already open. Permanently."
+
+The basement opening is scenery in Abandoned Aquarium. The description of the basement opening is "This opening is wide enough for a few people to descend to the basement at once. It sort of ruins the fallout shelter's purpose, though."
+
+Before putting something on the basement opening:
+	if the noun is not Amelia Derringer:
+		say "That doesn't have the right size nor shape to cover the opening." instead;
+
+Instead of taking the old leaden hatch:
+	say "There's no way you're moving that. It's bolted down."
+
+The realaquarium is scenery in Abandoned Aquarium. The printed name of realaquarium is "abandoned aquarium". Understand "abandoned" or "aquarium" as realaquarium.
+
+Instead of examining realaquarium:
+	try looking;
+
+The shattered tank is scenery in Abandoned Aquarium. The description of the shattered tank is "This fish tank seems to have been caught in the process of shattering from some sort of shockwave. Tiny shards of glass fill the air in front of it."
+
+The broken glass is scenery in Abandoned Aquarium. The description of the broken glass is "Tiny shards of glass fill the air in front of the shattered aquarium." Understand "tiny" or "wave" or "shards" or "shard" as the broken glass.
+
+Instead of rubbing, pushing, or pulling the broken glass:
+	say "No thanks."
+
+Part 3 - Hall of Mirrors
+
+Hall of Mirrors is west from Abandoned Aquarium. "The Hall of Mirrors is mirrorless, but it retains its former name. The hall is open to the sky, and, far above you, Rex Dashing's airship is frozen in the midst of exploding[first time]. 
+
+You remember this spot from earlier. Copy Cat had been lurking here the entire battle, fending off attacks from the Wonder Brothers and Golden Girl. She had the upper hand until the Lenswarden arrived[only]. 
+
+You can go [bold type]east[roman type] to the abandoned aquarium, [bold type]west[roman type] to the remains of the burnt haunted house, or [bold type]north[roman type] to the carousel in the center of the park."
+
+The realmirrorhall is scenery in Hall of Mirrors. The printed name of realmirrorhall is "Hall of Mirrors". Understand "hall" or "mirrors" or "hall of mirrors" as the realmirrorhall.
+
+Instead of examining the realmirrorhall:
+	try looking;
+
+The Lenswarden is a man in Hall of Mirrors. "The Lenswarden [if the lens of truth is in the Hall of Mirrors]peers fearfully through [the Lens of Truth], a talisman of great power[otherwise]peers through the--ah, the--peers through nothing[end if], trying to find the real Copy Cat."
+
+The indefinite article of the Lenswarden is "the".
+
+The description of the Lenswarden is "The Lenswarden wears a simple black domino mask. He projects a feeling of false confidence."
+
+The simple black domino mask is worn by the Lenswarden. The description of the simple black domino mask is "This mask protects the Lenswarden's true identity."
+
+Section 1 - The Lens of Truth
+
+The Lens of Truth is in Hall of Mirrors. "The Lens of Truth is here, waiting to be wielded." The description of the Lens of Truth is "A lens through which one might look and discover the truth of all things. Some say it has a spirit of its own." The indefinite article of the lens of truth is "the".
+
+Lookthroughing at is an action applying to two things. Understand "look through [something] at [something]" as lookthroughing at. Understand "look at [something] through/with [something]" or "examine [something] through/with [something]" or "x [something] through/with [something]" as lookthroughing at (with nouns reversed).
+
+Carry out lookthroughing at:
+	try searching the noun;
+
+HaveLens is a number that varies. HaveLens is 0.
+
+A room has some text called TruthText. TruthText of a room is usually "The mighty Lens of Truth reveals no new information to you."
+
+Before taking the Lens of Truth for the first time:
+	say "You snatch the Lens of Truth from The Lenswarden's unwitting fingers. It came loose--perhaps the rumors about the Lens are true. In any case, its power is now yours: you can LOOK THROUGH the lens in any location you find yourself.";
+	now the Lens of Truth is carried by the player;
+	now HaveLens is 1 instead;
+
+A room can be truthflagged or not truthflagged. A room is usually not truthflagged.
+
+Lookwithing is an action applying to two things. Understand "look at [something] with/through [the lens of truth]" as lookwithing. Understand "examine [something] with/through [the lens of truth]" as lookwithing. Understand "x [something] with/through [the lens of truth]" as lookwithing.
+
+Carry out lookwithing:
+	say "You scan [the noun] with the Lens of Truth, and everything else you can see.[paragraph break]";
+	try searching the lens of truth.
+
+Instead of searching the Lens of Truth:
+	if the Lens of Truth is not carried by the player:
+		say "You'll need to grab the lens, first.";
+	otherwise if the location of the player is the Snack Bar:
+		say "[one of]Sparkling lights emanate from two of the potions: a mysterious green potion and a potion of deepest purple. These have been marked out as vital for your destiny.[or]The Lens of Truth cannot reveal anything more to you, here.[stopping]";
+		if Snack Bar is not truthflagged:
+			now the green potion is in Snack Bar;
+			now the purple potion is in Snack Bar;
+		now Snack Bar is truthflagged;
+	otherwise if the location of the player is Hall of Mirrors:
+		if TrueCat is 0:
+			say "Through the power of the Lens of Truth, you discern the real Copy Cat!";
+			now TrueCat is 1;
+		otherwise:
+			say "The Lens of Truth can teach you nothing more, here.";
+	otherwise if the location of the player is Burnt Haunted House:
+		say "Strange--the Wolf Moon doesn't appear when you look through the lens.";
+	otherwise:
+		say "[TruthText of the location of the player][paragraph break]";
+
+
+Section 2 - Copy Cat
+
+Copy Cat is a villainous woman in Hall of Mirrors. "Five versions of Copy Cat are frozen mid-pounce here, ready to strike the Lenswarden[if TrueCat is 1]. But you know which one is the real Copy Cat, now[end if]." Understand "real" or "version" or "versions" or "image" or "images" or "copies" or "expression" as Copy Cat.
+
+The description of Copy Cat is "Copy Cat's signature outfit (in all of her versions) is a red fedora and mask with a red trenchcoat. Her expression is impassive."
+
+The red fedora is worn by Copy Cat. The description of the red fedora is "A wide-brimmed red fedora with a red feather." Understand "feather" or "wide-brimmed" or "brim" as the red fedora.
+
+The red trenchcoat is worn by Copy Cat. The description of the red trenchcoat is "A knee-length red trenchcoat, copied from the most recent Vogue issue."
+
+The red mask is worn by Copy Cat. The description of the red mask is "A simple red mask, plagiarized from the Lenswarden's own mask and one of the reasons for their enmity."
+
+TrueCat is a number that varies. TrueCat is 0.
+
+Before taking Copy Cat:
+	if TrueCat is 0:
+		say "The different images of Copy Cat merge and blur as you approach them. You can't decide which one is which." instead;
+	otherwise:
+		say "Because of the power imparted you by the Lens of Truth, you approach the real Copy Cat easily."
+
+Part 4 - Burnt Haunted House
+
+LuporTaken is a number that varies. LuporTaken is 0.
+
+Burnt Haunted House is west from Hall of Mirrors. "In contrast to the other attractions, the haunted house has improved over time. It is far more frightening and dangerous now than before, especially if you factor in tetanus[if LuporTaken is 1].
+
+The Wolf Moon has been unleashed here, shining in the air[end if]. You can see the Hall of Mirrors to the [bold type]east[roman type] and the Corn Maze to the [bold type]north[roman type]."
+
+The realhauntedhouse is scenery in Burnt Haunted House. The printed name of realhauntedhouse is "burnt haunted house". Understand "burnt" or "haunted" or "house" as realhauntedhouse.
+
+Instead of examining the realhauntedhouse:
+	try looking;
+
+Lupor the Wolfman is a villainous man in Burnt Haunted House. "Lupor the Wolfman rears on two furry hind legs, fangs bared. You've caught him mid-howl as he unleashes the Wolf Moon above him." Understand "bulging" or "biceps" or "bicep" or "shattering" or "shoulder" or "shoulders" or "fierce" or "forearms" or "forearm" or "cruel" or "claw" or "claws" as Lupor the Wolfman.
+
+The description of Lupor the Wolfman is "Lupor is half-man, half-wolf, and all rage. His bulging biceps connect his shattering shoulders to his fierce forearms, culminating in cruel claws of awesome power!"
+
+The Wolf Moon is scenery in Burnt Haunted House. The description of the wolf moon is "Lupor's signature ability, the Wolf Moon is a ghostly mirage in the air, the very sight of which turns viewers into wolves. [if the large sign is blank]Fortunately, it's in a confined area, blocked by the corn maze to the north and the house itself in the other directions.[otherwise]With the corn maze gone, its eldritch power extends far to the north.[end if]"
+
+Instead of taking the Wolf Moon:
+	say "It is a ghostly image, impossible to manipulate by hand, or by paw."
+
+The Wonder Brothers are people in Burnt Haunted House. "[if the wonder brothers are wolfy]The Wonder Brothers have been reduced to the Wonder Cubs. Three dogs are caught mid-motion as they struggle out of their human clothing.[otherwise]The three Wonder Brothers look shellshocked and shaken up by their former wolf transformation.[end if]"
+
+The Wonder Brothers are plural-named. The indefinite article of the Wonder Brothers is "the". 
+
+The description of the Wonder Brothers is "The Wonder Brothers look astonished by the turn of events that overtook them right before the explosion."
+
+Section 1 - Wolfifying
+
+A person can be wolfy or not wolfy. A person is usually not wolfy. The Wonder Brothers are wolfy.
+
+Understand the wolfy property as describing a person. Understand "wolf" or "dog" or "pup" or "wolves" or "dogs" or "cubs" as wolfy.
+
+WolfMouthNoun is a thing that varies. WolfMouthNoun is the weathered notebook.
+
+AnnoyingCounter is a number that varies. AnnoyingCounter is 0.
+
+AnnoyingFlag is a number that varies. AnnoyingFlag is 0.
+
+Every turn:
+	now AnnoyingFlag is 0;
+
+Before taking something:
+	if the player is wolfy:
+		if the number of things carried by the player > 0:
+			if AnnoyingFlag is 0:
+				now AnnoyingCounter is AnnoyingCounter plus one;
+				now AnnoyingFlag is 1;
+			if AnnoyingCounter < 4:
+				repeat with current running through things carried by the player:
+					now WolfMouthNoun is current;
+					silently try dropping current;
+				say "You drop [the WolfMouthNoun] to try and grab [the noun].";
+			otherwise if AnnoyingCounter is 4:
+				say "You feel more confident in this form, now. You should be able to carry more than one thing in your mouth.";
+				now AnnoyingCounter is 5;
+				now the carrying capacity of the player is 100;
+
+
+
+To wolfify (wolfee - a person):
+	if wolfee is Lupor the Wolfman:
+		do nothing;
+	otherwise if wolfee is the player:
+		say "[first time]Beams of insidious light from Lupor's Wolf Moon strike your body. A horrible change comes upon you: your hands twist into claws, your skin erupts into fur, and your teeth sharpen into fangs! [only]You have become a wolf.[paragraph break]";
+		if AnnoyingCounter < 4:
+			if the number of things carried by the player > 1:
+				let droplist be the list of things carried by the player;
+				let notdrop be a random thing carried by the player;
+				remove notdrop from droplist;
+				repeat with current running through droplist:
+					now current is in the location of the player;
+				say "Unable to hold more than one thing in your mouth, you drop [droplist with definite articles].[paragraph break]";
+				now AnnoyingCounter is AnnoyingCounter plus one;
+			now the carrying capacity of the player is 1;
+		otherwise if AnnoyingCounter is 4:
+			say "You feel more confident in this form, now. You should be able to carry more than one thing in your mouth now!";
+		now the player is wolfy;
+	otherwise:
+		say "[The wolfee] [are] now a [if wolfee is Amelia Derringer]bowl-shaped [end if]wolf.[paragraph break]";
+		now the wolfee is wolfy;
+
+To unwolfify (wolfee - a person):
+	if wolfee is Lupor the Wolfman:
+		do nothing;
+	otherwise if wolfee is the player:
+		say "[first time]Now that Lupor's Wolf Moon is blocked from view, you feel its horrible effects leaving your body.
+
+[only]You revert to human form.[paragraph break]";
+		now the carrying capacity of the player is 30;
+	otherwise:
+		say "[The wolfee] [are] no longer in wolf form.";
+	now the wolfee is not wolfy;
+
+Wolfflag is a number that varies. Wolfflag is 0.
+
+A room can be wolfcausing or not wolfcausing. A room is usually not wolfcausing. Burnt Haunted House is wolfcausing.
+
+To wolfcheck (currentroom - a room):
+	repeat with current running through people enclosed by currentroom:
+		if currentroom is wolfcausing:
+			if current is not wolfy:
+				wolfify current;
+		otherwise:
+			if current is wolfy:
+				unwolfify current;
+
+Report going a direction:
+	now wolfflag is 1;
+	
+Wolftime is a recurring scene. Wolftime begins when wolfflag is 1. Wolftime ends when wolfflag is 0.
+
+When wolftime begins:
+	now wolfflag is 0;
+	wolfcheck the location of the player;
+
+Report examining a wolfy person:
+	if the noun is not the player:
+		say "Also, [the noun] [are] in wolf form.";
+	otherwise:
+		say "Also, you are a wolf.";
+
+
+Part 5 - Corn Maze
+
+Corn Maze is north from Burnt Haunted House. "Your second favorite attraction at the theme park. It really feels like home, here. You can leave to the [bold type]north[roman type], [bold type]east[roman type], and [bold type]south[roman type].
+
+There is a [if the large sign is blank]large, blank sign here[otherwise]large sign here with the symbol of Winter inscribed on it.
+
+Winter has struck the corn maze, leaving the stalks crushed and flattened by the heavy ice. You have a direct line of sight to the Wolf Moon to the south[end if][first time].
+
+It's quiet here. Too quiet. You're beginning to doubt yourself. Why did you have to be the one to have time-stopping powers? And why should you have to save everyone? It's a great burden[only]."
+
+Before going north from Corn Maze:
+	if the large sign is blank:
+		if personsize of the player < 3:
+			say "You wander in the corn maze for a time, but can't find the northern exit. You'll have to figure out a way to get through." instead;
+		otherwise:
+			say "You tramp across the corn maze to the north.";
+	
+The large sign is scenery in Corn Maze. The large sign can be blank or not blank. The large sign is blank. Understand the blank property as describing the large sign.
+
+The description of the large sign is "[if the large sign is blank]The sign must have had something on it, once. But everything is faded away, leaving it blank.[otherwise]This sign has been inscribed with the awesome power of the arcane symbol of winter![end if]"
+
+The realcornmaze is scenery in Corn Maze. The printed name of realcornmaze is "corn maze". Understand "corn" or "maze" as realcornmaze.
+
+The description of realcornmaze is "The maze is, frankly, amazing.".
+
+Instead of entering the realcornmaze:
+	say "You aren't here to play. You can try travelling north through the maze, though."
+
+The cornwolfmoon is a backdrop. Understand "wolf" or "moon" as the cornwolfmoon. The printed name of the cornwolfmoon is "Wolf Moon". The description of the cornwolfmoon is "Even here, as far away as you are, the power of the moon still works its devious magic on you."
+
+Does the player mean writing the cornwolfmoon:
+	it is very unlikely;
+
+Section 1 - Writing
+
+Writing is an action applying to one visible thing. Understand "write [any thing]" or "draw [any thing]" or "scribble [any thing]" or "inscribe [any thing]" or "reproduce [any thing]" as writing.
+
+Moonregion is a region. Corn Maze is in Moonregion. Rusted Roller Coaster is in Moonregion.
+
+Carry out writing:
+	if the filled fountain pen is enclosed by the player:
+		if the noun is the arcane symbol of winter:
+			if the arcane symbol of winter is examined:
+				if the player is in Corn Maze:
+					if the large sign is blank:
+						say "You inscribe the arcane symbol of winter on the blank sign. It flashes brightly, and the temperature in this area plummets.
+
+Frost spreads from the sign onto the corn, causing the corn to buckle under the weight until the entire maze is flattened, allowing the light of the Wolf Moon from the south to shine upon you.[paragraph break]";
+						now Corn Maze is wolfcausing;
+						now Rusted Roller Coaster is wolfcausing;
+						wolfcheck Corn Maze;
+						now the large sign is not blank;
+						now the cornwolfmoon is in Moonregion;
+					otherwise:
+						say "You've already drawn the arcane symbol of winter on the sign.";
+				otherwise:
+					if the large sign is blank:
+						say "There's nothing suitable to write on here. This pen is designed for broad strokes and flourishes. You'd need a big, empty, flat surface to work with.";
+					otherwise:
+						say "There's nothing suitable to write on here.";
+			otherwise:
+				say "You don't know the arcane symbol of winter.";
+		otherwise if the noun is the wolf moon:
+			say "The famous Wolf Moon is easy to sketch, but there's no good reason to draw it. A drawing of the Wolf Moon does not have the same effect as the moon itself, unlike certain other magical entities.";
+		otherwise:
+			say "While you enjoy developing your creative abilities, you're not going to spend any time scribbling unless it's going to have a major effect.";
+	otherwise if the dry fountain pen is enclosed by the player:
+		say "You do not have any ink in your pen.";
+	otherwise:
+		say "You have nothing to write with.";
+
+Withwriting is an action applying to one visible thing and one thing. Understand "write [any thing] with/on/in [something]" or "draw [any thing] with/on/in [something]" as withwriting.
+
+Carry out withwriting:
+	try writing the noun;
+
+Weirdwriting is an action applying to two things. Understand "write with [something] on/in [something]" or "draw with [something] on/in [something]" as weirdwriting. Understand "write on/in [something] with [something]" or "draw on/in [something] with [something]" as weirdwriting (with nouns reversed).
+
+Carry out weirdwriting:
+	say "You don't like to write without a purpose."
+
+Plainwithwriting is an action applying to one thing. Understand "write with/on/in [something]" or "draw with/on/in [something]" as plainwithwriting.
+
+Carry out plainwithwriting:
+	say "You don't like to write without a purpose."
+
+[add part here about writing, and especially if the winter symbol is examined]
+
+Part 6 - Carousel
+
+Carousel is north from Hall of Mirrors. Carousel is east from Corn Maze. "The carousel is much barer than it used to be. Your friend Teddy has a wooden ostrich in his house that he claims is from here, but you never know with Teddy.
+
+The first bits of debris from Rex Dashing's airship have almost reached the ground here.
+
+ There are exits to the [bold type]north[roman type], [bold type]east[roman type], [bold type]south[roman type], and [bold type]west[roman type][first time]. 
+
+You stare upwards in shock. The exploding airship is directly above. A masterpiece of nuclear and robotic technology, turned to such destruction. Horrible.
+
+[bold type]It's up to you to rescue these people from certain death while time is stopped.[roman type][only]."
+
+The ostrich is part of the realcarousel. The description of the ostrich is "There's another ostrich here. It looks just like Teddy's. I guess he wasn't lying."
+
+The realcarousel is scenery in Carousel. The printed name of realcarousel is "carousel". Understand "carousel" as realcarousel.
+
+Instead of examining the realcarousel:
+	try looking;
+
+The airship is a backdrop. The airship is in Hall of Mirrors and Burnt Haunted House and Corn Maze and Carousel and Splash Pool and Rusted Roller Coaster and Airbound. Understand "bits" or "rex" or "dashing" or "mephistopheles" as the airship.
+
+Understand "ship" or "sky" or "mephistopheles" as the airship. The description of the airship is "High in the sky, Rex Dashing's airship is frozen mid-explosion. Various bits are plummeting from the sky towards the center of the park[if the player is enclosed by Carousel].
+
+The debris is very close to you here. You may be able to climb [bold type]up[roman type] it[end if]."
+
+The falling debris is scenery in Carousel. Understand "first" or "bit" or "bits" as the falling debris. The description of the falling debris is "Bits of the airship are falling from the sky here. It might even be climbable."
+
+Understand "above" as up.
+
+Instead of climbing the falling debris:
+	try going up.
+
+Instead of climbing the realcarousel:
+	try going up.
+
+Part 7 - Splash Pool 
+
+WinterTaken is a number that varies. WinterTaken is 0.
+
+Splash Pool is north from Abandoned Aquarium and east from Carousel. "The splash pool has frozen solid, and flakes of snow surround you. A large carousel is to the [bold type]west[roman type], and you can retreat to the aquarium to the [bold type]south[roman type][if WinterTaken is 1]. 
+
+The arcane symbol of winter continues pulsing cold throughout the area, and the snack bar is to the [bold type]north[roman type][end if][first time]. 
+
+You saw this from the aquarium as you were headed down the stairs. Mister Winter was battling the Alchemist until she ran out of antifreeze. That's when he started pulling out the big symbols[only]."
+
+The realsplashpool is scenery in Splash Pool. The printed name of realsplashpool is "splash pool". Understand "splash" or "pool" or "ice" as realsplashpool.
+
+Instead of examining the realsplashpool:
+	try looking;
+
+The flakes of snow are scenery in Splash Pool. The description of the flakes of snow is "Mister Winter's arcane power has created these snowflakes.". Understand "snowflake" or "flake" or "snowflakes" as the flakes of snow.
+
+The printed name of Splash Pool is "Splash Pool (Frozen)".
+
+Mister Winter is a villainous man in Splash Pool. "Mister Winter is surrounded by pillars of ice, one hand pointing accusingly to the snack bar to the [bold type]north[roman type], and another tracing an arcane symbol of winter in the sky. "
+
+The pillars of ice are scenery in Splash Pool. The description of the pillars of ice is "Forceful and fantastical at the same time, these pillars were raised by Mister Winter's power."
+
+The description of Mister Winter is "Mister Winter is the epitome of cold, with bulky armor made from ice. Just looking at him makes you chilled inside."
+
+The bulky ice armor is worn by Mister Winter. The description of the bulky ice armor is "Mister Winter made this armor from slabs of pure ice."
+
+The arcane symbol of winter is scenery in Splash Pool. The arcane symbol of winter can be examined or unexamined. The arcane symbol of winter is unexamined.
+
+Instead of taking the arcane symbol of winter:
+	say "It's an immaterial symbol, incapable of interacting with physical matter."
+
+The description of the arcane symbol of winter is "The arcane symbol of winter traces itself into your mind. You feel confident that you would be able to reproduce it on a suitable medium."
+
+After examining the arcane symbol of winter:
+	now the arcane symbol of winter is examined;
+
+Part 8 - Rusted Roller Coaster
+
+Rusted Roller Coaster is north from Corn Maze. "This used to be the highest point of the theme park before the Small Collapse of [']23 and the Big Collapse of [']31. You can enter the Corn Maze to the [bold type]south[roman type][first time].
+
+You never made it to this part of the park earlier. It certainly looks...different[only]."
+
+The realrustedrollercoaster is scenery in Rusted Roller Coaster. The printed name of realrustedrollercoaster is "rusted roller coaster". Understand "rusted" or "roller" or "coaster" or "rollercoaster" as realrustedrollercoaster.
+
+Rusty Red is a villainous man in Rusted Roller Coaster. "Rusty Red has rusted the roller coaster, coating the rails in rust and costing the coaster its rusticly robust role in the theme park."
+
+The description of Rusty Red is "Rusty Red was a chemistry professor before he was dismissed and became a janitor at his former school. Filled with resentment at the board of trustees, he turned to a life of crime and oxidation."
+
+Section 1 - Golden Girl
+
+GotGolden is a number that varies. GotGolden is 0.
+
+Golden Girl is a woman in Rusted Roller Coaster. "[if GotGolden is 0]Golden Girl laughs at the futile efforts of Rusty Red to corrode her gleaming armor[wolfstatement].[otherwise]Golden Girl sits here, immobile, with her golden [hand] outstretched."; 
+
+GoldWolfOnce is a number that varies. GoldWolfOnce is 0.
+
+To say wolfstatement:
+	if Golden Girl is wolfy:
+		say ". It looks like she was hiding under the tracks. 
+
+Now that she is in wolf form, though, she's been dislodged from her hiding spot";
+		now GoldWolfOnce is 1;
+	otherwise:
+		if GoldWolfOnce is 0:
+			say ". She is hiding under the tracks with only her [hand] sticking out";
+		otherwise:
+			say ". She has reverted to human form, and is hiding under the tracks with only her [hand] sticking out";
+			
+
+Understand "gold" as Golden Girl.
+
+The description of Golden Girl is "Golden Girl is encased in pure gold, from her golden [if Golden Girl is wolfy]wolf [end if]helmet to her golden [if Golden Girl is wolfy]wolf [end if]boots. Her [if Golden Girl is wolfy]wolf [end if]armor is heavy, and not very functional, but her super-strength and power of flight make up for it[if Golden Girl is enclosed by the player].
+
+Be careful! If Golden Girl touches anything living, they will turn to Gold[end if]."
+
+The golden armor is worn by Golden Girl. Understand "armor" or "boots" or "helmet" as the golden armor. The description of the golden armor is "This was once leather, before Golden Girl transformed it."
+
+The golden hand is part of Golden Girl. The description of the golden hand is "This is Golden Girl's famous golden [hand], whose very touch turns all living things into gold." Understand "paw" as the golden hand.
+
+Instead of touching the golden hand:
+	golddeath;
+	
+Instead of rubbing the golden hand:
+	golddeath;
+	
+Instead of touching Golden Girl:
+	golddeath;
+
+To say hand:
+	if Golden Girl is wolfy:
+		say "paw";
+	otherwise:
+		say "hand";
+
+To golddeath:
+	say "That may have been a mistake. As you find yourself turning to gold, you thank your lucky stars that the gold will help you survive the atomic blast. It's too bad for everyone else who isn't gold, though.";
+	end the story saying "You failed to save everyone." instead;
+
+Before touching the golden armor:
+	if GotGolden is 0:
+		say "You can't reach the armor right now." instead;
+
+Before rubbing the golden armor:
+	if GotGolden is 0:
+		say "You can't reach the armor right now." instead;
+
+Every turn:
+	if Golden Girl is enclosed by the player:
+		now GotGolden is 1;
+
+Before taking Golden Girl:
+	if Golden Girl is not wolfy:
+		if GotGolden is 0:
+			golddeath;
+		otherwise:
+			say "You approach Golden Girl gingerly, avoiding her [hand].";
+
+A person can be gilded or ungilded. A person is usually ungilded.
+
+Touching it with is an action applying to two things. Understand "touch [something] with [something]" as touching it with.
+
+Understand "touch [something] to [something]" as touching it with (with nouns reversed).
+
+OnceGildedFlag is a number that varies. OnceGildedFlag is 0.
+
+Carry out touching it with:
+	if the second noun is not Golden Girl:
+		if the noun is Golden Girl:
+			try touching the second noun with the noun;
+		otherwise:
+			say "There's no need to touch [the noun] with [the second noun].";
+	otherwise if the noun is not a person:
+		say "Golden Girl's power only works on the living.";
+	otherwise if the noun is Golden Girl:
+		say "Golden Girl's power doesn't work on herself, unfortunately.";
+	otherwise if the noun is the player:
+		golddeath;
+	otherwise if the noun is ungilded:
+		say "There is a flash of golden light, and [the noun] is now solid gold.";
+		now the noun is gilded;
+		now OnceGildedFlag is 1;
+		if the noun is Amelia Derringer:
+			if Abandoned Aquarium is AmeliaBlocked:
+				checkwin;
+				now EndgameFlag is 1;
+	otherwise:
+		say "There is a flash of golden light, and [the noun] is now made of living flesh again.";
+		now the noun is ungilded;
+
+Report examining a person:
+	if the noun is gilded:
+		say "Also, [the noun] is made of solid gold."
+
+Part 9 - Gift Shop
+
+Gift Shop is north from Carousel. "The ghosts of merchandise past haunt this weathered shop. An empty display table has been left here, as well as some boxes and leftover packaging. The snack bar is back to the [bold type]east[roman type], and the carousel is [bold type]south[roman type][first time].
+
+So this is where Squid Kid ended up. Makes sense the Chef would be here, too[only][if Squid Kid is not in gift shop].
+
+A puddle of ink is all that's left of Squid Kid[otherwise if the puddle of ink is examined].
+
+A puddle of ink leads to Squid Kid.[end if]."
+
+The boxes are scenery in Gift Shop. The description of the boxes is "The boxes and leftover packaging are completely unimportant." Understand "leftover" or "packaging" as the boxes. The boxes are plural-named.
+
+The realgiftshop is scenery in Gift Shop. The printed name of realgiftshop is "gift shop". Understand "gift" or "shop" as the realgiftshop.
+
+Instead of examining the realgiftshop:
+	try looking;
+
+The ghosts of merchandise past are scenery in Gift Shop. The ghosts of merchandise past are plural-named. The description of the ghosts of merchandise past is "There aren't any ghosts of merchandise here except in a metaphorical sense.".
+
+The empty display table is a supporter in Gift Shop. The display table is scenery. The description of the empty display table is "This once held purchases for happy children and unhappy parents, but now they are gone."
+
+Squid Kid is a woman in Gift Shop. "Squid Kid is crouched, cowering, under the table. A puddle of ink trails behind her."
+
+The Chef is a villainous woman in Gift Shop. "The Chef is frozen mid-stalk, clutching a massive cleaver in one hand and a carving fork in the other. She's looking for something, or someone, and she looks very, very hungry." The indefinite article of the chef is "the".
+
+The description of The Chef is "The Chef is one of Evildom's most wretched beasts. Not content with feasting on endangered species, she also enjoys devouring pulp science fiction books and consuming unhealthy amounts of television and newspaper stories."
+
+Understand "carving" or "fork" or "massive" or "Cleaver" as the chef.
+
+Section 1 - Dipping in Ink
+
+The puddle of ink is scenery in Gift Shop. The description of the puddle of ink is "The ink is puddled up in a trail leading to Squid Kid[if Squid Kid is not in Gift Shop]'s former location[end if]."
+
+Following is an action applying to one thing. Understand "follow [something]" as following.
+
+Carry out following:
+	if the noun is the puddle of ink:
+		say "You follow the puddle of ink[if Squid Kid is in Gift Shop]. You find Squid Kid. But you already did that[otherwise]. You would have found Squid Kid, if she were here. But she isn't[end if]."
+
+The description of Squid Kid is "[first time]Poor Squid Kid. She's tried attending six different schools since her change, but the students invariably begin to complain about her wrecking the grade curve. But she's managed to keep her superpowers remarkably well hidden.
+
+[only]Squid Kid is squished into a rubbery suit with an insignia of a squid on the center."
+
+The rubbery suit is worn by Squid Kid. Understand "insignia" as the rubbery suit. The description of the rubbery suit is "This rubbery suit helps Squid Kid fit into tight spots. It's emblazoned with the Insignia of the Squid, passed down through a century's worth of squid and octopus-related superheroes."
+
+Dipping it in is an action applying to two things. Understand "dip [something] in [something]" as dipping it in.
+
+Carry out dipping it in:
+	say "You don't need to dip [the noun] in [the second noun] right now."
+
+Instead of dipping the dry fountain pen in the puddle of ink:
+	say "You fill the fountain pen from the ink. Most of the ink remains.";
+	now the dry fountain pen is nowhere;
+	now the filled fountain pen is carried by the player;
+
+Before taking the puddle of ink:
+	if the dry fountain pen is carried by the player:
+		try dipping the dry fountain pen in the puddle of ink instead;
+	otherwise if the filled fountain pen is carried by the player:
+		say "You already have enough ink." instead;
+	otherwise:
+		say "You don't have an appropriate receptacle." instead;
+
+Does the player mean dipping something in the puddle of ink:
+	it is likely;
+
+Filling is an action applying to one thing. Understand "fill [something]" as filling.
+
+Carry out filling:
+	if the noun is the dry fountain pen:
+		say "There's nothing to fill the dry fountain pen with here.";
+	otherwise:
+		say "You don't need to fill [the noun] with anything right now."
+		
+Instead of filling the dry fountain pen when the player is in Gift Shop:
+	try dipping the dry fountain pen in the puddle of ink;
+
+The filled fountain pen is a thing. The description of the filled fountain pen is "With the pen full of ink, you are ready to write or draw anything you need."
+
+Part 10 - Snack Bar
+
+Snack Bar is east from Gift Shop and north from Splash Pool. "The snack bar smells horrible, and is encrusted with filth. It has changed the least of all of the attractions. The splash pool is to the [bold type]south[roman type], and the gift shop occupies the space to the [bold type]west[roman type][first time].
+
+Ah, so this is where the Alchemist ended up[only]."
+
+Instead of smelling when the player is in Snack Bar:
+	say "I don't think so."
+
+The realsnackbar is scenery in Snack Bar. The printed name of realsnackbar is "snack bar". Understand "snack" or "bar" as realsnackbar.
+
+The filth is scenery in Snack Bar. The description of the filth is "The filth is, as might be expected, filthy."
+
+Instead of rubbing the filth:
+	say "You push the filth around on the wall for a short time."
+
+The Alchemist is a woman in Snack Bar. "The Alchemist has stumbled over the snack bar in her haste to flee from something to the south. Her bag has spilled, sending potions of power flying everywhere." The indefinite article of the alchemist is "the".
+
+The description of the Alchemist is "The Alchemist wears a close-fitting pink helmet and a pink lab coat. She normally carries numerous potions, but they seem to have gotten away from her."
+
+The power potions are scenery in Snack Bar. The description of the power potions is "There are so many potions here, it's bewildering. You'll never find anything without help." The power potions are plural-named.
+
+Instead of taking the power potions:
+	say "There are hundreds of potions. You'll need to be more specific.";
+
+Instead of searching the potions:
+	say "Without help, it's impossible to distinguish them."
+
+The bag is scenery in Snack Bar. The description of the bag is "The Alchemist's bag has spilled, sending potions everywhere.".
+
+The close-fitting pink helmet is worn by the Alchemist. The description of the close-fitting pink helmet is "This is The Alchemist's fifth helmet design, after the first four were destroyed by explosions."
+
+The pink lab coat is worn by the Alchemist. The description of the pink lab coat is "This coat seems ordinary, but is in fact impervious to filth and to bullets."
+
+Section 1- Potions
+
+The green potion is a thing. "A mysterious green potion emits an eery light." Understand "mysterious" or "eery" or "light" as the green potion.
+
+The description of the green potion is "It has a downward-facing arrow on the label."
+
+The purple potion is a thing. "A potion of deepest purple sparkles here." Understand "deepest" or "sparkle" or "sparkles" as the purple potion.
+
+The description of the purple potion is "It has an upward-facing arrow on the label."
+
+Instead of drinking the green potion:
+	shrinkify the player;
+	
+Instead of drinking the purple potion:
+	growify the player;
+
+A person has a number called the personsize. The personsize of a person is usually 2.
+
+The exclude people from drop all rule does nothing.
+
+The exclude people from take all rule does nothing.
+
+To shrinkify (shrinkee - a person):
+	now personsize of shrinkee is personsize of shrinkee minus one;
+	if personsize of shrinkee is 0:
+		say "[if Shrinkee is the player]You[otherwise][Shrinkee][end if] cannot go any smaller.";
+		now personsize of shrinkee is 1;
+	otherwise if personsize of shrinkee is 1:
+		say "[if Shrinkee is the player]You shrink[otherwise if Shrinkee is plural-named]The [Shrinkee] shrink[otherwise][Shrinkee] shrinks[end if] down to a much smaller size.";
+	otherwise if personsize of shrinkee is 2:
+		say "[if Shrinkee is the player]You shrink[otherwise if Shrinkee is plural-named]The [Shrinkee] shrink[otherwise][Shrinkee] shrinks[end if] back to normal.";
+	let droplist be the list of people carried by the player;
+	let finallist be the list of people carried by the player;
+	repeat with current running through droplist:
+		if personsize of current minus personsize of player < 0:
+			remove current from finallist;
+		otherwise:
+			now current is in the location of the player;
+			if current is Amelia Derringer:
+				remove current from finallist;
+				checkAmelia;
+	if the number of entries in finallist > 0:
+		say "[paragraph break]Unfortunately, [finallist with definite articles] [are] too big for you to carry now. You let go.";
+	if shrinkee is Amelia Derringer:
+		now the location of the player is not AmeliaBlocked;
+
+To growify (growee - a person):
+	now personsize of growee is personsize of growee plus one;
+	if personsize of growee is 4:
+		say "[if Growee is the player]You[otherwise][Growee][end if] cannot go any bigger.";
+		now personsize of growee is 3;
+	otherwise if personsize of growee is 3:
+		say "[if Growee is the player]You grow[otherwise if Growee is plural-named]The [Growee] grow[otherwise][Growee] grows[end if] to a much larger size.";
+		if growee is Amelia Derringer:
+			if Amelia Derringer is in Abandoned Aquarium:
+				say "[line break]Unfortunately, Amelia grows in the wrong place, failing to block the staircase. Perhaps if you held her first...";
+	otherwise if personsize of growee is 2:
+		say "[if Growee is the player]You grow[otherwise if Growee is plural-named]The [Growee] grow[otherwise][Growee] grows[end if] back to normal.";
+	let droplist be the list of people carried by the player;
+	let finallist be the list of people carried by the player;
+	repeat with current running through droplist:
+		if personsize of current minus personsize of player < 0:
+			remove current from finallist;
+		otherwise:
+			now current is in the location of the player;		
+			if current is Amelia Derringer:
+				remove current from finallist;
+				checkAmelia;
+	if the number of entries in finallist > 0:
+		say "[line break]Unfortunately, [finallist with definite articles] [are] too big for you to carry now. You let go.";
+		
+Instead of taking someone:
+	if personsize of the player minus personsize of the noun > 0:
+		if the noun is not Golden Girl:
+			say "You pick up [the noun].";
+		otherwise:
+			say "[one of]You've got her!
+
+Now that you've pulled Golden Girl out, you should be able to avoid her golden [hand].[or]You pick up Golden Girl.[stopping]";
+		now the noun is carried by the player;
+		if the noun is Mister Winter:
+			now WinterTaken is 1;
+		if the noun is Lupor the Wolfman:
+			now LuporTaken is 1;
+		if the noun is Amelia Derringer:
+			now the location of the player is not AmeliaBlocked;
+			now EndgameFlag is 0;
+	otherwise:
+		if the noun is not the player:
+			say "You're not big enough to do that.";
+		otherwise:
+			say "You try lifting yourself. However, this is one superpower you haven't acquired yet."
+
+Report examining someone:
+	if personsize of the noun is 3:
+		say "[The noun] [are] gigantic.";
+	otherwise if the personsize of the noun is 1:
+		say "[The noun] [are] tiny.";
+
+Instead of giving the green potion to someone:
+	if the second noun is Golden Girl:
+		if GotGolden is 0:
+			say "It's too dangerous to reach her without touching her hand.";
+			stop the action;
+	if the second noun is Copy Cat:
+		if TrueCat is 0:
+			say "You can't discern the true Copy Cat, and the copies shift and fade as you approach them.";
+			stop the action;			
+	say "You apply the green potion to [the second noun].[paragraph break]";
+	shrinkify the second noun;
+
+Instead of giving the purple potion to someone:	
+	if the second noun is Golden Girl:
+		if GotGolden is 0:
+			say "It's too dangerous to reach her without touching her hand.";
+			stop the action;
+	if the second noun is Copy Cat:
+		if TrueCat is 0:
+			say "You can't discern the true Copy Cat, and the copies shift and fade as you approach them.";
+			stop the action;			
+	say "You apply the purple potion to [the second noun].[paragraph break]";
+	growify the second noun;
+
+Instead of putting the green potion on someone:
+	if the second noun is Golden Girl:
+		if GotGolden is 0:
+			say "It's too dangerous to reach her without touching her hand.";
+			stop the action;
+	if the second noun is Copy Cat:
+		if TrueCat is 0:
+			say "You can't discern the true Copy Cat, and the copies shift and fade as you approach them.";
+			stop the action;			
+	say "You apply the green potion to [the second noun].[paragraph break]";
+	shrinkify the second noun;
+
+Instead of putting the purple potion on someone:
+	if the second noun is Golden Girl:
+		if GotGolden is 0:
+			say "It's too dangerous to reach her without touching her hand.";
+			stop the action;
+	if the second noun is Copy Cat:
+		if TrueCat is 0:
+			say "You can't discern the true Copy Cat, and the copies shift and fade as you approach them.";
+			stop the action;			
+	say "You apply the purple potion to [the second noun].[paragraph break]";
+	growify the second noun;
+
+Pouring it on is an action applying to two things. Understand "pour [something] on/in [something]" as pouring it on.
+
+Carry out pouring it on:
+	try putting the noun on the second noun;
+
+Part 11 - Airbound
+
+Airbound is up from Carousel. The description of airbound is "[first time]Boy, it sure is high up here. You can see the whole park. It's a lot smaller than you remember.
+
+[only]You are perched on a lone stair, with one hand on a steel beam. You can go back [bold type]down[roman type] to the carousel, further from impending doom."
+
+Instead of dropping something when the location of the player is airbound:
+	if the noun is not enclosed by the player:
+		silently try taking the noun;
+	if the noun is enclosed by the player:
+		say "You watch [the noun] plummet to the ground below.";
+		now the noun is in Carousel;
+
+The lone stair is scenery in airbound. The lone stair is scenery in airbound. Understand "staircase" or "step" as the lone stair.
+
+Instead of entering the lone stair:
+	say "You may misunderstand. You thought this was a staircase, attached to a wall or post, a staircase which could be climbed.
+
+That is not the case. This is a single stair that is separated from all other material and has been flung into the air by the force of a nuclear explosion."
+
+Instead of climbing the lone stair:
+	say "You may misunderstand. You thought this was a staircase, attached to a wall or post, a staircase which could be climbed.
+
+That is not the case. This is a single stair that is separated from all other material and has been flung into the air by the force of a nuclear explosion."
+
+Amelia Derringer is a villainous woman in Airbound. "[if Amelia is in Airbound]Amelia Derringer, intrepid villain, hangs suspended in the air, her body stretched and elasticized as only a blobified morphivore can. She currently looks like an upside-down bowl.[otherwise]Amelia the villain lies here, bowl-shaped.[end if]"
+
+Understand "bowl" or "morphivore" as Amelia Derringer.
+
+The description of Amelia Derringer is "Amelia the villain is stretched out and blobified into a bowl shape."
+
+GotAmelia is a number that varies. GotAmelia is 0.
+
+Every turn:
+	if Amelia Derringer is enclosed by the player:
+		now GotAmelia is 1;
+
+Instead of inserting something into Amelia Derringer:
+	say "Amelia may be bowl-shaped, but she's not a convenient place to store medium-sized dry goods."
+
+EndgameFlag is a number that varies. EndgameFlag is 0.
+
+Every turn:
+	if the location of the player is not Abandoned Aquarium:
+		if the location of the player is not Basement:
+			now EndgameFlag is 0;
+
+To checkamelia:
+	if Amelia Derringer is not wolfy:
+		if personsize of Amelia Derringer is 3:
+			say "[line break]Amelia settles down above you like a giant lid. ";
+			now the location of the player is AmeliaBlocked;
+			if Amelia Derringer is gilded:
+				now EndgameFlag is 1;
+				if the location of the player is not Abandoned Aquarium:
+					say "Hmmm...this might work to your benefit! This golden dome should block most of the radiation.";
+				otherwise:
+					say "The golden dome settles firmly over and around you, completely enclosing you and the opening to the basement. The entire basement is now shielded!";
+			otherwise:
+				say "If only rubbery blobs were more resistant to radiation!";
+			if the location of the player is not Abandoned Aquarium:
+				if the green potion is not enclosed by the location of the player:
+					say "[line break]Unfortunately, you've blocked yourself in with no way out, and not everyone is safe.";
+					end the story saying "You've trapped yourself.";
+			otherwise:
+				if the green potion is not enclosed by the location of the player:
+					if the green potion is not enclosed by Basement:
+						checkwin;
+						if Casualties > 1:
+							say "[line break]Unfortunately, you've blocked yourself in with no way out, and not everyone is safe.";
+							end the story saying "You've trapped yourself.";
+		otherwise:
+			if the location of the player is Abandoned Aquarium:
+				say "Amelia settles above you like a lid, and covers some of the stairway. You have enough room to get out. If only she were larger...";
+			otherwise:
+				say "[line break]Amelia settles above you like a lid, but you're just strong enough to get out before you're trapped.";
+
+Instead of putting Amelia on the basement opening:
+	say "You try putting Amelia over the opening. She's the right shape, but she's not quite big enough to cover it."
+
+Instead of putting something on the hatch:
+	say "Perhaps you meant to put [the noun] on the basement opening. I'll try that for you:[line break]";
+	try putting the noun on the basement opening;
+
+Instead of inserting something into the hatch:
+	try putting the noun on the hatch;
+
+Before dropping Amelia:
+	if the player is in Abandoned Aquarium:
+		try putting Amelia on the basement opening;
+		now Amelia is in Abandoned Aquarium;
+		say "You set Amelia to the side." instead;
+
+Instead of inserting something into the basement opening:
+	try putting the noun on the basement opening;
+
+A room can be AmeliaBlocked or not AmeliaBlocked. A room is usually not AmeliaBlocked.
+
+Report examining an AmeliaBlocked room:
+	say "The room is currently blocked "
+
+Before going a direction when the location of the player is AmeliaBlocked:
+	if the noun is not down:
+		say "You can't get through Amelia Derringer!" instead;
+
+Before kissing something:
+	if the noun is not a person:
+		say "Really? Everything's frozen. It would just feel like glass. Or I would get stuck. No thanks."
+
+Volume 3 - Standard Responses
+
+Understand "bite [something]" as attacking.
+
+Understand "batter [something]" as attacking.
+
+ The block vaguely going rule response (A) is "You'll have to say which compass direction to go in (such as NORTH, NORTHWEST, or just abbreviations like S or SE)."
+ The can't take yourself rule response (A) is "You try lifting yourself. However, this is one superpower you haven't acquired yet."
+ The can't take other people rule response (A) is "[the noun] cannot be taken at this time."
+ The can't drop yourself rule response (A) is "Don't give up on yourself now!"
+ The can't eat unless edible rule response (A) is "You've had no appetite since disaster struck.".
+
+ The examine undescribed things rule response (A) is "You look over [the noun], but don't see anything important."
+ The standard looking under rule response (A) is "You crouch down and look, but you don't find anything."
+	The block showing rule response (A) is "[The noun] is frozen in time, and unable to react to you."
+	The block throwing at rule response (A) is "You're not one to discard something so easily."
+	The block attacking rule response (A) is "You always had a strong sense of justice and virtue. You're not one to be violent.".
+
+	The kissing yourself rule response (A) is "You give yourself a big smooch."
+	The block kissing rule response (A) is "You like to ask permission first, and [the noun] [are] unable to provide it at the moment."
+
+	The block answering rule response (A) is "[if the noun is the player]Yes, you are the only person you can talk to. But should you?[otherwise][The noun] [are] frozen in time, and unable to react to you.[end if]"
+
+	The telling yourself rule response (A) is "You find it fairly difficult to hold a conversation with yourself."
+	The block telling rule response (A) is "[if the noun is the player]Yes, you are the only person you can talk to. But should you?[otherwise][The noun] [are] frozen in time, and unable to react to you.[end if]"
+
+	The block asking rule response (A) is "[if the noun is the player]Yes, you are the only person you can talk to. But should you?[otherwise][The noun] [are] frozen in time, and unable to react to you.[end if]"
+
+	The standard report waiting rule response (A) is "Why not wait? You have all the time in the world. But it won't help you."
+
+	The report touching yourself rule response (A) is "You feel your bicep. Powerful!"
+	The report touching other people rule response (A) is "[if the noun is not Golden Girl]You touch the hand of [the noun]. It feels like glass[otherwise]You touch the cuff of Golden Girl's sleeve. It feels like glass[end if]."
+	The report touching things rule response (A) is "You lay your fingers on it for a moment, but nothing happens. Not in this world where time stands still."
+ The can't pull people rule response (A) is "You don't want to knock anyone over, and so you leave them alone."
+	The can't push people rule response (A) is "You don't want to knock anyone over, and so you leave them alone."
+	The can't turn people rule response (A) is "You don't want to knock anyone over, and so you leave them alone."
+	The innuendo about squeezing people rule response (A) is "The laws of physics in this timeless world prevent you from doing so."
+	 The block saying yes rule response (A) is "Thank you for agreeing.".
+
+	The block saying no rule response (A) is "We'll have to agree to disagree, then.".
+
+	The block burning rule response (A) is "You don't need a fire right now, and it is unlikely that combustion would occur in the temporal anomaly you find yourself in."
+	The block waking up rule response (A) is "You slap yourself, hard, but nothing happens."
+	The block thinking rule response (A) is "You're thinking. But it's not helping. Not in this land beyond the bounds of time."
+	The report smelling rule response (A) is "You take a deep breath, but smell nothing."
+	The report listening rule response (A) is "This world is as silent as the grave."
+	The report tasting rule response (A) is "Taste, among many of your senses, has ceased to be useful in a frozen world."
+	The block cutting rule response (A) is "You have nothing to cut with."
+	The can't push unpushable things rule response (A) is "You don't want to topple [the noun] over."
+
+The parser error internal rule response (E) is "[one of]You typed a valid action, but it was for something that isn't visible right now, something that isn't in the game, or possibly a typo.[or]I didn't find the object in that command.[stopping]";
+
+The parser error internal rule response (X) is "[nothingthing][lookaction]";
+
+The parser error internal rule response (N) is "[one of]Your first word had a typo or is one I'm not familiar with. Try a different word.[or]The first word you typed was not recognized.[stopping]"; 
+
+The parser error internal rule response (B) is "Your sentence had too many words; you can try typing just the part where you wanted to ";
+
+The parser error internal rule response (C) is "Your sentence had too many words; you can try typing just the part where you wanted to (go) ";
+	
+	The report jumping rule response (A) is "You execute a backflip, surprising yourself with your increased dexterity."
+	The block tying rule response (A) is "You have nothing useful to tie with."
+	The block drinking rule response (A) is "That's not potable."
+	The block saying sorry rule response (A) is "Don't ever say you're sorry."
+	The block swinging rule response (A) is "In this frozen world, that's unlikely to be of use."
+	The can't rub another person rule response (A) is "You're not the kind of person who likes that sort of thing, especially when the other person is frozen."
+	The block buying rule response (A) is "There's nothing left you want to buy in this theme park."
+	The block climbing rule response (A) is "That would bring you no advantage."
+	The block sleeping rule response (A) is "You sleep, and wake, and find that time has not marched on."
+	The requested actions require persuasion rule response (A) is "[The noun] [are] frozen in time, and unable to react to you.".
+
+	The carry out requested actions rule response (A) is "[The noun] [are] frozen in time, and unable to react to you.".
+
+	The can't go that way rule response (A) is "You can't go that way."
+	The block giving rule response (A) is "Time being frozen makes it difficult to give something to anyone."
+
+Howling is an action applying to nothing. Understand "howl" as howling.
+
+Carry out howling:
+	if the player is wolfy:
+		say "You belt out the loudest, fiercest, and wildest howl that the world has ever seen!";
+	otherwise:
+		say "You give your best college try, but your howl is fairly disappointing.";
+	
+The can't take people's possessions rule response (A) is "It's difficult to remove that when time is frozen."
+
+The can't take scenery rule response (A) is "[regarding the noun][They're] frozen in time."
+
+To say lookaction:
+	say "You look around.";
+	try looking;
+
+Before drinking something:
+	if the noun is the power potions:
+		say "You don't know what effect these potions will have. If you have a specific one in mind, try that instead." instead;
+
+Before taking inventory:
+	if the number of things carried by the player is 0:
+		say "You are carrying nothing except for the powers of time and space themselves!" instead;
+	
+The SelfPowers are part of the player. The printed name of the SelfPowers is "powers of space and time". Understand "power" or "powers" or "space" or "time" as the SelfPowers.
+
+The description of the SelfPowers is "Your powers are as follows:
+	
+-Most things can't move when time is frozen, but you can! Your powers of movement extend to all sentient beings and their personal effects, and to all items that were on your person when time was frozen.
+
+-You can unstop time at any point by typing RELEASE.
+
+-You can use your FORESIGHT (or FORE) to see your future if you don't know what to do. This may reveal something you ought to do that you would have wanted to discover on your own.
+
+-You can use your AFTERSIGHT (or AFTER) to see the past of any location you're in. This may reveal the key to something you're stuck on, or it may reveal something you already knew."
+
+A thing can be tractable or intractable. A thing is usually tractable.
+
+The SelfPowers are plural-named. The SelfPowers are intractable.
+
+The Wolf Moon is intractable. The ghosts of merchandise past are intractable.
+
+[From Zarf]
+Instead of taking, removing, dropping, switching on, switching off, opening, closing, wearing, turning, pushing, or pulling something intractable:
+	say "[The noun] [are] immaterial!" 
+	
+Instead of pulling, touching, burning, cutting, attacking, waving, rubbing, squeezing, tasting, or drinking something intractable: 
+	say "[The noun] [are] immaterial!" 
+
+A thing can be faroff or not faroff. A thing is usually not faroff. The airship is faroff. The cornwolfmoon is faroff.
+
+Instead of taking, removing, dropping, switching on, switching off, opening, closing, wearing, turning, pushing, or pulling something faroff:
+	say "[The noun] [are] too far away." 
+	
+Instead of pulling, touching, burning, cutting, attacking, waving, rubbing, squeezing, tasting, or drinking something faroff: 
+	say "[The noun] [are] too far away." 
+
+XYZZYing is an action applying to nothing. Understand "XYZZY" as XYZZYing.
+
+Carry out XYZZYing:
+	say "Sorry, all hollow voices are currently unavailable.";
+
+Volume 4 - Hints
+
+Hinting is an action applying to nothing. Understand "hint" as hinting.
+
+Carry out hinting:
+	say "[first time]You feel something hidden stirring in your mind, powers that have been left untapped for too long!
+
+[only]You can activate your FORESIGHT to discover a step that will take you closer to your goal, although it may not be the one you were thinking of.
+
+Or you can use your AFTERSIGHT to gain insight from the past in whatever location you are in. But it may reveal truths you were not ready to face, or truths you already knew.";
+
+Foresighting is an action applying to nothing. Understand "foresight" or "fore" as foresighting.
+
+Carry out foresighting:
+	checkwin;
+	if HaveLens is 0:
+		say "[one of]You see yourself wielding an item of mystic power found in the Hall of Mirrors.[or]You see yourself standing by the Lenswarden, grasping the Lens of Truth in the Hall of Mirrors.[stopping]";
+	otherwise if TrueCat is 0:
+		say "[one of]You see yourself finding the truth about Copy Cat.[or]You see yourself looking through the Lens of Truth in the Hall of Mirrors.[stopping]";
+	otherwise if the dry fountain pen is not nowhere:
+		say "[one of]You see yourself searching for ink for a pen.[or]You see yourself taking Squid Kid's ink while holding a pen.[stopping]";
+	otherwise if the arcane symbol of winter is not examined:
+		say "[one of]You see yourself studying the intricate workings of arcane magic.[or]You see yourself examining the arcane symbol of winter.[stopping]";
+	otherwise if the large sign is blank:
+		say "[one of]You see yourself drawing graffiti near the corn maze.[or]You see yourself drawing the arcane symbol of winter at the corn maze.[stopping]";
+	otherwise if Snack Bar is not truthflagged:
+		say "[one of]You see yourself wielding the power of the Alchemist.[or]You see yourself using the Lens of Truth in the Snack Bar.[stopping]";
+	otherwise if GotGolden is 0:
+		say "[one of]You see yourself grabbing a small-looking golden dog.[or]You see a giant version of yourself grabbing Golden Girl.[stopping]";
+	otherwise if GotAmelia is 0:
+		say "[one of]You see yourself high in the air, above the battle.[or]You see yourself grabbing hold of a bowl-shaped human above the Carousel.[stopping]";
+	otherwise if Amelia is not gilded:
+		say "[one of]You see a golden bowl in your future.[or]You see yourself touching Amelia with Golden Girl.[stopping]";
+	otherwise:
+		say "[one of]You see a golden dome shielding many people.[or]You see yourself gathering many heroes to a dark basement before sealing them in by an enlarging dome.[or]You see yourself gathering every hero and villain into the basement except for Amelia Derringer, whom you turn gold and give a growth potion to in the Abandoned Aquarium.[stopping]"
+
+Aftersighting is an action applying to nothing. Understand "aftersight" or "after" as aftersighting.
+
+Carry out aftersighting:
+	say Aftertext of the location of the player;
+	say "[paragraph break]";
+
+A room has some text called the Aftertext. The Aftertext of a room is usually "You look to the past and see...nothing."
+
+The Aftertext of Burnt Haunted House is "You see Lupor's power welling up from within him, bursting forth into the Wolf Moon. The Wonder Brothers begin to flee, trying to reach the corn maze to block the sight when a flash of light from the sky blurs the scene."
+
+The Aftertext of Corn Maze is "You see a sped-up sequence of images, like a cinema show, revealing the passing seasons as the corn maze grew and wilted, year after year. Graffiti appears on the sign and is scrubbed away over and over again as the years pass."
+
+The Aftertext of Rusted Roller Coaster is "You see Golden Girl, crouched under the roller coaster to gain advantage against Rusty Red, look up in terror as she hears the howl of Lupor the Wolfman to the south. Then all is still."
+
+The Aftertext of Basement is "[one of]Several years ago, you see a great collection of people, gathered to celebrate the completion of the shelter.[or]Several years ago, you see a great collection of people, gathered to celebrate the completion of the shelter. The hatch is lowered over the opening, but it looks different--rounder, and painted gold.[stopping]"
+
+The Aftertext of Abandoned Aquarium is "You see a burly worker carrying a heavy glass tank in the rain. It proves to be too large, and he falls to the ground, trapped under the aquarium. "
+
+The Aftertext of Hall of Mirrors is "You see the Copy Cat snatching the Lens of Truth from the Lenswardenand gleefully looking through it. The Lenswarden looks panicked as he tries to figure out which copy is real."
+
+The Aftertext of Carousel is "You see kids climbing up the carousel, jumping on the top until the operator chases them off with dirt clods."
+
+The Aftertext of Splash Pool is "You see Mister Winter examining his arcane symbol with great pride.";
+
+The Aftertext of Airbound is "You see a large falcon swoop down and grab a helpless sparrow in its talons before carrying it away."
+
+The Aftertext of Gift Shop is "You see a clerk refilling an inkwell with a supply of India ink."
+
+The Aftertext of Snack Bar is "You see the Lenswarden and the Alchemist pacing the room together, discussing their plans before the upcoming battle."
+
+Volume 5 - Ambience
+
+Report looking:
+	now the location of the player is visited.
+
+TurnCounter is a number that varies. TurnCounter is 0.
+
+Every turn:
+	now TurnCounter is TurnCounter plus one;
+	if TurnCounter is 15:
+		if the number of visited rooms > 8:
+			say "[coolthing]";
+		now TurnCounter is 0;
+
+To say nothingthing:
+	do nothing;
+	
+To say coolthing:
+	say "[one of][doubtthing][or][lostthing][or][ticklething][or][memorything][cycling]";
+	
+To say doubtthing:
+	say "You hesitate, thinking of your actions. Was [the current action] the right thing to do?"
+	
+A thing can be oncecarried or not oncecarried. A thing is usually not oncecarried.
+	
+Every turn:
+	now the dry fountain pen is not oncecarried;
+	repeat with current running through things carried by the player:
+		now current is oncecarried;
+
+To say lostthing:
+	if the number of oncecarried things not carried by the player > 0:
+		say "You stop for a moment. Where did you set down [the random oncecarried thing not carried by the player]?";
+	otherwise:
+		say "You have the worrying feeling that you're forgetting something. But it might just be nerves."
+		
+To say ticklething:
+	say "[one of]Your nose tickles a little, so you scratch it.[or]You feel like you can hear a distant sound, but you're unsure.[or]Did everything just get lighter? Is it possible the radiation is still moving?[or]You're beginning to get a bit tired, but you pull yourself together.[or]You sneeze.[or]You feel a bit more energy now.[at random]"
+	
+Understand "scratch [something]" as rubbing.
+
+A nose is a kind of thing. A nose is part of every person. 
+
+Definition: a person is other if it is not the player. 
+
+Definition: a thing is selfish if it is part of the player and the player can see an other person. 
+
+Carry out rubbing a selfish nose:
+	say "You scratch your nose.";
+	
+Sneezing is an action applying to nothing. Understand "sneeze" as sneezing. 
+
+Carry out sneezing:
+	say "Bless you!"
+	
+To say memorything:
+	say "You're struck with memories of[one of] theme parks of your youth.[or] playing with action figures as a child.[or] reading your first comic book.[or] your life before. What if you never find a way to save everyone, and have to stay like this forever?[or] an incredible chocolate sundae.[cycling]"
+	
+Remembering is an action applying to nothing. Understand "remember" as remembering.
+
+Carry out remembering:
+	say "No! You push past the fog of the past and focus on the here and now."
+	
+SomethingRemembering is an action applying to one topic. Understand "remember [text]" as SomethingRemembering.
+
+Carry out SomethingRemembering:
+	try remembering;

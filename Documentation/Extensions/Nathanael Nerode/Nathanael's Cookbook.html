@@ -1,0 +1,1442 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Extension</title>
+    <style type="text/css">
+        <!--
+        /* The default font (family) and size */
+
+        body, p, td {
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.8rem; /* 100/125 */
+        }
+
+        /* For fixed-point material within text, such as the typing on the Library Card index page */
+
+        span.typewritten {
+        	font-family: monospace;
+        	font-size: 0.867rem; /* 13/12 * 100/125 */
+        }
+
+        /* For less important material: the small print */
+
+        span.smaller {
+        	font-size: 80%;
+        }
+
+        /* The "heading panel" is the coloured box, high up on the page. The colours
+        vary depending on the page: for example, the style on a report of a translation
+        with no problems is "headingpanelsucceeded", usually green, but if there were
+        problems then "headingpanelfailed" is used, which is usually red. "headingpanel"
+        itself is a more neutral grey by default. "headingpanelDark" is an alternative
+        look to make the extensions index pages have some visual contrast with the others;
+        by default they are a darker grey. */
+
+        .headingpanel {
+        	background: #eeeeee;
+        }
+        .headingpanelsucceeded {
+        	background: #E6FFE6;
+        }
+        .headingpanelfailed {
+        	background: #f69Ca6;
+        }
+        .headingpanelalt {
+        	background: #808080;
+        }
+
+        /* Heading panels have two lines of text: an upper one in a larger size, and a
+        lower one in a smaller. Again, the alt versions are meant to contrast.
+
+        	Report on Translation: Succeeded                <-- headingpaneltext
+        	Produced by Inform 10.1.0 (build 6U97)          <-- headingpanelrubric
+
+        	Installed Extensions                            <-- headingpaneltextalt
+        	Bundles of extra rules or phrases to...         <-- headingpanelrubricalt
+
+        */
+
+        span.headingpaneltext {
+        	color: #222222;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+        span.headingpaneltextalt {
+        	color: #ffffff;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        span.headingpanelrubric {
+        	color: #222222;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.733rem; /* 11/12 * 100/125 */
+        	font-weight: bold;
+        }
+        span.headingpanelrubricalt {
+        	color: #ffffff;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.733rem; /* 11/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* Horizontal rule styling */
+
+        div.hr {
+        	border: 0;
+        	width: 100%;
+        	color: #707070;
+        	background-color: #707070;
+        	height: 5px;
+        }
+
+        /* This styles the (usually white) text of the example numbers written inside
+        oval blobs in the extension documentation, which mimic the look of the in-app
+        documentation. */
+
+        .oval, .oval td {
+        	background-image:url('inform:/doc_images/ovoid.png');
+        	color:white;
+        }
+
+        /* Styling used in the extension documentation indexes: */
+
+        /* Used for extension names in the extensions pane of the app */
+
+        span.extensioncensusentry {
+        	color: #ffffff;
+        }
+
+        span.extensionindexentry {
+        	color: #404040;
+        }
+
+        span.extensionindexerror {
+        	color: #ff8080;
+        }
+
+        /* This is used in extension documentation, where an example is presented
+        in a slightly tinted box: */
+
+        table.extensionexample {
+        	background-color: #f0f0f0;
+        }
+
+        span.extensionexampleletter {
+        	color: #202020;
+        	font-size: 14px;
+        	font-weight: bold;
+        }
+
+        /* Seen in problem messages: */
+
+        span.problemred {
+        	color: #800000;
+        }
+
+        span.problemgreen {
+        	color: #008000;
+        }
+
+        span.phraseword {
+        	color: #808080;
+        }
+
+        span.phrasetokentext {
+        	color: #e00060;
+        }
+
+        span.phrasetokendesctext {
+        	color: #4040ff;
+        }
+
+        span.phrasetokenvaluetext {
+        	color: #ff4040;
+        }
+
+        /* Now we move on to styling used in the Index pages only: */
+
+        /* The periodic table display has "sidebars", usually grey and taller than they
+        are wide; they contain no text. */
+
+        div.periodictablesidebarcolour {
+        	background: #888;
+        }
+        div.periodictablesidebar:hover {
+        	background: #222;
+        }
+
+        /* The text of the element-abbreviation, such as "Lx" or "Ph", uses: */
+
+        span.elementtext {
+        	color: #ffffff;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* Similarly for the "atomic number" - a single digit - in the top left corner
+        of these boxes: */
+
+        span.elementnumbertext {
+        	color: #ffffff;
+        	font-size: 0.622rem; /* 7/12 * 96/72 * 100/125 */
+        }
+
+        /* For the text of the element title, to the right of the element box: */
+
+        span.elementtitletext {
+        	color: #ffffff;
+        	font-size: 0.6rem; /* 9/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* The banner at the top of each element: */
+
+        table.elementbanner {
+        	background: #eeeeee;
+        }
+
+        /* For the typewriting on the Library Card: */
+
+        span.librarycardtitle {
+        	color: #803030;
+        }
+
+        span.librarycardother {
+        	color: #303030;
+        }
+
+        /* Generically used for "more details" boxes in the index: */
+
+        table.indexmorebox {
+        	background-color: #e0e0e0;
+            border-radius: 8px;
+        }
+
+        /* But not for activity contents: */
+
+        table.indexactivitycontents {
+        	background-color: #e8e0c0;
+            border-radius: 8px;
+        }
+
+        /* For responses in index entries about rules: */
+
+        span.indexresponseletter {
+        	color: #ffffff;
+        	font-family: 'Courier New', Courier, monospace;
+        	background-color: #8080ff;
+        }
+
+        span.indexresponsetext {
+        	color: #000066;
+        }
+
+        /* Used ubiquitously throughout the index and extension documentation: */
+
+        span.indexblack {
+        	color: #000000;
+        }
+
+        span.indexgrey {
+        	color: #808080;
+        }
+
+        span.indexdarkgrey {
+            color: #505050;
+        }
+
+        span.indexdullred {
+        	color: #800000;
+        }
+
+        span.indexdullgreen {
+        	color: #008000;
+        }
+
+        span.indexdullblue {
+        	color: #000080;
+        }
+
+        /* Used for the room squares in the World map in the Index (which is currently
+        a table with one row of one column) */
+
+        table.indexmaproom {
+        	border-color: #000000;
+        }
+
+        /* Used in the numbering of levels of the World map in the Index */
+
+        span.indexmaplevelnumbers {
+        	color: #c0c0c0;
+        }
+
+        /* Used e.g. for title rows in the Chart of basic kinds in the Index */
+
+        tr.headingrow {
+        	background-color: #e0e0e0;
+        }
+
+        /* Standard rows have black text on striped background colours, these being
+        the usual ones seen in Mac OS X applications such as iTunes. */
+
+        tr.stripeone {
+        	background-color: #ffffff;
+        }
+
+        tr.stripetwo {
+        	background-color: #f3f6fa;
+        }
+
+        tr.tintedrow {
+        	background-color: #808080;
+        }
+
+        /* In the Figures index, this is the background colour used behind images
+        (though in fact it will only be visible if the image fails to load, or uses
+        transparency): */
+
+        div.figureindexbox {
+        	background-color: #6495ed;
+        }
+
+        /* To get the book-contents-page style leaders on the Contents element of
+           the index to work, these must use the background colour of the body of
+           the page, whatever that is: */
+
+        ul.leaders li.leaded span:first-child {
+        	background: white;
+        }
+        ul.leaders li.leaded span + span {
+        	background: white;
+        }
+
+        /* On Registry index pages (such as the Public Library), these are used for
+        download buttons and the like: */
+
+        span.registrybuttontext {
+        	font-size: 11px;
+        	border-color: #000000;
+        }
+
+        span.registryminibuttontext {
+        	font-size: 10px;
+        	border-color: #000000;
+        }
+
+        span.registrybuttonuninstalled {
+        	color: #000000;
+        	background: #ffffdd;
+        }
+
+        span.registrybuttoninstalled {
+        	color: #000000;
+        	background: #ffffff;
+        	pointer-events: none;
+        }
+
+        span.registrybuttonbuiltin {
+        	color: #888888;
+        	background: #ffffff;
+        	pointer-events: none;
+        }
+
+        span.registrybuttonupdate {
+        	color: #000000;
+        	background: #aaddff;
+        }
+
+        span.registrybuttonrevert {
+        	color: #000000;
+        	background: #ddaaff;
+        }
+
+        span.registrybuttonrevealer {
+        	color: #ffffff;
+        	background: #444444;
+        }
+
+        /* Registry index section headings: */
+
+        span.registrysectionname {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 16px;
+        	line-height: 18px;
+        }
+        span.registrysubsectionname {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 14px;
+        	line-height: 16px;
+        }
+
+        /* These are for the "mark" for a section, usually a section-symbol and number */
+
+        span.registrysectionmark {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 16px;
+        	line-height: 18px;
+        	color: #666;
+        }
+        span.registrysubsectionmark {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 14px;
+        	line-height: 16px;
+        	color: #666;
+        }
+
+        /* Text of an item listed in a registry: */
+
+        span.registryitemtext {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 12px;
+        	line-height: 16px;
+        }
+
+        /* And how the links in a registry index page behave: */
+
+        a.registrysilentlink {
+        	text-decoration: none;
+        	color: #000;
+        }
+        a.registrybuttonlink {
+        	text-decoration: none;
+        }
+        a.registrycontentslink:link {
+        	text-decoration: none;
+        	color: #202020;
+        }
+        a.registrycontentslink:visited {
+        	text-decoration: none;
+        	color: #202020;
+        }
+        a.registrycontentslink:hover {
+        	text-decoration: none;
+        	color: #D00000;
+        }
+        a.registrycontentslink:active {
+        	text-decoration: none;
+        	color: #D00000;
+        }
+
+        -->
+    </style>
+    <style type="text/css">
+        <!--
+        /* (1) General layout material */
+
+        *, *:before, *:after {
+        	-moz-box-sizing: border-box;
+        	-webkit-box-sizing: border-box;
+        	box-sizing: border-box;
+        }
+        .headingpanellayout {
+        	position: relative;
+        	height: 56px;
+        	padding: 0px;
+        	white-space:nowrap;
+        }
+        .headingpanellayoutdeeper {
+        	position: relative;
+        	height: 117px;
+        	padding: 0px;
+        	white-space:nowrap;
+        }
+        .headingtext {
+        	position: absolute;
+        	top: -4px;
+        	left: -1px;
+        	width: 100%;
+        	padding: 14px 10px 0px 10px;
+        }
+        .headingrubric {
+        	position: absolute;
+        	top: 36px;
+        	width: 100%;
+        	padding: 0px 10px 0px 10px;
+        }
+        h3.tighter {
+        	margin-top: 0px;
+        }
+        p.hang {
+        	padding-left: 25px;
+        	text-indent: -25px;
+        	margin-top: 0px;
+        	margin-bottom: 0px;
+        }
+        p.in1 {
+        	padding-left: 0px;
+        }
+        p.tightin1 {
+        	padding-left: 0px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin1 {
+        	padding-left: 0px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin1 {
+        	padding-left: 50px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in2 {
+        	padding-left: 25px;
+        }
+        p.tightin2 {
+        	padding-left: 25px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin2 {
+        	padding-left: 25px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin2 {
+        	padding-left: 75px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in3 {
+        	padding-left: 50px;
+        }
+        p.tightin3 {
+        	padding-left: 50px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin3 {
+        	padding-left: 50px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin3 {
+        	padding-left: 100px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in4 {
+        	padding-left: 75px;
+        }
+        p.tightin4 {
+        	padding-left: 75px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin4 {
+        	padding-left: 75px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin4 {
+        	padding-left: 125px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in5 {
+        	padding-left: 100px;
+        }
+        p.tightin5 {
+        	padding-left: 100px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin5 {
+        	padding-left: 100px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin5 {
+        	padding-left: 150px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in6 {
+        	padding-left: 125px;
+        }
+        p.tightin6 {
+        	padding-left: 125px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin6 {
+        	padding-left: 125px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin6 {
+        	padding-left: 175px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in7 {
+        	padding-left: 150px;
+        }
+        p.tightin7 {
+        	padding-left: 150px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin7 {
+        	padding-left: 150px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin7 {
+        	padding-left: 200px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in8 {
+        	padding-left: 175px;
+        }
+        p.tightin8 {
+        	padding-left: 175px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin8 {
+        	padding-left: 175px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin8 {
+        	padding-left: 225px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in9 {
+        	padding-left: 200px;
+        }
+        p.tightin9 {
+        	padding-left: 200px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin9 {
+        	padding-left: 200px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin9 {
+        	padding-left: 250px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+
+        /* (2) Index page layout material */
+
+        /* The periodic table display has "sidebars", usually grey and taller than they
+        are wide; they contain no text. */
+
+        div.periodictablesidebar {
+        	height: 56px;
+        	width: 16px;
+        }
+        .periodictablesidebar a:link { text-decoration: none; }
+        .periodictablesidebar a:visited { text-decoration: none; }
+        .periodictablesidebar a:active { text-decoration: none; }
+
+        /* The "element boxes" are the cells appearing in the periodic-table display
+        on the welcome page of the index: */
+
+        .elementbox {
+        	position: relative;
+        	height: 56px;
+        	width: 56px;
+        	padding: 0px;
+        }
+
+        .elementbox a:link { text-decoration: none; }
+        .elementbox a:visited { text-decoration: none; }
+        .elementbox a:active { text-decoration: none; }
+        .elementbox a:hover { text-decoration: none; }
+        .elementbox:hover {
+        	opacity: 0.6;
+        }
+
+        /* The "small element boxes" look like those, but are smaller, and used on
+        the headings of the content which those original boxes link to: */
+
+        .smallelementbox {
+        	position: relative;
+        	height: 40px;
+        	width: 40px;
+        	padding: 0px;
+        }
+
+        .smallelementbox a:link { text-decoration: none; }
+        .smallelementbox a:visited { text-decoration: none; }
+        .smallelementbox a:active { text-decoration: none; }
+        .smallelementbox a:hover { text-decoration: none; }
+        .smallelementbox:hover {
+        	opacity: 0.6;
+        }
+
+        /* This is a class for the links formed by the element boxes: */
+
+        a.elementlink {
+        	position: absolute;
+        	top: -4px;
+        	left: -1px;
+        	width: 100%;
+        	padding: 14px 0px 14px 1px;
+        	text-align: center;
+        }
+
+        /* Similarly for the "atomic number" - a single digit - in the top left corner
+        of these boxes: */
+
+        div.elementnumber {
+        	position: absolute;
+        	top: 1px;
+        	left: 3px;
+        	text-align: left;
+        }
+
+        /* For the text of the element title, to the right of the element box: */
+
+        div.elementtitle {
+        	position: absolute;
+        	top: 35px;
+        	width: 100%;
+        	text-align: center;
+        }
+
+        /* Used for the book-contents-page style leaders on the Contents element of
+           the index: */
+
+        ul.leaders {
+        	padding: 0;
+        	margin-top: 1px;
+        	margin-bottom: 0;
+        	overflow-x: hidden;
+        	list-style: none}
+        ul.leaders li.leaded:before {
+        	float: left;
+        	width: 0;
+        	white-space: nowrap;
+        	content:
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "}
+        ul.leaders li.leaded span:first-child {
+        	padding-right: 0.33em;
+        }
+        ul.leaders li.leaded span + span {
+        	float: right;
+        	padding-left: 0.33em;
+        }
+        li.indent1 span:first-child {
+        	padding-left: 25px;
+        }
+        li.indent2 span:first-child {
+        	padding-left: 50px;
+        }
+        li.indent3 span:first-child {
+        	padding-left: 75px;
+        }
+        li.indent4 span:first-child {
+        	padding-left: 100px;
+        }
+        li.indent5 span:first-child {
+        	padding-left: 125px;
+        }
+        li.indent6 span:first-child {
+        	padding-left: 150px;
+        }
+        li.indent7 span:first-child {
+        	padding-left: 175px;
+        }
+        li.indent8 span:first-child {
+        	padding-left: 200px;
+        }
+        li.indent9 span:first-child {
+        	padding-left: 225px;
+        }
+
+        li.unleaded:before {
+        	content: "";
+        }
+
+        /* On Registry index pages (such as the Public Library), these are used for
+        download buttons and the like: */
+
+        span.registrybuttons {
+        	height: 20px;
+        	padding: 2px 8px 2px 8px;
+        	margin: 2px;
+        	border:1px solid;
+        	border-radius: 5px;
+        }
+
+        span.registryminibuttons {
+        	height: 14px;
+        	padding: 2px 5px 2px 5px;
+        	margin: 2px;
+        	border:1px solid;
+        	border-radius: 4px;
+        }
+
+        /* Used to hide or display sections in the Registry pages: */
+
+        div.registrysectionitemsopen {
+        	display: block;
+        }
+
+        div.registrysectionitemsclosed {
+        	display: none;
+        }
+
+        /* Hanging indentation for Registry item paragraphs: */
+
+        p.registryitem {
+        	padding-left: 80px;
+        	text-indent: -40px;
+        }
+
+        p.registryaddition {
+        	padding-left: 40px;
+        	text-indent: -40px;
+        }
+
+        -->
+    </style>
+    <script type="text/javascript">
+        function project() {
+            return window.Project;
+        }
+        function showExtra(id, imid) {
+        	if (document.getElementById(id).style.display == 'block') {
+        		document.getElementById(id).style.display = 'none';
+        		document.getElementById(imid).src = 'inform:/extra.png';
+        	} else {
+        		document.getElementById(id).style.display = 'block';
+        		document.getElementById(imid).src = 'inform:/extraclose.png';
+        	}
+        }
+        function openExtra(id, imid) {
+        	document.getElementById(id).style.display = 'block';
+        	document.getElementById(imid).src = 'inform:/extraclose.png';
+        }
+        function closeExtra(id, imid) {
+        	document.getElementById(id).style.display = 'none';
+        	document.getElementById(imid).src = 'inform:/extra.png';
+        }
+        function pasteCode(code) {
+            var myProject = project();
+
+            myProject.selectView('source');
+            myProject.pasteCode(code);
+        }
+
+    </script>
+</head>
+<body>
+    <!--CONTENT BEGINS-->
+    <table CELLPADDING=0 CELLSPACING=0 width="100%" bgcolor="#000000"><tr><TD width=38px height=26px align="center" valign="center"><a href="inform://Extensions/Extensions.html" border=0><img border=0 src="inform:/doc_images/Hookindex.png" border=0></a></td><TD width=38px height=26px align="center" valign="center"></td><td halign="left" valign="center" CELLPADDING=0 CELLSPACING=0><font color="#FFFFFF" size=2>Extensions</font></a></td><TD width=56px height=26px align="right" valign="center"><a href="inform:/index.html" border=0><img border=0 src="inform:/doc_images/Hookup.png" border=0></a></td></tr></table>
+
+    <p><a href="javascript:pasteCode('Include Nathanael[=0x0027=]s Cookbook by Nathanael Nerode.[=0x000A=][=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a>&nbsp;<b>Nathanael's Cookbook<span class="extensionindexentry"> by </span>Nathanael Nerode</b></p>
+    <p><span class="smaller">Version 5.0.220520</span></p>
+    <p>This is just a collection of documentation and worked examples illustrating various features of Inform.  There isn't much in the extension per se, but the examples in the documentation can be click-pasted in the Inform IDE for convenience.</p>
+    <p></p>
+    <hr>
+    <p><span class="indexblack"><b><a style="text-decoration: none" href=#docsec1>Chapter 1: </a></b></span>Line Breaks and Paragraph Breaks<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec2>Section 1.1: </a></span>The Line Break System<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec3>Section 1.2: </a></span>The Paragraph Break System<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec4>Section 1.3: </a></span>Recommendations<br>
+    <br>
+    <b>Examples</b><br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href="Nathanael's Cookbook-eg1.html#eg1">A &mdash; Line Breaks</a></span><br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec5>Chapter 2: </a></b></span>Everything Else<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href="Nathanael's Cookbook-eg2.html#eg2">B &mdash; Careful Startup -- displaying messages at the right time during startup</p>
+
+    <p><blockquote><span class="indexdullblue"><a href="javascript:pasteCode('[=0x0022=]Careful Startup[=0x0022=][=0x000A=][=0x000A=]Bedroom is a room.[=0x000A=][=0x000A=]The description of Bedroom is [=0x0022=]There[=0x0027=]s a double bed here.[=0x0022=][=0x000A=][=0x000A=]A bed is a kind of supporter.[=0x000A=]The latticework double bed is a bed in the bedroom.[=0x000A=]The description of the latticework double bed is [=0x0022=]It[=0x0027=]s a double bed with a latticework headboard.[=0x0022=][=0x000A=][=0x000A=]The player is on the latticework double bed.[=0x000A=][=0x000A=]This is the teaser rule:[=0x000A=][=0x0009=]say [=0x0022=]Nightmares.  Fear.  Running.[=0x0022=][=0x000A=][=0x000A=]The teaser rule is listed before the display banner rule in the startup rulebook.[=0x000A=][=0x000A=]This is the introduce the game rule:[=0x000A=][=0x0009=]say [=0x0022=]You blearily open your eyes, shaking away dreams.  You[=0x0027=]re in your bed.[=0x0022=][=0x000A=][=0x000A=]The introduce the game rule is listed before the initial room description rule in the startup rulebook.[=0x000A=][=0x000A=]This is the just before the prompt rule:[=0x000A=][=0x0009=]say [=0x0022=]Maybe you should get up.[line break][paragraph break][=0x0022=];[=0x000A=][=0x000A=]The just before the prompt rule is listed after the initial room description rule in the startup rulebook.[=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a> &quot;Careful Startup&quot;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Bedroom is a room.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> The description of Bedroom is &quot;There's a double bed here.&quot;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> A bed is a kind of supporter.<br>
+     The latticework double bed is a bed in the bedroom.<br>
+     The description of the latticework double bed is &quot;It's a double bed with a latticework headboard.&quot;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> The player is on the latticework double bed.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> This is the teaser rule:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; say &quot;Nightmares.  Fear.  Running.&quot;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> The teaser rule is listed before the display banner rule in the startup rulebook.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> This is the introduce the game rule:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; say &quot;You blearily open your eyes, shaking away dreams.  You're in your bed.&quot;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> The introduce the game rule is listed before the initial room description rule in the startup rulebook.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> This is the just before the prompt rule:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; say &quot;Maybe you should get up.[line break][paragraph break]&quot;;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> The just before the prompt rule is listed after the initial room description rule in the startup rulebook.</span></blockquote>
+
+    <p> Example: * Mention Unmention -- controlling whether something is mentioned</p>
+
+    <p><blockquote><span class="indexdullblue"><a href="javascript:pasteCode('[=0x0022=]Mention Unmention[=0x0022=][=0x000A=][=0x000A=]To say mention (item[=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a> &quot;Mention Unmention&quot;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> To say mention (item</a></span><br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href="Nathanael's Cookbook-eg3.html#eg3">C &mdash; Examine Room -- putting the room in scope</p>
+
+    <p> If you're in a room called &quot;Main Street&quot;, you probably want &quot;look at main street&quot; to work. By default, it doesn't.</p>
+
+    <p><blockquote><span class="indexdullblue"><a href="javascript:pasteCode('[=0x0022=]Examine Room[=0x0022=][=0x000A=][=0x000A=]Main Street is a room.[=0x000A=][=0x0022=]This is the center of the city, where it all happens![=0x0022=][=0x000A=][=0x000A=]After deciding the scope of an object (called character) (this is the put room in scope rule):[=0x000A=][=0x0009=]Place the location of the character in scope, but not its contents.[=0x000A=][=0x000A=]Rule for deciding whether all includes rooms:[=0x000A=][=0x0009=]it does not.[=0x000A=][=0x000A=]test me with [=0x0022=]examine street/examine main street/take all[=0x0022=].[=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a> &quot;Examine Room&quot;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Main Street is a room.<br>
+     &quot;This is the center of the city, where it all happens!&quot;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> After deciding the scope of an object (called character) (this is the put room in scope rule):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; Place the location of the character in scope, but not its contents.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Rule for deciding whether all includes rooms:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; it does not.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> test me with &quot;examine street/examine main street/take all&quot;.</span></blockquote>
+
+    <p> Example: * Meeting Place -- using arbitrary binary relations</p>
+
+    <p> Use the full power of arbitrary binary relations, which are poorly documented in the Inform 7 manual. Show how to specify an action applying to a thing in the room and a thing not in the room.</p>
+
+    <p><blockquote><span class="indexdullblue"><a href="javascript:pasteCode('[=0x0022=]Meeting Place[=0x0022=][=0x000A=][=0x000A=]Meeting Place is a room.[=0x000A=][=0x000A=]A government is a kind of thing.[=0x000A=][=0x000A=]USA, UK, France, Germany, Russia, China, India, Pakistan are governments.[=0x000A=][=0x000A=]Alpha, Beta, Gamma, Delta, Epsilon are people in Meeting Place.[=0x000A=][=0x000A=]Trusting relates various people to various governments.[=0x000A=]The verb to trust means the trusting relation.[=0x000A=][=0x000A=]Alpha trusts USA. Alpha trusts UK.[=0x000A=]Beta trusts USA. Beta trusts France.[=0x000A=]Gamma trusts China. Gamma trusts France.[=0x000A=][=0x000A=]Understand [=0x0022=]ask [someone] about [any government][=0x0022=] as asking it opinion about.[=0x000A=]Asking it opinion about is an action applying to one thing and one visible thing.[=0x000A=][=0x000A=]Report asking a person (called who) opinion about a government (called what):[=0x000A=][=0x0009=]if who trusts what:[=0x000A=][=0x0009=][=0x0009=]say [=0x0022=][Who] [say] [=0x0027=]Great country, I[=0x0027=]d love to live there.[=0x0027=][=0x0022=];[=0x000A=][=0x0009=]else:[=0x000A=][=0x0009=][=0x0009=]say [=0x0022=][Who] [say] [=0x0027=]Nice people there, but I wouldn[=0x0027=]t want to live under their government.[=0x0027=][=0x0022=];[=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a> &quot;Meeting Place&quot;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Meeting Place is a room.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> A government is a kind of thing.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> USA, UK, France, Germany, Russia, China, India, Pakistan are governments.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Alpha, Beta, Gamma, Delta, Epsilon are people in Meeting Place.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Trusting relates various people to various governments.<br>
+     The verb to trust means the trusting relation.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Alpha trusts USA. Alpha trusts UK.<br>
+     Beta trusts USA. Beta trusts France.<br>
+     Gamma trusts China. Gamma trusts France.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Understand &quot;ask [someone] about [any government]&quot; as asking it opinion about.<br>
+     Asking it opinion about is an action applying to one thing and one visible thing.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Report asking a person (called who) opinion about a government (called what):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; if who trusts what:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say &quot;[Who] [say] 'Great country, I'd love to live there.'&quot;;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; else:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say &quot;[Who] [say] 'Nice people there, but I wouldn't want to live under their government.'&quot;;</span></blockquote>
+
+    <p> Example: *** Confusion -- polite responses for failed commands to actors</p>
+
+    <p> The default &quot;There is no reply&quot; is completely surreal for certain types of games. This gives a reply which a *compliant* person might give.</p>
+
+    <p><blockquote><span class="indexdullblue"><a href="javascript:pasteCode('[=0x0022=]Confusion[=0x0022=][=0x000A=][=0x000A=]The Lounge is a room. [=0x0022=]It[=0x0027=]s a lounge.[=0x0022=][=0x000A=][=0x000A=]Alan is a man in the lounge. Ella is a woman in the lounge.[=0x000A=][=0x000A=]Persuasion rule for asking Alan to try doing something: persuasion succeeds.[=0x000A=]Persuasion rule for asking Ella to try doing something: persuasion succeeds.[=0x000A=][=0x000A=]The confused by command rule is listed before the block answering rule in the report answering it that rulebook.[=0x000A=][=0x000A=]Report an actor answering someone that (this is the confused by command rule):[=0x000A=][=0x0009=]if the actor is the player:[=0x000A=][=0x0009=][=0x0009=]now the prior named object is nothing;[=0x000A=][=0x0009=][=0x0009=]say [=0x0022=][Noun] [seem] confused by your request.[=0x0022=] (A);[=0x000A=][=0x0009=]stop the action.[=0x000A=][=0x000A=]Table of Alan[=0x0027=]s Confusion Responses[=0x000A=]Response[=0x000A=][=0x0022=][Noun] [look] at [us], perplexed, and [regarding noun][say] [=0x0027=]I don[=0x0027=]t know what you mean by [[=0x0027=]][the topic understood][[=0x0027=]].[=0x0027=][=0x0022=][=0x000A=][=0x0022=][Noun] [say] [=0x0027=]I didn[=0x0027=]t understand that, dear.[=0x0027=][=0x0022=][=0x000A=][=0x0022=][Noun] [say] [=0x0027=]Did you say [[=0x0027=]][the topic understood][[=0x0027=]]?[=0x0027=]  [They] [look] confused.[=0x0022=][=0x000A=][=0x000A=]Report an actor answering Alan that (this is the Alan is confused by command rule):[=0x000A=][=0x0009=]if the actor is the player:[=0x000A=][=0x0009=][=0x0009=]now the prior named object is nothing;[=0x000A=][=0x0009=][=0x0009=]choose a random row from the Table of Alan[=0x0027=]s Confusion Responses;[=0x000A=][=0x0009=][=0x0009=]say response entry;[=0x000A=][=0x0009=]stop the action.[=0x000A=][=0x000A=]Table of Ella[=0x0027=]s Confusion Responses[=0x000A=]Response[=0x000A=][=0x0022=][Noun] [look] at [us], perplexed, and [regarding noun][say] [=0x0027=]I don[=0x0027=]t get what you mean by [[=0x0027=]][the topic understood][[=0x0027=]].[=0x0027=][=0x0022=][=0x000A=][=0x0022=][Noun] [say] [=0x0027=]I didn[=0x0027=]t understand that, darling.[=0x0027=][=0x0022=][=0x000A=][=0x0022=][Noun] [say] [=0x0027=]Did you say [[=0x0027=]][the topic understood][[=0x0027=]]?[=0x0027=]  [They] [look] puzzled.[=0x0022=][=0x000A=][=0x000A=]Report an actor answering Ella that (this is the Ella is confused by command rule):[=0x000A=][=0x0009=]if the actor is the player:[=0x000A=][=0x0009=][=0x0009=]now the prior named object is nothing;[=0x000A=][=0x0009=][=0x0009=]choose a random row from the Table of Ella[=0x0027=]s Confusion Responses;[=0x000A=][=0x0009=][=0x0009=]say response entry;[=0x000A=][=0x0009=]stop the action.[=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a> &quot;Confusion&quot;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> The Lounge is a room. &quot;It's a lounge.&quot;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Alan is a man in the lounge. Ella is a woman in the lounge.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Persuasion rule for asking Alan to try doing something: persuasion succeeds.<br>
+     Persuasion rule for asking Ella to try doing something: persuasion succeeds.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> The confused by command rule is listed before the block answering rule in the report answering it that rulebook.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Report an actor answering someone that (this is the confused by command rule):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; if the actor is the player:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; now the prior named object is nothing;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say &quot;[Noun] [seem] confused by your request.&quot; (A);<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; stop the action.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Table of Alan's Confusion Responses</span><br>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> Response
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;[Noun] [look] at [us], perplexed, and [regarding noun][say] 'I don't know what you mean by ['][the topic understood]['].'&quot;
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;[Noun] [say] 'I didn't understand that, dear.'&quot;
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;[Noun] [say] 'Did you say ['][the topic understood][']?'  [They] [look] confused.&quot;</span>
+            </td>
+        </tr>
+    </table>
+    </blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Report an actor answering Alan that (this is the Alan is confused by command rule):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; if the actor is the player:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; now the prior named object is nothing;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; choose a random row from the Table of Alan's Confusion Responses;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say response entry;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; stop the action.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Table of Ella's Confusion Responses</span><br>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> Response
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;[Noun] [look] at [us], perplexed, and [regarding noun][say] 'I don't get what you mean by ['][the topic understood]['].'&quot;
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;[Noun] [say] 'I didn't understand that, darling.'&quot;
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;[Noun] [say] 'Did you say ['][the topic understood][']?'  [They] [look] puzzled.&quot;</span>
+            </td>
+        </tr>
+    </table>
+    </blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Report an actor answering Ella that (this is the Ella is confused by command rule):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; if the actor is the player:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; now the prior named object is nothing;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; choose a random row from the Table of Ella's Confusion Responses;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say response entry;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; stop the action.</span></blockquote>
+
+    <p> Example: *** Early Command Parsing -- process certain commands specially</p>
+
+    <p> This is an offcut from Compliant Characters.i7x. While I found a much better way to do what I needed there, the code pattern serves as reference for the hooks available in early parsing.</p>
+
+    <p><blockquote><span class="indexdullblue"><a href="javascript:pasteCode('[=0x0022=]Early Command Parsing[=0x0022=][=0x000A=][=0x000A=]Use command debugging translates as (-  CONSTANT COMMAND_DEBUGGING; -) .[=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a> &quot;Early Command Parsing&quot;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Use command debugging translates as (-  CONSTANT COMMAND_DEBUGGING;  -).</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Section</a></span><br>
+    </p>
+    <hr>
+    <p></p>
+    </p>
+
+    <p> This is a collection of examples and documentation. The documentation hopes to make up to some degree for the lack of an Inform reference manual.</p>
+
+    <p><p><span class="indexdullred"><b><span id=docsec1>Chapter 1: Line Breaks and Paragraph Breaks</span></b></span></p>
+    </p>
+
+    <p> Controlling Inform 7's line breaks is a well-known headache, and this is largely due to poor documentation, along with the compiler's ineffective attempts to guess what the game writer wanted. This documentation should give you enough power to defeat it, though.</p>
+
+    <p> Inform 7 has two separate and largely-independent systems for generating line breaks: the paragraph break system and the line break system.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec2>Section 1.1: The Line Break System</span></b></span></p>
+    </p>
+
+    <p> (A) The line break system is supposed to generate a single newline, without any blank lines. The line break system is extremely rigid. Things you need to know about it:</p>
+
+    <p> (1) The clean way to invoke it is &quot;[line break]&quot;.</p>
+
+    <p> (2) Every time you invoke<blockquote><span class="indexdullblue"> say &quot;Something with a period just before a closing quote.&quot;; Inform 7 will add an implicit.</span></blockquote>
+
+    <p> (3) Nearly every time you invoke<blockquote><span class="indexdullblue"> say &quot;Something with a period just before a left bracket.[if true] This one too.[end if]&quot;; Inform 7 will add an implicit just before the left bracket.</span></blockquote>
+
+    <p> (4) These can be suppressed with explicit:<blockquote><span class="indexdullblue"> say &quot;Something with a period.[no line break][if true] This one too.[no line break][end if]&quot;;</span></blockquote>
+
+    <p> (5) These can also be suppressed by adding a space after the period, since it only checks if the period is *immediately* before the close quote or left bracket.</p>
+
+    <p> (6) The same happens with question marks or exclamation points.</p>
+
+    <p> (7) Under the hood, what happens is that the left bracket usually breaks the text into multiple &quot;blocks&quot;, each of which effectively gets its own say statement. (But not always; the left bracket in &quot;[no line break]&quot; doesn't create extra &quot;blocks&quot;, for example.)</p>
+
+    <p> (8) This implicit line break only happens in the direct, immediate argument to a say statement. You can avoid it reliably by assembling text in a &quot;to decide what text is&quot; routine:<blockquote><span class="indexdullblue"> to decide what text is the magic invocation:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; decide on &quot;Abracadabra!&quot;; This will not generate any line breaks at all when you write<br>
+     say &quot;[magic invocation]&quot;;</span></blockquote>
+
+    <p><p><span class="indexblack"><b><span id=docsec3>Section 1.2: The Paragraph Break System</span></b></span></p>
+    </p>
+
+    <p> The paragraph break system is designed to generate a full blank line between paragraphs. Things you need to know about it:</p>
+
+    <p> (1) The paragraph break system works by producing one extra newline. So it only works as intended if the paragraph break comes *immediately after a line break*. Otherwise it'll end up being a single newline rather than a blank line. So you must be careful to emit a line break before your paragraph division point.</p>
+
+    <p> (2) Unlike the line break which is emitted immediately, the paragaph break is delayed and admitted just *before* the next rule (such as printing the prompt). Furthermore, it is typically only emitted before a rule of the sort which would emit a paragraph break, not the other sort. This can lead to great confusion.</p>
+
+    <p> (3) The paragraph break system is documented in Internal/I6T/Printing.i6t. Not the most convenient location, but there is actually complete documentation there. Search the file for &quot;paragraph break&quot;, and read it.</p>
+
+    <p> (4) Every action rule (but not activities rules) generates an implicit paragraph break at the end. To suppress the implicit paragraph break, the action rule must say<blockquote><span class="indexdullblue"> &quot;[run paragraph on]&quot;; as the very last say-statement in the rule.</span></blockquote>
+
+    <p> (5) In fact, every rulebook can be followed either with or without implicit paragraph breaks, in a manner which requires fancy I6 hacking. Search &quot;Internal/Extensions/Graham Nelson/Standard Rules.i7x&quot; for &quot;FollowRulebook&quot; for more information.</p>
+
+    <p> (6) By default, all action-based or nothing-based rulebooks, including those you write and all activities, will add the implicit paragraph break.</p>
+
+    <p> (7) By default, all number-based, object-based, scene-based (etc.) rulebooks will NOT add implicit paragraph breaks.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec4>Section 1.3: Recommendations</span></b></span></p>
+    </p>
+
+    <p> (A) Preventing unwanted single line breaks.</p>
+
+    <p> (1) If you're assembling a line from individual words or sentences, from little pieces, use &quot;to decide what text is ____&quot;, which avoids all the implicit line breaks. (2) Then use one say statement per intended output line. (3) If you have to use multiple say statements for stuff you want on one line (perhaps because they are generated by multiple rules): (3A) terminate them all with spaces. The extra space before the final line break is usually invisible, though it may occasionally confuse interpreter word-wrap. (3B) keep track of whether you said anything at all (to avoid an extra line break if you said nothing); (3C) have a bit at the very end which does something like:<blockquote><span class="indexdullblue"> if something was printed, say &quot;[line break]&quot;; (4) This is a decent use of an activity (or another object-based or value-based rulebook).</span></blockquote>
+
+    <p> (B) Preventing unwanted double line breaks.</p>
+
+    <p> (1) Generate an entire paragraph in one action rule. (2) If you need multiple rules for one paragraph, set up an activity, or another object-based or value-based rulebook, to do so, and invoke it from one action rule. (3) If you have to use multiple action rules, have each one produce a line, and end every one with:<blockquote><span class="indexdullblue"> say &quot;[run paragraph on with special look spacing]&quot;; and have one special rule which runs last and does not have that line -- this rule, by its existence, triggers the paragraph break. You may want to try putting one of these lines into it, but they could mess up your text spacing:<br>
+     say &quot;[paragraph break]&quot;;<br>
+     say &quot;[conditional paragraph break]&quot;; (4) Unlike in the line break case, Inform is supposed to keep track of blanks here.</span></blockquote>
+
+    <p> (C) Preventing unwanted triple line breaks.</p>
+
+    <p> (1) These are almost always due to &quot;blanks&quot;: sets of rules which were supposed to produce text which produced nothing, but issued a paragraph break (often explicitly).</p>
+
+    <p> (D) Making sure double line breaks happen where desired</p>
+
+    <p> (1) Make sure the last say statement before any paragraph break emits a line break. (2) Make sure that every paragraph-generating machinery ends with a conditional paragraph break.</p>
+
+    <p> (E) Making sure single line breaks happen where desired</p>
+
+    <p> (1) Make sure there *isn't* a paragraph break. (2) Make sure there *is* a line break. (3) You can get a single line break from a paragraph break without a line break, but this is undesirable and always a bug.</p>
+
+    <p><hr>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td halign="left" valign="top" cellpadding=0 cellspacing=0 width=38px>
+                <span id=eg1><table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="oval">
+                        <td width=38px height=30px align="left" valign="center">
+                            <a href="Nathanael's Cookbook-eg1.html#eg1" style="text-decoration: none"><div class="paragraph Body" style="line-height: 1px; margin-bottom: 0px; margin-top: 0px; padding-bottom: 0pt; padding-top: 0px; text-align: center;">
+                                <span class="extensionexampleletter">A</span></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                </span>
+            </td>
+            <td cellpadding=0 cellspacing=0 halign="left" valign="top">
+                <a href="Nathanael's Cookbook-eg1.html#eg1" style="text-decoration: none"><img border="0" src='inform:/doc_images/asterisk.png'><b><span class="indexdarkgrey">&nbsp;Example&nbsp;</span><span class="indexblack">Line Breaks</span></b></a><br>
+                <p>Understand when Inform implicitly emits line breaks</p>
+
+            </td>
+        </tr>
+    </table>
+    </p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec5>Chapter 2: Everything Else</span></b></span></p>
+    </p>
+
+    <p></p>
+
+    <p><hr>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td halign="left" valign="top" cellpadding=0 cellspacing=0 width=38px>
+                <span id=eg2><table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="oval">
+                        <td width=38px height=30px align="left" valign="center">
+                            <a href="Nathanael's Cookbook-eg2.html#eg2" style="text-decoration: none"><div class="paragraph Body" style="line-height: 1px; margin-bottom: 0px; margin-top: 0px; padding-bottom: 0pt; padding-top: 0px; text-align: center;">
+                                <span class="extensionexampleletter">B</span></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                </span>
+            </td>
+            <td cellpadding=0 cellspacing=0 halign="left" valign="top">
+                <a href="Nathanael's Cookbook-eg2.html#eg2" style="text-decoration: none"><img border="0" src='inform:/doc_images/asterisk.png'><b><span class="indexdarkgrey">&nbsp;Example&nbsp;</span><span class="indexblack">Careful Startup -- displaying messages at the right time during startup</p>
+
+                <p><blockquote><span class="indexdullblue"><a href="javascript:pasteCode('[=0x0022=]Careful Startup[=0x0022=][=0x000A=][=0x000A=]Bedroom is a room.[=0x000A=][=0x000A=]The description of Bedroom is [=0x0022=]There[=0x0027=]s a double bed here.[=0x0022=][=0x000A=][=0x000A=]A bed is a kind of supporter.[=0x000A=]The latticework double bed is a bed in the bedroom.[=0x000A=]The description of the latticework double bed is [=0x0022=]It[=0x0027=]s a double bed with a latticework headboard.[=0x0022=][=0x000A=][=0x000A=]The player is on the latticework double bed.[=0x000A=][=0x000A=]This is the teaser rule:[=0x000A=][=0x0009=]say [=0x0022=]Nightmares.  Fear.  Running.[=0x0022=][=0x000A=][=0x000A=]The teaser rule is listed before the display banner rule in the startup rulebook.[=0x000A=][=0x000A=]This is the introduce the game rule:[=0x000A=][=0x0009=]say [=0x0022=]You blearily open your eyes, shaking away dreams.  You[=0x0027=]re in your bed.[=0x0022=][=0x000A=][=0x000A=]The introduce the game rule is listed before the initial room description rule in the startup rulebook.[=0x000A=][=0x000A=]This is the just before the prompt rule:[=0x000A=][=0x0009=]say [=0x0022=]Maybe you should get up.[line break][paragraph break][=0x0022=];[=0x000A=][=0x000A=]The just before the prompt rule is listed after the initial room description rule in the startup rulebook.[=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a> &quot;Careful Startup&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Bedroom is a room.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The description of Bedroom is &quot;There's a double bed here.&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> A bed is a kind of supporter.<br>
+                 The latticework double bed is a bed in the bedroom.<br>
+                 The description of the latticework double bed is &quot;It's a double bed with a latticework headboard.&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The player is on the latticework double bed.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> This is the teaser rule:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; say &quot;Nightmares.  Fear.  Running.&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The teaser rule is listed before the display banner rule in the startup rulebook.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> This is the introduce the game rule:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; say &quot;You blearily open your eyes, shaking away dreams.  You're in your bed.&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The introduce the game rule is listed before the initial room description rule in the startup rulebook.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> This is the just before the prompt rule:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; say &quot;Maybe you should get up.[line break][paragraph break]&quot;;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The just before the prompt rule is listed after the initial room description rule in the startup rulebook.</span></blockquote>
+
+                <p> Example: * Mention Unmention -- controlling whether something is mentioned</p>
+
+                <p><blockquote><span class="indexdullblue"><a href="javascript:pasteCode('[=0x0022=]Mention Unmention[=0x0022=][=0x000A=][=0x000A=]To say mention (item[=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a> &quot;Mention Unmention&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> To say mention (item</span></b></a><br>
+                <p>a thing):<blockquote><span class="indexdullblue">&nbsp;&nbsp;&nbsp;&nbsp; now item is mentioned;</p>
+
+            </td>
+        </tr>
+    </table>
+    </p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p><hr>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td halign="left" valign="top" cellpadding=0 cellspacing=0 width=38px>
+                <span id=eg3><table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="oval">
+                        <td width=38px height=30px align="left" valign="center">
+                            <a href="Nathanael's Cookbook-eg3.html#eg3" style="text-decoration: none"><div class="paragraph Body" style="line-height: 1px; margin-bottom: 0px; margin-top: 0px; padding-bottom: 0pt; padding-top: 0px; text-align: center;">
+                                <span class="extensionexampleletter">C</span></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                </span>
+            </td>
+            <td cellpadding=0 cellspacing=0 halign="left" valign="top">
+                <a href="Nathanael's Cookbook-eg3.html#eg3" style="text-decoration: none"><img border="0" src='inform:/doc_images/asterisk.png'><b><span class="indexdarkgrey">&nbsp;Example&nbsp;</span><span class="indexblack">Examine Room -- putting the room in scope</p>
+
+                <p> If you're in a room called &quot;Main Street&quot;, you probably want &quot;look at main street&quot; to work. By default, it doesn't.</p>
+
+                <p><blockquote><span class="indexdullblue"><a href="javascript:pasteCode('[=0x0022=]Examine Room[=0x0022=][=0x000A=][=0x000A=]Main Street is a room.[=0x000A=][=0x0022=]This is the center of the city, where it all happens![=0x0022=][=0x000A=][=0x000A=]After deciding the scope of an object (called character) (this is the put room in scope rule):[=0x000A=][=0x0009=]Place the location of the character in scope, but not its contents.[=0x000A=][=0x000A=]Rule for deciding whether all includes rooms:[=0x000A=][=0x0009=]it does not.[=0x000A=][=0x000A=]test me with [=0x0022=]examine street/examine main street/take all[=0x0022=].[=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a> &quot;Examine Room&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Main Street is a room.<br>
+                 &quot;This is the center of the city, where it all happens!&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> After deciding the scope of an object (called character) (this is the put room in scope rule):<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; Place the location of the character in scope, but not its contents.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Rule for deciding whether all includes rooms:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; it does not.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> test me with &quot;examine street/examine main street/take all&quot;.</span></blockquote>
+
+                <p> Example: * Meeting Place -- using arbitrary binary relations</p>
+
+                <p> Use the full power of arbitrary binary relations, which are poorly documented in the Inform 7 manual. Show how to specify an action applying to a thing in the room and a thing not in the room.</p>
+
+                <p><blockquote><span class="indexdullblue"><a href="javascript:pasteCode('[=0x0022=]Meeting Place[=0x0022=][=0x000A=][=0x000A=]Meeting Place is a room.[=0x000A=][=0x000A=]A government is a kind of thing.[=0x000A=][=0x000A=]USA, UK, France, Germany, Russia, China, India, Pakistan are governments.[=0x000A=][=0x000A=]Alpha, Beta, Gamma, Delta, Epsilon are people in Meeting Place.[=0x000A=][=0x000A=]Trusting relates various people to various governments.[=0x000A=]The verb to trust means the trusting relation.[=0x000A=][=0x000A=]Alpha trusts USA. Alpha trusts UK.[=0x000A=]Beta trusts USA. Beta trusts France.[=0x000A=]Gamma trusts China. Gamma trusts France.[=0x000A=][=0x000A=]Understand [=0x0022=]ask [someone] about [any government][=0x0022=] as asking it opinion about.[=0x000A=]Asking it opinion about is an action applying to one thing and one visible thing.[=0x000A=][=0x000A=]Report asking a person (called who) opinion about a government (called what):[=0x000A=][=0x0009=]if who trusts what:[=0x000A=][=0x0009=][=0x0009=]say [=0x0022=][Who] [say] [=0x0027=]Great country, I[=0x0027=]d love to live there.[=0x0027=][=0x0022=];[=0x000A=][=0x0009=]else:[=0x000A=][=0x0009=][=0x0009=]say [=0x0022=][Who] [say] [=0x0027=]Nice people there, but I wouldn[=0x0027=]t want to live under their government.[=0x0027=][=0x0022=];[=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a> &quot;Meeting Place&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Meeting Place is a room.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> A government is a kind of thing.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> USA, UK, France, Germany, Russia, China, India, Pakistan are governments.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Alpha, Beta, Gamma, Delta, Epsilon are people in Meeting Place.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Trusting relates various people to various governments.<br>
+                 The verb to trust means the trusting relation.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Alpha trusts USA. Alpha trusts UK.<br>
+                 Beta trusts USA. Beta trusts France.<br>
+                 Gamma trusts China. Gamma trusts France.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Understand &quot;ask [someone] about [any government]&quot; as asking it opinion about.<br>
+                 Asking it opinion about is an action applying to one thing and one visible thing.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Report asking a person (called who) opinion about a government (called what):<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; if who trusts what:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say &quot;[Who] [say] 'Great country, I'd love to live there.'&quot;;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; else:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say &quot;[Who] [say] 'Nice people there, but I wouldn't want to live under their government.'&quot;;</span></blockquote>
+
+                <p> Example: *** Confusion -- polite responses for failed commands to actors</p>
+
+                <p> The default &quot;There is no reply&quot; is completely surreal for certain types of games. This gives a reply which a *compliant* person might give.</p>
+
+                <p><blockquote><span class="indexdullblue"><a href="javascript:pasteCode('[=0x0022=]Confusion[=0x0022=][=0x000A=][=0x000A=]The Lounge is a room. [=0x0022=]It[=0x0027=]s a lounge.[=0x0022=][=0x000A=][=0x000A=]Alan is a man in the lounge. Ella is a woman in the lounge.[=0x000A=][=0x000A=]Persuasion rule for asking Alan to try doing something: persuasion succeeds.[=0x000A=]Persuasion rule for asking Ella to try doing something: persuasion succeeds.[=0x000A=][=0x000A=]The confused by command rule is listed before the block answering rule in the report answering it that rulebook.[=0x000A=][=0x000A=]Report an actor answering someone that (this is the confused by command rule):[=0x000A=][=0x0009=]if the actor is the player:[=0x000A=][=0x0009=][=0x0009=]now the prior named object is nothing;[=0x000A=][=0x0009=][=0x0009=]say [=0x0022=][Noun] [seem] confused by your request.[=0x0022=] (A);[=0x000A=][=0x0009=]stop the action.[=0x000A=][=0x000A=]Table of Alan[=0x0027=]s Confusion Responses[=0x000A=]Response[=0x000A=][=0x0022=][Noun] [look] at [us], perplexed, and [regarding noun][say] [=0x0027=]I don[=0x0027=]t know what you mean by [[=0x0027=]][the topic understood][[=0x0027=]].[=0x0027=][=0x0022=][=0x000A=][=0x0022=][Noun] [say] [=0x0027=]I didn[=0x0027=]t understand that, dear.[=0x0027=][=0x0022=][=0x000A=][=0x0022=][Noun] [say] [=0x0027=]Did you say [[=0x0027=]][the topic understood][[=0x0027=]]?[=0x0027=]  [They] [look] confused.[=0x0022=][=0x000A=][=0x000A=]Report an actor answering Alan that (this is the Alan is confused by command rule):[=0x000A=][=0x0009=]if the actor is the player:[=0x000A=][=0x0009=][=0x0009=]now the prior named object is nothing;[=0x000A=][=0x0009=][=0x0009=]choose a random row from the Table of Alan[=0x0027=]s Confusion Responses;[=0x000A=][=0x0009=][=0x0009=]say response entry;[=0x000A=][=0x0009=]stop the action.[=0x000A=][=0x000A=]Table of Ella[=0x0027=]s Confusion Responses[=0x000A=]Response[=0x000A=][=0x0022=][Noun] [look] at [us], perplexed, and [regarding noun][say] [=0x0027=]I don[=0x0027=]t get what you mean by [[=0x0027=]][the topic understood][[=0x0027=]].[=0x0027=][=0x0022=][=0x000A=][=0x0022=][Noun] [say] [=0x0027=]I didn[=0x0027=]t understand that, darling.[=0x0027=][=0x0022=][=0x000A=][=0x0022=][Noun] [say] [=0x0027=]Did you say [[=0x0027=]][the topic understood][[=0x0027=]]?[=0x0027=]  [They] [look] puzzled.[=0x0022=][=0x000A=][=0x000A=]Report an actor answering Ella that (this is the Ella is confused by command rule):[=0x000A=][=0x0009=]if the actor is the player:[=0x000A=][=0x0009=][=0x0009=]now the prior named object is nothing;[=0x000A=][=0x0009=][=0x0009=]choose a random row from the Table of Ella[=0x0027=]s Confusion Responses;[=0x000A=][=0x0009=][=0x0009=]say response entry;[=0x000A=][=0x0009=]stop the action.[=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a> &quot;Confusion&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The Lounge is a room. &quot;It's a lounge.&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Alan is a man in the lounge. Ella is a woman in the lounge.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Persuasion rule for asking Alan to try doing something: persuasion succeeds.<br>
+                 Persuasion rule for asking Ella to try doing something: persuasion succeeds.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The confused by command rule is listed before the block answering rule in the report answering it that rulebook.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Report an actor answering someone that (this is the confused by command rule):<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; if the actor is the player:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; now the prior named object is nothing;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say &quot;[Noun] [seem] confused by your request.&quot; (A);<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; stop the action.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Table of Alan's Confusion Responses</span><br>
+                <table border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> Response
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;[Noun] [look] at [us], perplexed, and [regarding noun][say] 'I don't know what you mean by ['][the topic understood]['].'&quot;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;[Noun] [say] 'I didn't understand that, dear.'&quot;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;[Noun] [say] 'Did you say ['][the topic understood][']?'  [They] [look] confused.&quot;</span>
+                        </td>
+                    </tr>
+                </table>
+                </blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Report an actor answering Alan that (this is the Alan is confused by command rule):<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; if the actor is the player:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; now the prior named object is nothing;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; choose a random row from the Table of Alan's Confusion Responses;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say response entry;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; stop the action.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Table of Ella's Confusion Responses</span><br>
+                <table border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> Response
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;[Noun] [look] at [us], perplexed, and [regarding noun][say] 'I don't get what you mean by ['][the topic understood]['].'&quot;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;[Noun] [say] 'I didn't understand that, darling.'&quot;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;[Noun] [say] 'Did you say ['][the topic understood][']?'  [They] [look] puzzled.&quot;</span>
+                        </td>
+                    </tr>
+                </table>
+                </blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Report an actor answering Ella that (this is the Ella is confused by command rule):<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; if the actor is the player:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; now the prior named object is nothing;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; choose a random row from the Table of Ella's Confusion Responses;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say response entry;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; stop the action.</span></blockquote>
+
+                <p> Example: *** Early Command Parsing -- process certain commands specially</p>
+
+                <p> This is an offcut from Compliant Characters.i7x. While I found a much better way to do what I needed there, the code pattern serves as reference for the hooks available in early parsing.</p>
+
+                <p><blockquote><span class="indexdullblue"><a href="javascript:pasteCode('[=0x0022=]Early Command Parsing[=0x0022=][=0x000A=][=0x000A=]Use command debugging translates as (-  CONSTANT COMMAND_DEBUGGING; -) .[=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a> &quot;Early Command Parsing&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Use command debugging translates as (-  CONSTANT COMMAND_DEBUGGING;  -).</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Section</span></b></a><br>
+                <p>Say quoted text</p>
+
+            </td>
+        </tr>
+    </table>
+    </p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p>
+    <!--CONTENT ENDS-->
+</body>
+</html>

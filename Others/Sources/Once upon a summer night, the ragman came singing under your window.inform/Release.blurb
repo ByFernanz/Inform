@@ -1,0 +1,54 @@
+! Blurb file created by Inform build 6M62
+
+status "C:\Program Files (x86)\Inform 7\Internal\Miscellany\CblorbModel.html" "C:\Users\ruber\Documents\Inform\Projects\Once upon a summer night, the ragman came singing under your window.inform\Build\StatusCblorb.html"
+
+
+! Identification
+
+project folder "C:\Users\ruber\Documents\Inform\Projects\Once upon a summer night, the ragman came singing under your window.inform"
+release to "C:\Users\ruber\Documents\Inform\Projects\Once upon a summer night, the ragman came singing under your window.materials\Release"
+
+! Blorb instructions
+
+storyfile leafname "Once upon a winter night, the r.zblorb"
+storyfile "C:\Users\ruber\Documents\Inform\Projects\Once upon a summer night, the ragman came singing under your window.inform\Build\output.z8" include
+ifiction "C:\Users\ruber\Documents\Inform\Projects\Once upon a summer night, the ragman came singing under your window.inform\Metadata.iFiction" include
+cover "C:\Users\ruber\Documents\Inform\Projects\Once upon a summer night, the ragman came singing under your window.materials\Cover.png"
+picture 1 "C:\Users\ruber\Documents\Inform\Projects\Once upon a summer night, the ragman came singing under your window.materials\Cover.png"
+
+! Placeholder variables
+
+placeholder [IFID] = "B7854A4C-6F4E-4EA1-A3A8-F8A7351E66B4"
+placeholder [RELEASE] = "3"
+placeholder [YEAR] = "2008"
+placeholder [TITLE] = "Once upon a winter night, the ragman came singing under your window"
+placeholder [AUTHOR] = "Expio"
+placeholder [BLURB] = "A work of interactive fiction."
+
+! Other material to release
+
+
+! Website instructions
+
+placeholder [ENCODEDSTORYFILE] = "Once upon a winter night, the r.zblorb.js"
+template path "C:\Users\ruber\Documents\Inform\Projects\Once upon a summer night, the ragman came singing under your window.materials\Templates"
+template path "C:\Users\ruber\Documents\Inform\Templates"
+template path "C:\Program Files (x86)\Inform 7\Internal\Templates"
+placeholder [INTERPRETERSCRIPTS] = " "
+interpreter "Parchment" "z"
+base64 "C:\Users\ruber\Documents\Inform\Projects\Once upon a summer night, the ragman came singing under your window.inform\Build\output.z8" to "C:\Users\ruber\Documents\Inform\Projects\Once upon a summer night, the ragman came singing under your window.materials\Release\interpreter\Once upon a winter night, the r.zblorb.js"
+
+! Website instructions
+
+template path "C:\Users\ruber\Documents\Inform\Projects\Once upon a summer night, the ragman came singing under your window.materials\Templates"
+template path "C:\Users\ruber\Documents\Inform\Templates"
+template path "C:\Program Files (x86)\Inform 7\Internal\Templates"
+css
+website "OneColumn"
+status instruction ||&nbsp;<a href="source:story.ni#line14"><img border=0 src=inform:/doc_images/Reveal.png></a>||
+status alternative ||Using 'Release along with a file of "Such-and-Such" called "whatever.pdf"', perhaps to add a manual, or a welcoming note&nbsp;<a href=inform:/doc401.html><img border=0 src=inform:/doc_images/help.png></a>||
+status alternative ||Using 'Release along with the source text'&nbsp;<a href=inform:/doc412.html><img border=0 src=inform:/doc_images/help.png></a>||
+status alternative ||Using 'Release along with a solution'&nbsp;<a href=inform:/doc411.html><img border=0 src=inform:/doc_images/help.png></a>||
+status alternative ||Using 'Release along with the library card'&nbsp;<a href=inform:/doc412.html><img border=0 src=inform:/doc_images/help.png></a>||
+status alternative ||Using 'Release along with the introductory booklet'&nbsp;<a href=inform:/doc404.html><img border=0 src=inform:/doc_images/help.png></a>||
+status alternative ||Using 'Release along with the introductory postcard'&nbsp;<a href=inform:/doc404.html><img border=0 src=inform:/doc_images/help.png></a>||

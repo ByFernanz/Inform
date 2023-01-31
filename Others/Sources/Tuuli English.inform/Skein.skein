@@ -1,0 +1,1099 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Skein rootNode="node-103">
+  <generator>Windows Inform 7 6M62</generator>
+  <activeNode nodeId="node-103"/>
+  <item nodeId="node-103">
+    <command xml:space="preserve">- start -</command>
+    <result xml:space="preserve">Tuulen Ukko tuulen Akka&#x000A; Tuulen kaikki ristikansa&#x000A;&#x000A;Miest&#x00E4; mustoa rukoilen&#x000A; Suuren tuulen nostajaksi --&#x000A;&#x000A;-- Tuuli, Hedningarna&#x000A;&#x000A;"They say witches tell the stories that matter. Such is the will of the gods.&#x000A; So listen. I am Lenne. I am the witch. This is the story."&#x000A;&#x000A;Tuuli (English)&#x000A;An interactive ritual by Daurmith and Ruber Eaglenest&#x000A;Release 3 / Serial number 180501 / Inform 7 build 6M62 (I6/v6.33 lib 6/12N) SD&#x000A;&#x000A;[If this is your first time playing interactive fiction type HELP for more information.]&#x000A;&#x000A;In M&#x00E1;kke's hut&#x000A;You wake in your pallet, the scream still scratching at your throat.&#x000A;&#x000A;You go to M&#x00E1;kke's bed to tell her about your dream. She isn't there, and you know she's dead even before you know where she is. The room is black as her eyes. Cold as her bones. Empty as her body. &#x000A;&#x000A;Her biggest treasure, the small carved ivory chest, lies forgotten in a corner.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">NO</temporary>
+    <children>
+      <child nodeId="node-104"/>
+      <child nodeId="node-111"/>
+    </children>
+  </item>
+  <item nodeId="node-104">
+    <command xml:space="preserve">examine knife</command>
+    <result xml:space="preserve">You can't see any such thing.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-105"/>
+    </children>
+  </item>
+  <item nodeId="node-105">
+    <command xml:space="preserve">open chest</command>
+    <result xml:space="preserve">You open the small chest, revealing the knife of M&#x00E1;kke, an oil flask and a sponge.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-106"/>
+    </children>
+  </item>
+  <item nodeId="node-106">
+    <command xml:space="preserve">examine knife</command>
+    <result xml:space="preserve">The knife of M&#x00E1;kke. Small, but sharp as a witch mind. It has a black stone blade, always cold to the touch. You have always been fascinated by the translucent quality of the stone, the pale gold reflections you can glimpse inside it.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-107"/>
+    </children>
+  </item>
+  <item nodeId="node-107">
+    <command xml:space="preserve">take knife</command>
+    <result xml:space="preserve">Taken.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-108"/>
+    </children>
+  </item>
+  <item nodeId="node-108">
+    <command xml:space="preserve">examine knife</command>
+    <result xml:space="preserve">You watch the black knife covered with M&#x00E1;kke's black witch blood in your hand. And remember her teachings about it: "the blade tears as much as it conjoins, attaches as well as it stabs."&#x000A;&#x000A;The knife of M&#x00E1;kke. Small, but sharp as a witch mind. It has a black stone blade, always cold to the touch. You have always been fascinated by the translucent quality of the stone, the pale gold reflections you can glimpse inside it.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-109"/>
+    </children>
+  </item>
+  <item nodeId="node-109">
+    <command xml:space="preserve">examine knife</command>
+    <result xml:space="preserve">The knife of M&#x00E1;kke. Small, but sharp as a witch mind. It has a black stone blade, always cold to the touch. You have always been fascinated by the translucent quality of the stone, the pale gold reflections you can glimpse inside it.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-110"/>
+    </children>
+  </item>
+  <item nodeId="node-110">
+    <command xml:space="preserve">examine knife</command>
+    <result xml:space="preserve">The knife of M&#x00E1;kke. Small, but sharp as a witch mind. It has a black stone blade, always cold to the touch. You have always been fascinated by the translucent quality of the stone, the pale gold reflections you can glimpse inside it.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+  </item>
+  <item nodeId="node-111">
+    <command xml:space="preserve">test allgame</command>
+    <result xml:space="preserve">(Testing.)&#x000A;&#x000A;&gt;[1] go out&#x000A;As you get outside you feel the cold of the snow through your boots.&#x000A;&#x000A;In the village&#x000A;The village sleeps in the cold hour before dawn. The sun is still down, but there's already light behind the horizon, bathing the night's snow in a eerily glowing white.&#x000A;&#x000A;A path nearly covered by snow comes from the beach at the west and continues northwards, climbing the mountain.&#x000A;&#x000A;M&#x00E1;kke's hut is here, set slightly apart from the rest but still within the village's limits.&#x000A;&#x000A;&gt;[2] examine floor&#x000A;You can see M&#x00E1;kke's prints in the snow, her small feet staggering northwards.&#x000A;&#x000A;&gt;[3] n&#x000A;&#x000A;Path&#x000A;The narrow path leading from the village to the cliff is barely a trail in the snow. Goats use it to chew the hardy grasses growing on the wind-swept heights, and witches use it to go the black stone to perform rituals of winter and spring, of life and death. It winds its way up north along the mountain's slope to get to the cliff's edge. To the south, it reaches the village.&#x000A;&#x000A;&gt;[4] n&#x000A;&#x000A;Cliff&#x000A;A small flat extension which drops precipitously to the sea in its west side. Leaning out you can see the rocks of the nearly-vertical rock wall and the albatrosses' nests, turning the stones white with their droppings. There's little to see here: down is the small bay by the village, and the hostile sea to the west and north. And, of course, the witch stone.&#x000A;&#x000A;M&#x00E1;kke's sealskin cloak lies on the ground by the black stone. You don't know if it was left there or the wind blew it there.&#x000A;&#x000A;&gt;[5] x snow&#x000A;M&#x00E1;kke's tracks take you to the cliff's edge. She stopped there. Just at the very edge there's a patch of trampled snow and the tracks end.&#x000A;&#x000A;&gt;[6] x rocks&#x000A;You peer down cautiously, careful of the treacherous gusts that could make you fall. You can see the albatrosses' nests and the stones barely covered in some moss and dry plants.&#x000A;&#x000A;M&#x00E1;kke has fallen down the cliff but hasn't reached the sea. You can see her body on the white stones, amidst the albatrosses' nests. Her eyes are open and full of snow and her hand holds an empty wineskin. Her mouth is fear.&#x000A;&#x000A;You must speak to &#x00C1;rvet about the nightmare and M&#x00E1;kke's death. Because you know what's coming, what you must do next. And you fear it as you have never feared anything before.&#x000A;&#x000A;&#x000A;Please press SPACE to continue.</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-112"/>
+    </children>
+  </item>
+  <item nodeId="node-112">
+    <command xml:space="preserve"> </command>
+    <result xml:space="preserve">On the beach&#x000A;A narrow strip of dark pebbles is the village's exit to the sea. To each side, the wooden piers for the fishing boats define a small bay of cold and restless waters. The sky covered with gray clouds is crisscrossed by the powerful flight of the albatrosses. To the east rest the village.&#x000A;&#x000A;&#x00C1;rvet is chief. He is in the bay mending a net and looking at the gray, restless sea.&#x000A;&#x000A;A group of albatrosses fight noisily over the few fish available, dark wings flapping.&#x000A;&#x000A;&gt;[7] talk to arvet&#x000A;[1] "I have seen death."&#x000A;[2] "M&#x00E1;kke is dead."&#x000A;[3] Exit the conversation.&#x000A;&#x000A;&gt;[8] 2&#x000A;"Old M&#x00E1;kke is dead. She fell down the cliff," you tell him. "You must send two men who already have seen death's face to recover her body. And then you must leave me with her."&#x000A;&#x000A; &#x00C1;rvet looks at you:&#x000A;&#x000A; "And why must I leave you alone with our witch, young Lenne?"&#x000A;&#x000A;[1] "It's true, I'm too young."&#x000A;[2] "M&#x00E1;kke is no longer the witch."&#x000A;[3] Exit the conversation.&#x000A;&#x000A;An albatross searches hopefully among the pebbles, looking for something edible.&#x000A;&#x000A;&gt;[9] 2&#x000A;"M&#x00E1;kke is not the witch anymore: she is crow and wind now, she is ice and ashes. Lenne is the witch now, Lenne who learned from M&#x00E1;kke. Lenne will take care of M&#x00E1;kke in death," you tell him, but you're shaking inside because you know you are not yet the witch, and &#x00C1;rvet is a man, and only a witch can tell a man how things are.&#x000A;&#x000A;&#x00C1;rvet looks again at the sea, swollen like a bruise.&#x000A;&#x000A; "In the night I heard screams, young Lenne-that-would-be-the-witch," he says softly. "Who screamed?"&#x000A;&#x000A;[1] "Why do you ask what you already know?"&#x000A;[2] "The witch screamed, I screamed..."&#x000A;[3] Exit the conversation.&#x000A;&#x000A;&gt;[10] 2&#x000A;"The witch screamed," you say. "M&#x00E1;kke screamed, and I screamed. I screamed because M&#x00E1;kke screamed, and M&#x00E1;kke screamed because she had a dream. And you heard us because you were awake, chief &#x00C1;rvet, while the village slept."&#x000A;&#x000A;[1] "What woke you?"&#x000A;[2] Exit the conversation.&#x000A;&#x000A;&gt;[11] 1&#x000A;"What woke you up?," you ask. You know M&#x00E1;kke taught &#x00C1;rvet well, while teaching you - not enough. M&#x00E1;kke used to say that your mouth was too big and your ears too small. She said you learned fast but you didn't know how to wait. She said it would take you some time to become a witch.&#x000A;&#x000A;But there is no more time.&#x000A;&#x000A;"I woke from a dream of black ships full of tall men, a dream of men with axes that came from the cold sea," &#x00C1;rvet says. "You tell me, Lenne, was it the dream of a dotard or was it the dream of a woken man?"&#x000A;&#x000A;[1] &#x00C1;rvet is wise...&#x000A;[2] Wait silently.&#x000A;[3] Exit the conversation.&#x000A;&#x000A;&gt;[12] 2&#x000A;You don't answer because &#x00C1;rvet knows the answer already. And because you've had the same dream, and so did M&#x00E1;kke. All three of you have dreamed the death of the village under the axes of the men that come from the North, crossing the sharp ice seas. That's why M&#x00E1;kke went to the cliff before dawn. And died there.&#x000A;&#x000A; "We cannot fight the tall men," &#x00C1;rvet says. "The sea has taken too many youngsters, the women are weak from lack of food, the children have no milk. Death comes in the black ships, young Lenne, and we have no witch to defend us."&#x000A;&#x000A;[1] "So shall we wait for death?"&#x000A;[2] "I shall be the witch."&#x000A;[3] Exit the conversation.&#x000A;&#x000A;An albatross flying over the bay suddenly dives in, gathering its wings just before plunging into the sea. It emerges with its beak empty. Frustrated and sodden, it flies above again.&#x000A;&#x000A;&gt;[13] 2&#x000A;"I shall be the witch," you say. "I will call forth the storm."&#x000A;&#x000A; "You." &#x00C1;rvet mocks you. "You don't know how, Lenne. Have you learned the words? Do you know the objects?"&#x000A;&#x000A;[1] "I know..."&#x000A;[2] Exit the conversation.&#x000A;&#x000A;A couple of albatrosses land on the pier and start grooming each other, beaks searching into their plumages.&#x000A;&#x000A;&gt;[14] 1&#x000A;"M&#x00E1;kke taught me: I know the words and the objects," you tell him. It is the truth: the wineskin to gather the wind. The knife for the ritual bloodletting. The runes that hold the power.&#x000A;&#x000A; "But you have not met the gods. You do not have the power. You do not know the price".&#x000A;&#x000A; &#x00C1;rvet also speaks the truth. You are thirteen and you haven't met the gods. Not like you'll know them in the future. But at thirteen you don't talk of what you don't know, for you think you know everything.&#x000A;&#x000A;[1] "I will pay."&#x000A;[2] Exit the conversation.&#x000A;&#x000A;&gt;[15] 1&#x000A;"I will meet the gods and I will pay the price, chief &#x00C1;rvet," you say. "And if I fail we will die like goats submitting to the knife, under the axes of the tall men and under the eyes of the gods."&#x000A;&#x000A; &#x00C1;rvet looks at you for a long time. You know what he sees - your maiden braids, your stained woollen dress, the hard twist of your mouth. He sees a girl with a big mouth and small ears. He doesn't see the witch.&#x000A;&#x000A;[1] You don't know what to say.&#x000A;&#x000A;&gt;[16] 1&#x000A;"Let it be so," &#x00C1;rvet says after a moment of thought. "Go to the cliff. I shall send two men to recover M&#x00E1;kke's body. Do what you must, young Lenne. If death wants to meet us, let her meet also the men from the black ships. May the gods determine who will pay for the blood that will be spilled."&#x000A;&#x000A; There is nothing else to say. The chief has spoken: you must perform the ritual.&#x000A;&#x000A;&#x00C1;rvet calls for Panu and Mikko. He talks with them a while, sending them on the errand you need. They go, none too happily, past the village and to the cliff.&#x000A;&#x000A;&#x00C1;rvet looks again at the sea, now gray as the sky, and talks no more.&#x000A;&#x000A;A couple of albatrosses fly side by side, hovering lazily in the crosswinds.&#x000A;&#x000A;&gt;[17] e&#x000A;Walking towards the village, you go through the elements necessary to call the storm: the runes of power, the rune of Ukko and the rune of Akka, scented oils to cleanse M&#x00E1;kke's body , M&#x00E1;kke's black stone knife for the bloodletting. And the most important part: that you are, that you must be, the witch. You can only hope that all the gods and M&#x00E1;kke's spirit will look upon you with kindness, for yourself and for your people.&#x000A;&#x000A;In the village&#x000A;The village is stirring, waking to life by degrees. A long gray day awaits. About thirty frail huts make the village. Some are but a few thatched planks. Others are more solid, a reminder of more prosperous times, made with logs and caulked with mud and birch bark. Here and there you can see a small plot instead of a house, or a goat pen from which the goats look disdainfully at the world. The women prepare fish for smoking or salting and the men fix the fishing gear or mend the thatch of the huts. You feel the looks as you walk by and hear some furtive whispers.&#x000A;&#x000A;The path comes from the beach at the west and continues northwards, climbing the mountain.&#x000A;&#x000A;M&#x00E1;kke's hut is here, set slightly apart from the rest but still within the village's limits.&#x000A;&#x000A;A goat lets out a loud angry bleat, complaining about unknown injustices.&#x000A;&#x000A;&gt;[18] enter hut&#x000A;&#x000A;In M&#x00E1;kke's hut&#x000A;The hut is no different from others in the village: log walls caulked with mud and bark, a single room with a packed dirt floor. You've spent more time here than in your parents' home and you know it better than the back of your hand: the working area, M&#x00E1;kke's bed, your own thin pallet. There are also some earthenware and the dried herbs left from the spring recollection. The few treasures that M&#x00E1;kke loved during her life look paltry after her death: the decorated trunk, the small altar with the ritual runes.&#x000A;&#x000A;Her biggest treasure, the small carved ivory chest, lies forgotten in a corner.&#x000A;&#x000A;&gt;[19] take chest&#x000A;Taken.&#x000A;&#x000A;&gt;[20] out&#x000A;&#x000A;In the village&#x000A;The village is stirring, waking to life by degrees. A long gray day awaits. About thirty frail huts make the village. Some are but a few thatched planks. Others are more solid, a reminder of more prosperous times, made with logs and caulked with mud and birch bark. Here and there you can see a small plot instead of a house, or a goat pen from which the goats look disdainfully at the world. The women prepare fish for smoking or salting and the men fix the fishing gear or mend the thatch of the huts. You feel the looks as you walk by and hear some furtive whispers.&#x000A;&#x000A;The path comes from the beach at the west and continues northwards, climbing the mountain.&#x000A;&#x000A;M&#x00E1;kke's hut is here, set slightly apart from the rest but still within the village's limits.&#x000A;&#x000A;&gt;[21] n&#x000A;&#x000A;Path&#x000A;The narrow path leading from the village to the cliff is barely a trail in the snow. Goats use it to chew the hardy grasses growing on the wind-swept heights, and witches use it to go the black stone to perform rituals of winter and spring, of life and death. It winds its way up north along the mountain's slope to get to the cliff's edge. To the south, it reaches the village.&#x000A;&#x000A;&gt;[22] n&#x000A;&#x000A;Cliff&#x000A;Panu and Mikko are with you on the cliff. You watch as they bring M&#x00E1;kke's body up with ropes. Panu, the youngest, climbs down to the albatrosses' nests to secure her. Mikko, the eldest, pulls and pulls until your teacher comes back to you. She's cold and cramped, stiff as a tree, and the melting snow drips from her eyes like tears.&#x000A;&#x000A; "Would you have us take her to her bed, Lenne?," Mikko asks. You're about to say yes, but then you shake your head.&#x000A;&#x000A; "Place her on the witch stone and leave me alone with her."&#x000A;&#x000A; They look at you, then at each other. It's plain they don't see you as the witch but there is no-one else here and &#x00C1;rvet told them to obey you. So they do: they leave M&#x00E1;kke's body on the witch stone and they go back a few paces. You look at your teacher's empty hands.&#x000A;&#x000A;[1] "Panu, what happened to the wineskin?"&#x000A;&#x000A;&gt;[23] talk to panu&#x000A;[1] "Panu, what happened to the wineskin?"&#x000A;&#x000A;M&#x00E1;kke's sealskin cloak flaps, caught in the wind.&#x000A;&#x000A;&gt;[24] 1&#x000A;"Panu, what happened to the wineskin that M&#x00E1;kke had in her hand?&#x000A;&#x000A; "It is a good wineskin, Lenne," Panu says. "It is good leather, and well-seasoned, and has no holes. And old M&#x00E1;kke has no use for it anymore."&#x000A;&#x000A;[1] "You must give me back that wineskin."&#x000A;&#x000A;&gt;[25] 1&#x000A;"You must give me back that wineskin, Panu," you say, firmly. Because your eyes are open at last and you know what you must do and how to do it, as if M&#x00E1;kke herself is whispering to you with her dead lips. "You must give it to me because from it I shall pull the storm and the squall, the gale and the tempest, life and death themselves. In my hands that wineskin will hold Ukko's breath and Akka's strength."&#x000A;&#x000A; "But it is only a wineskin, Lenne..."&#x000A;&#x000A;[1] "You will do as I say."&#x000A;&#x000A;&gt;[26] 1&#x000A;"Do as I say," you command. And maybe you have what it takes to be the witch, because Panu takes the wineskin from his satchel and gives it to you.&#x000A;&#x000A;"Go back to the village, and whatever happens, whatever you hear, do not come near the stone," you say, forcefully.&#x000A;&#x000A; You know they won't. You watch as both men hurry down the path, without looking back at you even once.&#x000A;&#x000A;You are alone with your teacher, the gods, the wind and the black ships that can already be seen in the horizon.&#x000A;&#x000A;But you still need the necessary objects to prepare M&#x00E1;kke and to perform the ritual.&#x000A;&#x000A;&gt;[27] open chest&#x000A;You open the small chest, revealing the knife of M&#x00E1;kke, an oil flask and a yellow marine sponge.&#x000A;&#x000A;You have all the necessary elements. It is time to prepare M&#x00E1;kke.&#x000A;&#x000A;&gt;[28] x makke&#x000A;M&#x00E1;kke is cold and stiff, grotesquely twisted in a death-spasm. M&#x00E1;kke wears the rune of Akka tattooed on her skin, under the damp, dark clothes still holding snow in their folds.&#x000A;&#x000A;A strong wind picks up some leaves and plays around with your braids and dress.&#x000A;&#x000A;&gt;[29] rub makke&#x000A;You rub M&#x00E1;kke's arms and legs until you can move her. You wipe the snow from her face and close her still-damp eyes.&#x000A;&#x000A;&gt;[30] x makke&#x000A;M&#x00E1;kke rests, small in death, on the black stone. She has the rune of Akka tattooed on her skin, under her dark damp clothes.&#x000A;&#x000A;&gt;[31] cut cloth with knife&#x000A;(first taking the knife of M&#x00E1;kke)&#x000A;Taken.&#x000A;&#x000A;You watch the knife of M&#x00E1;kke in your hand. And remember her teachings about it: "the blade tears as much as it conjoins, attaches as well as it stabs."&#x000A;&#x000A;You cut the clothes with M&#x00E1;kke's black stone knife. It's a weird thing, but M&#x00E1;kke seems smaller now she's dead than when she was alive. You throw the clothes aside.&#x000A;&#x000A;A chill wind goes through the thin cloth of your dress and freezes your very bones.&#x000A;&#x000A;&gt;[32] x makke&#x000A;M&#x00E1;kke is naked on the black stone. Her wrinkled, wet skin is soiled from living and from dying, her flesh unclean. There is blood where her body slammed on the rocks. The rune of Akka is tattooed on her chest.&#x000A;&#x000A;&gt;[33] anoint makke with oil&#x000A;(first taking the oil flask)&#x000A;You take the flask, filled with the scented oil made from resins and herbs that M&#x00E1;kke knew how to make, and you anoint the soft skin, the calloused hands, the body that served her so well in life. You use the sponge to rub away the leftovers of life from her dead body until her skin loses the smell of death and takes on the scents of pine trees and winter and clean sea air.&#x000A;&#x000A;&gt;[34] x makke&#x000A;M&#x00E1;kke has been washed and anointed to enter the next life. Over her chest, on the place where the strength of the soul lies, is the rune of Akka.&#x000A;&#x000A;&gt;[35] cut the akka rune with knife&#x000A;You do what you must and then you cover M&#x00E1;kke with her sealskin's cloak. You leave M&#x00E1;kke's blood on the black knife's blade.&#x000A;&#x000A;&#x000A;Please press SPACE to continue.</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-113"/>
+      <child nodeId="node-126"/>
+    </children>
+  </item>
+  <item nodeId="node-113">
+    <command xml:space="preserve">   e</command>
+    <result xml:space="preserve">You can't go that way.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-114"/>
+    </children>
+  </item>
+  <item nodeId="node-114">
+    <command xml:space="preserve">l</command>
+    <result xml:space="preserve">Cliff&#x000A;Una peque&#x00F1;a explanada que cae vertiginosamente hasta el sea, hacia el oeste. Si te asomas ver&#x00E1;s las rocks de la pared casi vertical, donde anidan los albatross que han blanqueado las pe&#x00F1;as con sus excrementos. Hay poco que ver desde aqu&#x00ED;: la peque&#x00F1;a bay de la Village down, la extensi&#x00F3;n hostil del sea al oeste y al norte, el Path que retorna a la Village hacia el sur, la snow que lo cubre todo. Y la stone, la stone de las brujas.&#x000A;&#x000A;On the black stone is the body of M&#x00E1;kke.&#x000A;&#x000A;El mantle de piel de foca de M&#x00E1;kke est&#x00E1; tirado a un lado de la black stone. No sabes si dejado all&#x00ED; o arrastrado por el wind.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-115"/>
+    </children>
+  </item>
+  <item nodeId="node-115">
+    <command xml:space="preserve">s</command>
+    <result xml:space="preserve">Path&#x000A;El estrecho Path que lleva desde la Village al Cliff es apenas un trazo en la snow. Las cabras lo usan cuando van a ramonear las hierbas duras que crecen en la planicie barrida por el wind, y las brujas lo usan cuando van a la black stone en la que realizan los rituales de invierno y primavera, de vida y de death. Hacia el norte, asciende serpenteante por la ladera de la mountain hasta llegar a la cima del Cliff. Hacia el sur retorna a la Village.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-116"/>
+    </children>
+  </item>
+  <item nodeId="node-116">
+    <command xml:space="preserve">s</command>
+    <result xml:space="preserve">In the village&#x000A;Una treintena de endebles huts forman la Village. Algunas no son m&#x00E1;s que unas cuantas tablas y tejado de ramas y hojas trenzados. Otras son casas m&#x00E1;s s&#x00F3;lidas, recuerdo de &#x00E9;pocas m&#x00E1;s pr&#x00F3;speras, hechas con grandes troncos y selladas con barro y corteza de abedul. De vez en cuando se ve un huertecillo en vez de una casa, o un corral con cabras que miran altivas a su alrededor. Un mantle de snow ca&#x00ED;do durante toda la noche cubre toda superficie.&#x000A;&#x000A; Un Path casi tapado por la snow viene desde la Beach en el oeste y contin&#x00FA;a hacia el norte, trepando la mountain.&#x000A;&#x000A; La hut de M&#x00E1;kke est&#x00E1; aqu&#x00ED;, algo apartada del resto aunque integrada en la Village.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-117"/>
+    </children>
+  </item>
+  <item nodeId="node-117">
+    <command xml:space="preserve">enter</command>
+    <result xml:space="preserve">You must supply a noun.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-118"/>
+    </children>
+  </item>
+  <item nodeId="node-118">
+    <command xml:space="preserve">take all</command>
+    <result xml:space="preserve">There are none at all available!&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-119"/>
+    </children>
+  </item>
+  <item nodeId="node-119">
+    <command xml:space="preserve">enter hut</command>
+    <result xml:space="preserve">En la hut de M&#x00E1;kke&#x000A;La hut no es diferente a las dem&#x00E1;s de la Village: paredes de troncos sellados con barro y corteza y una &#x00FA;nica sala con suelo de tierra apisonada. Has pasado m&#x00E1;s tiempo en esta habitaci&#x00F3;n que en casa de tus padres y la conoces mejor que la palma de tu hand; una tosca mesa de trabajo, la bed de M&#x00E1;kke y tu jerg&#x00F3;n, adem&#x00E1;s de algunos enseres cotidianos y algunas hierbas secas que os quedan de la colecta de primavera. Los pocos tesoros que M&#x00E1;kke apreci&#x00F3; en vida parecen poca cosa tras su death: el arc&#x00F3;n de madera pintada, el peque&#x00F1;o altar con las runas rituales.&#x000A;&#x000A;Su mayor tesoro, el small chest de seafil tallado, permanece olvidado en un rinc&#x00F3;n.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-120"/>
+    </children>
+  </item>
+  <item nodeId="node-120">
+    <command xml:space="preserve">take all</command>
+    <result xml:space="preserve">small chest: Taken.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-121"/>
+    </children>
+  </item>
+  <item nodeId="node-121">
+    <command xml:space="preserve">out</command>
+    <result xml:space="preserve">In the village&#x000A;Una treintena de endebles huts forman la Village. Algunas no son m&#x00E1;s que unas cuantas tablas y tejado de ramas y hojas trenzados. Otras son casas m&#x00E1;s s&#x00F3;lidas, recuerdo de &#x00E9;pocas m&#x00E1;s pr&#x00F3;speras, hechas con grandes troncos y selladas con barro y corteza de abedul. De vez en cuando se ve un huertecillo en vez de una casa, o un corral con cabras que miran altivas a su alrededor. Un mantle de snow ca&#x00ED;do durante toda la noche cubre toda superficie.&#x000A;&#x000A; Un Path casi tapado por la snow viene desde la Beach en el oeste y contin&#x00FA;a hacia el norte, trepando la mountain.&#x000A;&#x000A; La hut de M&#x00E1;kke est&#x00E1; aqu&#x00ED;, algo apartada del resto aunque integrada en la Village.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-122"/>
+    </children>
+  </item>
+  <item nodeId="node-122">
+    <command xml:space="preserve">n</command>
+    <result xml:space="preserve">Path&#x000A;El estrecho Path que lleva desde la Village al Cliff es apenas un trazo en la snow. Las cabras lo usan cuando van a ramonear las hierbas duras que crecen en la planicie barrida por el wind, y las brujas lo usan cuando van a la black stone en la que realizan los rituales de invierno y primavera, de vida y de death. Hacia el norte, asciende serpenteante por la ladera de la mountain hasta llegar a la cima del Cliff. Hacia el sur retorna a la Village.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-123"/>
+    </children>
+  </item>
+  <item nodeId="node-123">
+    <command xml:space="preserve">n</command>
+    <result xml:space="preserve">Cliff&#x000A;Una peque&#x00F1;a explanada que cae vertiginosamente hasta el sea, hacia el oeste. Si te asomas ver&#x00E1;s las rocks de la pared casi vertical, donde anidan los albatross que han blanqueado las pe&#x00F1;as con sus excrementos. Hay poco que ver desde aqu&#x00ED;: la peque&#x00F1;a bay de la Village down, la extensi&#x00F3;n hostil del sea al oeste y al norte, el Path que retorna a la Village hacia el sur, la snow que lo cubre todo. Y la stone, la stone de las brujas.&#x000A;&#x000A;On the black stone is the body of M&#x00E1;kke.&#x000A;&#x000A;El mantle de piel de foca de M&#x00E1;kke est&#x00E1; tirado a un lado de la black stone. No sabes si dejado all&#x00ED; o arrastrado por el wind.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-124"/>
+    </children>
+  </item>
+  <item nodeId="node-124">
+    <command xml:space="preserve">open chest</command>
+    <result xml:space="preserve">You open the small chest, revealing the knife of M&#x00E1;kke, an oil flask and a sponge.&#x000A;&#x000A;Ya tienes todos los elementos necesarios en tu poder. Es hora de preparar a M&#x00E1;kke.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-125"/>
+    </children>
+  </item>
+  <item nodeId="node-125">
+    <command xml:space="preserve">test prepara</command>
+    <result xml:space="preserve">(Testing.)&#x000A;&#x000A;&gt;[1] x makke&#x000A;M&#x00E1;kke est&#x00E1; fr&#x00ED;a y r&#x00ED;gida, en una pose grotesca con los brazos y las piernas contra&#x00ED;das en un espasmo de death. M&#x00E1;kke posee la rune of Akka en su piel, debajo de la clothes oscura, humedecida, con snow acumulada en los pliegues.&#x000A;&#x000A;&gt;[2] rub makke&#x000A;Frotas los brazos y las piernas de M&#x00E1;kke hasta que puedes moverla. Le quitas la snow de la cara y le cierras los ojos a&#x00FA;n h&#x00FA;medos.&#x000A;&#x000A;&gt;[3] x makke&#x000A;M&#x00E1;kke reposa en toda su peque&#x00F1;a extensi&#x00F3;n sobre la black stone. M&#x00E1;kke posee la rune of Akka en su piel, debajo de la clothes oscura a&#x00FA;n mojada.&#x000A;&#x000A;&gt;[4] cut cloth with knife&#x000A;(first taking the knife of M&#x00E1;kke)&#x000A;Cortas las ropas con el knife de hoja negra de M&#x00E1;kke. Te resulta extra&#x00F1;o darte cuenta de que M&#x00E1;kke muerta parece m&#x00E1;s peque&#x00F1;a que M&#x00E1;kke viva. Descartas las ropas a un lado.&#x000A;&#x000A;&gt;[5] x makke&#x000A;M&#x00E1;kke est&#x00E1; desnuda sobre la black stone. Su piel arrugada y mojada est&#x00E1; sucia de vivir, y esa suciedad se ha quedado impregnada a su carne muerta. Hay restos de sangre donde su cuerpo impact&#x00F3; contra las rocks. La rune of Akka est&#x00E1; tatuada sobre su pecho.&#x000A;&#x000A;&gt;[6] anoint makke with oil&#x000A;(first taking the oil flask)&#x000A;Tomas el flask de aceite, el aceite aromatizado con resinas y plantas que M&#x00E1;kke sab&#x00ED;a preparar, y le untas la piel blanda, las manos duras, el cuerpo entero que tan bien le ha servido. Con la sponge frotas los restos de vida de su cuerpo muerto hasta que su piel pierde el olor de la death y se llena del olor a pinos y a invierno y al aire limpio del sea.&#x000A;&#x000A;&gt;[7] x makke&#x000A;M&#x00E1;kke ya ha sido ungida y lavada para entrar en la otra vida. Sobre el pecho de M&#x00E1;kke, sobre el lugar de la fuerza del alma, est&#x00E1; la rune of Akka.&#x000A;&#x000A;&gt;[8] cut the akka rune with knife&#x000A;Haces lo que tienes que hacer y luego cubres el cuerpo de M&#x00E1;kke con su mantle de piel de foca. Pero dejas la sangre muerta de M&#x00E1;kke en el knife de black stone.&#x000A;&#x000A;&#x000A;Please press SPACE to continue.</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+  </item>
+  <item nodeId="node-126">
+    <command xml:space="preserve"> </command>
+    <result xml:space="preserve">Cliff&#x000A;Now is the time. Stand before the witch stone. Stand before the waiting gods. Stand before the anointed body of your dead teacher. Stand before the endless sea, the grey sky, the indifferent flight of the albatrosses. Today you stand. Today you, Lenne-who-would-be-the-witch, Lenne still in her maiden braids, feel smaller than ever.&#x000A;&#x000A;Far in the horizon you can see the long shapes of the black ships. They look like they are standing still, but you're not fooled; you know it won't be long before they are upon the village.&#x000A;&#x000A;On the black stone is M&#x00E1;kke.&#x000A;&#x000A;This is your chance to become the witch and save the village. You must RECITE THE SPELL, step by step, and hold on until it's complete.&#x000A;&#x000A;The wind is freezing, loaded with sleet.&#x000A;&#x000A;&gt;[36] recite spell&#x000A;You don't ask permission from &#x00C1;rvet. You don't ask permission from M&#x00E1;kke. The living belong to Life. The dead belong to Death.&#x000A;&#x000A; Witches belong nowhere.&#x000A;&#x000A;You uncork the wineskin and offer it up to the wind.&#x000A;&#x000A; Tuulen Ukko tuulen Akka&#x000A; Tuulen kaikki ristikansa&#x000A; &#x000A; Miest&#x00E4; mustoa rukoilen&#x000A; Suuren tuulen nostajaksi&#x000A; &#x000A;The wind starts blowing, making the waves rise.&#x000A;&#x000A;Now, continue to call forth the storm. You must RECITE all the spell verses until the conjuring is complete.&#x000A;&#x000A;&gt;[37] recite&#x000A;The old tongue grabs at your throat and teeth, turns the air thick around you. You keep on reciting the spell as you feel the arm holding the wineskin grow heavy.&#x000A;&#x000A; Suuren tuulen nostajaksi&#x000A; S&#x00E4;&#x00E4;n rajun rakentajaksi&#x000A; &#x000A; Tuopa taita tammen latvat&#x000A; Rutaise rutiset raijat&#x000A; &#x000A;The wind howls now, bringing grey clouds that already tell of the coming storm. The waves come in stronger and faster, smashing against the cliff in cold, white foam.&#x000A;&#x000A;&gt;[38] recite&#x000A;The wineskin fills up, slowly at first. The folds in the leather smooth out. Far away the sky darkens. The storm is turning it black, black as the ships coming upon the horizon. Your arm hurts and shakes. Your head hurts too, a dull and pounding pain. Reciting the spell is getting harder by the moment. There's a taste of salt and iron in the air.&#x000A;&#x000A; Nouse tuuli tuulemahan&#x000A; Vihkurit vetelem&#x00E4;&#x00E4;n&#x000A; &#x000A; Nouse tuuli tuulemahan&#x000A; Ilseainta riehkim&#x00E4;&#x00E4;n&#x000A; &#x000A;The wind roars trying to tear the wineskin off your arm. The high waves pound the cliff as if trying to bring it down. Rain pours from the angry dark clouds. The black ships buck and yaw against the gale and the rain. They've gathered sails, so that the wind does not rip them to shreds.&#x000A;&#x000A;&gt;[39] recite&#x000A;Your own voice seems to be coming from outside yourself: a strange, shrill echo. The light is being eaten by the black clouds closing over your head. the wind is cold and gusty, whipping the waves that lap the bay's stones. The wineskin is swollen, heavy as a drowned man. You have trouble breathing: the air entering your lungs feels like thick, briny water.&#x000A;&#x000A; Tuule tuuli kuusi vuotta&#x000A; Seuro seitsem&#x00E4;n kes&#x00E4;&#x00E4;&#x000A; &#x000A; Itse kuoho kosken lailla&#x000A; Sek&#x00E4; valtona vallitse&#x000A; &#x000A;Waves and rain blend together in a crazed whirl. Everything disappears under the water. Even the cliff stones shake and tumble and surrender. Lightning slashes the sky apart. The wind roars and threatens to throw you down the cliff. The fury of the elements is such that you know the black ships will soon be doomed.&#x000A;&#x000A;&gt;[40] stab rune with knife&#x000A;(the rune of Akka with the knife of M&#x00E1;kke)&#x000A;You take the knife carrying M&#x00E1;kke's blood. In your mind the storm is already wild, tearing at you. Up above, the clouds wait for your command.&#x000A;&#x000A; Miest&#x00E4; mustoa rukoilen&#x000A; Suuren tuulen nostajaksi&#x000A; &#x000A; You scream and the wind roars with you. You raise the knife and the sky itself rises with you. And you bring down the knife: the black stone blade pierces M&#x00E1;kke's skin, Akka's rune, your own arm. M&#x00E1;kke's dead blood mixes with your own living blood. Your fingers want to open, want to drop the wineskin; but still you hold out your arm, dripping blood on the witch stone.&#x000A;&#x000A; Suuren tuulen nostajaksi&#x000A; S&#x00E4;&#x00E4;n rajun rakentajaksi&#x000A; &#x000A;Hell is now over the bay, a hell made of water and wind and thunder. The squall is right over you. It roars over the witch stone, snatching M&#x00E1;kke's body violently. It tumbles away, broken and unstrung amidst the storm, and disappears into the slashing rain.&#x000A;&#x000A;The wineskin explodes in wind and fury, bursts into shreds, and the storm turns the sky the sickly yellow hue of a cadaver. The spell issues from your lips like blood from your arm, directing the storm, bringing death to the black ships. Your eyes fill with drowned men, your nose fills up with water, your mouth is full of blood. You are the storm. You are death. You die for the first time in your life.&#x000A;&#x000A;&#x000A;Please press SPACE to continue.</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-127"/>
+      <child nodeId="node-149"/>
+      <child nodeId="node-157"/>
+    </children>
+  </item>
+  <item nodeId="node-127">
+    <command xml:space="preserve">recite</command>
+    <result xml:space="preserve">No pides permiso a &#x00C1;rvet. No pides permiso al esp&#x00ED;ritu de M&#x00E1;kke. Los vivos son de la vida. Los muertos son de la death.&#x000A;&#x000A; Las brujas no son de ning&#x00FA;n sitio.&#x000A;&#x000A;Destapas el wineskin y lo ofreces al sea.&#x000A;&#x000A; Tuulen Ukko tuulen Akka&#x000A; Tuulen kaikki ristikansa&#x000A; &#x000A; Miest&#x00E4; mustoa rukoilen&#x000A; Suuren tuulen nostajaksi&#x000A; &#x000A;El wind comienza a soplar fuerte, agitando y levantando las olas.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-128"/>
+    </children>
+  </item>
+  <item nodeId="node-128">
+    <command xml:space="preserve">recite</command>
+    <result xml:space="preserve">La vieja lengua se enreda en tu garganta y en los dientes, vuelve el aire denso a tu alrededor. Sigues pronunciando el conjuro mientras el arm que sujeta el wineskin va pesando m&#x00E1;s y m&#x00E1;s.&#x000A;&#x000A; Suuren tuulen nostajaksi&#x000A; S&#x00E4;&#x00E4;n rajun rakentajaksi&#x000A; &#x000A; Tuopa taita tammen latvat&#x000A; Rutaise rutiset raijat&#x000A; &#x000A;El wind redobla sus fuerzas y atrae nubes grises que amenazan storm. Las olas alcanzan velocidad y altura y se estrellan contra el Cliff en fr&#x00ED;as nubes de espuma.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-129"/>
+    </children>
+  </item>
+  <item nodeId="node-129">
+    <command xml:space="preserve">recite</command>
+    <result xml:space="preserve">El wineskin empieza a hincharse, poco a poco al principio. Los pliegues del cuero se alisan. A lo lejos, el cielo se oscurece. La storm hace que se torne negro, del mismo color que los barcos en el horizon. El arm te duele, tiembla. La cabeza tambi&#x00E9;n te duele, con un dolor sordo y pulsante. Te cuesta seguir pronunciando el conjuro. El aire sabe a sal y a hierro.&#x000A;&#x000A; Nouse tuuli tuulemahan&#x000A; Vihkurit vetelem&#x00E4;&#x00E4;n&#x000A; &#x000A; Nouse tuuli tuulemahan&#x000A; Ilseainta riehkim&#x00E4;&#x00E4;n&#x000A; &#x000A;El wind ruge con fuerza amenazando con arrancarte el wineskin del arm. Las olas alcanzan gran altura e intentan derribar el Cliff acometida tras acometida. Una lluvia intensa cae de las nubes oscuras y airadas. Los barcos negros cabecean entre las r&#x00E1;fagas y se apresuran a arriar las velas por miedo a perderlas.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-130"/>
+    </children>
+  </item>
+  <item nodeId="node-130">
+    <command xml:space="preserve">g</command>
+    <result xml:space="preserve">Tu voz llega desde fuera tambi&#x00E9;n, un eco extra&#x00F1;o y estridente, mientras la luz va desapareciendo tragada por nubes negras que vienen desde los cuatro puntos cardinales. El aire sopla fr&#x00ED;o y a golpes, dando latigazos a las olas que lamen la orilla, down en la bay. El wineskin est&#x00E1; hinchado y pesa como un ahogado. Te cuesta respirar cada vez m&#x00E1;s: el aire parece water densa y salobre.&#x000A;&#x000A; Tuule tuuli kuusi vuotta&#x000A; Seuro seitsem&#x00E4;n kes&#x00E4;&#x00E4;&#x000A; &#x000A; Itse kuoho kosken lailla&#x000A; Sek&#x00E4; valtona vallitse&#x000A; &#x000A;Las olas y la lluvia se unen en un todo enloquecido, incesante, insensato. Todo se ahoga bajo el water. Las mismas rocks del Cliff tiemblan, se desmoronan, se rinden. Los rel&#x00E1;mpagos cortan el horizon en dos. El rugir del wind amenaza con tirarte Cliff down. La furia de los elementos es tal que sabes que la flota de black ships pronto estar&#x00E1; condenada.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-131"/>
+    </children>
+  </item>
+  <item nodeId="node-131">
+    <command xml:space="preserve">g</command>
+    <result xml:space="preserve">Esperas; esperas hasta que la storm en tu cabeza y la storm en el horizon son una, hasta que tu cuerpo est&#x00E1; en dos sitios a la vez, hasta que el wineskin casi se escapa tironeando de tus dedos en su ansia por liberar la furia del wind.&#x000A;&#x000A; Pero a&#x00FA;n no. A&#x00FA;n no. El poder saldr&#x00E1; de tus palabras y de tu voluntad, no con la furia ciega de la storm.&#x000A;&#x000A; Miest&#x00E4; mustoa rukoilen&#x000A; Suuren tuulen nostajaksi&#x000A; &#x000A; Pero la rune of Akka no responde. No sientes su energ&#x00ED;a. Algo falla. Lo que m&#x00E1;s tem&#x00ED;as: t&#x00FA;. No eres una bruja. Solo eres una muchacha tonta que roba el poder a su maestra muerta. La rune no puede responder porque no est&#x00E1; en tu piel. No tiene sangre de bruja que la alimente.&#x000A;&#x000A; Con la otra hand tomas la rune que hab&#x00ED;a estado en la piel de M&#x00E1;kke y la colocas sobre el arm que sujeta el wineskin. No es la manera habitual, no es la manera correcta. Pero la decisi&#x00F3;n es tuya. Si realmente eres la bruja, si eres digna del poder, lo que hagas ser&#x00E1; lo que debe hacerse. Eso dec&#x00ED;a M&#x00E1;kke.&#x000A;&#x000A; El des&#x00E1;nimo crece en ti y de la misma manera notas como el conjuro decrece en intensidad.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-132"/>
+    </children>
+  </item>
+  <item nodeId="node-132">
+    <command xml:space="preserve">g</command>
+    <result xml:space="preserve">Repites de nuevo los versos finales:&#x000A;&#x000A; Miest&#x00E4; mustoa rukoilen&#x000A; Suuren tuulen nostajaksi&#x000A; &#x000A;&#x00A1;No funciona! La rune no forma parte de ti. No va a funcionar. Gritas tu frustraci&#x00F3;n al wind.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-133"/>
+    </children>
+  </item>
+  <item nodeId="node-133">
+    <command xml:space="preserve">stab akka rune with knife</command>
+    <result xml:space="preserve">I only understood you as far as wanting to stab the rune of Akka.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-134"/>
+    </children>
+  </item>
+  <item nodeId="node-134">
+    <command xml:space="preserve">stab rune of akka with knife</command>
+    <result xml:space="preserve">I only understood you as far as wanting to stab the rune of Akka.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-135"/>
+    </children>
+  </item>
+  <item nodeId="node-135">
+    <command xml:space="preserve">stab the rune of akka</command>
+    <result xml:space="preserve">Tomas el knife con la sangre de M&#x00E1;kke. En tu mente la storm ya ruge, te destroza. Arriba, las nubes esperan tu orden.&#x000A;&#x000A; Miest&#x00E4; mustoa rukoilen&#x000A; Suuren tuulen nostajaksi&#x000A; &#x000A; Gritas y el wind ruge contigo. Alzas el knife y el cielo entero se alza contigo. Dejas caer el knife y la hoja de black stone atraviesa la piel de M&#x00E1;kke, la rune of Akka, tu propio arm. La sangre muerta de M&#x00E1;kke se mezcla con tu sangre viva. Tus dedos quieren abrirse, soltar el wineskin, pero el arm contin&#x00FA;a extendido, goteando sangre sobre la black stone.&#x000A;&#x000A; Suuren tuulen nostajaksi&#x000A; S&#x00E4;&#x00E4;n rajun rakentajaksi&#x000A; &#x000A;El infierno hecho water, wind y trueno se ha desatado sobre la bay. La galerna ya est&#x00E1; aqu&#x00ED;. Se arremolina sobre la stone de las brujas y arranca violentamente el cuerpo de la bruja M&#x00E1;kke. Vuela y gira como una mu&#x00F1;eca de trapo llevada por la storm, perdi&#x00E9;ndose en la lluvia.&#x000A;&#x000A;El wineskin estalla en wind y furia, se rompe en mil pedazos, y a lo lejos la storm vuelve el cielo del color aseaillo de un cad&#x00E1;ver. El conjuro sigue saliendo de tus labios como la sangre de tu arm, guiando la storm, guiando la death hacia los barcos negros. Tus ojos se llenan de ahogados, tu nariz de water, tu boca de sangre. Eres la storm. Eres la death. Y mueres por primera vez en tu vida.&#x000A;&#x000A;&#x000A;Please press SPACE to continue.</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-136"/>
+    </children>
+  </item>
+  <item nodeId="node-136">
+    <command xml:space="preserve"> </command>
+    <result xml:space="preserve">Soy Lenne. Soy la bruja. Esta es mi historia.&#x000A;&#x000A; Despiertas en el suelo, con el arm a&#x00FA;n atravesado por el knife. Tu hand est&#x00E1; cubierta de sangre y hielo. Del wineskin no queda ni un pedazo. Tampoco se ve el cuerpo de la bruja M&#x00E1;kke.&#x000A;&#x000A; &#x00C1;rvet est&#x00E1; en la orilla cuando bajas, d&#x00E9;bil y dolorida, sujet&#x00E1;ndote un bandage al arm herido.&#x000A;&#x000A;En la Beach.&#x000A;Una estrecha lengua de dark pebbles es la salida del pueblo al sea. A ambos lados los piers para las barcas delimitan una peque&#x00F1;a bay de aguas fr&#x00ED;as y desapacibles. Hacia el este descansa la Village.&#x000A;&#x000A;La Beach de stones oscuras est&#x00E1; cubierta de lumber, de cordaje y de cad&#x00E1;veres. Hab&#x00ED;an sido hombres altos, de pelo aseaillo o cobrizo, p&#x00E1;lidos y orgullosos. Muchos llevan al cinto espadas y hachas. Ahora no son m&#x00E1;s que carne para el fest&#x00ED;n de los albatross.&#x000A;&#x000A;&#x00C1;rvet, el jefe, est&#x00E1; aqu&#x00ED;.&#x000A;&#x000A;-Has llamado a la storm, bruja Lenne,- dice &#x00C1;rvet. &#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-137"/>
+    </children>
+  </item>
+  <item nodeId="node-137">
+    <command xml:space="preserve">talk to arvet</command>
+    <result xml:space="preserve">[1] ...&#x000A;[2] Terminar la Conversation.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-138"/>
+    </children>
+  </item>
+  <item nodeId="node-138">
+    <command xml:space="preserve">1</command>
+    <result xml:space="preserve">Casi no puedes hablar: tu garganta est&#x00E1; en carne viva y quemada por la sal y por el wind. Miras a los muertos.&#x000A;&#x000A;[1] "Se llamaba Leif."&#x000A;[2] "Se llamaba Ulrif."&#x000A;[3] "Se llamaba Snorri."&#x000A;[4] Terminar la Conversation.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-139"/>
+    </children>
+  </item>
+  <item nodeId="node-139">
+    <command xml:space="preserve">1</command>
+    <result xml:space="preserve">-Se llamaba Leif-, dices, con voz como el graznido de un cuervo. -Tom&#x00F3; mujer la primavera pasada, la dej&#x00F3; encinta antes de subir al barco negro. Pas&#x00F3; el viaje tallando un juguete para su beb&#x00E9; en un diente de morsa.&#x000A;&#x000A; &#x00C1;rvet no dice nada.&#x000A;&#x000A;[1] "Se llamaba Ulrif."&#x000A;[2] "Se llamaba Snorri."&#x000A;[3] Terminar la Conversation.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-140"/>
+    </children>
+  </item>
+  <item nodeId="node-140">
+    <command xml:space="preserve">1</command>
+    <result xml:space="preserve">Das la vuelta con el pie a otro muerto para mirarle los ojos blancos, la cara hinchada.&#x000A;&#x000A; -Se llamaba Ulrif-, dices. -Le gustaba beber y le gustaba pelear. Cantaba mejor que nadie en su Village y pegaba a su mujer cuando llegaba borracho a casa y ella no quer&#x00ED;a yacer con &#x00E9;l.&#x000A;&#x000A;[1] "Se llamaba Snorri."&#x000A;[2] Terminar la Conversation.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-141"/>
+    </children>
+  </item>
+  <item nodeId="node-141">
+    <command xml:space="preserve">1</command>
+    <result xml:space="preserve">Un poco m&#x00E1;s lejos un hombre mira al cielo con un solo ojo.&#x000A;&#x000A; -Se llamaba Snorri-, dices. -No era de la Village; vino de lejos, mercadeando con pieles, y se qued&#x00F3; con ellos. Era cruel. Le gustaba navegar y le gustaba matar, y hubiera querido ser jefe. Pas&#x00F3; el viaje so&#x00F1;ando con los screams de las mujeres que tosea&#x00ED;a por la fuerza al llegar.&#x000A;&#x000A;[1] Terminar la Conversation.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-142"/>
+    </children>
+  </item>
+  <item nodeId="node-142">
+    <command xml:space="preserve">1</command>
+    <result xml:space="preserve">Tu mirada sigue perdida entre los muertos.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-143"/>
+    </children>
+  </item>
+  <item nodeId="node-143">
+    <command xml:space="preserve">z</command>
+    <result xml:space="preserve">Time passes.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-144"/>
+    </children>
+  </item>
+  <item nodeId="node-144">
+    <command xml:space="preserve">z</command>
+    <result xml:space="preserve">Time passes.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-145"/>
+    </children>
+  </item>
+  <item nodeId="node-145">
+    <command xml:space="preserve">z</command>
+    <result xml:space="preserve">Time passes.&#x000A;&#x000A;-La Village vive-, dice &#x00C1;rvet.&#x000A;&#x000A; No dice lo que t&#x00FA; has aprendido: que la bruja paga por la sangre vertida. Ahora posees para siempre sus deaths y sus vidas, mueres cada vez que matas. Pero hay mucha death en la Beach. Mucha sangre en esta tierra.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-146"/>
+    </children>
+  </item>
+  <item nodeId="node-146">
+    <command xml:space="preserve">z</command>
+    <result xml:space="preserve">Time passes.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-147"/>
+    </children>
+  </item>
+  <item nodeId="node-147">
+    <command xml:space="preserve">talk to arvet</command>
+    <result xml:space="preserve">Te giras hacia la Village.&#x000A;&#x000A;-La Village vive-, dices.&#x000A;&#x000A; Quiz&#x00E1; Lenne la muchacha hubiera llorado. Pero Lenne, la bruja, ya no pudo.&#x000A;&#x000A; Soy Lenne. Soy la bruja. Esta ha sido la historia. A trav&#x00E9;s de todos los a&#x00F1;os, de todos los muertos y de toda la sangre a&#x00FA;n recuerdo aquel momento en la Beach, entre los cad&#x00E1;veres.&#x000A;&#x000A; Mir&#x00E9; en silence a &#x00C1;rvet; no pude asegurarle que la vida volver&#x00ED;a, que el pescado caer&#x00ED;a en las redes, que los ni&#x00F1;os tendr&#x00ED;an leche y los hombres carne de foca y arenque. Todo lo que vi era la death que rodea la tierra, que llenaba el sea. No pude ver para la Village la vida que quise salvar con la death que invoqu&#x00E9;.&#x000A;&#x000A; Quiz&#x00E1; M&#x00E1;kke lo sab&#x00ED;a. Quiz&#x00E1; por eso flaque&#x00F3; y muri&#x00F3; antes de poder traer la storm. Quiz&#x00E1; hubiera sido mejor morir por la espada y el hacha que desaparecer poco a poco.&#x000A;&#x000A; &#x00C1;rvet me mir&#x00F3; como se mira a las brujas: con respeto, con miedo. Con odio. Yo miraba los muertos.&#x000A;&#x000A; A trav&#x00E9;s del bandage de mi arm sal&#x00ED;a sangre, y era sangre negra.&#x000A;&#x000A; Sangre de bruja.&#x000A;&#x000A;&#x000A;&#x000A;    *** The End ***&#x000A;&#x000A;&#x000A;&#x000A;&#x000A;Would you like to RESTART, RESTORE a saved game, QUIT or UNDO the last command?&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-148"/>
+    </children>
+  </item>
+  <item nodeId="node-148">
+    <command xml:space="preserve">quit</command>
+    <result xml:space="preserve"></result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+  </item>
+  <item nodeId="node-149">
+    <command xml:space="preserve">perform ritual</command>
+    <result xml:space="preserve">You don't ask permission from &#x00C1;rvet. You don't ask permission from M&#x00E1;kke. No pides permiso a &#x00C1;rvet. No pides permiso al esp&#x00ED;ritu de M&#x00E1;kke. The living belong to Life. The dead belong to Death.&#x000A;&#x000A; Witches belong nowhere.&#x000A;&#x000A;You uncork the wineskin and offer it up to the wind.&#x000A;&#x000A; Tuulen Ukko tuulen Akka&#x000A; Tuulen kaikki ristikansa&#x000A; &#x000A; Miest&#x00E4; mustoa rukoilen&#x000A; Suuren tuulen nostajaksi&#x000A; &#x000A;The wind starts blowing, making the waves rise.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-150"/>
+    </children>
+  </item>
+  <item nodeId="node-150">
+    <command xml:space="preserve">perform spell</command>
+    <result xml:space="preserve">The old tongue grabs at your throat and teeth, turns the air thick around you. You keep on reciting the spell as you feel the arm holding the wineskin grow heavy.&#x000A;&#x000A; Suuren tuulen nostajaksi&#x000A; S&#x00E4;&#x00E4;n rajun rakentajaksi&#x000A; &#x000A; Tuopa taita tammen latvat&#x000A; Rutaise rutiset raijat&#x000A; &#x000A;The wind howls now, bringing grey clouds that already tell of the coming storm. The waves come in stronger and faster, smashing against the cliff in cold, white foam.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-151"/>
+    </children>
+  </item>
+  <item nodeId="node-151">
+    <command xml:space="preserve">g</command>
+    <result xml:space="preserve">The wineskin fills up, slowly at first. The folds in the leather smooth out. Far away the sky darkens. The storms is turning it black, as the ships coming upon the horizin. Your arm hurts and shakes. Your head hurts too, a dull and pounding ache. Reciting the spell is getting harder every instant. There's a taste of salt and iron in the air.&#x000A;&#x000A; Nouse tuuli tuulemahan&#x000A; Vihkurit vetelem&#x00E4;&#x00E4;n&#x000A; &#x000A; Nouse tuuli tuulemahan&#x000A; Ilseainta riehkim&#x00E4;&#x00E4;n&#x000A; &#x000A;Th wind roars trying to tear the wineskin off your arm. The high waves pound the cliff as if trying to bring it down. Rain pours from the angry dark clouds. The black ships buck and yaw against the gale and the rain. They've gathered sails, so that the wind does not rip them to shreds.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-152"/>
+    </children>
+  </item>
+  <item nodeId="node-152">
+    <command xml:space="preserve">g</command>
+    <result xml:space="preserve">Your own voice seems to be coming from outside yourself: a strange, shrill echo. The light is being eaten by the black clouds closing over your head. the wind is cold and gusty, whipping the waves that lap the bay's stones. The wineskin is swollen, heavy as a drowned man. You have trouble breathing: the very air entering your lungs feels like thick, briny water.&#x000A;&#x000A; Tuule tuuli kuusi vuotta&#x000A; Seuro seitsem&#x00E4;n kes&#x00E4;&#x00E4;&#x000A; &#x000A; Itse kuoho kosken lailla&#x000A; Sek&#x00E4; valtona vallitse&#x000A; &#x000A;Waves and rain blend together in a crazed whirl. Everything disappears under the water. Even the cliff stones shake and tumble and surrender. Lightning slashes the sky apart. The wind roars and threatens to throw you down the cliff. The fury of the elements is such that you know the black ships will soon be doomed.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-153"/>
+    </children>
+  </item>
+  <item nodeId="node-153">
+    <command xml:space="preserve">g</command>
+    <result xml:space="preserve">You wait; you wait until the storm inside your head and the storm in the sky are one, until your body is in two places at once, until the wineskin nearly flies from your grip, trying to release the fury of the winds.&#x000A;&#x000A; But no. Not yet. The power will flow obeying your words and your will, not the blind fury of the storm.&#x000A;&#x000A; Miest&#x00E4; mustoa rukoilen&#x000A; Suuren tuulen nostajaksi&#x000A; &#x000A; But the rune of Akka doesn't respond. You can't feel its energy. Something's wrong. And you know what it is: youself, as you feared. You are not a witch. You're just a foolish girl stealing power from her dead teacher. The rune cannot respond to the spell because the rune is not on your skin. It has no witch blood to feed from.&#x000A;&#x000A; With your free hand you take the piece of M&#x00E1;kke's skin with the rune and place it upon the arm holding the wineskin. It's not the usual way; it's not the right way. But it's your call. If you really are the witch, if you are worthy of the power, what you end up doing will be what must be done. That's what M&#x00E1;kke said.&#x000A;&#x000A; Despair growns inside you and you feel the spell's strenght waning accordingly.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-154"/>
+    </children>
+  </item>
+  <item nodeId="node-154">
+    <command xml:space="preserve">g</command>
+    <result xml:space="preserve">Again you recite the final lines:&#x000A;&#x000A; Miest&#x00E4; mustoa rukoilen&#x000A; Suuren tuulen nostajaksi&#x000A; &#x000A;It's not working! The rune is not part of you. It's never going to work. You scream your frustration at the storm. The rune is still not a part of you.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-155"/>
+    </children>
+  </item>
+  <item nodeId="node-155">
+    <command xml:space="preserve">stab rune with knife</command>
+    <result xml:space="preserve">(the rune of Akka with the knife of M&#x00E1;kke)&#x000A;You take the knife carrying M&#x00E1;kke's blood. In your mind the storm is already wild, tearing at you. Up above, the clouds wait for your command.&#x000A;&#x000A; Miest&#x00E4; mustoa rukoilen&#x000A; Suuren tuulen nostajaksi&#x000A; &#x000A; You scream and the wind roars with you. You raise the knife and the sky itself rises with you. And you bring down the knife: the black stone blade stabs M&#x00E1;kke's skin, Akka's rune, your own arm. M&#x00E1;kke's dead blood mixes with your own living blood. Your fingers want to open, want to drop the wineskin; but still you hold out your arm, dripping blood on the witch stone.&#x000A;&#x000A; Suuren tuulen nostajaksi&#x000A; S&#x00E4;&#x00E4;n rajun rakentajaksi&#x000A; &#x000A;Hell is now over the bay, made from water and wind and thunder. The squall is right over you. It roars over the witch stone, snatching M&#x00E1;kke's body violently. It tumbles away, broken and unstrung amidst the storm, and disappears into the slashing rain.&#x000A;&#x000A;The wineskin explodes in wind and fury, bursts into shreds, and the storm turns the sky yellow like a cadaver. The spell issues from your lips like blood from your arm, directing the storm, bringing death to the black ships. Your eyes fill with drowned men, your nose fills up with water, your mouth is full of blood. You are the storm. You are death. You die for the first time in your life.&#x000A;&#x000A;&#x000A;Please press SPACE to continue.</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-156"/>
+    </children>
+  </item>
+  <item nodeId="node-156">
+    <command xml:space="preserve"> </command>
+    <result xml:space="preserve">I am Lenne. I am the witch. This is my story.&#x000A;&#x000A; You wake up on the ground, your arm still pierced by the knife. Your hand is covered in blood and ice. There's no sign of the wineskin. There's no sign of M&#x00E1;kke's body either.&#x000A;&#x000A; When you get down, weak and hurt, tying a bandage over your wounded arm, you see &#x00C1;rvet there on the beach.&#x000A;&#x000A;On the beach.&#x000A;A narrow tongue of dark pebbles is the village's exit to the sea. In each side, the wooden piers for the fishing boats define a small bay of cold and restless waters. To the east the village still rests.&#x000A;&#x000A;The dark pebble beach is covered with lumber, rigging and corpses. They had been tall men with yellow or reddish hair. Pale, proud men. Many of them carry swords or axes. Now they are just meat of the albatrosses" feast.&#x000A;&#x000A;Chief &#x00C1;rvet is here.&#x000A;&#x000A;"You have called forth the storm, witch Lenne," &#x00C1;rvet says. &#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+  </item>
+  <item nodeId="node-157">
+    <command xml:space="preserve">summon</command>
+    <result xml:space="preserve">You don't ask permission from &#x00C1;rvet. You don't ask permission from M&#x00E1;kke. The living belong to Life. The dead belong to Death.&#x000A;&#x000A; Witches belong nowhere.&#x000A;&#x000A;You uncork the wineskin and offer it up to the wind.&#x000A;&#x000A; Tuulen Ukko tuulen Akka&#x000A; Tuulen kaikki ristikansa&#x000A; &#x000A; Miest&#x00E4; mustoa rukoilen&#x000A; Suuren tuulen nostajaksi&#x000A; &#x000A;The wind starts blowing, making the waves rise.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-158"/>
+      <child nodeId="node-203"/>
+    </children>
+  </item>
+  <item nodeId="node-158">
+    <command xml:space="preserve">summon</command>
+    <result xml:space="preserve">The old tongue grabs at your throat and teeth, turns the air thick around you. You keep on reciting the spell as you feel the arm holding the wineskin grow heavy.&#x000A;&#x000A; Suuren tuulen nostajaksi&#x000A; S&#x00E4;&#x00E4;n rajun rakentajaksi&#x000A; &#x000A; Tuopa taita tammen latvat&#x000A; Rutaise rutiset raijat&#x000A; &#x000A;The wind howls now, bringing grey clouds that already tell of the coming storm. The waves come in stronger and faster, smashing against the cliff in cold, white foam.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-159"/>
+      <child nodeId="node-181"/>
+    </children>
+  </item>
+  <item nodeId="node-159">
+    <command xml:space="preserve">summon</command>
+    <result xml:space="preserve">The wineskin fills up, slowly at first. The folds in the leather smooth out. Far away the sky darkens. The storm is turning it black, black as the ships coming upon the horizon. Your arm hurts and shakes. Your head hurts too, a dull and pounding pain. Reciting the spell is getting harder by the moment. There's a taste of salt and iron in the air.&#x000A;&#x000A; Nouse tuuli tuulemahan&#x000A; Vihkurit vetelem&#x00E4;&#x00E4;n&#x000A; &#x000A; Nouse tuuli tuulemahan&#x000A; Ilseainta riehkim&#x00E4;&#x00E4;n&#x000A; &#x000A;The wind roars trying to tear the wineskin off your arm. The high waves pound the cliff as if trying to bring it down. Rain pours from the angry dark clouds. The black ships buck and yaw against the gale and the rain. They've gathered sails, so that the wind does not rip them to shreds.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-160"/>
+    </children>
+  </item>
+  <item nodeId="node-160">
+    <command xml:space="preserve">summon</command>
+    <result xml:space="preserve">Your own voice seems to be coming from outside yourself: a strange, shrill echo. The light is being eaten by the black clouds closing over your head. the wind is cold and gusty, whipping the waves that lap the bay's stones. The wineskin is swollen, heavy as a drowned man. You have trouble breathing: the air entering your lungs feels like thick, briny water.&#x000A;&#x000A; Tuule tuuli kuusi vuotta&#x000A; Seuro seitsem&#x00E4;n kes&#x00E4;&#x00E4;&#x000A; &#x000A; Itse kuoho kosken lailla&#x000A; Sek&#x00E4; valtona vallitse&#x000A; &#x000A;Waves and rain blend together in a crazed whirl. Everything disappears under the water. Even the cliff stones shake and tumble and surrender. Lightning slashes the sky apart. The wind roars and threatens to throw you down the cliff. The fury of the elements is such that you know the black ships will soon be doomed.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-161"/>
+    </children>
+  </item>
+  <item nodeId="node-161">
+    <command xml:space="preserve">summon</command>
+    <result xml:space="preserve">You wait; you wait until the storm inside your head and the storm in the sky are one, until your body is in two places at once, until the wineskin nearly flies from your grip, trying to release the fury of the winds.&#x000A;&#x000A; But no. Not yet. The power will flow obeying your words and your will, not the blind fury of the storm.&#x000A;&#x000A; Miest&#x00E4; mustoa rukoilen&#x000A; Suuren tuulen nostajaksi&#x000A; &#x000A; But the rune of Akka doesn't respond. You can't feel its energy. Something's wrong. And you know what it is: youself, as you feared. You are no witch. You're just a foolish girl stealing power from her dead teacher. The rune cannot respond to the spell because the rune is not on your skin. It has no witch blood to feed from.&#x000A;&#x000A; With your free hand you take the piece of M&#x00E1;kke's skin with the rune and place it upon the arm holding the wineskin. It's not the usual way; it's not the right way. But it's your call. If you really are the witch, if you are worthy of the power, what you end up doing will be what must be done. That's what M&#x00E1;kke said.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-162"/>
+    </children>
+  </item>
+  <item nodeId="node-162">
+    <command xml:space="preserve">summon</command>
+    <result xml:space="preserve">Again you recite the final lines:&#x000A;&#x000A; Miest&#x00E4; mustoa rukoilen&#x000A; Suuren tuulen nostajaksi&#x000A; &#x000A;It's not working! The rune is not part of you. It's never going to work. You scream your frustration at the storm. The rune is still not a part of you.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-163"/>
+    </children>
+  </item>
+  <item nodeId="node-163">
+    <command xml:space="preserve">summon</command>
+    <result xml:space="preserve">Again you recite the final lines:&#x000A;&#x000A; Miest&#x00E4; mustoa rukoilen&#x000A; Suuren tuulen nostajaksi&#x000A; &#x000A;It's not working! The rune is not part of you. It's never going to work. You scream your frustration at the storm. The rune is still not a part of you.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-164"/>
+      <child nodeId="node-172"/>
+    </children>
+  </item>
+  <item nodeId="node-164">
+    <command xml:space="preserve">z</command>
+    <result xml:space="preserve">Time passes.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-165"/>
+    </children>
+  </item>
+  <item nodeId="node-165">
+    <command xml:space="preserve">z</command>
+    <result xml:space="preserve">Time passes.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-166"/>
+    </children>
+  </item>
+  <item nodeId="node-166">
+    <command xml:space="preserve">z</command>
+    <result xml:space="preserve">Time passes.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-167"/>
+    </children>
+  </item>
+  <item nodeId="node-167">
+    <command xml:space="preserve">z</command>
+    <result xml:space="preserve">Time passes.&#x000A;&#x000A;Despair growns inside you and you feel the spell's strenght waning accordingly.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-168"/>
+    </children>
+  </item>
+  <item nodeId="node-168">
+    <command xml:space="preserve">z</command>
+    <result xml:space="preserve">Time passes.&#x000A;&#x000A;The storm is losing strength. The clouds seem to have already unloaded all their rain and turn gray instead of black. &#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-169"/>
+    </children>
+  </item>
+  <item nodeId="node-169">
+    <command xml:space="preserve">z</command>
+    <result xml:space="preserve">Time passes.&#x000A;&#x000A;The clouds disperse and the waves stop pounding the cliff. &#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-170"/>
+    </children>
+  </item>
+  <item nodeId="node-170">
+    <command xml:space="preserve">z</command>
+    <result xml:space="preserve">Time passes.&#x000A;&#x000A;The wind has weakened and the waves slow down to their usual strength. &#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-171"/>
+    </children>
+  </item>
+  <item nodeId="node-171">
+    <command xml:space="preserve">summon</command>
+    <result xml:space="preserve">You have lost all your borrowed power. The wineskin loses energy and your words lose their capacity to alter the fabric of existence.&#x000A;&#x000A;It's over. The wineskin empties of the last of its wind and the clouds disperse. The sea is calm again. On the horizon you can see the black ships rising their banners and coming closer and closer. &#x000A;&#x000A;&#x000A;    *** You could not call forth the storm and your village will die at the hands of the men of the black ships. ***&#x000A;&#x000A;&#x000A;&#x000A;Would you like to RESTART, RESTORE a saved game, QUIT or UNDO the last command?&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+  </item>
+  <item nodeId="node-172">
+    <command xml:space="preserve">summon</command>
+    <result xml:space="preserve">Again you recite the final lines:&#x000A;&#x000A; Miest&#x00E4; mustoa rukoilen&#x000A; Suuren tuulen nostajaksi&#x000A; &#x000A;It's not working! The rune is not part of you. It's never going to work. You scream your frustration at the storm. The rune is still not a part of you.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-173"/>
+    </children>
+  </item>
+  <item nodeId="node-173">
+    <command xml:space="preserve">z</command>
+    <result xml:space="preserve">Time passes.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-174"/>
+    </children>
+  </item>
+  <item nodeId="node-174">
+    <command xml:space="preserve">z</command>
+    <result xml:space="preserve">Time passes.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-175"/>
+    </children>
+  </item>
+  <item nodeId="node-175">
+    <command xml:space="preserve">z</command>
+    <result xml:space="preserve">Time passes.&#x000A;&#x000A;The lightning has stopped looking for the black ships. And one lightning strikes near the witches' stone. Too close. The huge noise makes you almost deaf. A warning. Perhaps all this has been nothing more than an offense to the gods and your teacher.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-176"/>
+    </children>
+  </item>
+  <item nodeId="node-176">
+    <command xml:space="preserve">z</command>
+    <result xml:space="preserve">Time passes.&#x000A;&#x000A;Despair growns inside you and you feel the spell's strenght waning accordingly. You look at the rune of Akka, on the skin of M&#x00E1;kke, it has stopped fluttering. A tear falls down your cheek. The strengh of the wind is not enough to take it away.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-177"/>
+    </children>
+  </item>
+  <item nodeId="node-177">
+    <command xml:space="preserve">z</command>
+    <result xml:space="preserve">Time passes.&#x000A;&#x000A;The gale seems to calm down. There are no longer two water hells, one above and one below. The rain falls hard but you do not drown anymore. Lightning light up the sky stopped a while.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-178"/>
+    </children>
+  </item>
+  <item nodeId="node-178">
+    <command xml:space="preserve">z</command>
+    <result xml:space="preserve">Time passes.&#x000A;&#x000A;The squall seems to be passing. It's still raining and the sea is still wild, but it's definitely tamer. You note this because the winds does not want to throw you down the cliff.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-179"/>
+    </children>
+  </item>
+  <item nodeId="node-179">
+    <command xml:space="preserve">z</command>
+    <result xml:space="preserve">Time passes.&#x000A;&#x000A;The storm start to disipate. The clouds seem to have already unloaded all their rain and turn gray instead of black.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-180"/>
+    </children>
+  </item>
+  <item nodeId="node-180">
+    <command xml:space="preserve">z</command>
+    <result xml:space="preserve">Time passes.&#x000A;&#x000A;It's over. The wineskin empties of the last of its wind and the clouds disperse. The sea is calm again. On the horizon you can see the black ships rising their banners and coming closer and closer.&#x000A;&#x000A;&#x000A;&#x000A;    *** You could not call forth the storm and your village will die at the hands of the men of the black ships. ***&#x000A;&#x000A;&#x000A;&#x000A;Would you like to RESTART, RESTORE a saved game, QUIT or UNDO the last command?&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+  </item>
+  <item nodeId="node-181">
+    <command xml:space="preserve">g</command>
+    <result xml:space="preserve">The wineskin fills up, slowly at first. The folds in the leather smooth out. Far away the sky darkens. The storm is turning it black, black as the ships coming upon the horizon. Your arm hurts and shakes. Your head hurts too, a dull and pounding pain. Reciting the spell is getting harder by the moment. There's a taste of salt and iron in the air.&#x000A;&#x000A; Nouse tuuli tuulemahan&#x000A; Vihkurit vetelem&#x00E4;&#x00E4;n&#x000A; &#x000A; Nouse tuuli tuulemahan&#x000A; Ilseainta riehkim&#x00E4;&#x00E4;n&#x000A; &#x000A;The wind roars trying to tear the wineskin off your arm. The high waves pound the cliff as if trying to bring it down. Rain pours from the angry dark clouds. The black ships buck and yaw against the gale and the rain. They've gathered sails, so that the wind does not rip them to shreds.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-182"/>
+    </children>
+  </item>
+  <item nodeId="node-182">
+    <command xml:space="preserve">g</command>
+    <result xml:space="preserve">Your own voice seems to be coming from outside yourself: a strange, shrill echo. The light is being eaten by the black clouds closing over your head. the wind is cold and gusty, whipping the waves that lap the bay's stones. The wineskin is swollen, heavy as a drowned man. You have trouble breathing: the air entering your lungs feels like thick, briny water.&#x000A;&#x000A; Tuule tuuli kuusi vuotta&#x000A; Seuro seitsem&#x00E4;n kes&#x00E4;&#x00E4;&#x000A; &#x000A; Itse kuoho kosken lailla&#x000A; Sek&#x00E4; valtona vallitse&#x000A; &#x000A;Waves and rain blend together in a crazed whirl. Everything disappears under the water. Even the cliff stones shake and tumble and surrender. Lightning slashes the sky apart. The wind roars and threatens to throw you down the cliff. The fury of the elements is such that you know the black ships will soon be doomed.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-183"/>
+    </children>
+  </item>
+  <item nodeId="node-183">
+    <command xml:space="preserve">g</command>
+    <result xml:space="preserve">You wait; you wait until the storm inside your head and the storm in the sky are one, until your body is in two places at once, until the wineskin nearly flies from your grip, trying to release the fury of the winds.&#x000A;&#x000A; But no. Not yet. The power will flow obeying your words and your will, not the blind fury of the storm: this is your duty as a witch.&#x000A;&#x000A; Miest&#x00E4; mustoa rukoilen&#x000A; Suuren tuulen nostajaksi&#x000A; &#x000A; But the rune of Akka doesn't respond. You can't feel its energy. Something's wrong. And you know what it is: yourself, as you feared. You are no witch. You're just a foolish girl stealing power from her dead teacher. The rune cannot respond to the spell because the rune is not part of your skin. It has no witch blood to feed from.&#x000A;&#x000A; With your free hand you take the piece of M&#x00E1;kke's skin with the rune and place it upon the arm holding the wineskin. It's not the usual way; it's not the right way. But it's your call. If you really are the witch, if you are worthy of the power, what you end up doing will be what must be done. That's what M&#x00E1;kke said.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-184"/>
+    </children>
+  </item>
+  <item nodeId="node-184">
+    <command xml:space="preserve">g</command>
+    <result xml:space="preserve">Again you recite the final lines:&#x000A;&#x000A; Miest&#x00E4; mustoa rukoilen&#x000A; Suuren tuulen nostajaksi&#x000A; &#x000A;It's not working! The rune is not part of you. It's never going to work. You scream your frustration at the storm.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-185"/>
+    </children>
+  </item>
+  <item nodeId="node-185">
+    <command xml:space="preserve">g</command>
+    <result xml:space="preserve">Again you recite the final lines:&#x000A;&#x000A; Miest&#x00E4; mustoa rukoilen&#x000A; Suuren tuulen nostajaksi&#x000A; &#x000A;But it is not working. The rune is still not a part of you.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-186"/>
+    </children>
+  </item>
+  <item nodeId="node-186">
+    <command xml:space="preserve">z</command>
+    <result xml:space="preserve">Time passes.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-187"/>
+    </children>
+  </item>
+  <item nodeId="node-187">
+    <command xml:space="preserve">z</command>
+    <result xml:space="preserve">Time passes.&#x000A;&#x000A;For an instant everything is still, as if time had stopped over the witch stone even though all around you there's a tumult of wind and water. Then the moment passes and the full force of the tempest falls on you, everything turning to wind, water and hail.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-188"/>
+    </children>
+  </item>
+  <item nodeId="node-188">
+    <command xml:space="preserve">z</command>
+    <result xml:space="preserve">Time passes.&#x000A;&#x000A;A huge wave crashes against the rocks, sending foam all the way up to the witch stone and drenching you in cold sea water.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-189"/>
+    </children>
+  </item>
+  <item nodeId="node-189">
+    <command xml:space="preserve">z</command>
+    <result xml:space="preserve">Time passes.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-190"/>
+    </children>
+  </item>
+  <item nodeId="node-190">
+    <command xml:space="preserve">z</command>
+    <result xml:space="preserve">Time passes.&#x000A;&#x000A;A strong wind blows over the witch stone threatening to throw both you and M&#x00E1;kke down the cliff. You grab the stone and your teacher's body to stop the gods from taking her away.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-191"/>
+    </children>
+  </item>
+  <item nodeId="node-191">
+    <command xml:space="preserve">z</command>
+    <result xml:space="preserve">Time passes.&#x000A;&#x000A;The lightning has stopped looking for the black ships. One lightning strikes near the witch stone. Too close. The noise almost leaves you deaf. A warning. Perhaps all this has been nothing more than an offense to the gods and your teacher.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-192"/>
+    </children>
+  </item>
+  <item nodeId="node-192">
+    <command xml:space="preserve">z</command>
+    <result xml:space="preserve">Time passes.&#x000A;&#x000A;The wind tries to tear away the cloak covering M&#x00E1;kke, but you keep it in place.&#x000A;&#x000A;Despair growns inside you and you feel the spell's strenght waning accordingly. You look at the piece of M&#x00E1;kke's skin wearing the rune of Akka: it has stopped fluttering. A tear falls down your cheek. The wind is no longer strong enough to take it away.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-193"/>
+    </children>
+  </item>
+  <item nodeId="node-193">
+    <command xml:space="preserve">summon</command>
+    <result xml:space="preserve">Again you recite the final lines:&#x000A;&#x000A; Miest&#x00E4; mustoa rukoilen&#x000A; Suuren tuulen nostajaksi&#x000A; &#x000A;But it is not working. The rune is still not a part of you.&#x000A;&#x000A;The gale seems to calm down. There are no longer two fearful maelstroms, one above and one below you. The rain falls hard but does not drown you anymore. The lightning burning the sky stopped a while ago.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-194"/>
+    </children>
+  </item>
+  <item nodeId="node-194">
+    <command xml:space="preserve">summon</command>
+    <result xml:space="preserve">You have lost all your borrowed power.&#x000A; The wineskin loses energy and your words lose their capacity to alter the fabric of existence.&#x000A;&#x000A;The squall seems to be passing. It's still raining and the sea is still wild, but it's definitely tamer. The winds do not seem to want to throw you down the cliff.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-195"/>
+    </children>
+  </item>
+  <item nodeId="node-195">
+    <command xml:space="preserve">summon</command>
+    <result xml:space="preserve">You have lost all your borrowed power.&#x000A; You raise the knife to the skies in a desperate pleading, shouting your frustration to the wind: "M&#x00E1;kke! What must I do? Teacher M&#x00E1;kke, please help me!"&#x000A;&#x000A;As if in answer a bolt of lightning hits the cliff, shattering the rocks. The light blinds you, the deafening crack of thunder stuns you. If this is your answer, it's an irate one.&#x000A;&#x000A;The storm start to disipate. The clouds seem to have already unloaded all their rain and turn gray instead of black.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-196"/>
+    </children>
+  </item>
+  <item nodeId="node-196">
+    <command xml:space="preserve">examine knife</command>
+    <result xml:space="preserve">Now the knife is covered in M&#x00E1;kke's black witch blood.&#x000A;&#x000A;The gray sky lights up; thunder rolls in the distance.&#x000A;&#x000A;It's over. The wineskin empties of the last of its wind and the clouds disperse. The sea is calm again. On the horizon you can see the black ships rising their banners and coming closer and closer.&#x000A;&#x000A;&#x000A;&#x000A;    *** You could not call forth the storm and your village will die at the hands of the men of the black ships. ***&#x000A;&#x000A;&#x000A;&#x000A;Would you like to RESTART, RESTORE a saved game, QUIT or UNDO the last command?&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-197"/>
+    </children>
+  </item>
+  <item nodeId="node-197">
+    <command xml:space="preserve">undo</command>
+    <result xml:space="preserve">Cliff&#x000A;[Previous turn undone.]&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-198"/>
+    </children>
+  </item>
+  <item nodeId="node-198">
+    <command xml:space="preserve">examine clouds</command>
+    <result xml:space="preserve">Gray clouds swirl up in the sky. The wind is picking up, rising waves.&#x000A;&#x000A;Above you the gray sky lights up and thunder rolls over the cliff.&#x000A;&#x000A;It's over. The wineskin empties of the last of its wind and the clouds disperse. The sea is calm again. On the horizon you can see the black ships rising their banners and coming closer and closer.&#x000A;&#x000A;&#x000A;&#x000A;    *** You could not call forth the storm and your village will die at the hands of the men of the black ships. ***&#x000A;&#x000A;&#x000A;&#x000A;Would you like to RESTART, RESTORE a saved game, QUIT or UNDO the last command?&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-199"/>
+    </children>
+  </item>
+  <item nodeId="node-199">
+    <command xml:space="preserve">undo</command>
+    <result xml:space="preserve">Cliff&#x000A;[Previous turn undone.]&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-200"/>
+    </children>
+  </item>
+  <item nodeId="node-200">
+    <command xml:space="preserve">examine clouds</command>
+    <result xml:space="preserve">Gray clouds swirl up in the sky. The wind is picking up, rising waves.&#x000A;&#x000A;It's over. The wineskin empties of the last of its wind and the clouds disperse. The sea is calm again. On the horizon you can see the black ships rising their banners and coming closer and closer.&#x000A;&#x000A;&#x000A;&#x000A;    *** You could not call forth the storm and your village will die at the hands of the men of the black ships. ***&#x000A;&#x000A;&#x000A;&#x000A;Would you like to RESTART, RESTORE a saved game, QUIT or UNDO the last command?&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-201"/>
+    </children>
+  </item>
+  <item nodeId="node-201">
+    <command xml:space="preserve">undo</command>
+    <result xml:space="preserve">Cliff&#x000A;[Previous turn undone.]&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-202"/>
+    </children>
+  </item>
+  <item nodeId="node-202">
+    <command xml:space="preserve">examine knife</command>
+    <result xml:space="preserve">Now the knife is covered in M&#x00E1;kke's black witch blood.&#x000A;&#x000A;Above you the gray sky lights up and thunder rolls over the cliff.&#x000A;&#x000A;It's over. The wineskin empties of the last of its wind and the clouds disperse. The sea is calm again. On the horizon you can see the black ships rising their banners and coming closer and closer.&#x000A;&#x000A;&#x000A;&#x000A;    *** You could not call forth the storm and your village will die at the hands of the men of the black ships. ***&#x000A;&#x000A;&#x000A;&#x000A;Would you like to RESTART, RESTORE a saved game, QUIT or UNDO the last command?&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+  </item>
+  <item nodeId="node-203">
+    <command xml:space="preserve">mover arm</command>
+    <result xml:space="preserve">I didn't understand that sentence.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+  </item>
+</Skein>

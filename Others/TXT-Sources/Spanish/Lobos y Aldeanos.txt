@@ -1,0 +1,683 @@
+"Lobos y Aldeanos" by Sarganar
+
+Include Spanish by Sebastian Arg.
+Include Multi P by Sarganar.
+
+The Initial Room is Lobos y Aldeanos.
+
+Lobos y Aldeanos is a Room. "Una historia de amistad (y linchamientos).[line break]
+ - Datos del juego e instrucciones: http://www.wikicaad.net/Aventurero:Sarganar/LyARoles[line break] Tambien puedes teclear 'ayuda'. Para iniciar la partida alguno de los jugadores debe escribir el comado INICIAR."
+
+
+[A ball is in Lobos y Aldeanos.]
+
+The description of Recibidor is "Bienvenido al recibidor de este party-game.[line break] Para entrar al juego escribe 'jugar como nombre'. Ej: jugar como Naum." The printed name of Recibidor is "Recibidor de Lobos y Aldeanos, un party-game."
+
+Release along with a website and the source text.
+
+Book - Game Mechanism
+
+
+When play begins:
+	change Multi-announce-tags to false; [for IRC chat saloon style]
+	announce "Iniciando...".
+
+
+To say other helpies:
+     say " - para ver quienes están: quien[line break]
+- Roles del juego y otras instrucciones: http://www.wikicaad.net/Aventurero:Sarganar/LyARoles.[paragraph break]
+Copyright 1999 Evin Robertson.[line break]
+Implementación hecha en Inform 7 usando a Rebot como moderador.
+Basado en el mismo juego de Evin Robertson, adaptado al español por Sarganar (Edición 2009)."
+
+To list connected people:
+	say "Jugadores actuales ([number of connected PC]): [line break]";
+	repeat with X running through connected PCs:
+		say "[X][if X is dead and sun is not stoped]  (muerto)[end if][line break]";
+	if the number of connected PC is 0 then say "NINGUNO."
+
+Chapter - Roles
+
+Actiorum is a kind of value. Actiorum are none, sleep, identify, kill and protect.
+
+Role is a kind of thing.
+Role has some text called plural.
+Role has some text called motto.
+Role has a number called quantity.
+Role is either alone or allied. Role is usually alone.
+Role has an object called victim. The victim is usually nothing.
+Role has an object called antipodal. The antipodal is usually nothing.
+Role has a list of actiorum called nocturnal actions.
+
+Some roles are defined by the Table of Characters.
+
+Table of Characters
+Role			Quantity		Nocturnal Actions	Plural			Motto
+Werewolf	1			{kill}			"hombres lobo"	"hombre lobo"
+Seer		0			{identify}			"videntes"		"vidente"
+Wolfsbane	1			{sleep, protect}		"matalobos"		"matalobo"
+Mason		0			{sleep}				"masones"		"masón"
+Devil		0			{identify}			"demonios"		"demonio"
+Vigilante		0			{sleep, kill}			"vigilantes"		"vigilante"
+Mafia		0			{sleep, kill}			"mafias"			"mafioso"
+Archangel	0			{sleep,protect}		"arcángeles"		"arcangel"
+Magistrate	1			{sleep, protect}		"magistrados"	"magistrado"
+Villager		0			{sleep}				"aldeanos"		"aldeano"
+
+
+[ALLIED ROLES]    [Default: ALONE]
+Werewolf is allied.
+Mason is allied.
+Mafia is allied.
+
+[PROTECT ROLES]
+The antipodal of Wolfsbane is Werewolf.
+The antipodal of Archangel is Mafia.
+The antipodal of Magistrate is Villager.
+
+
+Rule for printing the name of a Role (called whoever) (this is the Role name printing rule): say motto of whoever. 
+
+Definition: a role is available if its quantity is 1 or more.
+
+RoleRoom is south of Lobos y Aldeanos.
+Werewolf is in RoleRoom.
+Seer is in RoleRoom.
+Wolfsbane is in RoleRoom.
+Mason is in RoleRoom.
+Devil is in RoleRoom.
+Vigilante is in RoleRoom.
+Mafia is in RoleRoom.
+Archangel is in RoleRoom.
+Magistrate is in RoleRoom.
+
+
+Instead of going south from Lobos y Aldeanos, say "No puedes ir por ahí."
+
+Chapter - PC new props
+
+A PC can be decided or undecided. A PC is usually undecided.
+A PC can be live or dead. A PC is usually dead.
+A PC can be asleep or awake. A PC is usually awake.
+
+
+Chapter - Relations
+
+Suspecting relates various people to one person (called the condenated).
+The verb to vote (he votes, they vote, he voted, it is voted, he is voting) implies the suspecting relation. 
+
+
+Protection relates various people to one person (called the protected).
+The verb to protect (he protects, they protect, he protected, it is protected, he is protecting) implies the protection relation. 
+
+
+Personifying relates various people to one role (called the character).
+The verb to personify (he personify, they personify, he personifyed, it is personifyed, he is personifying) implies the personifying relation. 
+
+
+Chapter - Wait Phase Actions
+
+Starting is an action applying to nothing.
+Understand "inicia" as starting.
+
+Qty chars is a number that varies.[* cuenta cantidad minima segun roles]
+
+Check starting (this is the check minimum players needed rule):
+	repeat with item running through roles:
+		change qty chars to qty chars + the quantity of the item;
+	if qty chars is greater than the number of connected PCs:
+		announce "Son necesarios más personajes para iniciar el juego ([qty chars in words] como mínimo).";
+		change qty chars to 0;
+		stop the action.
+		
+
+Carry out starting (this is the asign roles rule):
+	while qty chars is not the number of live PCs:
+		let item be a random dead connected PC;
+		let potential be a random available role;
+		if the number of PC who personify the potential is less than the quantity of the potential:
+			now the item is live;
+			now the item personify the potential.
+
+
+Carry out starting (this is the asign villager roles rule):
+	repeat with item running through dead connected PCs:
+		now the item is live;
+		now the item personify a villager.
+
+Carry out starting (this is the tell the role to players rule):
+[	repeat with item running through connected PCs:
+		now the item is live;
+		increase the count by 1;
+		if count is 1, now the item personify a werewolf;
+		if count is 2, now the item personify a werewolf;
+		if count is 3, now the item personify a villager;
+		if count is 4, now the item personify a villager;
+		tell "Eres un [the character of the item]." to the item;]
+	repeat with item running through live connected PCs:
+		tell "Eres un [the character of the item]." to the item;
+		if the character of the item is allied and the quantity of the character of the item is greater than 1:
+[			tell "[list of live PC who personify the character of the item]; todos ellos son [plural of the character of the item]." to the item;]
+			tell "Los [plural of the character of the item] son: [list of live PC who personify the character of the item]." to the item;
+	announce "Villa Mel Hython es un pueblito rural de casitas bajas y gente tranquila. Ahora es de noche, momento en que todos se van a su camita. Nada de movimientos raros!";
+	[follow the night starting rules;]
+	now the sun is nightfall.[* comienza la noche]
+
+Setting it numerically to is an action applying to one thing and one number.
+Understand "set [any role] [a number] " as Setting it numerically to.
+
+
+[Check Setting something numerically to:
+	repeat through the Table SetRoles: 
+		if the topic understood not includes topic entry: 
+			say "Que quieres qué?";
+			stop the action.]
+
+Carry out Setting something (called item) numerically to the number understood:
+	change the quantity of item to the number understood;
+	say "Seteado [item]: [number understood]."
+
+The allow access rule is listed instead of the can't reach inside rooms rule in the reaching inside rules.
+
+This is the allow access rule: 
+	 allow access.
+
+Roleshowing is an action applying to nothing.
+Understand "roles" as roleshowing.
+
+Carry out Roleshowing:
+	repeat with item running through roles:
+		say "[motto of item]: [quantity of the item][line break]"
+
+
+Chapter - Day Actions
+
+Section - Voting
+
+Voting is an action applying to one visible thing.
+Understand "vota [thing]" or "vota a/por [thing]" as voting.
+
+
+Check voting a person (called the poor man):
+	if the poor man is the player:
+		say "No te puedes votar a ti mismo!";
+		stop the action.
+
+[CAN'T VOTE SUCESIVELLY]
+Check voting a person (called the poor man):
+	if the condenated of the player is the poor man:
+		say "Pero si acabas de votar a [poor man]!";
+		stop the action.
+
+[CAN'T VOTE PROTECTED MAN]
+Check voting a person (called the poor man):
+	if the poor man is protected by someone:
+		say "Nadie puede tocar a [poor man]! Tiene inmunidad por hoy.";
+		stop the action.
+
+Carry out voting a person (called the poor man):
+	if there is a person voted by the player:
+		announce "[The player] cambia su voto dado a [the condenated of the player] y se decide por [the poor man].";
+	else:
+		announce "[The player] vota para linchar a [the poor man].";
+	now the player votes the poor man.
+
+Section - Unvoting
+
+Unvoting is an action applying to one visible thing.
+Understand "retracta [thing]" or "[quita] [thing]" as unvoting.
+Understand "retracta a [thing]" or "[quita] a [thing]" as unvoting.
+Understand "quita voto" or "quita el voto" as "[quita]".
+
+
+[CAN'T UNVOTE SUCECIVELLY]
+Check unvoting a person (called the poor man):
+	if the condenated of the player is nothing:
+		say "Actualmente no has dado tu voto a nadie.";
+		stop the action.
+
+Carry out unvoting a person (called the poor man):
+	announce "[The player] quita su voto dado a [the poor man].";
+	now the player votes nothing.
+
+Definition: a PC is irresolute if it votes nothing.
+
+Section - Showing votes
+
+Showing is an action applying to nothing.
+Understand "votos" or "quien" or "mostrar votos" as showing.
+
+Carry out showing:
+	say "Este es el recuento actual de votos: ";
+	repeat with item running through live PC:
+		say "[item] tiene [the number of PCs who votes item] y ha votado a [if the condenated of the item is nothing]nadie.[otherwise][the condenated of the item]."
+	
+
+
+Section - Common Daily Actions Checks
+
+Voting is moving daily.
+Unvoting is moving daily.
+Showing is moving daily.
+
+Before an actor moving daily during night (this is the only can do day acts during day rule):
+	say "Solo puedes realizar esta acción durante el día.";
+	stop the action.
+
+
+After an actor moving daily (this is the check all vote rule): [ojo que este After cancela los reports siguientes]
+	if the number of persons who votes someone is the number of live PC:
+		follow the day ending rules;
+		if the rule succeeded:
+			follow the Good Bad Balance rules; [check game over]
+			if the rule failed:
+				reveal roles;
+				announce "[line break]Para una nueva partida alguno de ustedes debe ordenar INICIAR.";
+				now sun is stoped;
+			otherwise:
+				announce "La noche gradualmente llega, momento en que todos se van a su camita. Nada de movimientos raros!";
+				now sun is nightfall.
+
+Section -'Day Ending' Rules
+
+Day ending is a rulebook.
+
+A Day ending rule:
+	count the votes;
+	repeat with item running through live PCs: [reset voting parameters - preparing for night phase or re-voting phase]
+		now the item votes nothing;
+		now the item protects nothing;
+	if empate is true:
+		rule fails;
+	otherwise:
+		rule succeeds.
+	
+
+
+Section - Counting the Votes
+
+Empate is a truth state that varies.
+
+To count the votes:
+	let suspected man be nothing;
+	let max votes be 0;
+	change empate to false;
+	repeat with poor man running through live PC:
+		let qant votes be the number of PCs who votes poor man;
+		if qant votes > max votes:
+			change max votes to qant votes;
+			change suspected man to poor man;
+			change empate to false;
+		otherwise if qant votes is max votes:
+			change empate to true;
+	if empate is false:
+		announce "Fin de la Votación! [suspected man] obtuvo [max votes] votos.";
+		process the ejecution of the suspected man;
+	otherwise:
+		announce "Todos han votado, pero hay un empate. ¡Que se reinicie la votación!".
+
+
+
+[Every turn during day:
+[	say ":-> [number of person who votes someone][line break]";]
+	if the number of persons who votes someone is the number of live PC:
+		count the votes.]
+
+To process the ejecution of the (victim - an object):
+	announce "Todo proceso justo tiene un final: [victim] fue asesinado. [victim] era un [character of the victim]. ";
+	reset the victim.
+
+To reset the (victim - an object):[unplugg the victim from this game mechanism, Not for Multi P mechanism.]
+	now the victim is dead;
+	now the victim is undecided;
+	now the victim personify nothing;
+	now the victim protects nothing;
+	now nothing protects the victim;[esto es necesario?]
+	now the victim votes nothing.
+
+
+Chapter - Night Actions
+
+Section - Killing
+
+Killing is an action applying to one visible thing.
+Understand the command "mata" as something new.
+Understand the command "asesina" as something new.
+Understand "mata [something]" or "mata a [something]" as killing.
+Understand the commands  "asesina" as "mata".
+
+Check an actor killing a person (called the poor man) (this is the can't kill your partner rule):
+	if the character of the poor man is the character of the actor:
+		say "Traiciones no, ¿estamos?";
+		stop the action.
+
+Carry out an actor killing a person (called the poor man):
+	say "Eliges matar a [the poor man].";
+	now the victim of the character of the actor is the poor man.
+
+Last Carry out an actor killing a person (called the poor man) (this is the advise all role people rule):
+	let temp char be the character of the actor;
+	repeat with item running through live PCs who personify temp char:
+		if the item is not the actor:[avisar a los demas compañeros del mismo rol lo que se decidio]
+			tell "[the actor] decide que los [the plural of the temp char] matarán a [the poor man]. " to the item;
+		now the item is decided. [ahora todos los allied 'han actuado']
+
+Rule for supplying a missing noun while an actor killing: 
+	say "Debes decir también el sujeto de tu acción. Sino, no pasa nada."
+
+
+Section - Protecting
+
+Protecting is an action applying to one visible thing.
+Understand "protege [thing]" or "protege a [thing]" as protecting.
+
+Carry out an actor protecting  a person (called the poor man):
+	say "Decides proteger a [the poor man] de los [plural of the antipodal of the character of the actor].";
+	now the player protects the poor man.
+
+
+Section - Identify
+
+Identifying is an action applying to one visible thing.
+Understand "identifica [thing]" as identifying.
+
+Carry out an actor identifying a person (called the poor man):
+	say "[the poor man] es un [the motto of the character of the poor man]."
+
+Section - Sleeping
+
+
+[The block sleeping rule is not listed in the check sleeping rulebook.]
+The block sleeping rule is not listed in any rulebook.
+
+Carry out an actor sleeping:
+	now the actor is asleep;
+	say "Te duermes como un angelito."
+
+Understand the command "dormir" as "duerme".
+
+
+Section - Reminding
+
+Reminding is an action applying to nothing.
+Understand "avisa", "recuerda", "recordar" as reminding.
+
+Carry out an actor reminding during night:
+	repeat with item running through undecided live PCs:
+		tell "** ¡Hey [motto of the character of item]! Debes actuar ahora. ** [line break]¡Vamos, el juego debe seguir!" to the item.
+
+Carry out an actor reminding during day:
+	repeat with item running through irresolute live PCs:
+		tell "** ¡Hey aldeano! Debes votar ahora. ** [line break]¡Vamos, el juego debe seguir (y debe hacerse justicia)!" to the item.
+
+
+Section - Common Nocturnal Actions Checks
+
+Protecting is moving darkly.
+Killing is moving darkly.
+Sleeping is moving darkly.
+Identifying is moving darkly.
+
+
+Before an actor moving darkly during day (this is the only can do nocturnal acts during night rule):
+	say "Solo puedes realizar esta acción durante la noche.";
+	stop the action.
+
+
+Before an actor moving darkly (this is the can't do actions beyond your role rule):
+	if the actor is decided:
+		say "Ya has actuado por esta noche";
+		if the character of the actor is allied:
+			say " (solo o junto con tu compañero)";
+		say ". Espera a que el resto haga algo.";
+		stop the action;		
+	let temp action be actiorum;
+	if the current action is Protecting:
+		change temp action to protect;
+	otherwise if the current action is Killing:
+		change temp action to kill;
+	otherwise if the current action is Sleeping:
+		change temp action to sleep;
+	otherwise if the current action is Identifying:
+		change temp action to identify;
+	otherwise:
+		change temp action to none;
+	if temp action is not listed in the nocturnal actions of the character of the actor:
+		say "No puedes ejecutar dicha acción. Eres un [motto of the character of the actor].";
+		stop the action.
+
+Before an actor doing anything during night:
+	if the actor is asleep and the current action is not reminding:
+		say "Pero si ya estás dormidito! Espera a que todos los demás actuen.";
+		stop the action;
+ 
+
+After an actor moving darkly (this is the check all acting players rule): [ojo que este After cancela los rules (inlcuido reports) siguientes]
+	now the actor is decided;
+	if all the live PC are decided:
+		follow the Night Ending rules;
+		follow the Good Bad Balance rules; [check game over]
+		if the rule failed:
+			reveal roles;
+			announce "[line break]Para una nueva partida alguno de ustedes debe ordenar INICIAR.";
+			now sun is stoped;
+		otherwise:
+			announce "[line break]Es el tiempo de VOTAR a quién linchamos.";
+			now sun is rise.
+
+Section -'Night Ending' Rules
+
+Night ending is a rulebook.
+
+Definition: a role is killer if its victim is not nothing.
+
+A Night ending rule:
+	announce "La noche se va, comienza el día."
+
+[recount of actions done]
+A Night ending rule (this is the recount of actions done rule):
+	let bloody night be false;
+	repeat with item running through live PCs who personify a killer role:
+		[say "[item] (serial killer).";]
+		let temp man be the victim of the character of the item;
+		if temp man is not nothing:
+			repeat with benefactor running through live PCs who protects temp man:
+				[say "[benefactor]:[the antipodal of the character of the benefactor].";]
+				if the antipodal of the character of the benefactor is the character of the item:
+					now the victim of the character of the item is nothing;[reset protected victim relation]
+	repeat with item running through live PCs who personify a killer role:
+		process the murder of the victim of the character of the item;
+		change bloody night to true;
+	if bloody night is false:
+		announce "Nadie murió esta noche."
+
+[prepare for the day phase]
+A Night ending rule (this is the prepare for the day phase rule):
+	repeat with item running through live PCs:
+		now the item is undecided;
+		now the item is awake;
+		now the item votes nothing;
+		if the item personify a Wolfsbane:
+			now the item protects nothing;
+		if the item personify an Archangel:
+			now the item protects nothing.
+
+
+To process the murder of the (victim - an object):
+	if the victim is live:
+		announce "[victim] fue asesinado. [victim] era un [character of the victim].";
+		reset the victim.
+
+[Section -'Night Starting' Rules
+
+Night starting is a rulebook.
+
+]
+
+
+Chapter - Common Wait/Daily/Night Actions Checks
+
+Voting is gaming.
+Unvoting is gaming.
+Protecting is gaming.
+Killing is gaming.
+Sleeping is gaming.
+Identifying is gaming.
+
+
+First Before an actor doing anything (this is the can't do anything if you are dead rule):
+	if the actor is a dead PC and the sun is not stoped:
+		say "Pero si estás muerto!";
+		stop the action.
+
+
+Before an actor gaming during wait (this is the can't do game acts during wait rule):
+	say "Pero si el juego aún no empezó!";
+	stop the action.
+
+Before an actor gaming (this is the can't day act over dead persons rule):
+	if the noun is a dead PC:
+		say "[noun] ya está muerto.";
+		stop the action.
+
+Before an actor gaming (this is the can't day act over not persons rule):
+	if the noun is not a person and the noun is not nothing:
+		say "Solo puedes realizar esta acción sobre personas.";
+		stop the action.
+
+Starting is configuring.
+Roleshowing is configuring.
+[Setting it numerically to is configuring.]
+
+Before an actor configuring (this is the can't do configs during game rule):
+	if the sun is not stoped:
+		say "Pero si el juego ya empezó!";
+		stop the action.
+
+
+Chapter - Scenes DAY/NIGHT/WAIT
+
+[Tres 'estados' para el juego:
+	* Wait: antes de iniciar la partida, cuando todos van llegando y se puede configurar algunos aspectos del juego. Y cuando la partida termina con la victoria de algun bando.
+	* Night: Fase 'noche' del juego.
+	* Day: Fase 'día'del juego.
+Se repiten ciclicamente hasta que aparece el bando ganador.
+]
+Sun_position is a kind of value. Sun_position are stoped, rise and nightfall. Sun_position is usually stoped.[* el valor inicial es stoped]
+Sun is a sun_position that varies.
+
+Wait is a recurring scene. Wait begins when sun is stoped. Wait ends when sun is rise or sun is nightfall.
+
+Day is a recurring scene. Day begins when sun is rise. Day ends when sun is nightfall.
+
+Night is a recurring scene. Night begins when sun is nightfall. Night ends when sun is rise.
+
+[When play begins:
+	now sun is none.]
+
+
+When Wait begins:
+[	say " -- reiniciando party-game.";]
+	change Qty chars to 0;[reset minimun players needed]
+	repeat with item running through connected PCs:
+		reset the item.
+
+
+		
+[When Day begins:
+	say "Vaya, vaya, el dia comienza."]
+
+Chapter - Check Game Over
+
+Good Bad Balance is a rulebook.
+
+A Good Bad Balance rule:
+	let victimizer be the number of live PC who personify Werewolf + number of live PC who personify Mafia;
+	let innocent be the number of live PC - victimizer;
+	if victimizer is 0:
+		announce "Todos los Lobos fueron muertos. [line break]¡¡¡Los aldeanos han ganado!!![paragraph break]";
+		rule fails;
+	if victimizer >= innocent:
+		announce "Como hay tantos hombres lobo como aldeanos; los licántropos matan a los aldeanos restantes en lo que queda del día.[line break] ¡Los hombres lobo han ganado! [paragraph break]";
+		rule fails.
+	
+To reveal roles:
+	repeat with item running through live PCs:
+		announce "[line break][item] era un [character of the item]."
+
+
+
+
+Chapter - PC join/leave rules
+
+Count is a number that varies.
+
+[Bienvenida personalizada: cuando se elije el personaje.]
+A player joining rule for a PC (called newbie) (this is the welcome guy rule):
+[	now the newbie personify a random available role;]
+[	now the newbie is live;
+	increase the count by 1;
+	if count is 1, now the newbie personify a werewolf;
+	if count is 2, now the newbie personify a villager;
+	if count is 3, now the newbie personify a villager;
+	if count is 4, now the newbie personify a villager;]
+[	now the newbie personify a wolfsbane;]
+[	tell "Bienvenido [newbie]! Eres un [the character of the newbie]." to the newbie.]
+	tell "Bienvenido [newbie]!" to the newbie.
+
+
+[resetear propiedades de PC que abandona el juego]
+A player leaving rule for a PC (called the goner) (this is the reset PC disconnected rule):
+	reset the goner.
+
+[El party-game se resetea si todos se desconectan.]
+The last player leaving rule for a PC (called the goner) (this is the reset game for all PC disconnections rule):
+	if the number of connected PC is 0, now sun is stoped.
+
+
+
+Chapter - Other Commands
+
+Kicking is an action applying to one thing.
+Understand "kick12 [thing]"  as kicking.
+Carry out kicking a PC (called the item):
+	announce "[item] fuera de juego.";
+	reset the item;
+      cleanup the item.[* devolver PC al corral]
+
+
+Correlating is an action applying to one topic.
+Understand "cor [text]"  as correlating.
+Carry out correlating:
+	announce "[topic understood]".
+
+
+
+Chapter - Bot World
+
+[A bot is a kind of person.]
+
+[Lalo, Matt, Kenny, Patt and Ceci are PCs in Lobos y Aldeanos.
+Lalo is bot.]
+
+[The mud-name of Lalo is "Lalo".
+The mud-name of Matt is "Matt".
+The mud-name of Kenny is "Kenny".
+The mud-name of Patt is "Patt".
+The mud-name of Ceci is "Ceci".]
+
+
+[TODO]
+
+[
+
+* Rule for supplying a missing noun, no andan, por algo que retoca la MultiP.
+* Desactivar acciones por las noches.
+* Se puede proteger a si mismo?
+* Agregar genero a los jugadores
+* Reemplazar > nets se ha conectado. por una mejor frase.
+algo como "se ha fichado para Lobos y Aldeanos"
+* creo que no queda claro que el jugador debe teclear algo...
+* en la lista de QUIEN, poner quien ya está muerto
+* los lobos tienen que alimentarse todas las noches
+]

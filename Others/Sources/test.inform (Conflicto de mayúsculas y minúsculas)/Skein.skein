@@ -1,0 +1,808 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Skein rootNode="node-1">
+  <generator>Windows Inform 7 6M62</generator>
+  <activeNode nodeId="node-247"/>
+  <item nodeId="node-1">
+    <command xml:space="preserve">test</command>
+    <result xml:space="preserve">Wolf at the door&#x000A;An Interactive Fiction by Ruber Eaglenest&#x000A;Release 1 / Serial number 200515 / Inform 7 build 6M62 (I6/v6.33 lib 6/12N) SD&#x000A;&#x000A;Home&#x000A;You slowly open your eyes, the singing voice of your mother call you up from your slumber: "Come on, little lazy, it is time to awake! If you are late maybe you will get without breakfast!" Still half sleep you roll and roll and roll out of the bed and fall to the ground. You look around and see that your brothers and sistes are already full in their morning tasks.&#x000A;&#x000A;On the table are a bowl of milk, a wooden spoon and two cookies.&#x000A;&#x000A;A lone yellow cube with letters and number is forgotten in one corner of the room, next to the huge wooden chest.&#x000A;&#x000A;You can also see a big bed and a huge wooden chest (closed) here.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-2"/>
+      <child nodeId="node-3"/>
+      <child nodeId="node-6"/>
+      <child nodeId="node-19"/>
+      <child nodeId="node-21"/>
+      <child nodeId="node-34"/>
+      <child nodeId="node-36"/>
+      <child nodeId="node-228"/>
+      <child nodeId="node-237"/>
+    </children>
+  </item>
+  <item nodeId="node-2">
+    <command xml:space="preserve">s</command>
+    <result xml:space="preserve">Sendero&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+  </item>
+  <item nodeId="node-3">
+    <command xml:space="preserve">drink bowl</command>
+    <result xml:space="preserve">There's nothing suitable to drink here.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-4"/>
+    </children>
+  </item>
+  <item nodeId="node-4">
+    <command xml:space="preserve">eat cookies</command>
+    <result xml:space="preserve">(first taking Two cookies)&#x000A;You eat Two cookies. Not bad.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-5"/>
+    </children>
+  </item>
+  <item nodeId="node-5">
+    <command xml:space="preserve">l</command>
+    <result xml:space="preserve">Home&#x000A;You are in your natal home. Usually a cacophony of voices, plays and the rush of your mother taking care of everyone else.&#x000A;&#x000A;On the table is a bowl of milk.&#x000A;&#x000A;A lone yellow cube with letters and number is forgotten in one corner of the room, next to the huge chest.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+  </item>
+  <item nodeId="node-6">
+    <command xml:space="preserve">l</command>
+    <result xml:space="preserve">Home&#x000A;You are in your natal home. Usually a cacophony of voices, plays and the rush of your mother taking care of everyone else.&#x000A;&#x000A; The grandmother clock tick-tocks next to the window and the wooden stairs.&#x000A;&#x000A;On the table are a bowl of milk and two cookies.&#x000A;&#x000A;A lone yellow cube with letters and number is forgotten in one corner of the room, next to the huge wooden chest.&#x000A;&#x000A;You can also see a huge wooden chest (in which are a football ball, an umbrella, a teddy bear, a red blanket, a book, five wood blocks, a goat girl wool doll, a carton box, a wood figurine, a fake serpent, a feather and a cowbow hat) here.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-7"/>
+    </children>
+  </item>
+  <item nodeId="node-7">
+    <command xml:space="preserve">examine clock</command>
+    <result xml:space="preserve">It is a very big clock taller than your mother. It shows the time, or so the say your sisters and brothers, but you don't understand the hours yet. It has a crystal door, and behind you can see a pendulum moving constantly from side to side.&#x000A;&#x000A;The grandmother clock is currently switched on.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-8"/>
+    </children>
+  </item>
+  <item nodeId="node-8">
+    <command xml:space="preserve">turn off clock</command>
+    <result xml:space="preserve">You switch the grandmother clock off.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-9"/>
+    </children>
+  </item>
+  <item nodeId="node-9">
+    <command xml:space="preserve">take clock</command>
+    <result xml:space="preserve">That's hardly portable.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-10"/>
+    </children>
+  </item>
+  <item nodeId="node-10">
+    <command xml:space="preserve">examine clock</command>
+    <result xml:space="preserve">It is a very big clock taller than your mother. It shows the time, or so the say your sisters and brothers, but you don't understand the hours yet. It has a crystal door, and behind you can see a pendulum moving constantly from side to side.&#x000A;&#x000A;The grandmother clock is currently switched off.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-11"/>
+    </children>
+  </item>
+  <item nodeId="node-11">
+    <command xml:space="preserve">open clock</command>
+    <result xml:space="preserve">It isn't something you can open.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-12"/>
+    </children>
+  </item>
+  <item nodeId="node-12">
+    <command xml:space="preserve">open crystal door</command>
+    <result xml:space="preserve">You open the crystal door.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-13"/>
+    </children>
+  </item>
+  <item nodeId="node-13">
+    <command xml:space="preserve">enter door</command>
+    <result xml:space="preserve">You get into the crystal door.&#x000A;&#x000A;In the crystal door you can see a pendulum.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-14"/>
+    </children>
+  </item>
+  <item nodeId="node-14">
+    <command xml:space="preserve">examine crystal door</command>
+    <result xml:space="preserve">In the crystal door is a pendulum.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-15"/>
+    </children>
+  </item>
+  <item nodeId="node-15">
+    <command xml:space="preserve">close door</command>
+    <result xml:space="preserve">You close the crystal door.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-16"/>
+    </children>
+  </item>
+  <item nodeId="node-16">
+    <command xml:space="preserve">examine it</command>
+    <result xml:space="preserve">In the crystal door is a pendulum.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-17"/>
+    </children>
+  </item>
+  <item nodeId="node-17">
+    <command xml:space="preserve">l</command>
+    <result xml:space="preserve">Home (in the grandmother clock)&#x000A;You are in your natal home. Usually a cacophony of voices, plays and the rush of your mother taking care of everyone else.&#x000A;&#x000A; The grandmother clock tick-tocks next to the window and the wooden stairs.&#x000A;&#x000A;On the table are a bowl of milk and two cookies.&#x000A;&#x000A;A lone yellow cube with letters and number is forgotten in one corner of the room, next to the huge chest.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-18"/>
+    </children>
+  </item>
+  <item nodeId="node-18">
+    <command xml:space="preserve">out</command>
+    <result xml:space="preserve">You can't get out of the closed crystal door.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+  </item>
+  <item nodeId="node-19">
+    <command xml:space="preserve">take chest</command>
+    <result xml:space="preserve">That's fixed in place.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-20"/>
+    </children>
+  </item>
+  <item nodeId="node-20">
+    <command xml:space="preserve">showme chest</command>
+    <result xml:space="preserve">huge wooden chest - closed container&#x000A;    football ball&#x000A;    umbrella&#x000A;    teddy bear&#x000A;    red blanket&#x000A;    book&#x000A;    five wood blocks&#x000A;    goat girl wool doll&#x000A;    carton box&#x000A;    wood figurine&#x000A;    fake serpent&#x000A;    feather&#x000A;    cowbow hat&#x000A;location: in Home&#x000A;singular-named, improper-named; unlit, inedible, fixed in place; enterable, opaque, closed, openable, unlocked&#x000A;list grouping key: none&#x000A;printed name: "huge wooden chest"&#x000A;printed plural name: "containers"&#x000A;indefinite article: none&#x000A;description: "It is ches so huge you can hide inside."&#x000A;initial appearance: none&#x000A;carrying capacity: 100&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+  </item>
+  <item nodeId="node-21">
+    <command xml:space="preserve">out</command>
+    <result xml:space="preserve">Garden&#x000A;A tidy garden that is the entrance to your home. Some lillies, fresh grass and a lemon tree, provide a fragant welcome. You can go west to the croosroads.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-22"/>
+      <child nodeId="node-29"/>
+    </children>
+  </item>
+  <item nodeId="node-22">
+    <command xml:space="preserve">examine trees</command>
+    <result xml:space="preserve">You can't see any such thing.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-23"/>
+    </children>
+  </item>
+  <item nodeId="node-23">
+    <command xml:space="preserve">w</command>
+    <result xml:space="preserve">crossroads&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-24"/>
+    </children>
+  </item>
+  <item nodeId="node-24">
+    <command xml:space="preserve">w</command>
+    <result xml:space="preserve">forest1&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-25"/>
+    </children>
+  </item>
+  <item nodeId="node-25">
+    <command xml:space="preserve">examine trees</command>
+    <result xml:space="preserve">You can't see any such thing.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-26"/>
+    </children>
+  </item>
+  <item nodeId="node-26">
+    <command xml:space="preserve">examine tree</command>
+    <result xml:space="preserve">You can't see any such thing.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-27"/>
+    </children>
+  </item>
+  <item nodeId="node-27">
+    <command xml:space="preserve">examine trees</command>
+    <result xml:space="preserve">You can't see any such thing.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-28"/>
+    </children>
+  </item>
+  <item nodeId="node-28">
+    <command xml:space="preserve">examine sun</command>
+    <result xml:space="preserve">The sun is shiny today. Summer is almost here.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+  </item>
+  <item nodeId="node-29">
+    <command xml:space="preserve">examine sun</command>
+    <result xml:space="preserve">The sun is shiny today. Summer is almost here.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-30"/>
+    </children>
+  </item>
+  <item nodeId="node-30">
+    <command xml:space="preserve">examine trees</command>
+    <result xml:space="preserve">You can't see any such thing.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-31"/>
+    </children>
+  </item>
+  <item nodeId="node-31">
+    <command xml:space="preserve">w</command>
+    <result xml:space="preserve">crossroads&#x000A;What a splendid day bathed in the sun rays. The dirty track runs comes from the north and goes inside the forest towards the west. To the east you can return to your home.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-32"/>
+    </children>
+  </item>
+  <item nodeId="node-32">
+    <command xml:space="preserve">w</command>
+    <result xml:space="preserve">forest1&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-33"/>
+    </children>
+  </item>
+  <item nodeId="node-33">
+    <command xml:space="preserve">examine trees</command>
+    <result xml:space="preserve">Trees are everywhere you look, the are closely to each other that you can barely see further. You would be lost if not for the track that crosses the whole forest.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+  </item>
+  <item nodeId="node-34">
+    <command xml:space="preserve">showme bed</command>
+    <result xml:space="preserve">big bed - supporter&#x000A;location: in Home&#x000A;singular-named, improper-named; unlit, inedible, fixed in place, scenery; list grouping key: none&#x000A;printed name: "big bed"&#x000A;printed plural name: "supporters"&#x000A;indefinite article: none&#x000A;description: "The big bed, where all your brothers and sistes, and your mother, sleep all together, is in a complete disarray. Your mother had no time to make the bed because you slept till very late."&#x000A;initial appearance: none&#x000A;carrying capacity: 100&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-35"/>
+    </children>
+  </item>
+  <item nodeId="node-35">
+    <command xml:space="preserve">enter bed</command>
+    <result xml:space="preserve">That's not something you can enter.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+  </item>
+  <item nodeId="node-36">
+    <command xml:space="preserve">examine clock</command>
+    <result xml:space="preserve">It is a very big clock taller than your mother. It shows the time, or so the say your sisters and brothers, but you don't understand the hours yet.&#x000A;&#x000A; It has a crystal door, and behind you can see a pendulum moving constantly from side to side. Also, it emits a constant tick, tock, tick, tock, tick, tock... times passes.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-37"/>
+      <child nodeId="node-44"/>
+      <child nodeId="node-55"/>
+    </children>
+  </item>
+  <item nodeId="node-37">
+    <command xml:space="preserve">turn off clock</command>
+    <result xml:space="preserve">You would not know how to stop the clock.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-38"/>
+    </children>
+  </item>
+  <item nodeId="node-38">
+    <command xml:space="preserve">touch pendulum</command>
+    <result xml:space="preserve">The crystal door isn't open.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-39"/>
+    </children>
+  </item>
+  <item nodeId="node-39">
+    <command xml:space="preserve">stop pendulum</command>
+    <result xml:space="preserve">That's not a verb I recognise.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-40"/>
+    </children>
+  </item>
+  <item nodeId="node-40">
+    <command xml:space="preserve">open door</command>
+    <result xml:space="preserve">You open the crystal door.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-41"/>
+    </children>
+  </item>
+  <item nodeId="node-41">
+    <command xml:space="preserve">move pendulum</command>
+    <result xml:space="preserve">Nothing obvious happens.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-42"/>
+    </children>
+  </item>
+  <item nodeId="node-42">
+    <command xml:space="preserve">actions</command>
+    <result xml:space="preserve">Actions listing on.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-43"/>
+    </children>
+  </item>
+  <item nodeId="node-43">
+    <command xml:space="preserve">move pendulum</command>
+    <result xml:space="preserve">[pushing the pendulum]&#x000A;Nothing obvious happens.&#x000A;[pushing the pendulum - succeeded]&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+  </item>
+  <item nodeId="node-44">
+    <command xml:space="preserve">touch pendulum</command>
+    <result xml:space="preserve">The crystal door isn't open.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-45"/>
+    </children>
+  </item>
+  <item nodeId="node-45">
+    <command xml:space="preserve">move pendulum</command>
+    <result xml:space="preserve">The crystal door isn't open.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-46"/>
+    </children>
+  </item>
+  <item nodeId="node-46">
+    <command xml:space="preserve">enter clock</command>
+    <result xml:space="preserve">That's not something you can enter.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-47"/>
+    </children>
+  </item>
+  <item nodeId="node-47">
+    <command xml:space="preserve">open door</command>
+    <result xml:space="preserve">You open the crystal door.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-48"/>
+    </children>
+  </item>
+  <item nodeId="node-48">
+    <command xml:space="preserve">touch pendulum</command>
+    <result xml:space="preserve">You extend your paw expenctantly and... you touch the pendulum: it goes out of its momentu, slowing by the moment until it stops moving completely.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-49"/>
+    </children>
+  </item>
+  <item nodeId="node-49">
+    <command xml:space="preserve">examine clock</command>
+    <result xml:space="preserve">It is a very big clock taller than your mother. It shows the time, or so the say your sisters and brothers, but you don't understand the hours yet. It has a crystal door, and behind you can see a pendulum that is currently stop in place. The clock has stopped doing its tick-tock sound. You wonder if you have already stopped the whole time so you never grow up.&#x000A;&#x000A;The grandmother clock is currently switched off.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-50"/>
+    </children>
+  </item>
+  <item nodeId="node-50">
+    <command xml:space="preserve">turn on clock</command>
+    <result xml:space="preserve">You would not know how to stop the clock.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-51"/>
+    </children>
+  </item>
+  <item nodeId="node-51">
+    <command xml:space="preserve">move pendulum</command>
+    <result xml:space="preserve">You give it a tentatively push with your paw... and the pendulum start moving from side to side, and now, never stops moving.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-52"/>
+    </children>
+  </item>
+  <item nodeId="node-52">
+    <command xml:space="preserve">examine clock</command>
+    <result xml:space="preserve">It is a very big clock taller than your mother. It shows the time, or so the say your sisters and brothers, but you don't understand the hours yet. It has a crystal door, and behind you can see a pendulum moving constantly from side to side. And it emits a constant tick, tock, tick, tock, times passes.&#x000A;&#x000A;The grandmother clock is currently switched on.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-53"/>
+    </children>
+  </item>
+  <item nodeId="node-53">
+    <command xml:space="preserve">push pendulum</command>
+    <result xml:space="preserve">You give a little push, following the momentum of the pendulum, but the extra push makes it goes astray, and after some erratical movements, slowly it comes to a complete stop.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-54"/>
+    </children>
+  </item>
+  <item nodeId="node-54">
+    <command xml:space="preserve">touch pendulum</command>
+    <result xml:space="preserve">You extend your paw ecxpenctantly and... you touch the pendulum. Nothing happens, it is still unmoved.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+  </item>
+  <item nodeId="node-55">
+    <command xml:space="preserve">eat cookies</command>
+    <result xml:space="preserve">First, you must be seated at the table. On your chair.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-56"/>
+    </children>
+  </item>
+  <item nodeId="node-56">
+    <command xml:space="preserve">climb chair</command>
+    <result xml:space="preserve">You get onto your chair.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-57"/>
+    </children>
+  </item>
+  <item nodeId="node-57">
+    <command xml:space="preserve">examine chair</command>
+    <result xml:space="preserve">Your chair seems imposibly tall, but you have aready learned to climb on the top of it, and it allows you, at least, to peep your head over the table, and in that way, proceed to eat.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-58"/>
+    </children>
+  </item>
+  <item nodeId="node-58">
+    <command xml:space="preserve">enter chair</command>
+    <result xml:space="preserve">But you're already on your chair.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-59"/>
+    </children>
+  </item>
+  <item nodeId="node-59">
+    <command xml:space="preserve">actions climb chair</command>
+    <result xml:space="preserve">I only understood you as far as wanting to actions.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-60"/>
+    </children>
+  </item>
+  <item nodeId="node-60">
+    <command xml:space="preserve">actions</command>
+    <result xml:space="preserve">Actions listing on.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-61"/>
+    </children>
+  </item>
+  <item nodeId="node-61">
+    <command xml:space="preserve">climb chair</command>
+    <result xml:space="preserve">[climbing your chair]&#x000A;[(1) entering your chair]&#x000A;But you're already on your chair.&#x000A;[(1) entering your chair - failed the can't enter what's already entered rule]&#x000A;&#x000A;[climbing your chair - failed the can't enter what's already entered rule]&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-62"/>
+    </children>
+  </item>
+  <item nodeId="node-62">
+    <command xml:space="preserve">actions off</command>
+    <result xml:space="preserve">Actions listing off.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-63"/>
+    </children>
+  </item>
+  <item nodeId="node-63">
+    <command xml:space="preserve">drink milk</command>
+    <result xml:space="preserve">You take a sip of the milk, now colder, but still fresh and tasty! Your mother milk herself every morning, so you still take the nutrients you need, but both of you already started the  Delicious.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-64"/>
+    </children>
+  </item>
+  <item nodeId="node-64">
+    <command xml:space="preserve">drink bowl</command>
+    <result xml:space="preserve">You take another sip.&#x000A; Delicious.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-65"/>
+    </children>
+  </item>
+  <item nodeId="node-65">
+    <command xml:space="preserve">actions</command>
+    <result xml:space="preserve">Actions listing on.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-66"/>
+    </children>
+  </item>
+  <item nodeId="node-66">
+    <command xml:space="preserve">drink bowl</command>
+    <result xml:space="preserve">[drinking the bowl of milk]&#x000A;You take another sip.&#x000A; Delicious.&#x000A;[drinking the bowl of milk - failed]&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-67"/>
+    </children>
+  </item>
+  <item nodeId="node-67">
+    <command xml:space="preserve">examine table</command>
+    <result xml:space="preserve">[examining the table]&#x000A;The long table that have space for all the meals of all your sisters and brothers.&#x000A;&#x000A;On the table are a bowl of milk, a wooden spoon and two cookies.&#x000A;&#x000A;[examining the table - succeeded]&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-68"/>
+    </children>
+  </item>
+  <item nodeId="node-68">
+    <command xml:space="preserve">drink bowl</command>
+    <result xml:space="preserve">[drinking the bowl of milk]&#x000A;You take another sip.&#x000A; Delicious.&#x000A;[drinking the bowl of milk - failed]&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-69"/>
+    </children>
+  </item>
+  <item nodeId="node-69">
+    <command xml:space="preserve">taste cookies</command>
+    <result xml:space="preserve">[tasting two cookies]&#x000A;You taste nothing unexpected.&#x000A;[tasting two cookies - succeeded]&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-70"/>
+    </children>
+  </item>
+  <item nodeId="node-70">
+    <command xml:space="preserve">actions off</command>
+    <result xml:space="preserve">Actions listing off.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-71"/>
+    </children>
+  </item>
+  <item nodeId="node-71">
+    <command xml:space="preserve">eat cookie</command>
+    <result xml:space="preserve">You can't see any such thing.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-72"/>
+    </children>
+  </item>
+  <item nodeId="node-72">
+    <command xml:space="preserve">eat cookies</command>
+    <result xml:space="preserve">(first taking two cookies)&#x000A;Your favourites! You eat half of one in just one bite, and throw the other half inside the bowl. The proceed to take the remaining one and submergue almost completly, wetting your paw. You linger for a moment there, not too much, so the cookie get too wet and disolves itself in the milk, then proceed to put that half wet cookie in your mouth. You close your eyes. Yummmy... You repeat the process with the remaining other half of the last cookie: half deep in the bowl, wet for some seconds, and to your mouth. Then you hunt for the remains of the delicous dough with the wooden spoon, and to finalize, you quaff down the remain of the milk in three qualffs, remains of the cookies included. With a smile, you leave the empty bown on the table. And with the sweet heaviness in your belly, you climb down from the chair.&#x000A;&#x000A;Home&#x000A;You are in your natal home. Usually a cacophony of voices, plays and the rush of your mother taking care of everyone else.&#x000A;&#x000A; The grandmother clock tick-tocks next to the window and the wooden stairs.&#x000A;&#x000A;On the table are an empty bowl and a wooden spoon.&#x000A;&#x000A;A lone yellow cube with letters and number is forgotten in one corner of the room, next to the huge wooden chest.&#x000A;&#x000A;You can also see a big bed and a huge wooden chest (closed) here.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+  </item>
+  <item nodeId="node-228">
+    <command xml:space="preserve">eat cookies</command>
+    <result xml:space="preserve">First, you must be seated at the table. On your chair.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-229"/>
+    </children>
+  </item>
+  <item nodeId="node-229">
+    <command xml:space="preserve">climb chair</command>
+    <result xml:space="preserve">You get onto your chair.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-230"/>
+    </children>
+  </item>
+  <item nodeId="node-230">
+    <command xml:space="preserve">eat cookies</command>
+    <result xml:space="preserve">(first taking two cookies)&#x000A;Your favourites! You eat half of one in just one bite, and throw the other half inside the bowl. The proceed to take the remaining one and submergue almost completly, wetting your paw. You linger for a moment there, not too much, so the cookie get too wet and disolves itself in the milk, then proceed to put that half wet cookie in your mouth. You close your eyes. Yummmy... You repeat the process with the remaining other half of the last cookie: half deep in the bowl, wet for some seconds, and to your mouth. Then you hunt for the remains of the delicous dough with the wooden spoon, and to finalize, you quaff down the remain of the milk in three qualffs, remains of the cookies included. With a smile, you leave the empty bown on the table. And with the sweet heaviness in your belly, you climb down from the chair.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-231"/>
+    </children>
+  </item>
+  <item nodeId="node-231">
+    <command xml:space="preserve">eat cookies</command>
+    <result xml:space="preserve">You can't see any such thing.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-232"/>
+    </children>
+  </item>
+  <item nodeId="node-232">
+    <command xml:space="preserve">examine table</command>
+    <result xml:space="preserve">The long table that have space for all the meals of all your sisters and brothers.&#x000A;&#x000A;On the table are an empty bowl and a wooden spoon.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-233"/>
+    </children>
+  </item>
+  <item nodeId="node-233">
+    <command xml:space="preserve">open chest</command>
+    <result xml:space="preserve">You open the huge wooden chest, revealing a football ball, an umbrella, a teddy bear, a beige blanket, a book, five wood blocks, a goat girl wool doll, a carton box, a wood figurine, a fake serpent, a red cape, a feather, a cowbow hat and a forgotten cookie.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-234"/>
+    </children>
+  </item>
+  <item nodeId="node-234">
+    <command xml:space="preserve">examine cookie</command>
+    <result xml:space="preserve">Your favourites! A lost one!&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-235"/>
+    </children>
+  </item>
+  <item nodeId="node-235">
+    <command xml:space="preserve">eat cookie</command>
+    <result xml:space="preserve">(first taking the forgotten cookie)&#x000A;You gulp down the cookie. It is very bland. Oh, oh! Your belly start aching.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-236"/>
+    </children>
+  </item>
+  <item nodeId="node-236">
+    <command xml:space="preserve">eat cookie</command>
+    <result xml:space="preserve">You can't see any such thing.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+  </item>
+  <item nodeId="node-237">
+    <command xml:space="preserve">purloin the iron key</command>
+    <result xml:space="preserve">[Purloined.]&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-238"/>
+    </children>
+  </item>
+  <item nodeId="node-238">
+    <command xml:space="preserve">open chest</command>
+    <result xml:space="preserve">It seems to be locked.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-239"/>
+    </children>
+  </item>
+  <item nodeId="node-239">
+    <command xml:space="preserve">unlock chest with key</command>
+    <result xml:space="preserve">You unlock the huge wooden chest.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-240"/>
+    </children>
+  </item>
+  <item nodeId="node-240">
+    <command xml:space="preserve">open chest</command>
+    <result xml:space="preserve">You open the huge wooden chest, revealing a football ball, an umbrella, a teddy bear, a beige blanket, a book, five wood blocks, a goat girl wool doll, a carton box, a wood figurine, a fake serpent, a red cape, a feather, a cowboy hat and a forgotten cookie.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-241"/>
+    </children>
+  </item>
+  <item nodeId="node-241">
+    <command xml:space="preserve">lock chest</command>
+    <result xml:space="preserve">What do you want to lock the huge wooden chest with?&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-242"/>
+    </children>
+  </item>
+  <item nodeId="node-242">
+    <command xml:space="preserve">key</command>
+    <result xml:space="preserve">First you would have to close the huge wooden chest.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-243"/>
+    </children>
+  </item>
+  <item nodeId="node-243">
+    <command xml:space="preserve">close chest</command>
+    <result xml:space="preserve">You close the huge wooden chest.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-244"/>
+    </children>
+  </item>
+  <item nodeId="node-244">
+    <command xml:space="preserve">lock chest</command>
+    <result xml:space="preserve">What do you want to lock the huge wooden chest with?&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-245"/>
+    </children>
+  </item>
+  <item nodeId="node-245">
+    <command xml:space="preserve">key</command>
+    <result xml:space="preserve">You lock the huge wooden chest.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-246"/>
+    </children>
+  </item>
+  <item nodeId="node-246">
+    <command xml:space="preserve">throw the key</command>
+    <result xml:space="preserve">Dropped.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-247"/>
+    </children>
+  </item>
+  <item nodeId="node-247">
+    <command xml:space="preserve">take chair</command>
+    <result xml:space="preserve">That's hardly portable.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+  </item>
+</Skein>

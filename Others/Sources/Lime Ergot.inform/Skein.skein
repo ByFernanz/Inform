@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Skein rootNode="node-690">
+  <generator>Windows Inform 7 6M62</generator>
+  <activeNode nodeId="node-704"/>
+  <item nodeId="node-690">
+    <command xml:space="preserve">- start -</command>
+    <result xml:space="preserve">"Be a dear, lieutenant, fix me a drink.&#x000A;The machine is ready.&#x000A;I'll take a green skull."&#x000A;&#x000A;Lime Ergot&#x000A;A Text Adventure by Caleb Wilson&#x000A;Release 3 / Serial number 170905 / Inform 7 build 6M62 (I6/v6.33 lib 6/12N) SD&#x000A;&#x000A;Stranded&#x000A;The cement wharf is sun-baked above, slapped by water below. Hieroglyphs of glare inscribed on the flat surface of the harbor. Odors of salt, and rot, and sweat, and silt. The air burns like an iron.&#x000A;&#x000A;The wharf ends here. South is the pier. The capital of St. Stellio (which is a city also named St. Stellio) is invisible, somewhere through the glare to the west. To the north a tangle of foliage grows directly from the brine. To the east is the Atlantic ocean.&#x000A;&#x000A;General Livia Tudor-Adolphus sits in a huge wicker wheelchair. The sunlight glints on her uniform's silver switchblade insignia.&#x000A;&#x000A;Beside the general stands a large metal contraption of gears, flywheels, pistons, and valves. Most importantly it includes a hopper at the top, a placard at the middle, and a spout near the base, beneath which is a fluted glass.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="0">NO</temporary>
+    <children>
+      <child nodeId="node-691"/>
+      <child nodeId="node-696"/>
+      <child nodeId="node-701"/>
+      <child nodeId="node-702"/>
+    </children>
+  </item>
+  <item nodeId="node-691">
+    <command xml:space="preserve">examine bowl</command>
+    <result xml:space="preserve">Down close to the water, some roots have grown into the shape of a bowl.&#x000A;&#x000A;Sitting in the hollow of the roots is a plump St. Stellio lime.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-692"/>
+    </children>
+  </item>
+  <item nodeId="node-692">
+    <command xml:space="preserve">take lime</command>
+    <result xml:space="preserve">Taken.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-693"/>
+    </children>
+  </item>
+  <item nodeId="node-693">
+    <command xml:space="preserve">actions</command>
+    <result xml:space="preserve">Actions listing on.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-694"/>
+    </children>
+  </item>
+  <item nodeId="node-694">
+    <command xml:space="preserve">put lime on general</command>
+    <result xml:space="preserve">[putting the St. Stellio lime on General Livia Tudor-Adolphus]&#x000A;Putting things on General Livia Tudor-Adolphus would achieve nothing.&#x000A;[putting the St. Stellio lime on General Livia Tudor-Adolphus - failed the can't put onto what's not a supporter rule]&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-695"/>
+    </children>
+  </item>
+  <item nodeId="node-695">
+    <command xml:space="preserve">insert lime in general</command>
+    <result xml:space="preserve">[inserting the St. Stellio lime into General Livia Tudor-Adolphus]&#x000A;She can't contain things.&#x000A;[inserting the St. Stellio lime into General Livia Tudor-Adolphus - failed the can't insert into what's not a container rule]&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+  </item>
+  <item nodeId="node-696">
+    <command xml:space="preserve">kiss general</command>
+    <result xml:space="preserve">You swoop in for a quick peck, but bounce back from the general's icy glare.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-697"/>
+    </children>
+  </item>
+  <item nodeId="node-697">
+    <command xml:space="preserve">kiss chair</command>
+    <result xml:space="preserve">You can only do that to something animate.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-698"/>
+    </children>
+  </item>
+  <item nodeId="node-698">
+    <command xml:space="preserve">examine bowl</command>
+    <result xml:space="preserve">Down close to the water, some roots have grown into the shape of a bowl.&#x000A;&#x000A;Sitting in the hollow of the roots is a plump St. Stellio lime.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-699"/>
+    </children>
+  </item>
+  <item nodeId="node-699">
+    <command xml:space="preserve">take lime</command>
+    <result xml:space="preserve">Taken.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-700"/>
+    </children>
+  </item>
+  <item nodeId="node-700">
+    <command xml:space="preserve">kiss lime</command>
+    <result xml:space="preserve">You can only do that to something animate.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+  </item>
+  <item nodeId="node-701">
+    <command xml:space="preserve">take general</command>
+    <result xml:space="preserve">I don't suppose General Livia Tudor-Adolphus would care for that.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+  </item>
+  <item nodeId="node-702">
+    <command xml:space="preserve">tie</command>
+    <result xml:space="preserve">What do you want to tie?&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-703"/>
+    </children>
+  </item>
+  <item nodeId="node-703">
+    <command xml:space="preserve">tie livia</command>
+    <result xml:space="preserve">What do you want to tie General Livia Tudor-Adolphus to?&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-704"/>
+    </children>
+  </item>
+  <item nodeId="node-704">
+    <command xml:space="preserve">unlock livia</command>
+    <result xml:space="preserve">What do you want to unlock General Livia Tudor-Adolphus with?&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+  </item>
+</Skein>

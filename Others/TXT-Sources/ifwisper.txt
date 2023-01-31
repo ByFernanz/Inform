@@ -1,0 +1,1531 @@
+"IF Whispers 5" by The IF Whispers Team
+
+[Release 2: fixes a few bugs that slipped through the first time.]
+
+Include Exit Lister by Eric Eve. Include Plurality by Emily Short and Basic Screen Effects by Emily Short.
+
+When play begins[erecting the exit list and score (feel free to delete score if we don't want to use it) -p]:
+	now right hand status line is "score: [score]"
+	[Exit Lister automatically adds the exit list to the left hand status line, though. -CC]
+
+The story headline is "An Interactive Collaboration".
+The story description is "[The Story Title] is a collaborative 'Chinese Whispers' / 'Telephone' style work of interactive fiction. Each section besides the first was written by an author who saw only the immediately preceding part. However, authorship continued around in a cycle, giving each person a chance to write a second time, using their prior knowledge of what they and the preceding author wrote to hopefully make the final product more cohesive as a whole."
+The story genre is "horror".
+The release number is 2.
+Release along with source text.
+
+After printing the banner text, say "[italic type][line break]Type 'about' for more information on this project[roman type]."
+
+Part 0 - Shared definitions
+
+Use American dialect and the serial comma.
+
+Getting game info is an action out of world. Understand "about" as getting game info. Understand "help" as getting game info. Understand "credits" as getting game info. 
+Carry out getting game info:
+	say "[story description][paragraph break]To see the author and subtitle of the current section, type 'author'. You can find the website for this project at https://novelinteraction.wordpress.com/ if you'd like to view the source code or find more information about the game."
+
+To decide what number is (N - a number) to the power of (M - a number):
+	let O be N;
+	repeat with I running from 1 to M minus one:
+		let O be O times N; 
+	decide on O.
+
+[When play begins: repeat with N running from 0 to 25 begin; let M be N to the power of 2; say "log2 of [M] is [log2 of M]."; end repeat.]
+	
+To decide what number is log2 of (N - a number):
+	if N is positive:
+		let the comparator be 1;
+		while two to the power of the comparator is less than N plus one, increment the comparator; 
+		[cheap, but it works for integers!]
+		decide on the comparator minus one;
+	otherwise:
+		decide on -1.
+
+A scene can be whisperish.
+
+When a whisperish scene ends, increase the score by the score plus one. 
+
+When play begins: now the maximum score is (two to the power of the number of rows in the Table of Whispers) minus one.
+
+Table of Whispers
+Index	Author	Title
+1	"Chris Conley"	"Southern Exposure"
+2	"Joey Jones"	"Airlocked"
+3	"Marius Müller"	"The First Step into Terror"
+4	"Tom Blawgus"	"Journey toward the Center of the Earth"
+5	"Porpentine"	"The Screaming Television"
+6	"Joey Jones"	"The Best Untold"
+7	"Marius Müller"	"What in that darkness slept"
+8	"Tom Blawgus"	"Music and Words"
+9	"Porpentine"	"Smashing Success"
+10	"Chris Conley"	"Loose Ends"
+
+Requesting the author is an action out of world. Understand "author" and "authors" as requesting the author. Understand "who wrote/authored this/the scene/section/part" as requesting the author.
+
+Carry out requesting the author: 
+	let N be (log2 of the score) plus two;
+	if there is an author corresponding to an index of N in the Table of Whispers:
+		choose the row with an index of N in the Table of Whispers;
+		say "Scene [index entry], '[title entry]', was written by [author entry].";
+	otherwise:
+		say "Hmm, there seems to be no author defined at the moment. Clearly, this part was written by monkeys."
+		
+Does the player mean feeding the meat to someone: it is likely.
+
+Before feeding something to yourself, try eating the noun instead.
+
+Carry out closing the outer door when the snow is temperate: now the outer door is closed; now the player is temperate; rule succeeds. [Prevent the snow from melting twice.]
+
+Does the player mean closing an open door: it is very likely. 
+Does the player mean opening an open door: it is very unlikely.
+Does the player mean closing a closed door: it is very unlikely. 
+Does the player mean opening a closed door: it is very likely.
+
+Index map with Hidey Hole mapped south of Subterranean Corridor.
+
+Instead of putting something on Kira, try covering Kira with the noun.
+
+Instead of covering Kira with something when the blanket is not part of Kira:
+	if the second noun is not the arctic gear and the second noun is not the hooded jacket combo and the second noun is not the blanket:
+		say "No, you need to find something decent to cover her with[if the blanket is not visible]. This is a supply room. There must be something suitable, somewhere in here[end if].";
+	otherwise:
+		continue the action.
+	
+Instead of covering Kira with the arctic gear, say need larger.
+Instead of covering Kira with the hooded jacket combo, say need larger.
+
+To say need larger: say "You'll need something larger to cover her properly.
+	
+And anyway, you have to go back outside eventually. Better hang onto [the second noun]." 
+
+Chill reduction oscillator is a truth state that varies.
+
+First every turn while the dial is switched off:
+[	showme chill reduction oscillator;]
+	if chill reduction oscillator is true:
+		if a random chance of 1 in 2 succeeds:
+			now chill reduction oscillator is false;
+		otherwise:
+			rule succeeds;
+	otherwise:
+		now chill reduction oscillator is true;
+		rule succeeds.
+	[I want to give the player more time to get out of the cold.]
+	
+The cold update rule is listed before the chattering cat rule in the every turn rulebook.
+
+To say Cap (N - a thing):
+	let T be the printed name of N in title case;
+	say T.
+
+Instead of pushing the flat, try waving the flat. Instead of pulling the flat, try waving the flat.
+
+The naked rock has printed name "bare rock wall". Understand "bare" as the naked rock.
+
+Report unplugging when the dial is switched on:
+	say "As it is no longer sparking, you decide to take the risk. You grasp the cable by the outlet and give it a firm yank, and the cable comes free."
+	
+Understand "music" as the musical box.
+	
+Chapter 0 - Testing verbs - Not for release
+
+Skipping ahead is an action applying to nothing.  Understand "skip ahead" and "skip this scene" and "skip current scene" as skipping ahead.  The last carry out skipping ahead rule: say "Since we should always be in a scene, there's no reason to see this text, unless someone forgot to define an override for their scene."
+
+Test me with "test earlygame/test lategame/test endgame".
+
+Test earlygame with "test wh1/test wh2/test wh3/test wh4".
+
+Test lategame with "test wh5/test wh6".
+
+Test endgame with "test wh7/test wh8/test wh9/test wh10".
+
+Test coldcat with "test earlygame/s/n/ne/e/d/e/e/turn dial".
+
+Test doors with "test earlygame/s/close inner/open outer".
+
+Test scenes with "scenes/test wh1/author/test wh2/author/test wh3/author/test wh4/author/test wh5/author/test wh6/author/test wh7/author/test wh8/author/test wh9/author".
+
+When play begins: seed the random-number generator with 5420.
+
+Chapter 1 - World-building
+
+[AUTHORS: This is the section where you can add 3 properties, per the rules. Don't forget you can create positive or negative statements about the world, too, that others will then need to abide by - preferably, add 1 of one type (properties or facts) and 2 of the other. Alternately, you can delete an old property or fact in exchange for adding only a single new one.
+
+Try to use all of these properties in your section, and absolutely abide by all of these facts. -CC]
+
+Section 2 - Joey Jones
+
+[*][#1] A thing is either wet or dry. A thing is usually dry. 
+
+[*][#2] A thing is either hot, temperate or cold. Yourself is cold.
+
+[*][#3] Need is a kind of value. The needs are satisfied and unsatisfied. Yourself has a need called curiosity. The curiosity of yourself is unsatisfied. [This adds a framework for other needs, if need be.]
+
+Section 3 - Marius Müller
+
+[*][#1 The cat will not die.]
+
+[*][#2 There are no locked doors.]
+
+[*][#3 What happened in the base has no supernatural explanation.]
+
+Section 4 - Tom Blawgus
+
+[*][#1 There is more beneath the base than you know.]
+
+[*][#2 The cat will be an integral part of figuring out what happens.]
+
+[*][#3 The cheese stands alone.]
+
+Section 5 - Porpentine
+
+[*][#1] Yourself has a need called silence. The silence of yourself is unsatisfied.
+
+[*][#2 The end of the cable is in the same room as something that can kill the player.]
+
+[*][#3 Something incredibly aromatic, pretty, and/or delightful exists, somewhere in the game.]
+
+Section 6 - Joey Jones
+
+[*][#1 No darkness/light puzzles.]
+
+[*][#2 Somebody has been documenting the events that befell the base.]	
+
+[*][#3 What happened in the base was understandable, if not necessarily completely forgiveable. i.e. no comic book villainy or psychopathology]
+
+Section 7 - Marius Müller
+
+[*][#1 The musical box needs to be destroyed to proceed. (It was meant to be the delightful thing).]
+
+[*][#2 There will be a time limit at some point.]
+
+[#3 The end of the game has a sequel hook.]
+
+Section 8 - Tom Blawgus
+
+[*][#1 The cat will be the revealing twist at the end of the game]
+
+[*][#2 The note contains a clue to what happened here]
+
+[#3 The sledgehammer is more than it seems]
+
+Section 9 - Porpentine
+
+[*][#1 The player cannot prevent death.]
+
+[*][#2 Your surroundings at the time of death may have an affect on your passing. Feel free to modify my section to add more ways to be affected, if so desired.]
+
+[*][#3 The disease can be slowed down.]
+
+Part 1 - Southern Exposure by Chris Conley
+
+Whisper 1 is a whisperish scene.
+
+Chapter 0 - Useful playtesting verbs - Not for release
+
+Carry out skipping ahead during Whisper 1:
+	say "Skipping Scene 1";
+	now the player carries the strange flat;
+	now the strange flat is switched on;
+	now the player is in Airlock;
+	Rule succeeds.
+	
+The first instead of waving the switched on flat: now the indicated way of the strange flat is east; say "The thing points eastwards, magically."
+
+Test wh1 with "get silver/shake it/g/e/shake it/e/shake it/e/dig snow/open shack";
+
+Chapter 1 - The scenario
+
+Whisper 1 ends when the Airlock has been visited.
+
+Whisper 1 begins when play begins. When Whisper 1 begins:
+	say "You have been travelling for weeks. Your supplies are running low. You had nearly lost all hope -- and then you found the first sign of humanity you've seen in days."
+
+White Out is a room. "Your [tracks] lead through the snow back into the distance. Everywhere else is blank and undefined; the [sky] and the [ground] are one solid, flat plane ahead of you."
+
+The tracks are scenery in White Out. "Boot-shaped depressions in the snow lead back to [the way back]." Understand "prints/footprints" and "foot prints" as the tracks. The tracks have a direction called the way back. The way back of the tracks is north.
+The sky is scenery in White Out. "Just a flat gray expanse. Even the sun is invisible through these clouds." Understand "cloud/clouds/skies/light/lighting/sun" as the sky. 
+The ground is scenery in White Out. "In this light, you can make out no details in the snow at all. Aside from the [tracks] leading back the way you came, of course." Understand "snow/dirt/earth/ice/floor" as the ground.
+
+The player is wearing the arctic gear. The description of the gear is "Technically, a better name might be Antarctic gear. Boots, layered clothes and hooded jacket, mask (not being worn). You're freezing one minute, boiling in the clothing the next; usually if you're not being cut into by the wind you're being blinded and sunburned by the light reflected off of the snow.
+
+Fortunately, things are fairly calm at the moment." The gear has indefinite article "some". Understand "antarctic" as the gear.
+
+The player wears a player's holdall called a giant backpack. The description of the backpack is "Tall, sturdy, and probably 50 pounds completely empty." The backpack is closed. Understand "pack/bag" as the backpack.
+
+Some survival supplies are in the backpack. After printing the name of the supplies while taking inventory: say " (running low)". The description is "MREs, granola bars, a small propane stove and a bowl for making soup with melted snow. Nothing glamorous, and there's almost nothing left." Instead of taking the supplies, say "Not outside of camp, and anyway you don't want to waste any more supplies than you need to."
+
+The backpack contains an openable, closed, enterable container called a collapsible tent. Instead of inserting something into the tent: say "You can't really keep things in the tent while it's folded up." Understand "fold up [the tent]" and "disassemble [the tent]" and "collapse [the tent]" as closing. Understand "unfold [the tent]" and "assemble [the tent]" as opening. Instead of opening the tent when the player is in Base or the player is in Underground: say "Now that you've reached the base, you no longer have any need for shelter." Instead of opening the tent: say "You don't want to set up camp yet, you need to press on. Your supplies are too short to waste a day."
+
+The strange flat is a thing in White Out with printed name "strange device". "Something silver is sticking out of the snow." The strange flat can be switched on or switched off. The description is "A strange thin silver device, smaller than the palm of your hand. There is a small depression on one end[if switched on], in which a light is blinking red[end if][if buzzing] It is vibrating slightly[end if]." Understand "small/thin/silver/device" as the flat. The strange flat has a direction called the indicated way. The indicated way of the strange flat is outside. The strange flat has a number called the progress count.
+
+A depression is part of the flat. The description is "A tiny hole on the top of one of the broad sides of the device, currently [if the flat is switched on]blinking red[otherwise]dark[end if]." Understand "light/blinking/red" as the depression when the flat is switched on.
+
+After taking the flat: say "Something inside rattles as you pick up [the noun]."
+
+Understand the commands "shake" and "rattle" as "wave". 
+Before waving a not held portable thing: 
+	say "(first taking [the noun])[command clarification break]"; 
+	silently try taking the noun; 
+	if the noun is not held, say "You need to be holding [the noun] first."
+Instead of turning the flat, try waving the flat. Instead of swinging the flat, try waving the flat.
+
+Instead of waving the switched off flat: 
+	now the flat is switched on; 
+	say "As you start to move the device around, a red light on one end starts to flash." 
+	
+The compass rose is a list of directions which varies.
+The compass rose is {north, northeast, east, southeast, south, southwest, west, northwest}.
+
+Definition: a direction is horizontal if it is listed in the compass rose.
+
+Definition: the flat is oriented rather than blank unless the indicated way of the flat is outside.
+	
+Instead of waving the oriented switched on flat, say "The device blinks fastest when pointing [indicated way of the strange flat]."
+
+Instead of waving the blank switched on flat:
+	now the indicated way of the flat is a random horizontal direction;
+	while entry 1 of the compass rose is not the indicated way of the strange flat:
+		rotate the compass rose;
+	if the indicated way of the flat is the way back of the tracks:
+		now the indicated way of the flat is the opposite of the indicated way of the flat;
+	say "With a bit of experimentation, you find that the device blinks fastest when it's pointed towards [the indicated way of the strange flat]."
+
+To reorient the strange flat:
+	[Change the way the device points by one step clockwise or counterclockwise every time.]
+	rotate the compass rose;
+	if a random chance of 1 in 2 succeeds:
+		rotate the compass rose backwards; 
+		rotate the compass rose backwards;
+	now the indicated way of the strange flat is entry 1 of the compass rose.
+
+Backtracking is an action applying to nothing. Understand "go back" and "return" and "retreat" as backtracking. Carry out backtracking: say "You don't have enough supplies to last the return trip. Besides, there's no one waiting for you." instead.
+Following is an action applying to one thing. Understand "follow [something]" as following. Carry out following: say "You'll have to be more specific." instead. Instead of following the tracks, try backtracking.
+
+Instead of going nowhere in White Out:
+	say "You can see nothing worthwhile in that direction."
+	
+Definition: the strange flat is silent rather than buzzing unless the progress count of the strange flat is 3.
+	
+Instead of going the indicated way of the strange flat in White Out:
+	now the way back of the tracks is the opposite of the indicated way of the strange flat;
+	say "Holding [the flat] out in front of you, you trudge ahead for a few minutes, until the rate of blinking slows down.";
+	reorient the strange flat;
+	increment the progress count of the strange flat;
+	if the progress count of the strange flat is 3:
+		say "[line break]The device begins vibrating in your hand, as you nearly trip over something buried in the snow.";
+		move the metal object to White Out.
+		
+Instead of going nowhere in White Out when the strange flat is buzzing: say "You want to investigate this [metal object]."
+
+Instead of going nowhere in Before the Center, say "Your last hope is here in the research center."
+		
+Instead of waving the buzzing strange flat, say "Besides buzzing louder, moving the device has no further effect."
+
+The small metal object is a fixed in place thing. "A small metal object juts out of the snow." The description is "It looks like the corner of something, almost entirely buried in the snow." Understand "something/thing/corner" as the metal object.
+
+Digging in is an action applying to one thing. Understand the command "dig" as something new. Understand "dig [something]" and "dig in [something]" as digging in. Understand the command "shovel" as "dig". Instead of digging in the ground, say "You want to conserve your energy." Instead of digging in the metal object, try digging in the ground. Carry out digging in something: say "That wouldn't be helpful." instead.
+
+Instead of digging in the ground when the metal object is visible:
+	remove the metal object from play;
+	say "You don't have anything extremely well-suited to digging, but the snow is fortunately dry and lightly packed. Using a bowl from your supplies, progress is fairly quick. Within half an hour, you are...";
+	now everything in White Out is in Before the Antarctic Research Center;
+	
+Before the Antarctic Research Center is a room. "The only real landmark of any note here is the research center. At last, you have found the site you were searching for."
+
+The research center shack is an enterable scenery container in Before the Antarctic Research Center. "Barely anything more than a metal shack with a solid door." It is openable and closed. Instead of entering the research center shack, try opening the shack. Understand "door" as the shack. Instead of going inside in Before the Center, try opening the shack. Instead of going down in Before the Center, try opening the shack.
+
+Before opening the shack for the first time: say "After some effort, the door to the research center pops open. You are greeted by a blast of stale—but surprisingly not cold—air. Stairs lead downward, and you descend..."; move the player to Airlock; rule succeeds.
+
+Airlock is a room. [Feel free to describe and expand this room.]
+
+Part 2 - Airlocked by Joey Jones
+
+Whisper 2 is a whisperish scene. Whisper 2 begins when Whisper 1 ends.
+
+Chapter minus one - Useful playtesting verbs - Not for release
+
+Carry out skipping ahead during Whisper 2:
+	say "Skipping Scene 2";
+	now the outer door is closed;
+	now the inner door is open;
+	now the player is in the narrow corridor;
+	now the arctic gear is in airlock;[the player can put it in the backpack, it doesn't really matter at this stage]
+	Rule succeeds.
+
+Test wh2 with "close outer door/drop gear/n".
+
+Chapter 0 - Setting up and the Joy of Clothing
+
+When whisper 2 begins:
+	now the description of the arctic gear is "[if worn]Your arctic gear now hangs heavily on your frame, begging to be taken off now that you've found shelter.[otherwise]The arctic gear lies in a damp creased pile.[end if]".
+
+Whisper 2 ends when the narrow corridor had been visited.
+
+Arctic gear is wet. Understand "clothes/clothing" and "wet clothes/clothing" as the gear.
+
+Check taking off:
+	if the player is cold, say "It's far too cold to take off your [noun]." instead.
+
+After taking off:
+	say "You remove your [noun][if the noun is wet], leaving you holding the sodden garments[end if].";
+	if the noun is the arctic gear and the hooded jacket combo is off-stage, now the player is wearing the hooded jacket combo.
+
+The hooded jacket combo is wearable. The description is "[if worn]You're wearing a[otherwise]A[end if] plain breathable jacket and trousers, with many other layers besides.". Understand "jacket/trousers/socks/t-shirt/layers/hood/clothes/clothing" as the hooded jacket combo. Does the player mean examining the hooded jacket combo: it is likely.
+
+After dropping the something wet:
+	say "The [noun] drops with a resounding squelch.".
+
+Check taking the arctic gear:
+	if the player is not cold, say "It's too warm to bother with the arctic gear." instead.
+
+The description of yourself is "You are weary from the harsh trek through the snowy wastes, [if yourself is cold]and your cheeks are red and raw from the bitter cold[otherwise]but you know you've certainly looked worse[end if].[if something is worn by the player] You are currently decked out in [a list of things worn by the player].[end if]". Understand "cheeks/cheek" as yourself. Check taking yourself: say "You give your cheeks a little tug. Yep. Still there." instead. [If anyone wants to change this, they should say 'when scene whatever begins: now the description of yourself is "blah".]
+
+Chapter 1 - The Airlock
+
+The description of the airlock is "[first time]Your steady search for the research center has not been in vain! [only]The airlock is a cool dank chamber, with [metal walls], floor, and ceiling. The [snow] that blew in with you [if the snow is cold]melts slowly [otherwise]is now a puddle [end if]on the stairs that lead up to the [outer door][if the outer door is open] that gapes open[end if] above. To the north is the [inner door] that [if the narrow corridor is unvisited]presumably [end if]leads into the research center proper.".
+
+The metal walls are scenery in the airlock. Understand "research center/dank chamber/chamber/airlock/floor/metal floor/ceiling/metal ceiling" as the metal walls when the location of the player is the airlock. The description of the metal walls is "The airlock is shaped out of a cold gray metal[first time], for all your scientific training you could barely hazard a guess as to what alloy[only].[if the outer door is closed] And there's definitely a bloody smear on the floor leading to the inner door.[end if]".
+
+Report touching in the airlock:
+	say "[if the outer door is open]With the door above still open, everything in the airlock is cold to touch.[otherwise]A faint trembling warmth has begun to mute the chill of the airlock.[end if]"
+
+The airlock stairs are enterable scenery in the airlock. The description of the stairs is "The stairs [if the snow is on the stairs]are slick with fresh snow and lead up to the outer door[otherwise]offer a safe way of ascending[end if]."
+
+The fresh snow is on the stairs. The snow is cold wet scenery. The description of the snow is "[if cold]A small drift of fresh snow drips sadly on the stairs[otherwise]A small puddle is all that remains of the snow[end if].". Understand "water/puddle/dripping/drip/drips" as the fresh snow when the fresh snow is not cold.
+
+Check taking the snow:
+	say "[if the snow is cold]You've had enough snow to last a lifetime, quite frankly.[otherwise]You can hardly pick up a puddle.".
+
+At the time when the snow melts:
+	now the fresh snow is temperate;
+	if the player is in the airlock, say "A slow dripping alerts you to the fact that the snow on the stairs has now melted completely.".
+
+Check climbing the airlock stairs:
+	try going up instead.
+
+Chapter Two - Doors
+
+The outer door is a door. It is open, openable and scenery. Above the airlock is the outer door. Above the outer door is Before the Antarctic Research Center. The description of the outer door is "The outer door is, truth be told, more an outer hatch. It's set in the ceiling above the stairs and is currently [if open]wide open[otherwise]shut firmly[end if].". Understand "hatch/outer hatch" as the outer door.
+
+The inner door is a door. It is closed, openable and scenery. The description is "The inner door is narrow[if closed], closed[end if] and it squats [if the player is in the airlock]in the northernmost wall of the airlock[otherwise]to the south[end if].". The inner door is north of the airlock and south of the Narrow Corridor.
+
+Check opening a closed door in the airlock:
+	if a door in the airlock is open, say "The door won't budge. The way an airlock works is that you have to close one door before you can open the other." instead.
+
+Check opening the inner door when all doors in the airlock are closed and the player has arctic gear:
+	say "[if the gear is worn]The door is quite fiddly and you won't be able to open it while wearing all these layers[otherwise if the gear is carried]You wont be able to open the door while holding all these wet clothes[end if]." instead.
+
+Carry out closing the outer door:
+	the snow melts in twelve turns from now;
+	now yourself is temperate.
+
+Carry out opening the outer door when the location of the player is the airlock:
+	now yourself is cold.
+
+After opening the outer door when the location of the player is the airlock:
+	say "You open the outer door, and are met by a fierce breeze.".
+
+After closing the outer door when the location of the player is the airlock:
+	say "With a satisfying slam, you shut the outer door and a stale warmth fills the airlock.";
+	if the bloody smear is off-stage begin;
+		say "[line break]Now the whistling of the outside wind is no longer a distraction, you take a greater stock of your surroundings and note with mounting unease a red smear on the floor leading towards the inner door.";
+		now the bloody smear is in the airlock;
+	end if.
+
+After opening the inner door when the location of the player is the airlock:
+	say "You open the inner door[first time] and are greeted by a warm waft of stale air[only].".
+
+Report listening when the location of the player is the airlock:
+	say "[if the outer door is open]The airlock is completely silent, such that all you can hear is the blood pumping in your ears and the steady thump of your heart.[otherwise]You can't hear anything above the intense whistling of the wind through the open hatch.[end if]".
+
+Chapter Three - The Bloody Smear
+
+The bloody smear is a thing. "A [first time]disconcerting [only]red smear is splattered beneath the inner door.". The description of the bloody smear is "A dried red-brown smear leads in under the inner door.[first time] The sight brings back your fears about the research center's long radio silence.[only]". Understand "blood", "dried red-brown/red-brown smear" and "brown/red smear" as the bloody smear.
+
+Check taking the smear:
+	say "You couldn't scrape any off, but you could certainly have a smell." instead.
+
+Check smelling the bloody smear:
+	say "[first time]You lean right in and inhale deeply.[no line break] [only]The smear has a sharp iron tang to it." instead.
+
+Check tasting the bloody smear:
+	try smelling the bloody smear instead.
+
+Check going up when the location of the player is the airlock:
+	if the curiosity of the player is unsatisfied, say "You came here to investigate the Antarctic Research Center, and you don't intend to leave until your curiosity is satisfied.[first time] That, and it's colder than a brass suppository out there.[only]" instead.
+
+Chapter Four - Scarcely Justify Calling This a Chapter
+
+The Narrow Corridor is a room. [Go ahead and flesh this out!]
+
+Report going to the Narrow Corridor for the first time: [CC: this message wasn't firing before]
+	say "You step out of the airlock and into a dim, narrow corridor[if the strange flat is enclosed by the player]. As you pass the threshold, the strange device that you'd picked up from the snow beeps shrilly before going silent[end if].";
+	now the strange flat is switched off.
+
+Part 3 - The first step into terror by Marius Müller
+
+Whisper 3 is a whisperish scene. Whisper 3 begins when Whisper 2 ends.
+
+Whisper 3 ends when the blanket is part of Kira.
+
+Chapter 0 - Useful testing verbs -  not for release
+
+Carry out skipping ahead during Whisper 3:
+	say "Skipping Scene 3";
+	now the blanket is part of Kira;
+	now the cat is in Narrow Corridor;
+	Rule succeeds.
+
+Test wh3 with "w/open locker/get blanket/put it on Kira".
+
+Chapter 1 - rooms and scenery
+
+The Narrow Corridor is a room. "Claustrophobia gropes at your mind with feral claws in this corridor. It leads northeast and west from here. The functional, bolted metal of the walls continues from the airlock. It's warm in here, far too warm. The [bloody trail] leads to the west."
+
+The bloody trail is scenery in Narrow corridor. "The trail becomes more of a splatter as it moves continues west."
+
+Report listening when the location is Narrow corridor: say "You hear faint, indistinguishable sounds from the west."
+
+The Supply Room is west of Narrow Corridor. "This room has been thoroughly and methodically searched. [Cap boxes] stand open, [racks] are emptied, [balls of plastic wrapping] lie on the floor. There is a single [locker] in the corner."
+
+Some boxes are scenery in Supply Room. Understand "box" as boxes. The description of the boxes is "Food, medical supplies, science equipment. Everything has been emptied."
+
+Some racks are scenery in Supply Room. Understand "rack" as the racks. The description is "Empty metal racks."
+
+Some balls of plastic wrapping are scenery in Supply Room. Understand "balls/plastic/wrappings" as balls of plastic wrapping.  The description of balls is "These are just bits of plastic, utterly useless." 
+
+After going west from Narrow Corridor for the first time: 
+	say "You step into the supply room and grow pale.  You know the form sprawled on the floor, that twisted thing that once was Kira Argmanov. Steadying yourself on the doorframe for a second, trying to blink the tears away. You take a deep breath, breathing in the smell of her death, and stop. Your love, dead in Antarctica.[paragraph break]Then something rumbles in the locker[if the strange flat is visible], and at the same time [the strange flat] beeps once again[end if].";
+	continue the action. ["try looking" advances another turn, which (besides other potentially undesirable behavior) may print the "ominious rumbling again" message too soon. -CC]
+
+The locker is scenery. The locker is in Supply Room. The locker is an openable, opaque container. The locker is closed. The description of locker is "It's a functional metal locker. It doesn't have a lock." 
+
+Instead of listening to the locker: say "You hear a faint scratching noise."
+
+Instead of going east from Supply Room when the blanket is not part of Kira:
+say "You can't leave her here, lying around like that."
+
+Chapter 2 - Kira
+
+Kira Argmanov is a  thing. Kira is in Supply Room. Understand "she/her/woman/corpse/thing" as Kira.  The initial appearance is "The corpse of the woman you love lies here, exposed." The description is "[first time]You can't bear to look at her too long. Looks like someone or something attacked her from behind and cracked her open. You notice a birthmark on her shoulder you used to kiss a thousand miles from here, and somehow that's the worst.[only] There's a bile taste in your mouth, and you can't look anymore."
+
+Instead of smelling Kira: say "The smell is the worst."
+
+Instead of tasting Kira: say "You can't bring yourself to do that."
+
+Instead of taking Kira: say "You'd get her blood on you, and ... things ... might slip."
+
+Instead of kissing Kira: 
+	try tasting Kira.
+
+Instead of touching Kira:
+	try tasting Kira.
+
+Chapter 3 - Cat
+
+[This might need to be at the top somewhere, so other people can add to it? -MM]
+
+[Not allowed! The next person can see it and choose to add more to the cat, but it's up to each subsequent author to decide to continue. -CC]
+
+Section 1 - Cat behavior
+
+The cat is a female animal. "The cat is here. She [if cat is wary]stares at you warily with yellow eyes[else if cat is friendly]blinks at you contently[end if]."
+
+The description is "This is a mangy, tortoiseshell cat. Rips poke through her fur, and she limps slightly. However, her yellow eyes are clean and aware. She wears no collar or other identifying marks."
+
+Instead of throwing something (called the toy) at the cat:
+	say "The cat evades [the toy] and shoots you an impassive look. She seems to deem you not too bright."
+
+An animal can be wary or friendly.
+
+The cat is wary.
+
+Every turn when the hot wary cat is in the location of yourself for the second turn:
+	let flight room be a random adjacent room;
+	say "The cat sees you, and quickly runs off to [the flight room].";
+	now the cat is in flight room.
+
+Understand "pet [something]" as touching.
+
+Report touching the cat: say "[if cat is wary]She bats at your hand and hisses, sleeking off to another corner of the room.[else if cat is friendly]She rubs her head against your hand and purrs for a moment."; stop the action.
+
+Instead of taking the cat: say "[if cat is wary]That results in a loud screech, a moment of fumbling with an angry ball of fur in your arms, and some new scratches on your hands.[else if cat is friendly]She jumps out of your arms with practiced elegance."; stop the action.
+
+Instead of attacking the  cat: say "Animal cruelty was never your forte." 
+
+Section 2 - Locker cat
+
+The cat is in the locker. 
+
+After opening the locker for the first time:
+	say "You carefully open the locker, prepared for everything - then something jumps out at you! You screech and cover your face - warm, prickly fur on your face, hitting the ground as you stumble backwards. As you regain your senses, something small flees into the corridor.";
+	now the cat is in the narrow corridor;
+	stop the action.
+
+Every turn when the cat is in the locker:
+	if a random chance of 1 in 5 succeeds and the location is supply room, say "There's that ominous rumbling from the locker again!";
+
+Chapter 4 - Human Decency
+
+The blanket is a thing. The blanket is in the locker. The description of the blanket is "It's an olive emergency blanket, made of olive PET, meant to preserve heat in wounded personnel."
+
+Understand "kiss [something]" as kissing.
+
+Understand the command "cover" as something new.
+Covering it with is an action applying to two thing. Understand "cover [something] with [something]" as covering it with. Understand "put [something] over [something]" and "drape [something] over [something]" as covering it with (with nouns reversed).
+Report covering it with: say "You see no need to cover that." instead.
+
+Instead of covering Kira with the  blanket: 
+	say "You tactfully put the blanket over her body.";
+	now the blanket is part of Kira;
+	change the initial appearance of Kira to "Kira lies here, covered by a blanket."
+	
+Instead of putting the blanket on Kira, try covering Kira with the blanket.
+
+Instead of taking the blanket when the blanket is part of Kira:
+	say "She needs it more than you."
+
+Instead of putting the blanket on Kira:
+	try covering Kira with the blanket.
+
+[Haven't put in a way to befriend the cat. Maybe that's something for the next guy? -MM]
+
+[Also: the Narrow Corridor mentions a northeast exit, but doesn't define it. Probably would be a good area for the next author to continue! -CC]
+
+Part 4 - Journey toward the Center of the Earth by Tom Blawgus
+
+Whisper 4 is a whisperish scene. Whisper 4 begins when Whisper 3 ends.
+
+Whisper 4 ends when the cat is friendly.
+
+Chapter 0 - Useful testing verbs -  Not for Release
+
+Carry out skipping ahead during Whisper 4:
+	say "Skipping Scene 4";
+	remove the meat from play;
+	now the cat is friendly;
+	rule succeeds.
+	
+Test wh4 with "e/ne/open fridge/get meat/sw/give meat to cat".
+
+Chapter 1 - Rooms and scenery
+
+The Kitchen is a room.  It is northeast of the Narrow Corridor. "Everything is strewn about in here as well.  The cupboards have been left open and there appears to not be anything left in them.   A refrigerator stands forlornly in the corner. Doorways lead to the east and southwest."
+
+The Pantry is a room.  It is east of the Kitchen.  "Light shines in through the kitchen door as you take in the room.  The shelves are bare and show signs of vandalism, and you cannot see anything of interest left on the shelves.  You can see a trap door in the floor."
+
+Instead of going down in Pantry:
+	try entering the trap door.
+
+The trap door is below the Pantry.  It is a door and scenery.  "The trap door has a ring at one end of it and it looks like it would open fairly easily." Understand "trapdoor" as the trap door.
+
+The refrigerator is scenery. The refrigerator is in Kitchen. The refrigerator is an openable, opaque container. The refrigerator is closed. The description of refrigerator is "It was probably a functioning refrigerator at one time, but now it's sitting there without the usual hum." 
+
+Understand "fridge" as the refrigerator.
+
+The meat is a thing.  It is edible.  The indefinite article of the meat is "some". It is in the refrigerator.  The description of the meat is "It looks like it may have been a good cut of meat once, but now you're not sure."
+
+Instead of eating the meat:
+	say "One smell of that meat is enough to keep you from putting it in your mouth."
+
+Chapter 2 - Befriending the Cat
+
+Every turn when the wary cat is in the location of yourself:
+	if the meat is carried by the player, say "The cat sniffs toward you at something in your possession.";
+
+Understand the command "feed" as something new.
+
+Understand "feed [something] to [someone]" as feeding it to. Understand "feed [someone] [something]" as feeding it to (with nouns reversed). Understand "feed [someone] with/using [something]" as feeding it to (with nouns reversed).
+
+Feeding it to is an action applying to two things.
+
+Check feeding something to someone who is not the wary cat:
+	say "I don't think you can feed that." instead.
+
+Check feeding something to the wary cat:
+	if the player is not carrying the meat, say "You need something to feed it." instead.
+	
+After feeding the meat to the wary cat:
+	say "You toss the piece of [meat] to [the cat], who wolfs it down quickly.  She comes over and gives you a quick rub on your legs as thanks.";
+	now the cat is friendly;
+	remove the meat from play.
+	
+Instead of throwing the meat at the cat, try feeding the meat to the cat.
+
+Instead of giving the meat to the cat, try feeding the meat to the cat.	
+
+[Obvious point of expansion: the other side of the trap door. And please feel free to add to these rooms and things in your own code! -CC]
+	
+Part 5 - The Screaming Television by Porpentine 
+
+Whisper 5 is a whisperish scene. Whisper 5 begins when Whisper 4 ends. Whisper 5 ends when the player is in the subterranean corridor.
+
+Chapter 0 - Useful Testing Verbs - Not for Release
+
+Carry out skipping ahead during Whisper 5:
+	say "skipping scene 5";
+	move the player to the subterranean corridor;
+	move the cat to the basement;
+	now the trap door is open;
+	[Here you can make whatever changes are needed to reflect how your scene will end.]
+	rule succeeds.
+	
+Test wh5 with "ne/e/d/e".
+
+Chapter 1 - Rooms and scenery
+
+[cord could be changed to a backdrop depending on how people end up using it]
+
+The Basement is down from the trap door. "Dark and bare with a corridor leading east. In the center of the basement is a black and white television, [if the television is switched on]currently featuring a screaming man.[otherwise]currently switched off.[end if]"
+
+The television is a switched on device in the basement. The television is scenery. The television is hot. "[if the television is switched on]Black and white close-up of a man's screaming mouth, spittle and teeth and lips snarling and shrieking through static snow.[otherwise]The television is dark.[end if] A cord runs from the television and into the shadows east." Understand "telly" and "tv" as the television. The cord is part of the television. Understand "plug" and "cable" as the cord. The screaming man is part of the television. The description of the screaming man is "His teeth are shiny with saliva. His lips are split open and chewed, with unkempt stubble spiking around them." Understand "man/him" as the screaming man.
+
+Instead of pulling the cord:
+	try switching off the television;
+	
+Instead of switching off the television:
+	say "The cord leads into the darkness east."
+
+Instead of taking the television:
+	say "Your fatigued limbs aren't up to the task."
+			
+The Subterranean Corridor is east from the basement. "Faint light from the television screen reveals a flickering, inconstant path down the narrow corridor. To the east, impenetrable gloom swallows up the last licks of static reflection. Beneath your feet the cable runs." The cable is scenery in the subterranean corridor. Understand "cord" and "plug" as the cable.
+
+Chapter 2 - Into the Depths
+
+Every turn when the cat is friendly: 
+	if the location of the cat is not the location of the player:
+		let the catgo be the best route from the location of the cat to the location of the player, using doors;
+		if the room catgo from the location of the cat is a room: 
+		[Prevent a runtime error if cat has no valid path. -CC]
+			try cat going the catgo;
+	otherwise if a random chance of 1 in 3 succeeds and the cat is not mentioned:
+		say "[one of][The cat] rubs against your leg.[or][The cat] purrs.[or][The cat] licks its paws.[at random]";
+		now the cat is mentioned. [Prevent duplicate cat status messages.]
+
+[so now you have a friendly cat that follows you around in order to be an 'integral part of figuring out what happens', and a cable leading into the darkness of whatever's beyond the basement. whoohoo -P]
+
+[Also, Porpentine defined a new need, Silence, but didn't refer to it in the code. That might be a useful hook. -CC]
+
+Part 6 - The Best Untold  by Joey Jones
+
+Whisper 6 is a whisperish scene. Whisper 6 begins when Whisper 5 ends. Whisper 6 ends when the naked rock is breached and the leatherbound diary is not off-stage.
+
+Chapter 0 - Useful Testing Verbs - Not for Release
+
+Carry out skipping ahead during Whisper 6:
+	say "Skipping scene 6";
+	now the player holds the leatherbound diary;
+	now the player is in Subterranean Corridor;
+	now the plug is unplugged;
+	now the television is switched off;
+	rule succeeds.
+	
+Test wh6 with "w/u/w/sw/s/wait/get thing/n/ne/e/d/e/e/turn dial/unplug plug/turn dial/w/x wall".
+
+Chapter 1 - The Generator
+
+The Utility Room is east of the subterranean corridor. The description of the utility room is "[first time]The corridor, carved from naked rock, turns a corner into a small dry room lit dimly by the same omnipresent light panels that are everywhere in the base. [only]Other than a few old boxes, the space here is dominated by a huge power generator[if the dial is switched on and the generator is unwell], humming a little too loudly[otherwise if the dial is switched on and the generator is not unwell], humming low and constant[end if]. A pipe, presumably containing the main electric cables, leads up into the ceiling, while the cable that runs back west [if the plug is plugged in]leads directly into an outlet on the side of the generator[otherwise]lies unplugged here[end if].[if the generator is unwell and the dial is switched on] Every few moments you see little sparks buzz about the outlet.[end if][first time][paragraph break]You could swear, upon first entering here that there was something odd with one of the walls, but it's hard to concentrate with the unsettled banging of the generator and the screams of the television.[only][paragraph break][if the television is switched on]You can still hear the screams of the man on the television back to the west[otherwise]The only exit is back west through the subterranean corridor[end if]."
+
+Check listening when the player is in the utility room:
+	if the dial is switched on, say "You can hear the [if the generator is unwell]odd spurting[otherwise]healthy[end if] hum of the generator." instead.
+
+Some old cardboard are scenery in the utility room with printed name "old cardboard boxes". Understand "box/boxes" as the cardboard. The description of the cardboard is "The boxes are old and fading. A few of them are boxes for high-tech silver-colored geolocating devices. They must have used such devices for finding their way back to the base in heavy blizzards.".
+
+Report listening when the player is in the utility room:
+	say "All is silent here.".
+
+The power generator is scenery in the utility room. The description of the generator is "Here is the power generator.[first time] Or maybe just the backup generator. From what you remember of the brief, the base doesn't run off nuclear power like McMurdo Station, but you can't recall whether it was oil or geothermal or something else.[only] A huge dial is set into the front of the generator, currently turned to the [if dial is switched on]on[otherwise]off[end if] position.[paragraph break][if the generator is unwell]The generator is making a a series of unhealthy spluttering sounds.[otherwise]The generator now emits a low hum, easily blanked out.[end if]". The generator can be unwell. The generator is unwell.
+
+The insulated pipe is part of the generator. The description of the insulated pipe is "The pipe is perhaps a foot in diameter and is heavily insulated. It leads up from the generator into the ceiling, helping bring electricity to the facility above.".
+
+The huge dial is a part of the generator. The description of the huge dial is "The dial is a hefty cylinder clicks between two binry positions.[first time] Looks like it'd be easy to turn on or off.[only]". The huge dial is a device. It is switched on.
+
+After switching off the dial:
+	say "The generator emits a high pitch whirr, and then all is silent.";
+	now the television is switched off;
+	now the silence of the player is satisfied.
+
+Instead of switching on the generator, try switching on the dial. Instead of switching off the generator, try switching off the dial.
+
+The outlet is a part of the generator. The description of the outlet is "This is a power outlet for directly plugging in nearby electronics.[if the plug is plugged in] The television cable is currently plugged in.[end if] The casing has worn away and it's now a mesh of bare wires.[if the dial is switched on and the generator is unwell] [one of]It looks about as safe as a piranha face pack[or]It looks about as safe as a cobweb tightrope[or]It looks about as safe as an origami safe[or]It looks pretty unsafe[stopping].[end if][if the generator is not unwell and the dial is switched on] Noticeably, the outlet is no longer sparking.[first time] Perhaps the power output to the outlet has stabilised?[only][end if]". Understand "casing/wires/mesh", "bare wires" and "mesh of bare wires" as the outlet.
+
+Some little sparks are a part of the outlet. The description of the sparks is "Little sparks buzz around the bare wires of the outlet, inviting you not to put your hand too close.".
+
+The plug is scenery in the utility room. Understand "cable/cord/wire" and "television plug/cable/cord/wire" as the plug. The plug is scenery in the utility room. The description of the plug is "The television cord [if plugged in]is plugged in to a dodgy looking power outlet here[otherwise]is lying uselessly here[end if]."
+	The plug can be plugged in or unplugged. The plug is plugged in. 
+
+Instead of taking the plug, try pulling the plug. Instead of pulling the plug, say "[one of]You give it a yank but it looks like it needs to be physically unplugged from the outlet[or]The cable can't be pulled free, you're going to have to [italic type]unplug[roman type] it[stopping]."
+
+Unplugging is an action applying to one thing. Understand "unplug [something]", "unplug [something] from the generator" and "unplug [something] from the outlet" as unplugging.
+
+Understand "plug [something]", "plug [something] in" and "plug [something] in to [something]" as a mistake ("You're not in the business of plugging in things today.").
+
+Check unplugging:
+	if the noun is the outlet, try unplugging the plug instead;
+	if the noun is the cord or the noun is the cable, say "You can't unplug the [noun] from here, perhaps if you were closer to the electricity source." instead;
+	if the noun is not the plug, say "That can't really be unplugged." instead;
+	if the noun is not plugged in, say "That's already unplugged!" instead. [Needs "instead" here to stop processing the command, allowing printing the report message more than once. -CC]
+
+Carry out unplugging:
+	if the dial is switched on and the generator is unwell begin;
+		say "You grasp the cable by the outlet to give it a firm yank, but before you know it thousands of volts of electricity are coursing through your ungrounded body.";
+		end the story saying "You have died from electrocution!";
+		otherwise;
+	now the plug is unplugged;
+	now the television is switched off;
+	end if.
+
+Report unplugging:
+	say "With the power safely off and your breath visibly misting in the rapidly cooling air, you grasp the cable by the outlet and give it a firm yank, and the cable comes free.".
+
+Underground is a region. The basement, the subterranean corridor and the utility room are in underground.
+
+The base is a region. The light panels are a backdrop in the base. The airlock, underground, the kitchen, the pantry and the narrow corridor are in the base. The description of the light panels is "The light panels are ubiquitous and offer a steady glow almost everywhere in the base. They're presumably powered separately from the main electrical system, as the base would want to keep everything lit during general power failure.[if the location of the player is the basement or the location of player is the subterranean corridor] The ones around here don't seem to be doing their job properly.[end if]".
+
+Every turn while the dial is switched off (this is the cold update rule): [I need to name this rule for a hook to sort it properly. -CC]
+	say "[one of]The room starts to cool: it's likely that the generator was powering the heating of the base.[or]The room grows even chillier now that there is no heating.[or][if the arctic gear is not worn by the player]Your teeth start to chatter, and your fingers and toes grow numb.[otherwise]The end of your nose start to redden.[end if][or][if the arctic gear is not worn]You shiver almost uncontrollably: you'll have to get out of this cold soon or risk hypothermia![otherwise]You're pretty glad right now for the thick arctic gear you're wearing.[end if][or][cooling starts][stopping]". [urm Chris, there seems to be formatting clashes between this and the cat text. Do you think you could sort something? Cheers, Joey]
+
+To say cooling starts:
+	now everything is cold;
+	if the arctic gear is not worn by the player begin;
+		say "A grim chill overtakes your body. You shake and shiver, gasping, curled up on the rapidly freezing floor.";
+		end the story saying "You have frozen to death!";
+	otherwise;
+		say "[first time]It's so cold now, you know that if you were to take off your gear you would die.[only]";
+	end if.
+
+Carry out switching on the dial:
+	now the generator is not unwell.
+
+After switching on the dial:
+	say "You turn the cold dial into the 'on' position and wait. There is a low thrumbing deep within the generator and then suddenly it comes to life, humming more vigorously than before. Within moments the heating filters down to this subterranean room and all is warm again.[if the plug is plugged in][paragraph break]As an additional plus, the outlet is no longer sparking.[end if]";
+	now everything is temperate;
+	now the sparks are off-stage;
+	now the generator is not unwell;
+	if the plug is plugged in, now the television is switched on.
+
+Instead of opening the outer door when the dial is switched off:
+	say "Are you mad?! That's an even surer way to freeze to death here.".
+
+Check switching off the dial when the generator is not unwell:
+	say "It's probably best to avoid turning the generator off again, just in case it decides not to switch back on again." instead.
+
+Understand "turn off [something]" as switching off. Understand "turn on [something]" as switching on.
+
+Check turning the dial:
+	if the dial is switched off, try switching on the dial instead;
+	if the dial is switched on, try switching off the dial instead.
+
+Chapter 2 - The Cat Helps
+
+Every turn while the location of the player is the airlock and the cat is in the airlock and the leatherbound diary is off-stage:
+	say "The cat paces back and forth in the airlock, seemingly testing the air. Suddenly, she darts underneath [the stairs] and starts chewing on something. After a while she comes to the conclusion that it isn't edible, and starts lapping at the [if the snow is not cold]melted [end if]snow.";
+	now the leatherbound diary is in the airlock.
+
+[Go right ahead and do something with this!]
+
+The leatherbound diary is a thing. Understand "something/thing" as the leatherbound diary when the location of the player is the airlock.
+
+Instead of rubbing the cat, say "[if the cat is friendly]The cat obliges your need to give it a little stroke.[otherwise]The cat is too stand-offish to submit to your affections.[end if]". [Taking was already defined for the cat, so I changed this to rubbing. -CC]
+
+Understand the commands "pat", "stroke", and "scratch" as "rub".
+
+Chapter 3 - The Hidey Hole
+
+After looking when the location of the player is the utility room:
+	now the description of the subterranean corridor is "[if the television is switched on]Faint light from the television screen in the west reveals a flickering, inconstant path down the narrow corridor.[otherwise]The dodgy light panel from the basement to the west[first time], hitherto overpowered by the light from the television,[only] bathes the corridor in an anemic glow.[end if] Beneath your feet the cable runs eastwards to the utility room.[if the silence of the player is satisfied][paragraph break][ruminations].[end if]".
+
+To say ruminations:
+	if the naked rock is breached begin;
+		say "The south wall hangs open, revealing a space beyond";
+	otherwise;
+		say "Now it's quiet and you can concentrate properly, there's definitely something odd about the wall here";
+	end if.
+
+Naked rock is backdrop in underground. Understand "wall/walls" as the naked rock. The description is "[if the silence of the player is unsatisfied]There seems to be something a little off with the walls, but you can't think clearly over the screams of the man.[otherwise if the player is not in the subterranean corridor]The rocky walls seem pretty normal here.[first time] Perhaps further down the corridor?[only][otherwise][one of][eureka][or]Yep, the hidden room was definitely what was wrong with the walls[stopping].[end if]".
+
+Yourself is either enlightened or unenlightened. Yourself is unenlightened.
+
+To say eureka:
+	say "There's definitely something wrong with the walls here...[paragraph break]...Of course! The corridor is a lot narrower than either the basement or the utility room. Feeling carefully about the rock face, you accidentally push a catch hidden in the bare rock of the corridor. The south wall swings open, revealing a small hidey hole";
+	now the catch is in the subterranean corridor;
+	change the south exit of the the subterranean corridor to the Hidey Hole;
+	change the north exit of the Hidey Hole to the subterranean corridor;
+	now the naked rock is breached.
+
+The naked rock can be breached. The naked rock is not breached.
+
+Understand "south wall" as the naked rock.
+
+The catch is scenery. The description of catch is "A small catch was hidden in the rock." Instead of doing something other than examining with the catch, say "It doesn't do anything now that the hidey hole is revealed."
+
+Instead of doing something other than examining with the cable, say "[if the plug is plugged in]You'll have to go to where it's plugged in to take out the cable[otherwise]There's really no point.[end if]".
+
+The Hidey Hole is a room. [For you to define.] [Also, I haven't put anything delightful in, so you might want to do that?]
+
+[So there's the leatherbound diary and the hidey hole to define, and currently nothing happens if the cat becomes cold -- might be worth considering. -CC]
+
+Part 7 - What in that darkness slept by Marius Müller
+
+Whisper 7 is a whisperish scene. Whisper 7 begins when Whisper 6 ends. Whisper 7 ends when the player is in Laboratory.
+
+Chapter 0 - Useful Testing Verbs - Not for Release
+
+Carry out skipping ahead during Whisper 7:
+	say "Skipping Scene 7";
+	now the player is carrying the musical box;
+	now the player is in laboratory;
+	rule succeeds.
+	
+Test wh7 with "s/get box/d".
+
+Chapter 1 - A Diary
+
+The cat can be away. The cat is not away.
+
+Instead of examining the leatherbound diary:
+	say "[first time]It's still dusty from where it lay under the stairs. You brush it off and open the first page.[line break][only][italic type][one of]I have taken the liberty of starting this private diary - in clear violation of corporation policy - to make sense of the things that have been happening here. It looks like Kira is having some problems with that technician, Dannerham. He's hitting on her, but she has a guy back home. As simple as that.[or]Dannerham is beginning to get on my nerves. He did two tours in Iraq, and he isn't bragging, but he doesn't let me forget for a minute that I'm not American. Kira tells me that his advances get more serious. She is a tough girl and can handle herself, but still, we don't need this sort of tension around the base. I don't feel like having a fistfight with Dannerham to protect her. I think she'd stand a better chance in a fight against him than me, too.[or]Darn! One of my rats escaped. I thought it was sedated, but this new strain seems to be reistant not only to cancer, but also to our sedatives. I must try a higher dose tomorrow.[or]Blasted thing escaped into the walls - I can hear it climbing through the vents. Kira tells me to catch it and report about it to her first thing in the morning. She's getting tense. That's not good.[or]Dannerham tells me he wants to put me in a movie and grins like an imbecile.[cycling][roman type]"
+
+[Hey, next guy, feel free to add to this! -MM]
+
+Chapter 2 Down the Hidey Hole
+
+The Hidey Hole is a room. "A small and cramped space, with no exits except the one you came through. It's cavelike, damp, dusty and unpleasant. Crude [markings] adorn the walls. A secret [panel] in the ground is open, and [a ladder] leads down."
+
+The panel is scenery in Hidey Hole. "It's meant to close flush with the rest of the floor. Indistinguishable, if you don't know what to look for."
+
+The ladder is scenery in Hidey Hole. "It's a simple, aluminium ladder with plastic handgrips."
+
+Instead of climbing the ladder: try going down.
+
+The markings are scenery in the hidey hole. "Whoever wrote this asks for forgiveness in crude letters. Is sorry for something. Had to do it and can't see why now. There's despair in there. There's guilt."
+
+Before going south from subterranean corridor when Hidey Hole is unvisited:
+	if the friendly cat is in the location:
+		say "Something squeaks and shuffles in the dark, and you pull back. The cat, however, jumps to your aid- there is a quick and fierce shuffle in the half-light and the cat emerges with a dead rat in its jaw, which she carries off to [the random adjacent room].";
+		now the cat is away;
+		remove the cat from play;
+		the cat returns in 3 turns from now;		
+		continue the action;
+	otherwise:
+		say "Something squeaks and shuffles in the dark of the Hidey Hole, and you are still unnerved by the other things you saw in the base. Better not go in there." instead.
+
+At the time when the cat returns:
+	say "Suddenly the cat arrives from [the random adjacent room], licking her maw. She looks at you innocently.";
+	now the cat is in the location;
+	now the cat is not away.
+
+Chapter 3 Delightful toy
+
+The musical box is in Hidey Hole. "Discarded in a corner lies a small, smooth wooden box."
+
+The musical box can be playing. The box is not playing. The description of the musical box is "The wood looks expensive, and the bottom bears a makers mark: Rosado, Portugal."
+
+Instead of opening the box:
+	if the box is not playing:
+		say "You open the box, and something clicks. A delightfully carved little ballerina turns on an unseen screw, and tingling, scratchy music plays from somewhere inside the box.";
+		now the box is playing;
+		the box continues in 1 turn from now;
+		the box ends in 2 turns from now;
+	otherwise:
+		say "The box is already open."
+
+At the time when the box continues:
+	if the musical box is in the location, say "Quiet, tingling music accompanies the ballerina on her rounds inside the musical box."
+
+At the time when the box ends:
+	if the musical box is in the location, say "The music dies down.";
+	now the box is not playing.
+
+Down from the Hidey Hole is the Laboratory. [Your starting point, next guy!]
+
+Part 8 - Music and Words by Tom Blawgus
+
+Whisper 8 is a whisperish scene. Whisper 8 begins when Whisper 7 ends. Whisper 8 ends when the player is carrying the note.
+
+Chapter 0 - Useful Testing Verbs - Not for Release
+
+Carry out skipping ahead during Whisper 8:
+	say "Skipping scene 8";
+	now the player is in the Closet;
+	remove the musical box from play;
+	now the player is carrying the note;
+	now the player is carrying the sledgehammer;
+	rule succeeds.
+	
+Test wh8 with "w/get hammer/hit box with hammer".
+
+Chapter 1 - Rooms and Scenery
+
+The Laboratory is a room.  "Cupboards are hanging open and there doesn't seem to be a whole lot left.  The counters are strewn with broken glass and pieces of broken lab equipment.  There are doors to the north, east and south.  A closet lies to the west."
+
+The counters are scenery.  They are in the Laboratory.  The description is  "Broken bits are strewn about.  There really is nothing of value." Understand "counter/broken/glass/equipment" and "lab equipment" as the counters.
+
+The cupboards are scenery.  They are in the Laboratory.  The description is "The doors hang open with no chance of closing again.  You can find nothing of interest." Understand "cupboard" as the cupboards.
+
+The Closet is a room.  It is west of the Laboratory.  "It is not much more than a small room.  There are shelves lining the walls.  The Laboratory is back to the east."
+
+Some shelves are scenery and a supporter.  They are in the Closet.  They have description "You can see dust, dust, and more dust."
+
+Understand "shelf" as the shelves.
+
+Chapter 2 - The Problems with Music Boxes
+
+The sledgehammer is on the shelves. The description is "A nine-pound hammer.  Looks like it might have once been featured in a bluegrass number.  Perfect for hitting things with."
+
+Understand "hammer" as the sledgehammer.
+
+Understand the command "hit" as something new.
+
+Understand "hit [something] with [something preferably held]" as hitting it with.
+
+Hitting it with is an action applying to two things.
+
+Check hitting something with something which is not the sledgehammer:
+	say "I don't think you can hit with that." instead.
+	
+Check hitting something with the sledgehammer:
+	if the noun is the cat:
+		say "Animal cruelty is not the answer." instead.
+
+After hitting the musical box with the sledgehammer:
+	say "You smash the [musical box] into several pieces and you find a note among the pieces, which you pick up.";
+	remove the musical box from play;
+	now the player is carrying the note.
+	
+The note is a thing.
+
+[Remember that the Lab describes exits to the north, east, and south. -CC]
+
+Part 9 - Smashing Success by Porpentine
+
+Whisper 9 is a whisperish scene. Whisper 9 begins when Whisper 8 ends. Whisper 9 ends when the player is infected.
+
+Chapter 0 - Useful Testing Verbs - Not for Release
+
+Carry out skipping ahead during Whisper 9:
+	say "Skipping scene 9...";
+	now the player is infected;
+	rule succeeds.
+	
+Test wh9 with "x note".
+
+Chapter 1 - Rooms and Scenery
+
+[The Narrow Corridor is east of the Laboratory.]
+
+[The Dank Room is east from the Subterranean Corridor.] [These conflicted with previous room definitions -- CC]
+
+The Dank Room is north from the Subterranean Corridor. 
+
+ The description of the dank room is "The floor is wet with grimy black water. This used to be a storage room until the leaking began. Apathy kind of sets in on a base this remote, so no one ever bothered sealing the cracks."
+
+A person can be hallucinating or not-hallucinating. The player is not-hallucinating.
+
+The cracks are scenery in the dank room. The description of the cracks is "You could probably smash through if you had some kind of tool."
+
+Carry out hitting the cracks with the sledgehammer:
+	say "You take a deep breath and swing. The entire wall rolls over, burying you under foul smelling water and heavy bricks. You're pinned, helpless to do anything but feel your lungs swell with gritty black fluid. Then darkness.";
+	end the story;
+
+Before going to the Dank Room for the first time: 
+[Have to make a few adjustments to reflect the previously-defined rooms --CC]
+[	say "You must have missed the end of the cord in the dark. You can't see anything here that could power a television.";]
+	if the television is switched on:
+		say "You lose track of the cord as you stumble in here. Looking back, you can see no sign of it at all. Odd.";
+		now the player is hallucinating;
+		remove the cable from play;
+		remove the television from play;
+		now the description of the Basement is "Dark and bare with a corridor leading east.";
+		now the description of the Subterranean Corridor is "Faint light from the trapdoor to your west. Damp, musty air to your east.";
+	otherwise:
+		continue the action.
+
+The description of the note is "'The cat is the carrier. I can't leave this room to tell anybody because the cat is scratching outside. I'm the only one around here who ever paid it any attention and now I'm going to die for it. No gas mask in here, no nothing. Just some lab results like a death warrant.'"
+
+A person can be infected or uninfected. The player is uninfected.
+
+Illcount is a number that varies. Illcount is 0.
+
+Chapter 2 - Smashing Success
+
+After examining the note:
+	now the player is infected;
+	now the curiosity of yourself is satisfied;
+	
+Every turn:
+	if the player is infected:
+		increase illcount by 1;
+		if illcount is greater than 15[feel free to change this number -p]:
+			say "You slump to the floor, coppery drool oozing from your lips. [if the cat is visible]Blindly you reach out and pet the cat with a trembling hand. It licks your fingers. 'There there, kitty kitty.' You stay that way until the end. Kind of peaceful.[otherwise]After listening to your fever-distorted moans echo through the base for what feels like an eternity, you finally die a lonely death.[end if]";
+			now the silence of yourself is satisfied;
+			end the story;
+		otherwise:
+			if a random chance of illcount in 20 succeeds:
+				say "[one of]You cough up ropy black spatters of blood.[or]Piercing pain jets through your body like flashes of lightning, subsiding to a dull ache.[or]Hot. Hot. Burning up.[at random]";
+				
+Part 10 - Loose Ends by Chris Conley
+
+Whisper 10 is a whisperish scene. Whisper 10 begins when Whisper 9 ends.
+
+Chapter 0 - Useful Testing Verbs - Not for Release
+
+Carry out skipping ahead during Whisper 10:
+	now the console is destroyed;
+	now the player holds the cat;
+	now the curiosity of yourself is satisfied;
+	now the player is in Before the Center;
+	rule succeeds.
+	
+Triggering hallucinations is an action applying to nothing. Understand "go crazy" as triggering hallucinations. Carry out triggering hallucinations: now the player is hallucinating.
+	
+Test wh10 with "e / n / hit console with hammer / d / u / n / w / u / w / sw / s / close inner / open outer / z / z / z / z / get cat / wear gear / up"
+
+Chapter 1 - Extending Part 9
+
+The dark doorway is fixed in place in Subterranean Corridor. "More obviously, a dark doorway leads north." Instead of entering the dark doorway, try going north.
+
+Rule for choosing notable locale objects for Subterranean Corridor:
+	set the locale priority of the doorway to 3. 
+	[Print a paragraph for this before other items, like it was a part of the room description.]
+
+After examining the note: now the player is hot.
+
+Before going to Dank Room:
+	if the player is hallucinating:
+		remove the generator from play;
+		remove the outlet from play;
+		now the television is switched off;
+		now the silence of the player is satisfied;
+		if Utility Room was visited:
+			now the description of Utility Room is "Just a dingy, empty supply room, containing little of note.[first time][paragraph break]Hold on... wasn't there [a generator] here before?[only]";
+		otherwise:
+			now the description of Utility Room is "Just a dingy, empty supply room, containing little of note."
+		
+After smelling in the Dank Room:
+	say "The dank, musty air here is overpowering. You take a deep breath, which becomes a coughing fit."
+	
+Fakeladder is fixed in place in Laboratory. "The end of the ladder dangles from a hole above." It is privately-named. It has printed name "ladder". Understand "ladder/hole" as the fakeladder. Instead of climbing fakeladder, try going up.
+
+The grimy black water is scenery in Dank Room. It has description "A layer of muck covers the floor." Understand "muck" as the water. Instead of rubbing the grimy water, say "You're not here to play janitor."
+	
+Instead of examining the musical box:
+	say "There are two hinges along one edge of the box, and a latch on the other side of that face. ";
+	say the description of the musical box;
+	say line break.
+	
+Understand "latch/hinge/hinges" as the musical box.
+	
+Every turn when the musical box is playing and the player is hallucinating:
+	say "[one of]You feel an urge to smash [the musical box] to bits[or]why won't the music stop Stop STOP[or]Something seems off about [the musical box], like it was put together all wrong[at random]."
+	
+Instead of attacking the musical box:
+	say "The [musical box] proves more resilient than you expect. Perhaps if you had a tool with some heft to it..."
+	
+Every turn when the musical box is playing and the musical box was not playing:
+	say "You catch a glimpse of something white in the depths of the box."
+
+A white something is scenery, fixed in place inside the musical box. Understand "thing/corner/paper/glimpse" as the white something. It has description "It looks like a corner of something is stuck between the wooden floor and one side of the musical box, behind the ballerina." Instead of taking the white something, say "The ballerina is in the way. It's too awkward and you can't get a good grip on that corner of... whatever it is."
+
+A ballerina is fixed in place inside the musical box. The description is "Delicate. Beautifully painted in pastel colors. Maybe even hand-carved, you're no appraiser."	
+
+Chapter 2 - Hallucinations
+
+Every turn when the player is hallucinating and a random chance of 2 in 5 succeeds:
+	let R be a random adjacent room;
+	if there is a door in the location:
+		if R is not a room or a random chance of 1 in 2 succeeds:
+			let D be a random door in the location;
+			let R be the other side of D from the location;
+	let the possible way be the best route from the location to R, using even locked doors;
+	say "[one of]You briefly hear something scratching in the wall beside you.[or]You hear what sounds like a scream, coming from somewhere [to the possible way].[or]You are suddenly overcome by an extreme sense of vertigo. You steady yourself, and the dizziness passes as quickly as it came.[or]You have a pounding headache.[or]There's something sinister about [the random other thing in the location].[or]You catch a fleeting scent of cinnamon and cloves.[or]Your arm itches unbearably. You pull up your sleeve to scratch it, and the feeling stops immediately.[or]There is a faint ticking sound coming from a distant part of the base.[or]You shiver involuntarily for a full minute.[or]You catch a few words of whispered conversation, but when you turn -- nothing.[at random]"
+	
+Definition: a thing is other if it is not yourself.
+	
+To say to the (D - a direction):
+	if D is horizontal:
+		say "to [the D]";
+	otherwise:
+		if D is:
+			-- up:
+				say "above";
+			-- down:
+				say "below";
+			-- otherwise:
+				say "[D]";
+	
+Before printing the name of something when the player is hallucinating and a random chance of 1 in 4 succeeds:
+	say "[one of]quizzical[or]notable[or]confused[or]expectant[or]vicious[or]perturbed[or]illuminating[or]fulminating[or]quality[or]gnostak[or]excrutiating[or]verbal[or]ignoble[or]flippant[or]object[or]artistic[or]heavenly[or]billowing[or]delicious[or]delightful[or]jaunty[or]stylish[or]off-kilter[or]churning[or]droning[or]undulating[or]rippling[or]ecstatic[or]gloomy[or]gleaming[or]blunt[or]abrubt[or]secretive[or]serious[or]oblong[or]rhythmic[or]savage[or]scintillating[or]elusive[or]elysian[or]stygian[or]select[or]ticklish[or]antagonizing[or]slanted[or]bleak[or]vibrant[or]jagged[or]minimal[or]deprotagonizing[or]depressed[or]ascended[or]huggable[or]squeezeable[or]hilarious[at random] ".
+	
+After going to Dank Room for the first time:
+	if the television was switched off:
+		say "Your vision goes wobbly, and you have trouble breathing for a moment. Then everything returns to normal. Strange.";
+	continue the action.
+	
+Paranoia is a scene. Paranoia begins when the player is hallucinating.
+	When Paranoia begins: say "You are gripped by a sudden terror. You want to get out of here, to get away from everything, all of this, the entire base. 
+	
+After a moment, the panic passes, but an uneasy feeling of dread remains."
+	
+Chapter 3 - Additions
+
+A moldy block of cheese is on the kitchen counter. The description is "About the size of your fist, and covered in a thick, fuzzy layer of mold. It's impossible to tell exactly what kind of cheese this once was." After smelling the cheese: say "You take a deep breath as you approach [the cheese], and nearly retch." Instead of doing something to the cheese: say "You can hardly bring yourself to come near it." Understand "mold/mould/mouldy/piece" as the cheese.
+
+The counter is scenery in the Kitchen. "A very basic [counter], used for food preparation.
+
+At least, it once was. You wouldn't use it now until it had become intimately acquainted with a massive quantity of industrial grade cleaners. You can't identify most of the stains, but the tent of mold growing on what appears to have once been a large piece of cheese is obvious enough." Instead of rubbing the counter: say "You don't have time for housecleaning."
+
+Some cleaning supplies are in the closet. "Various bottles of cleaning supplies are scattered on the floor." The description is "Various shapes, sizes, and colors. If the warning labels are any indication, this is some powerful stuff." Instead of smelling the cleaning supplies, say "You're not in high school any more. You have better things to do than huff solvents." Understand "solvents/solutions/solution/solvent/bottle/bottles" as the cleaning supplies.
+	Understand the command "huff" as "smell".
+
+After touching a hot thing, say "Youch! [The noun] [is-are] hot to the touch."
+
+Before opening the outer door when the inner door is closed: now everything in the airlock is cold.
+
+A thing is usually temperate. The cat is hot.
+
+Instead of going inside in Before the Center, try going down. Instead of going inside in Airlock, try going north. 
+
+Narrow Corridor is outside from Supply Room. Inside from Narrow is nowhere. Outside from Dank Room is Subterranean. Outside from Hidey is Subterranean. Inside from Subterranean is nowhere. Outside from Closet is Laboratory. Inside from Laboratory is nowhere.
+
+Report hitting something with the sledgehammer:
+	say "That wouldn't be helpful." instead.
+	
+The counters are supporters. The cupboards are containers. The cupboards are plural-named.
+
+The old cardboard [boxes] can be known.
+After examining the old cardboard:
+	now the printed name of the strange flat is "geolocating device";
+	now the old cardboard are known;
+	continue the action.
+
+Understand "geolocating/global/positioning/GPS" as the strange flat when the old cardboard are known.
+
+Chapter 4 - Catty Behavior
+
+Every turn when the friendly cat is away: rule succeeds. [Prevent the cat from trying to follow the player while "away".]
+
+Every turn when the friendly cat is in the location and a supporter (called the pedestal) is in the location and a random chance of 1 in 4 succeeds and the cat is unmentioned:
+	say "[The cat] jumps onto [the pedestal] and begins licking something on the surface. After a moment, she jumps down again, apparently satisfied.";
+	now the cat is mentioned.
+	
+After opening a container (called the kitty prison) when the hot cat is in a container and the cat has been in the Narrow Corridor:
+	if the cat is in the kitty prison:
+		say "[The cat] leaps out of [the kitty prison], shakes her head, and looks around as if nothing had happened.";
+		now the cat is in the location;
+		now the cat is mentioned;
+	otherwise:
+		continue the action.
+	
+Every turn when the friendly cat is in the location and an open container (called the catbox) is visible and a random chance of 1 in 4 succeeds:
+	if the catbox is not the musical box:
+		say "[The cat] climbs into [the catbox], digging around for something.";
+		now the cat is in the catbox;
+		now the cat is mentioned;
+		the cat disembarks in a random number from 1 to 4 turns from now;
+	otherwise:
+		continue the action.
+	
+At the time when the cat disembarks:
+	if the cat is in an open container (called catbox):
+		if the cat is visible, say "[The cat] emerges from [the catbox] once more.";
+		now the cat is in the location of the catbox;
+		now the cat is mentioned.	
+	
+Every turn when the cat is in a closed container (called the kitty prison) and the kitty prison is visible and the cat has been in the Narrow Corridor and the cat is not exhausted:
+	say "[one of]There is a rustling, bumping sound coming from [the kitty prison].[or]You hear a single, tentative scratching sound from inside [the kitty prison].[or]'Yow?' asks [the kitty prison].[or]The scratching from [the kitty prison] becomes more insistent.[or]There is a constant yowling coming from inside [the kitty prison].[stopping]"
+	
+The cat has a number called cold count.
+
+Every turn when the cat is temperate: 
+	now the cold count of the cat is 0; 
+	now the cat is hot; 
+	now the cat is friendly;
+	if the cat is exhausted and the cat is visible:
+		say "The cat climbs back to its feet, slowly but surely.";
+		now the cat is mentioned;
+	now the cat is not exhausted.
+
+The cat can be exhausted.
+
+First every turn when the cat is cold (this is the chattering cat rule):
+	now the cat is wary;
+	increment the cold count of the cat;
+	if the cold count of the cat is 1 and the cat is visible: 
+		say "[The cat] yowls in surprise at the freezing temperature.";
+		now the cat is mentioned;
+	otherwise if the cold count of the cat is less than 5:
+		if the cat can touch an open container (called the haven):
+			now the cat is in the haven;
+			if the cat was visible: 
+				say "[The cat] takes shelter inside [the haven].";
+				now the cat is mentioned;
+			now the cat is temperate;
+		otherwise:
+			let R be a random adjacent room;
+			let way be the best route from the location of the cat to R;
+			if the way is a direction and R is not Before the Center and a random chance of 5 in 7 succeeds:
+			[Cold cat won't run outside]
+				try the cat going the way;
+				if the cat was visible and the cat is not visible:
+					say "The cat scrambles [way].";
+				otherwise if the cat is visible:
+					say "The cat gallops in from [the opposite of way], a wild look in its eyes.";
+					now the cat is mentioned;
+			otherwise if the cat is visible:
+				say "The cat runs around frantically.";
+				now the cat is mentioned;
+	otherwise unless the cat is exhausted:
+		if the cat is visible:
+			say "The cat collapses, breathing shallowly.";
+			now the cat is mentioned;
+		now the cat is exhausted.
+		
+After the cold cat going: say "". [The cat departure message was just displayed in the previous code block.]
+		
+Before taking the exhausted cat: 
+	say "She is too exhausted to put up much resistance, only objecting with a quiet 'mrow'."; 
+	now the player holds the cat;
+	rule succeeds.
+		
+First after switching off the dial: now the cat is cold; now the player is cold; continue the action.
+First after switching on the dial: now the cat is temperate; continue the action.
+		
+Chapter 5 - Foreshadowing
+
+When Whisper 5 begins:
+	if the location is not Airlock:
+		let way be the best route from the location to Airlock, using doors;
+		say "Then something catches [the cat]'s attention, and she bounds off to [the way].";
+		now the cat is wary; [Keep the cat in one place.]
+		now the cat is in Airlock.
+	
+Before going to Airlock when the cat is in Airlock and the cat is not cold:
+	now the cat is friendly.
+	
+First after opening the locker for the first time:
+	the player sneezes in a random number from 4 to 6 turns from now;
+	continue the action.
+	
+At the time when the player sneezes:
+	if the player is not cold:
+		say "You sneeze.";
+		the player sweats in a random number from 6 to 10 turns from now;
+	otherwise:
+		the player sneezes in 2 turns from now.
+
+At the time when the player sweats:
+	if the player is not cold:
+		say "You're starting to feel extremely warm.";
+		now the player is hot;
+		now the player is sweaty;
+		the player coughs in a random number from 10 to 20 turns from now;
+	otherwise:
+		the player sweats in 2 turns from now.
+	
+Yourself can be sweaty. After examining the player when the player is hot and the player is sweaty:
+	say "And you've started sweating profusely. That's not like you at all."
+
+Every turn when the player is sweaty and the player is not cold:
+	now the player is hot. [Maintain the fever unless freezing.]
+
+At the time when the player coughs:
+	unless the player is cold, say "[one of]A tickle in the back of your throat becomes a cough[or]You find yourself coughing regularly now[or]You are consumed by an extreme, hacking cough that leaves you gasping for air[or]The terrible cough is accompanied this time by a sharp pain in your abdomen[or]You [one of]cough[or]gasp[or]wheeze[or]hack[or]shiver uncontrollably[at random] once more[stopping].";
+	the player coughs in a random number from 4 to 7 turns from now.
+	
+After doing something other than taking in the presence of the blank strange flat when a random chance of (turn count minus 2) in (turn count plus 5) succeeds:
+	say "[one of]Did [the strange flat] just move?[or]The [strange flat] vibrates briefly.[or]You hear something shift inside [the strange flat].[or][if the strange flat is held]You feel [the strange flat] move in your hand.[otherwise]The [strange flat] beeps twice.[end if][at random]";
+	continue the action.
+	
+Chapter 6 - Test Chamber
+
+The solid metal door is a closed, locked scenery door. It is east from the Laboratory. The description is "This is a solid, heavy metal door, apparently made of something like burnished steel.[if open][grim][end if]". Instead of opening the locked metal door: say "[one of]It doesn't budge. Stuck?[or]Again no dice, but wait. Did it just give a little, there?[or]You're not making any headway. It must be barred from the other side.[or]Useless. Maybe if you had the right tool...[stopping]". Instead of attacking the locked metal door, try opening the metal door. Understand "heavy" as the metal door.
+
+Instead of hitting the locked metal door with the sledgehammer:
+	now the metal door is unlocked;
+	now the metal door is open;
+	say "The tremendously loud sound of a sledgehammer striking [the metal door] echoes throughout the base. However, it's also accompanied by a cracking sound, and you hear something metal hitting the concrete floor on the other side. You've managed to open the door about half a foot, enough for you to fit through.[grim]";
+	rule succeeds.
+	
+To say grim:
+	say "[first time][line break]On the other side is a gruesome sight.[paragraph break][only]You have found the missing Antarctic research team. The dark shapes visible within are human bodies... or, at least, they once were.";
+	now the player is hallucinating.
+	
+After deciding the scope of the player when in Laboratory:
+	if the metal door is open, place the Test Chamber in scope.
+	
+After opening the unlocked metal door: say "[grim]".
+	
+Instead of hitting the unlocked metal door with the sledgehammer:
+	say "There's no need. It swings fairly easily now."
+
+The Test Chamber is east from the metal door. 
+
+The dark shadows are scenery in the Test Chamber. Understand "shadowy/figures/bodies/shadow/forms/shapes/body/hand/arm/fist/body" as the dark shadows. The description is "[if the location is Observation]You really can't make out any details from here[otherwise]Misshapen and broken bodies, distorted into sometimes unrecognizable shapes, all covered in black pustules, dripping, all with the same manic grin on their faces[end if]."
+	After examining the shadows when the location is Laboratory and the scrawl is part of the shadows: say "You notice a hand, propped up against the door, clutching some kind of paper."
+
+The scrawl is a thing. It is part of the shadows. Understand "paper/scrawling/page" and "cut/diary/torn/removed/scrawled/ragged/stained page/paper" as the scrawl. The description is "Despite its ragged and stained appearance, you recognize this as a page cut neatly from [the leatherbound diary][if held].[paragraph break][italic type]Dannerham's gone crazy. He must have sabotaged the last experiment. He locked us in this room. He says we brought this on ourselves, that we've created something too terrible to escape, that there's no cure.[paragraph break]He's wrong, damn it! If I had access to the original carrier, with a few simple blood diagnostics I'm sure I could identify the mutations that make this strain unique and develop a vaccine, or at least antibodies, within days. Days! And with cold storage, I believe the progression of the disease can be greatly slowed or even halted indefinitely. The imbecile will kill us all for nothing, he doesn't listen to the audio comms system the observ.n. window is too high to[line break]I just need sth.g. wh.ch[paragraph break]ybe destroy the comm. consol. autom.tic send a distr.s signal t[paragraph break]If I coud only j.st get out i want get.out.ineedineed ineedgetoutGET OUT GET OU[roman type][paragraph break]The scrawl becomes illegible beyond this point[otherwise]. You can't read it from here[end if]." The scrawl is wet.
+	Before taking the scrawl when the location is Laboratory:
+		now the player holds the scrawl;
+		say "You manage to pull the paper from the locked fist, careful not to touch what remains of its oozing skin. The arm flops to the floor." instead.
+	
+Rule for reaching inside Test Chamber when the player is in Laboratory and the metal door is open:
+	say "You'd really rather not.";
+	deny access.
+	
+The pustules are part of the shadows. Understand "pus/ooze/oozing/sores/skin" as the pustules. The description is "Dark purple, almost black." Instead of smelling the shadows when the player is in Laboratory: try smelling the pustules. Instead of smelling the pustules when the player is in Laboratory: say "The smell is unreal."
+
+The polished concrete flooring is scenery in Test Chamber. Understand "floor/ground" as the flooring. The description is "Notable mainly for how little of it you can see, thanks to [the shadows]."
+
+Instead of going to the Test Chamber when the metal door is open: say "[one of]No.[or]No![or]NO[or]nO[or]~no~[or][bold type]			  			  *** You have no ***[roman type][or]nononononono[stopping]".
+
+Chapter 7 - Observation Room
+
+Before going north in Laboratory, say "The stairs through this doorway climb up to the east, ending in an observation room above the test chamber."
+
+Observation Room is north from Laboratory. "This must be where the researchers carried out their work.The southern wall is dominated by a giant window overlooking the test chamber. One side of the room features a console with a few chairs in front of it. Stairs lead back down to the west." South is nowhere. West from Observation is Laboratory. Down is Laboratory. 
+
+The console is scenery in Observation room. Description is "[The console] is a drab tan-colored plastic contraption, wide enough to seat three people comfortably, with a lot of displays, knobs, switches, and levers. You don't know what any of it means, most of the displays and digital readouts are blank, anyway." Understand "display/displays/knob/knobs/switch/switches/lever/levers/dial/dials/readout/readouts/read/out" as the console. Instead of turning or pulling or pushing or touching the console, say "You're leery to go messing around with such a complex machine that you don't understand."
+
+The chairs are enterable scenery supporters in Observation Room. Description is "Perfunctory black chairs, though more comfortable than you might expect. They're fixed in place before [the console]." Understand "chair" as the chairs. After entering the chairs, say "You sit in one of [the chairs] facing [the console]." 
+
+The observation window is scenery in Observation Room. Description is "Spanning the whole width of the room, the window is made from some thick, heavy-duty glass. It adds a hazy white tint to everything on the other side.
+
+It's difficult to make out many details in the test chamber. The light panels in that room have apparently failed, and all you can make out are a few large, dark shadows covering most of the [polished concrete flooring]."
+
+After deciding the scope of the player in Observation Room: place the Test Chamber in scope..
+
+Instead of hitting the observation window with the sledgehammer: say "The hammer bounces harmlessly off of [the noun]."
+
+Chapter 8 - Collection Area
+
+Before going south in Laboratory, say "This doorway leads to a staircase that spirals down, eventually opening out into a cavernous area below the test chamber."
+
+Collection Area is south from Laboratory, down from Laboratory. "This is a very wide cylindrical room, apparently built to the same dimensions as the test chamber above. A dozen or so columns support the ceiling, arranged in a circular pattern. The [walls] almost look carved from natural stone. Stairs lead back up to the lab."
+
+Some columns are scenery in the Collection Area. "White concrete, unlike the [walls] around you."
+
+Some stone walls are scenery in the Collection Area. "The walls here seem to be carved out of solid rock. How is that possible? Surely this outpost is miles away from the level of bedrock?" The stone walls are cold. Instead of touching the stone walls: say "Cold to the touch. The surface has a fine, rough texture, as if it was chiseled by hand." Understand "wall" as the walls.
+
+The collection hole is fixed in place in the Collection Area. "Something is dripping into a large basin in the center of the room from a hole above." The description is "A small hole—maybe half an inch across—and perfectly round. It seems to serve as some sort of intentional collection outlet for the test chamber above." Understand "outlet" as the hole.
+
+The catchment basin is scenery in Collection Area. "A squat, wide cylindrical basin, made of something like smoothed white cement, with a huge bowl cut into the top of it. You have no idea why someone would put this thing here, directly under the test chamber." Understand "cylinder/white/cement/bowl" as the basin.
+	A dark pool of liquid is fixed in place in the basin. The description is "A thin layer of some dark liquid has stained the bottom of the bowl." Instead of taking or touching the liquid, say "It's some kind of dark, sticky, viscous liquid, but too thin to be worth collecting." Instead of smelling the liquid, say "You're almost reminded of something, but... no. You can't realy smell anything unusual in this musty area." Understand "stain/bottom" as the liquid.
+
+Chapter 9 - Regionality
+
+Hidey Hole and Dank Room are in Underground. 
+
+Core is a region in Base. Collection Area and Test Chamber and Closet and Supply Room and Observation Room and Laboratory are in Core.
+
+Chapter 10 - Spreading the Disease
+	
+After going to Before the Research Center when the console is not destroyed:
+	say "You stagger out into the frozen waste, blinking in the setting sun. You take a few trudging steps forward before you remember that you don't have enough supplies to make the weeks-long trek back to the dropoff site—and there will be no one there waiting for you, anyway.";
+	end the story saying "You are alone".
+	
+Every turn when the player is infected and the player is cold:
+	if the illcount is at least 1:
+		say "This sudden chill makes you feel strangely at ease.";
+	otherwise if a random chance of 1 in 3 succeeds:
+		say "[one of]This cold air somehow calms your system.[or]You notice you are not shivering, despite the freezing temperature.[or]You seem to be thinking more clearly in this frigid air.[or]You start to cough, steeling yourself in anticipation... but then nothing.[at random]";
+	now the illcount is -1.
+	
+The console can be destroyed. Instead of hitting the not destroyed console with the sledgehammer:
+	destroy the console;
+	say "A display panel shatters with a satisfying [italic type]crunch[roman type]. The console begins to spark and smoke."
+	
+To destroy the console:
+	now the console is destroyed;
+	now the console is hot;
+	now the flames are part of the console.	
+
+Understand the command "pour" as something new. 
+Understand "pour [the cleaning supplies]" as a mistake ("Those might come in handy.").
+Understand "pour [something]" as a mistake ("[The noun] can't really be emptied.").
+Understand "pour [something] on/onto/over [something]" as a mistake ("[The noun] can't really be emptied.") when the noun is not the cleaning supplies.
+Understand the commands "empty/spill/dump" as "pour".
+
+Understand "pour [the cleaning supplies] on/onto/over [something]" as putting it on. Instead of putting the cleaning supplies on the console:
+	destroy the console;
+	remove the cleaning supplies from play;
+	say "You dump the contents of the bottles of cleaning supplies onto the console, which begins to spark and smoke."
+		
+Some flames are fixed in place. They are hot. Understand "flames/flame/fire/fires/spark/sparks" as the flames. They have description "The sparks have ignited a fire somewhere within the console."
+	
+Instead of hitting the destroyed console with the sledgehammer:
+	say "You bash another section. The flames grow higher."
+	
+The destruction count is a number that varies.
+
+The smoke is a backdrop. It is not scenery. "Thick black smoke fills the area." It has description "Opaque, black, suffocating." Instead of smelling in the presence of the smoke, say "It's difficult to breathe without coughing." Understand "dust/smoking" as the smoke.
+
+A room can be blocked off. Instead of going to a blocked off room, say "The way is blocked by a pile of debris."
+
+A region can be suffocating. Every turn when the location is suffocating: suffocate the player.
+
+Every turn when the console is destroyed:
+	if the destruction count is 0:
+		say "[first time][if the console is visible]Fire licks at the edges of the destroyed part of the console.[paragraph break][end if]Somewhere in the base, an alarm begins to sound.[only]";
+		if a random chance of 1 in 3 succeeds:
+			increment the destruction count;
+	otherwise if a random chance of 1 in 3 succeeds:
+		let way be the best route from the location to Observation, using even locked doors;
+		if the destruction count is:
+			-- 1: 
+				move the smoke to Core;
+				if the location is Observation:
+					say "[The console] has begun spewing thick black smoke into the air.";
+				otherwise if the player is in Core:
+					say "Black smoke oozes in from [the way].";
+			-- 2:
+				move the smoke to Base;
+				unless the player is in Core, say "Black smoke oozes in from [the way].";
+			-- 3:
+				if the location is Observation, say "Something explodes on the console, and flames are beginning to reach the ceiling. You probably don't want to stay in here much longer...";
+				if the location is not Observation, say "There is a rumbling from somewhere [to the way].";
+			-- 4:
+				if the location is Observation:
+					say "There is another, much larger explosion, and this time you are not so lucky.";
+					end the story saying "You are the new wallpaper";
+				otherwise:
+					say "There is another explosion—you're sure it's an explosion this time—from somewhere [to the way].";
+					now Observation is blocked off;
+			-- 5:
+				if the player is in Core, say "The smoke down here is becoming too thick to breathe.";
+			-- 6:
+				if the location is in Core:
+					suffocate the player;
+				otherwise if the location is in Underground:
+					say "There is a loud crash [to the way], followed by a cloud of dust. The smoke and dust in this enclosed place is becoming overwhelming.";
+					now Core is suffocating;
+			-- 7:
+				if the location is in Underground:
+					suffocate the player;
+				otherwise:
+					now Underground is suffocating;
+					say "The smoke here is quickly becoming too much to bear.";
+			-- 9:
+				suffocate the player;
+		increment the destruction count.
+		
+To suffocate the player:
+	say "The smoke becomes too much for you. You fall to the ground, gasping for air, but never find it.";
+	end the story saying "You have suffocated";
+	
+Instead of going to Before the Research Center when the player does not wear the arctic gear:
+	say "You can't bring yourself to go out into that weather unless you're properly geared up."
+	
+After going to Before the Research Center when the console is destroyed:
+	say "You stagger out into the wilderness, smoke billowing from the surface structure behind you. You hear the distant whining drone of the extraction team's transport approaching. Looking up to try to make them out in the sky, you lose your balance and fall back onto the snow.[paragraph break]Cool, calming, comforting snow.[paragraph break]You're barely conscious when the team arrives, but are vaguely aware of coughing as the team attempts to move you. Then, only blackness.[paragraph break]";
+	if the player does not enclose the cat:
+		say "Within a week, the plague has reached Europe.";
+		end the game saying "You have sparked a pandemic".
+
+Whisper 10 ends when the player is in Before the Research Center and the console is destroyed and the player encloses the cat.
+
+When Whisper 10 ends: [Player brought the cat along outside.]
+	say "The cat, clinging to your body, protected inside the arctic gear, is the second and last to be rescued from the Antarctic Research Center. By isolating the sample taken from her, the team is soon able to find a treatment for the plague. You and Kira may not be so lucky, but at least, perhaps, your efforts were not in vain.";
+	end the story finally saying "You have brought hope".

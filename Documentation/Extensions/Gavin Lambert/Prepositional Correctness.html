@@ -1,0 +1,1020 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Extension</title>
+    <style type="text/css">
+        <!--
+        /* The default font (family) and size */
+
+        body, p, td {
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.8rem; /* 100/125 */
+        }
+
+        /* For fixed-point material within text, such as the typing on the Library Card index page */
+
+        span.typewritten {
+        	font-family: monospace;
+        	font-size: 0.867rem; /* 13/12 * 100/125 */
+        }
+
+        /* For less important material: the small print */
+
+        span.smaller {
+        	font-size: 80%;
+        }
+
+        /* The "heading panel" is the coloured box, high up on the page. The colours
+        vary depending on the page: for example, the style on a report of a translation
+        with no problems is "headingpanelsucceeded", usually green, but if there were
+        problems then "headingpanelfailed" is used, which is usually red. "headingpanel"
+        itself is a more neutral grey by default. "headingpanelDark" is an alternative
+        look to make the extensions index pages have some visual contrast with the others;
+        by default they are a darker grey. */
+
+        .headingpanel {
+        	background: #eeeeee;
+        }
+        .headingpanelsucceeded {
+        	background: #E6FFE6;
+        }
+        .headingpanelfailed {
+        	background: #f69Ca6;
+        }
+        .headingpanelalt {
+        	background: #808080;
+        }
+
+        /* Heading panels have two lines of text: an upper one in a larger size, and a
+        lower one in a smaller. Again, the alt versions are meant to contrast.
+
+        	Report on Translation: Succeeded                <-- headingpaneltext
+        	Produced by Inform 10.1.0 (build 6U97)          <-- headingpanelrubric
+
+        	Installed Extensions                            <-- headingpaneltextalt
+        	Bundles of extra rules or phrases to...         <-- headingpanelrubricalt
+
+        */
+
+        span.headingpaneltext {
+        	color: #222222;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+        span.headingpaneltextalt {
+        	color: #ffffff;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        span.headingpanelrubric {
+        	color: #222222;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.733rem; /* 11/12 * 100/125 */
+        	font-weight: bold;
+        }
+        span.headingpanelrubricalt {
+        	color: #ffffff;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.733rem; /* 11/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* Horizontal rule styling */
+
+        div.hr {
+        	border: 0;
+        	width: 100%;
+        	color: #707070;
+        	background-color: #707070;
+        	height: 5px;
+        }
+
+        /* This styles the (usually white) text of the example numbers written inside
+        oval blobs in the extension documentation, which mimic the look of the in-app
+        documentation. */
+
+        .oval, .oval td {
+        	background-image:url('inform:/doc_images/ovoid.png');
+        	color:white;
+        }
+
+        /* Styling used in the extension documentation indexes: */
+
+        /* Used for extension names in the extensions pane of the app */
+
+        span.extensioncensusentry {
+        	color: #ffffff;
+        }
+
+        span.extensionindexentry {
+        	color: #404040;
+        }
+
+        span.extensionindexerror {
+        	color: #ff8080;
+        }
+
+        /* This is used in extension documentation, where an example is presented
+        in a slightly tinted box: */
+
+        table.extensionexample {
+        	background-color: #f0f0f0;
+        }
+
+        span.extensionexampleletter {
+        	color: #202020;
+        	font-size: 14px;
+        	font-weight: bold;
+        }
+
+        /* Seen in problem messages: */
+
+        span.problemred {
+        	color: #800000;
+        }
+
+        span.problemgreen {
+        	color: #008000;
+        }
+
+        span.phraseword {
+        	color: #808080;
+        }
+
+        span.phrasetokentext {
+        	color: #e00060;
+        }
+
+        span.phrasetokendesctext {
+        	color: #4040ff;
+        }
+
+        span.phrasetokenvaluetext {
+        	color: #ff4040;
+        }
+
+        /* Now we move on to styling used in the Index pages only: */
+
+        /* The periodic table display has "sidebars", usually grey and taller than they
+        are wide; they contain no text. */
+
+        div.periodictablesidebarcolour {
+        	background: #888;
+        }
+        div.periodictablesidebar:hover {
+        	background: #222;
+        }
+
+        /* The text of the element-abbreviation, such as "Lx" or "Ph", uses: */
+
+        span.elementtext {
+        	color: #ffffff;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* Similarly for the "atomic number" - a single digit - in the top left corner
+        of these boxes: */
+
+        span.elementnumbertext {
+        	color: #ffffff;
+        	font-size: 0.622rem; /* 7/12 * 96/72 * 100/125 */
+        }
+
+        /* For the text of the element title, to the right of the element box: */
+
+        span.elementtitletext {
+        	color: #ffffff;
+        	font-size: 0.6rem; /* 9/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* The banner at the top of each element: */
+
+        table.elementbanner {
+        	background: #eeeeee;
+        }
+
+        /* For the typewriting on the Library Card: */
+
+        span.librarycardtitle {
+        	color: #803030;
+        }
+
+        span.librarycardother {
+        	color: #303030;
+        }
+
+        /* Generically used for "more details" boxes in the index: */
+
+        table.indexmorebox {
+        	background-color: #e0e0e0;
+            border-radius: 8px;
+        }
+
+        /* But not for activity contents: */
+
+        table.indexactivitycontents {
+        	background-color: #e8e0c0;
+            border-radius: 8px;
+        }
+
+        /* For responses in index entries about rules: */
+
+        span.indexresponseletter {
+        	color: #ffffff;
+        	font-family: 'Courier New', Courier, monospace;
+        	background-color: #8080ff;
+        }
+
+        span.indexresponsetext {
+        	color: #000066;
+        }
+
+        /* Used ubiquitously throughout the index and extension documentation: */
+
+        span.indexblack {
+        	color: #000000;
+        }
+
+        span.indexgrey {
+        	color: #808080;
+        }
+
+        span.indexdarkgrey {
+            color: #505050;
+        }
+
+        span.indexdullred {
+        	color: #800000;
+        }
+
+        span.indexdullgreen {
+        	color: #008000;
+        }
+
+        span.indexdullblue {
+        	color: #000080;
+        }
+
+        /* Used for the room squares in the World map in the Index (which is currently
+        a table with one row of one column) */
+
+        table.indexmaproom {
+        	border-color: #000000;
+        }
+
+        /* Used in the numbering of levels of the World map in the Index */
+
+        span.indexmaplevelnumbers {
+        	color: #c0c0c0;
+        }
+
+        /* Used e.g. for title rows in the Chart of basic kinds in the Index */
+
+        tr.headingrow {
+        	background-color: #e0e0e0;
+        }
+
+        /* Standard rows have black text on striped background colours, these being
+        the usual ones seen in Mac OS X applications such as iTunes. */
+
+        tr.stripeone {
+        	background-color: #ffffff;
+        }
+
+        tr.stripetwo {
+        	background-color: #f3f6fa;
+        }
+
+        tr.tintedrow {
+        	background-color: #808080;
+        }
+
+        /* In the Figures index, this is the background colour used behind images
+        (though in fact it will only be visible if the image fails to load, or uses
+        transparency): */
+
+        div.figureindexbox {
+        	background-color: #6495ed;
+        }
+
+        /* To get the book-contents-page style leaders on the Contents element of
+           the index to work, these must use the background colour of the body of
+           the page, whatever that is: */
+
+        ul.leaders li.leaded span:first-child {
+        	background: white;
+        }
+        ul.leaders li.leaded span + span {
+        	background: white;
+        }
+
+        /* On Registry index pages (such as the Public Library), these are used for
+        download buttons and the like: */
+
+        span.registrybuttontext {
+        	font-size: 11px;
+        	border-color: #000000;
+        }
+
+        span.registryminibuttontext {
+        	font-size: 10px;
+        	border-color: #000000;
+        }
+
+        span.registrybuttonuninstalled {
+        	color: #000000;
+        	background: #ffffdd;
+        }
+
+        span.registrybuttoninstalled {
+        	color: #000000;
+        	background: #ffffff;
+        	pointer-events: none;
+        }
+
+        span.registrybuttonbuiltin {
+        	color: #888888;
+        	background: #ffffff;
+        	pointer-events: none;
+        }
+
+        span.registrybuttonupdate {
+        	color: #000000;
+        	background: #aaddff;
+        }
+
+        span.registrybuttonrevert {
+        	color: #000000;
+        	background: #ddaaff;
+        }
+
+        span.registrybuttonrevealer {
+        	color: #ffffff;
+        	background: #444444;
+        }
+
+        /* Registry index section headings: */
+
+        span.registrysectionname {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 16px;
+        	line-height: 18px;
+        }
+        span.registrysubsectionname {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 14px;
+        	line-height: 16px;
+        }
+
+        /* These are for the "mark" for a section, usually a section-symbol and number */
+
+        span.registrysectionmark {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 16px;
+        	line-height: 18px;
+        	color: #666;
+        }
+        span.registrysubsectionmark {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 14px;
+        	line-height: 16px;
+        	color: #666;
+        }
+
+        /* Text of an item listed in a registry: */
+
+        span.registryitemtext {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 12px;
+        	line-height: 16px;
+        }
+
+        /* And how the links in a registry index page behave: */
+
+        a.registrysilentlink {
+        	text-decoration: none;
+        	color: #000;
+        }
+        a.registrybuttonlink {
+        	text-decoration: none;
+        }
+        a.registrycontentslink:link {
+        	text-decoration: none;
+        	color: #202020;
+        }
+        a.registrycontentslink:visited {
+        	text-decoration: none;
+        	color: #202020;
+        }
+        a.registrycontentslink:hover {
+        	text-decoration: none;
+        	color: #D00000;
+        }
+        a.registrycontentslink:active {
+        	text-decoration: none;
+        	color: #D00000;
+        }
+
+        -->
+    </style>
+    <style type="text/css">
+        <!--
+        /* (1) General layout material */
+
+        *, *:before, *:after {
+        	-moz-box-sizing: border-box;
+        	-webkit-box-sizing: border-box;
+        	box-sizing: border-box;
+        }
+        .headingpanellayout {
+        	position: relative;
+        	height: 56px;
+        	padding: 0px;
+        	white-space:nowrap;
+        }
+        .headingpanellayoutdeeper {
+        	position: relative;
+        	height: 117px;
+        	padding: 0px;
+        	white-space:nowrap;
+        }
+        .headingtext {
+        	position: absolute;
+        	top: -4px;
+        	left: -1px;
+        	width: 100%;
+        	padding: 14px 10px 0px 10px;
+        }
+        .headingrubric {
+        	position: absolute;
+        	top: 36px;
+        	width: 100%;
+        	padding: 0px 10px 0px 10px;
+        }
+        h3.tighter {
+        	margin-top: 0px;
+        }
+        p.hang {
+        	padding-left: 25px;
+        	text-indent: -25px;
+        	margin-top: 0px;
+        	margin-bottom: 0px;
+        }
+        p.in1 {
+        	padding-left: 0px;
+        }
+        p.tightin1 {
+        	padding-left: 0px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin1 {
+        	padding-left: 0px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin1 {
+        	padding-left: 50px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in2 {
+        	padding-left: 25px;
+        }
+        p.tightin2 {
+        	padding-left: 25px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin2 {
+        	padding-left: 25px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin2 {
+        	padding-left: 75px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in3 {
+        	padding-left: 50px;
+        }
+        p.tightin3 {
+        	padding-left: 50px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin3 {
+        	padding-left: 50px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin3 {
+        	padding-left: 100px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in4 {
+        	padding-left: 75px;
+        }
+        p.tightin4 {
+        	padding-left: 75px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin4 {
+        	padding-left: 75px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin4 {
+        	padding-left: 125px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in5 {
+        	padding-left: 100px;
+        }
+        p.tightin5 {
+        	padding-left: 100px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin5 {
+        	padding-left: 100px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin5 {
+        	padding-left: 150px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in6 {
+        	padding-left: 125px;
+        }
+        p.tightin6 {
+        	padding-left: 125px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin6 {
+        	padding-left: 125px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin6 {
+        	padding-left: 175px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in7 {
+        	padding-left: 150px;
+        }
+        p.tightin7 {
+        	padding-left: 150px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin7 {
+        	padding-left: 150px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin7 {
+        	padding-left: 200px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in8 {
+        	padding-left: 175px;
+        }
+        p.tightin8 {
+        	padding-left: 175px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin8 {
+        	padding-left: 175px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin8 {
+        	padding-left: 225px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in9 {
+        	padding-left: 200px;
+        }
+        p.tightin9 {
+        	padding-left: 200px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin9 {
+        	padding-left: 200px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin9 {
+        	padding-left: 250px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+
+        /* (2) Index page layout material */
+
+        /* The periodic table display has "sidebars", usually grey and taller than they
+        are wide; they contain no text. */
+
+        div.periodictablesidebar {
+        	height: 56px;
+        	width: 16px;
+        }
+        .periodictablesidebar a:link { text-decoration: none; }
+        .periodictablesidebar a:visited { text-decoration: none; }
+        .periodictablesidebar a:active { text-decoration: none; }
+
+        /* The "element boxes" are the cells appearing in the periodic-table display
+        on the welcome page of the index: */
+
+        .elementbox {
+        	position: relative;
+        	height: 56px;
+        	width: 56px;
+        	padding: 0px;
+        }
+
+        .elementbox a:link { text-decoration: none; }
+        .elementbox a:visited { text-decoration: none; }
+        .elementbox a:active { text-decoration: none; }
+        .elementbox a:hover { text-decoration: none; }
+        .elementbox:hover {
+        	opacity: 0.6;
+        }
+
+        /* The "small element boxes" look like those, but are smaller, and used on
+        the headings of the content which those original boxes link to: */
+
+        .smallelementbox {
+        	position: relative;
+        	height: 40px;
+        	width: 40px;
+        	padding: 0px;
+        }
+
+        .smallelementbox a:link { text-decoration: none; }
+        .smallelementbox a:visited { text-decoration: none; }
+        .smallelementbox a:active { text-decoration: none; }
+        .smallelementbox a:hover { text-decoration: none; }
+        .smallelementbox:hover {
+        	opacity: 0.6;
+        }
+
+        /* This is a class for the links formed by the element boxes: */
+
+        a.elementlink {
+        	position: absolute;
+        	top: -4px;
+        	left: -1px;
+        	width: 100%;
+        	padding: 14px 0px 14px 1px;
+        	text-align: center;
+        }
+
+        /* Similarly for the "atomic number" - a single digit - in the top left corner
+        of these boxes: */
+
+        div.elementnumber {
+        	position: absolute;
+        	top: 1px;
+        	left: 3px;
+        	text-align: left;
+        }
+
+        /* For the text of the element title, to the right of the element box: */
+
+        div.elementtitle {
+        	position: absolute;
+        	top: 35px;
+        	width: 100%;
+        	text-align: center;
+        }
+
+        /* Used for the book-contents-page style leaders on the Contents element of
+           the index: */
+
+        ul.leaders {
+        	padding: 0;
+        	margin-top: 1px;
+        	margin-bottom: 0;
+        	overflow-x: hidden;
+        	list-style: none}
+        ul.leaders li.leaded:before {
+        	float: left;
+        	width: 0;
+        	white-space: nowrap;
+        	content:
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "}
+        ul.leaders li.leaded span:first-child {
+        	padding-right: 0.33em;
+        }
+        ul.leaders li.leaded span + span {
+        	float: right;
+        	padding-left: 0.33em;
+        }
+        li.indent1 span:first-child {
+        	padding-left: 25px;
+        }
+        li.indent2 span:first-child {
+        	padding-left: 50px;
+        }
+        li.indent3 span:first-child {
+        	padding-left: 75px;
+        }
+        li.indent4 span:first-child {
+        	padding-left: 100px;
+        }
+        li.indent5 span:first-child {
+        	padding-left: 125px;
+        }
+        li.indent6 span:first-child {
+        	padding-left: 150px;
+        }
+        li.indent7 span:first-child {
+        	padding-left: 175px;
+        }
+        li.indent8 span:first-child {
+        	padding-left: 200px;
+        }
+        li.indent9 span:first-child {
+        	padding-left: 225px;
+        }
+
+        li.unleaded:before {
+        	content: "";
+        }
+
+        /* On Registry index pages (such as the Public Library), these are used for
+        download buttons and the like: */
+
+        span.registrybuttons {
+        	height: 20px;
+        	padding: 2px 8px 2px 8px;
+        	margin: 2px;
+        	border:1px solid;
+        	border-radius: 5px;
+        }
+
+        span.registryminibuttons {
+        	height: 14px;
+        	padding: 2px 5px 2px 5px;
+        	margin: 2px;
+        	border:1px solid;
+        	border-radius: 4px;
+        }
+
+        /* Used to hide or display sections in the Registry pages: */
+
+        div.registrysectionitemsopen {
+        	display: block;
+        }
+
+        div.registrysectionitemsclosed {
+        	display: none;
+        }
+
+        /* Hanging indentation for Registry item paragraphs: */
+
+        p.registryitem {
+        	padding-left: 80px;
+        	text-indent: -40px;
+        }
+
+        p.registryaddition {
+        	padding-left: 40px;
+        	text-indent: -40px;
+        }
+
+        -->
+    </style>
+    <script type="text/javascript">
+        function project() {
+            return window.Project;
+        }
+        function showExtra(id, imid) {
+        	if (document.getElementById(id).style.display == 'block') {
+        		document.getElementById(id).style.display = 'none';
+        		document.getElementById(imid).src = 'inform:/extra.png';
+        	} else {
+        		document.getElementById(id).style.display = 'block';
+        		document.getElementById(imid).src = 'inform:/extraclose.png';
+        	}
+        }
+        function openExtra(id, imid) {
+        	document.getElementById(id).style.display = 'block';
+        	document.getElementById(imid).src = 'inform:/extraclose.png';
+        }
+        function closeExtra(id, imid) {
+        	document.getElementById(id).style.display = 'none';
+        	document.getElementById(imid).src = 'inform:/extra.png';
+        }
+        function pasteCode(code) {
+            var myProject = project();
+
+            myProject.selectView('source');
+            myProject.pasteCode(code);
+        }
+
+    </script>
+</head>
+<body>
+    <!--CONTENT BEGINS-->
+    <table CELLPADDING=0 CELLSPACING=0 width="100%" bgcolor="#000000"><tr><TD width=38px height=26px align="center" valign="center"><a href="inform://Extensions/Extensions.html" border=0><img border=0 src="inform:/doc_images/Hookindex.png" border=0></a></td><TD width=38px height=26px align="center" valign="center"></td><td halign="left" valign="center" CELLPADDING=0 CELLSPACING=0><font color="#FFFFFF" size=2>Extensions</font></a></td><TD width=56px height=26px align="right" valign="center"><a href="inform:/index.html" border=0><img border=0 src="inform:/doc_images/Hookup.png" border=0></a></td></tr></table>
+
+    <p><a href="javascript:pasteCode('Include Prepositional Correctness by Gavin Lambert.[=0x000A=][=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a>&nbsp;<b>Prepositional Correctness<span class="extensionindexentry"> by </span>Gavin Lambert</b></p>
+    <p><span class="smaller">Version 2.0.200926</span></p>
+    <p>Provides a way to customise the prepositions used to refer to containment or support, and perhaps other custom relationships added by other extensions.</p>
+    <p></p>
+    <hr>
+    <p><span class="indexblack"><b><a style="text-decoration: none" href=#docsec1>Chapter 1: </a></b></span>Compatibility<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec2>Chapter 2: </a></b></span>Prepositions in General<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec3>Chapter 3: </a></b></span>Entering/Exiting Prepositions<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec4>Chapter 4: </a></b></span>The Room Description Heading<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec5>Chapter 5: </a></b></span>What's not affected<br>
+    </p>
+    <hr>
+    <p></p>
+    </p>
+
+    <p><p><span class="indexdullred"><b><span id=docsec1>Chapter 1: Compatibility</span></b></span></p>
+    </p>
+
+    <p> This extension was written for Inform 6M62. Since it delves heavily into Standard Library messages it is likely incompatible with any other version of Inform, but YMMV.</p>
+
+    <p> It does not depend on any other extensions, but does introduce some extra features to enhance &quot;Rideable Vehicles by Graham Nelson&quot; if you happen to be using that as well.</p>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec2>Chapter 2: Prepositions in General</span></b></span></p>
+    </p>
+
+    <p> Inform's world model currently only defines two types of things that can contain other things:</p>
+
+    <p> - Containers, which have things &quot;in&quot; them, and (if enterable) will show &quot;(in the container)&quot; in the room description heading. - Supporters, which have things &quot;on&quot; them, and (if enterable) will show &quot;(on the supporter)&quot; in the room description heading.</p>
+
+    <p> Sometimes, however, we want to be more creative than this -- perhaps rather than &quot;(on the ladder)&quot; you'd rather see &quot;(dangling from the ladder)&quot;. Or in another case you might want &quot;(under the chassis)&quot; or perhaps even just &quot;(lounging about)&quot;. Or when describing the things contained in a closet, you might want to say &quot;Hanging in the closet&quot; rather than simply &quot;In the closet&quot;.</p>
+
+    <p> This extension overrides a ton of internal things in the Standard Rules to (hopefully) allow you to replace *almost* all of the places where the default prepositions are used with your own item-specific ones:</p>
+
+    <p><blockquote><span class="indexdullblue"> The preposition of the closet is &quot;hanging inside&quot;.</span></blockquote>
+
+    <p> Note that prepositions should always be specified in lower case. They'll be automatically capitalised if required when used at the beginning of a sentence. But if you don't like the automatic capitalisation, you can override it:</p>
+
+    <p><blockquote><span class="indexdullblue"> The capital preposition of the closet is &quot;Hanging within&quot;.</span></blockquote>
+
+    <p> For more complex cases, you can either put if conditions in the preposition, or you can write a special rule -- but note that there are still a small number of places where only the preposition is used, not the rule:</p>
+
+    <p><blockquote><span class="indexdullblue"> Rule for capital prepositionally naming a supporter (called the table):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; if the table is magical, say &quot;Glowing runes surround [the table], illuminating&quot;;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; otherwise continue the activity.</span></blockquote>
+
+    <p> Note that you need to specify the full text (typically including the name; while that's not mandatory it would usually be confusing without it), and (for the 'capital' variant only) needs to sound correct when followed by a list of objects.</p>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec3>Chapter 3: Entering/Exiting Prepositions</span></b></span></p>
+    </p>
+
+    <p> There are a few places where Inform wants to print a verb related to the preposition -- for example, when entering and exiting, it may want to use phrases like &quot;get into&quot; or &quot;gets out of&quot; or &quot;getting onto&quot;. These don't fit neatly into a simple text property since they need to adapt to the story narrative tense and whether the actor being mentioned is plural or not and a few other factors, so instead we're piggybacking on Inform's rich adaptive verb system to handle these.</p>
+
+    <p> To add a new action phrase, you first need to link it to a relation that Inform is aware of (while Inform does support verbs &quot;for saying&quot; that aren't linked to relations, it doesn't currently allow using prepositions with these for some reason):</p>
+
+    <p><blockquote><span class="indexdullblue"> The verb to squeeze into means the reversed containment relation.<br>
+     The verb to pop out of means the reversed containment relation.<br>
+     The entering preposition of the small chest is the verb squeeze into.<br>
+     The exiting preposition of the small chest is the verb pop out of.</span></blockquote>
+
+    <p> It doesn't really matter which relation you associate with them (unless you use the phrase elsewhere in your source text), but typically &quot;reversed containment&quot; and &quot;reversed support&quot; make the most sense, or perhaps another relation that is defined by an extension.</p>
+
+    <p> (And yes, you can just use a verb without a preposition, despite the property name. But calling the property this keeps them logically related, despite not being entirely grammatically accurate.)</p>
+
+    <p> These don't have associated rules/activities, but if you need them to be dynamic for some reason then you can change the property during play as required.</p>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec4>Chapter 4: The Room Description Heading</span></b></span></p>
+    </p>
+
+    <p> By default, the same prepositions will be used in the room description heading (when inside or on top of something) as in other places. However, since these are only printed for the player (whereas the others are most commonly used for things other than the player), it's fairly likely that you'd want to customise them independently. This can be done through another activity:</p>
+
+    <p><blockquote><span class="indexdullblue"> Rule for room heading describing the ladder: say &quot;dangling from [the ladder]&quot;.<br>
+     Rule for room heading describing an animal (called the mount): say &quot;riding [the mount]&quot;.</span></blockquote>
+
+    <p> Note that you need to specify the full text that you want to appear in the parentheses, typically including the name of the thing that the player is inside or on, otherwise it may be confusing for the player.</p>
+
+    <p> Also note that these rules will only be used for the parenthetical extensions after the main location name -- if someone gets into a closet, then it will print the location name and follow the rule to print the closet's prepositional phrase afterwards; but if they then close the closet so they can no longer see the external room, then the closet is now the &quot;visibility ceiling&quot; and it will simply print its name without any parenthetical extensions and without trying these rules (unless the player were inside something else inside the closet). If you really want to replace this text as well, then you'll have to use a different technique, such as:</p>
+
+    <p><blockquote><span class="indexdullblue"> This is the closeted rule:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; say &quot;[bold type]Hiding inside the closet[roman type][line break]&quot;;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; say run paragraph on with special look spacing.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> The closeted rule substitutes for the room description heading rule when the player is inside the closed closet.</span></blockquote>
+
+    <p> Note that this requires more boilerplate, since you're replacing the entire standard rule. (And this replacement rule doesn't check if the player is inside something else that is in turn inside the closet, so try to avoid doing that sort of thing, or you'll need a more complex rule or condition, or perhaps to intercept &quot;printing the name&quot; instead.)</p>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec5>Chapter 5: What's not affected</span></b></span></p>
+    </p>
+
+    <p> The response text for several actions (notably, the &quot;putting it on&quot; and &quot;inserting it into&quot; actions) have deliberately not been altered to use custom prepositions. This is to remain consistent with the parser's grammar for the command itself.</p>
+
+    <p> If you want to recognise additional custom prepositions in player commands, then you will need to define additional commands and/or amend the grammar yourself. Since Inform's parser is (in general) a left-to-right one, it isn't really feasible to have these parse using a preposition property for a not-yet-known second noun.</p>
+
+    <p> Example: * Excessive Comfort</p>
+
+    <p><blockquote><span class="indexdullblue"><a href="javascript:pasteCode('[=0x0022=]Excessive Comfort[=0x0022=][=0x000A=][=0x000A=]Include Prepositional Correctness by Gavin Lambert.[=0x000A=][=0x000A=]Small Apartment is a room. [=0x0022=]An opulently decorated small apartment room, to a nearly ridiculous level for its size.  And yet, nothing actually appears out of place.[=0x0022=][=0x000A=][=0x000A=]A closet is an enterable openable lit container in the apartment.[=0x000A=]The description is [=0x0022=][if the player is inside the closet]It was a tight squeeze through some expensive leather coats, but you[=0x0027=]ve found a space within.[otherwise]Mahogany.  Mmmmm-ahogany.[end if]  [closet state][=0x0022=].[=0x000A=]Understand [=0x0022=]closet door[=0x0022=] as the closet. Understand [=0x0022=]door[=0x0022=] as the closet when the player is inside the closet.[=0x000A=]To say closet state:[=0x000A=][=0x0009=]if the player is inside the closet:[=0x000A=][=0x0009=][=0x0009=]if the closet is open, say [=0x0022=]The closet door is still open.[=0x0022=];[=0x000A=][=0x0009=][=0x0009=]otherwise say [=0x0022=]The closet is closed, but sufficient light still filters through to the inside.[=0x0022=];[=0x000A=][=0x0009=]otherwise:[=0x000A=][=0x0009=][=0x0009=]if the closet is open, say [=0x0022=]The closet is invitingly open.[=0x0022=];[=0x000A=][=0x0009=][=0x0009=]otherwise say [=0x0022=]The closet is closed.[=0x0022=][=0x000A=][=0x000A=]A sofa is an enterable supporter in the apartment.[=0x000A=]The description is [=0x0022=]You[=0x0027=]re not entirely sure what kind of upholstery this sofa is decked out in, but [if the player is on the sofa]it is the softest thing ever[otherwise]it looks invitingly soft[end if].[=0x0022=][=0x000A=]The preposition is [=0x0022=]draped on[=0x0022=].[=0x000A=]A plush cushion is on the sofa.[=0x000A=][=0x000A=]A large bed is an enterable supporter in the apartment.[=0x000A=]The description is [=0x0022=][if the player is on the bed]It[=0x0027=]s like sleeping on a cloud.[otherwise]The sheets and spreads are entirely white, but not starkly so.  Somehow, airy.  Tempting.[=0x0022=][=0x000A=]The preposition is [=0x0022=]lying on[=0x0022=].[=0x000A=]Understand [=0x0022=]lie down/-- on [bed][=0x0022=] as entering.[=0x000A=]A fluffy pillow is on the bed.[=0x000A=][=0x000A=]Rule for room heading describing the open closet: say [=0x0022=]awkwardly standing inside [the closet][=0x0022=].[=0x000A=]Rule for room heading describing the sofa: say [=0x0022=]lounging about on [the sofa][=0x0022=].[=0x000A=]Rule for room heading describing the bed: say [=0x0022=]floating amongst the clouds[=0x0022=].[=0x000A=][=0x000A=]The verb to squeeze into means the reversed containment relation.[=0x000A=]The verb to pop out of means the reversed containment relation.[=0x000A=]The entering preposition of the closet is the verb squeeze into.[=0x000A=]The exiting preposition of the closet is the verb pop out of.[=0x000A=][=0x000A=]Rule for printing the locale description for the closet: try examining the closet.[=0x000A=][=0x000A=]Test me with [=0x0022=]enter closet / l / close closet / l / open closet / sit on sofa / l / sit on bed / l[=0x0022=].[=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a> &quot;Excessive Comfort&quot;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Include Prepositional Correctness by Gavin Lambert.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Small Apartment is a room. &quot;An opulently decorated small apartment room, to a nearly ridiculous level for its size.  And yet, nothing actually appears out of place.&quot;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> A closet is an enterable openable lit container in the apartment.<br>
+     The description is &quot;[if the player is inside the closet]It was a tight squeeze through some expensive leather coats, but you've found a space within.[otherwise]Mahogany.  Mmmmm-ahogany.[end if]  [closet state]&quot;.<br>
+     Understand &quot;closet door&quot; as the closet. Understand &quot;door&quot; as the closet when the player is inside the closet.<br>
+     To say closet state:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; if the player is inside the closet:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if the closet is open, say &quot;The closet door is still open.&quot;;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; otherwise say &quot;The closet is closed, but sufficient light still filters through to the inside.&quot;;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; otherwise:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if the closet is open, say &quot;The closet is invitingly open.&quot;;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; otherwise say &quot;The closet is closed.&quot;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> A sofa is an enterable supporter in the apartment.<br>
+     The description is &quot;You're not entirely sure what kind of upholstery this sofa is decked out in, but [if the player is on the sofa]it is the softest thing ever[otherwise]it looks invitingly soft[end if].&quot;<br>
+     The preposition is &quot;draped on&quot;.<br>
+     A plush cushion is on the sofa.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> A large bed is an enterable supporter in the apartment.<br>
+     The description is &quot;[if the player is on the bed]It's like sleeping on a cloud.[otherwise]The sheets and spreads are entirely white, but not starkly so.  Somehow, airy.  Tempting.&quot;<br>
+     The preposition is &quot;lying on&quot;.<br>
+     Understand &quot;lie down/-- on [bed]&quot; as entering.<br>
+     A fluffy pillow is on the bed.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Rule for room heading describing the open closet: say &quot;awkwardly standing inside [the closet]&quot;.<br>
+     Rule for room heading describing the sofa: say &quot;lounging about on [the sofa]&quot;.<br>
+     Rule for room heading describing the bed: say &quot;floating amongst the clouds&quot;.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> The verb to squeeze into means the reversed containment relation.<br>
+     The verb to pop out of means the reversed containment relation.<br>
+     The entering preposition of the closet is the verb squeeze into.<br>
+     The exiting preposition of the closet is the verb pop out of.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Rule for printing the locale description for the closet: try examining the closet.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Test me with &quot;enter closet / l / close closet / l / open closet / sit on sofa / l / sit on bed / l&quot;.</span></blockquote>
+
+    <p> Example: * Horseback</p>
+
+    <p><blockquote><span class="indexdullblue"><a href="javascript:pasteCode('[=0x0022=]Horseback[=0x0022=][=0x000A=][=0x000A=]Include Rideable Vehicles by Graham Nelson.[=0x000A=]Include Prepositional Correctness by Gavin Lambert.[=0x000A=][=0x000A=]Grasslands is a room. [=0x0022=]Wide open grasslands stretch as far as the eye can see.[=0x0022=][=0x000A=][=0x000A=]A horse is a kind of rideable animal. Understand [=0x0022=]horse[=0x0022=] as a horse.[=0x000A=][=0x000A=]Spirit is a horse in Grasslands. [=0x0022=]Spirit grazes aimlessly nearby.[=0x0022=][=0x000A=]The description is [=0x0022=]This is your horse, of course, of course.[=0x0022=][=0x000A=][=0x000A=]Test me with [=0x0022=]mount horse / l[=0x0022=].[=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a> &quot;Horseback&quot;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Include Rideable Vehicles by Graham Nelson.<br>
+     Include Prepositional Correctness by Gavin Lambert.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Grasslands is a room. &quot;Wide open grasslands stretch as far as the eye can see.&quot;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> A horse is a kind of rideable animal. Understand &quot;horse&quot; as a horse.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Spirit is a horse in Grasslands. &quot;Spirit grazes aimlessly nearby.&quot;<br>
+     The description is &quot;This is your horse, of course, of course.&quot;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Test me with &quot;mount horse / l&quot;.</span></blockquote>
+
+    <p></p>
+
+    <p>
+    <!--CONTENT ENDS-->
+</body>
+</html>

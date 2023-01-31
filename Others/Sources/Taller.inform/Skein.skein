@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Skein rootNode="node-1">
+  <generator>Windows Inform 7 6M62</generator>
+  <activeNode nodeId="node-44"/>
+  <item nodeId="node-1">
+    <command xml:space="preserve">Taller</command>
+    <result xml:space="preserve">Past Cave&#x000A;An Interactive Fiction by Diego Villarroel&#x000A;Release 1 / Serial number 200729 / Inform 7 build 6M62 (I6/v6.33 lib 6/12N) SD&#x000A;&#x000A;bedroom&#x000A;this my place to sleep and eat. This is the place where I sleep and keep my personal things. It is a very spacious room with a secret passage through the ceiling.&#x000A;&#x000A;On the night table are a steak and a lamp.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-2"/>
+      <child nodeId="node-41"/>
+      <child nodeId="node-43"/>
+    </children>
+  </item>
+  <item nodeId="node-2">
+    <command xml:space="preserve">m</command>
+    <result xml:space="preserve">Cuarto&#x000A; Te despiertas y est&#x00E1;s de nuevo en tu cama. Sigue siendo de noche y hace calor. &#x00BF;Habr&#x00E1; sido todo un sue&#x00F1;o? Vuelves a dormirte como puedes, aunque te cuesta. Ha sido todo muy raro.&#x000A;&#x000A;Al rato, vuelves a oir un ruido.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-3"/>
+    </children>
+  </item>
+  <item nodeId="node-3">
+    <command xml:space="preserve">m</command>
+    <result xml:space="preserve">Cuarto&#x000A; Te despiertas y est&#x00E1;s de nuevo en tu cama. Sigue siendo de noche y hace calor. &#x00BF;Habr&#x00E1; sido todo un sue&#x00F1;o? Vuelves a dormirte como puedes, aunque te cuesta. Ha sido todo muy raro.&#x000A;&#x000A;Al rato, vuelves a oir un ruido.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-4"/>
+    </children>
+  </item>
+  <item nodeId="node-4">
+    <command xml:space="preserve">m</command>
+    <result xml:space="preserve">Cuarto&#x000A; Te despiertas y est&#x00E1;s de nuevo en tu cama. Sigue siendo de noche y hace calor. &#x00BF;Habr&#x00E1; sido todo un sue&#x00F1;o? Vuelves a dormirte como puedes, aunque te cuesta. Ha sido todo muy raro.&#x000A;&#x000A;Al rato, vuelves a oir un ruido.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-5"/>
+    </children>
+  </item>
+  <item nodeId="node-5">
+    <command xml:space="preserve">o</command>
+    <result xml:space="preserve">Pasillo&#x000A;El pasillo est&#x00E1; fr&#x00ED;o, muy inusual para esta &#x00E9;poca del a&#x00F1;o. Como el resto de la casa, est&#x00E1; a oscuras. Miras de reojo entre la penumbra y no encuentras el ba&#x00F1;o, que sol&#x00ED;a estar entre la habitaci&#x00F3;n de tu hermano y el sal&#x00F3;n. Debe de estar la puerta cerrada y por eso no lo distingues.&#x000A;&#x000A;El ruido parece provenir del antiguo cuarto de tu hermano al oeste del pasillo, que hace tiempo que se mud&#x00F3; con su novia. Distingues mejor el ruido, es como si alguien estuviera dando golpes a una puerta. &#x00BF;Quiz&#x00E1;s est&#x00E9; dentro alguno de tus padres? Al sur se encuentra el cuarto de tus padres y al norte est&#x00E1; el sal&#x00F3;n. &#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-6"/>
+    </children>
+  </item>
+  <item nodeId="node-6">
+    <command xml:space="preserve">o</command>
+    <result xml:space="preserve">Me est&#x00E1; costando abrir la puerta. Es como si algo la estuviera bloqueando. No s&#x00E9; muy bien qu&#x00E9; hacer.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-7"/>
+    </children>
+  </item>
+  <item nodeId="node-7">
+    <command xml:space="preserve">o</command>
+    <result xml:space="preserve">Cuarto de tu hermano&#x000A; Parece que ahora cuesta menos abrirla y puedes entrar. No hab&#x00ED;a nada al otro lado de la puerta que la bloquease. Ahora oyes el ruido perfectamente, viene del viejo ordenador de tu hermano, pero no est&#x00E1; encendido. No entiendes nada. Vuelves a oir el sonido y te asustas. No hay duda de que viene del ordenador pero, &#x00BF;c&#x00F3;mo es posible?  &#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-8"/>
+    </children>
+  </item>
+  <item nodeId="node-8">
+    <command xml:space="preserve">m</command>
+    <result xml:space="preserve">Cuarto de tu hermano&#x000A; El ordenador sigue haciendo ruidos.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-9"/>
+    </children>
+  </item>
+  <item nodeId="node-9">
+    <command xml:space="preserve">examinar ordenador</command>
+    <result xml:space="preserve">No veo eso que dices.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-10"/>
+    </children>
+  </item>
+  <item nodeId="node-10">
+    <command xml:space="preserve">o</command>
+    <result xml:space="preserve">No puedes ir por ah&#x00ED;.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-11"/>
+    </children>
+  </item>
+  <item nodeId="node-11">
+    <command xml:space="preserve">e</command>
+    <result xml:space="preserve">Pasillo&#x000A; El ruido se escucha detr&#x00E1;s de la puerta de la habitaci&#x00F3;n de tu hermano, al oeste. Al sur est&#x00E1; el cuarto de tus padres y al norte el sal&#x00F3;n.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-12"/>
+    </children>
+  </item>
+  <item nodeId="node-12">
+    <command xml:space="preserve">s</command>
+    <result xml:space="preserve">Cuarto de tus padres&#x000A; Parece ser que tus padres siguen durmiendo y no han o&#x00ED;do nada. Ni ellos ni tus perros que duermen a los pies de su cama. Les acaricias un poco y te vas. &#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-13"/>
+    </children>
+  </item>
+  <item nodeId="node-13">
+    <command xml:space="preserve">m</command>
+    <result xml:space="preserve">Cuarto de tus padres&#x000A; Intentas despertarles porque cada vez est&#x00E1;s m&#x00E1;s asustado, pero parece que no reaccionan. Tu padre sigue roncando como si nada. Los perros te miran.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-14"/>
+    </children>
+  </item>
+  <item nodeId="node-14">
+    <command xml:space="preserve">m</command>
+    <result xml:space="preserve">Cuarto de tus padres&#x000A; Intentas despertarles porque cada vez est&#x00E1;s m&#x00E1;s asustado, pero parece que no reaccionan. Tu padre sigue roncando como si nada. Los perros te miran.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-15"/>
+    </children>
+  </item>
+  <item nodeId="node-15">
+    <command xml:space="preserve">n</command>
+    <result xml:space="preserve">Pasillo&#x000A; El ruido se escucha detr&#x00E1;s de la puerta de la habitaci&#x00F3;n de tu hermano, al oeste. Al sur est&#x00E1; el cuarto de tus padres y al norte el sal&#x00F3;n.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-16"/>
+    </children>
+  </item>
+  <item nodeId="node-16">
+    <command xml:space="preserve">e</command>
+    <result xml:space="preserve">No parece que el ruido me vaya a dejar dormir. No tiene sentido volver a la cama.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-17"/>
+    </children>
+  </item>
+  <item nodeId="node-17">
+    <command xml:space="preserve">e</command>
+    <result xml:space="preserve">No parece que el ruido me vaya a dejar dormir. No tiene sentido volver a la cama.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-18"/>
+    </children>
+  </item>
+  <item nodeId="node-18">
+    <command xml:space="preserve">e</command>
+    <result xml:space="preserve">No parece que el ruido me vaya a dejar dormir. No tiene sentido volver a la cama.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-19"/>
+    </children>
+  </item>
+  <item nodeId="node-19">
+    <command xml:space="preserve">o</command>
+    <result xml:space="preserve">Cuarto de tu hermano&#x000A;  Siguen los ruidos, est&#x00E1;s muy nervioso.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-20"/>
+    </children>
+  </item>
+  <item nodeId="node-20">
+    <command xml:space="preserve">n</command>
+    <result xml:space="preserve">No puedes ir por ah&#x00ED;.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-21"/>
+    </children>
+  </item>
+  <item nodeId="node-21">
+    <command xml:space="preserve">s</command>
+    <result xml:space="preserve">No puedes ir por ah&#x00ED;.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-22"/>
+    </children>
+  </item>
+  <item nodeId="node-22">
+    <command xml:space="preserve">entrar</command>
+    <result xml:space="preserve">No puedes ir por ah&#x00ED;.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-23"/>
+    </children>
+  </item>
+  <item nodeId="node-23">
+    <command xml:space="preserve">n</command>
+    <result xml:space="preserve">No puedes ir por ah&#x00ED;.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-24"/>
+    </children>
+  </item>
+  <item nodeId="node-24">
+    <command xml:space="preserve">n</command>
+    <result xml:space="preserve">No puedes ir por ah&#x00ED;.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-25"/>
+    </children>
+  </item>
+  <item nodeId="node-25">
+    <command xml:space="preserve">o</command>
+    <result xml:space="preserve">No puedes ir por ah&#x00ED;.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-26"/>
+    </children>
+  </item>
+  <item nodeId="node-26">
+    <command xml:space="preserve">n</command>
+    <result xml:space="preserve">No puedes ir por ah&#x00ED;.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-27"/>
+    </children>
+  </item>
+  <item nodeId="node-27">
+    <command xml:space="preserve">s</command>
+    <result xml:space="preserve">No puedes ir por ah&#x00ED;.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-28"/>
+    </children>
+  </item>
+  <item nodeId="node-28">
+    <command xml:space="preserve">n</command>
+    <result xml:space="preserve">No puedes ir por ah&#x00ED;.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-29"/>
+    </children>
+  </item>
+  <item nodeId="node-29">
+    <command xml:space="preserve">e</command>
+    <result xml:space="preserve">Pasillo&#x000A; El ruido se escucha detr&#x00E1;s de la puerta de la habitaci&#x00F3;n de tu hermano, al oeste. Al sur est&#x00E1; el cuarto de tus padres y al norte el sal&#x00F3;n.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-30"/>
+    </children>
+  </item>
+  <item nodeId="node-30">
+    <command xml:space="preserve">e</command>
+    <result xml:space="preserve">No parece que el ruido me vaya a dejar dormir. No tiene sentido volver a la cama.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-31"/>
+    </children>
+  </item>
+  <item nodeId="node-31">
+    <command xml:space="preserve">n</command>
+    <result xml:space="preserve">El ruido no viene del salon.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-32"/>
+    </children>
+  </item>
+  <item nodeId="node-32">
+    <command xml:space="preserve">n</command>
+    <result xml:space="preserve">Sal&#x00F3;n&#x000A; Distingues el sof&#x00E1; blanco con unos cuantos cojines rosas, la mesa donde est&#x00E1; el ventilador y la puerta que va hacia el hall, que est&#x00E1; cerrada, al oeste.&#x000A;&#x000A;Despu&#x00E9;s de unos segundos la puerta del hall se medio abre. Se deja ver un espejo y el cuadro de luces. Piensas que quiz&#x00E1;s se quitas la corriente de la casa en el cuadro de luces, el ruido se vaya. &#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-33"/>
+    </children>
+  </item>
+  <item nodeId="node-33">
+    <command xml:space="preserve">o</command>
+    <result xml:space="preserve">Sala de ordenadores&#x000A;Al cruzar la puerta del hall, sin saber muy bien como, te encuentras en una sala ruinosa y repleta de ordenadores antiguos deteriorados. Algunos de ellos est&#x00E1;n encendidos y muestran en sus monitores el t&#x00ED;pico pantallazo azul. No ves ninguna salida salvo la puerta por la que supuestamente has entrado y un conducto de ventilaci&#x00F3;n en el techo. Ahora oyes otros ruidos, como de alguien corriendo por el pasillo y jadeando. No te atreves a hacer ning&#x00FA;n ruido.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-34"/>
+    </children>
+  </item>
+  <item nodeId="node-34">
+    <command xml:space="preserve">e</command>
+    <result xml:space="preserve">Por m&#x00E1;s que intento abrir la puerta, no lo consigo, est&#x00E1; cerrada a cal y canto. Adem&#x00E1;s, no creo que sea muy seguro salir. &#x00A1;Qu&#x00E9; cojones est&#x00E1; pasando!&#x000A;&#x000A; Estos ordenadores emiten ruidos tambi&#x00E9;n. Parecen...voces. &#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-35"/>
+    </children>
+  </item>
+  <item nodeId="node-35">
+    <command xml:space="preserve">e</command>
+    <result xml:space="preserve">Por m&#x00E1;s que intento abrir la puerta, no lo consigo, est&#x00E1; cerrada a cal y canto. Adem&#x00E1;s, no creo que sea muy seguro salir. &#x00A1;Qu&#x00E9; cojones est&#x00E1; pasando!&#x000A;&#x000A; Estoy atrapado... que alguien me saque de aqu&#x00ED; por favor... &#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-36"/>
+    </children>
+  </item>
+  <item nodeId="node-36">
+    <command xml:space="preserve">e</command>
+    <result xml:space="preserve">Por m&#x00E1;s que intento abrir la puerta, no lo consigo, est&#x00E1; cerrada a cal y canto. Adem&#x00E1;s, no creo que sea muy seguro salir. &#x00A1;Qu&#x00E9; cojones est&#x00E1; pasando!&#x000A;&#x000A; Estos ordenadores emiten ruidos tambi&#x00E9;n. Parecen...voces. &#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-37"/>
+    </children>
+  </item>
+  <item nodeId="node-37">
+    <command xml:space="preserve">e</command>
+    <result xml:space="preserve">Por m&#x00E1;s que intento abrir la puerta, no lo consigo, est&#x00E1; cerrada a cal y canto. Adem&#x00E1;s, no creo que sea muy seguro salir. &#x00A1;Qu&#x00E9; cojones est&#x00E1; pasando!&#x000A;&#x000A; Estoy atrapado... que alguien me saque de aqu&#x00ED; por favor... &#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-38"/>
+    </children>
+  </item>
+  <item nodeId="node-38">
+    <command xml:space="preserve">e</command>
+    <result xml:space="preserve">Por m&#x00E1;s que intento abrir la puerta, no lo consigo, est&#x00E1; cerrada a cal y canto. Adem&#x00E1;s, no creo que sea muy seguro salir. &#x00A1;Qu&#x00E9; cojones est&#x00E1; pasando!&#x000A;&#x000A; Estoy atrapado... que alguien me saque de aqu&#x00ED; por favor... &#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-39"/>
+    </children>
+  </item>
+  <item nodeId="node-39">
+    <command xml:space="preserve">n</command>
+    <result xml:space="preserve">No puedes ir por ah&#x00ED;.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-40"/>
+    </children>
+  </item>
+  <item nodeId="node-40">
+    <command xml:space="preserve">s</command>
+    <result xml:space="preserve">No puedes ir por ah&#x00ED;.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+  </item>
+  <item nodeId="node-41">
+    <command xml:space="preserve">examine table</command>
+    <result xml:space="preserve">this table was made by Irsh gnomos with a old magic tree&#x000A;&#x000A;On the night table are a steak and a lamp.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-42"/>
+    </children>
+  </item>
+  <item nodeId="node-42">
+    <command xml:space="preserve">examine lamp</command>
+    <result xml:space="preserve">switch on ashole&#x000A;&#x000A;The lamp is currently switched off.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+  </item>
+  <item nodeId="node-43">
+    <command xml:space="preserve">ne</command>
+    <result xml:space="preserve">You can't go that way.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-44"/>
+    </children>
+  </item>
+  <item nodeId="node-44">
+    <command xml:space="preserve">nw</command>
+    <result xml:space="preserve">You can't go that way.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+  </item>
+</Skein>

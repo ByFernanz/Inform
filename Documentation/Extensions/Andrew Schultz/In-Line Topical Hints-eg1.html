@@ -1,0 +1,1438 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Extension</title>
+    <style type="text/css">
+        <!--
+        /* The default font (family) and size */
+
+        body, p, td {
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.8rem; /* 100/125 */
+        }
+
+        /* For fixed-point material within text, such as the typing on the Library Card index page */
+
+        span.typewritten {
+        	font-family: monospace;
+        	font-size: 0.867rem; /* 13/12 * 100/125 */
+        }
+
+        /* For less important material: the small print */
+
+        span.smaller {
+        	font-size: 80%;
+        }
+
+        /* The "heading panel" is the coloured box, high up on the page. The colours
+        vary depending on the page: for example, the style on a report of a translation
+        with no problems is "headingpanelsucceeded", usually green, but if there were
+        problems then "headingpanelfailed" is used, which is usually red. "headingpanel"
+        itself is a more neutral grey by default. "headingpanelDark" is an alternative
+        look to make the extensions index pages have some visual contrast with the others;
+        by default they are a darker grey. */
+
+        .headingpanel {
+        	background: #eeeeee;
+        }
+        .headingpanelsucceeded {
+        	background: #E6FFE6;
+        }
+        .headingpanelfailed {
+        	background: #f69Ca6;
+        }
+        .headingpanelalt {
+        	background: #808080;
+        }
+
+        /* Heading panels have two lines of text: an upper one in a larger size, and a
+        lower one in a smaller. Again, the alt versions are meant to contrast.
+
+        	Report on Translation: Succeeded                <-- headingpaneltext
+        	Produced by Inform 10.1.0 (build 6U97)          <-- headingpanelrubric
+
+        	Installed Extensions                            <-- headingpaneltextalt
+        	Bundles of extra rules or phrases to...         <-- headingpanelrubricalt
+
+        */
+
+        span.headingpaneltext {
+        	color: #222222;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+        span.headingpaneltextalt {
+        	color: #ffffff;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        span.headingpanelrubric {
+        	color: #222222;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.733rem; /* 11/12 * 100/125 */
+        	font-weight: bold;
+        }
+        span.headingpanelrubricalt {
+        	color: #ffffff;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.733rem; /* 11/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* Horizontal rule styling */
+
+        div.hr {
+        	border: 0;
+        	width: 100%;
+        	color: #707070;
+        	background-color: #707070;
+        	height: 5px;
+        }
+
+        /* This styles the (usually white) text of the example numbers written inside
+        oval blobs in the extension documentation, which mimic the look of the in-app
+        documentation. */
+
+        .oval, .oval td {
+        	background-image:url('inform:/doc_images/ovoid.png');
+        	color:white;
+        }
+
+        /* Styling used in the extension documentation indexes: */
+
+        /* Used for extension names in the extensions pane of the app */
+
+        span.extensioncensusentry {
+        	color: #ffffff;
+        }
+
+        span.extensionindexentry {
+        	color: #404040;
+        }
+
+        span.extensionindexerror {
+        	color: #ff8080;
+        }
+
+        /* This is used in extension documentation, where an example is presented
+        in a slightly tinted box: */
+
+        table.extensionexample {
+        	background-color: #f0f0f0;
+        }
+
+        span.extensionexampleletter {
+        	color: #202020;
+        	font-size: 14px;
+        	font-weight: bold;
+        }
+
+        /* Seen in problem messages: */
+
+        span.problemred {
+        	color: #800000;
+        }
+
+        span.problemgreen {
+        	color: #008000;
+        }
+
+        span.phraseword {
+        	color: #808080;
+        }
+
+        span.phrasetokentext {
+        	color: #e00060;
+        }
+
+        span.phrasetokendesctext {
+        	color: #4040ff;
+        }
+
+        span.phrasetokenvaluetext {
+        	color: #ff4040;
+        }
+
+        /* Now we move on to styling used in the Index pages only: */
+
+        /* The periodic table display has "sidebars", usually grey and taller than they
+        are wide; they contain no text. */
+
+        div.periodictablesidebarcolour {
+        	background: #888;
+        }
+        div.periodictablesidebar:hover {
+        	background: #222;
+        }
+
+        /* The text of the element-abbreviation, such as "Lx" or "Ph", uses: */
+
+        span.elementtext {
+        	color: #ffffff;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* Similarly for the "atomic number" - a single digit - in the top left corner
+        of these boxes: */
+
+        span.elementnumbertext {
+        	color: #ffffff;
+        	font-size: 0.622rem; /* 7/12 * 96/72 * 100/125 */
+        }
+
+        /* For the text of the element title, to the right of the element box: */
+
+        span.elementtitletext {
+        	color: #ffffff;
+        	font-size: 0.6rem; /* 9/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* The banner at the top of each element: */
+
+        table.elementbanner {
+        	background: #eeeeee;
+        }
+
+        /* For the typewriting on the Library Card: */
+
+        span.librarycardtitle {
+        	color: #803030;
+        }
+
+        span.librarycardother {
+        	color: #303030;
+        }
+
+        /* Generically used for "more details" boxes in the index: */
+
+        table.indexmorebox {
+        	background-color: #e0e0e0;
+            border-radius: 8px;
+        }
+
+        /* But not for activity contents: */
+
+        table.indexactivitycontents {
+        	background-color: #e8e0c0;
+            border-radius: 8px;
+        }
+
+        /* For responses in index entries about rules: */
+
+        span.indexresponseletter {
+        	color: #ffffff;
+        	font-family: 'Courier New', Courier, monospace;
+        	background-color: #8080ff;
+        }
+
+        span.indexresponsetext {
+        	color: #000066;
+        }
+
+        /* Used ubiquitously throughout the index and extension documentation: */
+
+        span.indexblack {
+        	color: #000000;
+        }
+
+        span.indexgrey {
+        	color: #808080;
+        }
+
+        span.indexdarkgrey {
+            color: #505050;
+        }
+
+        span.indexdullred {
+        	color: #800000;
+        }
+
+        span.indexdullgreen {
+        	color: #008000;
+        }
+
+        span.indexdullblue {
+        	color: #000080;
+        }
+
+        /* Used for the room squares in the World map in the Index (which is currently
+        a table with one row of one column) */
+
+        table.indexmaproom {
+        	border-color: #000000;
+        }
+
+        /* Used in the numbering of levels of the World map in the Index */
+
+        span.indexmaplevelnumbers {
+        	color: #c0c0c0;
+        }
+
+        /* Used e.g. for title rows in the Chart of basic kinds in the Index */
+
+        tr.headingrow {
+        	background-color: #e0e0e0;
+        }
+
+        /* Standard rows have black text on striped background colours, these being
+        the usual ones seen in Mac OS X applications such as iTunes. */
+
+        tr.stripeone {
+        	background-color: #ffffff;
+        }
+
+        tr.stripetwo {
+        	background-color: #f3f6fa;
+        }
+
+        tr.tintedrow {
+        	background-color: #808080;
+        }
+
+        /* In the Figures index, this is the background colour used behind images
+        (though in fact it will only be visible if the image fails to load, or uses
+        transparency): */
+
+        div.figureindexbox {
+        	background-color: #6495ed;
+        }
+
+        /* To get the book-contents-page style leaders on the Contents element of
+           the index to work, these must use the background colour of the body of
+           the page, whatever that is: */
+
+        ul.leaders li.leaded span:first-child {
+        	background: white;
+        }
+        ul.leaders li.leaded span + span {
+        	background: white;
+        }
+
+        /* On Registry index pages (such as the Public Library), these are used for
+        download buttons and the like: */
+
+        span.registrybuttontext {
+        	font-size: 11px;
+        	border-color: #000000;
+        }
+
+        span.registryminibuttontext {
+        	font-size: 10px;
+        	border-color: #000000;
+        }
+
+        span.registrybuttonuninstalled {
+        	color: #000000;
+        	background: #ffffdd;
+        }
+
+        span.registrybuttoninstalled {
+        	color: #000000;
+        	background: #ffffff;
+        	pointer-events: none;
+        }
+
+        span.registrybuttonbuiltin {
+        	color: #888888;
+        	background: #ffffff;
+        	pointer-events: none;
+        }
+
+        span.registrybuttonupdate {
+        	color: #000000;
+        	background: #aaddff;
+        }
+
+        span.registrybuttonrevert {
+        	color: #000000;
+        	background: #ddaaff;
+        }
+
+        span.registrybuttonrevealer {
+        	color: #ffffff;
+        	background: #444444;
+        }
+
+        /* Registry index section headings: */
+
+        span.registrysectionname {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 16px;
+        	line-height: 18px;
+        }
+        span.registrysubsectionname {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 14px;
+        	line-height: 16px;
+        }
+
+        /* These are for the "mark" for a section, usually a section-symbol and number */
+
+        span.registrysectionmark {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 16px;
+        	line-height: 18px;
+        	color: #666;
+        }
+        span.registrysubsectionmark {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 14px;
+        	line-height: 16px;
+        	color: #666;
+        }
+
+        /* Text of an item listed in a registry: */
+
+        span.registryitemtext {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 12px;
+        	line-height: 16px;
+        }
+
+        /* And how the links in a registry index page behave: */
+
+        a.registrysilentlink {
+        	text-decoration: none;
+        	color: #000;
+        }
+        a.registrybuttonlink {
+        	text-decoration: none;
+        }
+        a.registrycontentslink:link {
+        	text-decoration: none;
+        	color: #202020;
+        }
+        a.registrycontentslink:visited {
+        	text-decoration: none;
+        	color: #202020;
+        }
+        a.registrycontentslink:hover {
+        	text-decoration: none;
+        	color: #D00000;
+        }
+        a.registrycontentslink:active {
+        	text-decoration: none;
+        	color: #D00000;
+        }
+
+        -->
+    </style>
+    <style type="text/css">
+        <!--
+        /* (1) General layout material */
+
+        *, *:before, *:after {
+        	-moz-box-sizing: border-box;
+        	-webkit-box-sizing: border-box;
+        	box-sizing: border-box;
+        }
+        .headingpanellayout {
+        	position: relative;
+        	height: 56px;
+        	padding: 0px;
+        	white-space:nowrap;
+        }
+        .headingpanellayoutdeeper {
+        	position: relative;
+        	height: 117px;
+        	padding: 0px;
+        	white-space:nowrap;
+        }
+        .headingtext {
+        	position: absolute;
+        	top: -4px;
+        	left: -1px;
+        	width: 100%;
+        	padding: 14px 10px 0px 10px;
+        }
+        .headingrubric {
+        	position: absolute;
+        	top: 36px;
+        	width: 100%;
+        	padding: 0px 10px 0px 10px;
+        }
+        h3.tighter {
+        	margin-top: 0px;
+        }
+        p.hang {
+        	padding-left: 25px;
+        	text-indent: -25px;
+        	margin-top: 0px;
+        	margin-bottom: 0px;
+        }
+        p.in1 {
+        	padding-left: 0px;
+        }
+        p.tightin1 {
+        	padding-left: 0px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin1 {
+        	padding-left: 0px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin1 {
+        	padding-left: 50px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in2 {
+        	padding-left: 25px;
+        }
+        p.tightin2 {
+        	padding-left: 25px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin2 {
+        	padding-left: 25px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin2 {
+        	padding-left: 75px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in3 {
+        	padding-left: 50px;
+        }
+        p.tightin3 {
+        	padding-left: 50px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin3 {
+        	padding-left: 50px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin3 {
+        	padding-left: 100px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in4 {
+        	padding-left: 75px;
+        }
+        p.tightin4 {
+        	padding-left: 75px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin4 {
+        	padding-left: 75px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin4 {
+        	padding-left: 125px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in5 {
+        	padding-left: 100px;
+        }
+        p.tightin5 {
+        	padding-left: 100px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin5 {
+        	padding-left: 100px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin5 {
+        	padding-left: 150px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in6 {
+        	padding-left: 125px;
+        }
+        p.tightin6 {
+        	padding-left: 125px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin6 {
+        	padding-left: 125px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin6 {
+        	padding-left: 175px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in7 {
+        	padding-left: 150px;
+        }
+        p.tightin7 {
+        	padding-left: 150px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin7 {
+        	padding-left: 150px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin7 {
+        	padding-left: 200px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in8 {
+        	padding-left: 175px;
+        }
+        p.tightin8 {
+        	padding-left: 175px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin8 {
+        	padding-left: 175px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin8 {
+        	padding-left: 225px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in9 {
+        	padding-left: 200px;
+        }
+        p.tightin9 {
+        	padding-left: 200px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin9 {
+        	padding-left: 200px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin9 {
+        	padding-left: 250px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+
+        /* (2) Index page layout material */
+
+        /* The periodic table display has "sidebars", usually grey and taller than they
+        are wide; they contain no text. */
+
+        div.periodictablesidebar {
+        	height: 56px;
+        	width: 16px;
+        }
+        .periodictablesidebar a:link { text-decoration: none; }
+        .periodictablesidebar a:visited { text-decoration: none; }
+        .periodictablesidebar a:active { text-decoration: none; }
+
+        /* The "element boxes" are the cells appearing in the periodic-table display
+        on the welcome page of the index: */
+
+        .elementbox {
+        	position: relative;
+        	height: 56px;
+        	width: 56px;
+        	padding: 0px;
+        }
+
+        .elementbox a:link { text-decoration: none; }
+        .elementbox a:visited { text-decoration: none; }
+        .elementbox a:active { text-decoration: none; }
+        .elementbox a:hover { text-decoration: none; }
+        .elementbox:hover {
+        	opacity: 0.6;
+        }
+
+        /* The "small element boxes" look like those, but are smaller, and used on
+        the headings of the content which those original boxes link to: */
+
+        .smallelementbox {
+        	position: relative;
+        	height: 40px;
+        	width: 40px;
+        	padding: 0px;
+        }
+
+        .smallelementbox a:link { text-decoration: none; }
+        .smallelementbox a:visited { text-decoration: none; }
+        .smallelementbox a:active { text-decoration: none; }
+        .smallelementbox a:hover { text-decoration: none; }
+        .smallelementbox:hover {
+        	opacity: 0.6;
+        }
+
+        /* This is a class for the links formed by the element boxes: */
+
+        a.elementlink {
+        	position: absolute;
+        	top: -4px;
+        	left: -1px;
+        	width: 100%;
+        	padding: 14px 0px 14px 1px;
+        	text-align: center;
+        }
+
+        /* Similarly for the "atomic number" - a single digit - in the top left corner
+        of these boxes: */
+
+        div.elementnumber {
+        	position: absolute;
+        	top: 1px;
+        	left: 3px;
+        	text-align: left;
+        }
+
+        /* For the text of the element title, to the right of the element box: */
+
+        div.elementtitle {
+        	position: absolute;
+        	top: 35px;
+        	width: 100%;
+        	text-align: center;
+        }
+
+        /* Used for the book-contents-page style leaders on the Contents element of
+           the index: */
+
+        ul.leaders {
+        	padding: 0;
+        	margin-top: 1px;
+        	margin-bottom: 0;
+        	overflow-x: hidden;
+        	list-style: none}
+        ul.leaders li.leaded:before {
+        	float: left;
+        	width: 0;
+        	white-space: nowrap;
+        	content:
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "}
+        ul.leaders li.leaded span:first-child {
+        	padding-right: 0.33em;
+        }
+        ul.leaders li.leaded span + span {
+        	float: right;
+        	padding-left: 0.33em;
+        }
+        li.indent1 span:first-child {
+        	padding-left: 25px;
+        }
+        li.indent2 span:first-child {
+        	padding-left: 50px;
+        }
+        li.indent3 span:first-child {
+        	padding-left: 75px;
+        }
+        li.indent4 span:first-child {
+        	padding-left: 100px;
+        }
+        li.indent5 span:first-child {
+        	padding-left: 125px;
+        }
+        li.indent6 span:first-child {
+        	padding-left: 150px;
+        }
+        li.indent7 span:first-child {
+        	padding-left: 175px;
+        }
+        li.indent8 span:first-child {
+        	padding-left: 200px;
+        }
+        li.indent9 span:first-child {
+        	padding-left: 225px;
+        }
+
+        li.unleaded:before {
+        	content: "";
+        }
+
+        /* On Registry index pages (such as the Public Library), these are used for
+        download buttons and the like: */
+
+        span.registrybuttons {
+        	height: 20px;
+        	padding: 2px 8px 2px 8px;
+        	margin: 2px;
+        	border:1px solid;
+        	border-radius: 5px;
+        }
+
+        span.registryminibuttons {
+        	height: 14px;
+        	padding: 2px 5px 2px 5px;
+        	margin: 2px;
+        	border:1px solid;
+        	border-radius: 4px;
+        }
+
+        /* Used to hide or display sections in the Registry pages: */
+
+        div.registrysectionitemsopen {
+        	display: block;
+        }
+
+        div.registrysectionitemsclosed {
+        	display: none;
+        }
+
+        /* Hanging indentation for Registry item paragraphs: */
+
+        p.registryitem {
+        	padding-left: 80px;
+        	text-indent: -40px;
+        }
+
+        p.registryaddition {
+        	padding-left: 40px;
+        	text-indent: -40px;
+        }
+
+        -->
+    </style>
+    <script type="text/javascript">
+        function project() {
+            return window.Project;
+        }
+        function showExtra(id, imid) {
+        	if (document.getElementById(id).style.display == 'block') {
+        		document.getElementById(id).style.display = 'none';
+        		document.getElementById(imid).src = 'inform:/extra.png';
+        	} else {
+        		document.getElementById(id).style.display = 'block';
+        		document.getElementById(imid).src = 'inform:/extraclose.png';
+        	}
+        }
+        function openExtra(id, imid) {
+        	document.getElementById(id).style.display = 'block';
+        	document.getElementById(imid).src = 'inform:/extraclose.png';
+        }
+        function closeExtra(id, imid) {
+        	document.getElementById(id).style.display = 'none';
+        	document.getElementById(imid).src = 'inform:/extra.png';
+        }
+        function pasteCode(code) {
+            var myProject = project();
+
+            myProject.selectView('source');
+            myProject.pasteCode(code);
+        }
+
+    </script>
+</head>
+<body>
+    <!--CONTENT BEGINS-->
+    <table CELLPADDING=0 CELLSPACING=0 width="100%" bgcolor="#000000"><tr><TD width=38px height=26px align="center" valign="center"><a href="inform://Extensions/Extensions.html" border=0><img border=0 src="inform:/doc_images/Hookindex.png" border=0></a></td><TD width=38px height=26px align="center" valign="center"></td><td halign="left" valign="center" CELLPADDING=0 CELLSPACING=0><font color="#FFFFFF" size=2>Extensions</font></a></td><TD width=56px height=26px align="right" valign="center"><a href="inform:/index.html" border=0><img border=0 src="inform:/doc_images/Hookup.png" border=0></a></td></tr></table>
+
+    <p><a href="javascript:pasteCode('Include In-Line Topical Hints by Andrew Schultz.[=0x000A=][=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a>&nbsp;<b>In-Line Topical Hints<span class="extensionindexentry"> by </span>Andrew Schultz</b></p>
+    <p><span class="smaller">Version 2.0.200530</span></p>
+    <p>Lets the author offer the player in-line hints, with options for presentation. This extension requires Inform 6M62 or higher to run.</p>
+    <p></p>
+    </p>
+
+    <p> PURPOSE</p>
+
+    <p> In-Line Topical Hints is meant to circumnavigate hint menus, which can break immersion for the player. Also, it tries to keep unwieldy hint menus under control. While it offers progressive hinting, it also tries not to overwhelm the reader with text. The basic use case is that a player asks for hints and is given a list of potential topics. Then he types the topic number, and he can type H to see the next hint. By default, hints are shown one at a time if the player requests them continually, but if the player performs a few actions and comes back, the whole list is shown again. This is what the extension terms flexible hinting. The programmer can also force the default to showing all hints in a topic or only the last one, but the player can override these with special commands.</p>
+
+    <p> There are two ways for a programmer to decide whether to display a specific hint topics. You can either label it active to inactive, or you can make it rule-based and create a rule whether you can display them. If you are comfortable with rules, it may be smoother for you to establish a rule (e.g. if escape hatch is visited and typed-security-code is false).</p>
+
+    <p> One special case worth mentioning is if there is only one available hint topic. HINT AUTO lets the player toggle whether to skip to the hint in the topic or to avoid spoilers. The default is to avoid spoilers, but the programmer can change this by setting the hint-auto flag to true.</p>
+
+    <p> So if hint-auto is set to true, and a player tries hints, and there is only one available hint topic, the game chooses that. If not, the player is offered an option from one to the available number of hint topics. Whichever number they choose, they see the next hint they haven't seen yet. Once they choose that option, H goes to the next clue in the topic. It also, by default, only shows the next clue. The player can change this behavior if they want, but the point is to make the hints as unintrusive as possible.</p>
+
+    <p> One fine-tuning feature is that you are able to create a show-rule in a hint table. If this is left blank, the hint will always be shown. However, it can be changed to eliminate a hint the player should already know about. Let's take potential hints from a formerly popular RPG. While conditional text is possible, the player may appreciate having longer hint topics cut down as much as possible.</p>
+
+    <p><blockquote><span class="indexdullblue"> &quot;You still need the bell, book and candle before continuing. That hint topic should be available.&quot; -- need-all-three rule<br>
+     &quot;You still need a party of eight players for the journey through the abyss. That hint topic should be available.&quot; -- need-all-eight rule<br>
+     &quot;You still need the mystic weapons and mystic armor. That hint topic should be available.&quot; -- need-weapons-and-armor rule<br>
+     &quot;[if have-everything]Okay, you're ready to enter the Abyss and get the Codex of Ultimate Wisdom[else]It's a long way down, and you'll be frustrated if you get to level 8 without auto-save and get rejected. Still, let's go ahead[end if].&quot;</span></blockquote>
+
+    <p> Another fine-tuning feature is to label certain hints topics noncritical. If the player just wants to win the game, they may not want to be distracted by a side quest this time around. By default, no hint topics are noncritical, but adjusting the hint-crit-only flag (default false) can change the default behavior, which is showing all hints. HINT CRIT will let the player toggle this at any time.</p>
+
+    <p> Also, feel free to modify the hint-usage and HINT VERBOSE documentation. I'd be interested how it could be tweaked.</p>
+
+    <p> Second of all, there are things you may wish to change and variables you may wish to set in a When Play Begins rule. These variables are listed below. There doesn't seem to be much reason to change them afterwards.</p>
+
+    <p> DEFAULTS POTENTIALLY WORTH CHANGING</p>
+
+    <p> See &quot;Section Variables the player can change&quot; in the source for this.</p>
+
+    <p> DEBUGGING WHICH HINTS APPEAR WHEN</p>
+
+    <p> One of the big problems with a hint system is that your testers can't tell you what's being hinted, when. Or if they do, it sort of spoils the game.</p>
+
+    <p> Some basic debugging is provided with In-Line Topical Hints so that you are able to verify a test walkthrough works. HINTDEBUG is a not-for-release command that prints out all the topics available every move. This is probably more useful for the programmer than a player, who may get overwhelmed with the text.</p>
+
+    <p> RECORDHINTS is available for the tester if they wish to create a text file of topics they would've seen. It is Glulx-only, since it requires output to a file. The format is &gt;&gt; (command): (List of topics).</p>
+
+    <p> ALLHINTNAMES simply shows all the hint names, so you can see if there are any egregious duplicates, or if one sticks out as out-of-place.</p>
+
+    <p> CREDITS</p>
+
+    <p> I'd like to thank Alice Grove, who tested this extension for inclusion in Delphina's House, which you should play, even if you ignore the hinting. Her suggestions and bug reports (technical and aesthetic) helped me focus on the big picture and also reminded me of scattered features I'd written up for myself but never written out formally.</p>
+
+    <p> PREVIOUS VERSIONS</p>
+
+    <p> 1/150214 was part of Delphina's House and featured basic debugging, HA/HL and the basic commands. 2/150418 added debugging exported to a file. 2/200530 includes small tweaks by Gavin Lambert to fix some code that didn't compile in 6M62; also changed the hint-topic to be a kind of object rather than a thing so that it cannot possibly be confused with in-world things.</p>
+
+    <p> EXAMPLE</p>
+
+    <p><hr>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td halign="left" valign="top" cellpadding=0 cellspacing=0 width=38px>
+                <span id=eg1><table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="oval">
+                        <td width=38px height=30px align="left" valign="center">
+                            <a href="In-Line Topical Hints.html#eg1" style="text-decoration: none"><div class="paragraph Body" style="line-height: 1px; margin-bottom: 0px; margin-top: 0px; padding-bottom: 0pt; padding-top: 0px; text-align: center;">
+                                <span class="extensionexampleletter">A</span></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                </span>
+            </td>
+            <td cellpadding=0 cellspacing=0 halign="left" valign="top">
+                <a href="In-Line Topical Hints.html#eg1" style="text-decoration: none"><img border="0" src='inform:/doc_images/asterisk.png'><img border="0" src='inform:/doc_images/asterisk.png'><b><span class="indexdarkgrey">&nbsp;Example&nbsp;</span><span class="indexblack">Fetch Quest</span></b></a><br>
+                <p>A minimal game with hints, rule-dependent and not</p>
+
+            </td>
+        </tr>
+    </table>
+    <table border="0" cellspacing="0" cellpadding="0" class="extensionexample" width=100%>
+        <tr>
+            <td align="left" valign="top">
+                <p></p>
+
+                <p><blockquote><span class="indexdullblue"><a href="javascript:pasteCode('[=0x0022=]Fetch Quest[=0x0022=] by Andrew Schultz[=0x000A=][=0x000A=]the story headline is [=0x0022=]a minimal example[=0x0022=].[=0x000A=][=0x000A=]there is no score in this story.[=0x000A=][=0x000A=]the print final score rule is not listed in any rulebook.[=0x000A=][=0x000A=]include In-Line Topical Hints by Andrew Schultz.[=0x000A=][=0x000A=]the bronze coin is a thing.[=0x000A=]the silver coin is a thing.[=0x000A=]the gold coin is a thing.[=0x000A=][=0x000A=]the description of a room is usually [=0x0022=][if number of viable directions is 1]The only exit leads[else]Exits lead[end if] [list of viable directions].[=0x0022=][=0x000A=][=0x000A=]definition: a direction (called di) is viable:[=0x000A=][=0x0009=]if the room di of the location of the player is nothing, decide no;[=0x000A=][=0x0009=]decide yes;[=0x000A=][=0x000A=]description of the player is [=0x0022=]As good-looking as ever, but someone or something wrote something on you: N.GET ALL.S.E.GET ALL.W.W.GET ALL.E.S.[=0x0022=].[=0x000A=][=0x000A=]check dropping:[=0x000A=][=0x0009=]say [=0x0022=]No way! The coin is too valuable, or something.[=0x0022=] instead;[=0x000A=][=0x000A=]Center Room is a room. [=0x0022=]You can go north to the bronze room, east to the silver room, west to the gold room, or south to the glass room.[=0x0022=][=0x000A=][=0x000A=]Bronze Room is north of Center Room.[=0x000A=][=0x000A=]check going nowhere:[=0x000A=][=0x0009=]say [=0x0022=][if player is in center room]You can go any of the four directions[else]Only one way out[end if].[=0x0022=][=0x000A=][=0x000A=]Silver Room is east of Center Room. [=0x0022=]You can go back west.[=0x0022=][=0x000A=][=0x000A=]Gold Room is west of Center Room. [=0x0022=]You can go back east.[=0x0022=][=0x000A=][=0x000A=]Glass Room is south of Center Room. [=0x0022=]You can go back north.[=0x0022=][=0x000A=][=0x000A=]The bronze coin is in Bronze Room.[=0x000A=][=0x000A=]when play begins:[=0x000A=][=0x0009=]now hint-crit-only is true;[=0x000A=][=0x0009=]activate bronzy;[=0x000A=][=0x000A=]after taking the bronze coin:[=0x000A=][=0x0009=]now the silver coin is in Silver Room;[=0x000A=][=0x0009=]activate silvery;[=0x000A=][=0x0009=]continue the action;[=0x000A=][=0x000A=]after taking the silver coin:[=0x000A=][=0x0009=]now the gold coin is in Gold Room;[=0x000A=][=0x0009=]activate goldy;[=0x000A=][=0x0009=]continue the action;[=0x000A=][=0x000A=]after going to Glass Room:[=0x000A=][=0x0009=]if player has gold coin:[=0x000A=][=0x0009=][=0x0009=]end the story saying [=0x0022=]YOU GOT ALL THE LOOT, AND YOU ESCAPED![=0x0022=];[=0x000A=][=0x0009=]continue the action;[=0x000A=][=0x000A=]bronzy is a hint-topic. printed name is [=0x0022=]Finding the bronze coin[=0x0022=].[=0x000A=][=0x000A=]hint-list of bronzy is table of bronzy hints.[=0x000A=][=0x000A=]table of bronzy hints[=0x000A=]hint-text[=0x0009=]done-yet[=0x0009=]show-rule[=0x000A=][=0x0022=]The bronze coin is not in the Center Room.[=0x0022=][=0x0009=]false[=0x0009=]a rule[=0x000A=][=0x0022=]It[=0x0027=]s in the bronze room.[=0x0022=][=0x000A=][=0x0022=]North of the Center Room.[=0x0022=][=0x000A=][=0x000A=]silvery is a hint-topic. printed name is [=0x0022=]Finding the silver coin[=0x0022=].[=0x000A=][=0x000A=]hint-list of silvery is table of silvery hints.[=0x000A=][=0x000A=]table of silvery hints[=0x000A=]hint-text[=0x0009=]done-yet[=0x0009=]show-rule[=0x000A=][=0x0022=]The silver coin is somewhere in the maze.[=0x0022=][=0x0009=]false[=0x0009=]a rule[=0x000A=][=0x0022=]It[=0x0027=]s in the silver room.[=0x0022=][=0x000A=][=0x0022=]The silver room is east of the Center Room.[=0x0022=][=0x000A=][=0x000A=]goldy is a hint-topic. printed name is [=0x0022=]Finding the gold coin.[=0x0022=].[=0x000A=][=0x000A=]hint-list of goldy is table of goldy hints.[=0x000A=][=0x000A=]table of goldy hints[=0x000A=]hint-text[=0x0009=]done-yet[=0x0009=]show-rule[=0x000A=][=0x0022=]The gold coin is somewhere in the maze.[=0x0022=][=0x0009=]false[=0x0009=]a rule[=0x000A=][=0x0022=]It[=0x0027=]s in the Gold Room.[=0x0022=][=0x000A=][=0x0022=]Gold Room is west of the Center Room.[=0x0022=][=0x000A=][=0x0022=]Once you get the gold coin, you can get out of the maze back at the Glass Room, south of the Center Room.[=0x0022=][=0x000A=][=0x000A=]get-out is a rule-dependent hint-topic. printed name is [=0x0022=]Getting out.[=0x0022=].[=0x000A=][=0x000A=]hint-list of get-out is table of get-out hints.[=0x000A=][=0x000A=]table of get-out hints[=0x000A=]hint-text[=0x0009=]done-yet[=0x0009=]show-rule[=0x000A=][=0x0022=]There[=0x0027=]s one room left where nothing[=0x0027=]s turned up. Well, other than the center.[=0x0022=][=0x0009=]false[=0x0009=]a rule[=0x000A=][=0x0022=]Go south from the center.[=0x0022=][=0x000A=][=0x000A=]avail-rule of get-out is the can-win rule.[=0x000A=][=0x000A=]this is the can-win rule:[=0x000A=][=0x0009=]if the player has the gold coin, the rule succeeds;[=0x000A=][=0x0009=]the rule fails.[=0x000A=][=0x000A=]is-this-easy is a noncritical active hint-topic. hint-list is table of is-easy hints. printed name is [=0x0022=]Isn[=0x0027=]t this example too easy for a real game?[=0x0022=][=0x000A=][=0x000A=]table of is-easy hints[=0x000A=]hint-text[=0x0009=]done-yet[=0x0009=]show-rule[=0x000A=][=0x0022=]Yes, it is, but I was going for practicality.[=0x0022=][=0x0009=]false[=0x0009=]a rule[=0x000A=][=0x0022=]It didn[=0x0027=]t make sense to get too fancy.[=0x0022=][=0x000A=][=0x0022=]However, having good test cases is important, so here I[=0x0027=]m making a semi-long hint topic to test that.[=0x0022=][=0x000A=][=0x0022=]There is nothing of value from here on out.[=0x0022=][=0x000A=][=0x0022=]I basically want a topic where I can test various behaviors in a long table, so I am sure nothing in my extension is broken.[=0x0022=][=0x000A=][=0x0022=]One more random hint should do it.[=0x0022=][=0x000A=][=0x0022=]There we go.[=0x0022=][=0x000A=][=0x000A=]volume testing - not for release[=0x000A=][=0x000A=]test win with [=0x0022=]n/get all/s/e/get all/w/w/get all/e/s[=0x0022=][=0x000A=][=0x000A=]test hprod with [=0x0022=]hintdebug/n/get all/hint/topic 1/x me/topic 1[=0x0022=][=0x000A=][=0x000A=]test hintchange with [=0x0022=]n/get all/s/hint/n/topic 1/topic 2[=0x0022=][=0x000A=][=0x000A=]test block with [=0x0022=]hint block/hint/hint all/h/t/topic/topic 1/t 1/t1/1/hint block/hint all/hint review/hint one/hint recent/hint on/hint off/[=0x0022=][=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a> &quot;Fetch Quest&quot; by Andrew Schultz</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> the story headline is &quot;a minimal example&quot;.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> there is no score in this story.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> the print final score rule is not listed in any rulebook.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> include In-Line Topical Hints by Andrew Schultz.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> the bronze coin is a thing.<br>
+                 the silver coin is a thing.<br>
+                 the gold coin is a thing.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> the description of a room is usually &quot;[if number of viable directions is 1]The only exit leads[else]Exits lead[end if] [list of viable directions].&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> definition: a direction (called di) is viable:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; if the room di of the location of the player is nothing, decide no;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; decide yes;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> description of the player is &quot;As good-looking as ever, but someone or something wrote something on you: N.GET ALL.S.E.GET ALL.W.W.GET ALL.E.S.&quot;.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> check dropping:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; say &quot;No way! The coin is too valuable, or something.&quot; instead;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Center Room is a room. &quot;You can go north to the bronze room, east to the silver room, west to the gold room, or south to the glass room.&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Bronze Room is north of Center Room.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> check going nowhere:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; say &quot;[if player is in center room]You can go any of the four directions[else]Only one way out[end if].&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Silver Room is east of Center Room. &quot;You can go back west.&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Gold Room is west of Center Room. &quot;You can go back east.&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Glass Room is south of Center Room. &quot;You can go back north.&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The bronze coin is in Bronze Room.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> when play begins:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; now hint-crit-only is true;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; activate bronzy;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> after taking the bronze coin:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; now the silver coin is in Silver Room;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; activate silvery;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; continue the action;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> after taking the silver coin:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; now the gold coin is in Gold Room;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; activate goldy;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; continue the action;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> after going to Glass Room:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; if player has gold coin:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; end the story saying &quot;YOU GOT ALL THE LOOT, AND YOU ESCAPED!&quot;;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; continue the action;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> bronzy is a hint-topic. printed name is &quot;Finding the bronze coin&quot;.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> hint-list of bronzy is table of bronzy hints.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> table of bronzy hints</span><br>
+                <table border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> hint-text</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> done-yet</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> show-rule
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;The bronze coin is not in the Center Room.&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> false</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> a rule
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;It's in the bronze room.&quot;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;North of the Center Room.&quot;</span>
+                        </td>
+                    </tr>
+                </table>
+                </blockquote>
+
+                <p><blockquote><span class="indexdullblue"> silvery is a hint-topic. printed name is &quot;Finding the silver coin&quot;.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> hint-list of silvery is table of silvery hints.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> table of silvery hints</span><br>
+                <table border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> hint-text</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> done-yet</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> show-rule
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;The silver coin is somewhere in the maze.&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> false</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> a rule
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;It's in the silver room.&quot;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;The silver room is east of the Center Room.&quot;</span>
+                        </td>
+                    </tr>
+                </table>
+                </blockquote>
+
+                <p><blockquote><span class="indexdullblue"> goldy is a hint-topic. printed name is &quot;Finding the gold coin.&quot;.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> hint-list of goldy is table of goldy hints.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> table of goldy hints</span><br>
+                <table border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> hint-text</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> done-yet</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> show-rule
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;The gold coin is somewhere in the maze.&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> false</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> a rule
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;It's in the Gold Room.&quot;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;Gold Room is west of the Center Room.&quot;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;Once you get the gold coin, you can get out of the maze back at the Glass Room, south of the Center Room.&quot;</span>
+                        </td>
+                    </tr>
+                </table>
+                </blockquote>
+
+                <p><blockquote><span class="indexdullblue"> get-out is a rule-dependent hint-topic. printed name is &quot;Getting out.&quot;.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> hint-list of get-out is table of get-out hints.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> table of get-out hints</span><br>
+                <table border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> hint-text</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> done-yet</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> show-rule
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;There's one room left where nothing's turned up. Well, other than the center.&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> false</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> a rule
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;Go south from the center.&quot;</span>
+                        </td>
+                    </tr>
+                </table>
+                </blockquote>
+
+                <p><blockquote><span class="indexdullblue"> avail-rule of get-out is the can-win rule.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> this is the can-win rule:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; if the player has the gold coin, the rule succeeds;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; the rule fails.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> is-this-easy is a noncritical active hint-topic. hint-list is table of is-easy hints. printed name is &quot;Isn't this example too easy for a real game?&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> table of is-easy hints</span><br>
+                <table border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> hint-text</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> done-yet</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> show-rule
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;Yes, it is, but I was going for practicality.&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> false</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> a rule
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;It didn't make sense to get too fancy.&quot;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;However, having good test cases is important, so here I'm making a semi-long hint topic to test that.&quot;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;There is nothing of value from here on out.&quot;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;I basically want a topic where I can test various behaviors in a long table, so I am sure nothing in my extension is broken.&quot;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;One more random hint should do it.&quot;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;There we go.&quot;</span>
+                        </td>
+                    </tr>
+                </table>
+                </blockquote>
+
+                <p><blockquote><span class="indexdullblue"> volume testing - not for release</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> test win with &quot;n/get all/s/e/get all/w/w/get all/e/s&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> test hprod with &quot;hintdebug/n/get all/hint/topic 1/x me/topic 1&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> test hintchange with &quot;n/get all/s/hint/n/topic 1/topic 2&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> test block with &quot;hint block/hint/hint all/h/t/topic/topic 1/t 1/t1/1/hint block/hint all/hint review/hint one/hint recent/hint on/hint off/&quot;</span></blockquote>
+
+                <p></p>
+
+            </td>
+        </tr>
+    </table>
+    <hr>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td halign="left" valign="top" cellpadding=0 cellspacing=0 width=38px>
+                <span id=eg2><table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="oval">
+                        <td width=38px height=30px align="left" valign="center">
+                            <a href="In-Line Topical Hints-eg2.html#eg2" style="text-decoration: none"><div class="paragraph Body" style="line-height: 1px; margin-bottom: 0px; margin-top: 0px; padding-bottom: 0pt; padding-top: 0px; text-align: center;">
+                                <span class="extensionexampleletter">B</span></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                </span>
+            </td>
+            <td cellpadding=0 cellspacing=0 halign="left" valign="top">
+                <a href="In-Line Topical Hints-eg2.html#eg2" style="text-decoration: none"><img border="0" src='inform:/doc_images/asterisk.png'><img border="0" src='inform:/doc_images/asterisk.png'><img border="0" src='inform:/doc_images/asterisk.png'><b><span class="indexdarkgrey">&nbsp;Example&nbsp;</span><span class="indexblack">Gems</span></b></a><br>
+                <p>a small game with strictly rule-based hints</p>
+
+            </td>
+        </tr>
+    </table>
+    </p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p>
+    <!--CONTENT ENDS-->
+</body>
+</html>

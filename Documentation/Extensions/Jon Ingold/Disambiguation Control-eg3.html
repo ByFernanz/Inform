@@ -1,0 +1,1476 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Extension</title>
+    <style type="text/css">
+        <!--
+        /* The default font (family) and size */
+
+        body, p, td {
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.8rem; /* 100/125 */
+        }
+
+        /* For fixed-point material within text, such as the typing on the Library Card index page */
+
+        span.typewritten {
+        	font-family: monospace;
+        	font-size: 0.867rem; /* 13/12 * 100/125 */
+        }
+
+        /* For less important material: the small print */
+
+        span.smaller {
+        	font-size: 80%;
+        }
+
+        /* The "heading panel" is the coloured box, high up on the page. The colours
+        vary depending on the page: for example, the style on a report of a translation
+        with no problems is "headingpanelsucceeded", usually green, but if there were
+        problems then "headingpanelfailed" is used, which is usually red. "headingpanel"
+        itself is a more neutral grey by default. "headingpanelDark" is an alternative
+        look to make the extensions index pages have some visual contrast with the others;
+        by default they are a darker grey. */
+
+        .headingpanel {
+        	background: #eeeeee;
+        }
+        .headingpanelsucceeded {
+        	background: #E6FFE6;
+        }
+        .headingpanelfailed {
+        	background: #f69Ca6;
+        }
+        .headingpanelalt {
+        	background: #808080;
+        }
+
+        /* Heading panels have two lines of text: an upper one in a larger size, and a
+        lower one in a smaller. Again, the alt versions are meant to contrast.
+
+        	Report on Translation: Succeeded                <-- headingpaneltext
+        	Produced by Inform 10.1.0 (build 6U97)          <-- headingpanelrubric
+
+        	Installed Extensions                            <-- headingpaneltextalt
+        	Bundles of extra rules or phrases to...         <-- headingpanelrubricalt
+
+        */
+
+        span.headingpaneltext {
+        	color: #222222;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+        span.headingpaneltextalt {
+        	color: #ffffff;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        span.headingpanelrubric {
+        	color: #222222;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.733rem; /* 11/12 * 100/125 */
+        	font-weight: bold;
+        }
+        span.headingpanelrubricalt {
+        	color: #ffffff;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.733rem; /* 11/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* Horizontal rule styling */
+
+        div.hr {
+        	border: 0;
+        	width: 100%;
+        	color: #707070;
+        	background-color: #707070;
+        	height: 5px;
+        }
+
+        /* This styles the (usually white) text of the example numbers written inside
+        oval blobs in the extension documentation, which mimic the look of the in-app
+        documentation. */
+
+        .oval, .oval td {
+        	background-image:url('inform:/doc_images/ovoid.png');
+        	color:white;
+        }
+
+        /* Styling used in the extension documentation indexes: */
+
+        /* Used for extension names in the extensions pane of the app */
+
+        span.extensioncensusentry {
+        	color: #ffffff;
+        }
+
+        span.extensionindexentry {
+        	color: #404040;
+        }
+
+        span.extensionindexerror {
+        	color: #ff8080;
+        }
+
+        /* This is used in extension documentation, where an example is presented
+        in a slightly tinted box: */
+
+        table.extensionexample {
+        	background-color: #f0f0f0;
+        }
+
+        span.extensionexampleletter {
+        	color: #202020;
+        	font-size: 14px;
+        	font-weight: bold;
+        }
+
+        /* Seen in problem messages: */
+
+        span.problemred {
+        	color: #800000;
+        }
+
+        span.problemgreen {
+        	color: #008000;
+        }
+
+        span.phraseword {
+        	color: #808080;
+        }
+
+        span.phrasetokentext {
+        	color: #e00060;
+        }
+
+        span.phrasetokendesctext {
+        	color: #4040ff;
+        }
+
+        span.phrasetokenvaluetext {
+        	color: #ff4040;
+        }
+
+        /* Now we move on to styling used in the Index pages only: */
+
+        /* The periodic table display has "sidebars", usually grey and taller than they
+        are wide; they contain no text. */
+
+        div.periodictablesidebarcolour {
+        	background: #888;
+        }
+        div.periodictablesidebar:hover {
+        	background: #222;
+        }
+
+        /* The text of the element-abbreviation, such as "Lx" or "Ph", uses: */
+
+        span.elementtext {
+        	color: #ffffff;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* Similarly for the "atomic number" - a single digit - in the top left corner
+        of these boxes: */
+
+        span.elementnumbertext {
+        	color: #ffffff;
+        	font-size: 0.622rem; /* 7/12 * 96/72 * 100/125 */
+        }
+
+        /* For the text of the element title, to the right of the element box: */
+
+        span.elementtitletext {
+        	color: #ffffff;
+        	font-size: 0.6rem; /* 9/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* The banner at the top of each element: */
+
+        table.elementbanner {
+        	background: #eeeeee;
+        }
+
+        /* For the typewriting on the Library Card: */
+
+        span.librarycardtitle {
+        	color: #803030;
+        }
+
+        span.librarycardother {
+        	color: #303030;
+        }
+
+        /* Generically used for "more details" boxes in the index: */
+
+        table.indexmorebox {
+        	background-color: #e0e0e0;
+            border-radius: 8px;
+        }
+
+        /* But not for activity contents: */
+
+        table.indexactivitycontents {
+        	background-color: #e8e0c0;
+            border-radius: 8px;
+        }
+
+        /* For responses in index entries about rules: */
+
+        span.indexresponseletter {
+        	color: #ffffff;
+        	font-family: 'Courier New', Courier, monospace;
+        	background-color: #8080ff;
+        }
+
+        span.indexresponsetext {
+        	color: #000066;
+        }
+
+        /* Used ubiquitously throughout the index and extension documentation: */
+
+        span.indexblack {
+        	color: #000000;
+        }
+
+        span.indexgrey {
+        	color: #808080;
+        }
+
+        span.indexdarkgrey {
+            color: #505050;
+        }
+
+        span.indexdullred {
+        	color: #800000;
+        }
+
+        span.indexdullgreen {
+        	color: #008000;
+        }
+
+        span.indexdullblue {
+        	color: #000080;
+        }
+
+        /* Used for the room squares in the World map in the Index (which is currently
+        a table with one row of one column) */
+
+        table.indexmaproom {
+        	border-color: #000000;
+        }
+
+        /* Used in the numbering of levels of the World map in the Index */
+
+        span.indexmaplevelnumbers {
+        	color: #c0c0c0;
+        }
+
+        /* Used e.g. for title rows in the Chart of basic kinds in the Index */
+
+        tr.headingrow {
+        	background-color: #e0e0e0;
+        }
+
+        /* Standard rows have black text on striped background colours, these being
+        the usual ones seen in Mac OS X applications such as iTunes. */
+
+        tr.stripeone {
+        	background-color: #ffffff;
+        }
+
+        tr.stripetwo {
+        	background-color: #f3f6fa;
+        }
+
+        tr.tintedrow {
+        	background-color: #808080;
+        }
+
+        /* In the Figures index, this is the background colour used behind images
+        (though in fact it will only be visible if the image fails to load, or uses
+        transparency): */
+
+        div.figureindexbox {
+        	background-color: #6495ed;
+        }
+
+        /* To get the book-contents-page style leaders on the Contents element of
+           the index to work, these must use the background colour of the body of
+           the page, whatever that is: */
+
+        ul.leaders li.leaded span:first-child {
+        	background: white;
+        }
+        ul.leaders li.leaded span + span {
+        	background: white;
+        }
+
+        /* On Registry index pages (such as the Public Library), these are used for
+        download buttons and the like: */
+
+        span.registrybuttontext {
+        	font-size: 11px;
+        	border-color: #000000;
+        }
+
+        span.registryminibuttontext {
+        	font-size: 10px;
+        	border-color: #000000;
+        }
+
+        span.registrybuttonuninstalled {
+        	color: #000000;
+        	background: #ffffdd;
+        }
+
+        span.registrybuttoninstalled {
+        	color: #000000;
+        	background: #ffffff;
+        	pointer-events: none;
+        }
+
+        span.registrybuttonbuiltin {
+        	color: #888888;
+        	background: #ffffff;
+        	pointer-events: none;
+        }
+
+        span.registrybuttonupdate {
+        	color: #000000;
+        	background: #aaddff;
+        }
+
+        span.registrybuttonrevert {
+        	color: #000000;
+        	background: #ddaaff;
+        }
+
+        span.registrybuttonrevealer {
+        	color: #ffffff;
+        	background: #444444;
+        }
+
+        /* Registry index section headings: */
+
+        span.registrysectionname {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 16px;
+        	line-height: 18px;
+        }
+        span.registrysubsectionname {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 14px;
+        	line-height: 16px;
+        }
+
+        /* These are for the "mark" for a section, usually a section-symbol and number */
+
+        span.registrysectionmark {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 16px;
+        	line-height: 18px;
+        	color: #666;
+        }
+        span.registrysubsectionmark {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 14px;
+        	line-height: 16px;
+        	color: #666;
+        }
+
+        /* Text of an item listed in a registry: */
+
+        span.registryitemtext {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 12px;
+        	line-height: 16px;
+        }
+
+        /* And how the links in a registry index page behave: */
+
+        a.registrysilentlink {
+        	text-decoration: none;
+        	color: #000;
+        }
+        a.registrybuttonlink {
+        	text-decoration: none;
+        }
+        a.registrycontentslink:link {
+        	text-decoration: none;
+        	color: #202020;
+        }
+        a.registrycontentslink:visited {
+        	text-decoration: none;
+        	color: #202020;
+        }
+        a.registrycontentslink:hover {
+        	text-decoration: none;
+        	color: #D00000;
+        }
+        a.registrycontentslink:active {
+        	text-decoration: none;
+        	color: #D00000;
+        }
+
+        -->
+    </style>
+    <style type="text/css">
+        <!--
+        /* (1) General layout material */
+
+        *, *:before, *:after {
+        	-moz-box-sizing: border-box;
+        	-webkit-box-sizing: border-box;
+        	box-sizing: border-box;
+        }
+        .headingpanellayout {
+        	position: relative;
+        	height: 56px;
+        	padding: 0px;
+        	white-space:nowrap;
+        }
+        .headingpanellayoutdeeper {
+        	position: relative;
+        	height: 117px;
+        	padding: 0px;
+        	white-space:nowrap;
+        }
+        .headingtext {
+        	position: absolute;
+        	top: -4px;
+        	left: -1px;
+        	width: 100%;
+        	padding: 14px 10px 0px 10px;
+        }
+        .headingrubric {
+        	position: absolute;
+        	top: 36px;
+        	width: 100%;
+        	padding: 0px 10px 0px 10px;
+        }
+        h3.tighter {
+        	margin-top: 0px;
+        }
+        p.hang {
+        	padding-left: 25px;
+        	text-indent: -25px;
+        	margin-top: 0px;
+        	margin-bottom: 0px;
+        }
+        p.in1 {
+        	padding-left: 0px;
+        }
+        p.tightin1 {
+        	padding-left: 0px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin1 {
+        	padding-left: 0px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin1 {
+        	padding-left: 50px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in2 {
+        	padding-left: 25px;
+        }
+        p.tightin2 {
+        	padding-left: 25px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin2 {
+        	padding-left: 25px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin2 {
+        	padding-left: 75px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in3 {
+        	padding-left: 50px;
+        }
+        p.tightin3 {
+        	padding-left: 50px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin3 {
+        	padding-left: 50px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin3 {
+        	padding-left: 100px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in4 {
+        	padding-left: 75px;
+        }
+        p.tightin4 {
+        	padding-left: 75px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin4 {
+        	padding-left: 75px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin4 {
+        	padding-left: 125px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in5 {
+        	padding-left: 100px;
+        }
+        p.tightin5 {
+        	padding-left: 100px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin5 {
+        	padding-left: 100px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin5 {
+        	padding-left: 150px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in6 {
+        	padding-left: 125px;
+        }
+        p.tightin6 {
+        	padding-left: 125px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin6 {
+        	padding-left: 125px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin6 {
+        	padding-left: 175px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in7 {
+        	padding-left: 150px;
+        }
+        p.tightin7 {
+        	padding-left: 150px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin7 {
+        	padding-left: 150px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin7 {
+        	padding-left: 200px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in8 {
+        	padding-left: 175px;
+        }
+        p.tightin8 {
+        	padding-left: 175px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin8 {
+        	padding-left: 175px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin8 {
+        	padding-left: 225px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in9 {
+        	padding-left: 200px;
+        }
+        p.tightin9 {
+        	padding-left: 200px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin9 {
+        	padding-left: 200px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin9 {
+        	padding-left: 250px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+
+        /* (2) Index page layout material */
+
+        /* The periodic table display has "sidebars", usually grey and taller than they
+        are wide; they contain no text. */
+
+        div.periodictablesidebar {
+        	height: 56px;
+        	width: 16px;
+        }
+        .periodictablesidebar a:link { text-decoration: none; }
+        .periodictablesidebar a:visited { text-decoration: none; }
+        .periodictablesidebar a:active { text-decoration: none; }
+
+        /* The "element boxes" are the cells appearing in the periodic-table display
+        on the welcome page of the index: */
+
+        .elementbox {
+        	position: relative;
+        	height: 56px;
+        	width: 56px;
+        	padding: 0px;
+        }
+
+        .elementbox a:link { text-decoration: none; }
+        .elementbox a:visited { text-decoration: none; }
+        .elementbox a:active { text-decoration: none; }
+        .elementbox a:hover { text-decoration: none; }
+        .elementbox:hover {
+        	opacity: 0.6;
+        }
+
+        /* The "small element boxes" look like those, but are smaller, and used on
+        the headings of the content which those original boxes link to: */
+
+        .smallelementbox {
+        	position: relative;
+        	height: 40px;
+        	width: 40px;
+        	padding: 0px;
+        }
+
+        .smallelementbox a:link { text-decoration: none; }
+        .smallelementbox a:visited { text-decoration: none; }
+        .smallelementbox a:active { text-decoration: none; }
+        .smallelementbox a:hover { text-decoration: none; }
+        .smallelementbox:hover {
+        	opacity: 0.6;
+        }
+
+        /* This is a class for the links formed by the element boxes: */
+
+        a.elementlink {
+        	position: absolute;
+        	top: -4px;
+        	left: -1px;
+        	width: 100%;
+        	padding: 14px 0px 14px 1px;
+        	text-align: center;
+        }
+
+        /* Similarly for the "atomic number" - a single digit - in the top left corner
+        of these boxes: */
+
+        div.elementnumber {
+        	position: absolute;
+        	top: 1px;
+        	left: 3px;
+        	text-align: left;
+        }
+
+        /* For the text of the element title, to the right of the element box: */
+
+        div.elementtitle {
+        	position: absolute;
+        	top: 35px;
+        	width: 100%;
+        	text-align: center;
+        }
+
+        /* Used for the book-contents-page style leaders on the Contents element of
+           the index: */
+
+        ul.leaders {
+        	padding: 0;
+        	margin-top: 1px;
+        	margin-bottom: 0;
+        	overflow-x: hidden;
+        	list-style: none}
+        ul.leaders li.leaded:before {
+        	float: left;
+        	width: 0;
+        	white-space: nowrap;
+        	content:
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "}
+        ul.leaders li.leaded span:first-child {
+        	padding-right: 0.33em;
+        }
+        ul.leaders li.leaded span + span {
+        	float: right;
+        	padding-left: 0.33em;
+        }
+        li.indent1 span:first-child {
+        	padding-left: 25px;
+        }
+        li.indent2 span:first-child {
+        	padding-left: 50px;
+        }
+        li.indent3 span:first-child {
+        	padding-left: 75px;
+        }
+        li.indent4 span:first-child {
+        	padding-left: 100px;
+        }
+        li.indent5 span:first-child {
+        	padding-left: 125px;
+        }
+        li.indent6 span:first-child {
+        	padding-left: 150px;
+        }
+        li.indent7 span:first-child {
+        	padding-left: 175px;
+        }
+        li.indent8 span:first-child {
+        	padding-left: 200px;
+        }
+        li.indent9 span:first-child {
+        	padding-left: 225px;
+        }
+
+        li.unleaded:before {
+        	content: "";
+        }
+
+        /* On Registry index pages (such as the Public Library), these are used for
+        download buttons and the like: */
+
+        span.registrybuttons {
+        	height: 20px;
+        	padding: 2px 8px 2px 8px;
+        	margin: 2px;
+        	border:1px solid;
+        	border-radius: 5px;
+        }
+
+        span.registryminibuttons {
+        	height: 14px;
+        	padding: 2px 5px 2px 5px;
+        	margin: 2px;
+        	border:1px solid;
+        	border-radius: 4px;
+        }
+
+        /* Used to hide or display sections in the Registry pages: */
+
+        div.registrysectionitemsopen {
+        	display: block;
+        }
+
+        div.registrysectionitemsclosed {
+        	display: none;
+        }
+
+        /* Hanging indentation for Registry item paragraphs: */
+
+        p.registryitem {
+        	padding-left: 80px;
+        	text-indent: -40px;
+        }
+
+        p.registryaddition {
+        	padding-left: 40px;
+        	text-indent: -40px;
+        }
+
+        -->
+    </style>
+    <script type="text/javascript">
+        function project() {
+            return window.Project;
+        }
+        function showExtra(id, imid) {
+        	if (document.getElementById(id).style.display == 'block') {
+        		document.getElementById(id).style.display = 'none';
+        		document.getElementById(imid).src = 'inform:/extra.png';
+        	} else {
+        		document.getElementById(id).style.display = 'block';
+        		document.getElementById(imid).src = 'inform:/extraclose.png';
+        	}
+        }
+        function openExtra(id, imid) {
+        	document.getElementById(id).style.display = 'block';
+        	document.getElementById(imid).src = 'inform:/extraclose.png';
+        }
+        function closeExtra(id, imid) {
+        	document.getElementById(id).style.display = 'none';
+        	document.getElementById(imid).src = 'inform:/extra.png';
+        }
+        function pasteCode(code) {
+            var myProject = project();
+
+            myProject.selectView('source');
+            myProject.pasteCode(code);
+        }
+
+    </script>
+</head>
+<body>
+    <!--CONTENT BEGINS-->
+    <table CELLPADDING=0 CELLSPACING=0 width="100%" bgcolor="#000000"><tr><TD width=38px height=26px align="center" valign="center"><a href="inform://Extensions/Extensions.html" border=0><img border=0 src="inform:/doc_images/Hookindex.png" border=0></a></td><TD width=38px height=26px align="center" valign="center"></td><td halign="left" valign="center" CELLPADDING=0 CELLSPACING=0><font color="#FFFFFF" size=2>Extensions</font></a></td><TD width=56px height=26px align="right" valign="center"><a href="inform:/index.html" border=0><img border=0 src="inform:/doc_images/Hookup.png" border=0></a></td></tr></table>
+
+    <p><a href="javascript:pasteCode('Include Disambiguation Control by Jon Ingold.[=0x000A=][=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a>&nbsp;<b>Disambiguation Control<span class="extensionindexentry"> by </span>Jon Ingold</b></p>
+    <p><span class="smaller">Version 10.0.170416</span></p>
+    <p>Allows finer control over the disambiguation process used by Inform to decide what the player was referring to. Less guesswork, more questions asking for more input. Also removes the multiple-object-rejection in favour of asking for more information.</p>
+    <p></p>
+    <hr>
+    <p><span class="indexblack"><b><a style="text-decoration: none" href=#docsec1>Chapter 1: </a></b></span>Problems This Extension Tackles<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec2>Section 1.1: </a></span>Namespace clashes<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec3>Section 1.2: </a></span>Over-eager Guesswork<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec4>Section 1.3: </a></span>Creating Specific Defaults<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec5>Section 1.4: </a></span>Rejecting Multiple Actions<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec6>Chapter 2: </a></b></span>How to Update an Existing Project<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec7>Section 2.1: </a></span>Should the game choose rules (Does the player mean doing something specific...)<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec8>Section 2.2: </a></span>Should the game suggest rules (Does the player mean doing something, in general...)<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec9>Section 2.3: </a></span>What are we checking for?<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec10>Section 2.4: </a></span>Use Options to alter the lists produced<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec11>Section 2.5: </a></span>To alter the text of the messages<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec12>Chapter 3: </a></b></span>Summary of the Disambiguation Process<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec13>Section 3.1: </a></span>Guesswork Situations<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec14>Section 3.2: </a></span>Ambiguous Input<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec15>Section 3.3: </a></span>Unusable Plural Input<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec16>Chapter 4: </a></b></span>Summary of New Rulebooks<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec17>Section 4.1: </a></span>should the game choose?<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec18>Section 4.2: </a></span>Should the game suggest?<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec19>Chapter 5: </a></b></span>Thanks, Notes and Limitations<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec20>Section 5.1: </a></span>Thanks<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec21>Section 5.2: </a></span>Notes and Limitations<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec22>Section 5.3: </a></span>Feedback<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec23>Section 5.4: </a></span>Changelog<br>
+    <br>
+    <b>Examples</b><br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href="Disambiguation Control-eg1.html#eg1">A &mdash; Keys and Locks</a></span><br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href="Disambiguation Control-eg2.html#eg2">B &mdash; Scrumping</a></span><br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href="Disambiguation Control-eg3.html#eg3">C &mdash; Pile of Bricks</a></span><br>
+    </p>
+    <hr>
+    <p></p>
+    </p>
+
+    <p><p><span class="indexdullred"><b><span id=docsec1>Chapter 1: Problems This Extension Tackles</span></b></span></p>
+    </p>
+
+    <p> Inform has a clever parser, capable of making intelligent deductions based on the incomplete and sometimes plain lazy input of its human players. However, its algorithm is not perfect and Inform 6 and 7 authors have frequently struggled with namespace clashes and the problem, not obviously associated, of over-eager parser guesswork. A frequent question on the programming newsgroup is &quot;how do I make the parser ask which object the player means instead of choosing itself?&quot; This extension aims to extend more control to authors over how Inform makes these decisions, and to promote a philosophy of &quot;ask more questions and make fewer guesses&quot;.</p>
+
+    <p> There are four major areas tackled by &quot;Disambiguation Control&quot;. Each section is headed by a piece of real parser interaction from an I7 sample game.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec2>Section 1.1: Namespace clashes</span></b></span></p>
+    </p>
+
+    <p> Consider the following:</p>
+
+    <p><blockquote><span class="indexdullblue"> There is a tree here. In the tree is a tree house.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> &gt;EXAMINE TREE<br>
+     Which do you mean, the tree or the tree house?</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> &gt;TREE<br>
+     Which do you mean, the tree or the tree house?</span></blockquote>
+
+    <p> This is an example of a namespace clash - one object, whose accepted synonyms are a subset of another's, making it impossible to refer to the first object. Inform 7 authors will be as familiar with their players, the language itself faces the same difficulties! This extension provides a rulebook which details to the parser how to disambiguate in these situations and ensure the player always gets the object intended.</p>
+
+    <p> Traditionally, these cases have been tackled by using a &quot;does the player mean&quot; rule to promote the under-named noun: in the above example, we would write</p>
+
+    <p><blockquote><span class="indexdullblue"> Does the player mean doing something with the tree: it is likely.</span></blockquote>
+
+    <p> Unfortunately, these rules cause an unfortunate side-effect, namely:</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec3>Section 1.2: Over-eager Guesswork</span></b></span></p>
+    </p>
+
+    <p><blockquote><span class="indexdullblue"> &gt;TAKE<br>
+     (the tree)<br>
+     That's fixed in place.</span></blockquote>
+
+    <p> The problem arises because the parser uses the same &quot;does the player mean&quot; rules to distinguish cases when the player has given unclear input (such as &quot;TREE&quot; above, or more commonly something like &quot;TAKE KEY&quot; when there are several keys nearby); and cases when the player has given no input - either through laziness or a misunderstanding of the commands recognised by the game. At its least serious, over-eager guesswork can make a game look stupid: at its worst - in time-critical scenes, say, or in perilous locations - a parser guessing can lead to the player's demise and the need for an UNDO.</p>
+
+    <p> Clearly preferable would be the following:</p>
+
+    <p><blockquote><span class="indexdullblue"> &gt;TAKE<br>
+     What do you want to take: the apple, the tree, the ladder or the tree house?</span></blockquote>
+
+    <p> or, perhaps, even better:</p>
+
+    <p><blockquote><span class="indexdullblue"> &gt;TAKE<br>
+     What do you want to take: the apple or the ladder?</span></blockquote>
+
+    <p> &quot;Disambiguation Control&quot; aims to produce questions of this type under all circumstances when there is not a single, obvious possibility. It will list all the sensible options for a particular verb, if it can find any, and if it can't, it will ask simply &quot;What do you want to take?&quot;. It provides a rulebook to decide what kind of objects are sensible in a given context which the author can alter and add to. It also provides functionality to limit the length of the list of options produced, to stop unwieldy output and, if preferred, to turn it off completely and produce a more tidy</p>
+
+    <p><blockquote><span class="indexdullblue"> &gt;TAKE<br>
+     What do you want to take?</span></blockquote>
+
+    <p> every time.</p>
+
+    <p> Inform 7 does have a system of automatic defaulting built in, based on the location of the object and the type of verb being used. However, it is unpredictable and non-transparent for the player, and tends to lead to more guesswork and fewer questions. On the occasions that it guesses correctly, it's magic. On those when it fails, however, it can be frustrating and, for unseasoned players, confusing. This extension removes this mechanism entirely (although I6 and template users may be interested to know that it maintains the score bonuses for being non-scenery, non-actor and non-compass objects.)</p>
+
+    <p> (The original system is left intact, and the extension provides a hook for turning it back on, although at present this is not fully coded up because I've not yet found it useful!)</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec4>Section 1.3: Creating Specific Defaults</span></b></span></p>
+    </p>
+
+    <p><blockquote><span class="indexdullblue"> &gt;DRINK BEER<br>
+     Which beer do you mean, your beer or his beer?</span></blockquote>
+
+    <p> In situations like this, it would often be nice to provide the correct default rather than bore the player with an &quot;unnecessary&quot; question. However, using a &quot;does the player mean rule&quot; has the usual over-eager guesswork consequence mentioned above. &quot;Disambiguation Control&quot; provides a new rulebook for providing these kind of defaults, that does not interfere with the process of &quot;guesswork&quot; mentioned above.</p>
+
+    <p> Finally, &quot;Disambiguation Control&quot; leverages the &quot;which do you mean&quot; method for the case of:</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec5>Section 1.4: Rejecting Multiple Actions</span></b></span></p>
+    </p>
+
+    <p><blockquote><span class="indexdullblue"> &gt;EXAMINE FRUIT<br>
+     You can't use multiple objects with that verb.</span></blockquote>
+
+    <p> This is a little brusque, at least - and made worse by the fact that some &quot;multiple objects&quot; are in fact single objects with plural names...</p>
+
+    <p> &quot;Disambiguation Control&quot; replaces this message entirely with a system of offering a choice, using the same rulebooks and code as the rest of the disambiguation process, producing:</p>
+
+    <p><blockquote><span class="indexdullblue"> &gt;EXAMINE FRUIT<br>
+     Please be more specific - what do you want to examine: a cherry or the apple?</span></blockquote>
+
+    <p> Should the multiple object actually be a set of identical objects (of the same kind), the game will pick one to act as a representative, giving the following:</p>
+
+    <p><blockquote><span class="indexdullblue"> &gt;EXAMINE CHERRIES<br>
+     (a cherry)<br>
+     The cherry is a rich red colour and has a beautiful smooth skin.</span></blockquote>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec6>Chapter 2: How to Update an Existing Project</span></b></span></p>
+    </p>
+
+    <p> You can include this extension without making any changes to your code. It will automatically improve points (2) and (4) above, namely, producing less parser guesswork and more &quot;which do you mean&quot; questions, and replacing the multiple action error with a prompt for more detail.</p>
+
+    <p> You will, however, need to update any &quot;does the player mean&quot; rules in your code - this extension renders this rulebook redundant (although it borrows its output values of &quot;it is likely&quot;, and so forth).</p>
+
+    <p> How you should update each rule depends on its function. There are two types:</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec7>Section 2.1: Should the game choose rules (Does the player mean doing something specific...)</span></b></span></p>
+    </p>
+
+    <p> Consider:</p>
+
+    <p><blockquote><span class="indexdullblue"> In the Living Room is a leather armchair and a hard wicker chair. Marcus is a man on the wicker chair.<br>
+     Does the player mean entering the leather armchair: it is likely.</span></blockquote>
+
+    <p> Here the &quot;does the player mean&quot; rulebook is being used to guide the player into the correct chair automatically: the game is being &quot;smart&quot; and ensuring that a player who merely types &quot;SIT ON CHAIR&quot; will not be offered a choice (the leather armchair or the wicker chair?) when there is no choice available.</p>
+
+    <p> &quot;Disambiguation Control&quot; maintains this idea, using the &quot;should the game choose&quot; rulebook. This has the following set of (positive!) outcomes:</p>
+
+    <p><blockquote><span class="indexdullblue"> it is an excellent choice<br>
+     it is a good choice<br>
+     it is a passable choice</span></blockquote>
+
+    <p> and one way of removing an option entirely, so that disambiguation will never allow it (although directly typing it will still work, of course):</p>
+
+    <p><blockquote><span class="indexdullblue"> never</span></blockquote>
+
+    <p> These rules take precedence over everything else so should be used with caution - but with one substantial improvement from the normal I7 &quot;does the player mean rules&quot;: they will never fire unless the player has typed at least one noun signifier. This avoids behaviour like:</p>
+
+    <p><blockquote><span class="indexdullblue"> &gt;SIT<br>
+     (on the wicker chair)</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> &gt;EXAMINE<br>
+     (the wicker chair)</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> &gt;KISS<br>
+     (the wicker chair)</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue">... and so forth.</span></blockquote>
+
+    <p> A second improvement over I7 is a bug-fix: when writing rules for actions such as &quot;put &lt;x&gt; in &lt;x&gt;&quot;, there's no need to remember to write the rule without the first noun: &quot;Disambiguation Control&quot; searches comprehensively across all possible nouns, so will fire rules written as either &quot;put into something&quot; or &quot;put something into something&quot;. (If all that means nothing to you, don't worry, it's only one less thing to worry about.)</p>
+
+    <p> Because these rules are so powerful, they often need quite careful context: not just where the player is and what's happening around him, but also what other options the player might be referring to in the particular input. Several phrases are provided to help with this:</p>
+
+    <p> Firstly, phrases to check whether match list contains certain objects (amongst others)</p>
+
+    <p><blockquote><span class="indexdullblue">... when also considering (a particular object)<br>
+    ... when considering some (things matching a description)</span></blockquote>
+
+    <p> A phrase to test if the match list consists of one specific other thing:</p>
+
+    <p><blockquote><span class="indexdullblue">... when also only considering (a particular object)... (or only also, or only just)</span></blockquote>
+
+    <p> (This condition is good for separating namespace clashes, with rules such as:</p>
+
+    <p> Should the game choose doing something with the lemon when also only considering the lemon grass: it is a good suggestion.)</p>
+
+    <p> We can also check if the match list is entirely contained by some specified set of objects, using the &quot;comparing phrases&quot;:</p>
+
+    <p> One, two or three objects separated by and/or/against...<blockquote><span class="indexdullblue"> Should the game choose when comparing the lemon against the lemon grass:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; it is a good choice.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Should the game choose when comparing the cat against the cat flap + the cat nip:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; it is a good choice.</span></blockquote>
+
+    <p> A description...<blockquote><span class="indexdullblue"> Should the game choose doing something with the plain door when comparing doors:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; it is a good choice.</span></blockquote>
+
+    <p> Note, we either include the action description &quot;doing something with&quot;... or we have no action description, and use &quot;comparing &lt;the thing in question&gt; against &lt;other things&gt;&quot;.</p>
+
+    <p> The &quot;+&quot; separating terms in the comparing phrases is clunky, but using &quot;and&quot; or &quot;or&quot; confuses Inform!</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec8>Section 2.2: Should the game suggest rules (Does the player mean doing something, in general...)</span></b></span></p>
+    </p>
+
+    <p> Consider:</p>
+
+    <p><blockquote><span class="indexdullblue"> Does the player mean taking something heavy: it is unlikely.<br>
+     Does the player mean drinking something liquid: it is likely.</span></blockquote>
+
+    <p> These are rules that reflect elements of the simulation: the player will want to enter enterable things, open closed things, eat edible things, and so forth. &quot;Disambiguation Control&quot; uses this kind of rule to help provide sensible options for the player when guessing, and also to provide the opportunity for some defaulting when the player's ambiguous input has only one sensible meaning.</p>
+
+    <p> The rulebook used for teaching the parser the rules of the world is called the &quot;Should the game suggest&quot; rulebook. It has six outcomes: it is an excellent suggestion, it is a good suggestion, it is a passable suggestion, no opinion, it is a bad suggestion and never. The &quot;excellent&quot; outcome is provided as &quot;slack&quot;: the library does not use them and the author is advised to leave them be. (The more different levels of score there are, the more likely the parser is to find a unique best guess and default without the player understanding what's happened!)</p>
+
+    <p> The following are the rules above, rewritten for use with this extension:</p>
+
+    <p><blockquote><span class="indexdullblue"> Should the game suggest taking something heavy: it is a bad suggestion.<br>
+     Should the game suggest drinking something liquid: it is a good suggestion.</span></blockquote>
+
+    <p> The extension comes preloaded with a set of basic rules covering the usual I7 world model. Here are four rules from within it:</p>
+
+    <p><blockquote><span class="indexdullblue"> Should the game suggest closing an open thing: it is a good suggestion.<br>
+     Should the game suggesting taking a portable thing: it is a passable suggestion.<br>
+     Should the game suggest taking a scenery thing: it is a bad suggestion.<br>
+     Should the game suggest wearing a scenery thing: never.</span></blockquote>
+
+    <p> The parser will either default to a single choice, or offer a list of outcomes, or offer a blank request for more information (&quot;What would do you want to take?&quot;) The rules for how it decides are slightly fiddly, and in this version, not user-configurable. In order to choose which outcomes to provide for any given rules, some rules of thumb are provided below.</p>
+
+    <p> Excellent: Not necessary, probably, but provided as a stepping-stone between actions that should always happen, but that don't take precedence over namespace clashes</p>
+
+    <p> Good: These are the outcomes which will be favoured under normal conditions.</p>
+
+    <p> Passable: This sits just above the default value - this is for action the library wants to leave as a last resort, such as taking things you already have or wearing a hat you've got on your head.</p>
+
+    <p> (Passable is a somewhat odd category - the parser will never offer them to the player when the player has only typed a verb (it would seem strange to suggest the hat on your head is a suitable thing to try and WEAR); but if the player has been more specific then the parser will both offer this as an option, and accept it as a default value.)</p>
+
+    <p> Bad: - the default This covers actions which would look stupid if offered by the game at any time. Taking this as the default prevents the game from offering long lists to open commands (TAKE) but doesn't prevent the player being offered objects he's referenced if there's nothing better (TAKE OAK). The extension includes several of these despite this outcome being the default - a bit of precision was never a bad thing!</p>
+
+    <p> Never: Never actions should be those which have a high cost (damage, death or irrevocable change); actions which away puzzle solutions that the player could solve by accident; and actions involving fake objects which are only there to provide particular responses and don't really exist in the game-world.</p>
+
+    <p> The &quot;Should the game suggest&quot; rules must be extended if the parser is to suggest things which are have meaningful actions outside of the standard model-world rules, typically those handled by Instead and Check rules rather than Carry Out rules; as well as new aspects of simulation added by the author. For example, we might include:</p>
+
+    <p><blockquote><span class="indexdullblue"> Should the game suggest climbing the roses: it is a good suggestion.<br>
+     Should the game suggest opening the newspaper: it is a good suggestion.<br>
+     Should the game suggest pulling a rope: it is a good suggestion.</span></blockquote>
+
+    <p> Note that &quot;excellent&quot; suggestions will beat all those in the library (with the caveat that it has to reach the rule you want it to...)</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec9>Section 2.3: What are we checking for?</span></b></span></p>
+    </p>
+
+    <p> Note that the same rules apply when checking the noun part or the second noun part of the action. Sometimes this doesn't matter - for example, the rule that prevents us trying to put something inside itself applies to both the noun and the second noun part of the phrase. But sometimes, we want a rule only to apply when we're testing a particular part of the phrase.</p>
+
+    <p> We can do this use the conditions &quot;if testing the noun&quot; and &quot;if testing the second noun&quot;. For example, in a game featuring a key kind, the following rules might be added:</p>
+
+    <p><blockquote><span class="indexdullblue"> Should the game suggest unlocking with a key when testing the second noun: it is a good suggestion.<br>
+     Should the game suggest locking with a key when testing the second noun: it is a good suggestion.</span></blockquote>
+
+    <p> Here we need the &quot;if testing the second noun&quot; because if we left it out, the game would assign &quot;good&quot; status to bad action patterns like &quot;lock yourself with brass key&quot; or &quot;unlock apple with brass key&quot;, which ought to be considered poor because of their noun part.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec10>Section 2.4: Use Options to alter the lists produced</span></b></span></p>
+    </p>
+
+    <p> In games with lots of objects, &quot;Disambiguation Control&quot; can lead to very large lists of options, especially in response to blank input lines. We have some mechanisms for controlling this:</p>
+
+    <p><blockquote><span class="indexdullblue"> Use disambiguation list length of at least 4;</span></blockquote>
+
+    <p> Limits the length of the option list produced: if it contains more than 4 items, the game will ask for clarification without offering a list. The default list length is 6. (Note the &quot;at least&quot; is meaningless here - the number is definitely &quot;at most&quot;. Unfortunately, I7's variable use options take this format only.)</p>
+
+    <p><blockquote><span class="indexdullblue"> Use no parser suggestions.</span></blockquote>
+
+    <p> This will prevent blank &quot;guesswork&quot; lines from offering suggestions, so typing a blank &quot;TAKE&quot; will always reply &quot;What do you want to take?&quot; (unless there is one best-guess object, in which case this will be chosen).</p>
+
+    <p><blockquote><span class="indexdullblue"> Use no multiple suggestions.</span></blockquote>
+
+    <p> This prevent &quot;EXAMINE ALL&quot; printing a list of possible things to examine: instead it will always reply &quot;Please be specific - what do you want to examine?&quot;</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec11>Section 2.5: To alter the text of the messages</span></b></span></p>
+    </p>
+
+    <p> Messages used to be stored in a table, but now use the standard Response system. You will probably want to replace one of the responses of the Disambiguation Printing Rule.</p>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec12>Chapter 3: Summary of the Disambiguation Process</span></b></span></p>
+    </p>
+
+    <p><p><span class="indexblack"><b><span id=docsec13>Section 3.1: Guesswork Situations</span></b></span></p>
+    </p>
+
+    <p> For input like</p>
+
+    <p><blockquote><span class="indexdullblue"> &gt;TAKE<br>
+     &gt;DROP<br>
+     &gt;PUT HAT IN</span></blockquote>
+
+    <p> the order of flow is:</p>
+
+    <p> 1) Is there only one object in scope? If so, pick this. 2) Consult the &quot;Should the game suggest&quot; rules. Is there only one object at the best level of suggestion? If so, default? (We never default to &quot;passable&quot; or worse suggestions, however.) 3) Are there several possibilities at a good or better level of suggestion? If so, list them and ask the player for more information. 4) If the best objects are passable or worse, ask generically for more information, but don't print a list. 5) If all the objects are identical and good or better, pick one</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec14>Section 3.2: Ambiguous Input</span></b></span></p>
+    </p>
+
+    <p> For input like</p>
+
+    <p><blockquote><span class="indexdullblue"> &gt;EXAMINE RED<br>
+     &gt;TAKE KEY</span></blockquote>
+
+    <p> where there are multiple objects to which the player may be referring. The order of flow is:</p>
+
+    <p> 1) Is there only one object in scope? If so, pick this. 2) Consult the &quot;should the game choose&quot; rules. Is there an object which is the best choice? If so, default to this. 3) Consult the &quot;Should the game suggest&quot; rules. Remove any &quot;never&quot; objects. If there is now only one object, default to this. 4) If the best objects are bad or worse, ask generically for more information, but don't print a list. 5) If all the objects are identical and passable or better, pick one</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec15>Section 3.3: Unusable Plural Input</span></b></span></p>
+    </p>
+
+    <p> For input like</p>
+
+    <p><blockquote><span class="indexdullblue"> &gt;EXAMINE ALL<br>
+     &gt;PUSH STATUES</span></blockquote>
+
+    <p> the order of flow is:</p>
+
+    <p> 1) If no nouns/adjective have been provided, treat the input as just a verb (guesswork, above) 2) If nouns/adjectives are supplied, treat this as ambiguous input</p>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec16>Chapter 4: Summary of New Rulebooks</span></b></span></p>
+    </p>
+
+    <p><p><span class="indexblack"><b><span id=docsec17>Section 4.1: should the game choose?</span></b></span></p>
+    </p>
+
+    <p> Used to default the parser smoothly, given specific circumstances. Most useful for scripting situations in which a particular ambiguity has a &quot;correct&quot; choice (such as taking the model Eiffel tower, drinking your own beer or climbing the step-ladder rather the ladder in your tights.)</p>
+
+    <p> The &quot;never&quot; outcome will remove the object from all disambiguation lists (under the context of the action).</p>
+
+    <p> Only affects input with some content.</p>
+
+    <p> Take precedence over all other rulebooks which means this rulebook can take precedence over a namespace clash, which make it impossible for the player to try some actions! Use with caution!</p>
+
+    <p> Examples:<blockquote><span class="indexdullblue"> should the game choose drinking my beer: it is a good choice.<br>
+     should the game choose wearing my hat when also considering Lucy's hat: it is a passable choice.<br>
+     should the game choose wearing Lucy's hat when the player cannot see Lucy: it is an excellent choice.<br>
+     should the game choose attacking the vial of poison: never.</span></blockquote>
+
+    <p> When conditions:<blockquote><span class="indexdullblue"> also considering &lt;an item&gt;<br>
+     also considering &lt;some thing matching a description&gt;<br>
+     also only considering &lt;an item, and nothing else&gt;</span></blockquote>
+
+    <p> Outcomes:<blockquote><span class="indexdullblue"> it is an excellent choice<br>
+     it is a good choice<br>
+     it is a passable choice<br>
+     never</span></blockquote>
+
+    <p> (this is probably far more outcomes than anyone would reasonably need, but the slack is there.)</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec18>Section 4.2: Should the game suggest?</span></b></span></p>
+    </p>
+
+    <p> Used to give the parser an idea of what's appropriate in the model world. It's used to streamline the responses given by the parser in response to a verb with no noun qualifiers at all, such as &quot;EXAMINE&quot;, &quot;TAKE&quot; or &quot;PUT CAT IN&quot; (but also &quot;EXAMINE ALL&quot;, &quot;CLIMB ALL&quot;). The rules will be consulted on all objects in scope and objects at the best level of outcome will be collected up.</p>
+
+    <p> Good suggestions will be printed together, and if there's only one it'll be defaulted to. Passable suggestions will never be printed, but if there's only one it'll be defaulted to. Bad and Never suggestions will not be printed or defaulted to.</p>
+
+    <p> The suggest rules are also used when the player has given the game some information: they take a lower priority than the &quot;choose&quot; rules, and act as a sanity check. The only difference is that passage and bad suggestions will be listed on-screen, however, bad choices will never be defaulted to.</p>
+
+    <p> Note that objects not matching any rules will be given a default value that sits between &quot;passable&quot; and &quot;bad&quot;, but will share list/default properties with the category *below* them.</p>
+
+    <p> Examples:</p>
+
+    <p><blockquote><span class="indexdullblue"> Should the game suggest playing a musical instrument: it is a good suggestion.<br>
+     Should the game suggest taking the castle: it is a good suggestion.<br>
+     Should the game suggest entering the crossword competition: it is a good suggestion.</span></blockquote>
+
+    <p> For actions which should be offered because, although they're not great, they make more sense than the alternative:<blockquote><span class="indexdullblue"> Should the game try wearing something wearable when the player is wearing the noun: it is a passable suggestion.<br>
+     Should the game try tying a knotted knot: it is a passable suggestion.</span></blockquote>
+
+    <p> For actions which could be offered to the player if he asked for them, but should not be defaulted to because they're dangerous<blockquote><span class="indexdullblue"> Should the game suggest taking something flaming: it is a bad suggestion.</span></blockquote>
+
+    <p> For actions that should never be offered to the player under any circumstances:<blockquote><span class="indexdullblue"> Should the game suggest taking your nose: never.<br>
+     Should the game suggest unlocking the door with the hairpin: never.</span></blockquote>
+
+    <p> Outcomes:<blockquote><span class="indexdullblue"> it is an excellent suggestion<br>
+     it is a good suggestion<br>
+     it is a passable suggestion<br>
+     it is a bad suggestion<br>
+     never</span></blockquote>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec19>Chapter 5: Thanks, Notes and Limitations</span></b></span></p>
+    </p>
+
+    <p><p><span class="indexblack"><b><span id=docsec20>Section 5.1: Thanks</span></b></span></p>
+    </p>
+
+    <p> Disambiguation is built in, on and out of Graham Nelson's I6 parser, an intricately complicated machine. This extension begs, borrows and cuts-and-pastes extensively. The code may work, but in no way does it detract from the major achievement that the original library represents.</p>
+
+    <p> Thanks for Eric Eve and Ron Newcomb for feedback and suggestions.</p>
+
+    <p> Matt Weiner and Daniel Stelzer updated this extension for version 6L02.</p>
+
+    <p> Matt Weiner updated this extension for version 6M62 (I believe this should be backward compatible to 6L02).</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec21>Section 5.2: Notes and Limitations</span></b></span></p>
+    </p>
+
+    <p> The various rules in this extension will get called repeatedly on a turn. Needless to say, they should not attempt to say anything, and cannot be used reliably to track or reference variables.</p>
+
+    <p> The phrase &quot;when comparing &lt;a thing&gt; against &lt;something else&gt;&quot; isn't much good when talking about classes of objects, because everything thing must be a thing, not a description! You should be able to create any tests with classes using the &quot;considering&quot; rules, but you might have to be careful to catch the situation you want. (See the &quot;Scrumping&quot; example for a demonstration of disambiguating between a kind and a specific thing.)</p>
+
+    <p> The multiple action support only works for &quot;all&quot;, not for specific numbers: so &quot;EXAMINE ALL APPLES&quot; (or just &quot;EXAMINE APPLES&quot;) will be handled, but &quot;EXAMINE TWO APPLES&quot; won't be. (This is because Inform wants to treat &quot;two&quot; as an adjective rather than a quantifier in non-multiple actions: I may look into this at some point, but for now, consider it a drawback.)</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec22>Section 5.3: Feedback</span></b></span></p>
+    </p>
+
+    <p> If you have comments, suggestions, questions or bugs please contact Matt Weiner at matt@mattweiner.net.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec23>Section 5.4: Changelog</span></b></span></p>
+    </p>
+
+    <p> Version 6 - Updated to compile with 6E59.</p>
+
+    <p> Version 7 - Small fix for an error with rebuilding the input line after querying the second noun when the first noun was an object picked from a set of identical objects.</p>
+
+    <p> - FIx for failing to parse the word &quot;her&quot;: the system was interpreting this as a possessive, missing extra information. It now changes its mind if the &quot;indef_possambig&quot; flag is true, mimicking what the standard parser does.</p>
+
+    <p> Version 8 - Attempt by Matt Weiner and Daniel Stelzer to adapt extension for 6L02.</p>
+
+    <p> - Changed deprecated phrase &quot;End the game in victory&quot; in example &quot;Scrumping&quot;. - Replaced table of messages with standard responses.</p>
+
+    <p> Version 9/171416 - Attempt by Matt Weiner to adapt extension for 6M62.</p>
+
+    <p> - Changed every instance of &quot;yes&quot; and &quot;no&quot; in a To decide if phrase to &quot;decide yes&quot; and &quot;decide no.&quot; - Changed the feedback address from Jon's to Matt's.</p>
+
+    <p> Version 10/171416</p>
+
+    <p> - Eliminated the bypass disambiguation rulebook, which has never worked, and which inteferes with legal use of &quot;yes&quot; and &quot;no&quot; in other phrases.</p>
+
+    <p><hr>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td halign="left" valign="top" cellpadding=0 cellspacing=0 width=38px>
+                <span id=eg1><table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="oval">
+                        <td width=38px height=30px align="left" valign="center">
+                            <a href="Disambiguation Control-eg1.html#eg1" style="text-decoration: none"><div class="paragraph Body" style="line-height: 1px; margin-bottom: 0px; margin-top: 0px; padding-bottom: 0pt; padding-top: 0px; text-align: center;">
+                                <span class="extensionexampleletter">A</span></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                </span>
+            </td>
+            <td cellpadding=0 cellspacing=0 halign="left" valign="top">
+                <a href="Disambiguation Control-eg1.html#eg1" style="text-decoration: none"><img border="0" src='inform:/doc_images/asterisk.png'><b><span class="indexdarkgrey">&nbsp;Example&nbsp;</span><span class="indexblack">Keys and Locks</span></b></a><br>
+                <p>A quick example showing how to make keys and locks that the parser prefers to choose</p>
+
+            </td>
+        </tr>
+    </table>
+    </p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p><hr>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td halign="left" valign="top" cellpadding=0 cellspacing=0 width=38px>
+                <span id=eg2><table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="oval">
+                        <td width=38px height=30px align="left" valign="center">
+                            <a href="Disambiguation Control-eg2.html#eg2" style="text-decoration: none"><div class="paragraph Body" style="line-height: 1px; margin-bottom: 0px; margin-top: 0px; padding-bottom: 0pt; padding-top: 0px; text-align: center;">
+                                <span class="extensionexampleletter">B</span></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                </span>
+            </td>
+            <td cellpadding=0 cellspacing=0 halign="left" valign="top">
+                <a href="Disambiguation Control-eg2.html#eg2" style="text-decoration: none"><img border="0" src='inform:/doc_images/asterisk.png'><b><span class="indexdarkgrey">&nbsp;Example&nbsp;</span><span class="indexblack">Scrumping</span></b></a><br>
+                <p>An example demonstrating multiple actions, suggestions and defaults</p>
+
+            </td>
+        </tr>
+    </table>
+    </p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p><hr>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td halign="left" valign="top" cellpadding=0 cellspacing=0 width=38px>
+                <span id=eg3><table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="oval">
+                        <td width=38px height=30px align="left" valign="center">
+                            <a href="Disambiguation Control.html#eg3" style="text-decoration: none"><div class="paragraph Body" style="line-height: 1px; margin-bottom: 0px; margin-top: 0px; padding-bottom: 0pt; padding-top: 0px; text-align: center;">
+                                <span class="extensionexampleletter">C</span></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                </span>
+            </td>
+            <td cellpadding=0 cellspacing=0 halign="left" valign="top">
+                <a href="Disambiguation Control.html#eg3" style="text-decoration: none"><img border="0" src='inform:/doc_images/asterisk.png'><b><span class="indexdarkgrey">&nbsp;Example&nbsp;</span><span class="indexblack">Pile of Bricks</span></b></a><br>
+                <p>an example showing a pile of objects from which an individual object can be taken (which is a common cause of namespace clashes).</p>
+
+            </td>
+        </tr>
+    </table>
+    <table border="0" cellspacing="0" cellpadding="0" class="extensionexample" width=100%>
+        <tr>
+            <td align="left" valign="top">
+                <p></p>
+
+                <p><a href="javascript:pasteCode('[=0x000A=][=0x000A=][=0x0022=]Pile of Bricks[=0x0022=][=0x000A=][=0x000A=]Include Disambiguation Control by Jon Ingold.[=0x000A=][=0x000A=]The Building Site is a room. In the building site is a pile of bricks.[=0x000A=][=0x000A=]The brick is a thing.[=0x000A=][=0x000A=]Instead of climbing or entering the pile of bricks:[=0x000A=][=0x0009=]say [=0x0022=]You[=0x0027=]d break your neck if you climbed up the bricks.[=0x0022=][=0x000A=][=0x000A=]Instead of taking the pile of bricks when the brick is on-stage:[=0x000A=][=0x0009=]say [=0x0022=]You[=0x0027=]ve already got a brick.[=0x0022=][=0x000A=][=0x000A=]Instead of taking the pile of bricks:[=0x000A=][=0x0009=]move the brick to the player;[=0x000A=][=0x0009=]say [=0x0022=]You take a brick from the pile.[=0x0022=][=0x000A=][=0x000A=]Understand [=0x0022=]brick[=0x0022=] as the pile of bricks.[=0x000A=][=0x000A=]Should the game suggest when comparing the pile of bricks against the brick (this is the pick the brick over the pile of bricks under all straight face-offs rule): never.[=0x000A=][=0x000A=]Should the game suggest entering or climbing the pile of bricks when also only considering the brick (this is the we can climb up the pile of bricks rule): it is a good suggestion.[=0x000A=][=0x000A=]Test me with [=0x0022=]take brick / take brick / drop brick / take brick / enter brick / take pile of bricks[=0x0022=].[=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a></p>
+
+                <p><blockquote><span class="indexdullblue"> &quot;Pile of Bricks&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Include Disambiguation Control by Jon Ingold.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The Building Site is a room. In the building site is a pile of bricks.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The brick is a thing.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Instead of climbing or entering the pile of bricks:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; say &quot;You'd break your neck if you climbed up the bricks.&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Instead of taking the pile of bricks when the brick is on-stage:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; say &quot;You've already got a brick.&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Instead of taking the pile of bricks:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; move the brick to the player;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; say &quot;You take a brick from the pile.&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Understand &quot;brick&quot; as the pile of bricks.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Should the game suggest when comparing the pile of bricks against the brick (this is the pick the brick over the pile of bricks under all straight face-offs rule): never.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Should the game suggest entering or climbing the pile of bricks when also only considering the brick (this is the we can climb up the pile of bricks rule): it is a good suggestion.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Test me with &quot;take brick / take brick / drop brick / take brick / enter brick / take pile of bricks&quot;.</span></blockquote>
+
+                <p></p>
+
+            </td>
+        </tr>
+    </table>
+    </p>
+
+    <p>
+    <!--CONTENT ENDS-->
+</body>
+</html>

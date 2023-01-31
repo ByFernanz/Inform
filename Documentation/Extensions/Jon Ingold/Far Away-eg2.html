@@ -1,0 +1,1049 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Extension</title>
+    <style type="text/css">
+        <!--
+        /* The default font (family) and size */
+
+        body, p, td {
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.8rem; /* 100/125 */
+        }
+
+        /* For fixed-point material within text, such as the typing on the Library Card index page */
+
+        span.typewritten {
+        	font-family: monospace;
+        	font-size: 0.867rem; /* 13/12 * 100/125 */
+        }
+
+        /* For less important material: the small print */
+
+        span.smaller {
+        	font-size: 80%;
+        }
+
+        /* The "heading panel" is the coloured box, high up on the page. The colours
+        vary depending on the page: for example, the style on a report of a translation
+        with no problems is "headingpanelsucceeded", usually green, but if there were
+        problems then "headingpanelfailed" is used, which is usually red. "headingpanel"
+        itself is a more neutral grey by default. "headingpanelDark" is an alternative
+        look to make the extensions index pages have some visual contrast with the others;
+        by default they are a darker grey. */
+
+        .headingpanel {
+        	background: #eeeeee;
+        }
+        .headingpanelsucceeded {
+        	background: #E6FFE6;
+        }
+        .headingpanelfailed {
+        	background: #f69Ca6;
+        }
+        .headingpanelalt {
+        	background: #808080;
+        }
+
+        /* Heading panels have two lines of text: an upper one in a larger size, and a
+        lower one in a smaller. Again, the alt versions are meant to contrast.
+
+        	Report on Translation: Succeeded                <-- headingpaneltext
+        	Produced by Inform 10.1.0 (build 6U97)          <-- headingpanelrubric
+
+        	Installed Extensions                            <-- headingpaneltextalt
+        	Bundles of extra rules or phrases to...         <-- headingpanelrubricalt
+
+        */
+
+        span.headingpaneltext {
+        	color: #222222;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+        span.headingpaneltextalt {
+        	color: #ffffff;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        span.headingpanelrubric {
+        	color: #222222;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.733rem; /* 11/12 * 100/125 */
+        	font-weight: bold;
+        }
+        span.headingpanelrubricalt {
+        	color: #ffffff;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.733rem; /* 11/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* Horizontal rule styling */
+
+        div.hr {
+        	border: 0;
+        	width: 100%;
+        	color: #707070;
+        	background-color: #707070;
+        	height: 5px;
+        }
+
+        /* This styles the (usually white) text of the example numbers written inside
+        oval blobs in the extension documentation, which mimic the look of the in-app
+        documentation. */
+
+        .oval, .oval td {
+        	background-image:url('inform:/doc_images/ovoid.png');
+        	color:white;
+        }
+
+        /* Styling used in the extension documentation indexes: */
+
+        /* Used for extension names in the extensions pane of the app */
+
+        span.extensioncensusentry {
+        	color: #ffffff;
+        }
+
+        span.extensionindexentry {
+        	color: #404040;
+        }
+
+        span.extensionindexerror {
+        	color: #ff8080;
+        }
+
+        /* This is used in extension documentation, where an example is presented
+        in a slightly tinted box: */
+
+        table.extensionexample {
+        	background-color: #f0f0f0;
+        }
+
+        span.extensionexampleletter {
+        	color: #202020;
+        	font-size: 14px;
+        	font-weight: bold;
+        }
+
+        /* Seen in problem messages: */
+
+        span.problemred {
+        	color: #800000;
+        }
+
+        span.problemgreen {
+        	color: #008000;
+        }
+
+        span.phraseword {
+        	color: #808080;
+        }
+
+        span.phrasetokentext {
+        	color: #e00060;
+        }
+
+        span.phrasetokendesctext {
+        	color: #4040ff;
+        }
+
+        span.phrasetokenvaluetext {
+        	color: #ff4040;
+        }
+
+        /* Now we move on to styling used in the Index pages only: */
+
+        /* The periodic table display has "sidebars", usually grey and taller than they
+        are wide; they contain no text. */
+
+        div.periodictablesidebarcolour {
+        	background: #888;
+        }
+        div.periodictablesidebar:hover {
+        	background: #222;
+        }
+
+        /* The text of the element-abbreviation, such as "Lx" or "Ph", uses: */
+
+        span.elementtext {
+        	color: #ffffff;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* Similarly for the "atomic number" - a single digit - in the top left corner
+        of these boxes: */
+
+        span.elementnumbertext {
+        	color: #ffffff;
+        	font-size: 0.622rem; /* 7/12 * 96/72 * 100/125 */
+        }
+
+        /* For the text of the element title, to the right of the element box: */
+
+        span.elementtitletext {
+        	color: #ffffff;
+        	font-size: 0.6rem; /* 9/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* The banner at the top of each element: */
+
+        table.elementbanner {
+        	background: #eeeeee;
+        }
+
+        /* For the typewriting on the Library Card: */
+
+        span.librarycardtitle {
+        	color: #803030;
+        }
+
+        span.librarycardother {
+        	color: #303030;
+        }
+
+        /* Generically used for "more details" boxes in the index: */
+
+        table.indexmorebox {
+        	background-color: #e0e0e0;
+            border-radius: 8px;
+        }
+
+        /* But not for activity contents: */
+
+        table.indexactivitycontents {
+        	background-color: #e8e0c0;
+            border-radius: 8px;
+        }
+
+        /* For responses in index entries about rules: */
+
+        span.indexresponseletter {
+        	color: #ffffff;
+        	font-family: 'Courier New', Courier, monospace;
+        	background-color: #8080ff;
+        }
+
+        span.indexresponsetext {
+        	color: #000066;
+        }
+
+        /* Used ubiquitously throughout the index and extension documentation: */
+
+        span.indexblack {
+        	color: #000000;
+        }
+
+        span.indexgrey {
+        	color: #808080;
+        }
+
+        span.indexdarkgrey {
+            color: #505050;
+        }
+
+        span.indexdullred {
+        	color: #800000;
+        }
+
+        span.indexdullgreen {
+        	color: #008000;
+        }
+
+        span.indexdullblue {
+        	color: #000080;
+        }
+
+        /* Used for the room squares in the World map in the Index (which is currently
+        a table with one row of one column) */
+
+        table.indexmaproom {
+        	border-color: #000000;
+        }
+
+        /* Used in the numbering of levels of the World map in the Index */
+
+        span.indexmaplevelnumbers {
+        	color: #c0c0c0;
+        }
+
+        /* Used e.g. for title rows in the Chart of basic kinds in the Index */
+
+        tr.headingrow {
+        	background-color: #e0e0e0;
+        }
+
+        /* Standard rows have black text on striped background colours, these being
+        the usual ones seen in Mac OS X applications such as iTunes. */
+
+        tr.stripeone {
+        	background-color: #ffffff;
+        }
+
+        tr.stripetwo {
+        	background-color: #f3f6fa;
+        }
+
+        tr.tintedrow {
+        	background-color: #808080;
+        }
+
+        /* In the Figures index, this is the background colour used behind images
+        (though in fact it will only be visible if the image fails to load, or uses
+        transparency): */
+
+        div.figureindexbox {
+        	background-color: #6495ed;
+        }
+
+        /* To get the book-contents-page style leaders on the Contents element of
+           the index to work, these must use the background colour of the body of
+           the page, whatever that is: */
+
+        ul.leaders li.leaded span:first-child {
+        	background: white;
+        }
+        ul.leaders li.leaded span + span {
+        	background: white;
+        }
+
+        /* On Registry index pages (such as the Public Library), these are used for
+        download buttons and the like: */
+
+        span.registrybuttontext {
+        	font-size: 11px;
+        	border-color: #000000;
+        }
+
+        span.registryminibuttontext {
+        	font-size: 10px;
+        	border-color: #000000;
+        }
+
+        span.registrybuttonuninstalled {
+        	color: #000000;
+        	background: #ffffdd;
+        }
+
+        span.registrybuttoninstalled {
+        	color: #000000;
+        	background: #ffffff;
+        	pointer-events: none;
+        }
+
+        span.registrybuttonbuiltin {
+        	color: #888888;
+        	background: #ffffff;
+        	pointer-events: none;
+        }
+
+        span.registrybuttonupdate {
+        	color: #000000;
+        	background: #aaddff;
+        }
+
+        span.registrybuttonrevert {
+        	color: #000000;
+        	background: #ddaaff;
+        }
+
+        span.registrybuttonrevealer {
+        	color: #ffffff;
+        	background: #444444;
+        }
+
+        /* Registry index section headings: */
+
+        span.registrysectionname {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 16px;
+        	line-height: 18px;
+        }
+        span.registrysubsectionname {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 14px;
+        	line-height: 16px;
+        }
+
+        /* These are for the "mark" for a section, usually a section-symbol and number */
+
+        span.registrysectionmark {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 16px;
+        	line-height: 18px;
+        	color: #666;
+        }
+        span.registrysubsectionmark {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 14px;
+        	line-height: 16px;
+        	color: #666;
+        }
+
+        /* Text of an item listed in a registry: */
+
+        span.registryitemtext {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 12px;
+        	line-height: 16px;
+        }
+
+        /* And how the links in a registry index page behave: */
+
+        a.registrysilentlink {
+        	text-decoration: none;
+        	color: #000;
+        }
+        a.registrybuttonlink {
+        	text-decoration: none;
+        }
+        a.registrycontentslink:link {
+        	text-decoration: none;
+        	color: #202020;
+        }
+        a.registrycontentslink:visited {
+        	text-decoration: none;
+        	color: #202020;
+        }
+        a.registrycontentslink:hover {
+        	text-decoration: none;
+        	color: #D00000;
+        }
+        a.registrycontentslink:active {
+        	text-decoration: none;
+        	color: #D00000;
+        }
+
+        -->
+    </style>
+    <style type="text/css">
+        <!--
+        /* (1) General layout material */
+
+        *, *:before, *:after {
+        	-moz-box-sizing: border-box;
+        	-webkit-box-sizing: border-box;
+        	box-sizing: border-box;
+        }
+        .headingpanellayout {
+        	position: relative;
+        	height: 56px;
+        	padding: 0px;
+        	white-space:nowrap;
+        }
+        .headingpanellayoutdeeper {
+        	position: relative;
+        	height: 117px;
+        	padding: 0px;
+        	white-space:nowrap;
+        }
+        .headingtext {
+        	position: absolute;
+        	top: -4px;
+        	left: -1px;
+        	width: 100%;
+        	padding: 14px 10px 0px 10px;
+        }
+        .headingrubric {
+        	position: absolute;
+        	top: 36px;
+        	width: 100%;
+        	padding: 0px 10px 0px 10px;
+        }
+        h3.tighter {
+        	margin-top: 0px;
+        }
+        p.hang {
+        	padding-left: 25px;
+        	text-indent: -25px;
+        	margin-top: 0px;
+        	margin-bottom: 0px;
+        }
+        p.in1 {
+        	padding-left: 0px;
+        }
+        p.tightin1 {
+        	padding-left: 0px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin1 {
+        	padding-left: 0px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin1 {
+        	padding-left: 50px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in2 {
+        	padding-left: 25px;
+        }
+        p.tightin2 {
+        	padding-left: 25px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin2 {
+        	padding-left: 25px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin2 {
+        	padding-left: 75px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in3 {
+        	padding-left: 50px;
+        }
+        p.tightin3 {
+        	padding-left: 50px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin3 {
+        	padding-left: 50px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin3 {
+        	padding-left: 100px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in4 {
+        	padding-left: 75px;
+        }
+        p.tightin4 {
+        	padding-left: 75px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin4 {
+        	padding-left: 75px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin4 {
+        	padding-left: 125px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in5 {
+        	padding-left: 100px;
+        }
+        p.tightin5 {
+        	padding-left: 100px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin5 {
+        	padding-left: 100px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin5 {
+        	padding-left: 150px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in6 {
+        	padding-left: 125px;
+        }
+        p.tightin6 {
+        	padding-left: 125px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin6 {
+        	padding-left: 125px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin6 {
+        	padding-left: 175px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in7 {
+        	padding-left: 150px;
+        }
+        p.tightin7 {
+        	padding-left: 150px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin7 {
+        	padding-left: 150px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin7 {
+        	padding-left: 200px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in8 {
+        	padding-left: 175px;
+        }
+        p.tightin8 {
+        	padding-left: 175px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin8 {
+        	padding-left: 175px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin8 {
+        	padding-left: 225px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in9 {
+        	padding-left: 200px;
+        }
+        p.tightin9 {
+        	padding-left: 200px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin9 {
+        	padding-left: 200px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin9 {
+        	padding-left: 250px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+
+        /* (2) Index page layout material */
+
+        /* The periodic table display has "sidebars", usually grey and taller than they
+        are wide; they contain no text. */
+
+        div.periodictablesidebar {
+        	height: 56px;
+        	width: 16px;
+        }
+        .periodictablesidebar a:link { text-decoration: none; }
+        .periodictablesidebar a:visited { text-decoration: none; }
+        .periodictablesidebar a:active { text-decoration: none; }
+
+        /* The "element boxes" are the cells appearing in the periodic-table display
+        on the welcome page of the index: */
+
+        .elementbox {
+        	position: relative;
+        	height: 56px;
+        	width: 56px;
+        	padding: 0px;
+        }
+
+        .elementbox a:link { text-decoration: none; }
+        .elementbox a:visited { text-decoration: none; }
+        .elementbox a:active { text-decoration: none; }
+        .elementbox a:hover { text-decoration: none; }
+        .elementbox:hover {
+        	opacity: 0.6;
+        }
+
+        /* The "small element boxes" look like those, but are smaller, and used on
+        the headings of the content which those original boxes link to: */
+
+        .smallelementbox {
+        	position: relative;
+        	height: 40px;
+        	width: 40px;
+        	padding: 0px;
+        }
+
+        .smallelementbox a:link { text-decoration: none; }
+        .smallelementbox a:visited { text-decoration: none; }
+        .smallelementbox a:active { text-decoration: none; }
+        .smallelementbox a:hover { text-decoration: none; }
+        .smallelementbox:hover {
+        	opacity: 0.6;
+        }
+
+        /* This is a class for the links formed by the element boxes: */
+
+        a.elementlink {
+        	position: absolute;
+        	top: -4px;
+        	left: -1px;
+        	width: 100%;
+        	padding: 14px 0px 14px 1px;
+        	text-align: center;
+        }
+
+        /* Similarly for the "atomic number" - a single digit - in the top left corner
+        of these boxes: */
+
+        div.elementnumber {
+        	position: absolute;
+        	top: 1px;
+        	left: 3px;
+        	text-align: left;
+        }
+
+        /* For the text of the element title, to the right of the element box: */
+
+        div.elementtitle {
+        	position: absolute;
+        	top: 35px;
+        	width: 100%;
+        	text-align: center;
+        }
+
+        /* Used for the book-contents-page style leaders on the Contents element of
+           the index: */
+
+        ul.leaders {
+        	padding: 0;
+        	margin-top: 1px;
+        	margin-bottom: 0;
+        	overflow-x: hidden;
+        	list-style: none}
+        ul.leaders li.leaded:before {
+        	float: left;
+        	width: 0;
+        	white-space: nowrap;
+        	content:
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "}
+        ul.leaders li.leaded span:first-child {
+        	padding-right: 0.33em;
+        }
+        ul.leaders li.leaded span + span {
+        	float: right;
+        	padding-left: 0.33em;
+        }
+        li.indent1 span:first-child {
+        	padding-left: 25px;
+        }
+        li.indent2 span:first-child {
+        	padding-left: 50px;
+        }
+        li.indent3 span:first-child {
+        	padding-left: 75px;
+        }
+        li.indent4 span:first-child {
+        	padding-left: 100px;
+        }
+        li.indent5 span:first-child {
+        	padding-left: 125px;
+        }
+        li.indent6 span:first-child {
+        	padding-left: 150px;
+        }
+        li.indent7 span:first-child {
+        	padding-left: 175px;
+        }
+        li.indent8 span:first-child {
+        	padding-left: 200px;
+        }
+        li.indent9 span:first-child {
+        	padding-left: 225px;
+        }
+
+        li.unleaded:before {
+        	content: "";
+        }
+
+        /* On Registry index pages (such as the Public Library), these are used for
+        download buttons and the like: */
+
+        span.registrybuttons {
+        	height: 20px;
+        	padding: 2px 8px 2px 8px;
+        	margin: 2px;
+        	border:1px solid;
+        	border-radius: 5px;
+        }
+
+        span.registryminibuttons {
+        	height: 14px;
+        	padding: 2px 5px 2px 5px;
+        	margin: 2px;
+        	border:1px solid;
+        	border-radius: 4px;
+        }
+
+        /* Used to hide or display sections in the Registry pages: */
+
+        div.registrysectionitemsopen {
+        	display: block;
+        }
+
+        div.registrysectionitemsclosed {
+        	display: none;
+        }
+
+        /* Hanging indentation for Registry item paragraphs: */
+
+        p.registryitem {
+        	padding-left: 80px;
+        	text-indent: -40px;
+        }
+
+        p.registryaddition {
+        	padding-left: 40px;
+        	text-indent: -40px;
+        }
+
+        -->
+    </style>
+    <script type="text/javascript">
+        function project() {
+            return window.Project;
+        }
+        function showExtra(id, imid) {
+        	if (document.getElementById(id).style.display == 'block') {
+        		document.getElementById(id).style.display = 'none';
+        		document.getElementById(imid).src = 'inform:/extra.png';
+        	} else {
+        		document.getElementById(id).style.display = 'block';
+        		document.getElementById(imid).src = 'inform:/extraclose.png';
+        	}
+        }
+        function openExtra(id, imid) {
+        	document.getElementById(id).style.display = 'block';
+        	document.getElementById(imid).src = 'inform:/extraclose.png';
+        }
+        function closeExtra(id, imid) {
+        	document.getElementById(id).style.display = 'none';
+        	document.getElementById(imid).src = 'inform:/extra.png';
+        }
+        function pasteCode(code) {
+            var myProject = project();
+
+            myProject.selectView('source');
+            myProject.pasteCode(code);
+        }
+
+    </script>
+</head>
+<body>
+    <!--CONTENT BEGINS-->
+    <table CELLPADDING=0 CELLSPACING=0 width="100%" bgcolor="#000000"><tr><TD width=38px height=26px align="center" valign="center"><a href="inform://Extensions/Extensions.html" border=0><img border=0 src="inform:/doc_images/Hookindex.png" border=0></a></td><TD width=38px height=26px align="center" valign="center"></td><td halign="left" valign="center" CELLPADDING=0 CELLSPACING=0><font color="#FFFFFF" size=2>Extensions</font></a></td><TD width=56px height=26px align="right" valign="center"><a href="inform:/index.html" border=0><img border=0 src="inform:/doc_images/Hookup.png" border=0></a></td></tr></table>
+
+    <p><a href="javascript:pasteCode('Include Far Away by Jon Ingold.[=0x000A=][=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a>&nbsp;<b>Far Away<span class="extensionindexentry"> by </span>Jon Ingold</b></p>
+    <p><span class="smaller">Version 5.0.160517</span></p>
+    <p>Creates an adjective for far-off items which cannot be touched.</p>
+    <p></p>
+    </p>
+
+    <p> A simple extension providing for things out of reach. A check is performed between the Before and Instead phases of the action (more specifically, between &quot;visibility&quot; and &quot;touchability&quot; are performed). The extension provides an adjective, &quot;distant&quot;, for inaccessible objects (with antonym &quot;near&quot;). A distant object will be too far away to touch, as will anything it encloses (contents or parts). The appropriate error is printed by the distant stuff rulebook, which can also allow distant stuff to be interacted with, if it wants to, by including new rules.</p>
+
+    <p> A circus game might need the following, for example:</p>
+
+    <p><blockquote><span class="indexdullblue"> A distant stuff rule when the player is wearing stilts: rule succeeds.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> A distant stuff rule for the safety net when the player is wearing stilts: say &quot;You bought the best stilts you could afford but you're lower than the safety net.&quot;; rule fails.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> A distant stuff rule for the trapeze wire when the player is wearing stilts: say &quot;You bought the best stilts you could afford but you're lower than the safety net, let alone the high wire.&quot;; rule fails.</span></blockquote>
+
+    <p> The rulebook is called &quot;for&quot; objects (it's an object-based-rulebook) which have been deemed to be too far away, either by being distant themselves or by being enclosed by something distant. &quot;Rule succeeds&quot; indicates the object should not be considered out of reach. &quot;Rule fails&quot; will stop the action in its tracks.</p>
+
+    <p> Other characters are bound by the same basic rules as the player: if attempting to take an unreachable object the game will respond with the default message &quot;[The person asked] is unable to do that&quot;. This can be intercepted either by Before rules:</p>
+
+    <p><blockquote><span class="indexdullblue"> Before asking Will to jump over the moon, say &quot;'I'm that happy I could jump over the sun!' Will exclaims rather stupidly.&quot;</span></blockquote>
+
+    <p> or by distant stuff rules:</p>
+
+    <p><blockquote><span class="indexdullblue"> A distant stuff rule for something enclosed by the top shelf when the person asked is Will:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; say &quot;(Will is six-foot-nine and high-up things are no problem for him.)[line break]&quot;;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; rule succeeds.</span></blockquote>
+
+    <p> Note, however, that the Instead entrypoint is too late and the distant check will have already happened.</p>
+
+    <p> A rule can decide if it should be saying something when failing by testing &quot;if reporting errors&quot; - this is safer than just printing, as the accessibility rules are also called during visibility checks.</p>
+
+    <p> Finally, the game provides the condition &quot;far off&quot; for objects which are considered out of reach - remember, these may be distant, or they may be parts/contents of distant stuff.</p>
+
+    <p><hr>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td halign="left" valign="top" cellpadding=0 cellspacing=0 width=38px>
+                <span id=eg1><table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="oval">
+                        <td width=38px height=30px align="left" valign="center">
+                            <a href="Far Away-eg1.html#eg1" style="text-decoration: none"><div class="paragraph Body" style="line-height: 1px; margin-bottom: 0px; margin-top: 0px; padding-bottom: 0pt; padding-top: 0px; text-align: center;">
+                                <span class="extensionexampleletter">A</span></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                </span>
+            </td>
+            <td cellpadding=0 cellspacing=0 halign="left" valign="top">
+                <a href="Far Away-eg1.html#eg1" style="text-decoration: none"><img border="0" src='inform:/doc_images/asterisk.png'><img border="0" src='inform:/doc_images/asterisk.png'><b><span class="indexdarkgrey">&nbsp;Example&nbsp;</span><span class="indexblack">Christmas Morning</span></b></a><br>
+                <p>A simple example of distance, and how to overcome it.</p>
+
+            </td>
+        </tr>
+    </table>
+    </p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p><hr>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td halign="left" valign="top" cellpadding=0 cellspacing=0 width=38px>
+                <span id=eg2><table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="oval">
+                        <td width=38px height=30px align="left" valign="center">
+                            <a href="Far Away.html#eg2" style="text-decoration: none"><div class="paragraph Body" style="line-height: 1px; margin-bottom: 0px; margin-top: 0px; padding-bottom: 0pt; padding-top: 0px; text-align: center;">
+                                <span class="extensionexampleletter">B</span></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                </span>
+            </td>
+            <td cellpadding=0 cellspacing=0 halign="left" valign="top">
+                <a href="Far Away.html#eg2" style="text-decoration: none"><img border="0" src='inform:/doc_images/asterisk.png'><img border="0" src='inform:/doc_images/asterisk.png'><img border="0" src='inform:/doc_images/asterisk.png'><b><span class="indexdarkgrey">&nbsp;Example&nbsp;</span><span class="indexblack">Starfield Dome</span></b></a><br>
+                <p>a more complicated example, with an NPC, and various entrypoints used.</p>
+
+            </td>
+        </tr>
+    </table>
+    <table border="0" cellspacing="0" cellpadding="0" class="extensionexample" width=100%>
+        <tr>
+            <td align="left" valign="top">
+                <p></p>
+
+                <p><blockquote><span class="indexdullblue"><a href="javascript:pasteCode('[=0x0022=]The Starfield Dome[=0x0022=][=0x000A=][=0x000A=]Include Far Away by Jon Ingold.[=0x000A=][=0x000A=]The Starfield Dome is a room. [=0x0022=]A wide dome, offering a view of the heavens above. The stars are out in all their glory, beautiful and clear[if the glass dome is open]. The open dome gives you an unfiltered view, but with the wind you are shivering[end if][if the player is flying] and close enough to touch[otherwise] - down here on earth, everything[=0x0027=]s a bit too dark for comfort[end if].[=0x0022=][=0x000A=][=0x000A=]The glass dome is a distant transparent container in the Dome. The glass dome is scenery. It has description [=0x0022=][if open]The glass of the dome has peeled back, to let in the wind and the light[otherwise]The dome is made of geodesic sections, and beyond it are the stars[end if]. A series of pylons form the supports of the dome, and in the apex of these is a small release button.[=0x0022=][=0x0009=]The glass dome can be open or closed.[=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a> &quot;The Starfield Dome&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Include Far Away by Jon Ingold.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The Starfield Dome is a room. &quot;A wide dome, offering a view of the heavens above. The stars are out in all their glory, beautiful and clear[if the glass dome is open]. The open dome gives you an unfiltered view, but with the wind you are shivering[end if][if the player is flying] and close enough to touch[otherwise] - down here on earth, everything's a bit too dark for comfort[end if].&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The glass dome is a distant transparent container in the Dome. The glass dome is scenery. It has description &quot;[if open]The glass of the dome has peeled back, to let in the wind and the light[otherwise]The dome is made of geodesic sections, and beyond it are the stars[end if]. A series of pylons form the supports of the dome, and in the apex of these is a small release button.&quot; The glass dome can be open or closed.</span></blockquote>
+
+                <p> The following details are part of the dome. They don't need to be separately declared 'distant' - they adopt this from the glass dome.</p>
+
+                <p><blockquote><span class="indexdullblue"><a href="javascript:pasteCode('Some heavens are part of the glass dome. Understand [=0x0022=]star[=0x0022=], [=0x0022=]stars[=0x0022=], [=0x0022=]heaven[=0x0022=], [=0x0022=]sky[=0x0022=], [=0x0022=]up[=0x0022=] as the heavens. The description of the heavens is [=0x0022=]A million stars, and twice that once you start looking closely. The major constellations are out in force, but have been lost amongst the minor interlopers of the night sky.[=0x0022=][=0x000A=][=0x000A=]The small release button is part of the glass dome.[=0x000A=][=0x000A=]Instead of touching or pushing the button when the glass dome is open:[=0x000A=][=0x0009=]now the glass dome is closed;[=0x000A=][=0x0009=]say [=0x0022=]The glass field closes back over. You hear Alf sigh sadly.[=0x0022=][=0x000A=]Instead of pushing the button when the glass dome is closed:[=0x000A=][=0x0009=]now the glass dome is open;[=0x000A=][=0x0009=]say [=0x0022=]In a series of leaps and folds, the glass dome unfolds away to let in the night air.[=0x0022=][=0x000A=][=0x000A=]Yourself can be flying. Yourself is not flying.[=0x000A=][=0x000A=]Alf is a person in the dome. [=0x0022=]Standing with his neck craned is good old Uncle Alf.[=0x0022=] Persuasion rule: persuasion succeeds. Alf is carrying a bottle of Mercury[=0x0027=]s Liquor of Levity. The bottle has description [=0x0022=]A curious liquor, made from the fermentation of fireflies.[=0x0022=] Understand [=0x0022=]drink[=0x0022=] as the bottle. The description of Alf is [=0x0022=]Alf has followed you through thick and thin. Mostly thick. [if Alf is carrying the bottle]Bulging from his pocket is a bottle of liquor.[end if][=0x0022=]. Instead of opening the bottle, say [=0x0022=]It[=0x0027=]s got one of those sports-caps, so you can drink liquor straight off.[=0x0022=][=0x000A=][=0x000A=]Instead of tasting or drinking the bottle when the player is flying:[=0x000A=][=0x0009=]say [=0x0022=]Alf[=0x0027=]s expression is enough to stay your hand.[=0x0022=][=0x000A=][=0x000A=]Instead of tasting or drinking the bottle:[=0x000A=][=0x0009=]now the player is flying;[=0x000A=][=0x0009=]say [=0x0022=]You take a swig and feel the strangest sensation, a glow from your toes to the tips of your shoulderblades. It[=0x0027=]s distracting enough for you to miss the fact you[=0x0027=]re now floating in mid-air.[=0x0022=];[=0x000A=][=0x0009=]the player comes down to earth in two turns from now;[=0x000A=][=0x000A=]At the time when the player comes down to earth:[=0x000A=][=0x0009=]now the player is not flying;[=0x000A=][=0x0009=]say [=0x0022=]With a sickening rush the ground rises sharply upward. Alf watches as you crumple painfully. [=0x0027=]A night drinking that stuff, and you[=0x0027=]ll remember it in the morning,[=0x0027=] he remarks.[=0x0022=][=0x000A=][=0x000A=]After printing the name of the Starfield Dome when the player is flying, say [=0x0022=] (you are flying)[=0x0022=];[=0x000A=][=0x000A=]Report Alf trying examining the heavens: say [=0x0022=][=0x0027=]They are gorgeous,[=0x0027=] Alf ruminates, admiring the view.[=0x0022=][=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a> Some heavens are part of the glass dome. Understand &quot;star&quot;, &quot;stars&quot;, &quot;heaven&quot;, &quot;sky&quot;, &quot;up&quot; as the heavens. The description of the heavens is &quot;A million stars, and twice that once you start looking closely. The major constellations are out in force, but have been lost amongst the minor interlopers of the night sky.&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The small release button is part of the glass dome.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Instead of touching or pushing the button when the glass dome is open:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; now the glass dome is closed;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; say &quot;The glass field closes back over. You hear Alf sigh sadly.&quot;<br>
+                 Instead of pushing the button when the glass dome is closed:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; now the glass dome is open;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; say &quot;In a series of leaps and folds, the glass dome unfolds away to let in the night air.&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Yourself can be flying. Yourself is not flying.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Alf is a person in the dome. &quot;Standing with his neck craned is good old Uncle Alf.&quot; Persuasion rule: persuasion succeeds. Alf is carrying a bottle of Mercury's Liquor of Levity. The bottle has description &quot;A curious liquor, made from the fermentation of fireflies.&quot; Understand &quot;drink&quot; as the bottle. The description of Alf is &quot;Alf has followed you through thick and thin. Mostly thick. [if Alf is carrying the bottle]Bulging from his pocket is a bottle of liquor.[end if]&quot;. Instead of opening the bottle, say &quot;It's got one of those sports-caps, so you can drink liquor straight off.&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Instead of tasting or drinking the bottle when the player is flying:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; say &quot;Alf's expression is enough to stay your hand.&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Instead of tasting or drinking the bottle:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; now the player is flying;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; say &quot;You take a swig and feel the strangest sensation, a glow from your toes to the tips of your shoulderblades. It's distracting enough for you to miss the fact you're now floating in mid-air.&quot;;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; the player comes down to earth in two turns from now;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> At the time when the player comes down to earth:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; now the player is not flying;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; say &quot;With a sickening rush the ground rises sharply upward. Alf watches as you crumple painfully. 'A night drinking that stuff, and you'll remember it in the morning,' he remarks.&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> After printing the name of the Starfield Dome when the player is flying, say &quot; (you are flying)&quot;;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Report Alf trying examining the heavens: say &quot;'They are gorgeous,' Alf ruminates, admiring the view.&quot;</span></blockquote>
+
+                <p> The following rule removal allows giving to occur between people. We can also steal the bottle:</p>
+
+                <p><blockquote><span class="indexdullblue"><a href="javascript:pasteCode('Procedural rule: ignore block giving rule.[=0x000A=][=0x000A=]Report Alf trying giving the bottle to the player:[=0x000A=][=0x0009=]say [=0x0022=][=0x0027=]Here you are. Hairs for your chest.[=0x0027=] Alf passes the bottle over.[=0x0022=] instead.[=0x000A=][=0x000A=]Instead of taking the bottle when Alf is carrying the bottle:[=0x000A=][=0x0009=]move bottle to player;[=0x000A=][=0x0009=]say [=0x0022=]With Alf[=0x0027=]s attention still taken by the stars, you slip the bottle from his pocket.[=0x0022=][=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a> Procedural rule: ignore block giving rule.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Report Alf trying giving the bottle to the player:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; say &quot;'Here you are. Hairs for your chest.' Alf passes the bottle over.&quot; instead.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Instead of taking the bottle when Alf is carrying the bottle:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; move bottle to player;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; say &quot;With Alf's attention still taken by the stars, you slip the bottle from his pocket.&quot;</span></blockquote>
+
+                <p> This rule prevents &quot;Alf, enter stars&quot; not to end up in the rather bland &quot;Alf is unable to do that.&quot;</p>
+
+                <p><blockquote><span class="indexdullblue"><a href="javascript:pasteCode('Before asking Alf to try entering the heavens, say [=0x0022=][=0x0027=]I wish I could,[=0x0027=] he says sadly. [=0x0027=]But there[=0x0027=]s only so much I can do.[=0x0027=][=0x0022=] instead.[=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a> Before asking Alf to try entering the heavens, say &quot;'I wish I could,' he says sadly. 'But there's only so much I can do.'&quot; instead.</span></blockquote>
+
+                <p> This is the rule that allows a flying player to touch the sky:</p>
+
+                <p><blockquote><span class="indexdullblue"><a href="javascript:pasteCode('distant stuff rule for something (called the item) when the player is flying: if the item is not the heavens, rule succeeds.[=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a> distant stuff rule for something (called the item) when the player is flying: if the item is not the heavens, rule succeeds.</span></blockquote>
+
+                <p> This rule provides a custom message for trying to reach the stars while flying:</p>
+
+                <p><blockquote><span class="indexdullblue"><a href="javascript:pasteCode('Before entering or going the heavens when the player is flying: say [=0x0022=]The liquor[=0x0027=]s not that strong![=0x0022=] instead.[=0x000A=][=0x000A=]After giving the bottle to Alf when the glass dome is open:[=0x000A=][=0x0009=]end the game in victory;[=0x000A=][=0x0009=]say [=0x0022=][=0x0027=]Thanks. That[=0x0027=]s better without the refraction.[=0x0027=] Alf proceeds to swig half the bottle, and blur his vision of the stars that way instead.[=0x0022=];[=0x000A=][=0x000A=]Test me with [=0x0022=]x dome / enter stars / press button / x alf / alf, give me liquor / x bottle / drink bottle / press button / enter stars / give bottle to alf[=0x0022=].[=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a> Before entering or going the heavens when the player is flying: say &quot;The liquor's not that strong!&quot; instead.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> After giving the bottle to Alf when the glass dome is open:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; end the game in victory;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; say &quot;'Thanks. That's better without the refraction.' Alf proceeds to swig half the bottle, and blur his vision of the stars that way instead.&quot;;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Test me with &quot;x dome / enter stars / press button / x alf / alf, give me liquor / x bottle / drink bottle / press button / enter stars / give bottle to alf&quot;.</span></blockquote>
+
+                <p></p>
+
+            </td>
+        </tr>
+    </table>
+    </p>
+
+    <p>
+    <!--CONTENT ENDS-->
+</body>
+</html>

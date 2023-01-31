@@ -1,0 +1,36 @@
+<html>
+<style>@import url(fairytale.css);
+</style>
+<title>Making of Damnatio Memoriae</title>
+<body>
+<div id = "container">
+<h1><span>Making of "Damnatio"</span></h1>
+<div id="brief">
+<p>
+The brief: Write a game using the Lavori d'Aracne from my previous game "Savoir-Faire", illustrating a special new kind of link called enslavement. (And, at the same time, try out some of the things that can be done with relations.)
+</p>
+</div>
+<div id ="main">
+<p>
+In the feelie materials that come with my earlier game <a href = "http://wurb.com/if/game/1821">"Savoir-Faire"</a>, I mentioned briefly that the Julio-Claudian dynasty had supposedly had all the usual magical powers plus a few particularly unpleasant extras. This off-hand anecdote stuck in the back of my mind for a long time as the possible premise for another short game, but I couldn't quite bring myself to write it, because writing the linking code for "Savoir-Faire" the first time had been such a pain.
+</p>
+<p>
+The scenario suddenly became much more accessible with the rule-based structure of Inform 7, and relations seemed an obvious, natural way to express links. I broke down what each kind of magical link could do in terms of two issues -- does one object pass problems to the other object? does one object protect the other object? These became the basic elements of the design, and at that point it only took a couple of hours to rough out a working system of Lavori. This is partly because relations are a natural way to express what I wanted to do, and partly because the rule-based structure of Inform 7 made it much, much easier to write sweeping changes to object behavior. With Inform 6 I spent quite a lot of time dealing with the rules of my "Enchantable" class, the set of things that could be linked, and the results were painful and ugly: action code was  processed by one object, even if it affected others, and I needed a background daemon to keep track of and report special changes to the game state that had occurred as a result of indirect action. Inform 7 made this unnecessary.
+</p>  
+<p>
+I also had the idea that I wanted to write a puzzle in which all the possible puzzle solutions (or failures) led to some narratively interesting outcome, and in which the player who learned the magic would be able to bring about different endings.
+</p>
+<p>In this I was inspired a bit by, first, the desire to avoid outcomes (as in "Galatea") where the player's behavior was important but he didn't understand how, and the endings seemed arbitrary; and, second, by having enjoyed several David Whyld games, <a href = "http://wurb.com/if/game/2291">"Paint!!!"</a> chief among them, which did something like this. In that game the player can be more or less successful with a series of puzzles, and there's a timed scenario to get through.
+</p>
+<p>
+In "Damnatio Memoriae", there are quite a few ways the scenario can end up, so I didn't want to hand-write all the endings, but I didn't want them to feel completely mechanical, either. To this end, I used a rulebook which runs down a series of possibilities, checking the circumstances and narrating the most interesting outcomes first, and stopping if the player ever dies.
+</p>
+<p>Finally, I envisioned this as a piece of short, dark humor. It's not terribly hard to get to a survival ending, and then there are further ways to make things come out really well; but I also imagined that the more morbid or curious player might enjoy checking out some disastrously bad endings, and so I tried to provide interesting results for different ways to double-cross Clemens and your other family members, or otherwise cause trouble.
+</p>
+<p>
+Not at all a profound thing, but the whole game took only a day or two to write, with a little subsequent clean-up.
+</p>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,1144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Skein rootNode="node-206">
+  <generator>Windows Inform 7 6M62</generator>
+  <activeNode nodeId="node-333"/>
+  <item nodeId="node-206">
+    <command xml:space="preserve">Tuuli</command>
+    <result xml:space="preserve">Tuulen Ukko tuulen Akka&#x000A; Tuulen kaikki ristikansa&#x000A;&#x000A;Miest&#x00E4; mustoa rukoilen&#x000A; Suuren tuulen nostajaksi --&#x000A;&#x000A;-- Tuuli, Hedningarna&#x000A;&#x000A;"Dicen que las brujas contamos las historias que importan. As&#x00ED; lo han dispuesto los dioses.&#x000A; Si es as&#x00ED;, escuchad. Soy Lenne. Soy la bruja. Esta es la historia."&#x000A;&#x000A;Tuuli (Spanish)&#x000A;Un ritual interactivo por Daurmith and Ruber Eaglenest&#x000A;Release 4 / Serial number 200831 / Inform 7 build 6M62 (I6/v6.33 lib 6/12N) SD&#x000A;&#x000A;[Si es la primera vez que juegas Ficci&#x00F3;n Interactiva puedes usar el comando AYUDA para m&#x00E1;s informaci&#x00F3;n.]&#x000A;&#x000A;En la caba&#x00F1;a de M&#x00E1;kke&#x000A;Despiertas en tu jerg&#x00F3;n, el grito a&#x00FA;n doliendo en tu garganta.&#x000A;&#x000A;Vas a donde duerme M&#x00E1;kke, a contarle el sue&#x00F1;o. No est&#x00E1; en su cama, y sabes que est&#x00E1; muerta antes de saber d&#x00F3;nde est&#x00E1;. La habitaci&#x00F3;n est&#x00E1; negra, como sus ojos. Fr&#x00ED;a, como sus huesos. Vac&#x00ED;a, como su cuerpo.&#x000A;&#x000A;Su mayor tesoro, el cofrecillo de marfil tallado, permanece olvidado en un rinc&#x00F3;n.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-207"/>
+      <child nodeId="node-214"/>
+      <child nodeId="node-307"/>
+      <child nodeId="node-327"/>
+    </children>
+  </item>
+  <item nodeId="node-207">
+    <command xml:space="preserve">test me</command>
+    <result xml:space="preserve">(Testing.)&#x000A;&#x000A;&gt;[1] salir&#x000A;&#x000A;En la aldea&#x000A;Una treintena de endebles caba&#x00F1;as, forman la aldea. Algunas no son m&#x00E1;s que unas cuantas tablas y tejado de ramas y hojas trenzados. Otras son casas m&#x00E1;s s&#x00F3;lidas, recuerdo de &#x00E9;pocas m&#x00E1;s pr&#x00F3;speras, hechas con grandes troncos y selladas con barro y corteza de abedul. De vez en cuando se ve un huertecillo en vez de una casa, o un corral con cabras que miran altivas a su alrededor. &#x000A;&#x000A; Un sendero viene desde la playa en el sur y contin&#x00FA;a hacia el norte, trepando la monta&#x00F1;a.&#x000A;&#x000A; La caba&#x00F1;a de M&#x00E1;kke est&#x00E1; aqu&#x00ED;, algo apartada del resto aunque integrada en la aldea.&#x000A;&#x000A;&gt;[2] examinar suelo&#x000A;Ves las huellas de M&#x00E1;kke en la nieve tras la caba&#x00F1;a: sus pies diminutos se dirigen hacia el norte y de vez en cuando fallan.&#x000A;&#x000A;&gt;[3] norte&#x000A;&#x000A;Sendero&#x000A;El estrecho sendero que lleva desde la aldea de M&#x00E1;kke al acantilado es apenas un trazo en la nieve. Las cabras lo usan cuando van a ramonear las hierbas duras que crecen en la planicie barrida por el viento, y las brujas lo usan cuando van a la piedra negra en la que realizamos nuestros rituales de invierno y primavera, de vida y de muerte. Hacia el norte, asciende serpenteante por la ladera de la monta&#x00F1;a, hasta llegar a la cima del acantilado.&#x000A;&#x000A;&gt;[4] norte&#x000A;&#x000A;Acantilado&#x000A;Una peque&#x00F1;a explanada que cae vertiginosamente hasta el mar, hacia el oeste. Si te asomas ver&#x00E1;s las rocas de la pared casi vertical, donde anidan los albatros que han blanqueado las pe&#x00F1;as con sus excrementos. Hay poco que ver desde aqu&#x00ED;: la peque&#x00F1;a bah&#x00ED;a de la aldea abajo, la extensi&#x00F3;n hostil del mar al oeste y al norte, el sendero que retorna a la aldea hacia el sur. Y la piedra, la piedra de las brujas.&#x000A;&#x000A;&gt;[5] examinar nieve&#x000A;Las huellas de M&#x00E1;kke llevan hasta el borde del acantilado. All&#x00ED; se detuvo, pero m&#x00E1;s adelante hay un revoltijo en la nieve y se pierde su rastro.&#x000A;&#x000A;&gt;[6] examinar rocas&#x000A;Te asomas con cuidado, consciente de las rachas traidoras de viento que podr&#x00ED;an despe&#x00F1;arte. Ves los nidos de albatros, las piedras apenas cubiertas de hierbas resecas y musgo.&#x000A;&#x000A;M&#x00E1;kke ha ca&#x00ED;do por pendiente abajo pero no ha llegado al mar. Ves su cuerpo entre las pe&#x00F1;as blancas, entre los nidos de albatros. Tiene los ojos abiertos y llenos de nieve, y un odre vac&#x00ED;o en la mano. Su boca es miedo.&#x000A;&#x000A;"Tras la pesadilla y la muerte de M&#x00E1;kke debo hablar con &#x00C1;rvet sobre lo sucedido", piensas. Y tiemblas al tratar de aferrarte en vano a tu fuerza de voluntad, que flaquea ante lo que est&#x00E1; por venir.&#x000A;&#x000A;&#x000A;Presiona ESPACIO para continuar.</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-208"/>
+    </children>
+  </item>
+  <item nodeId="node-208">
+    <command xml:space="preserve"> </command>
+    <result xml:space="preserve">En la playa&#x000A;Una estrecha lengua de guijarros oscuros es la salida del pueblo al mar. A ambos lados los muelles para las barcas delimitan una peque&#x00F1;a bah&#x00ED;a de aguas fr&#x00ED;as y desapacibles.&#x000A;&#x000A;&#x00C1;rvet era el jefe. Lo encontr&#x00E9; en la bah&#x00ED;a remendando una red y mirando al mar agitado y gris.&#x000A;&#x000A;&gt;[7] &#x000A;&#x00BF;Perd&#x00F3;n?&#x000A;&#x000A;&gt;[8] habla con arvet&#x000A;[1] "M&#x00E1;kke est&#x00E1; muerta."&#x000A;[2] Terminar la conversaci&#x00F3;n.&#x000A;&#x000A;&gt;[9] 1&#x000A;-La vieja M&#x00E1;kke est&#x00E1; muerta. Cay&#x00F3; por el acantilado- le dices. -Debes enviar dos hombres que hayan visto la muerte cara a cara para que recuperen su cuerpo. Y luego debes dejarme a solas con ella".&#x000A;&#x000A; &#x00C1;rvet te mira:&#x000A;&#x000A; -&#x00BF;Y por qu&#x00E9; debo dejarte a solas con nuestra bruja, joven Lenne?&#x000A;&#x000A;[1] "M&#x00E1;kke ya no es la bruja."&#x000A;[2] Terminar la conversaci&#x00F3;n.&#x000A;&#x000A;&gt;[10] 1&#x000A;-M&#x00E1;kke ya no es la bruja: ahora es cuervo y viento, es hielo y cenizas. La bruja es Lenne ahora, Lenne que aprendi&#x00F3; de M&#x00E1;kke. Ser&#x00E1; Lenne quien cuide de M&#x00E1;kke en la muerte- dices, pero por dentro tiemblas porque sabes que no eres la bruja, a&#x00FA;n no, y &#x00C1;rvet es un hombre y es el jefe y s&#x00F3;lo la bruja puede decirle a un hombre qu&#x00E9; son las cosas.&#x000A;&#x000A;&#x00C1;rvet mira de nuevo al mar, hinchado como un golpe:&#x000A;&#x000A; -En la noche o&#x00ED; gritos, joven Lenne-que-quiere-ser-bruja, -dice en voz baja. -&#x00BF;Qui&#x00E9;n gritaba?&#x000A;&#x000A;[1] "Gritaba la bruja, gritaba yo..."&#x000A;[2] Terminar la conversaci&#x00F3;n.&#x000A;&#x000A;&gt;[11] 1&#x000A;-Gritaba la bruja,- dices. -Gritaba M&#x00E9;kke y gritaba yo. Yo gritaba porque M&#x00E9;kke gritaba, y M&#x00E9;kke gritaba porque so&#x00F1;aba. Y t&#x00FA; nos o&#x00ED;ste porque estabas despierto, jefe &#x00C1;rvet, cuando dorm&#x00ED;a la aldea.&#x000A;&#x000A;[1] "&#x00BF;Qu&#x00E9; te despert&#x00F3;?"&#x000A;[2] Terminar la conversaci&#x00F3;n.&#x000A;&#x000A;&gt;[12] 1&#x000A;-&#x00BF;Qu&#x00E9; te despert&#x00F3;?- preguntas, pero en realidad est&#x00E1;s pensando: "M&#x00E9;kke ha ense&#x00F1;ado bien a &#x00C1;rvet y no lo suficiente a m&#x00ED;. M&#x00E1;kke dec&#x00ED;a que yo ten&#x00ED;a la boca demasiado grande y las orejas demasiado peque&#x00F1;as, dec&#x00ED;a que yo aprend&#x00ED;a r&#x00E1;pido pero no sab&#x00ED;a esperar. Dec&#x00ED;a que a&#x00FA;n me faltaba tiempo para ser la bruja."&#x000A;&#x000A;Pero no queda tiempo.&#x000A;&#x000A;-Me despert&#x00F3; un sue&#x00F1;o de barcos negros llenos de hombres altos, un sue&#x00F1;o de hombres con hachas que ven&#x00ED;an por el mar fr&#x00ED;o.- responde &#x00C1;rvet. -Dime, Lenne, &#x00BF;era el sue&#x00F1;o de un viejo asustado o era el sue&#x00F1;o de un hombre despierto?&#x000A;&#x000A;[1] Esperar en silencio.&#x000A;[2] Terminar la conversaci&#x00F3;n.&#x000A;&#x000A;&gt;[13] 1&#x000A;No respondes porque &#x00C1;rvet ya sabe la respuesta. Y porque has tenido el mismo sue&#x00F1;o y M&#x00E1;kke tambi&#x00E9;n. Todos hemos so&#x00F1;ado la muerte de la aldea a manos de los hombres con hachas que vienen desde el norte, bordeando el hielo cortante. Por eso M&#x00E1;kke ha ido al acantilado antes del amanecer. Y all&#x00ED; ha muerto.&#x000A;&#x000A; -No podemos defendernos de los hombres altos,- dice &#x00C1;rvet. -El mar se ha llevado a demasiados j&#x00F3;venes, las mujeres est&#x00E1;n d&#x00E9;biles por falta de comida, los ni&#x00F1;os no tienen leche. La muerte llega en los barcos negros, joven Lenne, y no tenemos bruja que nos defienda.&#x000A;&#x000A;[1] "&#x00BF;Entonces esperaremos a la muerte?"&#x000A;[2] Terminar la conversaci&#x00F3;n.&#x000A;&#x000A;&gt;[14] 1&#x000A;-&#x00BF;Entonces esperaremos la muerte como cabras viejas?- dices, porque "a&#x00FA;n tengo la boca demasiado grande y las orejas demasiado peque&#x00F1;as."&#x000A;&#x000A; -Si tuvi&#x00E9;ramos bruja, la bruja podr&#x00ED;a salvarnos. Si tuvi&#x00E9;ramos bruja, la bruja podr&#x00ED;a llamar a la tormenta. Si tuvi&#x00E9;ramos bruja quiz&#x00E1; vivir&#x00ED;amos para pescar en la estaci&#x00F3;n del sol, y engordar con grasa de foca y criar m&#x00E1;s ni&#x00F1;os y volver a vivir. - Dice &#x00C1;rvet. -Pero no tenemos bruja, porque M&#x00E1;kke est&#x00E1; muerta.&#x000A;&#x000A;[1] "Yo ser&#x00E9; la bruja."&#x000A;[2] Terminar la conversaci&#x00F3;n.&#x000A;&#x000A;&gt;[15] 1&#x000A;-Yo ser&#x00E9; la bruja, - dices. -Yo llamar&#x00E9; a la tormenta.&#x000A;&#x000A; -T&#x00FA;, - &#x00C1;rvet se burla de t&#x00ED;. -T&#x00FA; no sabes, Lenne. &#x00BF;Has aprendido las palabras? &#x00BF;Conoces los objetos?&#x000A;&#x000A;[1] "Conozco..."&#x000A;[2] Terminar la conversaci&#x00F3;n.&#x000A;&#x000A;&gt;[16] 1&#x000A;-M&#x00E1;kke me ense&#x00F1;&#x00F3;: conozco las palabras y los objetos- le dices. "El odre para recoger el viento. El cuchillo para el sacrificio de sangre.  Las runas..."&#x000A;&#x000A; -Pero no conoces a los dioses. No tienes el poder. No sabes el precio.&#x000A;&#x000A; "&#x00C1;rvet no miente." piensas. "Tengo catorce a&#x00F1;os y no conozco a los dioses. No como los conocer&#x00E9; en el futuro. Pero a los catorce a&#x00F1;os no se habla de lo que no sabes, porque crees que lo sabes todo."&#x000A;&#x000A;[1] "Pagar&#x00E9;."&#x000A;[2] Terminar la conversaci&#x00F3;n.&#x000A;&#x000A;&gt;[17] 1&#x000A;-Conocer&#x00E9; a los dioses y pagar&#x00E9; el precio, jefe &#x00C1;rvet, - le dices. -Y si no lo consigo moriremos como cabras que se ofrecen al cuchillo, a manos de los barcos negros y con los dioses mirando.&#x000A;&#x000A; &#x00C1;rvet te mira durante mucho rato: "yo s&#x00E9; lo que ve: mis trenzas de muchacha, mi vestido de lana manchado de barro, las l&#x00E1;grimas de impotencia en mis ojos. Boca grande, orejas peque&#x00F1;as," piensas.&#x000A;&#x000A;[1] No sabes qu&#x00E9; decir.&#x000A;[2] Terminar la conversaci&#x00F3;n.&#x000A;&#x000A;&gt;[18] 1&#x000A;-As&#x00ED; sea-, dice &#x00C1;rvet tras un momento de meditaci&#x00F3;n. -Ve al acantilado. Enviar&#x00E9; dos hombres para que recuperen el cuerpo de M&#x00E1;kke. Haz lo que debas, joven Lenne. Si la muerte quiere venir a por nosotros, que venga tambi&#x00E9;n a por los hombres en los barcos negros. Y que los dioses determinen qui&#x00E9;n paga por esa sangre.&#x000A;&#x000A; &#x00C1;rvet mira de nuevo al mar, gris como el cielo, y no dice nada m&#x00E1;s. El jefe ha hablado. Debo hacer el ritual.&#x000A;&#x000A;Panu y Mikko est&#x00E1;n conmigo en el acantilado. Los miro mientras suben con cuerdas el cuerpo de M&#x00E1;kke. Panu, el m&#x00E1;s joven, baja hasta los nidos de albatros para asegurarla. Mikko, el m&#x00E1;s viejo, tira y tira hasta que mi maestra vuelve a m&#x00ED;. Est&#x00E1; fr&#x00ED;a y encogida, dura como una piedra, y la nieve gotea de sus ojos al fundirse, como l&#x00E1;grimas.&#x000A;&#x000A; -&#x00BF;Quieres que la llevemos a su cama, Lenne?- pregunta Mikko.&#x000A;&#x000A;Acantilado&#x000A;Una peque&#x00F1;a explanada que cae vertiginosamente hasta el mar, hacia el oeste. Si te asomas ver&#x00E1;s las rocas de la pared casi vertical, donde anidan los albatros que han blanqueado las pe&#x00F1;as con sus excrementos. Hay poco que ver desde aqu&#x00ED;: la peque&#x00F1;a bah&#x00ED;a de la aldea abajo, la extensi&#x00F3;n hostil del mar al oeste y al norte, el sendero que retorna a la aldea hacia el sur. Y la piedra, la piedra de las brujas.&#x000A;&#x000A;Sobre la piedra negra ves a M&#x00E1;kke.&#x000A;&#x000A;Puedes ver tambi&#x00E9;n a Mikko y a Panu.&#x000A;&#x000A;Acantilado&#x000A;Una peque&#x00F1;a explanada que cae vertiginosamente hasta el mar, hacia el oeste. Si te asomas ver&#x00E1;s las rocas de la pared casi vertical, donde anidan los albatros que han blanqueado las pe&#x00F1;as con sus excrementos. Hay poco que ver desde aqu&#x00ED;: la peque&#x00F1;a bah&#x00ED;a de la aldea abajo, la extensi&#x00F3;n hostil del mar al oeste y al norte, el sendero que retorna a la aldea hacia el sur. Y la piedra, la piedra de las brujas.&#x000A;&#x000A;Sobre la piedra negra ves a M&#x00E1;kke.&#x000A;&#x000A;Puedes ver tambi&#x00E9;n a Mikko y a Panu.&#x000A;&#x000A;Panu y Mikko est&#x00E1;n conmigo en el acantilado. Los miro mientras suben con cuerdas el cuerpo de M&#x00E1;kke. Panu, el m&#x00E1;s joven, baja hasta los nidos de albatros para asegurarla. Mikko, el m&#x00E1;s viejo, tira y tira hasta que mi maestra vuelve a m&#x00ED;. Est&#x00E1; fr&#x00ED;a y encogida, dura como una piedra, y la nieve gotea de sus ojos al fundirse, como l&#x00E1;grimas.&#x000A;-&#x00BF;Quieres que la llevemos a su cama, Lenne?-, pregunta Mikko. Y estoy a punto de decir que s&#x00ED;, pero niego con la cabeza.&#x000A;-Ponedla sobre la piedra de las brujas.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-209"/>
+    </children>
+  </item>
+  <item nodeId="node-209">
+    <command xml:space="preserve">undo</command>
+    <result xml:space="preserve">En la playa.&#x000A;[Retrocediendo al turno anterior.]&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-210"/>
+    </children>
+  </item>
+  <item nodeId="node-210">
+    <command xml:space="preserve">habla con arvet</command>
+    <result xml:space="preserve">[1] No sabes qu&#x00E9; decir.&#x000A;[2] Terminar la conversaci&#x00F3;n.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-211"/>
+    </children>
+  </item>
+  <item nodeId="node-211">
+    <command xml:space="preserve">1</command>
+    <result xml:space="preserve">-As&#x00ED; sea-, dice &#x00C1;rvet tras un momento de meditaci&#x00F3;n. -Ve al acantilado. Enviar&#x00E9; dos hombres para que recuperen el cuerpo de M&#x00E1;kke. Haz lo que debas, joven Lenne. Si la muerte quiere venir a por nosotros, que venga tambi&#x00E9;n a por los hombres en los barcos negros. Y que los dioses determinen qui&#x00E9;n paga por esa sangre.&#x000A;&#x000A; &#x00C1;rvet mira de nuevo al mar, gris como el cielo, y no dice nada m&#x00E1;s. El jefe ha hablado. Debo hacer el ritual.&#x000A;&#x000A;Panu y Mikko est&#x00E1;n conmigo en el acantilado. Los miro mientras suben con cuerdas el cuerpo de M&#x00E1;kke. Panu, el m&#x00E1;s joven, baja hasta los nidos de albatros para asegurarla. Mikko, el m&#x00E1;s viejo, tira y tira hasta que mi maestra vuelve a m&#x00ED;. Est&#x00E1; fr&#x00ED;a y encogida, dura como una piedra, y la nieve gotea de sus ojos al fundirse, como l&#x00E1;grimas.&#x000A;&#x000A; -&#x00BF;Quieres que la llevemos a su cama, Lenne?- pregunta Mikko.&#x000A;&#x000A;Acantilado&#x000A;Una peque&#x00F1;a explanada que cae vertiginosamente hasta el mar, hacia el oeste. Si te asomas ver&#x00E1;s las rocas de la pared casi vertical, donde anidan los albatros que han blanqueado las pe&#x00F1;as con sus excrementos. Hay poco que ver desde aqu&#x00ED;: la peque&#x00F1;a bah&#x00ED;a de la aldea abajo, la extensi&#x00F3;n hostil del mar al oeste y al norte, el sendero que retorna a la aldea hacia el sur. Y la piedra, la piedra de las brujas.&#x000A;&#x000A;Sobre la piedra negra ves a M&#x00E1;kke.&#x000A;&#x000A;Puedes ver tambi&#x00E9;n a Mikko y a Panu.&#x000A;&#x000A;Acantilado&#x000A;Una peque&#x00F1;a explanada que cae vertiginosamente hasta el mar, hacia el oeste. Si te asomas ver&#x00E1;s las rocas de la pared casi vertical, donde anidan los albatros que han blanqueado las pe&#x00F1;as con sus excrementos. Hay poco que ver desde aqu&#x00ED;: la peque&#x00F1;a bah&#x00ED;a de la aldea abajo, la extensi&#x00F3;n hostil del mar al oeste y al norte, el sendero que retorna a la aldea hacia el sur. Y la piedra, la piedra de las brujas.&#x000A;&#x000A;Sobre la piedra negra ves a M&#x00E1;kke.&#x000A;&#x000A;Puedes ver tambi&#x00E9;n a Mikko y a Panu.&#x000A;&#x000A;Panu y Mikko est&#x00E1;n conmigo en el acantilado. Los miro mientras suben con cuerdas el cuerpo de M&#x00E1;kke. Panu, el m&#x00E1;s joven, baja hasta los nidos de albatros para asegurarla. Mikko, el m&#x00E1;s viejo, tira y tira hasta que mi maestra vuelve a m&#x00ED;. Est&#x00E1; fr&#x00ED;a y encogida, dura como una piedra, y la nieve gotea de sus ojos al fundirse, como l&#x00E1;grimas.&#x000A;-&#x00BF;Quieres que la llevemos a su cama, Lenne?-, pregunta Mikko. Y estoy a punto de decir que s&#x00ED;, pero niego con la cabeza.&#x000A;-Ponedla sobre la piedra de las brujas.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-212"/>
+    </children>
+  </item>
+  <item nodeId="node-212">
+    <command xml:space="preserve"></command>
+    <result xml:space="preserve">&#x00BF;Perd&#x00F3;n?&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-213"/>
+    </children>
+  </item>
+  <item nodeId="node-213">
+    <command xml:space="preserve"></command>
+    <result xml:space="preserve">&#x00BF;Perd&#x00F3;n?&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+  </item>
+  <item nodeId="node-214">
+    <command xml:space="preserve">test todo</command>
+    <result xml:space="preserve">(Testing.)&#x000A;&#x000A;&gt;[1] salir&#x000A;Sales al exterior, al aire g&#x00E9;lido de la ma&#x00F1;ana. Notas el fr&#x00ED;o de la nieve a trav&#x00E9;s de tus botas.&#x000A;&#x000A;En la aldea&#x000A;En la hora fr&#x00ED;a antes del largo amanecer, la aldea todav&#x00ED;a dormita. El sol no ha salido a&#x00FA;n, pero un leve resplandor se refleja bajo las nubes grises arrojando sobre las caba&#x00F1;as una luz mortecina bajo la cual la nieve acumulada durante la noche hace lucir el suelo y los tejados con un blanco sobrenatural.&#x000A;&#x000A;Un sendero casi tapado por la nieve viene desde la playa en el oeste y contin&#x00FA;a hacia el norte, trepando la monta&#x00F1;a.&#x000A;&#x000A;La caba&#x00F1;a de M&#x00E1;kke est&#x00E1; aqu&#x00ED;, algo apartada del resto aunque integrada en la aldea.&#x000A;&#x000A;&gt;[2] examinar suelo&#x000A;Ves las huellas de M&#x00E1;kke en la nieve tras la caba&#x00F1;a: sus pies diminutos se dirigen vacilantes hacia el norte.&#x000A;&#x000A;&gt;[3] norte&#x000A;&#x000A;Sendero&#x000A;El estrecho sendero que lleva desde la aldea al acantilado es apenas un trazo en la nieve. Las cabras lo usan cuando van a ramonear las hierbas duras que crecen en la planicie barrida por el viento, y las brujas lo usan cuando van a la piedra negra en la que realizan los rituales de invierno y primavera, de vida y de muerte. Hacia el norte, asciende serpenteante por la ladera de la monta&#x00F1;a hasta llegar a la cima del acantilado. Hacia el sur retorna a la aldea.&#x000A;&#x000A;&gt;[4] norte&#x000A;&#x000A;Acantilado&#x000A;Una peque&#x00F1;a explanada que cae vertiginosamente hasta el mar, hacia el oeste. Si te asomas ver&#x00E1;s las rocas de la pared casi vertical, donde anidan los albatros que han blanqueado las pe&#x00F1;as con sus excrementos. Hay poco que ver desde aqu&#x00ED;: la peque&#x00F1;a bah&#x00ED;a de la aldea abajo, la extensi&#x00F3;n hostil del mar al oeste y al norte, el sendero que retorna a la aldea hacia el sur, la nieve que lo cubre todo. Y la piedra, la piedra de las brujas.&#x000A;&#x000A;El manto de piel de foca de M&#x00E1;kke est&#x00E1; tirado a un lado de la piedra negra. No sabes si dejado all&#x00ED; o arrastrado por el viento.&#x000A;&#x000A;&gt;[5] examinar nieve&#x000A;Las huellas de M&#x00E1;kke llevan hasta el borde del acantilado. All&#x00ED; se detuvo, pero justo en el borde hay un revoltijo en la nieve y se pierde su rastro.&#x000A;&#x000A;&gt;[6] examinar rocas&#x000A;Te asomas con cuidado, consciente de las rachas traidoras de viento que podr&#x00ED;an despe&#x00F1;arte. Ves los nidos de albatros, las piedras apenas cubiertas de hierbas resecas y musgo.&#x000A;&#x000A;M&#x00E1;kke ha ca&#x00ED;do por pendiente abajo pero no ha llegado al mar. Ves su cuerpo entre las pe&#x00F1;as blancas, entre los nidos de albatros. Tiene los ojos abiertos y llenos de nieve, y un odre vac&#x00ED;o en la mano. Su boca es miedo.&#x000A;&#x000A;Debes hablar con &#x00C1;rvet sobre la pesadilla y la muerte de M&#x00E1;kke. Y sabes lo que est&#x00E1; por venir, lo que debes hacer luego. Y lo temes como jam&#x00E1;s has temido nada.&#x000A;&#x000A;&#x000A;Presiona ESPACIO para continuar.</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-215"/>
+    </children>
+  </item>
+  <item nodeId="node-215">
+    <command xml:space="preserve"> </command>
+    <result xml:space="preserve">En la playa&#x000A;Una estrecha lengua de guijarros oscuros es la salida del pueblo al mar. A ambos lados los muelles para las barcas delimitan una peque&#x00F1;a bah&#x00ED;a de aguas fr&#x00ED;as y desapacibles. El cielo cubierto de nubes grises es surcado por el poderoso vuelo de los albatros. Hacia el este puedes ver la aldea.&#x000A;&#x000A;&#x00C1;rvet es el jefe. Lo encuentras en la bah&#x00ED;a remendando una red y mirando al mar agitado y gris.&#x000A;&#x000A;Un par de albatros descansan en una barca y se acicalan mutuamente introduciendo sus picos en el plumaje del otro.&#x000A;&#x000A;&gt;[7] habla con arvet&#x000A;[1] "He visto la muerte."&#x000A;[2] "M&#x00E1;kke est&#x00E1; muerta."&#x000A;[3] Terminar la conversaci&#x00F3;n.&#x000A;&#x000A;&gt;[8] 2&#x000A;-La vieja M&#x00E1;kke est&#x00E1; muerta. Cay&#x00F3; por el acantilado- le dices -. Debes enviar dos hombres que hayan visto la muerte cara a cara para que recuperen su cuerpo. Y luego debes dejarme a solas con ella.&#x000A;&#x000A; &#x00C1;rvet te mira:&#x000A;&#x000A; -&#x00BF;Y por qu&#x00E9; debo dejarte a solas con nuestra bruja, joven Lenne?&#x000A;&#x000A;[1] "Es cierto, soy demasiado joven."&#x000A;[2] "M&#x00E1;kke ya no es la bruja."&#x000A;[3] Terminar la conversaci&#x00F3;n.&#x000A;&#x000A;&gt;[9] 2&#x000A;-M&#x00E1;kke ya no es la bruja: ahora es cuervo y viento, es hielo y cenizas. La bruja es Lenne ahora, Lenne que aprendi&#x00F3; de M&#x00E1;kke. Ser&#x00E1; Lenne quien cuide de M&#x00E1;kke en la muerte- dices, pero por dentro tiemblas porque sabes que no eres la bruja, a&#x00FA;n no, y &#x00C1;rvet es un hombre y es el jefe y s&#x00F3;lo la bruja puede decirle a un hombre qu&#x00E9; son las cosas.&#x000A;&#x000A;&#x00C1;rvet mira de nuevo al mar, hinchado como un golpe:&#x000A;&#x000A; -En la noche o&#x00ED; gritos, joven Lenne-que-quiere-ser-bruja -dice en voz baja -. &#x00BF;Qui&#x00E9;n gritaba?&#x000A;&#x000A;[1] "&#x00BF;Por qu&#x00E9; me preguntas lo que ya sabes?"&#x000A;[2] "Gritaba la bruja, gritaba yo..."&#x000A;[3] Terminar la conversaci&#x00F3;n.&#x000A;&#x000A;&gt;[10] 2&#x000A;-Gritaba la bruja -dices -. Gritaba M&#x00E1;kke y gritaba yo. Yo gritaba porque M&#x00E1;kke gritaba, y M&#x00E1;kke gritaba porque so&#x00F1;aba. Y t&#x00FA; nos o&#x00ED;ste porque estabas despierto, jefe &#x00C1;rvet, cuando dorm&#x00ED;a la aldea.&#x000A;&#x000A;[1] "&#x00BF;Qu&#x00E9; te despert&#x00F3;?"&#x000A;[2] Terminar la conversaci&#x00F3;n.&#x000A;&#x000A;&gt;[11] 1&#x000A;-&#x00BF;Qu&#x00E9; te despert&#x00F3;? -preguntas. Sabes que M&#x00E1;kke ha ense&#x00F1;ado bien a &#x00C1;rvet y no lo suficiente a ti. M&#x00E1;kke te dec&#x00ED;a que ten&#x00ED;as la boca demasiado grande y las orejas demasiado peque&#x00F1;as, dec&#x00ED;a que aprend&#x00ED;as r&#x00E1;pido pero no sabes esperar. Dec&#x00ED;a que a&#x00FA;n te faltaba tiempo para ser bruja.&#x000A;&#x000A;Pero no queda tiempo.&#x000A;&#x000A;-Me despert&#x00F3; un sue&#x00F1;o de barcos negros llenos de hombres altos, un sue&#x00F1;o de hombres con hachas que ven&#x00ED;an por el mar fr&#x00ED;o -responde &#x00C1;rvet -. Dime, Lenne, &#x00BF;era el sue&#x00F1;o de un viejo asustado o era el sue&#x00F1;o de un hombre despierto?&#x000A;&#x000A;[1] &#x00C1;rvet es sabio...&#x000A;[2] Esperar en silencio.&#x000A;[3] Terminar la conversaci&#x00F3;n.&#x000A;&#x000A;&gt;[12] 2&#x000A;No respondes porque &#x00C1;rvet ya sabe la respuesta. Y porque has tenido el mismo sue&#x00F1;o y M&#x00E1;kke tambi&#x00E9;n. Los tres hab&#x00E9;is so&#x00F1;ado la muerte de la aldea a manos de los hombres con hachas que vienen desde el norte, bordeando el hielo cortante. Por eso M&#x00E1;kke ha ido al acantilado antes del amanecer. Y all&#x00ED; ha muerto.&#x000A;&#x000A; -No podemos defendernos de los hombres altos- dice &#x00C1;rvet -. El mar se ha llevado a demasiados j&#x00F3;venes, las mujeres est&#x00E1;n d&#x00E9;biles por falta de comida, los ni&#x00F1;os no tienen leche. La muerte llega en los barcos negros, joven Lenne, y no tenemos bruja que nos defienda.&#x000A;&#x000A;[1] "&#x00BF;Entonces esperaremos a la muerte?"&#x000A;[2] "Yo ser&#x00E9; la bruja."&#x000A;[3] Terminar la conversaci&#x00F3;n.&#x000A;&#x000A;Una ola alta rompe contra la playa, la espuma llega hasta tus pies.&#x000A;&#x000A;&gt;[13] 2&#x000A;-Yo ser&#x00E9; la bruja -dices -. Yo llamar&#x00E9; a la tormenta.&#x000A;&#x000A; -T&#x00FA; -&#x00C1;rvet se burla de ti -. T&#x00FA; no sabes, Lenne. &#x00BF;Has aprendido las palabras? &#x00BF;Conoces los objetos?&#x000A;&#x000A;[1] "Conozco..."&#x000A;[2] Terminar la conversaci&#x00F3;n.&#x000A;&#x000A;&gt;[14] 1&#x000A;-M&#x00E1;kke me ense&#x00F1;&#x00F3;: conozco las palabras y los objetos -le dices. Es cierto: el odre para recoger el viento. El cuchillo para el sacrificio de sangre. Las runas, que tienen el poder.&#x000A;&#x000A; -Pero no conoces a los dioses. No tienes el poder. No sabes el precio.&#x000A;&#x000A; &#x00C1;rvet no miente. Tienes trece a&#x00F1;os y no conoces a los dioses. No como los conocer&#x00E1;s en el futuro. Pero a los trece a&#x00F1;os no hablas de lo que no sabes, porque crees que lo sabes todo.&#x000A;&#x000A;[1] "Pagar&#x00E9;."&#x000A;[2] Terminar la conversaci&#x00F3;n.&#x000A;&#x000A;&gt;[15] 1&#x000A;-Conocer&#x00E9; a los dioses y pagar&#x00E9; el precio, jefe &#x00C1;rvet -le dices -. Y si no lo consigo moriremos como cabras que se ofrecen al cuchillo, a manos de los barcos negros y con los dioses mirando.&#x000A;&#x000A; &#x00C1;rvet te mira durante mucho rato. Sabes lo que ve: tus trenzas de muchacha, tu vestido de lana manchado de barro, el pliegue testarudo de tu boca. Ve a una ni&#x00F1;a de boca grande y orejas peque&#x00F1;as. No ve a la bruja.&#x000A;&#x000A;[1] No sabes qu&#x00E9; decir.&#x000A;&#x000A;Una ola rompe en los baj&#x00ED;os elev&#x00E1;ndose en espuma de agua de mar&#x000A;&#x000A;&gt;[16] 1&#x000A;-As&#x00ED; sea -dice &#x00C1;rvet tras un momento de meditaci&#x00F3;n -. Ve al acantilado. Enviar&#x00E9; dos hombres para que recuperen el cuerpo de M&#x00E1;kke. Haz lo que debas, joven Lenne. Si la muerte quiere venir a por nosotros, que venga tambi&#x00E9;n a por los hombres en los barcos negros. Y que los dioses determinen qui&#x00E9;n paga por esa sangre.&#x000A;&#x000A;No hay m&#x00E1;s que decir: el jefe ha hablado. Debes hacer el ritual.&#x000A;&#x000A;&#x00C1;rvet manda llamar a Panu y a Mikko. Habla con ellos un momento y los manda a realizar el trabajo necesario. Los hombres emprenden el camino con rostro sombr&#x00ED;o, van hacia la aldea y los ves desaparecer al girar hacia el acantilado.&#x000A;&#x000A;&#x00C1;rvet mira de nuevo al mar, gris como el cielo, y no dice nada m&#x00E1;s.&#x000A;&#x000A;&gt;[17] e&#x000A;Caminando hacia la aldea, repasas mentalmente los elementos necesarios para llamar a la tormenta: las runas de poder, la runa de Ukko y la runa de Akka, aceite aromatizado para ungir el cuerpo de tu maestra, el cuchillo de M&#x00E1;kke de piedra transl&#x00FA;cida para realizar la entrega de la sangre. Y lo m&#x00E1;s importante, ser bruja, algo que no eres. Esperemos que los dioses y el esp&#x00ED;ritu de tu maestra sean deferentes para contigo y los tuyos.&#x000A;&#x000A;En la aldea&#x000A;La aldea ha despertado ya y poco a poco se llena de vida. Un d&#x00ED;a largo y gris espera por delante. La aldea se compone de quiz&#x00E1; treinta casas en total, desde endebles caba&#x00F1;as de tablas hasta casas m&#x00E1;s s&#x00F3;lidas, recuerdo de &#x00E9;pocas m&#x00E1;s pr&#x00F3;speras. De vez en cuando se ve un huertecillo en vez de una casa, o un corral con cabras que miran altivas a su alrededor. Las mujeres preparan pescado para ahumar o salar, y los hombres arreglan los aperos de pesca o reparan agujeros en los tejados de ramas. Notas algunas miradas furtivas que te siguen el paso junto con alg&#x00FA;n susurro que otro.&#x000A;&#x000A;El sendero viene desde la playa en el oeste y contin&#x00FA;a hacia el norte, trepando la monta&#x00F1;a.&#x000A;&#x000A;La caba&#x00F1;a de M&#x00E1;kke est&#x00E1; aqu&#x00ED;, algo apartada del resto aunque integrada en la aldea.&#x000A;&#x000A;&gt;[18] entrar&#x000A;&#x000A;En la caba&#x00F1;a de M&#x00E1;kke&#x000A;La caba&#x00F1;a no es diferente a las dem&#x00E1;s de la aldea: paredes de troncos sellados con barro y corteza y una &#x00FA;nica sala con suelo de tierra apisonada. Has pasado m&#x00E1;s tiempo en esta habitaci&#x00F3;n que en casa de tus padres y la conoces mejor que la palma de tu mano; una tosca zona de trabajo, la cama de M&#x00E1;kke y tu jerg&#x00F3;n, adem&#x00E1;s de algunos enseres cotidianos y algunas hierbas secas que os quedan de la colecta de primavera. Los pocos tesoros que M&#x00E1;kke apreci&#x00F3; en vida parecen poca cosa tras su muerte: el arc&#x00F3;n de madera pintada, el peque&#x00F1;o altar con las runas rituales.&#x000A;&#x000A;Su mayor tesoro, el cofrecillo de marfil tallado, permanece olvidado en un rinc&#x00F3;n.&#x000A;&#x000A;&gt;[19] abrir cofrecillo&#x000A;Abres el cofrecillo, descubriendo el cuchillo de M&#x00E1;kke, un frasco de aceite y una esponja marina amarilla.&#x000A;&#x000A;&gt;[20] coger cuchillo&#x000A;Empu&#x00F1;as el cuchillo de M&#x00E1;kke. Observas el brillo de la hoja negra y recuerdas las ense&#x00F1;anzas de tu maestra: "Esta hoja separa tanto como une, conecta tanto como apu&#x00F1;ala."&#x000A;&#x000A;&gt;[21] coger frasco&#x000A;Cogido.&#x000A;&#x000A;&gt;[22] coger esponja&#x000A;Cogida.&#x000A;&#x000A;&gt;[23] coger cofre&#x000A;Cogido.&#x000A;&#x000A;&gt;[24] sal&#x000A;&#x000A;En la aldea&#x000A;La aldea ha despertado ya y poco a poco se llena de vida. Un d&#x00ED;a largo y gris espera por delante. La aldea se compone de quiz&#x00E1; treinta casas en total, desde endebles caba&#x00F1;as de tablas hasta casas m&#x00E1;s s&#x00F3;lidas, recuerdo de &#x00E9;pocas m&#x00E1;s pr&#x00F3;speras. De vez en cuando se ve un huertecillo en vez de una casa, o un corral con cabras que miran altivas a su alrededor. Las mujeres preparan pescado para ahumar o salar, y los hombres arreglan los aperos de pesca o reparan agujeros en los tejados de ramas. Notas algunas miradas furtivas que te siguen el paso junto con alg&#x00FA;n susurro que otro.&#x000A;&#x000A;El sendero viene desde la playa en el oeste y contin&#x00FA;a hacia el norte, trepando la monta&#x00F1;a.&#x000A;&#x000A;La caba&#x00F1;a de M&#x00E1;kke est&#x00E1; aqu&#x00ED;, algo apartada del resto aunque integrada en la aldea.&#x000A;&#x000A;&gt;[25] n&#x000A;&#x000A;Sendero&#x000A;El estrecho sendero que lleva desde la aldea al acantilado es apenas un trazo en la nieve. Las cabras lo usan cuando van a ramonear las hierbas duras que crecen en la planicie barrida por el viento, y las brujas lo usan cuando van a la piedra negra en la que realizan los rituales de invierno y primavera, de vida y de muerte. Hacia el norte, asciende serpenteante por la ladera de la monta&#x00F1;a hasta llegar a la cima del acantilado. Hacia el sur retorna a la aldea.&#x000A;&#x000A;&gt;[26] n&#x000A;&#x000A;Acantilado&#x000A;Panu y Mikko est&#x00E1;n contigo en el acantilado. Los observas mientras suben con cuerdas el cuerpo de M&#x00E1;kke. Panu, el m&#x00E1;s joven, baja hasta los nidos de albatros para asegurarla. Mikko, el m&#x00E1;s viejo, tira y tira hasta que tu maestra vuelve a ti. Est&#x00E1; fr&#x00ED;a y encogida, dura como una piedra, y la nieve gotea de sus ojos al fundirse, como l&#x00E1;grimas.&#x000A;&#x000A;-&#x00BF;Quieres que la llevemos a su cama, Lenne?- pregunta Mikko. Y est&#x00E1;s a punto de decir que s&#x00ED;, pero niegas con la cabeza.&#x000A;&#x000A;-Ponedla sobre la piedra de las brujas y dejadme a solas con ella.&#x000A;&#x000A;Te miran, se miran entre s&#x00ED;. No te tratan como a la bruja, pero no hay nadie m&#x00E1;s all&#x00ED; y &#x00C1;rvet les ha dicho que te obedezcan. Y lo hacen: dejan el cuerpo de M&#x00E1;kke sobre la piedra de las brujas y se retiran unos pasos. Miras las manos vac&#x00ED;as de tu maestra.&#x000A;&#x000A;[1] "Panu, &#x00BF;qu&#x00E9; se ha hecho del odre?"&#x000A;&#x000A;&gt;[27] habla con panu&#x000A;[1] "Panu, &#x00BF;qu&#x00E9; se ha hecho del odre?"&#x000A;&#x000A;Una r&#x00E1;faga fuerte de viento agita la hojarasca, juguetea con tus trenzas y tironea de tu vestido.&#x000A;&#x000A;&gt;[28] 1&#x000A;-Panu, &#x00BF;qu&#x00E9; se ha hecho del odre que ten&#x00ED;a M&#x00E1;kke en la mano?&#x000A;&#x000A;-Es un buen odre, Lenne -dice Panu -. Es de buen cuero, muy bien curado y no tiene agujeros y la vieja M&#x00E1;kke ya no lo necesitar&#x00E1;.&#x000A;&#x000A;[1] "Debes devolverme ese odre."&#x000A;&#x000A;Un albatros planea con el viento por encima de la piedra de las brujas, sin llegar a posarse. Al rato se deja llevar por el viento y desaparece de tu vista.&#x000A;&#x000A;&gt;[29] 1&#x000A;-Debes devolverme ese odre, Panu -le dices, firme. Porque tus ojos est&#x00E1;n abiertos por fin y sabes qu&#x00E9; debes hacer y c&#x00F3;mo hacerlo, como si la misma M&#x00E1;kke te lo estuviera susurrando al o&#x00ED;do con sus labios muertos -. Debes devolv&#x00E9;rmelo porque de ese odre saldr&#x00E1; la tormenta y el vendaval, la galerna y el temporal, la vida y la muerte. Ese odre en mis manos tendr&#x00E1; el aliento de Ukko y la fuerza de Akka.&#x000A;&#x000A;-Pero si solo es un odre, Lenne.&#x000A;&#x000A;[1] "Haz lo que te digo."&#x000A;&#x000A;Una r&#x00E1;faga de viento se enreda en el manto de piel de foca de M&#x00E1;kke casi llev&#x00E1;ndoselo.&#x000A;&#x000A;&gt;[30] 1&#x000A;-Haz lo que te digo -ordenas. Y quiz&#x00E1; s&#x00ED; tienes lo necesario para ser la bruja, porque Panu saca el odre de su morral y te lo entrega.&#x000A;&#x000A;-Volved a la aldea, y pase lo que pase, oig&#x00E1;is lo que oig&#x00E1;is, no os acerqu&#x00E9;is a la piedra de las brujas -les dices con firmeza.&#x000A;&#x000A;Y no lo har&#x00E1;n. Los hombres se apresuran por el sendero sin mirar atr&#x00E1;s.&#x000A;&#x000A;Ahora est&#x00E1;s sola con tu maestra, los dioses, el viento y las naves negras que empiezan a asomar por el horizonte.&#x000A;&#x000A;Ya tienes todos los elementos necesarios en tu poder. Es hora de preparar a M&#x00E1;kke.&#x000A;&#x000A;&gt;[31] examinar makke&#x000A;M&#x00E1;kke est&#x00E1; fr&#x00ED;a y r&#x00ED;gida, en una pose grotesca con los brazos y las piernas contra&#x00ED;das en un espasmo de muerte. M&#x00E1;kke posee la runa de Akka en su piel, debajo de la ropa oscura, humedecida, con nieve acumulada en los pliegues.&#x000A;&#x000A;Un albatros est&#x00E1; aqu&#x00ED; buscando en la nieve con el pico. Da un respingo y se aleja batiendo sus elegantes alas.&#x000A;&#x000A;&gt;[32] frotar makke&#x000A;Frotas los brazos y las piernas de M&#x00E1;kke hasta que puedes moverla. Le quitas la nieve de la cara y le cierras los ojos a&#x00FA;n h&#x00FA;medos.&#x000A;&#x000A;&gt;[33] x makke&#x000A;Intenta de nuevo, porque s&#x00F3;lo te pude entender: examinar.&#x000A;&#x000A;&gt;[34] cortar ropa con cuchillo&#x000A;Cortas las ropas con el cuchillo de hoja negra de M&#x00E1;kke. Te resulta extra&#x00F1;o darte cuenta de que M&#x00E1;kke muerta parece m&#x00E1;s peque&#x00F1;a que M&#x00E1;kke viva. Descartas las ropas a un lado.&#x000A;&#x000A;&gt;[35] x makke&#x000A;Intenta de nuevo, porque s&#x00F3;lo te pude entender: examinar.&#x000A;&#x000A;&gt;[36] ungir makke con aceite&#x000A;Tomas el frasco de aceite, el aceite aromatizado con resinas y plantas que M&#x00E1;kke sab&#x00ED;a preparar, y le untas la piel blanda, las manos duras, el cuerpo entero que tan bien le ha servido. Con la esponja frotas los restos de vida de su cuerpo muerto hasta que su piel pierde el olor de la muerte y se llena del olor a pinos y a invierno y al aire limpio del mar.&#x000A;&#x000A;Un albatros se acerca planeando y desaparece tras el borde del acantilado.&#x000A;&#x000A;&gt;[37] x makke&#x000A;Intenta de nuevo, porque s&#x00F3;lo te pude entender: examinar.&#x000A;&#x000A;&gt;[38] cortar runa de akka con cuchillo&#x000A;Haces lo que tienes que hacer y luego cubres el cuerpo de M&#x00E1;kke con su manto de piel de foca. Pero dejas la sangre muerta de M&#x00E1;kke en el cuchillo de piedra negra.&#x000A;&#x000A;&#x000A;Presiona ESPACIO para continuar.</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-216"/>
+    </children>
+  </item>
+  <item nodeId="node-216">
+    <command xml:space="preserve"> </command>
+    <result xml:space="preserve">Acantilado&#x000A;Ante la piedra de las brujas. Ante los dioses expectantes. Ante el cad&#x00E1;ver ungido de tu maestra. Ante la inmensidad del mar, el cielo gris y el vuelo impasible de los albatros. Hoy t&#x00FA; te alzar&#x00E1;s sobre todo. Hoy t&#x00FA;, Lenne de trece a&#x00F1;os, Lenne-que-quiere-ser-bruja, Lenne que a&#x00FA;n lleva sus trenzas de muchacha, te sientes m&#x00E1;s peque&#x00F1;a que nunca.&#x000A;&#x000A;En el horizonte ves las formas ahusadas de las naves negras. Su aparente inmovilidad no te enga&#x00F1;a; sabes que en poco tiempo estar&#x00E1;n sobre la aldea.&#x000A;&#x000A;Sobre la piedra negra ves a M&#x00E1;kke.&#x000A;&#x000A;Esta es tu oportunidad de convertirte en bruja y salvar a tu aldea. Debes RECITAR CONJURO paso a paso y aguantar hasta completarlo.&#x000A;&#x000A;El cielo gris se ilumina y un trueno suena en la distancia.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-217"/>
+    </children>
+  </item>
+  <item nodeId="node-217">
+    <command xml:space="preserve"> </command>
+    <result xml:space="preserve">Soy Lenne. Soy la bruja. Esta es mi historia.&#x000A;&#x000A; Despiertas en el suelo, con el brazo a&#x00FA;n atravesado por el cuchillo. Tu mano est&#x00E1; cubierta de sangre y hielo. Del odre no queda ni un pedazo. Tampoco se ve el cuerpo de la bruja M&#x00E1;kke.&#x000A;&#x000A; &#x00C1;rvet est&#x00E1; en la orilla cuando bajas, d&#x00E9;bil y dolorida, sujet&#x00E1;ndote un vendaje al brazo herido.&#x000A;&#x000A;En la playa&#x000A;Una estrecha lengua de guijarros oscuros es la salida del pueblo al mar. A ambos lados los muelles para las barcas delimitan una peque&#x00F1;a bah&#x00ED;a de aguas fr&#x00ED;as y desapacibles. El cielo cubierto de nubes grises es surcado por el poderoso vuelo de los albatros. Hacia el este puedes ver la aldea.&#x000A;&#x000A;La playa de piedras oscuras est&#x00E1; cubierta de maderos, de cordaje y de cad&#x00E1;veres. Hab&#x00ED;an sido hombres altos, de pelo amarillo o cobrizo, p&#x00E1;lidos y orgullosos. Muchos llevan al cinto espadas y hachas. Ahora no son m&#x00E1;s que carne para el fest&#x00ED;n de los albatros.&#x000A;&#x000A;&#x00C1;rvet, el jefe, est&#x00E1; aqu&#x00ED;.&#x000A;&#x000A;-Has llamado a la tormenta, bruja Lenne -dice &#x00C1;rvet. &#x000A;&#x000A;La brisa porta el olor a muerte, muerte fresca. Los cuerpos a&#x00FA;n no han empezado a pudrirse.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-218"/>
+    </children>
+  </item>
+  <item nodeId="node-218">
+    <command xml:space="preserve"> </command>
+    <result xml:space="preserve">Soy Lenne. Soy la bruja. Esta es mi historia.&#x000A;&#x000A; Despiertas en el suelo, con el brazo a&#x00FA;n atravesado por el cuchillo. Tu mano est&#x00E1; cubierta de sangre y hielo. Del odre no queda ni un pedazo. Tampoco se ve el cuerpo de la bruja M&#x00E1;kke.&#x000A;&#x000A; &#x00C1;rvet est&#x00E1; en la orilla cuando bajas, d&#x00E9;bil y dolorida, sujet&#x00E1;ndote un vendaje al brazo herido.&#x000A;&#x000A;En la playa&#x000A;Una estrecha lengua de guijarros oscuros es la salida del pueblo al mar. A ambos lados los muelles para las barcas delimitan una peque&#x00F1;a bah&#x00ED;a de aguas fr&#x00ED;as y desapacibles.&#x000A;&#x000A;La playa de piedras oscuras est&#x00E1; cubierta de maderos, de cordaje y de cad&#x00E1;veres. Hab&#x00ED;an sido hombres altos, de pelo amarillo o cobrizo, p&#x00E1;lidos y orgullosos. Muchos llevan al cinto espadas y hachas. Ahora no son m&#x00E1;s que carne para el fest&#x00ED;n de los albatros.&#x000A;&#x000A;&#x00C1;rvet, el jefe, est&#x00E1; aqu&#x00ED;.&#x000A;&#x000A;-Has llamado a la tormenta, bruja Lenne,- dice &#x00C1;rvet. &#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-219"/>
+      <child nodeId="node-263"/>
+      <child nodeId="node-281"/>
+    </children>
+  </item>
+  <item nodeId="node-219">
+    <command xml:space="preserve">examinar naves</command>
+    <result xml:space="preserve">No veo eso que dices.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-220"/>
+    </children>
+  </item>
+  <item nodeId="node-220">
+    <command xml:space="preserve">reiniciar</command>
+    <result xml:space="preserve">&#x00BF;Seguro que quieres reiniciar el juego?</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-221"/>
+    </children>
+  </item>
+  <item nodeId="node-221">
+    <command xml:space="preserve">si</command>
+    <result xml:space="preserve">Tuulen Ukko tuulen Akka&#x000A; Tuulen kaikki ristikansa&#x000A;&#x000A;Miest&#x00E4; mustoa rukoilen&#x000A; Suuren tuulen nostajaksi --&#x000A;&#x000A;-- Tuuli, Hedningarna&#x000A;&#x000A;"Dicen que las brujas contamos las historias que importan. As&#x00ED; lo han dispuesto los dioses.&#x000A; Si es as&#x00ED;, escuchad. Soy Lenne. Soy la bruja. Esta es la historia."&#x000A;&#x000A;Tuuli&#x000A;Un ritual interactivo por Daurmith and Ruber Eaglenest&#x000A;Release 2 / Serial number 170805 / Inform 7 build 6M62 (I6/v6.33 lib 6/12N) SD&#x000A;&#x000A;[Si es la primera vez que juegas Ficci&#x00F3;n Interactiva puedes consultar el comando AYUDA para m&#x00E1;s informaci&#x00F3;n.]&#x000A;&#x000A;En la caba&#x00F1;a de M&#x00E1;kke&#x000A;Despiertas en tu jerg&#x00F3;n, el grito a&#x00FA;n doliendo en tu garganta.&#x000A;&#x000A; Vas a donde duerme M&#x00E1;kke, a contarle el sue&#x00F1;o. No est&#x00E1; en su cama, y sabes que est&#x00E1; muerta antes de saber d&#x00F3;nde est&#x00E1;. La habitaci&#x00F3;n est&#x00E1; negra, como sus ojos. Fr&#x00ED;a, como sus huesos. Vac&#x00ED;a, como su cuerpo.&#x000A;&#x000A;Su mayor tesoro, el cofrecillo de marfil tallado, permanece olvidado en un rinc&#x00F3;n.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-222"/>
+    </children>
+  </item>
+  <item nodeId="node-222">
+    <command xml:space="preserve">test busqueda</command>
+    <result xml:space="preserve">(Testing.)&#x000A;&#x000A;&gt;[1] salir&#x000A;Al salir al exterior, la nieve te hiela los pies.&#x000A;&#x000A;En la aldea&#x000A;Una treintena de endebles caba&#x00F1;as forman la aldea. Algunas no son m&#x00E1;s que unas cuantas tablas y tejado de ramas y hojas trenzados. Otras son casas m&#x00E1;s s&#x00F3;lidas, recuerdo de &#x00E9;pocas m&#x00E1;s pr&#x00F3;speras, hechas con grandes troncos y selladas con barro y corteza de abedul. De vez en cuando se ve un huertecillo en vez de una casa, o un corral con cabras que miran altivas a su alrededor. Un manto de nieve ca&#x00ED;do durante toda la noche cubre toda superficie.&#x000A;&#x000A; Un sendero casi tapado por la nieve viene desde la playa en el oeste y contin&#x00FA;a hacia el norte, trepando la monta&#x00F1;a.&#x000A;&#x000A; La caba&#x00F1;a de M&#x00E1;kke est&#x00E1; aqu&#x00ED;, algo apartada del resto aunque integrada en la aldea.&#x000A;&#x000A;&gt;[2] examinar suelo&#x000A;Ves las huellas de M&#x00E1;kke en la nieve tras la caba&#x00F1;a: sus pies diminutos se dirigen vacilantes hacia el norte.&#x000A;&#x000A;&gt;[3] norte&#x000A;&#x000A;Sendero&#x000A;El estrecho sendero que lleva desde la aldea de M&#x00E1;kke al acantilado es apenas un trazo en la nieve. Las cabras lo usan cuando van a ramonear las hierbas duras que crecen en la planicie barrida por el viento, y las brujas lo usan cuando van a la piedra negra en la que realizamos nuestros rituales de invierno y primavera, de vida y de muerte. Hacia el norte, asciende serpenteante por la ladera de la monta&#x00F1;a, hasta llegar a la cima del acantilado.&#x000A;&#x000A;&gt;[4] norte&#x000A;&#x000A;Acantilado&#x000A;Una peque&#x00F1;a explanada que cae vertiginosamente hasta el mar, hacia el oeste. Si te asomas ver&#x00E1;s las rocas de la pared casi vertical, donde anidan los albatros que han blanqueado las pe&#x00F1;as con sus excrementos. Hay poco que ver desde aqu&#x00ED;: la peque&#x00F1;a bah&#x00ED;a de la aldea abajo, la extensi&#x00F3;n hostil del mar al oeste y al norte, el sendero que retorna a la aldea hacia el sur, la nieve que lo cubre todo. Y la piedra, la piedra de las brujas.&#x000A;&#x000A;&gt;[5] examinar nieve&#x000A;Las huellas de M&#x00E1;kke llevan hasta el borde del acantilado. All&#x00ED; se detuvo, pero justo en el borde hay un revoltijo en la nieve y se pierde su rastro.&#x000A;&#x000A;&gt;[6] examinar rocas&#x000A;Te asomas con cuidado, consciente de las rachas traidoras de viento que podr&#x00ED;an despe&#x00F1;arte. Ves los nidos de albatros, las piedras apenas cubiertas de hierbas resecas y musgo.&#x000A;&#x000A;M&#x00E1;kke ha ca&#x00ED;do por pendiente abajo pero no ha llegado al mar. Ves su cuerpo entre las pe&#x00F1;as blancas, entre los nidos de albatros. Tiene los ojos abiertos y llenos de nieve, y un odre vac&#x00ED;o en la mano. Su boca es miedo.&#x000A;&#x000A;Debes hablar con &#x00C1;rvet sobre la pesadilla y la muerte de M&#x00E1;kke. Y sabes lo que est&#x00E1; por venir, lo que debes hacer luego. Y lo temes como jam&#x00E1;s has temido nada.&#x000A;&#x000A;&#x000A;Presiona ESPACIO para continuar.</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-223"/>
+    </children>
+  </item>
+  <item nodeId="node-223">
+    <command xml:space="preserve"> </command>
+    <result xml:space="preserve">En la playa&#x000A;Una estrecha lengua de guijarros oscuros es la salida del pueblo al mar. A ambos lados los muelles para las barcas delimitan una peque&#x00F1;a bah&#x00ED;a de aguas fr&#x00ED;as y desapacibles.&#x000A;&#x000A;&#x00C1;rvet es el jefe. Lo encuentras en la bah&#x00ED;a remendando una red y mirando al mar agitado y gris.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-224"/>
+    </children>
+  </item>
+  <item nodeId="node-224">
+    <command xml:space="preserve">test soylabruja</command>
+    <result xml:space="preserve">(Testing.)&#x000A;&#x000A;&gt;[1] habla con arvet&#x000A;[1] "M&#x00E1;kke est&#x00E1; muerta."&#x000A;[2] Terminar la conversaci&#x00F3;n.&#x000A;&#x000A;&gt;[2] 1&#x000A;-La vieja M&#x00E1;kke est&#x00E1; muerta. Cay&#x00F3; por el acantilado- le dices. -Debes enviar dos hombres que hayan visto la muerte cara a cara para que recuperen su cuerpo. Y luego debes dejarme a solas con ella.&#x000A;&#x000A; &#x00C1;rvet te mira:&#x000A;&#x000A; -&#x00BF;Y por qu&#x00E9; debo dejarte a solas con nuestra bruja, joven Lenne?&#x000A;&#x000A;[1] "M&#x00E1;kke ya no es la bruja."&#x000A;[2] Terminar la conversaci&#x00F3;n.&#x000A;&#x000A;&gt;[3] 1&#x000A;-M&#x00E1;kke ya no es la bruja: ahora es cuervo y viento, es hielo y cenizas. La bruja es Lenne ahora, Lenne que aprendi&#x00F3; de M&#x00E1;kke. Ser&#x00E1; Lenne quien cuide de M&#x00E1;kke en la muerte- dices, pero por dentro tiemblas porque sabes que no eres la bruja, a&#x00FA;n no, y &#x00C1;rvet es un hombre y es el jefe y s&#x00F3;lo la bruja puede decirle a un hombre qu&#x00E9; son las cosas.&#x000A;&#x000A;&#x00C1;rvet mira de nuevo al mar, hinchado como un golpe:&#x000A;&#x000A; -En la noche o&#x00ED; gritos, joven Lenne-que-quiere-ser-bruja, -dice en voz baja. -&#x00BF;Qui&#x00E9;n gritaba?&#x000A;&#x000A;[1] "Gritaba la bruja, gritaba yo..."&#x000A;[2] Terminar la conversaci&#x00F3;n.&#x000A;&#x000A;&gt;[4] 1&#x000A;-Gritaba la bruja,- dices. -Gritaba M&#x00E9;kke y gritaba yo. Yo gritaba porque M&#x00E9;kke gritaba, y M&#x00E9;kke gritaba porque so&#x00F1;aba. Y t&#x00FA; nos o&#x00ED;ste porque estabas despierto, jefe &#x00C1;rvet, cuando dorm&#x00ED;a la aldea.&#x000A;&#x000A;[1] "&#x00BF;Qu&#x00E9; te despert&#x00F3;?"&#x000A;[2] Terminar la conversaci&#x00F3;n.&#x000A;&#x000A;&gt;[5] 1&#x000A;-&#x00BF;Qu&#x00E9; te despert&#x00F3;?- preguntas. Sabes que M&#x00E1;kke ha ense&#x00F1;ado bien a &#x00C1;rvet y no lo suficiente a ti. M&#x00E1;kke te dec&#x00ED;a que ten&#x00ED;as la boca demasiado grande y las orejas demasiado peque&#x00F1;as, dec&#x00ED;a que aprend&#x00ED;as r&#x00E1;pido pero no sabes esperar. Dec&#x00ED;a que a&#x00FA;n te faltaba tiempo para ser bruja.&#x000A;&#x000A;Pero no queda tiempo.&#x000A;&#x000A;-Me despert&#x00F3; un sue&#x00F1;o de barcos negros llenos de hombres altos, un sue&#x00F1;o de hombres con hachas que ven&#x00ED;an por el mar fr&#x00ED;o.- responde &#x00C1;rvet. -Dime, Lenne, &#x00BF;era el sue&#x00F1;o de un viejo asustado o era el sue&#x00F1;o de un hombre despierto?&#x000A;&#x000A;[1] Esperar en silencio.&#x000A;[2] Terminar la conversaci&#x00F3;n.&#x000A;&#x000A;&gt;[6] 1&#x000A;No respondes porque &#x00C1;rvet ya sabe la respuesta. Y porque has tenido el mismo sue&#x00F1;o y M&#x00E1;kke tambi&#x00E9;n. Los tres hab&#x00E9;is so&#x00F1;ado la muerte de la aldea a manos de los hombres con hachas que vienen desde el norte, bordeando el hielo cortante. Por eso M&#x00E1;kke ha ido al acantilado antes del amanecer. Y all&#x00ED; ha muerto.&#x000A;&#x000A; -No podemos defendernos de los hombres altos,- dice &#x00C1;rvet. -El mar se ha llevado a demasiados j&#x00F3;venes, las mujeres est&#x00E1;n d&#x00E9;biles por falta de comida, los ni&#x00F1;os no tienen leche. La muerte llega en los barcos negros, joven Lenne, y no tenemos bruja que nos defienda.&#x000A;&#x000A;[1] "&#x00BF;Entonces esperaremos a la muerte?"&#x000A;[2] Terminar la conversaci&#x00F3;n.&#x000A;&#x000A;&gt;[7] 1&#x000A;-&#x00BF;Entonces esperaremos la muerte como cabras viejas?- dices, porque a&#x00FA;n tienes la boca demasiado grande y las orejas demasiado peque&#x00F1;as.&#x000A;&#x000A; -Si tuvi&#x00E9;ramos bruja, la bruja podr&#x00ED;a salvarnos. Si tuvi&#x00E9;ramos bruja, la bruja podr&#x00ED;a llamar a la tormenta. Si tuvi&#x00E9;ramos bruja quiz&#x00E1; vivir&#x00ED;amos para pescar en la estaci&#x00F3;n del sol, y engordar con grasa de foca y criar m&#x00E1;s ni&#x00F1;os y volver a vivir. - Dice &#x00C1;rvet. -Pero no tenemos bruja, porque M&#x00E1;kke est&#x00E1; muerta.&#x000A;&#x000A;[1] "Yo ser&#x00E9; la bruja."&#x000A;[2] Terminar la conversaci&#x00F3;n.&#x000A;&#x000A;&gt;[8] 1&#x000A;-Yo ser&#x00E9; la bruja, - dices. -Yo llamar&#x00E9; a la tormenta.&#x000A;&#x000A; -T&#x00FA;, - &#x00C1;rvet se burla de ti. -T&#x00FA; no sabes, Lenne. &#x00BF;Has aprendido las palabras? &#x00BF;Conoces los objetos?&#x000A;&#x000A;[1] "Conozco..."&#x000A;[2] Terminar la conversaci&#x00F3;n.&#x000A;&#x000A;&gt;[9] 1&#x000A;-M&#x00E1;kke me ense&#x00F1;&#x00F3;: conozco las palabras y los objetos- le dices. Es cierto: el odre para recoger el viento. El cuchillo para el sacrificio de sangre.  Las runas, que tienen el poder.&#x000A;&#x000A; -Pero no conoces a los dioses. No tienes el poder. No sabes el precio.&#x000A;&#x000A; &#x00C1;rvet no miente. Tienes catorce a&#x00F1;os y no conoces a los dioses. No como los conocer&#x00E1;s en el futuro. Pero a los catorce a&#x00F1;os no hablas de lo que no sabes, porque crees que lo sabes todo.&#x000A;&#x000A;[1] "Pagar&#x00E9;."&#x000A;[2] Terminar la conversaci&#x00F3;n.&#x000A;&#x000A;&gt;[10] 1&#x000A;-Conocer&#x00E9; a los dioses y pagar&#x00E9; el precio, jefe &#x00C1;rvet, - le dices. -Y si no lo consigo moriremos como cabras que se ofrecen al cuchillo, a manos de los barcos negros y con los dioses mirando.&#x000A;&#x000A; &#x00C1;rvet te mira durante mucho rato. Sabes lo que ve: tus trenzas de muchacha, tu vestido de lana manchado de barro, el pliegue testarudo de tu boca. Ve a una ni&#x00F1;a de boca grande y orejas peque&#x00F1;as. No ve a la bruja.&#x000A;&#x000A;[1] No sabes qu&#x00E9; decir.&#x000A;[2] Terminar la conversaci&#x00F3;n.&#x000A;&#x000A;&gt;[11] 1&#x000A;-As&#x00ED; sea-, dice &#x00C1;rvet tras un momento de meditaci&#x00F3;n. -Ve al acantilado. Enviar&#x00E9; dos hombres para que recuperen el cuerpo de M&#x00E1;kke. Haz lo que debas, joven Lenne. Si la muerte quiere venir a por nosotros, que venga tambi&#x00E9;n a por los hombres en los barcos negros. Y que los dioses determinen qui&#x00E9;n paga por esa sangre.&#x000A;&#x000A; &#x00C1;rvet mira de nuevo al mar, gris como el cielo, y no dice nada m&#x00E1;s. No hay m&#x00E1;s que decir: el jefe ha hablado. Debes hacer el ritual.&#x000A;&#x000A;&#x000A;&#x000A;Presiona ESPACIO para continuar.</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-225"/>
+    </children>
+  </item>
+  <item nodeId="node-225">
+    <command xml:space="preserve">t</command>
+    <result xml:space="preserve"></result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-226"/>
+    </children>
+  </item>
+  <item nodeId="node-226">
+    <command xml:space="preserve">e</command>
+    <result xml:space="preserve"></result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-227"/>
+    </children>
+  </item>
+  <item nodeId="node-227">
+    <command xml:space="preserve">s</command>
+    <result xml:space="preserve"></result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-228"/>
+    </children>
+  </item>
+  <item nodeId="node-228">
+    <command xml:space="preserve"> </command>
+    <result xml:space="preserve">Panu y Mikko est&#x00E1;n contigo en el acantilado. Los observas mientras suben con cuerdas el cuerpo de M&#x00E1;kke. Panu, el m&#x00E1;s joven, baja hasta los nidos de albatros para asegurarla. Mikko, el m&#x00E1;s viejo, tira y tira hasta que tu maestra vuelve a ti. Est&#x00E1; fr&#x00ED;a y encogida, dura como una piedra, y la nieve gotea de sus ojos al fundirse, como l&#x00E1;grimas.&#x000A;&#x000A; -&#x00BF;Quieres que la llevemos a su cama, Lenne?- pregunta Mikko.  Y est&#x00E1;s a punto de decir que s&#x00ED;, pero niegas con la cabeza.&#x000A;&#x000A; -Ponedla sobre la piedra de las brujas y dejadme a solas con ella.&#x000A;&#x000A; Te miran, se miran entre s&#x00ED;. No te tratan como a la bruja, pero no hay nadie m&#x00E1;s all&#x00ED; y &#x00C1;rvet les ha dicho que te obedezcan. Y lo hacen: dejan el cuerpo de M&#x00E1;kke sobre la piedra de las brujas y se retiran unos pasos. Miras las manos vac&#x00ED;as de tu maestra.&#x000A;&#x000A;[1] "Panu, &#x00BF;qu&#x00E9; se ha hecho del odre?"&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-229"/>
+    </children>
+  </item>
+  <item nodeId="node-229">
+    <command xml:space="preserve">test dameodre</command>
+    <result xml:space="preserve">(Testing.)&#x000A;&#x000A;&gt;[1] habla con panu&#x000A;[1] "Panu, &#x00BF;qu&#x00E9; se ha hecho del odre?"&#x000A;&#x000A;&gt;[2] 1&#x000A;-Panu, &#x00BF;qu&#x00E9; se ha hecho del odre que ten&#x00ED;a M&#x00E1;kke en la mano?&#x000A;&#x000A; -Es un buen odre, Lenne,- dice Panu. -Es de buen cuero, muy bien curado y no tiene agujeros y la vieja M&#x00E1;kke ya no lo necesitar&#x00E1;.&#x000A;&#x000A;[1] "Debes devolverme ese odre"&#x000A;&#x000A;&gt;[3] 1&#x000A;-Debes devolverme ese odre, Panu,- le dices, firme. Porque tus ojos est&#x00E1;n abiertos por fin y sabes qu&#x00E9; debo hacer y c&#x00F3;mo hacerlo, como si la misma M&#x00E1;kke te lo estuviera susurrando al o&#x00ED;do con sus labios muertos. -Debes devolv&#x00E9;rmelo porque de ese odre saldr&#x00E1; la tormenta y el vendaval, la galerna y el temporal, la vida y la muerte. Ese odre en mis manos tendr&#x00E1; el aliento de Ukko y la fuerza de Akka.&#x000A;&#x000A; -Pero si solo es un odre, Lenne.&#x000A;&#x000A;[1] "Haz lo que te digo"&#x000A;&#x000A;&gt;[4] 1&#x000A;-Haz lo que te digo.- ordenas. Y quiz&#x00E1; s&#x00ED; tienes lo necesario para ser la bruja, porque Panu saca el odre de su morral y te lo entrega.&#x000A;&#x000A;-Retiraos del lugar, y pase lo que pase, oig&#x00E1;is lo que oig&#x00E1;is, no se acerqu&#x00E9;is a la piedra de las brujas.- les dices con firmeza.&#x000A;&#x000A; Y no lo har&#x00E1;n. Los hombres se apresuran por el sendero sin mirar atr&#x00E1;s. Ahora est&#x00E1;s sola con tu maestra, los dioses, el viento y las naves negras que empiezan a asomar por el horizonte.&#x000A;&#x000A;Ya tienes todos los elementos necesarios en tu poder. Es hora de preparar a M&#x00E1;kke.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-230"/>
+    </children>
+  </item>
+  <item nodeId="node-230">
+    <command xml:space="preserve">m</command>
+    <result xml:space="preserve">Acantilado&#x000A;Una peque&#x00F1;a explanada que cae vertiginosamente hasta el mar, hacia el oeste. Si te asomas ver&#x00E1;s las rocas de la pared casi vertical, donde anidan los albatros que han blanqueado las pe&#x00F1;as con sus excrementos. Hay poco que ver desde aqu&#x00ED;: la peque&#x00F1;a bah&#x00ED;a de la aldea abajo, la extensi&#x00F3;n hostil del mar al oeste y al norte, el sendero que retorna a la aldea hacia el sur, la nieve que lo cubre todo. Y la piedra, la piedra de las brujas.&#x000A;&#x000A;Las naves negras permanecen en el horizonte, parecen estar quietas pero en realidad se acercan velozmente. Estar&#x00E1;n aqu&#x00ED; en poco tiempo.&#x000A;&#x000A;Sobre la piedra negra ves a M&#x00E1;kke.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-231"/>
+    </children>
+  </item>
+  <item nodeId="node-231">
+    <command xml:space="preserve">examinar naves</command>
+    <result xml:space="preserve">Son unas naves alargadas y picudas copletamente negras, muy velocesCada nave tiene una &#x00FA;nica vela a rayas verticales rojas y blancas.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-232"/>
+    </children>
+  </item>
+  <item nodeId="node-232">
+    <command xml:space="preserve">coger naves</command>
+    <result xml:space="preserve">Est&#x00E1; fuera de tu alcance.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-233"/>
+    </children>
+  </item>
+  <item nodeId="node-233">
+    <command xml:space="preserve">soplar naves</command>
+    <result xml:space="preserve">No entend&#x00ED; esa frase.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-234"/>
+    </children>
+  </item>
+  <item nodeId="node-234">
+    <command xml:space="preserve">tocar naves</command>
+    <result xml:space="preserve">Est&#x00E1; fuera de tu alcance.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-235"/>
+    </children>
+  </item>
+  <item nodeId="node-235">
+    <command xml:space="preserve">empujar naves</command>
+    <result xml:space="preserve">Est&#x00E1; fuera de tu alcance.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-236"/>
+    </children>
+  </item>
+  <item nodeId="node-236">
+    <command xml:space="preserve">besar naves</command>
+    <result xml:space="preserve">S&#x00F3;lo puedes hacer eso con seres animados.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-237"/>
+    </children>
+  </item>
+  <item nodeId="node-237">
+    <command xml:space="preserve">probar naves</command>
+    <result xml:space="preserve">Est&#x00E1; fuera de tu alcance.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-238"/>
+    </children>
+  </item>
+  <item nodeId="node-238">
+    <command xml:space="preserve">m</command>
+    <result xml:space="preserve">Acantilado&#x000A;Una peque&#x00F1;a explanada que cae vertiginosamente hasta el mar, hacia el oeste. Si te asomas ver&#x00E1;s las rocas de la pared casi vertical, donde anidan los albatros que han blanqueado las pe&#x00F1;as con sus excrementos. Hay poco que ver desde aqu&#x00ED;: la peque&#x00F1;a bah&#x00ED;a de la aldea abajo, la extensi&#x00F3;n hostil del mar al oeste y al norte, el sendero que retorna a la aldea hacia el sur, la nieve que lo cubre todo. Y la piedra, la piedra de las brujas.&#x000A;&#x000A;Las naves negras permanecen en el horizonte, parecen estar quietas pero en realidad se acercan velozmente. Estar&#x00E1;n aqu&#x00ED; en poco tiempo.&#x000A;&#x000A;Sobre la piedra negra ves a M&#x00E1;kke.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-239"/>
+    </children>
+  </item>
+  <item nodeId="node-239">
+    <command xml:space="preserve">examinar naves</command>
+    <result xml:space="preserve">Son unas naves alargadas y picudas copletamente negras, muy velocesCada nave tiene una &#x00FA;nica vela a rayas verticales rojas y blancas.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-240"/>
+    </children>
+  </item>
+  <item nodeId="node-240">
+    <command xml:space="preserve">examinar makke</command>
+    <result xml:space="preserve">M&#x00E1;kke est&#x00E1; r&#x00ED;gida y fr&#x00ED;a. M&#x00E1;kke posee la runa de Akka en su piel, debajo de la ropa oscura, humedecida, con nieve acumulada en los pliegues.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-241"/>
+    </children>
+  </item>
+  <item nodeId="node-241">
+    <command xml:space="preserve">test prepara</command>
+    <result xml:space="preserve">(Testing.)&#x000A;&#x000A;&gt;[1] examinar makke&#x000A;M&#x00E1;kke est&#x00E1; r&#x00ED;gida y fr&#x00ED;a. M&#x00E1;kke posee la runa de Akka en su piel, debajo de la ropa oscura, humedecida, con nieve acumulada en los pliegues.&#x000A;&#x000A;&gt;[2] frotar makke&#x000A;Frotas los brazos y las piernas de M&#x00E1;kke hasta que puedes moverla. Le quitas la nieve de la cara y le cierras los ojos a&#x00FA;n h&#x00FA;medos.&#x000A;&#x000A;&gt;[3] x makke&#x000A;M&#x00E1;kke reposa en toda su peque&#x00F1;a extensi&#x00F3;n sobre la piedra negra. M&#x00E1;kke posee la runa de Akka en su piel, debajo de la ropa oscura a&#x00FA;n mojada.&#x000A;&#x000A;&gt;[4] cortar ropa con cuchillo&#x000A;Cortas las ropas con el cuchillo de hoja negra de M&#x00E1;kke. Te resulta extra&#x00F1;o darte cuenta de que M&#x00E1;kke muerta parece m&#x00E1;s peque&#x00F1;a que M&#x00E1;kke viva. Descartas las ropas a un lado.&#x000A;&#x000A;&gt;[5] x makke&#x000A;M&#x00E1;kke est&#x00E1; desnuda sobre la piedra negra. Su piel arrugada y mojada est&#x00E1; sucia de vivir, y esa suciedad se ha quedado impregnada a su carne muerta. Hay restos de sangre donde su cuerpo impact&#x00F3; contra las rocas. La runa de Akka est&#x00E1; tatuada sobre su pecho.&#x000A;&#x000A;&gt;[6] ungir makke con aceite&#x000A;Tomas el frasco de aceite, el aceite aromatizado con resinas y plantas que M&#x00E1;kke sab&#x00ED;a preparar, y le untas la piel blanda, las manos duras, el cuerpo entero que tan bien le ha servido. Frotas los restos de vida de su cuerpo muerto hasta que su piel pierde el olor de la muerte y se llena del olor a pinos y a invierno y al aire limpio del mar.&#x000A;&#x000A;&gt;[7] x makke&#x000A;M&#x00E1;kke ya ha sido ungida y lavada para entrar en la otra vida. Sobre el pecho de M&#x00E1;kke, sobre el lugar de la fuerza del alma, est&#x00E1; la runa de Akka.&#x000A;&#x000A;&gt;[8] cortar runa de akka con cuchillo&#x000A;Haces lo que tienes que hacer y luego cubres el cuerpo de M&#x00E1;kke con su manto de piel de foca. Pero dejas la sangre muerta de M&#x00E1;kke en el cuchillo de piedra negra.&#x000A;&#x000A;No pides permiso a &#x00C1;rvet. No pides permiso al esp&#x00ED;ritu de M&#x00E1;kke. Los vivos son de la vida. Los muertos son de la muerte.&#x000A;&#x000A; Las brujas no son de ning&#x00FA;n sitio.&#x000A;&#x000A;&#x000A;Presiona ESPACIO para continuar.</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-242"/>
+    </children>
+  </item>
+  <item nodeId="node-242">
+    <command xml:space="preserve"> </command>
+    <result xml:space="preserve">Acantilado&#x000A;Una peque&#x00F1;a explanada que cae vertiginosamente hasta el mar, hacia el oeste. Si te asomas ver&#x00E1;s las rocas de la pared casi vertical, donde anidan los albatros que han blanqueado las pe&#x00F1;as con sus excrementos. Hay poco que ver desde aqu&#x00ED;: la peque&#x00F1;a bah&#x00ED;a de la aldea abajo, la extensi&#x00F3;n hostil del mar al oeste y al norte, el sendero que retorna a la aldea hacia el sur, la nieve que lo cubre todo. Y la piedra, la piedra de las brujas.&#x000A;&#x000A;Las naves negras permanecen en el horizonte, parecen estar quietas pero en realidad se acercan velozmente. Estar&#x00E1;n aqu&#x00ED; en poco tiempo.&#x000A;&#x000A;Sobre la piedra negra ves a M&#x00E1;kke.&#x000A;&#x000A;Esta es tu oportunidad de convertirte en bruja. Debes RECITAR CONJURO paso a paso y aguantar hasta completarlo.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-243"/>
+    </children>
+  </item>
+  <item nodeId="node-243">
+    <command xml:space="preserve"> recitar conjuro</command>
+    <result xml:space="preserve">No pides permiso a &#x00C1;rvet. No pides permiso al esp&#x00ED;ritu de M&#x00E1;kke. Los vivos son de la vida. Los muertos son de la muerte.&#x000A; Las brujas no son de ning&#x00FA;n sitio.&#x000A;&#x000A; Destapas el odre y lo ofreces al mar.&#x000A;&#x000A; Tuulen Ukko tuulen Akka&#x000A; Tuulen kaikki ristikansa&#x000A; &#x000A; Miest&#x00E4; mustoa rukoilen&#x000A; Suuren tuulen nostajaksi&#x000A; &#x000A;El viento comienza a soplar fuerte, agitando las olas.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-244"/>
+    </children>
+  </item>
+  <item nodeId="node-244">
+    <command xml:space="preserve">m</command>
+    <result xml:space="preserve">Acantilado&#x000A;Una peque&#x00F1;a explanada que cae vertiginosamente hasta el mar, hacia el oeste. Si te asomas ver&#x00E1;s las rocas de la pared casi vertical, donde anidan los albatros que han blanqueado las pe&#x00F1;as con sus excrementos. Hay poco que ver desde aqu&#x00ED;: la peque&#x00F1;a bah&#x00ED;a de la aldea abajo, la extensi&#x00F3;n hostil del mar al oeste y al norte, el sendero que retorna a la aldea hacia el sur, la nieve que lo cubre todo. Y la piedra, la piedra de las brujas.&#x000A;&#x000A;Las naves negras permanecen en el horizonte, parecen estar quietas pero en realidad se acercan velozmente. Estar&#x00E1;n aqu&#x00ED; en poco tiempo.&#x000A;&#x000A;Sobre la piedra negra ves a M&#x00E1;kke.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-245"/>
+    </children>
+  </item>
+  <item nodeId="node-245">
+    <command xml:space="preserve">recitar conjuro</command>
+    <result xml:space="preserve">La vieja lengua se enreda en tu garganta y en los dientes, vuelve el aire denso a tu alrededor. Sigues pronunciando el conjuro mientras el brazo que sujeta el odre va pesando m&#x00E1;s y m&#x00E1;s.&#x000A;&#x000A; Suuren tuulen nostajaksi&#x000A; S&#x00E4;&#x00E4;n rajun rakentajaksi&#x000A; &#x000A; Tuopa taita tammen latvat&#x000A; Rutaise rutiset raijat&#x000A; &#x000A;El viento cobra fuerza y atrae nubes grises que amenazan tormenta. Las olas alcanzan velocidad y altura y se estrellan contra el acantilado.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-246"/>
+    </children>
+  </item>
+  <item nodeId="node-246">
+    <command xml:space="preserve">m</command>
+    <result xml:space="preserve">Acantilado&#x000A;Una peque&#x00F1;a explanada que cae vertiginosamente hasta el mar, hacia el oeste. Si te asomas ver&#x00E1;s las rocas de la pared casi vertical, donde anidan los albatros que han blanqueado las pe&#x00F1;as con sus excrementos. Hay poco que ver desde aqu&#x00ED;: la peque&#x00F1;a bah&#x00ED;a de la aldea abajo, la extensi&#x00F3;n hostil del mar al oeste y al norte, el sendero que retorna a la aldea hacia el sur, la nieve que lo cubre todo. Y la piedra, la piedra de las brujas.&#x000A;&#x000A;Las naves negras permanecen en el horizonte, parecen estar quietas pero en realidad se acercan velozmente. Estar&#x00E1;n aqu&#x00ED; en poco tiempo.&#x000A;&#x000A;Sobre la piedra negra ves a M&#x00E1;kke.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-247"/>
+    </children>
+  </item>
+  <item nodeId="node-247">
+    <command xml:space="preserve">recitar conjuro</command>
+    <result xml:space="preserve">El odre empieza a hincharse, poco a poco al principio. Los pliegues del cuero se alisan. A lo lejos, el cielo se oscurece. La tormenta hace que se torne negro, del mismo color que los barcos en el horizonte. Te duele el brazo, tiembla. La cabeza tambi&#x00E9;n, como antes de la tormenta. Te cuesta seguir pronunciando el conjuro. El aire sabe a sal y a hierro.&#x000A;&#x000A; Nouse tuuli tuulemahan&#x000A; Vihkurit vetelem&#x00E4;&#x00E4;n&#x000A; &#x000A; Nouse tuuli tuulemahan&#x000A; Ilmarinta riehkim&#x00E4;&#x00E4;n&#x000A; &#x000A;El viento ruge fuerte amenazando con arrancarte el odre del brazo. Las olas alcanzan gran altura e intentan derribar el acantilado acometida tras acometida. Una lluvia intensa cae de las nubes oscuras y airadas. Los barcos negros se tambalean y se apresuran a arriar las velas por miedo a perderlas.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-248"/>
+    </children>
+  </item>
+  <item nodeId="node-248">
+    <command xml:space="preserve">m</command>
+    <result xml:space="preserve">Acantilado&#x000A;Una peque&#x00F1;a explanada que cae vertiginosamente hasta el mar, hacia el oeste. Si te asomas ver&#x00E1;s las rocas de la pared casi vertical, donde anidan los albatros que han blanqueado las pe&#x00F1;as con sus excrementos. Hay poco que ver desde aqu&#x00ED;: la peque&#x00F1;a bah&#x00ED;a de la aldea abajo, la extensi&#x00F3;n hostil del mar al oeste y al norte, el sendero que retorna a la aldea hacia el sur, la nieve que lo cubre todo. Y la piedra, la piedra de las brujas.&#x000A;&#x000A;Las naves negras se sacuden ante las acometidas del vendaval. Han arriado las velas y contin&#x00FA;an avanzando con los remos.&#x000A;&#x000A;Sobre la piedra negra ves a M&#x00E1;kke.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-249"/>
+    </children>
+  </item>
+  <item nodeId="node-249">
+    <command xml:space="preserve">recitar conjuro</command>
+    <result xml:space="preserve">Tu voz llega desde fuera tambi&#x00E9;n, un eco extra&#x00F1;o y estridente, mientras la luz va desapareciendo tragada por, ahora s&#x00ED;, nubes negras que vienen desde los cuatro puntos cardinales. El aire sopla fr&#x00ED;o y a golpes, dando latigazos a las olas que lamen la orilla, abajo en la bah&#x00ED;a. El odre est&#x00E1; hinchado y pesa como un ahogado. Te cuesta respirar cada vez m&#x00E1;s: el aire parece agua densa y salobre.&#x000A;&#x000A; Tuule tuuli kuusi vuotta&#x000A; Seuro seitsem&#x00E4;n kes&#x00E4;&#x00E4;&#x000A; &#x000A; Itse kuoho kosken lailla&#x000A; Sek&#x00E4; valtona vallitse&#x000A; &#x000A;Las olas y la lluvia se unen en un todo enloquecido, incesante, insensato. Todo se ahoga bajo el agua. Las rocas tiemblan y se desmoronan. Los rel&#x00E1;mpagos cortan el horizonte en dos. El rugir del viento amenaza con tirarte acantilado abajo.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-250"/>
+    </children>
+  </item>
+  <item nodeId="node-250">
+    <command xml:space="preserve">m</command>
+    <result xml:space="preserve">Acantilado&#x000A;Una peque&#x00F1;a explanada que cae vertiginosamente hasta el mar, hacia el oeste. Si te asomas ver&#x00E1;s las rocas de la pared casi vertical, donde anidan los albatros que han blanqueado las pe&#x00F1;as con sus excrementos. Hay poco que ver desde aqu&#x00ED;: la peque&#x00F1;a bah&#x00ED;a de la aldea abajo, la extensi&#x00F3;n hostil del mar al oeste y al norte, el sendero que retorna a la aldea hacia el sur, la nieve que lo cubre todo. Y la piedra, la piedra de las brujas.&#x000A;&#x000A;Las naves negras luchan por permanecer a flote. Las olas chocan contra ellas amenazando con volcarlas. &#x000A;&#x000A;Sobre la piedra negra ves a M&#x00E1;kke.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-251"/>
+    </children>
+  </item>
+  <item nodeId="node-251">
+    <command xml:space="preserve">recitar conjuro</command>
+    <result xml:space="preserve">Esperas; esperas hasta que la tormenta en tu cabeza y la tormenta en el horizonte son una, hasta que tu cuerpo est&#x00E1; en dos sitios a la vez, hasta que el odre casi se escapa tironeando de tus dedos en su ansia por liberar la furia del viento.&#x000A;&#x000A; Pero a&#x00FA;n no. A&#x00FA;n no. El poder saldr&#x00E1; de tus palabras y de tu voluntad, no con la furia ciega de la tormenta."&#x000A;&#x000A; Miest&#x00E4; mustoa rukoilen&#x000A; Suuren tuulen nostajaksi&#x000A; &#x000A; Pero la runa de Akka no responde. No sientes su energ&#x00ED;a. Algo falla. Lo que m&#x00E1;s tem&#x00ED;as: t&#x00FA;. No eres una bruja. Solo eres una muchacha tonta que roba el poder a su maestra muerta. La runa no puede responder porque no est&#x00E1; en tu piel. No tiene sangre de bruja que la alimente. Y sabes que no va a funcionar.&#x000A;&#x000A;&#x000A;&#x000A;El des&#x00E1;nimo crece en ti y de la misma manera notas como el conjuro decrece en intensidad.&#x000A;&#x000A; Con la otra mano tomas la runa que hab&#x00ED;a estado en la piel de M&#x00E1;kke y la colocas sobre el brazo que sujeta el odre. No es la manera habitual, no es la manera correcta. Pero la decisi&#x00F3;n es tuya. Si realmente eres la bruja, si eres digna del poder, lo que hagas ser&#x00E1; lo que debe hacerse. Eso dec&#x00ED;a M&#x00E1;kke. &#x000A;&#x000A; Repites los versos finales:&#x000A;&#x000A; Miest&#x00E4; mustoa rukoilen&#x000A; Suuren tuulen nostajaksi&#x000A; &#x000A; &#x00A1;No funciona! La runa no forma parte de ti. No va a funcionar. Gritas tu frustraci&#x00F3;n al viento.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-252"/>
+    </children>
+  </item>
+  <item nodeId="node-252">
+    <command xml:space="preserve">m</command>
+    <result xml:space="preserve">Acantilado&#x000A;Una peque&#x00F1;a explanada que cae vertiginosamente hasta el mar, hacia el oeste. Si te asomas ver&#x00E1;s las rocas de la pared casi vertical, donde anidan los albatros que han blanqueado las pe&#x00F1;as con sus excrementos. Hay poco que ver desde aqu&#x00ED;: la peque&#x00F1;a bah&#x00ED;a de la aldea abajo, la extensi&#x00F3;n hostil del mar al oeste y al norte, el sendero que retorna a la aldea hacia el sur, la nieve que lo cubre todo. Y la piedra, la piedra de las brujas.&#x000A;&#x000A;Las naves negras luchan por permanecer a flote. Las olas chocan contra ellas amenazando con volcarlas. &#x000A;&#x000A;Sobre la piedra negra ves a M&#x00E1;kke.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-253"/>
+    </children>
+  </item>
+  <item nodeId="node-253">
+    <command xml:space="preserve">recitar conjuro</command>
+    <result xml:space="preserve">Repites de nuevo los versos finales:&#x000A;&#x000A; Miest&#x00E4; mustoa rukoilen&#x000A; Suuren tuulen nostajaksi&#x000A; &#x000A; Pero sigue sin funcionar. La runa sigue sin formar parte de ti.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-254"/>
+    </children>
+  </item>
+  <item nodeId="node-254">
+    <command xml:space="preserve">lavar makke</command>
+    <result xml:space="preserve">M&#x00E1;kke ya ha sido ungida y lavada.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-255"/>
+    </children>
+  </item>
+  <item nodeId="node-255">
+    <command xml:space="preserve">lavar cuchillo</command>
+    <result xml:space="preserve">No, lo necesitas as&#x00ED; como est&#x00E1;.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-256"/>
+    </children>
+  </item>
+  <item nodeId="node-256">
+    <command xml:space="preserve">lavar cuchillo con cofre</command>
+    <result xml:space="preserve">Intenta de nuevo, porque s&#x00F3;lo te pude entender: lavar el cuchillo de M&#x00E1;kke.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-257"/>
+    </children>
+  </item>
+  <item nodeId="node-257">
+    <command xml:space="preserve">frotar makke con</command>
+    <result xml:space="preserve">Intenta de nuevo, porque s&#x00F3;lo te pude entender: frotar M&#x00E1;kke.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-258"/>
+    </children>
+  </item>
+  <item nodeId="node-258">
+    <command xml:space="preserve">m</command>
+    <result xml:space="preserve">Acantilado&#x000A;Una peque&#x00F1;a explanada que cae vertiginosamente hasta el mar, hacia el oeste. Si te asomas ver&#x00E1;s las rocas de la pared casi vertical, donde anidan los albatros que han blanqueado las pe&#x00F1;as con sus excrementos. Hay poco que ver desde aqu&#x00ED;: la peque&#x00F1;a bah&#x00ED;a de la aldea abajo, la extensi&#x00F3;n hostil del mar al oeste y al norte, el sendero que retorna a la aldea hacia el sur, la nieve que lo cubre todo. Y la piedra, la piedra de las brujas.&#x000A;&#x000A;Las naves negras luchan por permanecer a flote. Las olas chocan contra ellas amenazando con volcarlas. &#x000A;&#x000A;Sobre la piedra negra ves a M&#x00E1;kke.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-259"/>
+    </children>
+  </item>
+  <item nodeId="node-259">
+    <command xml:space="preserve"> examinar tormenta</command>
+    <result xml:space="preserve">Las enormes olas amenazan con derribar el acantilado. Del cielo truena una gran tormenta con rel&#x00E1;mpagos y acometidas de lluvia incensante.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-260"/>
+    </children>
+  </item>
+  <item nodeId="node-260">
+    <command xml:space="preserve">coger tormenta</command>
+    <result xml:space="preserve">Est&#x00E1; fuera de tu alcance.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-261"/>
+    </children>
+  </item>
+  <item nodeId="node-261">
+    <command xml:space="preserve">dejar todo</command>
+    <result xml:space="preserve">odre: Dejado.&#x000A;frasco de aceite: Dejado.&#x000A;cuchillo de M&#x00E1;kke: Dejado.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-262"/>
+    </children>
+  </item>
+  <item nodeId="node-262">
+    <command xml:space="preserve">m</command>
+    <result xml:space="preserve">Acantilado&#x000A;Una peque&#x00F1;a explanada que cae vertiginosamente hasta el mar, hacia el oeste. Si te asomas ver&#x00E1;s las rocas de la pared casi vertical, donde anidan los albatros que han blanqueado las pe&#x00F1;as con sus excrementos. Hay poco que ver desde aqu&#x00ED;: la peque&#x00F1;a bah&#x00ED;a de la aldea abajo, la extensi&#x00F3;n hostil del mar al oeste y al norte, el sendero que retorna a la aldea hacia el sur, la nieve que lo cubre todo. Y la piedra, la piedra de las brujas.&#x000A;&#x000A;Las naves negras luchan por permanecer a flote. Las olas chocan contra ellas amenazando con volcarlas. &#x000A;&#x000A;Sobre la piedra negra ves a M&#x00E1;kke.&#x000A;&#x000A;Puedes ver tambi&#x00E9;n un cuchillo de M&#x00E1;kke, un frasco de aceite y un odre.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+  </item>
+  <item nodeId="node-263">
+    <command xml:space="preserve">habla con arvet</command>
+    <result xml:space="preserve">[1] ...&#x000A;[2] Terminar la conversaci&#x00F3;n.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-264"/>
+    </children>
+  </item>
+  <item nodeId="node-264">
+    <command xml:space="preserve">1</command>
+    <result xml:space="preserve">Casi no puedes hablar: tu garganta est&#x00E1; en carne viva y quemada por la sal y por el viento. Miras a los muertos.&#x000A;&#x000A;[1] "Se llamaba Leif."&#x000A;[2] "Se llamaba Ulrif."&#x000A;[3] "Se llamaba Snorri."&#x000A;[4] Terminar la conversaci&#x00F3;n.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-265"/>
+    </children>
+  </item>
+  <item nodeId="node-265">
+    <command xml:space="preserve">1</command>
+    <result xml:space="preserve">-Se llamaba Leif-, dices, con voz como el graznido de un cuervo. -Tom&#x00F3; mujer la primavera pasada, la dej&#x00F3; encinta antes de subir al barco negro. Pas&#x00F3; el viaje tallando un juguete para su beb&#x00E9; en un diente de morsa.&#x000A;&#x000A; &#x00C1;rvet no dice nada.&#x000A;&#x000A;[1] "Se llamaba Ulrif."&#x000A;[2] "Se llamaba Snorri."&#x000A;[3] Terminar la conversaci&#x00F3;n.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-266"/>
+    </children>
+  </item>
+  <item nodeId="node-266">
+    <command xml:space="preserve">1</command>
+    <result xml:space="preserve">Das la vuelta con el pie a otro muerto para mirarle los ojos blancos, la cara hinchada.&#x000A;&#x000A; -Se llamaba Ulrif-, dices. -Le gustaba beber y le gustaba pelear. Cantaba mejor que nadie en su aldea y pegaba a su mujer cuando llegaba borracho a casa y ella no quer&#x00ED;a yacer con &#x00E9;l.&#x000A;&#x000A;[1] "Se llamaba Snorri."&#x000A;[2] Terminar la conversaci&#x00F3;n.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-267"/>
+    </children>
+  </item>
+  <item nodeId="node-267">
+    <command xml:space="preserve">1</command>
+    <result xml:space="preserve">Un poco m&#x00E1;s lejos un hombre mira al cielo con un solo ojo.&#x000A;&#x000A; -Se llamaba Snorri-, dices. -No era de la aldea; vino de lejos, mercadeando con pieles, y se qued&#x00F3; con ellos. Era cruel. Le gustaba navegar y le gustaba matar, y hubiera querido ser jefe. Pas&#x00F3; el viaje so&#x00F1;ando con los gritos de las mujeres que tomar&#x00ED;a por la fuerza al llegar.&#x000A;&#x000A;[1] Terminar la conversaci&#x00F3;n.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-268"/>
+    </children>
+  </item>
+  <item nodeId="node-268">
+    <command xml:space="preserve">1</command>
+    <result xml:space="preserve">Tu mirada sigue perdida entre los muertos.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-269"/>
+    </children>
+  </item>
+  <item nodeId="node-269">
+    <command xml:space="preserve">m</command>
+    <result xml:space="preserve">En la playa&#x000A;Una estrecha lengua de guijarros oscuros es la salida del pueblo al mar. A ambos lados los muelles para las barcas delimitan una peque&#x00F1;a bah&#x00ED;a de aguas fr&#x00ED;as y desapacibles.&#x000A;&#x000A;&#x00C1;rvet, el jefe, est&#x00E1; aqu&#x00ED;.&#x000A;&#x000A;La playa de piedras oscuras est&#x00E1; cubierta de maderos, de cordaje y de cad&#x00E1;veres. Hab&#x00ED;an sido hombres altos, de pelo amarillo o cobrizo, p&#x00E1;lidos y orgullosos. Muchos llevan al cinto espadas y hachas.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-270"/>
+    </children>
+  </item>
+  <item nodeId="node-270">
+    <command xml:space="preserve">examinar maderos</command>
+    <result xml:space="preserve">Los restos de las naves negras. Restos de madera, restos de cordaje, restos de velas, restos de m&#x00E1;stil. Algunos trozos han quedado m&#x00E1;s o menos completos y se adivinan dragones que decoraban la proa o la popa de estas naves negras. Dragones tambi&#x00E9;n adornan algunos de los escudos.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-271"/>
+    </children>
+  </item>
+  <item nodeId="node-271">
+    <command xml:space="preserve">examinar cadaveres</command>
+    <result xml:space="preserve">Hay tres cuerpos cerca de donde est&#x00E1;s: un hombre rubio muy joven, demasiado joven. Un hombre alto y grande que yace boca abajo. Un poco m&#x00E1;s lejos hay un hombre pelirrojo que mira al cielo con un solo ojo.&#x000A;&#x000A;-La aldea vive-, dice &#x00C1;rvet.&#x000A;&#x000A; No dice lo que t&#x00FA; has aprendido: que la bruja paga por la sangre vertida. Ahora posees para siempre sus muertes y sus vidas, mueres cada vez que matas. Pero hay mucha muerte en la playa. Mucha sangre en esta tierra.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-272"/>
+    </children>
+  </item>
+  <item nodeId="node-272">
+    <command xml:space="preserve">examinar escudos</command>
+    <result xml:space="preserve">Entre los restos delnaufragio tambi&#x00E9;n est&#x00E1;n los escudos de los guerreros. Tienen una decoraci&#x00F3;n diversa, desde colores sencillos asi c&#x00F3;mo pulpos, &#x00E1;guilas, elegantes y enrevesados nudos, dragones.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-273"/>
+    </children>
+  </item>
+  <item nodeId="node-273">
+    <command xml:space="preserve">examinar espadas</command>
+    <result xml:space="preserve">La elecci&#x00F3;n a la hora de matar por parte de los hombres altos. Espadas largas y hachas de batalla picudas grabadas con s&#x00ED;mbolos y nudos.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-274"/>
+    </children>
+  </item>
+  <item nodeId="node-274">
+    <command xml:space="preserve">coger espadas</command>
+    <result xml:space="preserve">Parece que es parte de los cad&#x00E1;veres.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-275"/>
+    </children>
+  </item>
+  <item nodeId="node-275">
+    <command xml:space="preserve">coger escudos</command>
+    <result xml:space="preserve">Parece que es parte de los maderos.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-276"/>
+    </children>
+  </item>
+  <item nodeId="node-276">
+    <command xml:space="preserve">examinar maderos</command>
+    <result xml:space="preserve">Los restos de las naves negras. Restos de madera, restos de cordaje, restos de velas, restos de m&#x00E1;stil. Algunos trozos han quedado m&#x00E1;s o menos completos y se adivinan dragones que decoraban la proa o la popa de estas naves negras. Dragones tambi&#x00E9;n adornan algunos de los escudos.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-277"/>
+    </children>
+  </item>
+  <item nodeId="node-277">
+    <command xml:space="preserve">m</command>
+    <result xml:space="preserve">En la playa&#x000A;Una estrecha lengua de guijarros oscuros es la salida del pueblo al mar. A ambos lados los muelles para las barcas delimitan una peque&#x00F1;a bah&#x00ED;a de aguas fr&#x00ED;as y desapacibles.&#x000A;&#x000A;&#x00C1;rvet, el jefe, est&#x00E1; aqu&#x00ED;.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-278"/>
+    </children>
+  </item>
+  <item nodeId="node-278">
+    <command xml:space="preserve">examinar mar</command>
+    <result xml:space="preserve">El agua helada contin&#x00FA;a arrojando cad&#x00E1;veres a la playa. O balanceando los cuerpos que es encuentran entre las piedras y el agua.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-279"/>
+    </children>
+  </item>
+  <item nodeId="node-279">
+    <command xml:space="preserve">examinar albatros</command>
+    <result xml:space="preserve">Los albatros cubren todo el cielo, toda la bah&#x00ED;a y toda la playa. Est&#x00E1;n pose&#x00ED;dos por el frenes&#x00ED; del fest&#x00ED;n ante la cantidad de carne muerta que les ofrece el mar.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-280"/>
+    </children>
+  </item>
+  <item nodeId="node-280">
+    <command xml:space="preserve">m</command>
+    <result xml:space="preserve">En la playa&#x000A;Una estrecha lengua de guijarros oscuros es la salida del pueblo al mar. A ambos lados los muelles para las barcas delimitan una peque&#x00F1;a bah&#x00ED;a de aguas fr&#x00ED;as y desapacibles.&#x000A;&#x000A;&#x00C1;rvet, el jefe, est&#x00E1; aqu&#x00ED;.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+  </item>
+  <item nodeId="node-281">
+    <command xml:space="preserve">examinar cadaveres</command>
+    <result xml:space="preserve">Hay tres cuerpos cerca de donde est&#x00E1;s: un hombre rubio muy joven, demasiado joven. Un hombre alto y grande que yace boca abajo. Un poco m&#x00E1;s lejos hay un hombre pelirrojo que mira al cielo con un solo ojo.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-282"/>
+    </children>
+  </item>
+  <item nodeId="node-282">
+    <command xml:space="preserve">m</command>
+    <result xml:space="preserve">En la playa&#x000A;Una estrecha lengua de guijarros oscuros es la salida del pueblo al mar. A ambos lados los muelles para las barcas delimitan una peque&#x00F1;a bah&#x00ED;a de aguas fr&#x00ED;as y desapacibles.&#x000A;&#x000A;&#x00C1;rvet, el jefe, est&#x00E1; aqu&#x00ED;.&#x000A;&#x000A;La playa de piedras oscuras est&#x00E1; cubierta de maderos, de cordaje y de cad&#x00E1;veres. Hab&#x00ED;an sido hombres altos, de pelo amarillo o cobrizo, p&#x00E1;lidos y orgullosos. Muchos llevan al cinto espadas y hachas. Ahora no son m&#x00E1;s que carne para el fest&#x00ED;n de los albatros.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-283"/>
+    </children>
+  </item>
+  <item nodeId="node-283">
+    <command xml:space="preserve">m</command>
+    <result xml:space="preserve">En la playa&#x000A;Una estrecha lengua de guijarros oscuros es la salida del pueblo al mar. A ambos lados los muelles para las barcas delimitan una peque&#x00F1;a bah&#x00ED;a de aguas fr&#x00ED;as y desapacibles.&#x000A;&#x000A;&#x00C1;rvet, el jefe, est&#x00E1; aqu&#x00ED;.&#x000A;&#x000A;La playa de piedras oscuras est&#x00E1; cubierta de maderos, de cordaje y de cad&#x00E1;veres. Hab&#x00ED;an sido hombres altos, de pelo amarillo o cobrizo, p&#x00E1;lidos y orgullosos. Muchos llevan al cinto espadas y hachas. Ahora no son m&#x00E1;s que carne para el fest&#x00ED;n de los albatros.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-284"/>
+    </children>
+  </item>
+  <item nodeId="node-284">
+    <command xml:space="preserve">habla con arvet</command>
+    <result xml:space="preserve">[1] ...&#x000A;[2] Terminar la conversaci&#x00F3;n.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-285"/>
+    </children>
+  </item>
+  <item nodeId="node-285">
+    <command xml:space="preserve">1</command>
+    <result xml:space="preserve">Casi no puedes hablar: tu garganta est&#x00E1; en carne viva y quemada por la sal y por el viento. Miras a los muertos.&#x000A;&#x000A;[1] "Se llamaba Leif."&#x000A;[2] "Se llamaba Ulrif."&#x000A;[3] "Se llamaba Snorri."&#x000A;[4] Terminar la conversaci&#x00F3;n.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-286"/>
+    </children>
+  </item>
+  <item nodeId="node-286">
+    <command xml:space="preserve">1</command>
+    <result xml:space="preserve">-Se llamaba Leif-, dices, con voz como el graznido de un cuervo. -Tom&#x00F3; mujer la primavera pasada, la dej&#x00F3; encinta antes de subir al barco negro. Pas&#x00F3; el viaje tallando un juguete para su beb&#x00E9; en un diente de morsa.&#x000A;&#x000A; &#x00C1;rvet no dice nada.&#x000A;&#x000A;[1] "Se llamaba Ulrif."&#x000A;[2] "Se llamaba Snorri."&#x000A;[3] Terminar la conversaci&#x00F3;n.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-287"/>
+    </children>
+  </item>
+  <item nodeId="node-287">
+    <command xml:space="preserve">1</command>
+    <result xml:space="preserve">Das la vuelta con el pie a otro muerto para mirarle los ojos blancos, la cara hinchada.&#x000A;&#x000A; -Se llamaba Ulrif-, dices. -Le gustaba beber y le gustaba pelear. Cantaba mejor que nadie en su aldea y pegaba a su mujer cuando llegaba borracho a casa y ella no quer&#x00ED;a yacer con &#x00E9;l.&#x000A;&#x000A;[1] "Se llamaba Snorri."&#x000A;[2] Terminar la conversaci&#x00F3;n.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-288"/>
+    </children>
+  </item>
+  <item nodeId="node-288">
+    <command xml:space="preserve">1</command>
+    <result xml:space="preserve">Un poco m&#x00E1;s lejos un hombre mira al cielo con un solo ojo.&#x000A;&#x000A; -Se llamaba Snorri-, dices. -No era de la aldea; vino de lejos, mercadeando con pieles, y se qued&#x00F3; con ellos. Era cruel. Le gustaba navegar y le gustaba matar, y hubiera querido ser jefe. Pas&#x00F3; el viaje so&#x00F1;ando con los gritos de las mujeres que tomar&#x00ED;a por la fuerza al llegar.&#x000A;&#x000A;[1] Terminar la conversaci&#x00F3;n.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-289"/>
+    </children>
+  </item>
+  <item nodeId="node-289">
+    <command xml:space="preserve">1</command>
+    <result xml:space="preserve">Tu mirada sigue perdida entre los muertos.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-290"/>
+    </children>
+  </item>
+  <item nodeId="node-290">
+    <command xml:space="preserve">m</command>
+    <result xml:space="preserve">En la playa&#x000A;Una estrecha lengua de guijarros oscuros es la salida del pueblo al mar. A ambos lados los muelles para las barcas delimitan una peque&#x00F1;a bah&#x00ED;a de aguas fr&#x00ED;as y desapacibles.&#x000A;&#x000A;&#x00C1;rvet, el jefe, est&#x00E1; aqu&#x00ED;.&#x000A;&#x000A;La playa de piedras oscuras est&#x00E1; cubierta de maderos, de cordaje y de cad&#x00E1;veres. Hab&#x00ED;an sido hombres altos, de pelo amarillo o cobrizo, p&#x00E1;lidos y orgullosos. Muchos llevan al cinto espadas y hachas. Ahora no son m&#x00E1;s que carne para el fest&#x00ED;n de los albatros.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-291"/>
+    </children>
+  </item>
+  <item nodeId="node-291">
+    <command xml:space="preserve">coger cadaveres</command>
+    <result xml:space="preserve">Son demasiados para ocuparte t&#x00FA; sola de ellos.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-292"/>
+    </children>
+  </item>
+  <item nodeId="node-292">
+    <command xml:space="preserve">m</command>
+    <result xml:space="preserve">En la playa&#x000A;Una estrecha lengua de guijarros oscuros es la salida del pueblo al mar. A ambos lados los muelles para las barcas delimitan una peque&#x00F1;a bah&#x00ED;a de aguas fr&#x00ED;as y desapacibles.&#x000A;&#x000A;&#x00C1;rvet, el jefe, est&#x00E1; aqu&#x00ED;.&#x000A;&#x000A;La playa de piedras oscuras est&#x00E1; cubierta de maderos, de cordaje y de cad&#x00E1;veres. Hab&#x00ED;an sido hombres altos, de pelo amarillo o cobrizo, p&#x00E1;lidos y orgullosos. Muchos llevan al cinto espadas y hachas. Ahora no son m&#x00E1;s que carne para el fest&#x00ED;n de los albatros.&#x000A;&#x000A;-La aldea vive-, dice &#x00C1;rvet.&#x000A;&#x000A; No dice lo que t&#x00FA; has aprendido: que la bruja paga por la sangre vertida. Ahora posees para siempre sus muertes y sus vidas, mueres cada vez que matas. Pero hay mucha muerte en la playa. Mucha sangre en esta tierra.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-293"/>
+    </children>
+  </item>
+  <item nodeId="node-293">
+    <command xml:space="preserve">m</command>
+    <result xml:space="preserve">En la playa&#x000A;Una estrecha lengua de guijarros oscuros es la salida del pueblo al mar. A ambos lados los muelles para las barcas delimitan una peque&#x00F1;a bah&#x00ED;a de aguas fr&#x00ED;as y desapacibles.&#x000A;&#x000A;&#x00C1;rvet, el jefe, est&#x00E1; aqu&#x00ED;.&#x000A;&#x000A;La playa de piedras oscuras est&#x00E1; cubierta de maderos, de cordaje y de cad&#x00E1;veres. Hab&#x00ED;an sido hombres altos, de pelo amarillo o cobrizo, p&#x00E1;lidos y orgullosos. Muchos llevan al cinto espadas y hachas. Ahora no son m&#x00E1;s que carne para el fest&#x00ED;n de los albatros.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-294"/>
+    </children>
+  </item>
+  <item nodeId="node-294">
+    <command xml:space="preserve">habla con arvet</command>
+    <result xml:space="preserve">Te giras hacia la aldea.&#x000A;&#x000A;-La aldea vive-, dices.&#x000A;&#x000A; Quiz&#x00E1; Lenne la muchacha hubiera llorado. Pero Lenne, la bruja, ya no pudo.&#x000A;&#x000A; Soy Lenne. Soy la bruja. Esta ha sido la historia. A trav&#x00E9;s de todos los a&#x00F1;os, de todos los muertos y de toda la sangre a&#x00FA;n recuerdo aquel momento en la playa, entre los cad&#x00E1;veres.&#x000A;&#x000A; Mir&#x00E9; en silencio a &#x00C1;rvet; no pude asegurarle que la vida volver&#x00ED;a, que el pescado caer&#x00ED;a en las redes, que los ni&#x00F1;os tendr&#x00ED;an leche y los hombres carne de foca y arenque. Todo lo que vi era la muerte que rodea la tierra, que llenaba el mar. No pude ver para la aldea la vida que quise salvar con la muerte que invoqu&#x00E9;.&#x000A;&#x000A; Quiz&#x00E1; M&#x00E1;kke lo sab&#x00ED;a. Quiz&#x00E1; por eso flaque&#x00F3; y muri&#x00F3; antes de poder traer la tormenta. Quiz&#x00E1; hubiera sido mejor morir por la espada y el hacha que desaparecer poco a poco.&#x000A;&#x000A; &#x00C1;rvet me mir&#x00F3; como se mira a las brujas: con respeto, con miedo. Con odio. Yo miraba los muertos.&#x000A;&#x000A; A trav&#x00E9;s del vendaje de mi brazo sal&#x00ED;a sangre, y era sangre negra.&#x000A;&#x000A; Sangre de bruja.&#x000A;&#x000A;&#x000A;&#x000A;    *** Fin ***&#x000A;&#x000A;&#x000A;&#x000A;&#x000A;&#x00BF;Quieres REINICIAR, RECUPERAR un juego guardado, TERMINAR o hacer UNDO del &#x00FA;ltimo comando?&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-295"/>
+    </children>
+  </item>
+  <item nodeId="node-295">
+    <command xml:space="preserve">undo</command>
+    <result xml:space="preserve">En la playa.&#x000A;[Retrocediendo al turno anterior.]&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-296"/>
+    </children>
+  </item>
+  <item nodeId="node-296">
+    <command xml:space="preserve">e</command>
+    <result xml:space="preserve">Te giras hacia la aldea.&#x000A;&#x000A;-La aldea vive-, dices.&#x000A;&#x000A; Quiz&#x00E1; Lenne la muchacha hubiera llorado. Pero Lenne, la bruja, ya no pudo.&#x000A;&#x000A; Soy Lenne. Soy la bruja. Esta ha sido la historia. A trav&#x00E9;s de todos los a&#x00F1;os, de todos los muertos y de toda la sangre a&#x00FA;n recuerdo aquel momento en la playa, entre los cad&#x00E1;veres.&#x000A;&#x000A; Mir&#x00E9; en silencio a &#x00C1;rvet; no pude asegurarle que la vida volver&#x00ED;a, que el pescado caer&#x00ED;a en las redes, que los ni&#x00F1;os tendr&#x00ED;an leche y los hombres carne de foca y arenque. Todo lo que vi era la muerte que rodea la tierra, que llenaba el mar. No pude ver para la aldea la vida que quise salvar con la muerte que invoqu&#x00E9;.&#x000A;&#x000A; Quiz&#x00E1; M&#x00E1;kke lo sab&#x00ED;a. Quiz&#x00E1; por eso flaque&#x00F3; y muri&#x00F3; antes de poder traer la tormenta. Quiz&#x00E1; hubiera sido mejor morir por la espada y el hacha que desaparecer poco a poco.&#x000A;&#x000A; &#x00C1;rvet me mir&#x00F3; como se mira a las brujas: con respeto, con miedo. Con odio. Yo miraba los muertos.&#x000A;&#x000A; A trav&#x00E9;s del vendaje de mi brazo sal&#x00ED;a sangre, y era sangre negra.&#x000A;&#x000A; Sangre de bruja.&#x000A;&#x000A;&#x000A;&#x000A;    *** Fin ***&#x000A;&#x000A;&#x000A;&#x000A;&#x000A;&#x00BF;Quieres REINICIAR, RECUPERAR un juego guardado, TERMINAR o hacer UNDO del &#x00FA;ltimo comando?&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-297"/>
+    </children>
+  </item>
+  <item nodeId="node-297">
+    <command xml:space="preserve">n</command>
+    <result xml:space="preserve">por favor, responde a alguna de arriba.&#x000A;&#x000A;&#x00BF;Quieres REINICIAR, RECUPERAR un juego guardado, TERMINAR o hacer UNDO del &#x00FA;ltimo comando?&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-298"/>
+    </children>
+  </item>
+  <item nodeId="node-298">
+    <command xml:space="preserve">s</command>
+    <result xml:space="preserve">por favor, responde a alguna de arriba.&#x000A;&#x000A;&#x00BF;Quieres REINICIAR, RECUPERAR un juego guardado, TERMINAR o hacer UNDO del &#x00FA;ltimo comando?&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-299"/>
+    </children>
+  </item>
+  <item nodeId="node-299">
+    <command xml:space="preserve">e</command>
+    <result xml:space="preserve">por favor, responde a alguna de arriba.&#x000A;&#x000A;&#x00BF;Quieres REINICIAR, RECUPERAR un juego guardado, TERMINAR o hacer UNDO del &#x00FA;ltimo comando?&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-300"/>
+    </children>
+  </item>
+  <item nodeId="node-300">
+    <command xml:space="preserve">examinar aldea</command>
+    <result xml:space="preserve">por favor, responde a alguna de arriba.&#x000A;&#x000A;&#x00BF;Quieres REINICIAR, RECUPERAR un juego guardado, TERMINAR o hacer UNDO del &#x00FA;ltimo comando?&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-301"/>
+    </children>
+  </item>
+  <item nodeId="node-301">
+    <command xml:space="preserve"> undo</command>
+    <result xml:space="preserve">En la playa.&#x000A;[Retrocediendo al turno anterior.]&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-302"/>
+    </children>
+  </item>
+  <item nodeId="node-302">
+    <command xml:space="preserve">habla con muertos</command>
+    <result xml:space="preserve">Los muertos son demasiados. Los muertos son tuyos. Te abruman.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-303"/>
+    </children>
+  </item>
+  <item nodeId="node-303">
+    <command xml:space="preserve">examinar aldea</command>
+    <result xml:space="preserve">Te giras hacia la aldea.&#x000A;&#x000A;-La aldea vive-, dices.&#x000A;&#x000A; Quiz&#x00E1; Lenne la muchacha hubiera llorado. Pero Lenne, la bruja, ya no pudo.&#x000A;&#x000A; Soy Lenne. Soy la bruja. Esta ha sido la historia. A trav&#x00E9;s de todos los a&#x00F1;os, de todos los muertos y de toda la sangre a&#x00FA;n recuerdo aquel momento en la playa, entre los cad&#x00E1;veres.&#x000A;&#x000A; Mir&#x00E9; en silencio a &#x00C1;rvet; no pude asegurarle que la vida volver&#x00ED;a, que el pescado caer&#x00ED;a en las redes, que los ni&#x00F1;os tendr&#x00ED;an leche y los hombres carne de foca y arenque. Todo lo que vi era la muerte que rodea la tierra, que llenaba el mar. No pude ver para la aldea la vida que quise salvar con la muerte que invoqu&#x00E9;.&#x000A;&#x000A; Quiz&#x00E1; M&#x00E1;kke lo sab&#x00ED;a. Quiz&#x00E1; por eso flaque&#x00F3; y muri&#x00F3; antes de poder traer la tormenta. Quiz&#x00E1; hubiera sido mejor morir por la espada y el hacha que desaparecer poco a poco.&#x000A;&#x000A; &#x00C1;rvet me mir&#x00F3; como se mira a las brujas: con respeto, con miedo. Con odio. Yo miraba los muertos.&#x000A;&#x000A; A trav&#x00E9;s del vendaje de mi brazo sal&#x00ED;a sangre, y era sangre negra.&#x000A;&#x000A; Sangre de bruja.&#x000A;&#x000A;&#x000A;&#x000A;    *** Fin ***&#x000A;&#x000A;&#x000A;&#x000A;&#x000A;&#x00BF;Quieres REINICIAR, RECUPERAR un juego guardado, TERMINAR o hacer UNDO del &#x00FA;ltimo comando?&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-304"/>
+    </children>
+  </item>
+  <item nodeId="node-304">
+    <command xml:space="preserve">undo</command>
+    <result xml:space="preserve">En la playa.&#x000A;[Retrocediendo al turno anterior.]&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-305"/>
+    </children>
+  </item>
+  <item nodeId="node-305">
+    <command xml:space="preserve">m</command>
+    <result xml:space="preserve">En la playa&#x000A;Una estrecha lengua de guijarros oscuros es la salida del pueblo al mar. A ambos lados los muelles para las barcas delimitan una peque&#x00F1;a bah&#x00ED;a de aguas fr&#x00ED;as y desapacibles.&#x000A;&#x000A;&#x00C1;rvet, el jefe, est&#x00E1; aqu&#x00ED;.&#x000A;&#x000A;La playa de piedras oscuras est&#x00E1; cubierta de maderos, de cordaje y de cad&#x00E1;veres. Hab&#x00ED;an sido hombres altos, de pelo amarillo o cobrizo, p&#x00E1;lidos y orgullosos. Muchos llevan al cinto espadas y hachas. Ahora no son m&#x00E1;s que carne para el fest&#x00ED;n de los albatros.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-306"/>
+    </children>
+  </item>
+  <item nodeId="node-306">
+    <command xml:space="preserve">examinar albatros</command>
+    <result xml:space="preserve">Los albatros cubren todo el cielo, toda la bah&#x00ED;a y toda la playa. Est&#x00E1;n pose&#x00ED;dos por el frenes&#x00ED; del fest&#x00ED;n ante la cantidad de carne muerta que se les ofrece.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+  </item>
+  <item nodeId="node-307">
+    <command xml:space="preserve">test busqueda</command>
+    <result xml:space="preserve">(Testing.)&#x000A;&#x000A;&gt;[1] salir&#x000A;Sales al exterior, al aire g&#x00E9;lido de la ma&#x00F1;ana. Notas el fr&#x00ED;o de la nieve a trav&#x00E9;s de tus botas.&#x000A;&#x000A;En la aldea&#x000A;En la hora fr&#x00ED;a antes del largo amanecer, la aldea todav&#x00ED;a dormita. El sol no ha salido a&#x00FA;n, pero un leve resplandor se refleja bajo las nubes grises arrojando sobre las caba&#x00F1;as una luz mortecina bajo la cual la nieve acumulada durante la noche hace lucir el suelo y los tejados con un blanco sobrenatural.&#x000A;&#x000A;Un sendero casi tapado por la nieve viene desde la playa en el oeste y contin&#x00FA;a hacia el norte, trepando la monta&#x00F1;a.&#x000A;&#x000A;La caba&#x00F1;a de M&#x00E1;kke est&#x00E1; aqu&#x00ED;, algo apartada del resto aunque integrada en la aldea.&#x000A;&#x000A;&gt;[2] examinar suelo&#x000A;Ves las huellas de M&#x00E1;kke en la nieve tras la caba&#x00F1;a: sus pies diminutos se dirigen vacilantes hacia el norte.&#x000A;&#x000A;&gt;[3] norte&#x000A;&#x000A;Sendero&#x000A;El estrecho sendero que lleva desde la aldea al acantilado es apenas un trazo en la nieve. Las cabras lo usan cuando van a ramonear las hierbas duras que crecen en la planicie barrida por el viento, y las brujas lo usan cuando van a la piedra negra en la que realizan los rituales de invierno y primavera, de vida y de muerte. Hacia el norte, asciende serpenteante por la ladera de la monta&#x00F1;a hasta llegar a la cima del acantilado. Hacia el sur retorna a la aldea.&#x000A;&#x000A;&gt;[4] norte&#x000A;&#x000A;Acantilado&#x000A;Una peque&#x00F1;a explanada que cae vertiginosamente hasta el mar, hacia el oeste. Si te asomas ver&#x00E1;s las rocas de la pared casi vertical, donde anidan los albatros que han blanqueado las pe&#x00F1;as con sus excrementos. Hay poco que ver desde aqu&#x00ED;: la peque&#x00F1;a bah&#x00ED;a de la aldea abajo, la extensi&#x00F3;n hostil del mar al oeste y al norte, el sendero que retorna a la aldea hacia el sur, la nieve que lo cubre todo. Y la piedra, la piedra de las brujas.&#x000A;&#x000A;El manto de piel de foca de M&#x00E1;kke est&#x00E1; tirado a un lado de la piedra negra. No sabes si dejado all&#x00ED; o arrastrado por el viento.&#x000A;&#x000A;&gt;[5] examinar nieve&#x000A;Las huellas de M&#x00E1;kke llevan hasta el borde del acantilado. All&#x00ED; se detuvo, pero justo en el borde hay un revoltijo en la nieve y se pierde su rastro.&#x000A;&#x000A;&gt;[6] examinar rocas&#x000A;Te asomas con cuidado, consciente de las rachas traidoras de viento que podr&#x00ED;an despe&#x00F1;arte. Ves los nidos de albatros, las piedras apenas cubiertas de hierbas resecas y musgo.&#x000A;&#x000A;M&#x00E1;kke ha ca&#x00ED;do por pendiente abajo pero no ha llegado al mar. Ves su cuerpo entre las pe&#x00F1;as blancas, entre los nidos de albatros. Tiene los ojos abiertos y llenos de nieve, y un odre vac&#x00ED;o en la mano. Su boca es miedo.&#x000A;&#x000A;Debes hablar con &#x00C1;rvet sobre la pesadilla y la muerte de M&#x00E1;kke. Y sabes lo que est&#x00E1; por venir, lo que debes hacer luego. Y lo temes como jam&#x00E1;s has temido nada.&#x000A;&#x000A;&#x000A;Presiona ESPACIO para continuar.</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-308"/>
+    </children>
+  </item>
+  <item nodeId="node-308">
+    <command xml:space="preserve"> </command>
+    <result xml:space="preserve">En la playa&#x000A;Una estrecha lengua de guijarros oscuros es la salida del pueblo al mar. A ambos lados los muelles para las barcas delimitan una peque&#x00F1;a bah&#x00ED;a de aguas fr&#x00ED;as y desapacibles. El cielo cubierto de nubes grises es surcado por el poderoso vuelo de los albatros. Hacia el este puedes ver la aldea.&#x000A;&#x000A;&#x00C1;rvet es el jefe. Lo encuentras en la bah&#x00ED;a remendando una red y mirando al mar agitado y gris.&#x000A;&#x000A;Un albatros se zambulle en la bah&#x00ED;a. Emerge al rato con el pico vac&#x00ED;o. A duras penas vuelve a elevarse para continuar oteando la bah&#x00ED;a.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-309"/>
+    </children>
+  </item>
+  <item nodeId="node-309">
+    <command xml:space="preserve">habla con arvet</command>
+    <result xml:space="preserve">[1] "He visto la muerte."&#x000A;[2] "M&#x00E1;kke est&#x00E1; muerta."&#x000A;[3] Terminar la conversaci&#x00F3;n.&#x000A;&#x000A;Un albatros asciende desde el borde del acantilado planeando. Se eleva a gran altura, y vuela hacia un lugar indeterminado.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-310"/>
+    </children>
+  </item>
+  <item nodeId="node-310">
+    <command xml:space="preserve">2</command>
+    <result xml:space="preserve">-La vieja M&#x00E1;kke est&#x00E1; muerta. Cay&#x00F3; por el acantilado- le dices -. Debes enviar dos hombres que hayan visto la muerte cara a cara para que recuperen su cuerpo. Y luego debes dejarme a solas con ella.&#x000A;&#x000A; &#x00C1;rvet te mira:&#x000A;&#x000A; -&#x00BF;Y por qu&#x00E9; debo dejarte a solas con nuestra bruja, joven Lenne?&#x000A;&#x000A;[1] "Es cierto, soy demasiado joven."&#x000A;[2] "M&#x00E1;kke ya no es la bruja."&#x000A;[3] Terminar la conversaci&#x00F3;n.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-311"/>
+    </children>
+  </item>
+  <item nodeId="node-311">
+    <command xml:space="preserve">2</command>
+    <result xml:space="preserve">-M&#x00E1;kke ya no es la bruja: ahora es cuervo y viento, es hielo y cenizas. La bruja es Lenne ahora, Lenne que aprendi&#x00F3; de M&#x00E1;kke. Ser&#x00E1; Lenne quien cuide de M&#x00E1;kke en la muerte- dices, pero por dentro tiemblas porque sabes que no eres la bruja, a&#x00FA;n no, y &#x00C1;rvet es un hombre y es el jefe y s&#x00F3;lo la bruja puede decirle a un hombre qu&#x00E9; son las cosas.&#x000A;&#x000A;&#x00C1;rvet mira de nuevo al mar, hinchado como un golpe:&#x000A;&#x000A; -En la noche o&#x00ED; gritos, joven Lenne-que-quiere-ser-bruja -dice en voz baja -. &#x00BF;Qui&#x00E9;n gritaba?&#x000A;&#x000A;[1] "&#x00BF;Por qu&#x00E9; me preguntas lo que ya sabes?"&#x000A;[2] "Gritaba la bruja, gritaba yo..."&#x000A;[3] Terminar la conversaci&#x00F3;n.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-312"/>
+    </children>
+  </item>
+  <item nodeId="node-312">
+    <command xml:space="preserve">2</command>
+    <result xml:space="preserve">-Gritaba la bruja -dices -. Gritaba M&#x00E1;kke y gritaba yo. Yo gritaba porque M&#x00E1;kke gritaba, y M&#x00E1;kke gritaba porque so&#x00F1;aba. Y t&#x00FA; nos o&#x00ED;ste porque estabas despierto, jefe &#x00C1;rvet, cuando dorm&#x00ED;a la aldea.&#x000A;&#x000A;[1] "&#x00BF;Qu&#x00E9; te despert&#x00F3;?"&#x000A;[2] Terminar la conversaci&#x00F3;n.&#x000A;&#x000A;Un albatros rebusca con su pico entre los guijarros de la playa.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-313"/>
+    </children>
+  </item>
+  <item nodeId="node-313">
+    <command xml:space="preserve">1</command>
+    <result xml:space="preserve">-&#x00BF;Qu&#x00E9; te despert&#x00F3;? -preguntas. Sabes que M&#x00E1;kke ha ense&#x00F1;ado bien a &#x00C1;rvet y no lo suficiente a ti. M&#x00E1;kke te dec&#x00ED;a que ten&#x00ED;as la boca demasiado grande y las orejas demasiado peque&#x00F1;as, dec&#x00ED;a que aprend&#x00ED;as r&#x00E1;pido pero no sabes esperar. Dec&#x00ED;a que a&#x00FA;n te faltaba tiempo para ser bruja.&#x000A;&#x000A;Pero no queda tiempo.&#x000A;&#x000A;-Me despert&#x00F3; un sue&#x00F1;o de barcos negros llenos de hombres altos, un sue&#x00F1;o de hombres con hachas que ven&#x00ED;an por el mar fr&#x00ED;o -responde &#x00C1;rvet -. Dime, Lenne, &#x00BF;era el sue&#x00F1;o de un viejo asustado o era el sue&#x00F1;o de un hombre despierto?&#x000A;&#x000A;[1] &#x00C1;rvet es sabio...&#x000A;[2] Esperar en silencio.&#x000A;[3] Terminar la conversaci&#x00F3;n.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-314"/>
+    </children>
+  </item>
+  <item nodeId="node-314">
+    <command xml:space="preserve">1</command>
+    <result xml:space="preserve">Miras un instante a &#x00C1;rvet. Sabes que el jefe es un hombre sabio y que sus ojos est&#x00E1;n abiertos, duerma o vele. Pero no esperabas que hubiera so&#x00F1;ado lo mismo y con tanto detalle. &#x00C1;rvet nota tu sorpresa.&#x000A;&#x000A;-No soy un viejo decr&#x00E9;pito, Lenne -dice, con un resto de humor -. Y s&#x00E9; que este sue&#x00F1;o es un aviso. Quiz&#x00E1; esperaba que me dijeras que no era m&#x00E1;s que un desvar&#x00ED;o provocado por el hambre.&#x000A;&#x000A;[1] "Los tres hemos tenido el mismo sue&#x00F1;o."&#x000A;[2] Terminar la conversaci&#x00F3;n.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-315"/>
+    </children>
+  </item>
+  <item nodeId="node-315">
+    <command xml:space="preserve">1</command>
+    <result xml:space="preserve">-Los tres hemos tenido el mismo sue&#x00F1;o. Los tres hemos so&#x00F1;ado la muerte de la aldea a manos de los hombres con hachas que vienen desde el norte, bordeando el hielo cortante. Por eso M&#x00E1;kke ha ido al acantilado antes del amanecer. Y all&#x00ED; ha encontrado la muerte.&#x000A;&#x000A; -No podemos defendernos de los hombres altos -dice &#x00C1;rvet -. El mar se ha llevado a demasiados j&#x00F3;venes, las mujeres est&#x00E1;n d&#x00E9;biles por falta de comida, los ni&#x00F1;os no tienen leche. La muerte llega en los barcos negros, joven Lenne, y no tenemos bruja que nos defienda.&#x000A;&#x000A;[1] "&#x00BF;Entonces esperaremos a la muerte?"&#x000A;[2] "Yo ser&#x00E9; la bruja."&#x000A;[3] Terminar la conversaci&#x00F3;n.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-316"/>
+    </children>
+  </item>
+  <item nodeId="node-316">
+    <command xml:space="preserve">1</command>
+    <result xml:space="preserve">-&#x00BF;Entonces esperaremos la muerte como cabras viejas? -dices, porque a&#x00FA;n tienes la boca demasiado grande y las orejas demasiado peque&#x00F1;as.&#x000A;&#x000A; -Si tuvi&#x00E9;ramos bruja, la bruja podr&#x00ED;a salvarnos. Si tuvi&#x00E9;ramos bruja, la bruja podr&#x00ED;a llamar a la tormenta. Si tuvi&#x00E9;ramos bruja quiz&#x00E1; vivir&#x00ED;amos para pescar en la estaci&#x00F3;n del sol, y engordar con grasa de foca y criar m&#x00E1;s ni&#x00F1;os y volver a vivir -dice &#x00C1;rvet -. Pero no tenemos bruja, porque M&#x00E1;kke est&#x00E1; muerta.&#x000A;&#x000A;[1] "Yo ser&#x00E9; la bruja."&#x000A;[2] Terminar la conversaci&#x00F3;n.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-317"/>
+    </children>
+  </item>
+  <item nodeId="node-317">
+    <command xml:space="preserve">1</command>
+    <result xml:space="preserve">-Yo ser&#x00E9; la bruja -dices -. Yo llamar&#x00E9; a la tormenta.&#x000A;&#x000A; -T&#x00FA; -&#x00C1;rvet se burla de ti -. T&#x00FA; no sabes, Lenne. &#x00BF;Has aprendido las palabras? &#x00BF;Conoces los objetos?&#x000A;&#x000A;[1] "Conozco..."&#x000A;[2] Terminar la conversaci&#x00F3;n.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-318"/>
+    </children>
+  </item>
+  <item nodeId="node-318">
+    <command xml:space="preserve">1</command>
+    <result xml:space="preserve">-M&#x00E1;kke me ense&#x00F1;&#x00F3;: conozco las palabras y los objetos -le dices. Es cierto: el odre para recoger el viento. El cuchillo para el sacrificio de sangre. Las runas, que tienen el poder.&#x000A;&#x000A; -Pero no conoces a los dioses. No tienes el poder. No sabes el precio.&#x000A;&#x000A; &#x00C1;rvet no miente. Tienes trece a&#x00F1;os y no conoces a los dioses. No como los conocer&#x00E1;s en el futuro. Pero a los trece a&#x00F1;os no hablas de lo que no sabes, porque crees que lo sabes todo.&#x000A;&#x000A;[1] "Pagar&#x00E9;."&#x000A;[2] Terminar la conversaci&#x00F3;n.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-319"/>
+    </children>
+  </item>
+  <item nodeId="node-319">
+    <command xml:space="preserve">1</command>
+    <result xml:space="preserve">-Conocer&#x00E9; a los dioses y pagar&#x00E9; el precio, jefe &#x00C1;rvet -le dices -. Y si no lo consigo moriremos como cabras que se ofrecen al cuchillo, a manos de los barcos negros y con los dioses mirando.&#x000A;&#x000A; &#x00C1;rvet te mira durante mucho rato. Sabes lo que ve: tus trenzas de muchacha, tu vestido de lana manchado de barro, el pliegue testarudo de tu boca. Ve a una ni&#x00F1;a de boca grande y orejas peque&#x00F1;as. No ve a la bruja.&#x000A;&#x000A;[1] No sabes qu&#x00E9; decir.&#x000A;&#x000A;Un par de albatros descansan en una barca y se acicalan mutuamente introduciendo sus picos en el plumaje del otro.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-320"/>
+    </children>
+  </item>
+  <item nodeId="node-320">
+    <command xml:space="preserve">1</command>
+    <result xml:space="preserve">-As&#x00ED; sea -dice &#x00C1;rvet tras un momento de meditaci&#x00F3;n -. Ve al acantilado. Enviar&#x00E9; dos hombres para que recuperen el cuerpo de M&#x00E1;kke. Haz lo que debas, joven Lenne. Si la muerte quiere venir a por nosotros, que venga tambi&#x00E9;n a por los hombres en los barcos negros. Y que los dioses determinen qui&#x00E9;n paga por esa sangre.&#x000A;&#x000A;No hay m&#x00E1;s que decir: el jefe ha hablado. Debes hacer el ritual.&#x000A;&#x000A;&#x00C1;rvet manda llamar a Panu y a Mikko. Habla con ellos un momento y los manda a realizar el trabajo necesario. Los hombres emprenden el camino con rostro sombr&#x00ED;o, van hacia la aldea y los ves desaparecer al girar hacia el acantilado.&#x000A;&#x000A;&#x00C1;rvet mira de nuevo al mar, gris como el cielo, y no dice nada m&#x00E1;s.&#x000A;&#x000A;Un albatros vuelve a zambullirse en la bah&#x00ED;a. Emerge al rato con un pez en su pico. Se eleva y retorna a los nidos en las rocas del acantilado.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-321"/>
+    </children>
+  </item>
+  <item nodeId="node-321">
+    <command xml:space="preserve">n</command>
+    <result xml:space="preserve">El escarpado acantilado corta la playa en esa direcci&#x00F3;n.&#x000A;&#x000A;Una ola alta rompe contra la playa, la espuma llega hasta tus pies.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-322"/>
+    </children>
+  </item>
+  <item nodeId="node-322">
+    <command xml:space="preserve">s</command>
+    <result xml:space="preserve">Los pe&#x00F1;ascos de la bah&#x00ED;a hacen de esa direcci&#x00F3;n un paso intransitable.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-323"/>
+    </children>
+  </item>
+  <item nodeId="node-323">
+    <command xml:space="preserve">habla con arvet</command>
+    <result xml:space="preserve">[1] No hay m&#x00E1;s que decir.&#x000A;&#x000A;Un albatros se pasea por los guijarros de la playa.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-324"/>
+    </children>
+  </item>
+  <item nodeId="node-324">
+    <command xml:space="preserve">1</command>
+    <result xml:space="preserve">No tienes nada m&#x00E1;s que tratar con el jefe. Haz tu trabajo, joven Lenne-que-quiere-ser-bruja.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-325"/>
+    </children>
+  </item>
+  <item nodeId="node-325">
+    <command xml:space="preserve">n</command>
+    <result xml:space="preserve">El escarpado acantilado corta la playa en esa direcci&#x00F3;n.&#x000A;&#x000A;Una ola alta rompe contra la playa, la espuma llega hasta tus pies.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-326"/>
+    </children>
+  </item>
+  <item nodeId="node-326">
+    <command xml:space="preserve">e</command>
+    <result xml:space="preserve">Caminando hacia la aldea, repasas mentalmente los elementos necesarios para llamar a la tormenta: las runas de poder, la runa de Ukko y la runa de Akka, aceite aromatizado para ungir el cuerpo de tu maestra, el cuchillo de M&#x00E1;kke de piedra transl&#x00FA;cida para realizar la entrega de la sangre. Y lo m&#x00E1;s importante, ser bruja, algo que no eres. Esperemos que los dioses y el esp&#x00ED;ritu de tu maestra sean deferentes para contigo y los tuyos.&#x000A;&#x000A;En la aldea&#x000A;La aldea ha despertado ya y poco a poco se llena de vida. Un d&#x00ED;a largo y gris espera por delante. La aldea se compone de quiz&#x00E1; treinta casas en total, desde endebles caba&#x00F1;as de tablas hasta casas m&#x00E1;s s&#x00F3;lidas, recuerdo de &#x00E9;pocas m&#x00E1;s pr&#x00F3;speras. De vez en cuando se ve un huertecillo en vez de una casa, o un corral con cabras que miran altivas a su alrededor. Las mujeres preparan pescado para ahumar o salar, y los hombres arreglan los aperos de pesca o reparan agujeros en los tejados de ramas. Notas algunas miradas furtivas que te siguen el paso junto con alg&#x00FA;n susurro que otro.&#x000A;&#x000A;El sendero viene desde la playa en el oeste y contin&#x00FA;a hacia el norte, trepando la monta&#x00F1;a.&#x000A;&#x000A;La caba&#x00F1;a de M&#x00E1;kke est&#x00E1; aqu&#x00ED;, algo apartada del resto aunque integrada en la aldea.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+  </item>
+  <item nodeId="node-327">
+    <command xml:space="preserve"></command>
+    <result xml:space="preserve">&#x00BF;Perd&#x00F3;n?&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-328"/>
+    </children>
+  </item>
+  <item nodeId="node-328">
+    <command xml:space="preserve"></command>
+    <result xml:space="preserve">&#x00BF;Perd&#x00F3;n?&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-329"/>
+    </children>
+  </item>
+  <item nodeId="node-329">
+    <command xml:space="preserve"></command>
+    <result xml:space="preserve">&#x00BF;Perd&#x00F3;n?&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-330"/>
+    </children>
+  </item>
+  <item nodeId="node-330">
+    <command xml:space="preserve">m</command>
+    <result xml:space="preserve">En la caba&#x00F1;a de M&#x00E1;kke&#x000A;La caba&#x00F1;a no es diferente a las dem&#x00E1;s de la aldea: paredes de troncos sellados con barro y corteza y una &#x00FA;nica sala con suelo de tierra apisonada. Has pasado m&#x00E1;s tiempo en esta habitaci&#x00F3;n que en casa de tus padres y la conoces mejor que la palma de tu mano; una tosca zona de trabajo, la cama de M&#x00E1;kke y tu jerg&#x00F3;n, adem&#x00E1;s de algunos enseres cotidianos y algunas hierbas secas que os quedan de la colecta de primavera. Los pocos tesoros que M&#x00E1;kke apreci&#x00F3; en vida parecen poca cosa tras su muerte: el arc&#x00F3;n de madera pintada, el peque&#x00F1;o altar con las runas rituales.&#x000A;&#x000A;Su mayor tesoro, el cofrecillo de marfil tallado, permanece olvidado en un rinc&#x00F3;n.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-331"/>
+    </children>
+  </item>
+  <item nodeId="node-331">
+    <command xml:space="preserve">acciones</command>
+    <result xml:space="preserve">Actions listing on.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-332"/>
+    </children>
+  </item>
+  <item nodeId="node-332">
+    <command xml:space="preserve">cortarse</command>
+    <result xml:space="preserve">[cutting ti misma]&#x000A;Necesitas un objeto cortante.&#x000A;[cutting ti misma - failed]&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-333"/>
+    </children>
+  </item>
+  <item nodeId="node-333">
+    <command xml:space="preserve">cortarse con cofre</command>
+    <result xml:space="preserve">[cutting ti misma with el cofrecillo]&#x000A;(primero coges el cofrecillo)&#x000A;[(1) taking el cofrecillo - silently]&#x000A;[(1) taking el cofrecillo - silently - succeeded]&#x000A;&#x000A;Necesitas un objeto cortante.&#x000A;[cutting ti misma with el cofrecillo - failed the Check cutting it with]&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+  </item>
+</Skein>

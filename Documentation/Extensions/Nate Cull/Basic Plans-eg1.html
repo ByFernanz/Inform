@@ -1,0 +1,1034 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Extension</title>
+    <style type="text/css">
+        <!--
+        /* The default font (family) and size */
+
+        body, p, td {
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.8rem; /* 100/125 */
+        }
+
+        /* For fixed-point material within text, such as the typing on the Library Card index page */
+
+        span.typewritten {
+        	font-family: monospace;
+        	font-size: 0.867rem; /* 13/12 * 100/125 */
+        }
+
+        /* For less important material: the small print */
+
+        span.smaller {
+        	font-size: 80%;
+        }
+
+        /* The "heading panel" is the coloured box, high up on the page. The colours
+        vary depending on the page: for example, the style on a report of a translation
+        with no problems is "headingpanelsucceeded", usually green, but if there were
+        problems then "headingpanelfailed" is used, which is usually red. "headingpanel"
+        itself is a more neutral grey by default. "headingpanelDark" is an alternative
+        look to make the extensions index pages have some visual contrast with the others;
+        by default they are a darker grey. */
+
+        .headingpanel {
+        	background: #eeeeee;
+        }
+        .headingpanelsucceeded {
+        	background: #E6FFE6;
+        }
+        .headingpanelfailed {
+        	background: #f69Ca6;
+        }
+        .headingpanelalt {
+        	background: #808080;
+        }
+
+        /* Heading panels have two lines of text: an upper one in a larger size, and a
+        lower one in a smaller. Again, the alt versions are meant to contrast.
+
+        	Report on Translation: Succeeded                <-- headingpaneltext
+        	Produced by Inform 10.1.0 (build 6U97)          <-- headingpanelrubric
+
+        	Installed Extensions                            <-- headingpaneltextalt
+        	Bundles of extra rules or phrases to...         <-- headingpanelrubricalt
+
+        */
+
+        span.headingpaneltext {
+        	color: #222222;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+        span.headingpaneltextalt {
+        	color: #ffffff;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        span.headingpanelrubric {
+        	color: #222222;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.733rem; /* 11/12 * 100/125 */
+        	font-weight: bold;
+        }
+        span.headingpanelrubricalt {
+        	color: #ffffff;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.733rem; /* 11/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* Horizontal rule styling */
+
+        div.hr {
+        	border: 0;
+        	width: 100%;
+        	color: #707070;
+        	background-color: #707070;
+        	height: 5px;
+        }
+
+        /* This styles the (usually white) text of the example numbers written inside
+        oval blobs in the extension documentation, which mimic the look of the in-app
+        documentation. */
+
+        .oval, .oval td {
+        	background-image:url('inform:/doc_images/ovoid.png');
+        	color:white;
+        }
+
+        /* Styling used in the extension documentation indexes: */
+
+        /* Used for extension names in the extensions pane of the app */
+
+        span.extensioncensusentry {
+        	color: #ffffff;
+        }
+
+        span.extensionindexentry {
+        	color: #404040;
+        }
+
+        span.extensionindexerror {
+        	color: #ff8080;
+        }
+
+        /* This is used in extension documentation, where an example is presented
+        in a slightly tinted box: */
+
+        table.extensionexample {
+        	background-color: #f0f0f0;
+        }
+
+        span.extensionexampleletter {
+        	color: #202020;
+        	font-size: 14px;
+        	font-weight: bold;
+        }
+
+        /* Seen in problem messages: */
+
+        span.problemred {
+        	color: #800000;
+        }
+
+        span.problemgreen {
+        	color: #008000;
+        }
+
+        span.phraseword {
+        	color: #808080;
+        }
+
+        span.phrasetokentext {
+        	color: #e00060;
+        }
+
+        span.phrasetokendesctext {
+        	color: #4040ff;
+        }
+
+        span.phrasetokenvaluetext {
+        	color: #ff4040;
+        }
+
+        /* Now we move on to styling used in the Index pages only: */
+
+        /* The periodic table display has "sidebars", usually grey and taller than they
+        are wide; they contain no text. */
+
+        div.periodictablesidebarcolour {
+        	background: #888;
+        }
+        div.periodictablesidebar:hover {
+        	background: #222;
+        }
+
+        /* The text of the element-abbreviation, such as "Lx" or "Ph", uses: */
+
+        span.elementtext {
+        	color: #ffffff;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* Similarly for the "atomic number" - a single digit - in the top left corner
+        of these boxes: */
+
+        span.elementnumbertext {
+        	color: #ffffff;
+        	font-size: 0.622rem; /* 7/12 * 96/72 * 100/125 */
+        }
+
+        /* For the text of the element title, to the right of the element box: */
+
+        span.elementtitletext {
+        	color: #ffffff;
+        	font-size: 0.6rem; /* 9/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* The banner at the top of each element: */
+
+        table.elementbanner {
+        	background: #eeeeee;
+        }
+
+        /* For the typewriting on the Library Card: */
+
+        span.librarycardtitle {
+        	color: #803030;
+        }
+
+        span.librarycardother {
+        	color: #303030;
+        }
+
+        /* Generically used for "more details" boxes in the index: */
+
+        table.indexmorebox {
+        	background-color: #e0e0e0;
+            border-radius: 8px;
+        }
+
+        /* But not for activity contents: */
+
+        table.indexactivitycontents {
+        	background-color: #e8e0c0;
+            border-radius: 8px;
+        }
+
+        /* For responses in index entries about rules: */
+
+        span.indexresponseletter {
+        	color: #ffffff;
+        	font-family: 'Courier New', Courier, monospace;
+        	background-color: #8080ff;
+        }
+
+        span.indexresponsetext {
+        	color: #000066;
+        }
+
+        /* Used ubiquitously throughout the index and extension documentation: */
+
+        span.indexblack {
+        	color: #000000;
+        }
+
+        span.indexgrey {
+        	color: #808080;
+        }
+
+        span.indexdarkgrey {
+            color: #505050;
+        }
+
+        span.indexdullred {
+        	color: #800000;
+        }
+
+        span.indexdullgreen {
+        	color: #008000;
+        }
+
+        span.indexdullblue {
+        	color: #000080;
+        }
+
+        /* Used for the room squares in the World map in the Index (which is currently
+        a table with one row of one column) */
+
+        table.indexmaproom {
+        	border-color: #000000;
+        }
+
+        /* Used in the numbering of levels of the World map in the Index */
+
+        span.indexmaplevelnumbers {
+        	color: #c0c0c0;
+        }
+
+        /* Used e.g. for title rows in the Chart of basic kinds in the Index */
+
+        tr.headingrow {
+        	background-color: #e0e0e0;
+        }
+
+        /* Standard rows have black text on striped background colours, these being
+        the usual ones seen in Mac OS X applications such as iTunes. */
+
+        tr.stripeone {
+        	background-color: #ffffff;
+        }
+
+        tr.stripetwo {
+        	background-color: #f3f6fa;
+        }
+
+        tr.tintedrow {
+        	background-color: #808080;
+        }
+
+        /* In the Figures index, this is the background colour used behind images
+        (though in fact it will only be visible if the image fails to load, or uses
+        transparency): */
+
+        div.figureindexbox {
+        	background-color: #6495ed;
+        }
+
+        /* To get the book-contents-page style leaders on the Contents element of
+           the index to work, these must use the background colour of the body of
+           the page, whatever that is: */
+
+        ul.leaders li.leaded span:first-child {
+        	background: white;
+        }
+        ul.leaders li.leaded span + span {
+        	background: white;
+        }
+
+        /* On Registry index pages (such as the Public Library), these are used for
+        download buttons and the like: */
+
+        span.registrybuttontext {
+        	font-size: 11px;
+        	border-color: #000000;
+        }
+
+        span.registryminibuttontext {
+        	font-size: 10px;
+        	border-color: #000000;
+        }
+
+        span.registrybuttonuninstalled {
+        	color: #000000;
+        	background: #ffffdd;
+        }
+
+        span.registrybuttoninstalled {
+        	color: #000000;
+        	background: #ffffff;
+        	pointer-events: none;
+        }
+
+        span.registrybuttonbuiltin {
+        	color: #888888;
+        	background: #ffffff;
+        	pointer-events: none;
+        }
+
+        span.registrybuttonupdate {
+        	color: #000000;
+        	background: #aaddff;
+        }
+
+        span.registrybuttonrevert {
+        	color: #000000;
+        	background: #ddaaff;
+        }
+
+        span.registrybuttonrevealer {
+        	color: #ffffff;
+        	background: #444444;
+        }
+
+        /* Registry index section headings: */
+
+        span.registrysectionname {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 16px;
+        	line-height: 18px;
+        }
+        span.registrysubsectionname {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 14px;
+        	line-height: 16px;
+        }
+
+        /* These are for the "mark" for a section, usually a section-symbol and number */
+
+        span.registrysectionmark {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 16px;
+        	line-height: 18px;
+        	color: #666;
+        }
+        span.registrysubsectionmark {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 14px;
+        	line-height: 16px;
+        	color: #666;
+        }
+
+        /* Text of an item listed in a registry: */
+
+        span.registryitemtext {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 12px;
+        	line-height: 16px;
+        }
+
+        /* And how the links in a registry index page behave: */
+
+        a.registrysilentlink {
+        	text-decoration: none;
+        	color: #000;
+        }
+        a.registrybuttonlink {
+        	text-decoration: none;
+        }
+        a.registrycontentslink:link {
+        	text-decoration: none;
+        	color: #202020;
+        }
+        a.registrycontentslink:visited {
+        	text-decoration: none;
+        	color: #202020;
+        }
+        a.registrycontentslink:hover {
+        	text-decoration: none;
+        	color: #D00000;
+        }
+        a.registrycontentslink:active {
+        	text-decoration: none;
+        	color: #D00000;
+        }
+
+        -->
+    </style>
+    <style type="text/css">
+        <!--
+        /* (1) General layout material */
+
+        *, *:before, *:after {
+        	-moz-box-sizing: border-box;
+        	-webkit-box-sizing: border-box;
+        	box-sizing: border-box;
+        }
+        .headingpanellayout {
+        	position: relative;
+        	height: 56px;
+        	padding: 0px;
+        	white-space:nowrap;
+        }
+        .headingpanellayoutdeeper {
+        	position: relative;
+        	height: 117px;
+        	padding: 0px;
+        	white-space:nowrap;
+        }
+        .headingtext {
+        	position: absolute;
+        	top: -4px;
+        	left: -1px;
+        	width: 100%;
+        	padding: 14px 10px 0px 10px;
+        }
+        .headingrubric {
+        	position: absolute;
+        	top: 36px;
+        	width: 100%;
+        	padding: 0px 10px 0px 10px;
+        }
+        h3.tighter {
+        	margin-top: 0px;
+        }
+        p.hang {
+        	padding-left: 25px;
+        	text-indent: -25px;
+        	margin-top: 0px;
+        	margin-bottom: 0px;
+        }
+        p.in1 {
+        	padding-left: 0px;
+        }
+        p.tightin1 {
+        	padding-left: 0px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin1 {
+        	padding-left: 0px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin1 {
+        	padding-left: 50px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in2 {
+        	padding-left: 25px;
+        }
+        p.tightin2 {
+        	padding-left: 25px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin2 {
+        	padding-left: 25px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin2 {
+        	padding-left: 75px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in3 {
+        	padding-left: 50px;
+        }
+        p.tightin3 {
+        	padding-left: 50px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin3 {
+        	padding-left: 50px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin3 {
+        	padding-left: 100px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in4 {
+        	padding-left: 75px;
+        }
+        p.tightin4 {
+        	padding-left: 75px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin4 {
+        	padding-left: 75px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin4 {
+        	padding-left: 125px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in5 {
+        	padding-left: 100px;
+        }
+        p.tightin5 {
+        	padding-left: 100px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin5 {
+        	padding-left: 100px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin5 {
+        	padding-left: 150px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in6 {
+        	padding-left: 125px;
+        }
+        p.tightin6 {
+        	padding-left: 125px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin6 {
+        	padding-left: 125px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin6 {
+        	padding-left: 175px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in7 {
+        	padding-left: 150px;
+        }
+        p.tightin7 {
+        	padding-left: 150px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin7 {
+        	padding-left: 150px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin7 {
+        	padding-left: 200px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in8 {
+        	padding-left: 175px;
+        }
+        p.tightin8 {
+        	padding-left: 175px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin8 {
+        	padding-left: 175px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin8 {
+        	padding-left: 225px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in9 {
+        	padding-left: 200px;
+        }
+        p.tightin9 {
+        	padding-left: 200px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin9 {
+        	padding-left: 200px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin9 {
+        	padding-left: 250px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+
+        /* (2) Index page layout material */
+
+        /* The periodic table display has "sidebars", usually grey and taller than they
+        are wide; they contain no text. */
+
+        div.periodictablesidebar {
+        	height: 56px;
+        	width: 16px;
+        }
+        .periodictablesidebar a:link { text-decoration: none; }
+        .periodictablesidebar a:visited { text-decoration: none; }
+        .periodictablesidebar a:active { text-decoration: none; }
+
+        /* The "element boxes" are the cells appearing in the periodic-table display
+        on the welcome page of the index: */
+
+        .elementbox {
+        	position: relative;
+        	height: 56px;
+        	width: 56px;
+        	padding: 0px;
+        }
+
+        .elementbox a:link { text-decoration: none; }
+        .elementbox a:visited { text-decoration: none; }
+        .elementbox a:active { text-decoration: none; }
+        .elementbox a:hover { text-decoration: none; }
+        .elementbox:hover {
+        	opacity: 0.6;
+        }
+
+        /* The "small element boxes" look like those, but are smaller, and used on
+        the headings of the content which those original boxes link to: */
+
+        .smallelementbox {
+        	position: relative;
+        	height: 40px;
+        	width: 40px;
+        	padding: 0px;
+        }
+
+        .smallelementbox a:link { text-decoration: none; }
+        .smallelementbox a:visited { text-decoration: none; }
+        .smallelementbox a:active { text-decoration: none; }
+        .smallelementbox a:hover { text-decoration: none; }
+        .smallelementbox:hover {
+        	opacity: 0.6;
+        }
+
+        /* This is a class for the links formed by the element boxes: */
+
+        a.elementlink {
+        	position: absolute;
+        	top: -4px;
+        	left: -1px;
+        	width: 100%;
+        	padding: 14px 0px 14px 1px;
+        	text-align: center;
+        }
+
+        /* Similarly for the "atomic number" - a single digit - in the top left corner
+        of these boxes: */
+
+        div.elementnumber {
+        	position: absolute;
+        	top: 1px;
+        	left: 3px;
+        	text-align: left;
+        }
+
+        /* For the text of the element title, to the right of the element box: */
+
+        div.elementtitle {
+        	position: absolute;
+        	top: 35px;
+        	width: 100%;
+        	text-align: center;
+        }
+
+        /* Used for the book-contents-page style leaders on the Contents element of
+           the index: */
+
+        ul.leaders {
+        	padding: 0;
+        	margin-top: 1px;
+        	margin-bottom: 0;
+        	overflow-x: hidden;
+        	list-style: none}
+        ul.leaders li.leaded:before {
+        	float: left;
+        	width: 0;
+        	white-space: nowrap;
+        	content:
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "}
+        ul.leaders li.leaded span:first-child {
+        	padding-right: 0.33em;
+        }
+        ul.leaders li.leaded span + span {
+        	float: right;
+        	padding-left: 0.33em;
+        }
+        li.indent1 span:first-child {
+        	padding-left: 25px;
+        }
+        li.indent2 span:first-child {
+        	padding-left: 50px;
+        }
+        li.indent3 span:first-child {
+        	padding-left: 75px;
+        }
+        li.indent4 span:first-child {
+        	padding-left: 100px;
+        }
+        li.indent5 span:first-child {
+        	padding-left: 125px;
+        }
+        li.indent6 span:first-child {
+        	padding-left: 150px;
+        }
+        li.indent7 span:first-child {
+        	padding-left: 175px;
+        }
+        li.indent8 span:first-child {
+        	padding-left: 200px;
+        }
+        li.indent9 span:first-child {
+        	padding-left: 225px;
+        }
+
+        li.unleaded:before {
+        	content: "";
+        }
+
+        /* On Registry index pages (such as the Public Library), these are used for
+        download buttons and the like: */
+
+        span.registrybuttons {
+        	height: 20px;
+        	padding: 2px 8px 2px 8px;
+        	margin: 2px;
+        	border:1px solid;
+        	border-radius: 5px;
+        }
+
+        span.registryminibuttons {
+        	height: 14px;
+        	padding: 2px 5px 2px 5px;
+        	margin: 2px;
+        	border:1px solid;
+        	border-radius: 4px;
+        }
+
+        /* Used to hide or display sections in the Registry pages: */
+
+        div.registrysectionitemsopen {
+        	display: block;
+        }
+
+        div.registrysectionitemsclosed {
+        	display: none;
+        }
+
+        /* Hanging indentation for Registry item paragraphs: */
+
+        p.registryitem {
+        	padding-left: 80px;
+        	text-indent: -40px;
+        }
+
+        p.registryaddition {
+        	padding-left: 40px;
+        	text-indent: -40px;
+        }
+
+        -->
+    </style>
+    <script type="text/javascript">
+        function project() {
+            return window.Project;
+        }
+        function showExtra(id, imid) {
+        	if (document.getElementById(id).style.display == 'block') {
+        		document.getElementById(id).style.display = 'none';
+        		document.getElementById(imid).src = 'inform:/extra.png';
+        	} else {
+        		document.getElementById(id).style.display = 'block';
+        		document.getElementById(imid).src = 'inform:/extraclose.png';
+        	}
+        }
+        function openExtra(id, imid) {
+        	document.getElementById(id).style.display = 'block';
+        	document.getElementById(imid).src = 'inform:/extraclose.png';
+        }
+        function closeExtra(id, imid) {
+        	document.getElementById(id).style.display = 'none';
+        	document.getElementById(imid).src = 'inform:/extra.png';
+        }
+        function pasteCode(code) {
+            var myProject = project();
+
+            myProject.selectView('source');
+            myProject.pasteCode(code);
+        }
+
+    </script>
+</head>
+<body>
+    <!--CONTENT BEGINS-->
+    <table CELLPADDING=0 CELLSPACING=0 width="100%" bgcolor="#000000"><tr><TD width=38px height=26px align="center" valign="center"><a href="inform://Extensions/Extensions.html" border=0><img border=0 src="inform:/doc_images/Hookindex.png" border=0></a></td><TD width=38px height=26px align="center" valign="center"></td><td halign="left" valign="center" CELLPADDING=0 CELLSPACING=0><font color="#FFFFFF" size=2>Extensions</font></a></td><TD width=56px height=26px align="right" valign="center"><a href="inform:/index.html" border=0><img border=0 src="inform:/doc_images/Hookup.png" border=0></a></td></tr></table>
+
+    <p><a href="javascript:pasteCode('Include Basic Plans by Nate Cull.[=0x000A=][=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a>&nbsp;<b>Basic Plans<span class="extensionindexentry"> by </span>Nate Cull</b></p>
+    <p><span class="smaller">Version 3.0.211124</span></p>
+    <p>A library of basic relations, actions and plans for Planner.</p>
+    <p></p>
+    </p>
+
+    <p> This is a set of basic plans to go along with Planner.</p>
+
+    <p> Text of a demo game follows.</p>
+
+    <p><hr>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td halign="left" valign="top" cellpadding=0 cellspacing=0 width=38px>
+                <span id=eg1><table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="oval">
+                        <td width=38px height=30px align="left" valign="center">
+                            <a href="Basic Plans.html#eg1" style="text-decoration: none"><div class="paragraph Body" style="line-height: 1px; margin-bottom: 0px; margin-top: 0px; padding-bottom: 0pt; padding-top: 0px; text-align: center;">
+                                <span class="extensionexampleletter">A</span></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                </span>
+            </td>
+            <td cellpadding=0 cellspacing=0 halign="left" valign="top">
+                <a href="Basic Plans.html#eg1" style="text-decoration: none"><img border="0" src='inform:/doc_images/asterisk.png'><img border="0" src='inform:/doc_images/asterisk.png'><b><span class="indexdarkgrey">&nbsp;Example&nbsp;</span><span class="indexblack">Alchemy</span></b></a><br>
+                <p>A demo game showing use of these basic actions.</p>
+
+            </td>
+        </tr>
+    </table>
+    <table border="0" cellspacing="0" cellpadding="0" class="extensionexample" width=100%>
+        <tr>
+            <td align="left" valign="top">
+                <p></p>
+
+                <p><blockquote><span class="indexdullblue"><a href="javascript:pasteCode('[=0x0022=]Alchemy[=0x0022=] by Nate Cull[=0x000A=][=0x000A=]The release number is 2.[=0x000A=]The story creation year is 2006.[=0x000A=]The story headline is [=0x0022=]An Interactive Demonstration[=0x0022=][=0x000A=][=0x000A=]Include Basic Plans by Nate Cull.[=0x000A=][=0x000A=]The Laboratory is a room. The description of the Laboratory is [=0x0022=]A chaos of glassware, dark sigils, spellcasting apparatus sprawled in disgusting confusion -- in other words, a perfectly normal research lab. A stone archway leads east and another south.[=0x0022=][=0x000A=][=0x000A=]The Library is east of the Laboratory. The description of the Library is [=0x0022=]The stony walls are racked with square miles of parchment volumes.[=0x0022=][=0x000A=][=0x000A=]A curiously carved table is a supporter in the Library.[=0x000A=][=0x000A=]A rosewood bench is a supporter in the laboratory. [=0x0022=]A rosewood bench, scarred and burned by years of incantations, fills half of the room.[=0x0022=][=0x000A=][=0x000A=]An iron crucible is an open container on the rosewood bench. [=0x0022=]Bob[=0x0027=]s crucible bubbles merrily on the bench.[=0x0022=][=0x000A=][=0x000A=]A cupboard is a closed openable container in the laboratory. [=0x0022=]A cupboard of great antiquity quietly blends into the corner shadows.[=0x0022=][=0x000A=][=0x000A=]A plastic bag is a closed transparent portable openable container on the carved table.[=0x000A=][=0x000A=]A Chinese puzzle box is a locked lockable closed openable portable container in the plastic bag.[=0x000A=][=0x000A=]A pinch of ginger is a portable thing in the puzzle box.[=0x000A=][=0x000A=]A wicker basket is an open container in the cupboard.[=0x000A=][=0x000A=]An onion, a tomato, a stick of celery, a lemon and a banana are in the wicker basket.[=0x000A=][=0x000A=]Broth is a thing.[=0x000A=][=0x000A=]The basic putting things in containers rule does nothing when the desired relation is being-in and the desired param1 is broth and the desired param2 is the crucible.[=0x000A=][=0x000A=]Planning when the desired relation is being-in and the desired param1 is broth and the desired param2 is the crucible:[=0x000A=][=0x0009=]plan 1;[=0x000A=][=0x0009=]suggest being-in with the onion and the crucible;[=0x000A=][=0x0009=]suggest being-in with the celery and the crucible;[=0x000A=][=0x0009=]suggest being-in with the banana and the crucible;[=0x000A=][=0x0009=]suggest being-in with the ginger and the crucible;[=0x000A=][=0x000A=]To decide whether soup is brewing:[=0x000A=][=0x0009=]if the onion is not in the crucible, decide no;[=0x000A=][=0x0009=]if the celery is not in the crucible, decide no;[=0x000A=][=0x0009=]if the banana is not in the crucible, decide no;[=0x000A=][=0x0009=]if the ginger is not in the crucible, decide no;[=0x000A=][=0x0009=]decide yes;[=0x000A=][=0x000A=]Every turn when soup is brewing:[=0x000A=][=0x0009=]if the crucible is visible, say [=0x0022=]The crucible simmers; the contents meld into a rich pungent vegetable broth.[=0x0022=];[=0x000A=][=0x0009=]repeat with item running through things in the crucible begin;[=0x000A=][=0x0009=][=0x0009=]now item is nowhere;[=0x000A=][=0x0009=]end repeat;[=0x000A=]now broth is in the crucible;[=0x000A=][=0x000A=]The Alcove is a room.[=0x000A=][=0x000A=]The Alcove is south of the Laboratory. The description of the Alcove is [=0x0022=]A tiny niche carved out of the stone, which opens out to the north.[=0x0022=][=0x000A=][=0x000A=]A brass hook is a supporter in the Alcove. [=0x0022=]Screwed into the stonework with grim determination is a shiny brass hook.[=0x0022=] The brass hook has carrying capacity 1.[=0x000A=][=0x000A=]A silver key is on the brass hook. The matching key of the Chinese puzzle box is the silver key.[=0x000A=][=0x000A=]Bob is a person in the laboratory. [=0x0022=]The mighty wizard Bob potters around his domain.[=0x0022=][=0x000A=][=0x000A=]The description of Bob is [=0x0022=]Bob is carrying [if bob carries anything][list of things carried by bob][otherwise]nothing[end if].[=0x0022=][=0x000A=][=0x000A=]The basic dropping objects in rooms rule does nothing when the desired relation is being-in and the desired param1 is a person.[=0x000A=][=0x000A=]Every turn:[=0x000A=][=0x0009=]have Bob plan an action for being-in with broth and the crucible;[=0x000A=][=0x000A=]Rule for deciding the concealed possessions of Bob:[=0x000A=][=0x0009=]decide no;[=0x000A=][=0x000A=]Section - Custom Actions[=0x000A=][=0x000A=]Doing-asking-for is a planning-action.[=0x000A=][=0x000A=]Planning-acting when the planned action is doing-asking-for:[=0x000A=][=0x0009=]try the planning actor trying asking the planned param1 for the planned param2;[=0x000A=][=0x000A=]Planning rule when the desired relation is being-touchable-by and the desired param2 is the planning actor and a person (called the owner) encloses the desired param1:[=0x000A=][=0x0009=]plan 1;[=0x000A=][=0x0009=]suggest being-touchable-by with the owner and the planning actor;[=0x000A=][=0x0009=]suggest doing-asking-for with the owner and the desired param1;[=0x000A=][=0x000A=]The block giving rule does nothing when the second noun is Bob.[=0x000A=][=0x000A=]Section - Custom Messages[=0x000A=][=0x000A=]Instead of Bob trying asking the player for something:[=0x000A=][=0x0009=]say [=0x0022=][=0x0027=]I say, old chap,[=0x0027=] mutters Bob. [=0x0027=]Do be a sport and give me [the second noun].[=0x0027=][=0x0022=];[=0x000A=][=0x0009=]now the action success flag is 1;[=0x000A=][=0x000A=]Planning-failure:[=0x000A=][=0x0009=]say [=0x0022=]Bob scratches his beard and looks perplexed.[=0x0022=];[=0x000A=][=0x000A=]Planning-success:[=0x000A=][=0x0009=]end the story finally saying [=0x0022=]You have witnessed the Making of Soup[=0x0022=];[=0x000A=][=0x000A=]Planning-acting-failure:[=0x000A=][=0x0009=]say [=0x0022=][=0x0027=]Arr, that didn[=0x0027=]t work,[=0x0027=] says Bob. [=0x0027=]Reality be getting a mite thin.[=0x0027=][=0x0022=];[=0x000A=][=0x000A=]Report Bob trying opening the cupboard for the first time:[=0x000A=][=0x0009=]say [=0x0022=][=0x0027=]Aslan sesameslan![=0x0027=] says Bob, flinging the cupboard doors wide open to reveal [list of things in the cupboard].[=0x0022=];[=0x000A=][=0x0009=]stop the action;[=0x000A=][=0x000A=]The previous take holder is an object that varies.[=0x000A=][=0x000A=]Before Bob trying taking something:[=0x000A=][=0x0009=]now the previous take holder is the holder of the noun;[=0x000A=][=0x000A=]Report Bob trying taking something:[=0x000A=][=0x0009=]if the previous take holder is not a room begin;[=0x000A=][=0x0009=][=0x0009=]say [=0x0022=]Bob takes [the noun] from [the previous take holder].[=0x0022=];[=0x000A=][=0x0009=][=0x0009=]stop the action;[=0x000A=][=0x0009=]end if;[=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a> &quot;Alchemy&quot; by Nate Cull</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The release number is 2.<br>
+                 The story creation year is 2006.<br>
+                 The story headline is &quot;An Interactive Demonstration&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Include Basic Plans by Nate Cull.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The Laboratory is a room. The description of the Laboratory is &quot;A chaos of glassware, dark sigils, spellcasting apparatus sprawled in disgusting confusion -- in other words, a perfectly normal research lab. A stone archway leads east and another south.&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The Library is east of the Laboratory. The description of the Library is &quot;The stony walls are racked with square miles of parchment volumes.&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> A curiously carved table is a supporter in the Library.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> A rosewood bench is a supporter in the laboratory. &quot;A rosewood bench, scarred and burned by years of incantations, fills half of the room.&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> An iron crucible is an open container on the rosewood bench. &quot;Bob's crucible bubbles merrily on the bench.&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> A cupboard is a closed openable container in the laboratory. &quot;A cupboard of great antiquity quietly blends into the corner shadows.&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> A plastic bag is a closed transparent portable openable container on the carved table.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> A Chinese puzzle box is a locked lockable closed openable portable container in the plastic bag.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> A pinch of ginger is a portable thing in the puzzle box.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> A wicker basket is an open container in the cupboard.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> An onion, a tomato, a stick of celery, a lemon and a banana are in the wicker basket.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Broth is a thing.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The basic putting things in containers rule does nothing when the desired relation is being-in and the desired param1 is broth and the desired param2 is the crucible.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Planning when the desired relation is being-in and the desired param1 is broth and the desired param2 is the crucible:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; plan 1;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; suggest being-in with the onion and the crucible;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; suggest being-in with the celery and the crucible;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; suggest being-in with the banana and the crucible;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; suggest being-in with the ginger and the crucible;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> To decide whether soup is brewing:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; if the onion is not in the crucible, decide no;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; if the celery is not in the crucible, decide no;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; if the banana is not in the crucible, decide no;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; if the ginger is not in the crucible, decide no;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; decide yes;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Every turn when soup is brewing:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; if the crucible is visible, say &quot;The crucible simmers; the contents meld into a rich pungent vegetable broth.&quot;;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; repeat with item running through things in the crucible begin;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; now item is nowhere;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; end repeat;<br>
+                 now broth is in the crucible;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The Alcove is a room.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The Alcove is south of the Laboratory. The description of the Alcove is &quot;A tiny niche carved out of the stone, which opens out to the north.&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> A brass hook is a supporter in the Alcove. &quot;Screwed into the stonework with grim determination is a shiny brass hook.&quot; The brass hook has carrying capacity 1.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> A silver key is on the brass hook. The matching key of the Chinese puzzle box is the silver key.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Bob is a person in the laboratory. &quot;The mighty wizard Bob potters around his domain.&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The description of Bob is &quot;Bob is carrying [if bob carries anything][list of things carried by bob][otherwise]nothing[end if].&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The basic dropping objects in rooms rule does nothing when the desired relation is being-in and the desired param1 is a person.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Every turn:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; have Bob plan an action for being-in with broth and the crucible;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Rule for deciding the concealed possessions of Bob:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; decide no;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Section - Custom Actions</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Doing-asking-for is a planning-action.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Planning-acting when the planned action is doing-asking-for:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; try the planning actor trying asking the planned param1 for the planned param2;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Planning rule when the desired relation is being-touchable-by and the desired param2 is the planning actor and a person (called the owner) encloses the desired param1:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; plan 1;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; suggest being-touchable-by with the owner and the planning actor;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; suggest doing-asking-for with the owner and the desired param1;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The block giving rule does nothing when the second noun is Bob.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Section - Custom Messages</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Instead of Bob trying asking the player for something:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; say &quot;'I say, old chap,' mutters Bob. 'Do be a sport and give me [the second noun].'&quot;;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; now the action success flag is 1;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Planning-failure:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; say &quot;Bob scratches his beard and looks perplexed.&quot;;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Planning-success:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; end the story finally saying &quot;You have witnessed the Making of Soup&quot;;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Planning-acting-failure:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; say &quot;'Arr, that didn't work,' says Bob. 'Reality be getting a mite thin.'&quot;;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Report Bob trying opening the cupboard for the first time:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; say &quot;'Aslan sesameslan!' says Bob, flinging the cupboard doors wide open to reveal [list of things in the cupboard].&quot;;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; stop the action;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The previous take holder is an object that varies.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Before Bob trying taking something:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; now the previous take holder is the holder of the noun;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Report Bob trying taking something:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; if the previous take holder is not a room begin;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say &quot;Bob takes [the noun] from [the previous take holder].&quot;;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; stop the action;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; end if;</span></blockquote>
+
+                <p> Section Changelog</p>
+
+                <p> Version 3/211124: Bug fixes per (https://intfiction.org/t/planner-basic-plans-npc-actions-are-invisible/10034/)</p>
+
+                <p> Fixed a typo in Alchemy example</p>
+
+                <p> Version 3/210620: Include Planner</p>
+
+                <p> This extension differs from the author's original version: it has been modified for compatibility with version 6L02 of Inform. The latest version of this extension can be found at &lt;https://github.com/i7/extensions&gt;.</p>
+
+                <p> This extension is released under the Creative Commons Attribution licence. Bug reports, feature requests or questions should be made at &lt;https://github.com/i7/extensions/issues&gt;.</p>
+
+                <p></p>
+
+            </td>
+        </tr>
+    </table>
+    </p>
+
+    <p>
+    <!--CONTENT ENDS-->
+</body>
+</html>

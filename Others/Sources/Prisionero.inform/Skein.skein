@@ -1,0 +1,1228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Skein rootNode="node-1">
+  <generator>Windows Inform 7 6M62</generator>
+  <activeNode nodeId="node-140"/>
+  <item nodeId="node-1">
+    <command xml:space="preserve">Prisionero</command>
+    <result xml:space="preserve">Prisionero de la tormenta&#x000A;Una huida desesperada por Ruber Eaglenest&#x000A;Release 1 / Serial number 211211 / Inform 7 build 6M62 (I6/v6.33 lib 6/12N) SD&#x000A;&#x000A;Huyendo por las alcantarillas&#x000A;Las paredes se juntan con el techo abovedado. Rezuman limo, musgo y hongos. El fango ora te llega por los tobillos ora por las rodillas y todo huele de forma terriblemente espantosa. Y la penumbra no es tan densa como para evitarte ver todos los detalles desagradables. Hacia atr&#x00E1;s est&#x00E1; la vuelta a los pantanos y con ellos los trabajos forzados y la prisi&#x00F3;n. No los ves all&#x00E1; atr&#x00E1;s, pero los polic&#x00ED;as con sus perros rastreadores no deben de andar muy lejos. Hacia adelante el t&#x00FA;nel contin&#x00FA;a y contin&#x00FA;a.&#x000A;&#x000A;&#x000A;Como un espectro encadenado&#x000A;cruc&#x00E9; el mercado, huyendo del sol.&#x000A;O&#x00ED; que labios desalmados&#x000A;pusieron precio a tu coraz&#x00F3;n. --&#x000A;&#x000A;-- Tormenta de Arena, Radio Futura&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-2"/>
+      <child nodeId="node-7"/>
+      <child nodeId="node-11"/>
+      <child nodeId="node-24"/>
+      <child nodeId="node-27"/>
+      <child nodeId="node-28"/>
+      <child nodeId="node-102"/>
+    </children>
+  </item>
+  <item nodeId="node-2">
+    <command xml:space="preserve">examinar p&#x00E1;jaro</command>
+    <result xml:space="preserve">-&#x00A1;Craaaak&#x00A1; -El p&#x00E1;jaro bate las alas en un esfuerzo desesperado. Grazna un &#x00FA;ltimo quejido final y deja de moverse, muerto.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-3"/>
+    </children>
+  </item>
+  <item nodeId="node-3">
+    <command xml:space="preserve">examinar p&#x00E1;jaro</command>
+    <result xml:space="preserve">-&#x00A1;Craaaak&#x00A1; -El p&#x00E1;jaro bate las alas en un esfuerzo desesperado. Grazna un &#x00FA;ltimo quejido final y deja de moverse, muerto.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-4"/>
+    </children>
+  </item>
+  <item nodeId="node-4">
+    <command xml:space="preserve">examinar p&#x00E1;jaro</command>
+    <result xml:space="preserve">-&#x00A1;Craaaak&#x00A1; -El p&#x00E1;jaro bate las alas en un esfuerzo desesperado. Grazna un &#x00FA;ltimo quejido final y deja de moverse, muerto.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-5"/>
+    </children>
+  </item>
+  <item nodeId="node-5">
+    <command xml:space="preserve">examinar p&#x00E1;jaro</command>
+    <result xml:space="preserve">-&#x00A1;Craaaak&#x00A1; -El p&#x00E1;jaro bate las alas en un esfuerzo desesperado. Grazna un &#x00FA;ltimo quejido final y deja de moverse, muerto.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-6"/>
+    </children>
+  </item>
+  <item nodeId="node-6">
+    <command xml:space="preserve">examinar p&#x00E1;jaro</command>
+    <result xml:space="preserve">-&#x00A1;Craaaak&#x00A1; -El p&#x00E1;jaro bate las alas en un esfuerzo desesperado. Grazna un &#x00FA;ltimo quejido final y deja de moverse, muerto.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+  </item>
+  <item nodeId="node-7">
+    <command xml:space="preserve">examinar pajaro</command>
+    <result xml:space="preserve">-&#x00A1;Craaaak&#x00A1; -El p&#x00E1;jaro bate las alas en un esfuerzo desesperado. Grazna un &#x00FA;ltimo quejido final y deja de moverse, muerto.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-8"/>
+    </children>
+  </item>
+  <item nodeId="node-8">
+    <command xml:space="preserve">examinar pajaro</command>
+    <result xml:space="preserve">No se mueve.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-9"/>
+    </children>
+  </item>
+  <item nodeId="node-9">
+    <command xml:space="preserve">m</command>
+    <result xml:space="preserve">Huyendo por las alcantarillas&#x000A;Las paredes se juntan con el techo abovedado. Rezuman limo, musgo y hongos. El fango ora te llega por los tobillos ora por las rodillas y todo huele de forma terriblemente espantosa. Hacia atr&#x00E1;s est&#x00E1; la vuelta a la prisi&#x00F3;n,. No los ves, pero los polic&#x00ED;as con sus perros rastreadores no deben de andar muy lejos. Hacia adelante el t&#x00FA;nel contin&#x00FA;a y contin&#x00FA;a.&#x000A;&#x000A;Hay un p&#x00E1;jaro muerto en el fango.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-10"/>
+    </children>
+  </item>
+  <item nodeId="node-10">
+    <command xml:space="preserve">coger pajaro</command>
+    <result xml:space="preserve">No se mueve.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+  </item>
+  <item nodeId="node-11">
+    <command xml:space="preserve">i</command>
+    <result xml:space="preserve">No llevas nada.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-12"/>
+    </children>
+  </item>
+  <item nodeId="node-12">
+    <command xml:space="preserve">examinar pajaro</command>
+    <result xml:space="preserve">-&#x00A1;Craaaak&#x00A1; -El p&#x00E1;jaro bate las alas en un esfuerzo desesperado. Grazna un &#x00FA;ltimo quejido final y deja de moverse, muerto.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-13"/>
+    </children>
+  </item>
+  <item nodeId="node-13">
+    <command xml:space="preserve">coger pajaro</command>
+    <result xml:space="preserve">No se mueve.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-14"/>
+    </children>
+  </item>
+  <item nodeId="node-14">
+    <command xml:space="preserve">m</command>
+    <result xml:space="preserve">Huyendo por las alcantarillas&#x000A;Las paredes se juntan con el techo abovedado. Rezuman limo, musgo y hongos. El fango ora te llega por los tobillos ora por las rodillas y todo huele de forma terriblemente espantosa. Hacia atr&#x00E1;s est&#x00E1; la vuelta a la prisi&#x00F3;n,. No los ves, pero los polic&#x00ED;as con sus perros rastreadores no deben de andar muy lejos. Hacia adelante el t&#x00FA;nel contin&#x00FA;a y contin&#x00FA;a.&#x000A;&#x000A;Hay un p&#x00E1;jaro muerto en el fango.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-15"/>
+    </children>
+  </item>
+  <item nodeId="node-15">
+    <command xml:space="preserve">e</command>
+    <result xml:space="preserve">No puedes ir por ah&#x00ED;.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-16"/>
+    </children>
+  </item>
+  <item nodeId="node-16">
+    <command xml:space="preserve">s</command>
+    <result xml:space="preserve">No puedes ir por ah&#x00ED;.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-17"/>
+    </children>
+  </item>
+  <item nodeId="node-17">
+    <command xml:space="preserve">n</command>
+    <result xml:space="preserve">No puedes ir por ah&#x00ED;.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-18"/>
+    </children>
+  </item>
+  <item nodeId="node-18">
+    <command xml:space="preserve">o</command>
+    <result xml:space="preserve">No puedes ir por ah&#x00ED;.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-19"/>
+    </children>
+  </item>
+  <item nodeId="node-19">
+    <command xml:space="preserve">ve hacia adelante</command>
+    <result xml:space="preserve">No conozco ese verbo.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-20"/>
+    </children>
+  </item>
+  <item nodeId="node-20">
+    <command xml:space="preserve">camina hacia adelante</command>
+    <result xml:space="preserve">No conozco ese verbo.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-21"/>
+    </children>
+  </item>
+  <item nodeId="node-21">
+    <command xml:space="preserve">corre hacia adelante</command>
+    <result xml:space="preserve">No conozco ese verbo.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-22"/>
+    </children>
+  </item>
+  <item nodeId="node-22">
+    <command xml:space="preserve">huye hacia adelante</command>
+    <result xml:space="preserve">No conozco ese verbo.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-23"/>
+    </children>
+  </item>
+  <item nodeId="node-23">
+    <command xml:space="preserve">e</command>
+    <result xml:space="preserve">No puedes ir por ah&#x00ED;.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+  </item>
+  <item nodeId="node-24">
+    <command xml:space="preserve">n</command>
+    <result xml:space="preserve">No s&#x00E9; en qu&#x00E9; direcci&#x00F3;n est&#x00E1; el norte, el sur, o el oeste, s&#x00F3;lo puedes ir hacia adelante o volver atr&#x00E1;s.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-25"/>
+    </children>
+  </item>
+  <item nodeId="node-25">
+    <command xml:space="preserve">ir hacia el norte</command>
+    <result xml:space="preserve">No s&#x00E9; en qu&#x00E9; direcci&#x00F3;n est&#x00E1; el norte, el sur, o el oeste, s&#x00F3;lo puedes ir hacia adelante o volver atr&#x00E1;s.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-26"/>
+    </children>
+  </item>
+  <item nodeId="node-26">
+    <command xml:space="preserve">ir hacia adelante</command>
+    <result xml:space="preserve">No conozco ese verbo.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+  </item>
+  <item nodeId="node-27">
+    <command xml:space="preserve">ir hacia el norte</command>
+    <result xml:space="preserve">No sabes en qu&#x00E9; direcci&#x00F3;n est&#x00E1; el norte, el sur, o el oeste, s&#x00F3;lo puedes ir hacia adelante o volver atr&#x00E1;s.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+  </item>
+  <item nodeId="node-28">
+    <command xml:space="preserve">avanzar</command>
+    <result xml:space="preserve">En mitad del t&#x00FA;nel&#x000A;La oscuridad es menor aqu&#x00ED; ya que una chimenea en el techo asciende hasta una rejilla ahogada por la arena que deja pasar algo de luz. El t&#x00FA;nel contin&#x00FA;a y contin&#x00FA;a durante decenas de metros, sin ning&#x00FA;n cambio de direcci&#x00F3;n, inmutable. Aunque a lo lejos se divisa el final.&#x000A;&#x000A;-&#x00A1;Crak, craaak!- un p&#x00E1;jaro con las alas heridas agoniza en el fango.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-29"/>
+      <child nodeId="node-32"/>
+      <child nodeId="node-42"/>
+    </children>
+  </item>
+  <item nodeId="node-29">
+    <command xml:space="preserve">retroceder</command>
+    <result xml:space="preserve">No hay vuelta atr&#x00E1;s.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-30"/>
+    </children>
+  </item>
+  <item nodeId="node-30">
+    <command xml:space="preserve">ir hacia adelante</command>
+    <result xml:space="preserve">No ves manera de avanzar.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-31"/>
+    </children>
+  </item>
+  <item nodeId="node-31">
+    <command xml:space="preserve">ir hacia atr&#x00E1;s</command>
+    <result xml:space="preserve">No hay vuelta atr&#x00E1;s.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+  </item>
+  <item nodeId="node-32">
+    <command xml:space="preserve">examinar p&#x00E1;jaro</command>
+    <result xml:space="preserve">-&#x00A1;Craaaak&#x00A1; -El p&#x00E1;jaro bate las alas en un esfuerzo desesperado. Grazna un &#x00FA;ltimo quejido y deja de moverse, muerto.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-33"/>
+    </children>
+  </item>
+  <item nodeId="node-33">
+    <command xml:space="preserve">examinar p&#x00E1;jaro</command>
+    <result xml:space="preserve">-&#x00A1;Craaaak&#x00A1; -El p&#x00E1;jaro bate las alas en un esfuerzo desesperado. Grazna un &#x00FA;ltimo quejido y deja de moverse, muerto.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-34"/>
+    </children>
+  </item>
+  <item nodeId="node-34">
+    <command xml:space="preserve">examinar p&#x00E1;jaro</command>
+    <result xml:space="preserve">-&#x00A1;Craaaak&#x00A1; -El p&#x00E1;jaro bate las alas en un esfuerzo desesperado. Grazna un &#x00FA;ltimo quejido y deja de moverse, muerto.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-35"/>
+    </children>
+  </item>
+  <item nodeId="node-35">
+    <command xml:space="preserve">examinar p&#x00E1;jaro</command>
+    <result xml:space="preserve">-&#x00A1;Craaaak&#x00A1; -El p&#x00E1;jaro bate las alas en un esfuerzo desesperado. Grazna un &#x00FA;ltimo quejido y deja de moverse, muerto.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-36"/>
+    </children>
+  </item>
+  <item nodeId="node-36">
+    <command xml:space="preserve">examinar p&#x00E1;jaro</command>
+    <result xml:space="preserve">-&#x00A1;Craaaak&#x00A1; -El p&#x00E1;jaro bate las alas en un esfuerzo desesperado. Grazna un &#x00FA;ltimo quejido y deja de moverse, muerto.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-37"/>
+    </children>
+  </item>
+  <item nodeId="node-37">
+    <command xml:space="preserve">examinar p&#x00E1;jaro</command>
+    <result xml:space="preserve">-&#x00A1;Craaaak&#x00A1; -El p&#x00E1;jaro bate las alas en un esfuerzo desesperado. Grazna un &#x00FA;ltimo quejido y deja de moverse, muerto.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-38"/>
+    </children>
+  </item>
+  <item nodeId="node-38">
+    <command xml:space="preserve">coger pajaro</command>
+    <result xml:space="preserve">-&#x00A1;Craaaak&#x00A1; -El p&#x00E1;jaro bate las alas en un esfuerzo desesperado. Grazna un &#x00FA;ltimo quejido y deja de moverse, muerto.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-39"/>
+    </children>
+  </item>
+  <item nodeId="node-39">
+    <command xml:space="preserve">coger pajaro</command>
+    <result xml:space="preserve">-&#x00A1;Craaaak&#x00A1; -El p&#x00E1;jaro bate las alas en un esfuerzo desesperado. Grazna un &#x00FA;ltimo quejido y deja de moverse, muerto.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-40"/>
+    </children>
+  </item>
+  <item nodeId="node-40">
+    <command xml:space="preserve">coger pajaro</command>
+    <result xml:space="preserve">-&#x00A1;Craaaak&#x00A1; -El p&#x00E1;jaro bate las alas en un esfuerzo desesperado. Grazna un &#x00FA;ltimo quejido y deja de moverse, muerto.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-41"/>
+    </children>
+  </item>
+  <item nodeId="node-41">
+    <command xml:space="preserve">coger pajaro</command>
+    <result xml:space="preserve">-&#x00A1;Craaaak&#x00A1; -El p&#x00E1;jaro bate las alas en un esfuerzo desesperado. Grazna un &#x00FA;ltimo quejido y deja de moverse, muerto.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+  </item>
+  <item nodeId="node-42">
+    <command xml:space="preserve">avanzar</command>
+    <result xml:space="preserve">Final de las alcantarillas&#x000A;El t&#x00FA;nel termina aqu&#x00ED;, en una secci&#x00F3;n cuadrada de la cual asciende una escalerilla met&#x00E1;lica hacia la superficie.&#x000A;&#x000A;En un receso de la pared hay sentado un ser andrajoso. Un hombre, o un despojo como tal. Quemado por el sol, sucio pero de gesto constantemente feliz de ojos vidriosos rodeados de una mara&#x00F1;a de pelo y barba de semanas, o meses.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-43"/>
+      <child nodeId="node-50"/>
+      <child nodeId="node-56"/>
+      <child nodeId="node-58"/>
+      <child nodeId="node-89"/>
+      <child nodeId="node-96"/>
+    </children>
+  </item>
+  <item nodeId="node-43">
+    <command xml:space="preserve">sube</command>
+    <result xml:space="preserve">Salida de las alcantarillas&#x000A;Trepas como una exhalaci&#x00F3;n las escalerillas met&#x00E1;licas hasta llegar a lo m&#x00E1;s alto. Aqu&#x00ED; el ambiente cambia. La tapa de la alcantarilla irradia un calor abrasador que mantiene la humedad alejada.&#x000A;&#x000A;Un rayo de luz cae verticalmente a trav&#x00E9;s de un agujero en la tapa, calentando el aire a su paso.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-44"/>
+    </children>
+  </item>
+  <item nodeId="node-44">
+    <command xml:space="preserve">sube</command>
+    <result xml:space="preserve">Empuj&#x00E9; la pesada alcantarilla a un lado y rasgu&#x00E9; el velo de la oscuridad. El sol literalmente quemaba la piel. Usando la tapa a modo de visera me refugi&#x00E9; en la sombra y otee la plaza del mercado. Desierto. No hab&#x00ED;a se&#x00F1;ales de la polic&#x00ED;a. Si corr&#x00ED;a lo suficiente, podr&#x00ED;a llegar a los portalillos sin llegar a tostarme mucho.&#x000A;&#x000A;Plaza del mercado&#x000A;Calor, mucho calor.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-45"/>
+      <child nodeId="node-49"/>
+    </children>
+  </item>
+  <item nodeId="node-45">
+    <command xml:space="preserve">acciones</command>
+    <result xml:space="preserve">Actions listing on.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-46"/>
+    </children>
+  </item>
+  <item nodeId="node-46">
+    <command xml:space="preserve">sube</command>
+    <result xml:space="preserve">[subiendo]&#x000A;[(1) going arriba]&#x000A;No sabes en qu&#x00E9; direcci&#x00F3;n est&#x00E1; el norte, el sur, o el oeste, s&#x00F3;lo puedes ir hacia adelante o volver atr&#x00E1;s.&#x000A;[(1) going arriba - failed]&#x000A;&#x000A;[subiendo - succeeded]&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-47"/>
+    </children>
+  </item>
+  <item nodeId="node-47">
+    <command xml:space="preserve">ir al norte</command>
+    <result xml:space="preserve">[going norte]&#x000A;No sabes en qu&#x00E9; direcci&#x00F3;n est&#x00E1; el norte, el sur, o el oeste, s&#x00F3;lo puedes ir hacia adelante o volver atr&#x00E1;s.&#x000A;[going norte - failed]&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-48"/>
+    </children>
+  </item>
+  <item nodeId="node-48">
+    <command xml:space="preserve">abre la tapa</command>
+    <result xml:space="preserve">[opening Tapa met&#x00E1;lica]&#x000A;[opening Tapa met&#x00E1;lica - failed]&#x000A;&#x000A;Empuj&#x00E9; la pesada alcantarilla a un lado y rasgu&#x00E9; el velo de la oscuridad. El sol literalmente quemaba la piel. Usando la tapa a modo de visera me refugi&#x00E9; en la sombra y otee la plaza del mercado. Desierto. No hab&#x00ED;a se&#x00F1;ales de la polic&#x00ED;a. Si corr&#x00ED;a lo suficiente, podr&#x00ED;a llegar a los portalillos sin llegar a tostarme mucho.&#x000A;&#x000A;[looking]&#x000A;Plaza del mercado&#x000A;Calor, mucho calor.&#x000A;&#x000A;[looking - succeeded]&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+  </item>
+  <item nodeId="node-49">
+    <command xml:space="preserve">arriba</command>
+    <result xml:space="preserve">No puedes ir por ah&#x00ED;.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+  </item>
+  <item nodeId="node-50">
+    <command xml:space="preserve">examinar paredes</command>
+    <result xml:space="preserve">&#x00BF;Cu&#x00E1;l concretamente, el limo o el paredes?&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-51"/>
+    </children>
+  </item>
+  <item nodeId="node-51">
+    <command xml:space="preserve">limo</command>
+    <result xml:space="preserve">Una sustancia verde gelatinosa que supura a trav&#x00E9;s de las paredes, gotea acumul&#x00E1;ndose en el suelo en charcos informes de los cuales brotan hongos de diverso tama&#x00F1;o.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-52"/>
+    </children>
+  </item>
+  <item nodeId="node-52">
+    <command xml:space="preserve">examinar limo</command>
+    <result xml:space="preserve">Una sustancia verde gelatinosa que supura a trav&#x00E9;s de las paredes, gotea acumul&#x00E1;ndose en el suelo en charcos informes de los cuales brotan hongos de diverso tama&#x00F1;o.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-53"/>
+    </children>
+  </item>
+  <item nodeId="node-53">
+    <command xml:space="preserve">cogerlo</command>
+    <result xml:space="preserve">No creo que a Maddock le gustara.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-54"/>
+    </children>
+  </item>
+  <item nodeId="node-54">
+    <command xml:space="preserve">n</command>
+    <result xml:space="preserve">No sabes en qu&#x00E9; direcci&#x00F3;n est&#x00E1; el norte, el sur, o el oeste, s&#x00F3;lo puedes ir hacia adelante o volver atr&#x00E1;s.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-55"/>
+    </children>
+  </item>
+  <item nodeId="node-55">
+    <command xml:space="preserve">atras</command>
+    <result xml:space="preserve">No hay vuelta atr&#x00E1;s.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+  </item>
+  <item nodeId="node-56">
+    <command xml:space="preserve">subir</command>
+    <result xml:space="preserve">Salida de las alcantarillas&#x000A;Trepas como una exhalaci&#x00F3;n las escalerillas met&#x00E1;licas hasta llegar a lo m&#x00E1;s alto. Aqu&#x00ED; el ambiente cambia. La tapa de la alcantarilla irradia un calor abrasador que mantiene la humedad alejada.&#x000A;&#x000A;Un rayo de luz cae verticalmente a trav&#x00E9;s de un agujero en la tapa, calentando el aire a su paso.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-57"/>
+    </children>
+  </item>
+  <item nodeId="node-57">
+    <command xml:space="preserve">subir</command>
+    <result xml:space="preserve">Empuj&#x00E9; la pesada alcantarilla a un lado y rasgu&#x00E9; el velo de la oscuridad. El sol literalmente quemaba la piel. Usando la tapa a modo de visera me refugi&#x00E9; en la sombra y otee la plaza del mercado. Desierto. No hab&#x00ED;a se&#x00F1;ales de la polic&#x00ED;a. Si corr&#x00ED;a lo suficiente, podr&#x00ED;a llegar a los portalillos sin llegar a tostarme mucho.&#x000A;&#x000A;Plaza del mercado&#x000A;Calor, mucho calor.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+  </item>
+  <item nodeId="node-58">
+    <command xml:space="preserve">examinar hombre</command>
+    <result xml:space="preserve">Es Maddock,  un viejo conocido. Un ser ruin que empeora a cada a&#x00F1;o que pasa. Pantalones vaqueros tan ra&#x00ED;dos que ahora son cortos. Camisa amarillenta de vieja y por la suciedad, y tirantes. Y encima de todo ello unos ojos vidriosos en permanente alegr&#x00ED;a, rodeados de una cara curtida por el sol llena de picaduras, viruelas y ampollas; al igual que el resto de su piel. Tiene una profusa mata de pelo y barba completamente enmara&#x00F1;adas. Adem&#x00E1;s ha montado un peque&#x00F1;o campamento a su alrededor. Te mira de forma divertida.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-59"/>
+      <child nodeId="node-76"/>
+    </children>
+  </item>
+  <item nodeId="node-59">
+    <command xml:space="preserve">pregunta a maddock por hombre</command>
+    <result xml:space="preserve">No conozco ese verbo.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-60"/>
+      <child nodeId="node-66"/>
+    </children>
+  </item>
+  <item nodeId="node-60">
+    <command xml:space="preserve">pregunta qu&#x00E9; haces aqu&#x00ED; abajo</command>
+    <result xml:space="preserve">( a Maddock)&#x000A;You can't think of anything appropriate to say. &#x000A;&#x000A;You could ask qu&#x00E9; haces aqu&#x00ED; abajo, whether qu&#x00E9; haces aqu&#x00ED; abajo, whether tengo que seguir, whether tengo que encontrar a Isabelita or whether en el burdel.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-61"/>
+    </children>
+  </item>
+  <item nodeId="node-61">
+    <command xml:space="preserve">qu&#x00E9; haces aqu&#x00ED; abajo</command>
+    <result xml:space="preserve">What would you like to discuss: qu&#x00E9; haces aqu&#x00ED; abajo or whether qu&#x00E9; haces aqu&#x00ED; abajo?&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-62"/>
+    </children>
+  </item>
+  <item nodeId="node-62">
+    <command xml:space="preserve">arriba</command>
+    <result xml:space="preserve">Intenta de nuevo, porque s&#x00F3;lo te pude entender: (IR) ir hacia alg&#x00FA;n lado.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-63"/>
+    </children>
+  </item>
+  <item nodeId="node-63">
+    <command xml:space="preserve">ve hacia arriba</command>
+    <result xml:space="preserve">Salida de las alcantarillas&#x000A;Trepas como una exhalaci&#x00F3;n las escalerillas met&#x00E1;licas hasta llegar a lo m&#x00E1;s alto. Aqu&#x00ED; el ambiente cambia. La tapa de la alcantarilla irradia un calor abrasador que mantiene la humedad alejada.&#x000A;&#x000A;Un rayo de luz cae verticalmente a trav&#x00E9;s de un agujero en la tapa, calentando el aire a su paso.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-64"/>
+    </children>
+  </item>
+  <item nodeId="node-64">
+    <command xml:space="preserve">arriba</command>
+    <result xml:space="preserve">Empuj&#x00E9; la pesada alcantarilla a un lado y rasgu&#x00E9; el velo de la oscuridad. El sol literalmente quemaba la piel. Usando la tapa a modo de visera me refugi&#x00E9; en la sombra y otee la plaza del mercado. Desierto. No hab&#x00ED;a se&#x00F1;ales de la polic&#x00ED;a. Si corr&#x00ED;a lo suficiente, podr&#x00ED;a llegar a los portalillos sin llegar a tostarme mucho.&#x000A;&#x000A;Plaza del mercado&#x000A;Calor, mucho calor.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-65"/>
+    </children>
+  </item>
+  <item nodeId="node-65">
+    <command xml:space="preserve">baja</command>
+    <result xml:space="preserve">No puedes ir por ah&#x00ED;.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+  </item>
+  <item nodeId="node-66">
+    <command xml:space="preserve">pregunta</command>
+    <result xml:space="preserve">&#x00BF;Qu&#x00E9; quieres preguntar?&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-67"/>
+    </children>
+  </item>
+  <item nodeId="node-67">
+    <command xml:space="preserve">pregunta sobre hombre</command>
+    <result xml:space="preserve">No entend&#x00ED; esa frase.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-68"/>
+    </children>
+  </item>
+  <item nodeId="node-68">
+    <command xml:space="preserve">pregunta hombre</command>
+    <result xml:space="preserve">No entend&#x00ED; esa frase.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-69"/>
+    </children>
+  </item>
+  <item nodeId="node-69">
+    <command xml:space="preserve">acciones</command>
+    <result xml:space="preserve">Actions listing on.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-70"/>
+    </children>
+  </item>
+  <item nodeId="node-70">
+    <command xml:space="preserve">pregunta hombre</command>
+    <result xml:space="preserve">[non-speaking qu&#x00E9; haces aqu&#x00ED; abajo]&#x000A;No entend&#x00ED; esa frase.&#x000A;[non-speaking qu&#x00E9; haces aqu&#x00ED; abajo - ended without result]&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-71"/>
+    </children>
+  </item>
+  <item nodeId="node-71">
+    <command xml:space="preserve">pregunta a maddock</command>
+    <result xml:space="preserve">No conozco ese verbo.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-72"/>
+    </children>
+  </item>
+  <item nodeId="node-72">
+    <command xml:space="preserve">preguntar a maddock</command>
+    <result xml:space="preserve">You're not hablando con nadie en estos momentos.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-73"/>
+    </children>
+  </item>
+  <item nodeId="node-73">
+    <command xml:space="preserve"></command>
+    <result xml:space="preserve">&#x00BF;Perd&#x00F3;n?&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-74"/>
+    </children>
+  </item>
+  <item nodeId="node-74">
+    <command xml:space="preserve">habla con maddock</command>
+    <result xml:space="preserve">No conozco ese verbo.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-75"/>
+    </children>
+  </item>
+  <item nodeId="node-75">
+    <command xml:space="preserve">hablar con maddock</command>
+    <result xml:space="preserve">( a Maddock)&#x000A;[telling Maddock about "con maddock"]&#x000A;[(1) saying hello to Maddock]&#x000A;[(1) saying hello to Maddock - succeeded]&#x000A;&#x000A;You can't think en nada apropiado que decir. &#x000A;&#x000A;[telling Maddock about "con maddock" - failed the catch fall-throughs of telling rule]&#x000A;&#x000A;You could pregunta qu&#x00E9; haces aqu&#x00ED; abajo.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+  </item>
+  <item nodeId="node-76">
+    <command xml:space="preserve">decir hola</command>
+    <result xml:space="preserve">( a Maddock)&#x000A;No hay respuesta.&#x000A;&#x000A;You could ask qu&#x00E9; haces aqu&#x00ED; abajo.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-77"/>
+    </children>
+  </item>
+  <item nodeId="node-77">
+    <command xml:space="preserve">pregunta que haces aqu&#x00ED; abajo</command>
+    <result xml:space="preserve">( a Maddock)&#x000A;You can't think of anything appropriate to say. &#x000A;&#x000A;You could ask qu&#x00E9; haces aqu&#x00ED; abajo.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-78"/>
+    </children>
+  </item>
+  <item nodeId="node-78">
+    <command xml:space="preserve">qu&#x00E9; haces aqui abajo</command>
+    <result xml:space="preserve">Intenta de nuevo, porque s&#x00F3;lo te pude entender: do something to  qu&#x00E9; haces aqu&#x00ED; abajo.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-79"/>
+    </children>
+  </item>
+  <item nodeId="node-79">
+    <command xml:space="preserve">pregunta abajo</command>
+    <result xml:space="preserve">( a Maddock)&#x000A;You can't think of anything appropriate to say. &#x000A;&#x000A;You could ask qu&#x00E9; haces aqu&#x00ED; abajo.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-80"/>
+    </children>
+  </item>
+  <item nodeId="node-80">
+    <command xml:space="preserve">pregunta sobre maddock</command>
+    <result xml:space="preserve">( Maddock)&#x000A;You can't think of anything appropriate to say. &#x000A;&#x000A;You could ask qu&#x00E9; haces aqu&#x00ED; abajo.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-81"/>
+    </children>
+  </item>
+  <item nodeId="node-81">
+    <command xml:space="preserve">ask que haces aqui abajo</command>
+    <result xml:space="preserve">That doesn't seem to be a topic of conversation at the moment.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-82"/>
+    </children>
+  </item>
+  <item nodeId="node-82">
+    <command xml:space="preserve">ask </command>
+    <result xml:space="preserve">-&#x00A1;Maddock! &#x00BF;Qu&#x00E9; haces aqu&#x00ED; abajo? - preguntas sorprendido al ver un viejo conocido en este sitio.&#x000A;&#x000A;-&#x00BF;Qu&#x00E9; voy a hacer? Estar fresquito hombre. Ah&#x00ED; arriba hace 45 grados a la sombra, y en la plaza el sol achicharra a los incautos. &#x00BF;Has visto alguna vez ejecutar a alguno en la picota? Se churrascan como pollos asados, jee, jee.- rie el miserable dejando escapar el aire por su boca desdentada. -Adem&#x00E1;s, aqu&#x00ED; hay comida, &#x00BF;ves?- A&#x00F1;ade mientras sacude delante de si una rata muerta empalada en un gancho.&#x000A;&#x000A;You could ask tengo que seguir.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-83"/>
+    </children>
+  </item>
+  <item nodeId="node-83">
+    <command xml:space="preserve">decir tengo que seguir</command>
+    <result xml:space="preserve">( a Maddock)&#x000A;No hay respuesta.&#x000A;&#x000A;You could ask tengo que seguir.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-84"/>
+    </children>
+  </item>
+  <item nodeId="node-84">
+    <command xml:space="preserve">pregunta tengo que seguir</command>
+    <result xml:space="preserve">( a Maddock)&#x000A;You can't think of anything appropriate to say. &#x000A;&#x000A;You could ask tengo que seguir.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-85"/>
+    </children>
+  </item>
+  <item nodeId="node-85">
+    <command xml:space="preserve">ask tengo que seguir</command>
+    <result xml:space="preserve">-Tengo que seguir. - dices mirando atr&#x00E1;s preocupado.&#x000A;&#x000A;-&#x00BF;Vas a salir ah&#x00ED; arriba en pleno mediod&#x00ED;a? &#x00BF;Es que no me has o&#x00ED;do? &#x00A1;Ah&#x00ED; arriba se est&#x00E1; a m&#x00E1;s de 50 grados a pleno sol! - advierte.&#x000A;&#x000A;You could ask tengo que encontrar a Isabelita.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-86"/>
+    </children>
+  </item>
+  <item nodeId="node-86">
+    <command xml:space="preserve">ask tengo que encontrar a isabelita</command>
+    <result xml:space="preserve">-Tengo que encontrar a Isabelita. &#x00BF;Sabes d&#x00F3;nde est&#x00E1;?- preguntas.&#x000A;&#x000A;-S&#x00ED; hombre, no tiene p&#x00E9;rdida, la encontrar&#x00E1;s en "La luna ardiente"...- responde y parece divertirse a&#x00FA;n m&#x00E1;s.&#x000A;&#x000A;You could ask en el burdel.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-87"/>
+    </children>
+  </item>
+  <item nodeId="node-87">
+    <command xml:space="preserve">ask en el burdel</command>
+    <result xml:space="preserve">-&#x00A1;En el burdel! -Ttomas a ese miserable por las raidas solapas.&#x000A;&#x000A;You could ask te voy a matar.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-88"/>
+    </children>
+  </item>
+  <item nodeId="node-88">
+    <command xml:space="preserve">queue maddock</command>
+    <result xml:space="preserve">No conversation is planned for Maddock.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+  </item>
+  <item nodeId="node-89">
+    <command xml:space="preserve">pregunta a hombre qu&#x00E9; hace aqu&#x00ED;</command>
+    <result xml:space="preserve">You aren't talking to anyone.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-90"/>
+    </children>
+  </item>
+  <item nodeId="node-90">
+    <command xml:space="preserve">examinar hombre</command>
+    <result xml:space="preserve">Es Maddock,  un viejo conocido. Un ser ruin que empeora a cada a&#x00F1;o que pasa. Pantalones vaqueros tan ra&#x00ED;dos que ahora son cortos. Camisa amarillenta de vieja y por la suciedad, y tirantes. Y encima de todo ello unos ojos vidriosos en permanente alegr&#x00ED;a, rodeados de una cara curtida por el sol llena de picaduras, viruelas y ampollas; al igual que el resto de su piel. Tiene una profusa mata de pelo y barba completamente enmara&#x00F1;adas. Adem&#x00E1;s ha montado un peque&#x00F1;o campamento a su alrededor. Te mira de forma divertida.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-91"/>
+    </children>
+  </item>
+  <item nodeId="node-91">
+    <command xml:space="preserve">pregunta a hombre qu&#x00E9; hace aqu&#x00ED;</command>
+    <result xml:space="preserve">You aren't talking to anyone.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-92"/>
+    </children>
+  </item>
+  <item nodeId="node-92">
+    <command xml:space="preserve">pregunta a maddock qu&#x00E9; hace aqu&#x00ED;</command>
+    <result xml:space="preserve">You aren't talking to anyone.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-93"/>
+    </children>
+  </item>
+  <item nodeId="node-93">
+    <command xml:space="preserve">pregunta a maddock qu&#x00E9; hace aqu&#x00ED; abajo</command>
+    <result xml:space="preserve">You aren't talking to anyone.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-94"/>
+    </children>
+  </item>
+  <item nodeId="node-94">
+    <command xml:space="preserve">decir hola</command>
+    <result xml:space="preserve">( a Maddock)&#x000A;No hay respuesta.&#x000A;&#x000A;You could ask qu&#x00E9; haces aqu&#x00ED; abajo.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-95"/>
+    </children>
+  </item>
+  <item nodeId="node-95">
+    <command xml:space="preserve">pregunta qu&#x00E9; haces aqu&#x00ED; abajo</command>
+    <result xml:space="preserve">( a Maddock)&#x000A;You can't think of anything appropriate to say. &#x000A;&#x000A;You could ask qu&#x00E9; haces aqu&#x00ED; abajo.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+  </item>
+  <item nodeId="node-96">
+    <command xml:space="preserve">pregunta a maddock por isabelita</command>
+    <result xml:space="preserve">No conozco ese verbo.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-97"/>
+    </children>
+  </item>
+  <item nodeId="node-97">
+    <command xml:space="preserve">pregunta</command>
+    <result xml:space="preserve">&#x00BF;Qu&#x00E9; quieres preguntar?&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-98"/>
+    </children>
+  </item>
+  <item nodeId="node-98">
+    <command xml:space="preserve">algo</command>
+    <result xml:space="preserve">No conozco ese verbo.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-99"/>
+    </children>
+  </item>
+  <item nodeId="node-99">
+    <command xml:space="preserve">decir hola</command>
+    <result xml:space="preserve">No conozco ese verbo.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-100"/>
+    </children>
+  </item>
+  <item nodeId="node-100">
+    <command xml:space="preserve">di hola</command>
+    <result xml:space="preserve">No conozco ese verbo.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-101"/>
+    </children>
+  </item>
+  <item nodeId="node-101">
+    <command xml:space="preserve">di</command>
+    <result xml:space="preserve">&#x00BF;Qu&#x00E9; quieres decir?&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+  </item>
+  <item nodeId="node-102">
+    <command xml:space="preserve">m</command>
+    <result xml:space="preserve">Huyendo por las alcantarillas&#x000A;Las paredes se juntan con el techo abovedado. Rezuman limo, musgo y hongos. El fango ora te llega por los tobillos ora por las rodillas y todo huele de forma terriblemente espantosa. Y la penumbra no es tan densa como para evitarte ver todos los detalles desagradables. Hacia atr&#x00E1;s est&#x00E1; la vuelta a los pantanos y con ellos los trabajos forzados y la prisi&#x00F3;n. No los ves all&#x00E1; atr&#x00E1;s, pero los polic&#x00ED;as con sus perros rastreadores no deben de andar muy lejos. Hacia adelante el t&#x00FA;nel contin&#x00FA;a y contin&#x00FA;a.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-103"/>
+      <child nodeId="node-128"/>
+    </children>
+  </item>
+  <item nodeId="node-103">
+    <command xml:space="preserve">adelante</command>
+    <result xml:space="preserve">En mitad del t&#x00FA;nel&#x000A;La penumbra es menor aqu&#x00ED;. Una rejilla anegada por la arena al final de una chimenea en el techo, que deja pasar algo de luz. El t&#x00FA;nel contin&#x00FA;a y contin&#x00FA;a durante decenas de metros, sin ning&#x00FA;n cambio de direcci&#x00F3;n, h&#x00FA;medo y apestoso, inmutable. Aunque a lo lejos se divisa el final.&#x000A;&#x000A;-&#x00A1;Crak, craaak!- un p&#x00E1;jaro con las alas heridas agoniza en el fango.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-104"/>
+    </children>
+  </item>
+  <item nodeId="node-104">
+    <command xml:space="preserve">examinar p&#x00E1;jaro</command>
+    <result xml:space="preserve">No sabes si es un cuervo de alas negras, o es que est&#x00E1; cubierto completamente de lodo.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-105"/>
+    </children>
+  </item>
+  <item nodeId="node-105">
+    <command xml:space="preserve">examinar p&#x00E1;jaro</command>
+    <result xml:space="preserve">No sabes si es un cuervo de alas negras, o es que est&#x00E1; cubierto completamente de lodo.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-106"/>
+    </children>
+  </item>
+  <item nodeId="node-106">
+    <command xml:space="preserve">z</command>
+    <result xml:space="preserve">El tiempo pasa...&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-107"/>
+    </children>
+  </item>
+  <item nodeId="node-107">
+    <command xml:space="preserve">z</command>
+    <result xml:space="preserve">El tiempo pasa...&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-108"/>
+    </children>
+  </item>
+  <item nodeId="node-108">
+    <command xml:space="preserve">z</command>
+    <result xml:space="preserve">El tiempo pasa...&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-109"/>
+    </children>
+  </item>
+  <item nodeId="node-109">
+    <command xml:space="preserve">z</command>
+    <result xml:space="preserve">El tiempo pasa...&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-110"/>
+    </children>
+  </item>
+  <item nodeId="node-110">
+    <command xml:space="preserve">z</command>
+    <result xml:space="preserve">El tiempo pasa...&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-111"/>
+    </children>
+  </item>
+  <item nodeId="node-111">
+    <command xml:space="preserve">z</command>
+    <result xml:space="preserve">El tiempo pasa...&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-112"/>
+    </children>
+  </item>
+  <item nodeId="node-112">
+    <command xml:space="preserve">z</command>
+    <result xml:space="preserve">El tiempo pasa...&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-113"/>
+    </children>
+  </item>
+  <item nodeId="node-113">
+    <command xml:space="preserve">z</command>
+    <result xml:space="preserve">El tiempo pasa...&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-114"/>
+    </children>
+  </item>
+  <item nodeId="node-114">
+    <command xml:space="preserve">z</command>
+    <result xml:space="preserve">El tiempo pasa...&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-115"/>
+    </children>
+  </item>
+  <item nodeId="node-115">
+    <command xml:space="preserve">z</command>
+    <result xml:space="preserve">El tiempo pasa...&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-116"/>
+    </children>
+  </item>
+  <item nodeId="node-116">
+    <command xml:space="preserve"></command>
+    <result xml:space="preserve">&#x00BF;Perd&#x00F3;n?&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-117"/>
+    </children>
+  </item>
+  <item nodeId="node-117">
+    <command xml:space="preserve">z</command>
+    <result xml:space="preserve">El tiempo pasa...&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-118"/>
+    </children>
+  </item>
+  <item nodeId="node-118">
+    <command xml:space="preserve">coger pajaro</command>
+    <result xml:space="preserve">-&#x00A1;Craaaak! -El p&#x00E1;jaro bate las alas en un esfuerzo desesperado. Grazna un &#x00FA;ltimo quejido y deja de moverse.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-119"/>
+    </children>
+  </item>
+  <item nodeId="node-119">
+    <command xml:space="preserve">m</command>
+    <result xml:space="preserve">En mitad del t&#x00FA;nel&#x000A;La penumbra es menor aqu&#x00ED;. Una rejilla anegada por la arena al final de una chimenea en el techo, que deja pasar algo de luz. El t&#x00FA;nel contin&#x00FA;a y contin&#x00FA;a durante decenas de metros, sin ning&#x00FA;n cambio de direcci&#x00F3;n, h&#x00FA;medo y apestoso, inmutable. Aunque a lo lejos se divisa el final.&#x000A;&#x000A;Hay un p&#x00E1;jaro muerto en el fango.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-120"/>
+    </children>
+  </item>
+  <item nodeId="node-120">
+    <command xml:space="preserve">examinar pajaro</command>
+    <result xml:space="preserve">No se mueve.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-121"/>
+    </children>
+  </item>
+  <item nodeId="node-121">
+    <command xml:space="preserve">coger pajaro</command>
+    <result xml:space="preserve">Es s&#x00F3;lo un p&#x00E1;jaro muerto en el fango.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-122"/>
+    </children>
+  </item>
+  <item nodeId="node-122">
+    <command xml:space="preserve">adelante</command>
+    <result xml:space="preserve">Final de las alcantarillas&#x000A;El t&#x00FA;nel termina aqu&#x00ED;, en una secci&#x00F3;n cuadrada de la cual asciende una escalerilla met&#x00E1;lica hacia la superficie.&#x000A;&#x000A;En un receso de la pared hay sentado un ser andrajoso. Un hombre, o un despojo. Quemado por el sol, sucio pero de gesto constantemente feliz de ojos vidriosos rodeados de una mara&#x00F1;a de pelo y barba de semanas, o meses.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-123"/>
+    </children>
+  </item>
+  <item nodeId="node-123">
+    <command xml:space="preserve">examinar hombre</command>
+    <result xml:space="preserve">Es Maddock,  un viejo conocido. Un ser ruin que empeora a cada a&#x00F1;o que pasa. Pantalones vaqueros tan ra&#x00ED;dos que ahora son cortos. Camisa amarillenta de vieja y por la suciedad, y tirantes. Una cara curtida por el sol llena de picaduras, viruelas y ampollas; al igual que el resto de su piel. Y encima de todo ello unos ojos vidriosos en permanente alegr&#x00ED;a, Tiene una profusa mata de pelo y barba completamente enmara&#x00F1;adas. Adem&#x00E1;s ha montado un peque&#x00F1;o campamento a su alrededor. Te mira de forma divertida.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-124"/>
+    </children>
+  </item>
+  <item nodeId="node-124">
+    <command xml:space="preserve">habla con hombre</command>
+    <result xml:space="preserve">[1] "&#x00BF;Qu&#x00E9; haces aqu&#x00ED; abajo?"&#x000A;[2] Decir nada.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-125"/>
+    </children>
+  </item>
+  <item nodeId="node-125">
+    <command xml:space="preserve">1</command>
+    <result xml:space="preserve">-&#x00A1;Maddock! &#x00BF;Qu&#x00E9; haces aqu&#x00ED; abajo? - preguntas sorprendido al ver un viejo conocido en este sitio.&#x000A;&#x000A; -&#x00BF;Qu&#x00E9; voy a hacer? Estar fresquito hombre. Ah&#x00ED; arriba hace 45 grados a la sombra, y en la plaza el sol achicharra a los incautos. &#x00BF;Has visto alguna vez ejecutar a alguno en la picota? Se churrascan como pollos asados, je, je, jeee.- rie el miserable dejando escapar el aire por su boca desdentada. -Adem&#x00E1;s, aqu&#x00ED; hay comida, &#x00BF;ves?- A&#x00F1;ade mientras sacude delante de si una rata muerta empalada en un gancho.&#x000A;&#x000A;[1] "Tengo que salir de aqu&#x00ED;."&#x000A;[2] Decir nada.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-126"/>
+    </children>
+  </item>
+  <item nodeId="node-126">
+    <command xml:space="preserve">acciones</command>
+    <result xml:space="preserve">Actions listing on.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-127"/>
+    </children>
+  </item>
+  <item nodeId="node-127">
+    <command xml:space="preserve">habla con hombre</command>
+    <result xml:space="preserve">[talking to Maddock]&#x000A;[1] "Tengo que salir de aqu&#x00ED;."&#x000A;[2] Decir nada.&#x000A;&#x000A;[talking to Maddock - succeeded]&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+  </item>
+  <item nodeId="node-128">
+    <command xml:space="preserve">n</command>
+    <result xml:space="preserve">No sabes en qu&#x00E9; direcci&#x00F3;n est&#x00E1; el norte, el sur, o el oeste, s&#x00F3;lo puedes ir hacia adelante o volver atr&#x00E1;s.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-129"/>
+    </children>
+  </item>
+  <item nodeId="node-129">
+    <command xml:space="preserve">adelante</command>
+    <result xml:space="preserve">En mitad del t&#x00FA;nel&#x000A;La penumbra es menor aqu&#x00ED;. Una rejilla anegada por la arena al final de una chimenea en el techo, que deja pasar algo de luz. El t&#x00FA;nel contin&#x00FA;a y contin&#x00FA;a durante decenas de metros, sin ning&#x00FA;n cambio de direcci&#x00F3;n, h&#x00FA;medo y apestoso, inmutable. Aunque a lo lejos se divisa el final.&#x000A;&#x000A;-&#x00A1;Crak, craaak!- un p&#x00E1;jaro con las alas heridas agoniza en el fango.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-130"/>
+    </children>
+  </item>
+  <item nodeId="node-130">
+    <command xml:space="preserve">g</command>
+    <result xml:space="preserve">Final de las alcantarillas&#x000A;El t&#x00FA;nel termina aqu&#x00ED;, en una secci&#x00F3;n cuadrada de la cual asciende una escalerilla met&#x00E1;lica hacia la superficie.&#x000A;&#x000A;En un receso de la pared hay sentado un ser andrajoso. Un hombre, o un despojo. Quemado por el sol, sucio pero de gesto constantemente feliz de ojos vidriosos rodeados de una mara&#x00F1;a de pelo y barba de semanas, o meses.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-131"/>
+    </children>
+  </item>
+  <item nodeId="node-131">
+    <command xml:space="preserve">habla con hombre</command>
+    <result xml:space="preserve">El olor te asalta implacable. Corta la respiraci&#x00F3;n y escuece en los ojos. Parec&#x00ED;a imposible que algo en el mundo pudiese oler peor que las alcantarillas o que tu mismo, pero aqu&#x00ED; est&#x00E1;, lo tienes delante.&#x000A;&#x000A;[1] "&#x00BF;Qu&#x00E9; haces aqu&#x00ED; abajo?"&#x000A;[2] Decir nada.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-132"/>
+    </children>
+  </item>
+  <item nodeId="node-132">
+    <command xml:space="preserve">1</command>
+    <result xml:space="preserve">-&#x00A1;Maddock! &#x00BF;Qu&#x00E9; haces aqu&#x00ED; abajo? - preguntas sorprendido al ver un viejo conocido en este sitio.&#x000A;&#x000A; -&#x00BF;Qu&#x00E9; voy a hacer? Estar fresquito hombre. Ah&#x00ED; arriba hace 45 grados a la sombra, y en la plaza el sol achicharra a los incautos. &#x00BF;Has visto alguna vez ejecutar a alguno en la picota? Se churrascan como pollos asados, je, je, jeee.- rie el miserable dejando escapar el aire por su boca desdentada. -Adem&#x00E1;s, aqu&#x00ED; hay comida, &#x00BF;ves?- A&#x00F1;ade mientras sacude delante de si una rata muerta empalada en un gancho.&#x000A;&#x000A;[1] "Tengo que salir de aqu&#x00ED;."&#x000A;[2] Decir nada.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-133"/>
+    </children>
+  </item>
+  <item nodeId="node-133">
+    <command xml:space="preserve">1</command>
+    <result xml:space="preserve">-Tengo que seguir. - dices mirando atr&#x00E1;s preocupado.&#x000A;&#x000A; -&#x00BF;Vas a salir ah&#x00ED; arriba en pleno mediod&#x00ED;a? &#x00BF;Es que no me has o&#x00ED;do? &#x00A1;Ah&#x00ED; arriba se est&#x00E1; a m&#x00E1;s de 50 grados a pleno sol! - te grita por primera vez sorprendido.&#x000A;&#x000A;[1] "Tengo que encontrar a Isabelita."&#x000A;[2] Decir nada.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-134"/>
+    </children>
+  </item>
+  <item nodeId="node-134">
+    <command xml:space="preserve">1</command>
+    <result xml:space="preserve">-Tengo que encontrar a Isabelita. &#x00BF;Sabes d&#x00F3;nde est&#x00E1;?- preguntas.&#x000A;&#x000A; -S&#x00ED; hombre, no tiene p&#x00E9;rdida, la encontrar&#x00E1;s en "La luna ardiente"...- responde y este hecho parece divertirle mucho.&#x000A;&#x000A;[1] "&#x00A1;En el burdel!"&#x000A;[2] Decir nada.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-135"/>
+    </children>
+  </item>
+  <item nodeId="node-135">
+    <command xml:space="preserve">1</command>
+    <result xml:space="preserve">-&#x00A1;En el burdel! -Tomas a ese miserable por las raidas solapas.&#x000A;&#x000A; -&#x00A1;Muah, ja, ja, jaaaa!- Este rie como un poseso. -S&#x00ED;. Dicen que es casi tan popular como la sint&#x00E9;tica Hadaly. &#x00A1;Muah, ja, ja, jaaaggghrrj!&#x000A;&#x000A; Comienzas a estrangularle.&#x000A;&#x000A;[1] "&#x00A1;Te voy a matar!"&#x000A;[2] Decir nada.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-136"/>
+    </children>
+  </item>
+  <item nodeId="node-136">
+    <command xml:space="preserve">1</command>
+    <result xml:space="preserve">-Te voy a matar.- gritas.&#x000A;&#x000A; -&#x00A1;Espera! &#x00A1;Muah, ja, ja! Espera.- dice sin que la cara de diversi&#x00F3;n le cambie.&#x000A;&#x000A;Levantas el pu&#x00F1;o dispuesto a partirle los pocos dientes que le quedan, pero su dedo te detiene, se&#x00F1;ala hacia el fondo del t&#x00FA;nel:&#x000A;&#x000A; -&#x00A1;Pero, oooh, oh, jo, jo! M&#x00E1;s vale que te des prisa, sino no llegar&#x00E1;s a hacer cola.- Se&#x00F1;ala divertido hacia el fondo del tunel. All&#x00ED; se ven haces de linterna, se escuchan pasos en los charcos, gritos y ladridos. Es la polic&#x00ED;a. Est&#x00E1;n muy cerca.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-137"/>
+    </children>
+  </item>
+  <item nodeId="node-137">
+    <command xml:space="preserve">habla con hombre</command>
+    <result xml:space="preserve">El olor te asalta implacable. Corta la respiraci&#x00F3;n y escuece en los ojos. Parec&#x00ED;a imposible que algo en el mundo pudiese oler peor que las alcantarillas o que tu mismo, pero aqu&#x00ED; est&#x00E1;, lo tienes delante.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-138"/>
+    </children>
+  </item>
+  <item nodeId="node-138">
+    <command xml:space="preserve">matar maddock</command>
+    <result xml:space="preserve">La violencia no es la soluci&#x00F3;n.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-139"/>
+    </children>
+  </item>
+  <item nodeId="node-139">
+    <command xml:space="preserve">atacar maddock</command>
+    <result xml:space="preserve">La violencia no es la soluci&#x00F3;n.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-140"/>
+    </children>
+  </item>
+  <item nodeId="node-140">
+    <command xml:space="preserve">subir</command>
+    <result xml:space="preserve">Salida de las alcantarillas&#x000A;Trepas como una exhalaci&#x00F3;n las escalerillas met&#x00E1;licas hasta llegar a lo m&#x00E1;s alto. Y el aire cambia. La tapa de la alcantarilla irradia un calor abrasador que mantiene la humedad alejada.&#x000A;&#x000A;Un rayo de luz cae verticalmente a trav&#x00E9;s de un agujero en la tapa, calentando el aire a su paso.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+  </item>
+</Skein>

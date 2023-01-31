@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ifindex version="1.0" xmlns="http://babel.ifarchive.org/protocol/iFiction/">
+    <story>
+        <identification>
+            <ifid>B7854A4C-6F4E-4EA1-A3A8-F8A7351E66B4</ifid>
+            <format>zcode</format>
+        </identification>
+        <bibliographic>
+            <title>Once upon a winter night, the ragman came singing under your window</title>
+            <author>Expio</author>
+            <headline>An Interactive Fiction</headline>
+            <genre>horror</genre>
+            <firstpublished>2008</firstpublished>
+            <language>en</language>
+            <group>Inform</group>
+        </bibliographic>
+        <cover>
+            <format>png</format>
+            <height>960</height>
+            <width>960</width>
+            <description>The cover art.</description>
+        </cover>
+        <releases>
+            <attached>
+                <release>
+                    <releasedate>2020-11-07</releasedate>
+                    <version>3</version>
+                    <compiler>Inform 7</compiler>
+                    <compilerversion>6M62</compilerversion>
+                </release>
+            </attached>
+        </releases>
+        <colophon>
+            <generator>Inform 7</generator>
+            <generatorversion>6M62</generatorversion>
+            <originated>2020-11-07</originated>
+        </colophon>
+        <zcode>
+            <serial>201107</serial>
+            <release>3</release>
+            <compiler>Inform 7 build 6M62</compiler>
+            <coverpicture>1</coverpicture>
+        </zcode>
+    </story>
+</ifindex>

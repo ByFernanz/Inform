@@ -1,0 +1,1077 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Extension</title>
+    <style type="text/css">
+        <!--
+        /* The default font (family) and size */
+
+        body, p, td {
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.8rem; /* 100/125 */
+        }
+
+        /* For fixed-point material within text, such as the typing on the Library Card index page */
+
+        span.typewritten {
+        	font-family: monospace;
+        	font-size: 0.867rem; /* 13/12 * 100/125 */
+        }
+
+        /* For less important material: the small print */
+
+        span.smaller {
+        	font-size: 80%;
+        }
+
+        /* The "heading panel" is the coloured box, high up on the page. The colours
+        vary depending on the page: for example, the style on a report of a translation
+        with no problems is "headingpanelsucceeded", usually green, but if there were
+        problems then "headingpanelfailed" is used, which is usually red. "headingpanel"
+        itself is a more neutral grey by default. "headingpanelDark" is an alternative
+        look to make the extensions index pages have some visual contrast with the others;
+        by default they are a darker grey. */
+
+        .headingpanel {
+        	background: #eeeeee;
+        }
+        .headingpanelsucceeded {
+        	background: #E6FFE6;
+        }
+        .headingpanelfailed {
+        	background: #f69Ca6;
+        }
+        .headingpanelalt {
+        	background: #808080;
+        }
+
+        /* Heading panels have two lines of text: an upper one in a larger size, and a
+        lower one in a smaller. Again, the alt versions are meant to contrast.
+
+        	Report on Translation: Succeeded                <-- headingpaneltext
+        	Produced by Inform 10.1.0 (build 6U97)          <-- headingpanelrubric
+
+        	Installed Extensions                            <-- headingpaneltextalt
+        	Bundles of extra rules or phrases to...         <-- headingpanelrubricalt
+
+        */
+
+        span.headingpaneltext {
+        	color: #222222;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+        span.headingpaneltextalt {
+        	color: #ffffff;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        span.headingpanelrubric {
+        	color: #222222;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.733rem; /* 11/12 * 100/125 */
+        	font-weight: bold;
+        }
+        span.headingpanelrubricalt {
+        	color: #ffffff;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.733rem; /* 11/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* Horizontal rule styling */
+
+        div.hr {
+        	border: 0;
+        	width: 100%;
+        	color: #707070;
+        	background-color: #707070;
+        	height: 5px;
+        }
+
+        /* This styles the (usually white) text of the example numbers written inside
+        oval blobs in the extension documentation, which mimic the look of the in-app
+        documentation. */
+
+        .oval, .oval td {
+        	background-image:url('inform:/doc_images/ovoid.png');
+        	color:white;
+        }
+
+        /* Styling used in the extension documentation indexes: */
+
+        /* Used for extension names in the extensions pane of the app */
+
+        span.extensioncensusentry {
+        	color: #ffffff;
+        }
+
+        span.extensionindexentry {
+        	color: #404040;
+        }
+
+        span.extensionindexerror {
+        	color: #ff8080;
+        }
+
+        /* This is used in extension documentation, where an example is presented
+        in a slightly tinted box: */
+
+        table.extensionexample {
+        	background-color: #f0f0f0;
+        }
+
+        span.extensionexampleletter {
+        	color: #202020;
+        	font-size: 14px;
+        	font-weight: bold;
+        }
+
+        /* Seen in problem messages: */
+
+        span.problemred {
+        	color: #800000;
+        }
+
+        span.problemgreen {
+        	color: #008000;
+        }
+
+        span.phraseword {
+        	color: #808080;
+        }
+
+        span.phrasetokentext {
+        	color: #e00060;
+        }
+
+        span.phrasetokendesctext {
+        	color: #4040ff;
+        }
+
+        span.phrasetokenvaluetext {
+        	color: #ff4040;
+        }
+
+        /* Now we move on to styling used in the Index pages only: */
+
+        /* The periodic table display has "sidebars", usually grey and taller than they
+        are wide; they contain no text. */
+
+        div.periodictablesidebarcolour {
+        	background: #888;
+        }
+        div.periodictablesidebar:hover {
+        	background: #222;
+        }
+
+        /* The text of the element-abbreviation, such as "Lx" or "Ph", uses: */
+
+        span.elementtext {
+        	color: #ffffff;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* Similarly for the "atomic number" - a single digit - in the top left corner
+        of these boxes: */
+
+        span.elementnumbertext {
+        	color: #ffffff;
+        	font-size: 0.622rem; /* 7/12 * 96/72 * 100/125 */
+        }
+
+        /* For the text of the element title, to the right of the element box: */
+
+        span.elementtitletext {
+        	color: #ffffff;
+        	font-size: 0.6rem; /* 9/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* The banner at the top of each element: */
+
+        table.elementbanner {
+        	background: #eeeeee;
+        }
+
+        /* For the typewriting on the Library Card: */
+
+        span.librarycardtitle {
+        	color: #803030;
+        }
+
+        span.librarycardother {
+        	color: #303030;
+        }
+
+        /* Generically used for "more details" boxes in the index: */
+
+        table.indexmorebox {
+        	background-color: #e0e0e0;
+            border-radius: 8px;
+        }
+
+        /* But not for activity contents: */
+
+        table.indexactivitycontents {
+        	background-color: #e8e0c0;
+            border-radius: 8px;
+        }
+
+        /* For responses in index entries about rules: */
+
+        span.indexresponseletter {
+        	color: #ffffff;
+        	font-family: 'Courier New', Courier, monospace;
+        	background-color: #8080ff;
+        }
+
+        span.indexresponsetext {
+        	color: #000066;
+        }
+
+        /* Used ubiquitously throughout the index and extension documentation: */
+
+        span.indexblack {
+        	color: #000000;
+        }
+
+        span.indexgrey {
+        	color: #808080;
+        }
+
+        span.indexdarkgrey {
+            color: #505050;
+        }
+
+        span.indexdullred {
+        	color: #800000;
+        }
+
+        span.indexdullgreen {
+        	color: #008000;
+        }
+
+        span.indexdullblue {
+        	color: #000080;
+        }
+
+        /* Used for the room squares in the World map in the Index (which is currently
+        a table with one row of one column) */
+
+        table.indexmaproom {
+        	border-color: #000000;
+        }
+
+        /* Used in the numbering of levels of the World map in the Index */
+
+        span.indexmaplevelnumbers {
+        	color: #c0c0c0;
+        }
+
+        /* Used e.g. for title rows in the Chart of basic kinds in the Index */
+
+        tr.headingrow {
+        	background-color: #e0e0e0;
+        }
+
+        /* Standard rows have black text on striped background colours, these being
+        the usual ones seen in Mac OS X applications such as iTunes. */
+
+        tr.stripeone {
+        	background-color: #ffffff;
+        }
+
+        tr.stripetwo {
+        	background-color: #f3f6fa;
+        }
+
+        tr.tintedrow {
+        	background-color: #808080;
+        }
+
+        /* In the Figures index, this is the background colour used behind images
+        (though in fact it will only be visible if the image fails to load, or uses
+        transparency): */
+
+        div.figureindexbox {
+        	background-color: #6495ed;
+        }
+
+        /* To get the book-contents-page style leaders on the Contents element of
+           the index to work, these must use the background colour of the body of
+           the page, whatever that is: */
+
+        ul.leaders li.leaded span:first-child {
+        	background: white;
+        }
+        ul.leaders li.leaded span + span {
+        	background: white;
+        }
+
+        /* On Registry index pages (such as the Public Library), these are used for
+        download buttons and the like: */
+
+        span.registrybuttontext {
+        	font-size: 11px;
+        	border-color: #000000;
+        }
+
+        span.registryminibuttontext {
+        	font-size: 10px;
+        	border-color: #000000;
+        }
+
+        span.registrybuttonuninstalled {
+        	color: #000000;
+        	background: #ffffdd;
+        }
+
+        span.registrybuttoninstalled {
+        	color: #000000;
+        	background: #ffffff;
+        	pointer-events: none;
+        }
+
+        span.registrybuttonbuiltin {
+        	color: #888888;
+        	background: #ffffff;
+        	pointer-events: none;
+        }
+
+        span.registrybuttonupdate {
+        	color: #000000;
+        	background: #aaddff;
+        }
+
+        span.registrybuttonrevert {
+        	color: #000000;
+        	background: #ddaaff;
+        }
+
+        span.registrybuttonrevealer {
+        	color: #ffffff;
+        	background: #444444;
+        }
+
+        /* Registry index section headings: */
+
+        span.registrysectionname {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 16px;
+        	line-height: 18px;
+        }
+        span.registrysubsectionname {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 14px;
+        	line-height: 16px;
+        }
+
+        /* These are for the "mark" for a section, usually a section-symbol and number */
+
+        span.registrysectionmark {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 16px;
+        	line-height: 18px;
+        	color: #666;
+        }
+        span.registrysubsectionmark {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 14px;
+        	line-height: 16px;
+        	color: #666;
+        }
+
+        /* Text of an item listed in a registry: */
+
+        span.registryitemtext {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 12px;
+        	line-height: 16px;
+        }
+
+        /* And how the links in a registry index page behave: */
+
+        a.registrysilentlink {
+        	text-decoration: none;
+        	color: #000;
+        }
+        a.registrybuttonlink {
+        	text-decoration: none;
+        }
+        a.registrycontentslink:link {
+        	text-decoration: none;
+        	color: #202020;
+        }
+        a.registrycontentslink:visited {
+        	text-decoration: none;
+        	color: #202020;
+        }
+        a.registrycontentslink:hover {
+        	text-decoration: none;
+        	color: #D00000;
+        }
+        a.registrycontentslink:active {
+        	text-decoration: none;
+        	color: #D00000;
+        }
+
+        -->
+    </style>
+    <style type="text/css">
+        <!--
+        /* (1) General layout material */
+
+        *, *:before, *:after {
+        	-moz-box-sizing: border-box;
+        	-webkit-box-sizing: border-box;
+        	box-sizing: border-box;
+        }
+        .headingpanellayout {
+        	position: relative;
+        	height: 56px;
+        	padding: 0px;
+        	white-space:nowrap;
+        }
+        .headingpanellayoutdeeper {
+        	position: relative;
+        	height: 117px;
+        	padding: 0px;
+        	white-space:nowrap;
+        }
+        .headingtext {
+        	position: absolute;
+        	top: -4px;
+        	left: -1px;
+        	width: 100%;
+        	padding: 14px 10px 0px 10px;
+        }
+        .headingrubric {
+        	position: absolute;
+        	top: 36px;
+        	width: 100%;
+        	padding: 0px 10px 0px 10px;
+        }
+        h3.tighter {
+        	margin-top: 0px;
+        }
+        p.hang {
+        	padding-left: 25px;
+        	text-indent: -25px;
+        	margin-top: 0px;
+        	margin-bottom: 0px;
+        }
+        p.in1 {
+        	padding-left: 0px;
+        }
+        p.tightin1 {
+        	padding-left: 0px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin1 {
+        	padding-left: 0px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin1 {
+        	padding-left: 50px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in2 {
+        	padding-left: 25px;
+        }
+        p.tightin2 {
+        	padding-left: 25px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin2 {
+        	padding-left: 25px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin2 {
+        	padding-left: 75px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in3 {
+        	padding-left: 50px;
+        }
+        p.tightin3 {
+        	padding-left: 50px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin3 {
+        	padding-left: 50px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin3 {
+        	padding-left: 100px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in4 {
+        	padding-left: 75px;
+        }
+        p.tightin4 {
+        	padding-left: 75px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin4 {
+        	padding-left: 75px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin4 {
+        	padding-left: 125px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in5 {
+        	padding-left: 100px;
+        }
+        p.tightin5 {
+        	padding-left: 100px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin5 {
+        	padding-left: 100px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin5 {
+        	padding-left: 150px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in6 {
+        	padding-left: 125px;
+        }
+        p.tightin6 {
+        	padding-left: 125px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin6 {
+        	padding-left: 125px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin6 {
+        	padding-left: 175px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in7 {
+        	padding-left: 150px;
+        }
+        p.tightin7 {
+        	padding-left: 150px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin7 {
+        	padding-left: 150px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin7 {
+        	padding-left: 200px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in8 {
+        	padding-left: 175px;
+        }
+        p.tightin8 {
+        	padding-left: 175px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin8 {
+        	padding-left: 175px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin8 {
+        	padding-left: 225px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in9 {
+        	padding-left: 200px;
+        }
+        p.tightin9 {
+        	padding-left: 200px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin9 {
+        	padding-left: 200px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin9 {
+        	padding-left: 250px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+
+        /* (2) Index page layout material */
+
+        /* The periodic table display has "sidebars", usually grey and taller than they
+        are wide; they contain no text. */
+
+        div.periodictablesidebar {
+        	height: 56px;
+        	width: 16px;
+        }
+        .periodictablesidebar a:link { text-decoration: none; }
+        .periodictablesidebar a:visited { text-decoration: none; }
+        .periodictablesidebar a:active { text-decoration: none; }
+
+        /* The "element boxes" are the cells appearing in the periodic-table display
+        on the welcome page of the index: */
+
+        .elementbox {
+        	position: relative;
+        	height: 56px;
+        	width: 56px;
+        	padding: 0px;
+        }
+
+        .elementbox a:link { text-decoration: none; }
+        .elementbox a:visited { text-decoration: none; }
+        .elementbox a:active { text-decoration: none; }
+        .elementbox a:hover { text-decoration: none; }
+        .elementbox:hover {
+        	opacity: 0.6;
+        }
+
+        /* The "small element boxes" look like those, but are smaller, and used on
+        the headings of the content which those original boxes link to: */
+
+        .smallelementbox {
+        	position: relative;
+        	height: 40px;
+        	width: 40px;
+        	padding: 0px;
+        }
+
+        .smallelementbox a:link { text-decoration: none; }
+        .smallelementbox a:visited { text-decoration: none; }
+        .smallelementbox a:active { text-decoration: none; }
+        .smallelementbox a:hover { text-decoration: none; }
+        .smallelementbox:hover {
+        	opacity: 0.6;
+        }
+
+        /* This is a class for the links formed by the element boxes: */
+
+        a.elementlink {
+        	position: absolute;
+        	top: -4px;
+        	left: -1px;
+        	width: 100%;
+        	padding: 14px 0px 14px 1px;
+        	text-align: center;
+        }
+
+        /* Similarly for the "atomic number" - a single digit - in the top left corner
+        of these boxes: */
+
+        div.elementnumber {
+        	position: absolute;
+        	top: 1px;
+        	left: 3px;
+        	text-align: left;
+        }
+
+        /* For the text of the element title, to the right of the element box: */
+
+        div.elementtitle {
+        	position: absolute;
+        	top: 35px;
+        	width: 100%;
+        	text-align: center;
+        }
+
+        /* Used for the book-contents-page style leaders on the Contents element of
+           the index: */
+
+        ul.leaders {
+        	padding: 0;
+        	margin-top: 1px;
+        	margin-bottom: 0;
+        	overflow-x: hidden;
+        	list-style: none}
+        ul.leaders li.leaded:before {
+        	float: left;
+        	width: 0;
+        	white-space: nowrap;
+        	content:
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "}
+        ul.leaders li.leaded span:first-child {
+        	padding-right: 0.33em;
+        }
+        ul.leaders li.leaded span + span {
+        	float: right;
+        	padding-left: 0.33em;
+        }
+        li.indent1 span:first-child {
+        	padding-left: 25px;
+        }
+        li.indent2 span:first-child {
+        	padding-left: 50px;
+        }
+        li.indent3 span:first-child {
+        	padding-left: 75px;
+        }
+        li.indent4 span:first-child {
+        	padding-left: 100px;
+        }
+        li.indent5 span:first-child {
+        	padding-left: 125px;
+        }
+        li.indent6 span:first-child {
+        	padding-left: 150px;
+        }
+        li.indent7 span:first-child {
+        	padding-left: 175px;
+        }
+        li.indent8 span:first-child {
+        	padding-left: 200px;
+        }
+        li.indent9 span:first-child {
+        	padding-left: 225px;
+        }
+
+        li.unleaded:before {
+        	content: "";
+        }
+
+        /* On Registry index pages (such as the Public Library), these are used for
+        download buttons and the like: */
+
+        span.registrybuttons {
+        	height: 20px;
+        	padding: 2px 8px 2px 8px;
+        	margin: 2px;
+        	border:1px solid;
+        	border-radius: 5px;
+        }
+
+        span.registryminibuttons {
+        	height: 14px;
+        	padding: 2px 5px 2px 5px;
+        	margin: 2px;
+        	border:1px solid;
+        	border-radius: 4px;
+        }
+
+        /* Used to hide or display sections in the Registry pages: */
+
+        div.registrysectionitemsopen {
+        	display: block;
+        }
+
+        div.registrysectionitemsclosed {
+        	display: none;
+        }
+
+        /* Hanging indentation for Registry item paragraphs: */
+
+        p.registryitem {
+        	padding-left: 80px;
+        	text-indent: -40px;
+        }
+
+        p.registryaddition {
+        	padding-left: 40px;
+        	text-indent: -40px;
+        }
+
+        -->
+    </style>
+    <script type="text/javascript">
+        function project() {
+            return window.Project;
+        }
+        function showExtra(id, imid) {
+        	if (document.getElementById(id).style.display == 'block') {
+        		document.getElementById(id).style.display = 'none';
+        		document.getElementById(imid).src = 'inform:/extra.png';
+        	} else {
+        		document.getElementById(id).style.display = 'block';
+        		document.getElementById(imid).src = 'inform:/extraclose.png';
+        	}
+        }
+        function openExtra(id, imid) {
+        	document.getElementById(id).style.display = 'block';
+        	document.getElementById(imid).src = 'inform:/extraclose.png';
+        }
+        function closeExtra(id, imid) {
+        	document.getElementById(id).style.display = 'none';
+        	document.getElementById(imid).src = 'inform:/extra.png';
+        }
+        function pasteCode(code) {
+            var myProject = project();
+
+            myProject.selectView('source');
+            myProject.pasteCode(code);
+        }
+
+    </script>
+</head>
+<body>
+    <!--CONTENT BEGINS-->
+    <table CELLPADDING=0 CELLSPACING=0 width="100%" bgcolor="#000000"><tr><TD width=38px height=26px align="center" valign="center"><a href="inform://Extensions/Extensions.html" border=0><img border=0 src="inform:/doc_images/Hookindex.png" border=0></a></td><TD width=38px height=26px align="center" valign="center"></td><td halign="left" valign="center" CELLPADDING=0 CELLSPACING=0><font color="#FFFFFF" size=2>Extensions</font></a></td><TD width=56px height=26px align="right" valign="center"><a href="inform:/index.html" border=0><img border=0 src="inform:/doc_images/Hookup.png" border=0></a></td></tr></table>
+
+    <p><a href="javascript:pasteCode('Include Plugs And Sockets by Sean Turner.[=0x000A=][=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a>&nbsp;<b>Plugs And Sockets<span class="extensionindexentry"> by </span>Sean Turner</b></p>
+    <p><span class="smaller">Version 4.0.170924</span></p>
+    <p>System for handling plugs and sockets.</p>
+    <p></p>
+    </p>
+
+    <p> This extension provides a mechanism to add plugs and sockets of various kinds to things to allow objects to attach to one another. For example, one could create a TV with a (male) plug attached. Additionally a wall point with a (female) socket could be created thereby allowing the TV to be plugged into it. This could be coded like so:</p>
+
+    <p><blockquote><span class="indexdullblue"> Test Lab is a room.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> A wall point is here. It is fixed in place. Incorporated by it is a PS-socket.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> A TV is here. It is fixed in place. Incorporated by it is a PS-plug.</span></blockquote>
+
+    <p> This allows the TV to be plugged into the wall point. Naturally, the TV can be unplugged from the wall point. The additional grammar &quot;PLUG something into something&quot; and &quot;UNPLUG something FROM something&quot; have been provided for this.</p>
+
+    <p> Things can have both plugs and sockets. For example:</p>
+
+    <p><blockquote><span class="indexdullblue"> A power board is here. Incorporated by it is a PS-plug and four PS-sockets.</span></blockquote>
+
+    <p> This allows up to four things that have plugs to be plugged into the power board, whilst it itself can be plugged into something with a socket, such as the wall point. Note that when plugging, a specific plug and/or socket can be nominated. This is not permitted when unplugging, but more on this later.</p>
+
+    <p> One point about multiple plugging: a thing cannot be plugged into something more than once. So, for example, if we have a cable defined thusly:</p>
+
+    <p><blockquote><span class="indexdullblue"> A cable is here. Incorporated by it are two PS-plugs.</span></blockquote>
+
+    <p> we cannot &quot;PLUG CABLE INTO THE POWER BOARD&quot; twice. The first time is okay but the second will be rejected, even though we could, in the real world, plug a both ends of male-male power cable into a power board.</p>
+
+    <p> Plugs and sockets have a text property called &quot;PS-type&quot;. By default, the PS-type of sockets and plugs provided - PS-socket and PS-plug - is &quot;standard&quot;. If you use these kinds only, then everything will work nicely as expected. However we may want to create plugs and sockets of different kinds. For example:</p>
+
+    <p><blockquote><span class="indexdullblue"> An S-Video plug is a kind of PS-plug. The PS-type of an S-Video Plug is &quot;S-Video&quot;.<br>
+     An S-Video socket is a kind of PS-socket. The PS-type of an S-Video Socket is &quot;S-Video&quot;.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> An S-Video cable is here. Incorporated by it are two S-Video plugs.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> An amplifier is here. Incorporated by it is an S-Video socket.<br>
+     A DVD player is here. Incorporated by it is an S-Video socket.</span></blockquote>
+
+    <p> creates an S-Video cable that can connect between an amplifier and a DVD player. Plugs and sockets of differing types cannot be plugged into each other.</p>
+
+    <p> It becomes more complex when considering some things may contain several different types of sockets. For example:</p>
+
+    <p><blockquote><span class="indexdullblue"> An HDMI socket is a kind of PS-socket. The PS-type of an HDMI socket is &quot;HDMI&quot;.<br>
+     An HDMI plug is a kind of PS-plug. The PS-type of an HDMI plug is &quot;HDMI&quot;.<br>
+     An HMDI cable is here. Incorporated by it are two HDMI plugs.<br>
+     The amplifier incorporates an HDMI socket.</span></blockquote>
+
+    <p> The amplifier now has two different types of socket. This isn't so bad because if we try &quot;PLUG HDMI CABLE INTO AMPLIFIER&quot; the game will know, without ambiguity, which socket to use.</p>
+
+    <p> Similarly, we could define an adapter cable that has a 3.5mm audio plug at one end and a pair of RC audio connectors at the other. If we attempted to plug this into something with only one type of socket (say an iPhone), it would automatically plug in the correct matching plug.</p>
+
+    <p> Things can have any number of plugs and sockets of any type attached.</p>
+
+    <p> It can become too complicated to figure out which cable end to plug into which socket. For example, if we had an adapter cable with an HDMI plug at one end and an S-Video plug at the other, we would have trouble with &quot;PLUG CABLE INTO THE AMPLIFIER&quot; (assuming the sockets of the amplifier were all free). This is because the code doesn't know which end to plug in - either would be valid. In this case, the solution is to name the plugs and/or the sockets. Then the player can specify which end is to be plugged into the amplifier.</p>
+
+    <p><blockquote><span class="indexdullblue"> A complex cable is here. The description is &quot;An HDMI to S-Video adapter cable (which is probably not possible!)&quot;.<br>
+     The HDMI end of the cable is an HDMI plug. It is part of the complex cable.<br>
+     The S-Video end of the cable is an S-Video plug. It is part of the complex cable.</span></blockquote>
+
+    <p> Now the player can type &quot;PLUG THE HDMI END OF THE CABLE INTO THE AMPLIFIER&quot; which will work as expected. Or even &quot;PLUG THE HDMI END OF THE CABLE INTO THE HDMI-IN SOCKET&quot; (if the sockets were appropriately named) would work if you wanted to be more specific still.</p>
+
+    <p> Similarly, &quot;UNPLUG CABLE FROM THE AMPLIFIER&quot; performs as expected. If the cable is only plugged into the amplifier, just &quot;UNPLUG CABLE&quot; would be sufficient.</p>
+
+    <p> The synonyms &quot;INSERT&quot; and &quot;ATTACH&quot; work for &quot;PLUG&quot;, likewise &quot;DETACH&quot; and &quot;REMOVE&quot; work for &quot;UNPLUG&quot;. Note these synonyms work when the attempt is made for plugs or sockets or things containing plugs or sockets. Otherwise the existing behaviour for the synonym (if it exists) will take place. For example, if &quot;ATTACH&quot; is attempted for a non-plug or something not containing a plug, the command will revert to being understood as &quot;TIE&quot;. All of this behaviour can be changed with appropriate manipulation of the listed rules.</p>
+
+    <p> The extension does support plural items with appropriate messages. So &quot;PLUG TV INTO SOME BANANAS&quot; will give the message &quot;The bananas have no socket&quot; rather than &quot;The bananas has no socket&quot;.</p>
+
+    <p> The extension also supports actors other than the player. For example, &quot;GEORGE, PLUG THE CORD INTO THE POWER POINT&quot; will work correctly (as long as George is willing).</p>
+
+    <p> There are currently three major limitations to the extension: 1) You cannot plug an item into another item multiple times. There is a rule which explicitly forbids it (although it could be delisted). It creates problems with listing attachments and ambiguity and wasn't really necessary. 2) You cannot name a plug or socket when unplugging. Once again, it would have added complexity and I didn't believe it is needed. 3) Plugs and sockets has not been tested for multi-layered situations. That is, a plug or socket must be a part of a parent object, not a part of a part. For example, lets say we have an &quot;entertainment system&quot; which has a &quot;DVD player&quot; as a part. The &quot;DVD player&quot; could then have a plug as a part of it. However this may cause problems when trying to &quot;PLUG&quot; it into things.</p>
+
+    <p> One final point: a value called PS-leaving can be either PS-denied or PS-allowed. It is PS-denied by default. When it is PS-denied and the player attempts to leave a location whilst carrying something attached to something not carried, a message will be displayed and the action prevented. If this variable is set to PS-allowed, the action will be okay but all the relevant connections for those things carried will be broken.</p>
+
+    <p><hr>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td halign="left" valign="top" cellpadding=0 cellspacing=0 width=38px>
+                <span id=eg1><table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="oval">
+                        <td width=38px height=30px align="left" valign="center">
+                            <a href="Plugs And Sockets.html#eg1" style="text-decoration: none"><div class="paragraph Body" style="line-height: 1px; margin-bottom: 0px; margin-top: 0px; padding-bottom: 0pt; padding-top: 0px; text-align: center;">
+                                <span class="extensionexampleletter">A</span></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                </span>
+            </td>
+            <td cellpadding=0 cellspacing=0 halign="left" valign="top">
+                <a href="Plugs And Sockets.html#eg1" style="text-decoration: none"><img border="0" src='inform:/doc_images/asterisk.png'><img border="0" src='inform:/doc_images/asterisk.png'><b><span class="indexdarkgrey">&nbsp;Example&nbsp;</span><span class="indexblack">Home Theatre</span></b></a><br>
+                <p>Plugging a variety of components with different connections together to watch a DVD.</p>
+
+            </td>
+        </tr>
+    </table>
+    <table border="0" cellspacing="0" cellpadding="0" class="extensionexample" width=100%>
+        <tr>
+            <td align="left" valign="top">
+                <p></p>
+
+                <p><blockquote><span class="indexdullblue"><a href="javascript:pasteCode('[=0x0022=]Home Theatre[=0x0022=] by Sean Turner[=0x000A=][=0x000A=]Include Plugs and Sockets by Sean Turner[=0x000A=][=0x000A=]Section 1 - New plug and socket kinds[=0x000A=][=0x000A=]An HDMI-plug is a kind of PS-plug. The PS-type of an HDMI-plug is [=0x0022=]HDMI[=0x0022=].[=0x000A=]An HDMI-socket is a kind of PS-socket. The PS-type of an HDMI-socket is [=0x0022=]HDMI[=0x0022=].[=0x000A=][=0x000A=]A DVI-plug is a kind of PS-plug. The PS-type of a DVI-plug is [=0x0022=]DVI[=0x0022=].[=0x000A=]A DVI-socket is a kind of PS-socket. The PS-type of a DVI-socket is [=0x0022=]DVI[=0x0022=].[=0x000A=][=0x000A=]A power-plug is a kind of PS-plug. The PS-type of a power-plug is [=0x0022=]power[=0x0022=]. A power-plug has a truth state called searched state. The searched state of a power-plug is usually false.[=0x000A=][=0x000A=]A power-socket is a kind of PS-socket. The PS-type of a power-socket is [=0x0022=]power[=0x0022=].[=0x000A=][=0x000A=]A double-adapter is a kind of thing. Every double-adapter incorporates a power-plug and two power-sockets.[=0x000A=][=0x000A=]A hifi-gadget is a kind of thing. Every hifi-gadget incorporates a power-plug.[=0x000A=][=0x000A=]Section 2 - A few decisions[=0x000A=][=0x000A=]To decide if the (test-item - a thing) is powered:[=0x000A=][=0x0009=]repeat with item running through the power-plugs:[=0x000A=][=0x0009=][=0x0009=]now the searched state of the item is false;[=0x000A=][=0x0009=]let forever be true;[=0x000A=][=0x0009=]while forever is true:[=0x000A=][=0x0009=][=0x0009=]if the test-item is the power point:[=0x000A=][=0x0009=][=0x0009=][=0x0009=]decide yes;[=0x000A=][=0x0009=][=0x0009=]let test-plug be a random power-plug which is part of the test-item;[=0x000A=][=0x0009=][=0x0009=]if the test-plug is nothing, or the attachment of the test-plug is nothing:[=0x000A=][=0x0009=][=0x0009=][=0x0009=]decide no;[=0x000A=][=0x0009=][=0x0009=]else:[=0x000A=][=0x0009=][=0x0009=][=0x0009=]if the searched state of the test-plug is true:[=0x000A=][=0x0009=][=0x0009=][=0x0009=][=0x0009=]decide no;[=0x000A=][=0x0009=][=0x0009=][=0x0009=]now the searched state of the test-plug is true;[=0x000A=][=0x0009=][=0x0009=][=0x0009=]now the test-item is the holder of the attachment of the test-plug.[=0x000A=][=0x000A=]To decide if the audio is connected:[=0x000A=][=0x0009=]if the HDMI cable is inserted into the receiver, and the HDMI cable is inserted into the DVD player, and the holder of the attachment of the HDMI-IN socket is HDMI cable:[=0x000A=][=0x0009=][=0x0009=]decide on true;[=0x000A=][=0x0009=]decide on false.[=0x000A=][=0x000A=]To decide if the video is connected:[=0x000A=][=0x0009=]if the video converter is inserted into the TV, and the video converter is inserted into the receiver, and the attachment of the HDMI-OUT socket is the green plug:[=0x000A=][=0x0009=][=0x0009=]decide on true;[=0x000A=][=0x0009=]decide on false.[=0x000A=][=0x000A=]Section 3 - Scenario[=0x000A=][=0x000A=]The Home Theatre is a room. [=0x0022=]This softly lit and richly carpeted homage to 1970[=0x0027=]s decor is the perfect place to relax and watch a movie. A store room is to the south.[=0x0022=][=0x000A=][=0x000A=]A big screen TV is a hifi-gadget. It is here. [=0x0022=]A huge 150cm Plasma TV dominates the north wall.[=0x0022=]. It is fixed in place.[=0x000A=]The description is [=0x0022=]Tastelessly huge. The TV is [if the TV is powered]on although nothing is showing.[else]off.[=0x0022=].[=0x000A=]Incorporated by it is a DVI-socket.[=0x000A=][=0x000A=]A power point is here. It is fixed in place. [=0x0022=]Unfortunately the room has only one single power point tucked away in the corner farthest from the TV.[=0x0022=][=0x000A=]Incorporated by it is a power-socket.[=0x000A=][=0x000A=]Check plugging a PS-inserter into the power point (this is the power-point-too-far rule):[=0x000A=][=0x0009=]if the noun is fixed in place, say [=0x0022=]The plug of [the noun] will not reach to [the power point].[=0x0022=] instead;[=0x000A=][=0x0009=]if the noun is not the extension cord, say [=0x0022=]It would be useless to plug [the noun] into [the power point] when it is so far from the TV.[=0x0022=] instead.[=0x000A=][=0x000A=]The power-point-too-far rule is listed last in the check plugging it into rulebook.[=0x000A=][=0x000A=]A Blu-ray DVD player is a hifi-gadget. It is here. The description is [=0x0022=]A state of the art DVD player. In the player is a movie waiting to be watched. The DVD player is [if the DVD is powered]on and the movie is playing.[else]off.[=0x0022=][=0x000A=]Incorporated by it is an HDMI-socket.[=0x000A=][=0x000A=]A digital receiver is a hifi-gadget. It is here. It is fixed in place.[=0x000A=]The description is [=0x0022=]A complex switching mechanism routing various audio visual inputs to the TV and speakers. The speakers are hard-wired into the back of the receiver. On the back of the receiver are two HDMI sockets labeled HDMI-IN and HDMI-OUT.[=0x000A=][=0x000A=]The receiver is [if the receiver is powered]on and hums slightly.[else]off.[=0x0022=].[=0x000A=]Incorporated by the receiver is an HDMI-socket called the HDMI-OUT socket.[=0x000A=]Incorporated by the receiver is an HDMI-socket called the HDMI-IN socket.[=0x000A=][=0x000A=]Some speakers are scenery. They are here.[=0x000A=][=0x000A=]The Store room is south of the Home Theatre.[=0x000A=][=0x000A=]An extension cord is here. The description is [=0x0022=]5 metres of sturdy electrical cord.[=0x0022=]. The indefinite article is [=0x0022=]an[=0x0022=].[=0x000A=]Incorporated by it is a power-plug and a power-socket.[=0x000A=][=0x000A=]A video converter cable is here. The description is [=0x0022=]It converts from an HDMI source to a DVI destination - useful when only the video component of the signal is required. The male DVI plug is red and the male HDMI plug is green.[=0x0022=].[=0x000A=]Incorporated by the cable is a DVI-plug called the red plug.[=0x000A=]Incorporated by the cable is an HDMI-plug called the green plug.[=0x000A=][=0x000A=]An HDMI cable is here. Incorporated by it are two HDMI-plugs. The indefinite article is [=0x0022=]an[=0x0022=]. The description is [=0x0022=]Connects two HDMI devices for video and sound. The two male connectors are indistinguishable.[=0x0022=].[=0x000A=][=0x000A=]A cream double adapter is a double-adapter. It is here.[=0x000A=]A white double adapter is a double-adapter. It is here.[=0x000A=][=0x000A=]Section 4 - Victory condition[=0x000A=][=0x000A=]Every turn:[=0x000A=][=0x0009=]let power flowing be true;[=0x000A=][=0x0009=]repeat with item running through hifi-gadgets:[=0x000A=][=0x0009=][=0x0009=]unless the item is powered:[=0x000A=][=0x0009=][=0x0009=][=0x0009=]now power flowing is false;[=0x000A=][=0x0009=]if power flowing is true, and the audio is connected, and the video is connected:[=0x000A=][=0x0009=][=0x0009=]say [=0x0022=]Ahh. Now you can relax and watch the movie.[=0x0022=];[=0x000A=][=0x0009=][=0x0009=]end the story saying [=0x0022=]You have won.[=0x0022=];[=0x000A=][=0x0009=]else:[=0x000A=][=0x0009=][=0x0009=]if the receiver is powered, and the DVD is powered, and the audio is connected:[=0x000A=][=0x0009=][=0x0009=][=0x0009=]say [=0x0022=]You can hear the movie but you can[=0x0027=]t see any picture![=0x0022=].[=0x000A=][=0x000A=]Section 5 - Testing[=0x000A=][=0x000A=]test me with [=0x0022=]s/get all/n/plug tv into white/plug dvd into white/plug white into cream/plug receiver into cream/plug cream into cord/plug cord into point/plug hdmi into receiver/plug hdmi into dvd/plug video into receiver/x green/x red/plug video into tv/unplug video from receiver/unplug hdmi from receiver/plug hdmi into hdmi-in/plug video into hdmi-out[=0x0022=].[=0x000A=][=0x000A=]test errors with [=0x0022=]plug tv into point/plug tv into receiver/s/get all/n/plug cord into point/s/plug hdmi into cream/unplug cord from point/plug cord into cord/unplug cord/plug tv into white/plug receiver into white/ plug cream into white/unplug tv/plug red plug into receiver/plug green plug into receiver/plug video cable into tv[=0x0022=].[=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a> &quot;Home Theatre&quot; by Sean Turner</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Include Plugs and Sockets by Sean Turner</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Section 1 - New plug and socket kinds</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> An HDMI-plug is a kind of PS-plug. The PS-type of an HDMI-plug is &quot;HDMI&quot;.<br>
+                 An HDMI-socket is a kind of PS-socket. The PS-type of an HDMI-socket is &quot;HDMI&quot;.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> A DVI-plug is a kind of PS-plug. The PS-type of a DVI-plug is &quot;DVI&quot;.<br>
+                 A DVI-socket is a kind of PS-socket. The PS-type of a DVI-socket is &quot;DVI&quot;.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> A power-plug is a kind of PS-plug. The PS-type of a power-plug is &quot;power&quot;. A power-plug has a truth state called searched state. The searched state of a power-plug is usually false.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> A power-socket is a kind of PS-socket. The PS-type of a power-socket is &quot;power&quot;.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> A double-adapter is a kind of thing. Every double-adapter incorporates a power-plug and two power-sockets.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> A hifi-gadget is a kind of thing. Every hifi-gadget incorporates a power-plug.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Section 2 - A few decisions</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> To decide if the (test-item - a thing) is powered:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; repeat with item running through the power-plugs:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; now the searched state of the item is false;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; let forever be true;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; while forever is true:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if the test-item is the power point:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; decide yes;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; let test-plug be a random power-plug which is part of the test-item;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if the test-plug is nothing, or the attachment of the test-plug is nothing:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; decide no;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; else:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if the searched state of the test-plug is true:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; decide no;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; now the searched state of the test-plug is true;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; now the test-item is the holder of the attachment of the test-plug.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> To decide if the audio is connected:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; if the HDMI cable is inserted into the receiver, and the HDMI cable is inserted into the DVD player, and the holder of the attachment of the HDMI-IN socket is HDMI cable:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; decide on true;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; decide on false.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> To decide if the video is connected:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; if the video converter is inserted into the TV, and the video converter is inserted into the receiver, and the attachment of the HDMI-OUT socket is the green plug:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; decide on true;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; decide on false.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Section 3 - Scenario</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The Home Theatre is a room. &quot;This softly lit and richly carpeted homage to 1970's decor is the perfect place to relax and watch a movie. A store room is to the south.&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> A big screen TV is a hifi-gadget. It is here. &quot;A huge 150cm Plasma TV dominates the north wall.&quot;. It is fixed in place.<br>
+                 The description is &quot;Tastelessly huge. The TV is [if the TV is powered]on although nothing is showing.[else]off.&quot;.<br>
+                 Incorporated by it is a DVI-socket.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> A power point is here. It is fixed in place. &quot;Unfortunately the room has only one single power point tucked away in the corner farthest from the TV.&quot;<br>
+                 Incorporated by it is a power-socket.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Check plugging a PS-inserter into the power point (this is the power-point-too-far rule):<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; if the noun is fixed in place, say &quot;The plug of [the noun] will not reach to [the power point].&quot; instead;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; if the noun is not the extension cord, say &quot;It would be useless to plug [the noun] into [the power point] when it is so far from the TV.&quot; instead.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The power-point-too-far rule is listed last in the check plugging it into rulebook.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> A Blu-ray DVD player is a hifi-gadget. It is here. The description is &quot;A state of the art DVD player. In the player is a movie waiting to be watched. The DVD player is [if the DVD is powered]on and the movie is playing.[else]off.&quot;<br>
+                 Incorporated by it is an HDMI-socket.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> A digital receiver is a hifi-gadget. It is here. It is fixed in place.<br>
+                 The description is &quot;A complex switching mechanism routing various audio visual inputs to the TV and speakers. The speakers are hard-wired into the back of the receiver. On the back of the receiver are two HDMI sockets labeled HDMI-IN and HDMI-OUT.<br>
+                <br>
+                The receiver is [if the receiver is powered]on and hums slightly.[else]off.&quot;.<br>
+                 Incorporated by the receiver is an HDMI-socket called the HDMI-OUT socket.<br>
+                 Incorporated by the receiver is an HDMI-socket called the HDMI-IN socket.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Some speakers are scenery. They are here.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The Store room is south of the Home Theatre.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> An extension cord is here. The description is &quot;5 metres of sturdy electrical cord.&quot;. The indefinite article is &quot;an&quot;.<br>
+                 Incorporated by it is a power-plug and a power-socket.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> A video converter cable is here. The description is &quot;It converts from an HDMI source to a DVI destination - useful when only the video component of the signal is required. The male DVI plug is red and the male HDMI plug is green.&quot;.<br>
+                 Incorporated by the cable is a DVI-plug called the red plug.<br>
+                 Incorporated by the cable is an HDMI-plug called the green plug.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> An HDMI cable is here. Incorporated by it are two HDMI-plugs. The indefinite article is &quot;an&quot;. The description is &quot;Connects two HDMI devices for video and sound. The two male connectors are indistinguishable.&quot;.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> A cream double adapter is a double-adapter. It is here.<br>
+                 A white double adapter is a double-adapter. It is here.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Section 4 - Victory condition</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Every turn:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; let power flowing be true;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; repeat with item running through hifi-gadgets:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; unless the item is powered:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; now power flowing is false;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; if power flowing is true, and the audio is connected, and the video is connected:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say &quot;Ahh. Now you can relax and watch the movie.&quot;;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; end the story saying &quot;You have won.&quot;;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; else:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if the receiver is powered, and the DVD is powered, and the audio is connected:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say &quot;You can hear the movie but you can't see any picture!&quot;.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Section 5 - Testing</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> test me with &quot;s/get all/n/plug tv into white/plug dvd into white/plug white into cream/plug receiver into cream/plug cream into cord/plug cord into point/plug hdmi into receiver/plug hdmi into dvd/plug video into receiver/x green/x red/plug video into tv/unplug video from receiver/unplug hdmi from receiver/plug hdmi into hdmi-in/plug video into hdmi-out&quot;.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> test errors with &quot;plug tv into point/plug tv into receiver/s/get all/n/plug cord into point/s/plug hdmi into cream/unplug cord from point/plug cord into cord/unplug cord/plug tv into white/plug receiver into white/ plug cream into white/unplug tv/plug red plug into receiver/plug green plug into receiver/plug video cable into tv&quot;.</span></blockquote>
+
+                <p></p>
+
+            </td>
+        </tr>
+    </table>
+    </p>
+
+    <p>
+    <!--CONTENT ENDS-->
+</body>
+</html>

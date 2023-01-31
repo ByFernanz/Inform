@@ -1,0 +1,1463 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Extension</title>
+    <style type="text/css">
+        <!--
+        /* The default font (family) and size */
+
+        body, p, td {
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.8rem; /* 100/125 */
+        }
+
+        /* For fixed-point material within text, such as the typing on the Library Card index page */
+
+        span.typewritten {
+        	font-family: monospace;
+        	font-size: 0.867rem; /* 13/12 * 100/125 */
+        }
+
+        /* For less important material: the small print */
+
+        span.smaller {
+        	font-size: 80%;
+        }
+
+        /* The "heading panel" is the coloured box, high up on the page. The colours
+        vary depending on the page: for example, the style on a report of a translation
+        with no problems is "headingpanelsucceeded", usually green, but if there were
+        problems then "headingpanelfailed" is used, which is usually red. "headingpanel"
+        itself is a more neutral grey by default. "headingpanelDark" is an alternative
+        look to make the extensions index pages have some visual contrast with the others;
+        by default they are a darker grey. */
+
+        .headingpanel {
+        	background: #eeeeee;
+        }
+        .headingpanelsucceeded {
+        	background: #E6FFE6;
+        }
+        .headingpanelfailed {
+        	background: #f69Ca6;
+        }
+        .headingpanelalt {
+        	background: #808080;
+        }
+
+        /* Heading panels have two lines of text: an upper one in a larger size, and a
+        lower one in a smaller. Again, the alt versions are meant to contrast.
+
+        	Report on Translation: Succeeded                <-- headingpaneltext
+        	Produced by Inform 10.1.0 (build 6U97)          <-- headingpanelrubric
+
+        	Installed Extensions                            <-- headingpaneltextalt
+        	Bundles of extra rules or phrases to...         <-- headingpanelrubricalt
+
+        */
+
+        span.headingpaneltext {
+        	color: #222222;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+        span.headingpaneltextalt {
+        	color: #ffffff;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        span.headingpanelrubric {
+        	color: #222222;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.733rem; /* 11/12 * 100/125 */
+        	font-weight: bold;
+        }
+        span.headingpanelrubricalt {
+        	color: #ffffff;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.733rem; /* 11/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* Horizontal rule styling */
+
+        div.hr {
+        	border: 0;
+        	width: 100%;
+        	color: #707070;
+        	background-color: #707070;
+        	height: 5px;
+        }
+
+        /* This styles the (usually white) text of the example numbers written inside
+        oval blobs in the extension documentation, which mimic the look of the in-app
+        documentation. */
+
+        .oval, .oval td {
+        	background-image:url('inform:/doc_images/ovoid.png');
+        	color:white;
+        }
+
+        /* Styling used in the extension documentation indexes: */
+
+        /* Used for extension names in the extensions pane of the app */
+
+        span.extensioncensusentry {
+        	color: #ffffff;
+        }
+
+        span.extensionindexentry {
+        	color: #404040;
+        }
+
+        span.extensionindexerror {
+        	color: #ff8080;
+        }
+
+        /* This is used in extension documentation, where an example is presented
+        in a slightly tinted box: */
+
+        table.extensionexample {
+        	background-color: #f0f0f0;
+        }
+
+        span.extensionexampleletter {
+        	color: #202020;
+        	font-size: 14px;
+        	font-weight: bold;
+        }
+
+        /* Seen in problem messages: */
+
+        span.problemred {
+        	color: #800000;
+        }
+
+        span.problemgreen {
+        	color: #008000;
+        }
+
+        span.phraseword {
+        	color: #808080;
+        }
+
+        span.phrasetokentext {
+        	color: #e00060;
+        }
+
+        span.phrasetokendesctext {
+        	color: #4040ff;
+        }
+
+        span.phrasetokenvaluetext {
+        	color: #ff4040;
+        }
+
+        /* Now we move on to styling used in the Index pages only: */
+
+        /* The periodic table display has "sidebars", usually grey and taller than they
+        are wide; they contain no text. */
+
+        div.periodictablesidebarcolour {
+        	background: #888;
+        }
+        div.periodictablesidebar:hover {
+        	background: #222;
+        }
+
+        /* The text of the element-abbreviation, such as "Lx" or "Ph", uses: */
+
+        span.elementtext {
+        	color: #ffffff;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* Similarly for the "atomic number" - a single digit - in the top left corner
+        of these boxes: */
+
+        span.elementnumbertext {
+        	color: #ffffff;
+        	font-size: 0.622rem; /* 7/12 * 96/72 * 100/125 */
+        }
+
+        /* For the text of the element title, to the right of the element box: */
+
+        span.elementtitletext {
+        	color: #ffffff;
+        	font-size: 0.6rem; /* 9/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* The banner at the top of each element: */
+
+        table.elementbanner {
+        	background: #eeeeee;
+        }
+
+        /* For the typewriting on the Library Card: */
+
+        span.librarycardtitle {
+        	color: #803030;
+        }
+
+        span.librarycardother {
+        	color: #303030;
+        }
+
+        /* Generically used for "more details" boxes in the index: */
+
+        table.indexmorebox {
+        	background-color: #e0e0e0;
+            border-radius: 8px;
+        }
+
+        /* But not for activity contents: */
+
+        table.indexactivitycontents {
+        	background-color: #e8e0c0;
+            border-radius: 8px;
+        }
+
+        /* For responses in index entries about rules: */
+
+        span.indexresponseletter {
+        	color: #ffffff;
+        	font-family: 'Courier New', Courier, monospace;
+        	background-color: #8080ff;
+        }
+
+        span.indexresponsetext {
+        	color: #000066;
+        }
+
+        /* Used ubiquitously throughout the index and extension documentation: */
+
+        span.indexblack {
+        	color: #000000;
+        }
+
+        span.indexgrey {
+        	color: #808080;
+        }
+
+        span.indexdarkgrey {
+            color: #505050;
+        }
+
+        span.indexdullred {
+        	color: #800000;
+        }
+
+        span.indexdullgreen {
+        	color: #008000;
+        }
+
+        span.indexdullblue {
+        	color: #000080;
+        }
+
+        /* Used for the room squares in the World map in the Index (which is currently
+        a table with one row of one column) */
+
+        table.indexmaproom {
+        	border-color: #000000;
+        }
+
+        /* Used in the numbering of levels of the World map in the Index */
+
+        span.indexmaplevelnumbers {
+        	color: #c0c0c0;
+        }
+
+        /* Used e.g. for title rows in the Chart of basic kinds in the Index */
+
+        tr.headingrow {
+        	background-color: #e0e0e0;
+        }
+
+        /* Standard rows have black text on striped background colours, these being
+        the usual ones seen in Mac OS X applications such as iTunes. */
+
+        tr.stripeone {
+        	background-color: #ffffff;
+        }
+
+        tr.stripetwo {
+        	background-color: #f3f6fa;
+        }
+
+        tr.tintedrow {
+        	background-color: #808080;
+        }
+
+        /* In the Figures index, this is the background colour used behind images
+        (though in fact it will only be visible if the image fails to load, or uses
+        transparency): */
+
+        div.figureindexbox {
+        	background-color: #6495ed;
+        }
+
+        /* To get the book-contents-page style leaders on the Contents element of
+           the index to work, these must use the background colour of the body of
+           the page, whatever that is: */
+
+        ul.leaders li.leaded span:first-child {
+        	background: white;
+        }
+        ul.leaders li.leaded span + span {
+        	background: white;
+        }
+
+        /* On Registry index pages (such as the Public Library), these are used for
+        download buttons and the like: */
+
+        span.registrybuttontext {
+        	font-size: 11px;
+        	border-color: #000000;
+        }
+
+        span.registryminibuttontext {
+        	font-size: 10px;
+        	border-color: #000000;
+        }
+
+        span.registrybuttonuninstalled {
+        	color: #000000;
+        	background: #ffffdd;
+        }
+
+        span.registrybuttoninstalled {
+        	color: #000000;
+        	background: #ffffff;
+        	pointer-events: none;
+        }
+
+        span.registrybuttonbuiltin {
+        	color: #888888;
+        	background: #ffffff;
+        	pointer-events: none;
+        }
+
+        span.registrybuttonupdate {
+        	color: #000000;
+        	background: #aaddff;
+        }
+
+        span.registrybuttonrevert {
+        	color: #000000;
+        	background: #ddaaff;
+        }
+
+        span.registrybuttonrevealer {
+        	color: #ffffff;
+        	background: #444444;
+        }
+
+        /* Registry index section headings: */
+
+        span.registrysectionname {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 16px;
+        	line-height: 18px;
+        }
+        span.registrysubsectionname {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 14px;
+        	line-height: 16px;
+        }
+
+        /* These are for the "mark" for a section, usually a section-symbol and number */
+
+        span.registrysectionmark {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 16px;
+        	line-height: 18px;
+        	color: #666;
+        }
+        span.registrysubsectionmark {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 14px;
+        	line-height: 16px;
+        	color: #666;
+        }
+
+        /* Text of an item listed in a registry: */
+
+        span.registryitemtext {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 12px;
+        	line-height: 16px;
+        }
+
+        /* And how the links in a registry index page behave: */
+
+        a.registrysilentlink {
+        	text-decoration: none;
+        	color: #000;
+        }
+        a.registrybuttonlink {
+        	text-decoration: none;
+        }
+        a.registrycontentslink:link {
+        	text-decoration: none;
+        	color: #202020;
+        }
+        a.registrycontentslink:visited {
+        	text-decoration: none;
+        	color: #202020;
+        }
+        a.registrycontentslink:hover {
+        	text-decoration: none;
+        	color: #D00000;
+        }
+        a.registrycontentslink:active {
+        	text-decoration: none;
+        	color: #D00000;
+        }
+
+        -->
+    </style>
+    <style type="text/css">
+        <!--
+        /* (1) General layout material */
+
+        *, *:before, *:after {
+        	-moz-box-sizing: border-box;
+        	-webkit-box-sizing: border-box;
+        	box-sizing: border-box;
+        }
+        .headingpanellayout {
+        	position: relative;
+        	height: 56px;
+        	padding: 0px;
+        	white-space:nowrap;
+        }
+        .headingpanellayoutdeeper {
+        	position: relative;
+        	height: 117px;
+        	padding: 0px;
+        	white-space:nowrap;
+        }
+        .headingtext {
+        	position: absolute;
+        	top: -4px;
+        	left: -1px;
+        	width: 100%;
+        	padding: 14px 10px 0px 10px;
+        }
+        .headingrubric {
+        	position: absolute;
+        	top: 36px;
+        	width: 100%;
+        	padding: 0px 10px 0px 10px;
+        }
+        h3.tighter {
+        	margin-top: 0px;
+        }
+        p.hang {
+        	padding-left: 25px;
+        	text-indent: -25px;
+        	margin-top: 0px;
+        	margin-bottom: 0px;
+        }
+        p.in1 {
+        	padding-left: 0px;
+        }
+        p.tightin1 {
+        	padding-left: 0px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin1 {
+        	padding-left: 0px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin1 {
+        	padding-left: 50px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in2 {
+        	padding-left: 25px;
+        }
+        p.tightin2 {
+        	padding-left: 25px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin2 {
+        	padding-left: 25px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin2 {
+        	padding-left: 75px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in3 {
+        	padding-left: 50px;
+        }
+        p.tightin3 {
+        	padding-left: 50px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin3 {
+        	padding-left: 50px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin3 {
+        	padding-left: 100px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in4 {
+        	padding-left: 75px;
+        }
+        p.tightin4 {
+        	padding-left: 75px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin4 {
+        	padding-left: 75px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin4 {
+        	padding-left: 125px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in5 {
+        	padding-left: 100px;
+        }
+        p.tightin5 {
+        	padding-left: 100px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin5 {
+        	padding-left: 100px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin5 {
+        	padding-left: 150px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in6 {
+        	padding-left: 125px;
+        }
+        p.tightin6 {
+        	padding-left: 125px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin6 {
+        	padding-left: 125px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin6 {
+        	padding-left: 175px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in7 {
+        	padding-left: 150px;
+        }
+        p.tightin7 {
+        	padding-left: 150px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin7 {
+        	padding-left: 150px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin7 {
+        	padding-left: 200px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in8 {
+        	padding-left: 175px;
+        }
+        p.tightin8 {
+        	padding-left: 175px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin8 {
+        	padding-left: 175px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin8 {
+        	padding-left: 225px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in9 {
+        	padding-left: 200px;
+        }
+        p.tightin9 {
+        	padding-left: 200px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin9 {
+        	padding-left: 200px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin9 {
+        	padding-left: 250px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+
+        /* (2) Index page layout material */
+
+        /* The periodic table display has "sidebars", usually grey and taller than they
+        are wide; they contain no text. */
+
+        div.periodictablesidebar {
+        	height: 56px;
+        	width: 16px;
+        }
+        .periodictablesidebar a:link { text-decoration: none; }
+        .periodictablesidebar a:visited { text-decoration: none; }
+        .periodictablesidebar a:active { text-decoration: none; }
+
+        /* The "element boxes" are the cells appearing in the periodic-table display
+        on the welcome page of the index: */
+
+        .elementbox {
+        	position: relative;
+        	height: 56px;
+        	width: 56px;
+        	padding: 0px;
+        }
+
+        .elementbox a:link { text-decoration: none; }
+        .elementbox a:visited { text-decoration: none; }
+        .elementbox a:active { text-decoration: none; }
+        .elementbox a:hover { text-decoration: none; }
+        .elementbox:hover {
+        	opacity: 0.6;
+        }
+
+        /* The "small element boxes" look like those, but are smaller, and used on
+        the headings of the content which those original boxes link to: */
+
+        .smallelementbox {
+        	position: relative;
+        	height: 40px;
+        	width: 40px;
+        	padding: 0px;
+        }
+
+        .smallelementbox a:link { text-decoration: none; }
+        .smallelementbox a:visited { text-decoration: none; }
+        .smallelementbox a:active { text-decoration: none; }
+        .smallelementbox a:hover { text-decoration: none; }
+        .smallelementbox:hover {
+        	opacity: 0.6;
+        }
+
+        /* This is a class for the links formed by the element boxes: */
+
+        a.elementlink {
+        	position: absolute;
+        	top: -4px;
+        	left: -1px;
+        	width: 100%;
+        	padding: 14px 0px 14px 1px;
+        	text-align: center;
+        }
+
+        /* Similarly for the "atomic number" - a single digit - in the top left corner
+        of these boxes: */
+
+        div.elementnumber {
+        	position: absolute;
+        	top: 1px;
+        	left: 3px;
+        	text-align: left;
+        }
+
+        /* For the text of the element title, to the right of the element box: */
+
+        div.elementtitle {
+        	position: absolute;
+        	top: 35px;
+        	width: 100%;
+        	text-align: center;
+        }
+
+        /* Used for the book-contents-page style leaders on the Contents element of
+           the index: */
+
+        ul.leaders {
+        	padding: 0;
+        	margin-top: 1px;
+        	margin-bottom: 0;
+        	overflow-x: hidden;
+        	list-style: none}
+        ul.leaders li.leaded:before {
+        	float: left;
+        	width: 0;
+        	white-space: nowrap;
+        	content:
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "}
+        ul.leaders li.leaded span:first-child {
+        	padding-right: 0.33em;
+        }
+        ul.leaders li.leaded span + span {
+        	float: right;
+        	padding-left: 0.33em;
+        }
+        li.indent1 span:first-child {
+        	padding-left: 25px;
+        }
+        li.indent2 span:first-child {
+        	padding-left: 50px;
+        }
+        li.indent3 span:first-child {
+        	padding-left: 75px;
+        }
+        li.indent4 span:first-child {
+        	padding-left: 100px;
+        }
+        li.indent5 span:first-child {
+        	padding-left: 125px;
+        }
+        li.indent6 span:first-child {
+        	padding-left: 150px;
+        }
+        li.indent7 span:first-child {
+        	padding-left: 175px;
+        }
+        li.indent8 span:first-child {
+        	padding-left: 200px;
+        }
+        li.indent9 span:first-child {
+        	padding-left: 225px;
+        }
+
+        li.unleaded:before {
+        	content: "";
+        }
+
+        /* On Registry index pages (such as the Public Library), these are used for
+        download buttons and the like: */
+
+        span.registrybuttons {
+        	height: 20px;
+        	padding: 2px 8px 2px 8px;
+        	margin: 2px;
+        	border:1px solid;
+        	border-radius: 5px;
+        }
+
+        span.registryminibuttons {
+        	height: 14px;
+        	padding: 2px 5px 2px 5px;
+        	margin: 2px;
+        	border:1px solid;
+        	border-radius: 4px;
+        }
+
+        /* Used to hide or display sections in the Registry pages: */
+
+        div.registrysectionitemsopen {
+        	display: block;
+        }
+
+        div.registrysectionitemsclosed {
+        	display: none;
+        }
+
+        /* Hanging indentation for Registry item paragraphs: */
+
+        p.registryitem {
+        	padding-left: 80px;
+        	text-indent: -40px;
+        }
+
+        p.registryaddition {
+        	padding-left: 40px;
+        	text-indent: -40px;
+        }
+
+        -->
+    </style>
+    <script type="text/javascript">
+        function project() {
+            return window.Project;
+        }
+        function showExtra(id, imid) {
+        	if (document.getElementById(id).style.display == 'block') {
+        		document.getElementById(id).style.display = 'none';
+        		document.getElementById(imid).src = 'inform:/extra.png';
+        	} else {
+        		document.getElementById(id).style.display = 'block';
+        		document.getElementById(imid).src = 'inform:/extraclose.png';
+        	}
+        }
+        function openExtra(id, imid) {
+        	document.getElementById(id).style.display = 'block';
+        	document.getElementById(imid).src = 'inform:/extraclose.png';
+        }
+        function closeExtra(id, imid) {
+        	document.getElementById(id).style.display = 'none';
+        	document.getElementById(imid).src = 'inform:/extra.png';
+        }
+        function pasteCode(code) {
+            var myProject = project();
+
+            myProject.selectView('source');
+            myProject.pasteCode(code);
+        }
+
+    </script>
+</head>
+<body>
+    <!--CONTENT BEGINS-->
+    <table CELLPADDING=0 CELLSPACING=0 width="100%" bgcolor="#000000"><tr><TD width=38px height=26px align="center" valign="center"><a href="inform://Extensions/Extensions.html" border=0><img border=0 src="inform:/doc_images/Hookindex.png" border=0></a></td><TD width=38px height=26px align="center" valign="center"></td><td halign="left" valign="center" CELLPADDING=0 CELLSPACING=0><font color="#FFFFFF" size=2>Extensions</font></a></td><TD width=56px height=26px align="right" valign="center"><a href="inform:/index.html" border=0><img border=0 src="inform:/doc_images/Hookup.png" border=0></a></td></tr></table>
+
+    <p><a href="javascript:pasteCode('Include Clues And Conversation by Brian Rushton.[=0x000A=][=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a>&nbsp;<b>Clues And Conversation<span class="extensionindexentry"> by </span>Brian Rushton</b></p>
+    <p><span class="smaller">Version 5</span></p>
+    <p>A simple system for building conversations.</p>
+    <p></p>
+    <hr>
+    <p><span class="indexblack"><a style="text-decoration: none" href=#docsec1>Section 1: </a></span>Philosophy<br>
+    <span class="indexblack"><a style="text-decoration: none" href=#docsec2>Section 2: </a></span>How to make topics<br>
+    <span class="indexblack"><a style="text-decoration: none" href=#docsec3>Section 3: </a></span>Generic topics<br>
+    <span class="indexblack"><a style="text-decoration: none" href=#docsec4>Section 4: </a></span>Remembering conversation<br>
+    <span class="indexblack"><a style="text-decoration: none" href=#docsec5>Section 5: </a></span>Giving a player a topic to discuss<br>
+    <span class="indexblack"><a style="text-decoration: none" href=#docsec6>Section 6: </a></span>Talking verbs<br>
+    <span class="indexblack"><a style="text-decoration: none" href=#docsec7>Section 7: </a></span>Repeating a topic<br>
+    <span class="indexblack"><a style="text-decoration: none" href=#docsec8>Section 8: </a></span>Removing a topic<br>
+    <span class="indexblack"><a style="text-decoration: none" href=#docsec9>Section 9: </a></span>Clues<br>
+    <span class="indexblack"><a style="text-decoration: none" href=#docsec10>Section 10: </a></span>Parts of code it messes with<br>
+    <span class="indexblack"><a style="text-decoration: none" href=#docsec11>Section 11: </a></span>Having things happen when you talk<br>
+    <span class="indexblack"><a style="text-decoration: none" href=#docsec12>Section 12: </a></span>Excluding people from talking altogether.<br>
+    <br>
+    <b>Examples</b><br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href="Clues And Conversation-eg1.html#eg1">A &mdash; The Raven</a></span><br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href="Clues And Conversation-eg2.html#eg2">B &mdash; The Detective</a></span><br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href="Clues And Conversation-eg3.html#eg3">C &mdash; Eat Your Words</a></span><br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href="Clues And Conversation-eg4.html#eg4">D &mdash; Group Chat</a></span><br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href="Clues And Conversation-eg5.html#eg5">E &mdash; Lost Wallet</a></span><br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href="Clues And Conversation-eg6.html#eg6">F &mdash; Halloween Dance</a></span><br>
+    </p>
+    <hr>
+    <p></p>
+    </p>
+
+    <p><p><span class="indexblack"><b><span id=docsec1>Section 1: Philosophy</span></b></span></p>
+    </p>
+
+    <p> Inform 7 is most successful in its modeling of things (like TAKE, DROP, EXAMINE, etc.) Therefore, this extension creates conversational topics or clues as inventory items, called 'quips', and treats them as much like 'things' as possible.</p>
+
+    <p> To avoid confusion, this extension mods the standard inventory to list topics and physical items separately.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec2>Section 2: How to make topics</span></b></span></p>
+    </p>
+
+    <p> Every topic is called a 'quip' (modelled after similar code from Emily Short). The terms 'topic' and 'quip' are used interchangeably in this documentation.</p>
+
+    <p> Every quip needs a target. This is the person you can tell it to.</p>
+
+    <p> For example:</p>
+
+    <p><blockquote><span class="indexdullblue"> Accusation is a quip. The target of Accusation is Simba.</span></blockquote>
+
+    <p> Every quip has text called the 'preview'. This is what's shown in your 'Topic Inventory' (which players access by typing TOPICS, CLUES, C, or T).</p>
+
+    <p><blockquote><span class="indexdullblue"> Accusation is a quip. The target of Accusation is Simba. The preview of Accusation is &quot;'Murderer!'&quot;</span></blockquote>
+
+    <p> The text displayed when you talk to someone is called the TargetResponse of the quip.</p>
+
+    <p><blockquote><span class="indexdullblue"> Accusation is a quip. The target of Accusation is Simba. The preview of Accusation is &quot;'Murderer!'&quot;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> The TargetResponse of Accusation is &quot;'Murderer!' you say.<br>
+    <br>
+    'No, no, no no no!' says Simba.&quot;</span></blockquote>
+
+    <p><p><span class="indexblack"><b><span id=docsec3>Section 3: Generic topics</span></b></span></p>
+    </p>
+
+    <p> If you want to be able to say the quip to multiple people, you can make the target nothing. This is the default, so you can just leave the target unsaid. These quips are 'generic'.</p>
+
+    <p><blockquote><span class="indexdullblue"> Hello is a quip.</span></blockquote>
+
+    <p> This lets you say 'Hello' to everyone. There is a variable called CurrentTarget that lets you know who you're talking to, and this can be used for customizing the response.</p>
+
+    <p><blockquote><span class="indexdullblue"> Hello is a quip. TargetResponse of Hello is &quot;[if CurrentTarget is Dreary Dan]'Hello!' you say cheerfully.<br>
+    <br>
+    'Whatever,' says Dreary Dan.[otherwise]'Hello!' you say cheerfully.<br>
+    <br>
+    'Hello,' says [CurrentTarget].[end if]&quot;</span></blockquote>
+
+    <p> If legibility becomes an issue, you can use tables instead.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec4>Section 4: Remembering conversation</span></b></span></p>
+    </p>
+
+    <p> If you want people to remember what happened in a conversation, you can add TargetSummary to a quip. Only quips with a specific target need TargetSummary.</p>
+
+    <p><blockquote><span class="indexdullblue"> The TargetSummary of Accusation is &quot;You accused Simba of murder.&quot;</span></blockquote>
+
+    <p> If a quip can be discussed with multiple people, the target summary is an automatically generated list of who you've discussed it with.</p>
+
+    <p> If you want to be able to discuss a quip with many (but not all) people, you can use the 'heeds' relation to exclude people. For instance:</p>
+
+    <p><blockquote><span class="indexdullblue"> Cheerful is a quip. Ebenezer Scrooge does not heed Cheerful.</span></blockquote>
+
+    <p><p><span class="indexblack"><b><span id=docsec5>Section 5: Giving a player a topic to discuss</span></b></span></p>
+    </p>
+
+    <p> Use the phrase 'deliver -quip name-' to give a quip to the player. If a player already has the quip, nothing will happen. If they don't have it yet, the game will announce the new quip.</p>
+
+    <p><blockquote><span class="indexdullblue"> Hello is a quip.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> When play begins:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; deliver Hello;</span></blockquote>
+
+    <p><p><span class="indexblack"><b><span id=docsec6>Section 6: Talking verbs</span></b></span></p>
+    </p>
+
+    <p> The verb for talking is Uttering It To. So if you say the quip Dog to Dan, the game calls it 'Uttering Dog to Dan'.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec7>Section 7: Repeating a topic</span></b></span></p>
+    </p>
+
+    <p> If you want a quip to come back, you can 'renew' it:</p>
+
+    <p><blockquote><span class="indexdullblue"> Report eating the popsicle:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; renew Hungry;</span></blockquote>
+
+    <p> If a quip has a specific target, it can only be said once unless you renew it.</p>
+
+    <p> Quips without a target can be said to anyone over and over.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec8>Section 8: Removing a topic</span></b></span></p>
+    </p>
+
+    <p> If you want to take away a topic completely and announce then remove it:</p>
+
+    <p><blockquote><span class="indexdullblue"> Report taking the dog:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; remove Lost;</span></blockquote>
+
+    <p><p><span class="indexblack"><b><span id=docsec9>Section 9: Clues</span></b></span></p>
+    </p>
+
+    <p> If you use the word 'clue' instead of quips, then the game will refer to quips as 'clues' instead of 'topics'.</p>
+
+    <p><blockquote><span class="indexdullblue"> Barking is a clue.</span></blockquote>
+
+    <p><p><span class="indexblack"><b><span id=docsec10>Section 10: Parts of code it messes with</span></b></span></p>
+    </p>
+
+    <p> This extension changes the behavior of taking inventory and the command SAY. It uses the abbreviation T and C.</p>
+
+    <p> The quips are carried by you, so 'repeat with current running through things carried by the player' will include them. To ignore them, use the adjective 'physical', like:</p>
+
+    <p><blockquote><span class="indexdullblue"> Repeat with current running through physical things carried by the player:</span></blockquote>
+
+    <p><p><span class="indexblack"><b><span id=docsec11>Section 11: Having things happen when you talk</span></b></span></p>
+    </p>
+
+    <p> You can do this by using 'report uttering something to someone'.</p>
+
+    <p><blockquote><span class="indexdullblue"> Report uttering Payment to the shopkeeper:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; now PlayerGold is 10;</span></blockquote>
+
+    <p> Quips that have a specific target have a flag called TargetGiven you can check.</p>
+
+    <p><blockquote><span class="indexdullblue"> Compliment is a quip. The target of Compliment is Doorman. The preview of Compliment is &quot;'Looking sharp!'&quot;.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> The description of the doorman is &quot;The doorman looks [if Compliment is TargetGiven]happy[otherwise]sad[end if].&quot;</span></blockquote>
+
+    <p><p><span class="indexblack"><b><span id=docsec12>Section 12: Excluding people from talking altogether.</span></b></span></p>
+    </p>
+
+    <p> If a person is 'talkative', you can say generic quips to them (one whose currenttarget is nothing). To exclude someone from conversation, you can make them 'not talkative'.</p>
+
+    <p> As discussed earlier, to keep a person from talking about a specific generic topic, use the following format:</p>
+
+    <p><blockquote><span class="indexdullblue"> Cheerful is a quip. Ebenezer Scrooge does not heed cheerful.</span></blockquote>
+
+    <p><hr>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td halign="left" valign="top" cellpadding=0 cellspacing=0 width=38px>
+                <span id=eg1><table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="oval">
+                        <td width=38px height=30px align="left" valign="center">
+                            <a href="Clues And Conversation-eg1.html#eg1" style="text-decoration: none"><div class="paragraph Body" style="line-height: 1px; margin-bottom: 0px; margin-top: 0px; padding-bottom: 0pt; padding-top: 0px; text-align: center;">
+                                <span class="extensionexampleletter">A</span></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                </span>
+            </td>
+            <td cellpadding=0 cellspacing=0 halign="left" valign="top">
+                <a href="Clues And Conversation-eg1.html#eg1" style="text-decoration: none"><img border="0" src='inform:/doc_images/asterisk.png'><b><span class="indexdarkgrey">&nbsp;Example&nbsp;</span><span class="indexblack">The Raven</span></b></a><br>
+                <p>Having a single topic with a single target.</p>
+
+            </td>
+        </tr>
+    </table>
+    </p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p><hr>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td halign="left" valign="top" cellpadding=0 cellspacing=0 width=38px>
+                <span id=eg2><table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="oval">
+                        <td width=38px height=30px align="left" valign="center">
+                            <a href="Clues And Conversation-eg2.html#eg2" style="text-decoration: none"><div class="paragraph Body" style="line-height: 1px; margin-bottom: 0px; margin-top: 0px; padding-bottom: 0pt; padding-top: 0px; text-align: center;">
+                                <span class="extensionexampleletter">B</span></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                </span>
+            </td>
+            <td cellpadding=0 cellspacing=0 halign="left" valign="top">
+                <a href="Clues And Conversation-eg2.html#eg2" style="text-decoration: none"><img border="0" src='inform:/doc_images/asterisk.png'><b><span class="indexdarkgrey">&nbsp;Example&nbsp;</span><span class="indexblack">The Detective</span></b></a><br>
+                <p>Having a single clue with no specific target.</p>
+
+            </td>
+        </tr>
+    </table>
+    </p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p><hr>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td halign="left" valign="top" cellpadding=0 cellspacing=0 width=38px>
+                <span id=eg3><table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="oval">
+                        <td width=38px height=30px align="left" valign="center">
+                            <a href="Clues And Conversation-eg3.html#eg3" style="text-decoration: none"><div class="paragraph Body" style="line-height: 1px; margin-bottom: 0px; margin-top: 0px; padding-bottom: 0pt; padding-top: 0px; text-align: center;">
+                                <span class="extensionexampleletter">C</span></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                </span>
+            </td>
+            <td cellpadding=0 cellspacing=0 halign="left" valign="top">
+                <a href="Clues And Conversation-eg3.html#eg3" style="text-decoration: none"><img border="0" src='inform:/doc_images/asterisk.png'><b><span class="indexdarkgrey">&nbsp;Example&nbsp;</span><span class="indexblack">Eat Your Words</span></b></a><br>
+                <p>Trying out responses.</p>
+
+            </td>
+        </tr>
+    </table>
+    </p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p><hr>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td halign="left" valign="top" cellpadding=0 cellspacing=0 width=38px>
+                <span id=eg4><table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="oval">
+                        <td width=38px height=30px align="left" valign="center">
+                            <a href="Clues And Conversation-eg4.html#eg4" style="text-decoration: none"><div class="paragraph Body" style="line-height: 1px; margin-bottom: 0px; margin-top: 0px; padding-bottom: 0pt; padding-top: 0px; text-align: center;">
+                                <span class="extensionexampleletter">D</span></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                </span>
+            </td>
+            <td cellpadding=0 cellspacing=0 halign="left" valign="top">
+                <a href="Clues And Conversation-eg4.html#eg4" style="text-decoration: none"><img border="0" src='inform:/doc_images/asterisk.png'><img border="0" src='inform:/doc_images/asterisk.png'><b><span class="indexdarkgrey">&nbsp;Example&nbsp;</span><span class="indexblack">Group Chat</span></b></a><br>
+                <p>Talking to everyone.</p>
+
+            </td>
+        </tr>
+    </table>
+    </p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p><hr>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td halign="left" valign="top" cellpadding=0 cellspacing=0 width=38px>
+                <span id=eg5><table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="oval">
+                        <td width=38px height=30px align="left" valign="center">
+                            <a href="Clues And Conversation-eg5.html#eg5" style="text-decoration: none"><div class="paragraph Body" style="line-height: 1px; margin-bottom: 0px; margin-top: 0px; padding-bottom: 0pt; padding-top: 0px; text-align: center;">
+                                <span class="extensionexampleletter">E</span></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                </span>
+            </td>
+            <td cellpadding=0 cellspacing=0 halign="left" valign="top">
+                <a href="Clues And Conversation-eg5.html#eg5" style="text-decoration: none"><img border="0" src='inform:/doc_images/asterisk.png'><img border="0" src='inform:/doc_images/asterisk.png'><b><span class="indexdarkgrey">&nbsp;Example&nbsp;</span><span class="indexblack">Lost Wallet</span></b></a><br>
+                <p>Getting quips from things and other quips.</p>
+
+            </td>
+        </tr>
+    </table>
+    </p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p><hr>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td halign="left" valign="top" cellpadding=0 cellspacing=0 width=38px>
+                <span id=eg6><table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="oval">
+                        <td width=38px height=30px align="left" valign="center">
+                            <a href="Clues And Conversation.html#eg6" style="text-decoration: none"><div class="paragraph Body" style="line-height: 1px; margin-bottom: 0px; margin-top: 0px; padding-bottom: 0pt; padding-top: 0px; text-align: center;">
+                                <span class="extensionexampleletter">F</span></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                </span>
+            </td>
+            <td cellpadding=0 cellspacing=0 halign="left" valign="top">
+                <a href="Clues And Conversation.html#eg6" style="text-decoration: none"><img border="0" src='inform:/doc_images/asterisk.png'><img border="0" src='inform:/doc_images/asterisk.png'><img border="0" src='inform:/doc_images/asterisk.png'><b><span class="indexdarkgrey">&nbsp;Example&nbsp;</span><span class="indexblack">Halloween Dance</span></b></a><br>
+                <p>A complete game using this extension.</p>
+
+            </td>
+        </tr>
+    </table>
+    <table border="0" cellspacing="0" cellpadding="0" class="extensionexample" width=100%>
+        <tr>
+            <td align="left" valign="top">
+                <p></p>
+
+                <p><blockquote><span class="indexdullblue"><a href="javascript:pasteCode('[=0x0022=]Halloween Dance[=0x0022=][=0x000A=][=0x000A=]Include Clues and Conversation by Brian Rushton.[=0x000A=][=0x000A=]Dance Hall is a room. The description of Dance Hall is [=0x0022=]A school gymnasium with four or five pumpkins on the side and orange and black streamers hanging from the ceiling.[=0x0022=][=0x000A=][=0x000A=]The pumpkins are scenery. The description of pumpkins is [=0x0022=]The pumpkins have ghosts carved into them.[=0x0022=]. Understand [=0x0022=]pumpkin[=0x0022=] as pumpkins.[=0x000A=][=0x000A=]Ghosts is a quip. The preview of Ghosts is [=0x0022=][=0x0027=]Do you believe in ghosts?[=0x0027=][=0x0022=].[=0x000A=][=0x000A=]After examining the pumpkins for the first time:[=0x000A=][=0x0009=]deliver Ghosts;[=0x000A=][=0x000A=]TargetResponse of Ghosts is [=0x0022=][=0x0027=]Do you believe in ghosts?[=0x0027=][paragraph break][=0x0027=]Not really, why?[=0x0027=][paragraph break][=0x0027=]They say that a kid died in this gym 40 years ago at a Halloween party.[=0x0027=][paragraph break][=0x0027=]How did he die?[=0x0027=][paragraph break][=0x0027=]His costume caught on fire on a tiki torch against the wall. He tried to take it off, but his zipper was stuck. He ran out into the night to try and reach a pond but he didn[=0x0027=]t make it.[=0x0027=][=0x0022=][=0x000A=][=0x000A=]The description of the player is [=0x0022=]You[=0x0027=]re wearing a spooky ghost costume![=0x0022=];[=0x000A=][=0x000A=]The streamers are scenery. The description of the streamers is [=0x0022=]The streamers are orange and black. A spider scurries across it and out of sight.[=0x0022=][=0x000A=][=0x000A=]The pumpkins and streamers are in Dance Hall.[=0x000A=][=0x000A=]Fred is a man. Jane is a woman. Fred is in Dance Hall. Jane is in Dance Hall.[=0x000A=][=0x000A=]Dancing is an action applying to nothing.[=0x000A=][=0x000A=]Understand [=0x0022=]dance[=0x0022=] as dancing.[=0x000A=][=0x000A=]Instead of dancing:[=0x000A=][=0x0009=]say [=0x0022=]You [one of]do the robot[or]break dance[or]do the macarena[or]bob your head[at random].[=0x0022=][=0x000A=][=0x000A=]The description of Fred is [=0x0022=]A young man wearing a white suit with red splatters all over. He is standing next to a cooler with mist coming out of it.[=0x0022=][=0x000A=][=0x000A=]The description of Jane is [=0x0022=]A young woman wearing a simple frock covered with dozens of old... are those beepers? Like from the 90[[=0x0027=]]s?[=0x0022=][=0x000A=][=0x000A=]Boy is a quip. The preview of Boy is [=0x0022=][=0x0027=]So, what do you know about Fred?[=0x0027=][=0x0022=].[=0x000A=]The target of Boy is Jane.[=0x000A=][=0x000A=]Girl is a quip. The preview of Girl is [=0x0022=][=0x0027=]So, what do you know about Jane?[=0x0027=][=0x0022=].[=0x000A=]The target of Girl is Fred.[=0x000A=][=0x000A=]The cooler is in the Dance Hall. The description of the cooler is [=0x0022=]A small blue cooler with mist coming out of it.[=0x0022=][=0x000A=][=0x000A=]Instead of taking the cooler:[=0x000A=][=0x0009=]say [=0x0022=]That belongs to someone else.[=0x0022=][=0x000A=][=0x000A=]Instead of opening the cooler:[=0x000A=][=0x0009=]say [=0x0022=]That[=0x0027=]s already open.[=0x0022=][=0x000A=][=0x000A=]Instead of looking in the cooler:[=0x000A=][=0x0009=]say [=0x0022=]The boy says [=0x0027=]Hey, that[=0x0027=]s mine![=0x0027=][=0x0022=][=0x000A=][=0x000A=]The brainpop is a thing. The description of brainpop is [=0x0022=]A homemade popsicle with some kind of mush in it.[=0x0022=][=0x000A=][=0x000A=]The costume is a thing. The description of costume is [=0x0022=]A Phantom of the Schoolhouse costume, complete with gloves and mask.[=0x0022=] Understand [=0x0022=]my costume[=0x0022=] as costume. Understand [=0x0022=]your costume[=0x0022=] as costume. Understand [=0x0022=]glove[=0x0022=] as costume. Understand [=0x0022=]mask[=0x0022=] as costume. Understand [=0x0022=]gloves[=0x0022=] as costume.[=0x000A=]The indefinite article of the costume is [=0x0022=]your[=0x0022=].[=0x000A=]The player wears the costume.[=0x000A=][=0x000A=]After examining the costume for the first time:[=0x000A=][=0x0009=]deliver Phantom;[=0x000A=][=0x000A=]Instead of taking off costume:[=0x000A=][=0x0009=]say [=0x0022=]You don[=0x0027=]t want to take that off now.[=0x0022=][=0x000A=][=0x000A=]Instead of dropping costume:[=0x000A=][=0x0009=]say [=0x0022=]You actually aren[=0x0027=]t wearing anything underneath. Better hold on to it.[=0x0022=][=0x000A=][=0x000A=]Greeting is a quip. The preview of Greeting is [=0x0022=][=0x0027=]Hi! My name is Gerald.[=0x0027=][=0x0022=][=0x000A=][=0x000A=]Compliment is a quip. The preview of Compliment is [=0x0022=][=0x0027=]Wow, nice costume![=0x0027=][=0x0022=].[=0x000A=][=0x000A=]Uhh is a quip. The preview of Uhh is [=0x0022=][=0x0027=]Actually, I[=0x0027=]m not interested.[=0x0027=][=0x0022=]. The target of Uhh is Fred.[=0x000A=]Okay is a quip. The preview of Okay is [=0x0022=][=0x0027=]Why not?[=0x0027=][=0x0022=]. The target of Okay is Fred.[=0x000A=][=0x000A=]Report uttering something to someone:[=0x000A=][=0x0009=]remove Uhh;[=0x000A=][=0x0009=]remove Okay;[=0x000A=][=0x000A=]TargetResponse of Greeting is [=0x0022=][=0x0027=]Hi, my name is Gerald.[=0x0027=][=0x000A=][=0x000A=][if CurrentTarget is Fred]Fred says, [=0x0027=]Hi, my name is Fred![=0x0027=][otherwise]Jane says, [=0x0027=]Hi, my name is Jane![=0x0027=][end if][=0x0022=][=0x000A=][=0x000A=]Report uttering Greeting to Fred:[=0x000A=][=0x0009=]deliver Boy;[=0x000A=][=0x000A=]Report uttering Greeting to Jane:[=0x000A=][=0x0009=]deliver Girl;[=0x000A=][=0x000A=]TargetResponse of Compliment is [=0x0022=]You say, [=0x0027=]Wow, nice costume![=0x0027=][=0x000A=][=0x000A=][if CurrentTarget is Fred][=0x0027=]Thanks! I[=0x0027=]m a zombie ice cream man selling brainpops. You want one?[=0x0027=][otherwise][=0x0027=]Awww, you[=0x0027=]re sweet! I[=0x0027=]m the Grim Beeper, reminding all technology that it will one day be obsolete.[=0x0027=][end if][=0x0022=][=0x000A=][=0x000A=]Report uttering Compliment to Fred:[=0x000A=][=0x0009=]deliver Uhh;[=0x000A=][=0x0009=]deliver Okay;[=0x000A=][=0x000A=]TargetResponse of Okay is [=0x0022=][=0x0027=]Why not?[=0x0027=][paragraph break] He hands you a brainpop.[=0x0022=][=0x000A=]TargetResponse of Uhh is [=0x0022=][=0x0027=]Actually, I[=0x0027=]m not interested.[=0x0027=][paragraph break]He shrugs.[=0x0022=][=0x000A=][=0x000A=]Report uttering Okay to Fred:[=0x000A=][=0x0009=]now the player is carrying the brainpop;[=0x000A=][=0x000A=]Instead of eating the brainpop:[=0x000A=][=0x0009=]say [=0x0022=]Wow! That really hits the spot! The mush was strawberries.[=0x0022=];[=0x000A=][=0x0009=]now the brainpop is nowhere.[=0x000A=][=0x000A=]Strawberries is a quip. The printed name of Strawberries is [=0x0022=][=0x0027=]Did you know Jane doesn[=0x0027=]t like strawberries?[=0x0027=][=0x0022=]. The target of Strawberries is Fred.[=0x000A=][=0x000A=]Instead of giving the brainpop to Jane:[=0x000A=][=0x0009=]say [=0x0022=]She grimaces and says, [=0x0027=]No thanks, I don[=0x0027=]t like strawberry.[=0x0027=][=0x0022=];[=0x000A=][=0x0009=]deliver Strawberries;[=0x000A=][=0x000A=]TargetResponse of Strawberries is [=0x0022=][=0x0027=]Did you know Jane doesn[=0x0027=]t like strawberries?[=0x0027=][=0x000A=][=0x000A=]Fred[=0x0027=]s face blanches. He says, [=0x0027=]Aw, crap,[=0x0027=] and hangs his head.[=0x0022=];[=0x000A=][=0x000A=]TargetResponse of Girl is [=0x0022=][=0x0027=]So, what do you know about Jane?[=0x0027=][paragraph break]He looks at Jane, then leans forward and whispers, [=0x0027=]Can you keep a secret? Jane has been my crush for two years now. I heard she likes walking dead, so I made this whole getup and these brainpops to impress her[if Strawberries is TargetGiven]. But apparently she hates strawberries...[=0x0027=][otherwise].[=0x0027=][end if][=0x0022=];[=0x000A=][=0x000A=]Report uttering Girl to Fred:[=0x000A=][=0x0009=]deliver Crush;[=0x000A=][=0x0009=]deliver Lie;[=0x000A=][=0x000A=]TargetResponse of Boy is [=0x0022=][=0x0027=]So, what do you know about Fred?[=0x0027=][paragraph break]She brightens up, peeking over at Fred. [=0x0027=]Can you keep a secret? I think Fred is the sweetest man at school. He[=0x0027=]s really into repairing old technology, so I made this costume for him.[=0x0027=] She twirls to display her outfit. [=0x0027=]I love fixing old stuff too, That[=0x0027=]s how we met, in our Tech class.[=0x0027=][=0x0022=];[=0x000A=][=0x000A=]Report uttering Boy to Jane:[=0x000A=][=0x0009=]deliver Romance;[=0x000A=][=0x000A=]Phantom is a quip. The preview of Phantom is [=0x0022=][=0x0027=]What do you think about my costume?[=0x0027=][=0x0022=].[=0x000A=][=0x000A=]TargetResponse of Phantom is [=0x0022=][=0x0027=]What do you think about my costume?[=0x0027=][paragraph break][=0x0027=]It[=0x0027=]s nice! What are you?[=0x0027=][paragraph break][=0x0027=]I[=0x0027=]m the Phantom of the Schoolhouse.[=0x0027=][paragraph break][=0x0027=]Cool! I didn[=0x0027=]t think they let people wear masks anymore.[=0x0027=] [CurrentTarget] hesitates for a moment. [=0x0027=]To be honest, I[=0x0027=]ve been wondering if you even go to this school.[=0x0027=][=0x0022=];[=0x000A=][=0x000A=]Crush is a quip. The preview of Crush is [=0x0022=][=0x0027=]So, I found out who Fred is interested in...[=0x0027=][=0x0022=]. The Target of Crush is Jane.[=0x000A=][=0x000A=]JaneKnows is a number that varies. JaneKnows is usually 0.[=0x000A=][=0x000A=]FredKnows is a number that varies. FredKnows is usually 0.[=0x000A=][=0x000A=]TargetResponse of Crush is [=0x0022=][=0x0027=]So, I found out who Fred is interested in...[=0x0027=][paragraph break][=0x0027=]Really?[=0x0027=][paragraph break][=0x0027=]He told me he[=0x0027=]s had a crush on you for two years[=0x0027=].[=0x0022=];[=0x000A=][=0x000A=]Report uttering Crush to Jane:[=0x000A=][=0x0009=]now JaneKnows is 1;[=0x000A=][=0x0009=]if FredKnows is 1:[=0x000A=][=0x0009=][=0x0009=]say [=0x0022=]Jane turns to Fred and smiles. She walks over and draws him to the side. You see the two of them laughing together, and then Jane kisses Fred on the cheek and he blushes. Fred turns to you as they walk out together, and gives you a thumbs up.[=0x0022=];[=0x000A=][=0x0009=][=0x0009=]end the story finally saying [=0x0022=]You had some fun, and got the rest of the brainpops.[=0x0022=];[=0x000A=][=0x0009=]otherwise:[=0x000A=][=0x0009=][=0x0009=]say [=0x0022=]Jane beams from ear to ear, and keeps glancing at Fred.[=0x0022=];[=0x000A=][=0x0009=]remove Lie;[=0x000A=][=0x000A=]Romance is a quip. The preview of Romance is [=0x0022=][=0x0027=]So, I found out who Jane is interested in...[=0x0027=][=0x0022=] The target of Romance is Fred.[=0x000A=][=0x000A=]TargetResponse of Romance is [=0x0022=][=0x0027=]So, I found out who Jane is interested in...[=0x0027=][paragraph break]He looks upset for a second. [=0x0027=]Who?[=0x0027=][paragraph break][=0x0027=]She said she[=0x0027=]s been into you ever since Tech class. She wore the beeper dress just for you.[=0x0027=][=0x0022=];[=0x000A=][=0x000A=]Report uttering Romance to Fred:[=0x000A=][=0x0009=]now FredKnows is 1;[=0x000A=][=0x0009=]if JaneKnows is 1:[=0x000A=][=0x0009=][=0x0009=]say [=0x0022=][paragraph break]Fred looks over at Jane, leaving the brainpops behind. He turns behind, and says, [=0x0027=]Hey, take the rest of them. I don[=0x0027=]t need them anymore.[=0x0027=][paragraph break]He walks up to Jane and starts pointing at her costume. You hear them laughing together. As they talk, his hand brushes hers, and she smiles. You turn away and enjoy your reward.[=0x0022=];[=0x000A=][=0x0009=][=0x0009=]end the story finally saying [=0x0022=]You had some fun, and got the rest of the brainpops.[=0x0022=];[=0x000A=][=0x0009=]otherwise:[=0x000A=][=0x0009=][=0x0009=]say [=0x0022=]Fred seems noticeably more cheerful.[=0x0022=];[=0x000A=][=0x000A=]Lie is a quip. The preview of Lie is [=0x0022=]Lie-[=0x0027=]Fred told me he hates your guts.[=0x0027=][=0x0022=]. The target of Lie is Jane.[=0x000A=][=0x000A=]TargetResponse of Lie is [=0x0022=][=0x0027=]Fred told me hates your guts. He even put strawberry in those popsicles because he knows you hate it.[=0x0027=][paragraph break]Jane storms away, glaring at Fred. Fred looks at her, perplexed, then back at you. You ignore Fred, and look at the pumpkins instead. Oooh, nice ghost carving.[=0x0022=];[=0x000A=][=0x000A=]Report uttering Lie to Jane:[=0x000A=][=0x0009=]end the story finally saying [=0x0022=]No one is happy now.[=0x0022=];[=0x000A=][=0x000A=]When play begins:[=0x000A=][=0x0009=]deliver Greeting;[=0x000A=][=0x0009=]deliver Phantom;[=0x000A=][=0x000A=]Report examining Fred:[=0x000A=][=0x0009=]deliver Compliment;[=0x000A=][=0x000A=]Report examining Jane:[=0x000A=][=0x0009=]deliver Compliment;[=0x000A=][=0x000A=]Test me with [=0x0022=]talk to Fred / x pumpkins / say ghosts to jane / x jane / x fred / t / say greeting to fred / say greeting to jane / say boy to jane / say girl to fred / t / say compliment to fred / talk to jane / say okay to fred / eat brainpop /  say uhh to fred / say ghosts to fred / say romance to fred  / say crush to jane[=0x0022=][=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a> &quot;Halloween Dance&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Include Clues and Conversation by Brian Rushton.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Dance Hall is a room. The description of Dance Hall is &quot;A school gymnasium with four or five pumpkins on the side and orange and black streamers hanging from the ceiling.&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The pumpkins are scenery. The description of pumpkins is &quot;The pumpkins have ghosts carved into them.&quot;. Understand &quot;pumpkin&quot; as pumpkins.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Ghosts is a quip. The preview of Ghosts is &quot;'Do you believe in ghosts?'&quot;.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> After examining the pumpkins for the first time:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; deliver Ghosts;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> TargetResponse of Ghosts is &quot;'Do you believe in ghosts?'[paragraph break]'Not really, why?'[paragraph break]'They say that a kid died in this gym 40 years ago at a Halloween party.'[paragraph break]'How did he die?'[paragraph break]'His costume caught on fire on a tiki torch against the wall. He tried to take it off, but his zipper was stuck. He ran out into the night to try and reach a pond but he didn't make it.'&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The description of the player is &quot;You're wearing a spooky ghost costume!&quot;;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The streamers are scenery. The description of the streamers is &quot;The streamers are orange and black. A spider scurries across it and out of sight.&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The pumpkins and streamers are in Dance Hall.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Fred is a man. Jane is a woman. Fred is in Dance Hall. Jane is in Dance Hall.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Dancing is an action applying to nothing.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Understand &quot;dance&quot; as dancing.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Instead of dancing:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; say &quot;You [one of]do the robot[or]break dance[or]do the macarena[or]bob your head[at random].&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The description of Fred is &quot;A young man wearing a white suit with red splatters all over. He is standing next to a cooler with mist coming out of it.&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The description of Jane is &quot;A young woman wearing a simple frock covered with dozens of old... are those beepers? Like from the 90[']s?&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Boy is a quip. The preview of Boy is &quot;'So, what do you know about Fred?'&quot;.<br>
+                 The target of Boy is Jane.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Girl is a quip. The preview of Girl is &quot;'So, what do you know about Jane?'&quot;.<br>
+                 The target of Girl is Fred.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The cooler is in the Dance Hall. The description of the cooler is &quot;A small blue cooler with mist coming out of it.&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Instead of taking the cooler:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; say &quot;That belongs to someone else.&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Instead of opening the cooler:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; say &quot;That's already open.&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Instead of looking in the cooler:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; say &quot;The boy says 'Hey, that's mine!'&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The brainpop is a thing. The description of brainpop is &quot;A homemade popsicle with some kind of mush in it.&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The costume is a thing. The description of costume is &quot;A Phantom of the Schoolhouse costume, complete with gloves and mask.&quot; Understand &quot;my costume&quot; as costume. Understand &quot;your costume&quot; as costume. Understand &quot;glove&quot; as costume. Understand &quot;mask&quot; as costume. Understand &quot;gloves&quot; as costume.<br>
+                 The indefinite article of the costume is &quot;your&quot;.<br>
+                 The player wears the costume.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> After examining the costume for the first time:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; deliver Phantom;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Instead of taking off costume:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; say &quot;You don't want to take that off now.&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Instead of dropping costume:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; say &quot;You actually aren't wearing anything underneath. Better hold on to it.&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Greeting is a quip. The preview of Greeting is &quot;'Hi! My name is Gerald.'&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Compliment is a quip. The preview of Compliment is &quot;'Wow, nice costume!'&quot;.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Uhh is a quip. The preview of Uhh is &quot;'Actually, I'm not interested.'&quot;. The target of Uhh is Fred.<br>
+                 Okay is a quip. The preview of Okay is &quot;'Why not?'&quot;. The target of Okay is Fred.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Report uttering something to someone:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; remove Uhh;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; remove Okay;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> TargetResponse of Greeting is &quot;'Hi, my name is Gerald.'<br>
+                <br>
+                [if CurrentTarget is Fred]Fred says, 'Hi, my name is Fred!'[otherwise]Jane says, 'Hi, my name is Jane!'[end if]&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Report uttering Greeting to Fred:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; deliver Boy;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Report uttering Greeting to Jane:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; deliver Girl;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> TargetResponse of Compliment is &quot;You say, 'Wow, nice costume!'<br>
+                <br>
+                [if CurrentTarget is Fred]'Thanks! I'm a zombie ice cream man selling brainpops. You want one?'[otherwise]'Awww, you're sweet! I'm the Grim Beeper, reminding all technology that it will one day be obsolete.'[end if]&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Report uttering Compliment to Fred:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; deliver Uhh;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; deliver Okay;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> TargetResponse of Okay is &quot;'Why not?'[paragraph break] He hands you a brainpop.&quot;<br>
+                 TargetResponse of Uhh is &quot;'Actually, I'm not interested.'[paragraph break]He shrugs.&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Report uttering Okay to Fred:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; now the player is carrying the brainpop;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Instead of eating the brainpop:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; say &quot;Wow! That really hits the spot! The mush was strawberries.&quot;;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; now the brainpop is nowhere.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Strawberries is a quip. The printed name of Strawberries is &quot;'Did you know Jane doesn't like strawberries?'&quot;. The target of Strawberries is Fred.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Instead of giving the brainpop to Jane:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; say &quot;She grimaces and says, 'No thanks, I don't like strawberry.'&quot;;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; deliver Strawberries;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> TargetResponse of Strawberries is &quot;'Did you know Jane doesn't like strawberries?'<br>
+                <br>
+                Fred's face blanches. He says, 'Aw, crap,' and hangs his head.&quot;;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> TargetResponse of Girl is &quot;'So, what do you know about Jane?'[paragraph break]He looks at Jane, then leans forward and whispers, 'Can you keep a secret? Jane has been my crush for two years now. I heard she likes walking dead, so I made this whole getup and these brainpops to impress her[if Strawberries is TargetGiven]. But apparently she hates strawberries...'[otherwise].'[end if]&quot;;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Report uttering Girl to Fred:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; deliver Crush;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; deliver Lie;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> TargetResponse of Boy is &quot;'So, what do you know about Fred?'[paragraph break]She brightens up, peeking over at Fred. 'Can you keep a secret? I think Fred is the sweetest man at school. He's really into repairing old technology, so I made this costume for him.' She twirls to display her outfit. 'I love fixing old stuff too, That's how we met, in our Tech class.'&quot;;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Report uttering Boy to Jane:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; deliver Romance;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Phantom is a quip. The preview of Phantom is &quot;'What do you think about my costume?'&quot;.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> TargetResponse of Phantom is &quot;'What do you think about my costume?'[paragraph break]'It's nice! What are you?'[paragraph break]'I'm the Phantom of the Schoolhouse.'[paragraph break]'Cool! I didn't think they let people wear masks anymore.' [CurrentTarget] hesitates for a moment. 'To be honest, I've been wondering if you even go to this school.'&quot;;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Crush is a quip. The preview of Crush is &quot;'So, I found out who Fred is interested in...'&quot;. The Target of Crush is Jane.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> JaneKnows is a number that varies. JaneKnows is usually 0.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> FredKnows is a number that varies. FredKnows is usually 0.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> TargetResponse of Crush is &quot;'So, I found out who Fred is interested in...'[paragraph break]'Really?'[paragraph break]'He told me he's had a crush on you for two years'.&quot;;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Report uttering Crush to Jane:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; now JaneKnows is 1;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; if FredKnows is 1:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say &quot;Jane turns to Fred and smiles. She walks over and draws him to the side. You see the two of them laughing together, and then Jane kisses Fred on the cheek and he blushes. Fred turns to you as they walk out together, and gives you a thumbs up.&quot;;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; end the story finally saying &quot;You had some fun, and got the rest of the brainpops.&quot;;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; otherwise:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say &quot;Jane beams from ear to ear, and keeps glancing at Fred.&quot;;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; remove Lie;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Romance is a quip. The preview of Romance is &quot;'So, I found out who Jane is interested in...'&quot; The target of Romance is Fred.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> TargetResponse of Romance is &quot;'So, I found out who Jane is interested in...'[paragraph break]He looks upset for a second. 'Who?'[paragraph break]'She said she's been into you ever since Tech class. She wore the beeper dress just for you.'&quot;;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Report uttering Romance to Fred:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; now FredKnows is 1;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; if JaneKnows is 1:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say &quot;[paragraph break]Fred looks over at Jane, leaving the brainpops behind. He turns behind, and says, 'Hey, take the rest of them. I don't need them anymore.'[paragraph break]He walks up to Jane and starts pointing at her costume. You hear them laughing together. As they talk, his hand brushes hers, and she smiles. You turn away and enjoy your reward.&quot;;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; end the story finally saying &quot;You had some fun, and got the rest of the brainpops.&quot;;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; otherwise:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say &quot;Fred seems noticeably more cheerful.&quot;;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Lie is a quip. The preview of Lie is &quot;Lie-'Fred told me he hates your guts.'&quot;. The target of Lie is Jane.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> TargetResponse of Lie is &quot;'Fred told me hates your guts. He even put strawberry in those popsicles because he knows you hate it.'[paragraph break]Jane storms away, glaring at Fred. Fred looks at her, perplexed, then back at you. You ignore Fred, and look at the pumpkins instead. Oooh, nice ghost carving.&quot;;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Report uttering Lie to Jane:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; end the story finally saying &quot;No one is happy now.&quot;;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> When play begins:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; deliver Greeting;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; deliver Phantom;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Report examining Fred:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; deliver Compliment;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Report examining Jane:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; deliver Compliment;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Test me with &quot;talk to Fred / x pumpkins / say ghosts to jane / x jane / x fred / t / say greeting to fred / say greeting to jane / say boy to jane / say girl to fred / t / say compliment to fred / talk to jane / say okay to fred / eat brainpop /  say uhh to fred / say ghosts to fred / say romance to fred  / say crush to jane&quot;</span></blockquote>
+
+                <p></p>
+
+            </td>
+        </tr>
+    </table>
+    </p>
+
+    <p>
+    <!--CONTENT ENDS-->
+</body>
+</html>

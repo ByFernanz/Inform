@@ -1,0 +1,198 @@
+"Inventory" by "Christopher Armstrong"
+
+
+Chapter 1 - Really Generic Stuff
+
+Include Custom Library Messages by David Fisher.
+
+The story headline is "A Life Simulation". 
+The story creation year is 2008.
+The release number is 1.
+The story description is "I have to get ready for a flight to London, which is taking off in, oh, two hours. Fortunately most of the packing was done last night."
+The story genre is "Non-Fiction".
+
+Release along with a website and source text.
+
+
+Use American dialect.
+Use no scoring.
+
+Rule for printing room description details: stop.
+
+[Why the heck doesn't Custom Library Messages fix this?]
+Rule for listing nondescript items of the bedroom:
+	say "I can see ";
+	list the contents of the bedroom, as a sentence, tersely, listing marked items only, including contents and giving brief inventory information;
+	say ".".
+
+
+Chapter 2 - Game rules
+
+After printing the banner text:
+	say "Please type HELP."
+
+Asking for help is an action out of world.
+Understand "help" as asking for help.
+Report asking for help:
+	say "Welcome to my interactive blog post. The inspiration for this was Glyph Lefkowitz's blog post [italic type]Memeventory! Inventomeme? Uh, how about 'inventory meme'[roman type], which is available at the following URL.
+
+http://glyph.twistedmatrix.com/2008/06/memeventory-inventomeme-uh-how-about.html
+
+I decided to go a bit further than just create an inventory listing. This is a re-enactment of some of the packing I had to do before heading to London for a meeting at the headquarters of my employer, Canonical.
+
+I apologize for the poor implementation of this little piece of interactive non-fiction; it hasn't been beta-tested and it's not really a game, apart from taking part of the big game that is the [italic type]memeosphere[roman type] (Yeah, I really did just say that word).
+
+Type SCORE to find out how much more loot you need to grab."
+
+Understand the command "score" as something new.
+Checking the score is an action applying to nothing.
+Understand "score" as checking the score.
+
+Instead of checking the score:
+	say "I check my checklist to see what I still need.";
+	try examining the checklist.
+
+A thing can be accounted for.
+
+To decide whether I've got everything:
+	Repeat through the Table of Things What Need Accounting:
+		if the thing entry is not accounted for:
+			decide no;
+	decide yes.
+
+To account for (X - a thing):
+	say "I check off '[the description corresponding to a thing of X in the Table of Things What Need Accounting]' on my checklist.";
+	now X is accounted for;
+	If I've got everything:
+		say "... and that seems to be everything. I can leave now!"
+
+
+to check if I can win:
+	If I've got everything:
+		say "Off to the airport! Off to old London town, for eating, drinking, and merrymaking! Oh, and writing software.";
+		end the game in victory;
+	otherwise:
+		say "No, no! I haven't got everything in my checklist yet.".
+
+
+Instead of exiting:
+	check if I can win.
+
+Instead of going outside:
+	check if I can win.
+
+
+To say the checklist:
+	Repeat through the Table of Things What Need Accounting:
+		say "[description entry]";
+		if the thing entry is accounted for:
+			say " - CHECK";
+		say "[line break]".
+
+
+test winning with "take all / open bag / close bag / open backpack / put chargers in backpack / put kindle in backpack / put laptop in backpack / wear cap / leave"
+
+Understand the command "leave" as something new.
+Understand "leave" as exiting.
+
+When play begins:
+	change the library message person to first person;
+	say "Time to go! Off to the train station! Chop chop, buddy! Time waits for no man, and neither does my employer!";
+
+
+
+Chapter 3 - Model
+
+Table of Things What Need Accounting
+thing			description
+set of clothes		"clothes"
+fishing cap		"headwear"
+passport			"passport"
+checkbook		"checkbook"
+laptop			"laptop"
+n810			"n810"
+razr				"phone"
+nest of chargers	"chargers"
+kindle			"something to read"
+keys				"ssh/gpg keys"
+
+My Bedroom is a room. "The explosion of clothes, books, and devices that usually cover every inch of my room is somewhat contained due to my recent efforts at packing for the upcoming trip to London.[paragraph break]Outside is the vast world, [if I've got everything]and I'm ready to leave.[otherwise]but I can't go yet, cause my checklist says so."
+
+The train station is outside of the bedroom.
+
+my checklist is a thing. Description is "LONDON TRIP 2008[line break][line break][the checklist][roman type]".
+The player holds the checklist.
+
+my Ubuntu bag is a closed openable container in the bedroom.
+Description is "It's my Ubuntu bag. [if closed]It's closed.[otherwise]It contains: [list of things inside Ubuntu bag]."
+
+A set of clothes is in my Ubuntu bag. Description is "Neatly folded, kind of."
+
+After opening the Ubuntu bag for the first time:
+	say "Ah, right, I packed my clothes last night. There they are in the bag.[paragraph break]";
+	account for the set of clothes.
+
+Instead of inserting something into the Ubuntu bag:
+	say "I'm going to be checking that bag, and I'd rather keep [the noun] close to me during travels."
+
+Instead of taking the clothes, say "I'm already dressed well enough."
+
+my backpack is a closed openable wearable container in the bedroom.
+Description is "It's a Lenovo bag which I got with my Thinkpad laptop."
+
+Understand "unzip [thing]" as opening.
+Understand "zip [thing]" as closing.
+
+my passport is in my backpack. Description is "Passport number 92... wait a second, I'm not telling you my passport number."
+
+my checkbook is in my backpack. Description is "I don't ever use this thing, but I always take it with me."
+
+After opening my backpack for the first time:
+	say "I open my backpack, to find my passport and my checkbook.[paragraph break]";
+	account for the passport;
+	account for the checkbook.
+
+
+my desk is a supporter in my bedroom. Description is "It's more of a table on wheels than a desk."
+
+my Thinkpad laptop is on the desk. Description is "A nice little 12' laptop. It's my primary machine."
+
+my Nokia n810 is on the desk. Description is "Quite a handy little Linux computer which can get me onto IRC in an airport within seconds."
+
+my Motorola RAZR phone is on the desk. Description is "Pretty boring mobile phone."
+
+After inserting the thinkpad into the backpack:
+	account for the thinkpad.
+
+After taking the n810:
+	account for the n810.
+
+After taking the razr:
+	account for the razr.
+
+A nest of chargers is in my bedroom. Description is "N810 charger, RAZR charger, Kindle charger, laptop power supply. Organizing this would make me late for my plane. Might as well just throw it into my backpack."
+Understand "charger" as nest of chargers.
+
+After inserting the chargers into my backpack:
+	account for the chargers.
+
+my keys are on the desk. Description is "In addition to my house and office keys, I've got a MicroSD/USB adapter (containing an 2GB MicroSD card) and a plain 2GB USB stick."
+Understand "ssh key" as keys. Understand "gpg key" as keys. Understand "usb" as keys. Understand "ssh" as keys. Understand "gpg" as keys.
+
+After taking the keys:
+	account for the keys.
+
+my nightstand is a supporter in my bedroom. Description is "Next to my bed. It used to be piled with books, now mostly just my Kindle."
+
+my Kindle is on my nightstand. Description is "My ebook reader. I've got Jane Austen's entire canon on there."
+
+After inserting the Kindle into my backpack:
+	account for the Kindle.
+
+my dresser is a supporter in my bedroom. Description is "This sometimes holds clothes, but most of them are either dirty or packed right now."
+
+my fishing cap is a wearable thing on the dresser. Understand "hat" as the cap. Description is "Trusty fishing cap. Some people like to call me Gilligan, but they have a twinkle of desire in there eye when they do. Seriously."
+
+After wearing the fishing cap:
+	account for the fishing cap.
+

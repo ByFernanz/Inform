@@ -1,0 +1,928 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Skein rootNode="node-1">
+  <generator>Windows Inform 7 6M62</generator>
+  <activeNode nodeId="node-106"/>
+  <item nodeId="node-1">
+    <command xml:space="preserve">The Bed</command>
+    <result xml:space="preserve">The Bed&#x000A;An sad song by Ruber Eaglenest and Lou Reed&#x000A;Release 1 / Serial number 200928 / Inform 7 build 6M62 (I6/v6.33 lib 6/12N) SD&#x000A;&#x000A;(In this short piece, you can only move around the mansion and look. No more actions implemented. Also, abreviatures does not work, you must type the whole directions, that is: use "north", "northeast", "east", etc.) &#x000A;&#x000A;(Content Warning: gender violence, drug abuse, prostitution and other problematic topics.)&#x000A;&#x000A;Entrance&#x000A;The mansion stands before me, along with my memories and regrets.&#x000A;&#x000A;From here I can go to the north.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-2"/>
+      <child nodeId="node-8"/>
+      <child nodeId="node-11"/>
+      <child nodeId="node-63"/>
+      <child nodeId="node-69"/>
+      <child nodeId="node-72"/>
+      <child nodeId="node-73"/>
+      <child nodeId="node-80"/>
+      <child nodeId="node-95"/>
+      <child nodeId="node-100"/>
+    </children>
+  </item>
+  <item nodeId="node-2">
+    <command xml:space="preserve">s</command>
+    <result xml:space="preserve">My regrets say it is too soon to leave. There's more painful memories to retell.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-3"/>
+      <child nodeId="node-6"/>
+    </children>
+  </item>
+  <item nodeId="node-3">
+    <command xml:space="preserve">s</command>
+    <result xml:space="preserve">You can't go that way.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-4"/>
+    </children>
+  </item>
+  <item nodeId="node-4">
+    <command xml:space="preserve">s</command>
+    <result xml:space="preserve">You can't go that way.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-5"/>
+    </children>
+  </item>
+  <item nodeId="node-5">
+    <command xml:space="preserve">s</command>
+    <result xml:space="preserve">You can't go that way.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+  </item>
+  <item nodeId="node-6">
+    <command xml:space="preserve">n</command>
+    <result xml:space="preserve">The marble hall&#x000A;This is the place where we used to live &#x000A;I paid for it with love and blood &#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-7"/>
+    </children>
+  </item>
+  <item nodeId="node-7">
+    <command xml:space="preserve">s</command>
+    <result xml:space="preserve">I never would have started if I'd known&#x000A; that it'd end this way&#x000A; But funny thing, I'm not at all sad&#x000A; that it stopped this way&#x000A; stopped this way&#x000A;&#x000A;&#x000A;    *** The End ***&#x000A;&#x000A;&#x000A;&#x000A;&#x000A;Would you like to RESTART, RESTORE a saved game, QUIT or UNDO the last command?&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+  </item>
+  <item nodeId="node-8">
+    <command xml:space="preserve">l</command>
+    <result xml:space="preserve">The main hall&#x000A;This is the place where I waited for my rich father to die&#x000A; I tried to handle things the best way I can &#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-9"/>
+    </children>
+  </item>
+  <item nodeId="node-9">
+    <command xml:space="preserve">e</command>
+    <result xml:space="preserve">You can't go that way.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-10"/>
+    </children>
+  </item>
+  <item nodeId="node-10">
+    <command xml:space="preserve">e</command>
+    <result xml:space="preserve">You can't go that way.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+  </item>
+  <item nodeId="node-11">
+    <command xml:space="preserve">n</command>
+    <result xml:space="preserve">(In this piece, you must not use abreviatures for movement. Type the whole word, like "north" or "go to the southeast", etc.)&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-12"/>
+      <child nodeId="node-48"/>
+      <child nodeId="node-56"/>
+      <child nodeId="node-102"/>
+    </children>
+  </item>
+  <item nodeId="node-12">
+    <command xml:space="preserve">w</command>
+    <result xml:space="preserve">Stables&#x000A;This is the place where our horses were taken cared for&#x000A; They only left some fodder and dung &#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-13"/>
+    </children>
+  </item>
+  <item nodeId="node-13">
+    <command xml:space="preserve">e</command>
+    <result xml:space="preserve">The main hall&#x000A;This is the place where I waited for my rich father to die&#x000A; At heart I tried to act like a man&#x000A; I tried to handle things the best way I can &#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-14"/>
+    </children>
+  </item>
+  <item nodeId="node-14">
+    <command xml:space="preserve">e</command>
+    <result xml:space="preserve">Servant's corridor&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-15"/>
+    </children>
+  </item>
+  <item nodeId="node-15">
+    <command xml:space="preserve">e</command>
+    <result xml:space="preserve">That is the place where the servants &#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-16"/>
+    </children>
+  </item>
+  <item nodeId="node-16">
+    <command xml:space="preserve"></command>
+    <result xml:space="preserve">I beg your pardon?&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-17"/>
+    </children>
+  </item>
+  <item nodeId="node-17">
+    <command xml:space="preserve">n</command>
+    <result xml:space="preserve">Kitchen&#x000A;This is the place were our family was feed&#x000A; They only left some crumbs and stuff&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-18"/>
+    </children>
+  </item>
+  <item nodeId="node-18">
+    <command xml:space="preserve">w</command>
+    <result xml:space="preserve">Pantry&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-19"/>
+    </children>
+  </item>
+  <item nodeId="node-19">
+    <command xml:space="preserve">a</command>
+    <result xml:space="preserve">That's not a verb I recognise.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-20"/>
+    </children>
+  </item>
+  <item nodeId="node-20">
+    <command xml:space="preserve">sw</command>
+    <result xml:space="preserve">The main hall&#x000A; My castle, kids and home&#x000A; I thought she was Mary, Queen of Scots&#x000A; I tried so very hard&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-21"/>
+    </children>
+  </item>
+  <item nodeId="node-21">
+    <command xml:space="preserve">up</command>
+    <result xml:space="preserve">Stairs landing&#x000A;This is the place where she descended in her ball dress&#x000A; She seemed very regal to me&#x000A; just goes to show how wrong you can be &#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-22"/>
+    </children>
+  </item>
+  <item nodeId="node-22">
+    <command xml:space="preserve">up</command>
+    <result xml:space="preserve">Upper hall&#x000A;This is the place where she said I'm not a man&#x000A; so she'll go get it catch as catch can&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-23"/>
+    </children>
+  </item>
+  <item nodeId="node-23">
+    <command xml:space="preserve">w</command>
+    <result xml:space="preserve">West gallery&#x000A;&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-24"/>
+    </children>
+  </item>
+  <item nodeId="node-24">
+    <command xml:space="preserve">w</command>
+    <result xml:space="preserve">You can't go that way.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-25"/>
+    </children>
+  </item>
+  <item nodeId="node-25">
+    <command xml:space="preserve">s</command>
+    <result xml:space="preserve">Children's bedroom&#x000A;And this is the place where our children played&#x000A; Those bright and hopeful days&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-26"/>
+    </children>
+  </item>
+  <item nodeId="node-26">
+    <command xml:space="preserve">w</command>
+    <result xml:space="preserve">The children's bath room&#x000A;They took our children away&#x000A; Because they said she was not a good mother&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-27"/>
+    </children>
+  </item>
+  <item nodeId="node-27">
+    <command xml:space="preserve">e</command>
+    <result xml:space="preserve">Children's bedroom&#x000A; And this is the place where they took our children away&#x000A; That tragic and fateful day&#x000A; And I said, oh, oh, oh, oh, oh, oh, what a feeling &#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-28"/>
+    </children>
+  </item>
+  <item nodeId="node-28">
+    <command xml:space="preserve">e</command>
+    <result xml:space="preserve">You can't go that way.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-29"/>
+    </children>
+  </item>
+  <item nodeId="node-29">
+    <command xml:space="preserve">n</command>
+    <result xml:space="preserve">West gallery&#x000A;This is the place where I just stood there&#x000A; a tired man, no words to say &#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-30"/>
+    </children>
+  </item>
+  <item nodeId="node-30">
+    <command xml:space="preserve">n</command>
+    <result xml:space="preserve">The study&#x000A;This is the place where I hid from her&#x000A; from the children, the world and stuff&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-31"/>
+    </children>
+  </item>
+  <item nodeId="node-31">
+    <command xml:space="preserve">s</command>
+    <result xml:space="preserve">West gallery&#x000A;&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-32"/>
+    </children>
+  </item>
+  <item nodeId="node-32">
+    <command xml:space="preserve">e</command>
+    <result xml:space="preserve">Upper hall&#x000A; The things she did, the things she said&#x000A; people shouldn't treat others that way&#x000A; But at first I thought I could take it all&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-33"/>
+    </children>
+  </item>
+  <item nodeId="node-33">
+    <command xml:space="preserve">e</command>
+    <result xml:space="preserve">East gallery&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-34"/>
+    </children>
+  </item>
+  <item nodeId="node-34">
+    <command xml:space="preserve">n</command>
+    <result xml:space="preserve">Living room&#x000A;This is the place where we took absentia and opium&#x000A; and I asked her what is in her mind &#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-35"/>
+    </children>
+  </item>
+  <item nodeId="node-35">
+    <command xml:space="preserve">s</command>
+    <result xml:space="preserve">East gallery&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-36"/>
+    </children>
+  </item>
+  <item nodeId="node-36">
+    <command xml:space="preserve">s</command>
+    <result xml:space="preserve">Library&#x000A;And these are the books that she kept on the shelf&#x000A; Filled with her poetry and stuff&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-37"/>
+    </children>
+  </item>
+  <item nodeId="node-37">
+    <command xml:space="preserve">n</command>
+    <result xml:space="preserve">East gallery&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-38"/>
+    </children>
+  </item>
+  <item nodeId="node-38">
+    <command xml:space="preserve">e</command>
+    <result xml:space="preserve">The bed&#x000A;This is the place where she lay her head when she went to bed at night &#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-39"/>
+    </children>
+  </item>
+  <item nodeId="node-39">
+    <command xml:space="preserve">e</command>
+    <result xml:space="preserve">You can't go that way.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-40"/>
+    </children>
+  </item>
+  <item nodeId="node-40">
+    <command xml:space="preserve">s</command>
+    <result xml:space="preserve">You can't go that way.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-41"/>
+    </children>
+  </item>
+  <item nodeId="node-41">
+    <command xml:space="preserve">n</command>
+    <result xml:space="preserve">Bath room&#x000A;And this is the place where she cut her wrists&#x000A; that odd and fateful night&#x000A; And I said, oh, oh, oh, oh, oh, oh, what a feeling&#x000A; &#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-42"/>
+    </children>
+  </item>
+  <item nodeId="node-42">
+    <command xml:space="preserve">s</command>
+    <result xml:space="preserve">The bed&#x000A;And this is the place our children were conceived candles lit the room brightly at night &#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-43"/>
+    </children>
+  </item>
+  <item nodeId="node-43">
+    <command xml:space="preserve">w</command>
+    <result xml:space="preserve">East gallery&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-44"/>
+    </children>
+  </item>
+  <item nodeId="node-44">
+    <command xml:space="preserve">w</command>
+    <result xml:space="preserve">Upper hall&#x000A;&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-45"/>
+    </children>
+  </item>
+  <item nodeId="node-45">
+    <command xml:space="preserve">d</command>
+    <result xml:space="preserve">Stairs landing&#x000A;This is the place where she stand proud and with disdain at me&#x000A; lookin" through the eyes of hate &#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-46"/>
+    </children>
+  </item>
+  <item nodeId="node-46">
+    <command xml:space="preserve">d</command>
+    <result xml:space="preserve">The main hall&#x000A;&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-47"/>
+    </children>
+  </item>
+  <item nodeId="node-47">
+    <command xml:space="preserve">s</command>
+    <result xml:space="preserve">I never would have started if I'd known that it'd end this way But funny thing, I'm not at all sad that it stopped this way&#x000A;&#x000A;&#x000A;    *** The End ***&#x000A;&#x000A;&#x000A;&#x000A;&#x000A;Would you like to RESTART, RESTORE a saved game, QUIT or UNDO the last command?&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+  </item>
+  <item nodeId="node-48">
+    <command xml:space="preserve">s</command>
+    <result xml:space="preserve">My regrets say it is too soon to leave. There's more painful memories to retell.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-49"/>
+    </children>
+  </item>
+  <item nodeId="node-49">
+    <command xml:space="preserve">undo</command>
+    <result xml:space="preserve">Entrance&#x000A;[Previous turn undone.]&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-50"/>
+    </children>
+  </item>
+  <item nodeId="node-50">
+    <command xml:space="preserve">take</command>
+    <result xml:space="preserve">That's not a verb I recognise.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-51"/>
+    </children>
+  </item>
+  <item nodeId="node-51">
+    <command xml:space="preserve">n</command>
+    <result xml:space="preserve">In this piece, you must not use aberviatures for movement. Type the whole word, like "north" or "go to the southeast".&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-52"/>
+    </children>
+  </item>
+  <item nodeId="node-52">
+    <command xml:space="preserve">n</command>
+    <result xml:space="preserve">In this piece, you must not use aberviatures for movement. Type the whole word, like "north" or "go to the southeast".&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-53"/>
+    </children>
+  </item>
+  <item nodeId="node-53">
+    <command xml:space="preserve">s</command>
+    <result xml:space="preserve">My regrets say it is too soon to leave. There's more painful memories to retell.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-54"/>
+    </children>
+  </item>
+  <item nodeId="node-54">
+    <command xml:space="preserve">n</command>
+    <result xml:space="preserve">In this piece, you must not use aberviatures for movement. Type the whole word, like "north" or "go to the southeast".&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-55"/>
+    </children>
+  </item>
+  <item nodeId="node-55">
+    <command xml:space="preserve">north</command>
+    <result xml:space="preserve">The marble hall&#x000A;This is the place where we used to live &#x000A;I paid for it with love and blood &#x000A;&#x000A;From here I can go to the south, the west, the northwest, the northeast, the east and the up.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+  </item>
+  <item nodeId="node-56">
+    <command xml:space="preserve">north</command>
+    <result xml:space="preserve">The marble hall&#x000A;This is the place where we used to live &#x000A;I paid for it with love and blood &#x000A;&#x000A;From here I can go to the south, the west, the northwest, the northeast, the east and the up.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-57"/>
+    </children>
+  </item>
+  <item nodeId="node-57">
+    <command xml:space="preserve">east</command>
+    <result xml:space="preserve">Servant's corridor&#x000A;This is the place where the servants toiled away &#x000A;There are none of them left now &#x000A;&#x000A;From here I can go to the west, the north and the east.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-58"/>
+    </children>
+  </item>
+  <item nodeId="node-58">
+    <command xml:space="preserve">west</command>
+    <result xml:space="preserve">The marble hall&#x000A;My castle, kids and home &#x000A;I thought she was Mary, Queen of Scots&#x000A; I tried so very hard&#x000A;&#x000A;From here I can go to the south, the west, the northwest, the northeast, the east and the up.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-59"/>
+    </children>
+  </item>
+  <item nodeId="node-59">
+    <command xml:space="preserve">south</command>
+    <result xml:space="preserve">I never would have started if I'd known&#x000A; that it'd end this way&#x000A; But funny thing, I'm not at all sad&#x000A; that it stopped this way&#x000A; stopped this way&#x000A;&#x000A;&#x000A;    *** The End ***&#x000A;&#x000A;&#x000A;&#x000A;&#x000A;Would you like to RESTART, RESTORE a saved game, QUIT or UNDO the last command?&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-60"/>
+    </children>
+  </item>
+  <item nodeId="node-60">
+    <command xml:space="preserve">restart</command>
+    <result xml:space="preserve">The Bed&#x000A;An sad song by Ruber Eaglenest and Lou Reed&#x000A;Release 1 / Serial number 200726 / Inform 7 build 6M62 (I6/v6.33 lib 6/12N) SD&#x000A;&#x000A;(In this short piece, you can only move around the mansion and look. No more actions implemented. Also, abreviatures does not work, you must type the whole directions, that is: use "north", "northeast", "east", etc.) &#x000A;&#x000A;(Content Warning: gender violence, drug abuse, prostitution and other problematic topics.)&#x000A;&#x000A;Entrance&#x000A;The mansion stands before me, along with my memories and regrets.&#x000A;&#x000A;From here I can go to the north.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-61"/>
+    </children>
+  </item>
+  <item nodeId="node-61">
+    <command xml:space="preserve">version</command>
+    <result xml:space="preserve">The Bed&#x000A;An sad song by Ruber Eaglenest and Lou Reed&#x000A;Release 1 / Serial number 200726 / Inform 7 build 6M62 (I6/v6.33 lib 6/12N) SD&#x000A;&#x000A;(In this short piece, you can only move around the mansion and look. No more actions implemented. Also, abreviatures does not work, you must type the whole directions, that is: use "north", "northeast", "east", etc.) &#x000A;&#x000A;(Content Warning: gender violence, drug abuse, prostitution and other problematic topics.)&#x000A;&#x000A;Identification number: //6CA25311-0B73-4C34-9B95-CA31A67C5483//&#x000A;Interpreter version 0.5.4 / VM 3.1.2 / Library serial number 080126&#x000A;Standard Rules version 3/120430 by Graham Nelson&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-62"/>
+    </children>
+  </item>
+  <item nodeId="node-62">
+    <command xml:space="preserve">credits</command>
+    <result xml:space="preserve">That's not a verb I recognise.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+  </item>
+  <item nodeId="node-102">
+    <command xml:space="preserve">n</command>
+    <result xml:space="preserve">(Use whole words for movement: "north", "south", "southwest", etc.)&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-103"/>
+    </children>
+  </item>
+  <item nodeId="node-103">
+    <command xml:space="preserve">n</command>
+    <result xml:space="preserve">(That's not an action I recognise.)&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-104"/>
+    </children>
+  </item>
+  <item nodeId="node-104">
+    <command xml:space="preserve">take house</command>
+    <result xml:space="preserve">That's not a verb I recognise.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-105"/>
+    </children>
+  </item>
+  <item nodeId="node-105">
+    <command xml:space="preserve">n</command>
+    <result xml:space="preserve">(That's not an action I recognise.)&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-106"/>
+    </children>
+  </item>
+  <item nodeId="node-106">
+    <command xml:space="preserve">north</command>
+    <result xml:space="preserve">The marble hall&#x000A;This is the place where we used to live &#x000A;I paid for it with love and blood &#x000A;&#x000A;From here I can go to the south, the west, the northwest, the northeast, the east and the up.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+  </item>
+  <item nodeId="node-63">
+    <command xml:space="preserve">resaltado</command>
+    <result xml:space="preserve">The Bed usa un sistema de palabras resaltadas. Es recomendable que su int&#x00E9;rprete pueda mostrar correctamente estos resaltados. Escriba un n&#x00FA;mero de los inferiores hasta encontrar una forma de resaltado que se vea claramente en su int&#x00E9;rprete.&#x000A;&#x000A;1) Un object resaltado se ver&#x00E1; as&#x00ED;.&#x000A;2) Una salida resaltada se ver&#x00E1; as&#x00ED;.&#x000A;3) Un lugar resaltado se ver&#x00E1; as&#x00ED;.&#x000A;&#x000A;**Aviso: Frecuentemente ser&#x00E1; &#x00FA;til poder distinguir entre diversas clases de resaltado.**&#x000A;&#x000A;Teclee 0 si ha finalizado, o 9 para activar el modo lector.</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-64"/>
+    </children>
+  </item>
+  <item nodeId="node-64">
+    <command xml:space="preserve">9</command>
+    <result xml:space="preserve">El modo "lector" ha sido activado. The Bed usar&#x00E1; letras en las palabras resaltadas para indicar aquellas que sean importantes y que podr&#x00E1; teclear para avanzar en este relato. Su int&#x00E9;rprete incluir&#x00E1; resaltados como este. Puede teclear cosas para ver cosas relevantes que est&#x00E9;n por las cercan&#x00ED;as, o salidas para ver las salidas cercanas. Teclee claves para ajustar las opciones de resaltado de las palabras, o teclee "lector" para encender y apagar esta clase de resaltado.&#x000A;&#x000A;Pulse cualquier tecla para continuar.</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-65"/>
+    </children>
+  </item>
+  <item nodeId="node-65">
+    <command xml:space="preserve"> </command>
+    <result xml:space="preserve">&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-66"/>
+    </children>
+  </item>
+  <item nodeId="node-66">
+    <command xml:space="preserve">m</command>
+    <result xml:space="preserve">(Eso no es un verbo que entienda ni una clave que se pueda usar en este momento.)&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-67"/>
+    </children>
+  </item>
+  <item nodeId="node-67">
+    <command xml:space="preserve">l</command>
+    <result xml:space="preserve">pantry&#x000A;(Eso no es un verbo que entienda ni una clave que se pueda usar en este momento.)&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-68"/>
+    </children>
+  </item>
+  <item nodeId="node-68">
+    <command xml:space="preserve">x</command>
+    <result xml:space="preserve">What do you want to examine?&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+  </item>
+  <item nodeId="node-69">
+    <command xml:space="preserve">main hall</command>
+    <result xml:space="preserve">(Eso no es un verbo que entienda ni una clave que se pueda usar en este momento.)&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-70"/>
+    </children>
+  </item>
+  <item nodeId="node-70">
+    <command xml:space="preserve">main</command>
+    <result xml:space="preserve">(Eso no es un verbo que entienda ni una clave que se pueda usar en este momento.)&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-71"/>
+    </children>
+  </item>
+  <item nodeId="node-71">
+    <command xml:space="preserve">take hall</command>
+    <result xml:space="preserve">You can't see any such thing.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+  </item>
+  <item nodeId="node-72">
+    <command xml:space="preserve">up</command>
+    <result xml:space="preserve">east&#x000A;Children's Bedroom&#x000A; And this is the place where they took our children away&#x000A; That tragic and fateful day&#x000A; And I said, oh, oh, oh, oh, oh, oh, what a feeling &#x000A;&#x000A;Salidas: north hacia the the starlight gallery y west hacia the the children's bath room.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+  </item>
+  <item nodeId="node-73">
+    <command xml:space="preserve">w</command>
+    <result xml:space="preserve">The Marble Hall&#x000A;My castle, kids and home &#x000A;I thought she was Mary, Queen of Scots&#x000A; I tried so very hard&#x000A;&#x000A;From here you can go south to entrance, west to stables, northwest to crystal corridor, northeast to pantry, east to servant's corridor and up to stairs landing.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-74"/>
+    </children>
+  </item>
+  <item nodeId="node-74">
+    <command xml:space="preserve">up</command>
+    <result xml:space="preserve">Stairs Landing&#x000A;This is the place where she descended in her ball dress&#x000A; She seemed very regal to me&#x000A; just goes to show how wrong you can be &#x000A;&#x000A;From here you can go down to the marble hall and up to upper hall.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-75"/>
+    </children>
+  </item>
+  <item nodeId="node-75">
+    <command xml:space="preserve">up</command>
+    <result xml:space="preserve">Upper Hall&#x000A;This is the place where she said I'm not a man&#x000A; so she'll go get it catch as catch can&#x000A;&#x000A;From here you can go down to stairs landing, south to the parlor, west to the the twilight gallery and east to the the dawnlight gallery.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-76"/>
+    </children>
+  </item>
+  <item nodeId="node-76">
+    <command xml:space="preserve">e</command>
+    <result xml:space="preserve">The Dawnlight Gallery&#x000A;This is the place where I waited for my rich father to die &#x000A;At heart I tried to handle things the best way I can &#x000A;&#x000A;From here you can go west to upper hall, east to the the bed, south to the the study and north to living room.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-77"/>
+    </children>
+  </item>
+  <item nodeId="node-77">
+    <command xml:space="preserve">n</command>
+    <result xml:space="preserve">Living Room&#x000A;This is the place where we took absentia and opium&#x000A; and I asked her what is in her mind &#x000A;&#x000A;From here you can go south to the the dawnlight gallery.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-78"/>
+    </children>
+  </item>
+  <item nodeId="node-78">
+    <command xml:space="preserve">s</command>
+    <result xml:space="preserve">The Dawnlight Gallery&#x000A;&#x000A;&#x000A;From here you can go west to upper hall, east to the the bed, south to the the study and north to living room.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-79"/>
+    </children>
+  </item>
+  <item nodeId="node-79">
+    <command xml:space="preserve">s</command>
+    <result xml:space="preserve">The Study&#x000A;This is the place where I hid away from her &#x000A;from the children, the world and stuff&#x000A;&#x000A;From here you can go north to the the dawnlight gallery.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+  </item>
+  <item nodeId="node-80">
+    <command xml:space="preserve">take</command>
+    <result xml:space="preserve">What do you want to take?&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-81"/>
+    </children>
+  </item>
+  <item nodeId="node-81">
+    <command xml:space="preserve">n</command>
+    <result xml:space="preserve">You must name something more substantial.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-82"/>
+    </children>
+  </item>
+  <item nodeId="node-82">
+    <command xml:space="preserve">n</command>
+    <result xml:space="preserve">The marble hall&#x000A;This is the place where we used to live &#x000A;I paid for it with love and blood &#x000A;&#x000A;From here I can go to the south, the west, the northwest, the northeast, the east and the up.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-83"/>
+    </children>
+  </item>
+  <item nodeId="node-83">
+    <command xml:space="preserve">up</command>
+    <result xml:space="preserve">Stairs landing&#x000A;This is the place where she descended in her ball dress&#x000A; She seemed very regal to me&#x000A; just goes to show how wrong you can be &#x000A;&#x000A;From here I can go to the down and the up.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-84"/>
+    </children>
+  </item>
+  <item nodeId="node-84">
+    <command xml:space="preserve">take stair</command>
+    <result xml:space="preserve">You can't see any such thing.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-85"/>
+    </children>
+  </item>
+  <item nodeId="node-85">
+    <command xml:space="preserve">up</command>
+    <result xml:space="preserve">Upper hall&#x000A;This is the place where she said I'm not a man&#x000A; so she'll go get it catch as catch can&#x000A;&#x000A;From here I can go to the down, the south, the west and the east.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-86"/>
+    </children>
+  </item>
+  <item nodeId="node-86">
+    <command xml:space="preserve">w</command>
+    <result xml:space="preserve">The twilight gallery&#x000A;&#x000A;&#x000A;From here I can go to the east, the north and the south.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-87"/>
+    </children>
+  </item>
+  <item nodeId="node-87">
+    <command xml:space="preserve">s</command>
+    <result xml:space="preserve">Children's bedroom&#x000A;And this is the place where our children played&#x000A; Those bright and hopeful days&#x000A;&#x000A;From here I can go to the north and the west.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-88"/>
+    </children>
+  </item>
+  <item nodeId="node-88">
+    <command xml:space="preserve">take bed</command>
+    <result xml:space="preserve">You can't see any such thing.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-89"/>
+    </children>
+  </item>
+  <item nodeId="node-89">
+    <command xml:space="preserve">n</command>
+    <result xml:space="preserve">The twilight gallery&#x000A;This is the place where I just stood there &#x000A;a tired man, no words to say &#x000A;&#x000A;From here I can go to the east, the north and the south.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-90"/>
+    </children>
+  </item>
+  <item nodeId="node-90">
+    <command xml:space="preserve">e</command>
+    <result xml:space="preserve">Upper hall&#x000A; The things she did, the things she said&#x000A; people shouldn't treat others that way&#x000A; But at first I thought I could take it all&#x000A;&#x000A;From here I can go to the down, the south, the west and the east.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-91"/>
+    </children>
+  </item>
+  <item nodeId="node-91">
+    <command xml:space="preserve">take</command>
+    <result xml:space="preserve">What do you want to take?&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-92"/>
+    </children>
+  </item>
+  <item nodeId="node-92">
+    <command xml:space="preserve">sing</command>
+    <result xml:space="preserve">You can't see any such thing.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-93"/>
+    </children>
+  </item>
+  <item nodeId="node-93">
+    <command xml:space="preserve">i</command>
+    <result xml:space="preserve">You can only move around using the full cardinal directions. No abbreviatures allowed either.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-94"/>
+    </children>
+  </item>
+  <item nodeId="node-94">
+    <command xml:space="preserve">take the bed</command>
+    <result xml:space="preserve">You can't see any such thing.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+  </item>
+  <item nodeId="node-95">
+    <command xml:space="preserve">e</command>
+    <result xml:space="preserve">(In this piece, you must not use aberviatures for movement. Type the whole word, like "north" or "go to the southeast".)&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-96"/>
+      <child nodeId="node-98"/>
+    </children>
+  </item>
+  <item nodeId="node-96">
+    <command xml:space="preserve">n</command>
+    <result xml:space="preserve">In this piece, you must not use aberviatures for movement. Type the whole word, like "north" or "go to the southeast".&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-97"/>
+    </children>
+  </item>
+  <item nodeId="node-97">
+    <command xml:space="preserve">north</command>
+    <result xml:space="preserve">The marble hall&#x000A;This is the place where we used to live &#x000A;I paid for it with love and blood &#x000A;&#x000A;From here I can go to the south, the west, the northwest, the northeast, the east and the up.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+  </item>
+  <item nodeId="node-98">
+    <command xml:space="preserve">w</command>
+    <result xml:space="preserve">(In this piece, you must not use aberviatures for movement. Type the whole word, like "north" or "go to the southeast".)&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-99"/>
+    </children>
+  </item>
+  <item nodeId="node-99">
+    <command xml:space="preserve">north</command>
+    <result xml:space="preserve">The marble hall&#x000A;This is the place where we used to live &#x000A;I paid for it with love and blood &#x000A;&#x000A;From here I can go to the south, the west, the northwest, the northeast, the east and the up.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+  </item>
+  <item nodeId="node-100">
+    <command xml:space="preserve">i</command>
+    <result xml:space="preserve">That's not a verb I recognise.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-101"/>
+    </children>
+  </item>
+  <item nodeId="node-101">
+    <command xml:space="preserve">take</command>
+    <result xml:space="preserve">That's not a verb I recognise.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+  </item>
+</Skein>

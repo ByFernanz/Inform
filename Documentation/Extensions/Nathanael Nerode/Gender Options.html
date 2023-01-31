@@ -1,0 +1,1140 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Extension</title>
+    <style type="text/css">
+        <!--
+        /* The default font (family) and size */
+
+        body, p, td {
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.8rem; /* 100/125 */
+        }
+
+        /* For fixed-point material within text, such as the typing on the Library Card index page */
+
+        span.typewritten {
+        	font-family: monospace;
+        	font-size: 0.867rem; /* 13/12 * 100/125 */
+        }
+
+        /* For less important material: the small print */
+
+        span.smaller {
+        	font-size: 80%;
+        }
+
+        /* The "heading panel" is the coloured box, high up on the page. The colours
+        vary depending on the page: for example, the style on a report of a translation
+        with no problems is "headingpanelsucceeded", usually green, but if there were
+        problems then "headingpanelfailed" is used, which is usually red. "headingpanel"
+        itself is a more neutral grey by default. "headingpanelDark" is an alternative
+        look to make the extensions index pages have some visual contrast with the others;
+        by default they are a darker grey. */
+
+        .headingpanel {
+        	background: #eeeeee;
+        }
+        .headingpanelsucceeded {
+        	background: #E6FFE6;
+        }
+        .headingpanelfailed {
+        	background: #f69Ca6;
+        }
+        .headingpanelalt {
+        	background: #808080;
+        }
+
+        /* Heading panels have two lines of text: an upper one in a larger size, and a
+        lower one in a smaller. Again, the alt versions are meant to contrast.
+
+        	Report on Translation: Succeeded                <-- headingpaneltext
+        	Produced by Inform 10.1.0 (build 6U97)          <-- headingpanelrubric
+
+        	Installed Extensions                            <-- headingpaneltextalt
+        	Bundles of extra rules or phrases to...         <-- headingpanelrubricalt
+
+        */
+
+        span.headingpaneltext {
+        	color: #222222;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+        span.headingpaneltextalt {
+        	color: #ffffff;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        span.headingpanelrubric {
+        	color: #222222;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.733rem; /* 11/12 * 100/125 */
+        	font-weight: bold;
+        }
+        span.headingpanelrubricalt {
+        	color: #ffffff;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.733rem; /* 11/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* Horizontal rule styling */
+
+        div.hr {
+        	border: 0;
+        	width: 100%;
+        	color: #707070;
+        	background-color: #707070;
+        	height: 5px;
+        }
+
+        /* This styles the (usually white) text of the example numbers written inside
+        oval blobs in the extension documentation, which mimic the look of the in-app
+        documentation. */
+
+        .oval, .oval td {
+        	background-image:url('inform:/doc_images/ovoid.png');
+        	color:white;
+        }
+
+        /* Styling used in the extension documentation indexes: */
+
+        /* Used for extension names in the extensions pane of the app */
+
+        span.extensioncensusentry {
+        	color: #ffffff;
+        }
+
+        span.extensionindexentry {
+        	color: #404040;
+        }
+
+        span.extensionindexerror {
+        	color: #ff8080;
+        }
+
+        /* This is used in extension documentation, where an example is presented
+        in a slightly tinted box: */
+
+        table.extensionexample {
+        	background-color: #f0f0f0;
+        }
+
+        span.extensionexampleletter {
+        	color: #202020;
+        	font-size: 14px;
+        	font-weight: bold;
+        }
+
+        /* Seen in problem messages: */
+
+        span.problemred {
+        	color: #800000;
+        }
+
+        span.problemgreen {
+        	color: #008000;
+        }
+
+        span.phraseword {
+        	color: #808080;
+        }
+
+        span.phrasetokentext {
+        	color: #e00060;
+        }
+
+        span.phrasetokendesctext {
+        	color: #4040ff;
+        }
+
+        span.phrasetokenvaluetext {
+        	color: #ff4040;
+        }
+
+        /* Now we move on to styling used in the Index pages only: */
+
+        /* The periodic table display has "sidebars", usually grey and taller than they
+        are wide; they contain no text. */
+
+        div.periodictablesidebarcolour {
+        	background: #888;
+        }
+        div.periodictablesidebar:hover {
+        	background: #222;
+        }
+
+        /* The text of the element-abbreviation, such as "Lx" or "Ph", uses: */
+
+        span.elementtext {
+        	color: #ffffff;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* Similarly for the "atomic number" - a single digit - in the top left corner
+        of these boxes: */
+
+        span.elementnumbertext {
+        	color: #ffffff;
+        	font-size: 0.622rem; /* 7/12 * 96/72 * 100/125 */
+        }
+
+        /* For the text of the element title, to the right of the element box: */
+
+        span.elementtitletext {
+        	color: #ffffff;
+        	font-size: 0.6rem; /* 9/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* The banner at the top of each element: */
+
+        table.elementbanner {
+        	background: #eeeeee;
+        }
+
+        /* For the typewriting on the Library Card: */
+
+        span.librarycardtitle {
+        	color: #803030;
+        }
+
+        span.librarycardother {
+        	color: #303030;
+        }
+
+        /* Generically used for "more details" boxes in the index: */
+
+        table.indexmorebox {
+        	background-color: #e0e0e0;
+            border-radius: 8px;
+        }
+
+        /* But not for activity contents: */
+
+        table.indexactivitycontents {
+        	background-color: #e8e0c0;
+            border-radius: 8px;
+        }
+
+        /* For responses in index entries about rules: */
+
+        span.indexresponseletter {
+        	color: #ffffff;
+        	font-family: 'Courier New', Courier, monospace;
+        	background-color: #8080ff;
+        }
+
+        span.indexresponsetext {
+        	color: #000066;
+        }
+
+        /* Used ubiquitously throughout the index and extension documentation: */
+
+        span.indexblack {
+        	color: #000000;
+        }
+
+        span.indexgrey {
+        	color: #808080;
+        }
+
+        span.indexdarkgrey {
+            color: #505050;
+        }
+
+        span.indexdullred {
+        	color: #800000;
+        }
+
+        span.indexdullgreen {
+        	color: #008000;
+        }
+
+        span.indexdullblue {
+        	color: #000080;
+        }
+
+        /* Used for the room squares in the World map in the Index (which is currently
+        a table with one row of one column) */
+
+        table.indexmaproom {
+        	border-color: #000000;
+        }
+
+        /* Used in the numbering of levels of the World map in the Index */
+
+        span.indexmaplevelnumbers {
+        	color: #c0c0c0;
+        }
+
+        /* Used e.g. for title rows in the Chart of basic kinds in the Index */
+
+        tr.headingrow {
+        	background-color: #e0e0e0;
+        }
+
+        /* Standard rows have black text on striped background colours, these being
+        the usual ones seen in Mac OS X applications such as iTunes. */
+
+        tr.stripeone {
+        	background-color: #ffffff;
+        }
+
+        tr.stripetwo {
+        	background-color: #f3f6fa;
+        }
+
+        tr.tintedrow {
+        	background-color: #808080;
+        }
+
+        /* In the Figures index, this is the background colour used behind images
+        (though in fact it will only be visible if the image fails to load, or uses
+        transparency): */
+
+        div.figureindexbox {
+        	background-color: #6495ed;
+        }
+
+        /* To get the book-contents-page style leaders on the Contents element of
+           the index to work, these must use the background colour of the body of
+           the page, whatever that is: */
+
+        ul.leaders li.leaded span:first-child {
+        	background: white;
+        }
+        ul.leaders li.leaded span + span {
+        	background: white;
+        }
+
+        /* On Registry index pages (such as the Public Library), these are used for
+        download buttons and the like: */
+
+        span.registrybuttontext {
+        	font-size: 11px;
+        	border-color: #000000;
+        }
+
+        span.registryminibuttontext {
+        	font-size: 10px;
+        	border-color: #000000;
+        }
+
+        span.registrybuttonuninstalled {
+        	color: #000000;
+        	background: #ffffdd;
+        }
+
+        span.registrybuttoninstalled {
+        	color: #000000;
+        	background: #ffffff;
+        	pointer-events: none;
+        }
+
+        span.registrybuttonbuiltin {
+        	color: #888888;
+        	background: #ffffff;
+        	pointer-events: none;
+        }
+
+        span.registrybuttonupdate {
+        	color: #000000;
+        	background: #aaddff;
+        }
+
+        span.registrybuttonrevert {
+        	color: #000000;
+        	background: #ddaaff;
+        }
+
+        span.registrybuttonrevealer {
+        	color: #ffffff;
+        	background: #444444;
+        }
+
+        /* Registry index section headings: */
+
+        span.registrysectionname {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 16px;
+        	line-height: 18px;
+        }
+        span.registrysubsectionname {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 14px;
+        	line-height: 16px;
+        }
+
+        /* These are for the "mark" for a section, usually a section-symbol and number */
+
+        span.registrysectionmark {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 16px;
+        	line-height: 18px;
+        	color: #666;
+        }
+        span.registrysubsectionmark {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 14px;
+        	line-height: 16px;
+        	color: #666;
+        }
+
+        /* Text of an item listed in a registry: */
+
+        span.registryitemtext {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 12px;
+        	line-height: 16px;
+        }
+
+        /* And how the links in a registry index page behave: */
+
+        a.registrysilentlink {
+        	text-decoration: none;
+        	color: #000;
+        }
+        a.registrybuttonlink {
+        	text-decoration: none;
+        }
+        a.registrycontentslink:link {
+        	text-decoration: none;
+        	color: #202020;
+        }
+        a.registrycontentslink:visited {
+        	text-decoration: none;
+        	color: #202020;
+        }
+        a.registrycontentslink:hover {
+        	text-decoration: none;
+        	color: #D00000;
+        }
+        a.registrycontentslink:active {
+        	text-decoration: none;
+        	color: #D00000;
+        }
+
+        -->
+    </style>
+    <style type="text/css">
+        <!--
+        /* (1) General layout material */
+
+        *, *:before, *:after {
+        	-moz-box-sizing: border-box;
+        	-webkit-box-sizing: border-box;
+        	box-sizing: border-box;
+        }
+        .headingpanellayout {
+        	position: relative;
+        	height: 56px;
+        	padding: 0px;
+        	white-space:nowrap;
+        }
+        .headingpanellayoutdeeper {
+        	position: relative;
+        	height: 117px;
+        	padding: 0px;
+        	white-space:nowrap;
+        }
+        .headingtext {
+        	position: absolute;
+        	top: -4px;
+        	left: -1px;
+        	width: 100%;
+        	padding: 14px 10px 0px 10px;
+        }
+        .headingrubric {
+        	position: absolute;
+        	top: 36px;
+        	width: 100%;
+        	padding: 0px 10px 0px 10px;
+        }
+        h3.tighter {
+        	margin-top: 0px;
+        }
+        p.hang {
+        	padding-left: 25px;
+        	text-indent: -25px;
+        	margin-top: 0px;
+        	margin-bottom: 0px;
+        }
+        p.in1 {
+        	padding-left: 0px;
+        }
+        p.tightin1 {
+        	padding-left: 0px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin1 {
+        	padding-left: 0px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin1 {
+        	padding-left: 50px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in2 {
+        	padding-left: 25px;
+        }
+        p.tightin2 {
+        	padding-left: 25px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin2 {
+        	padding-left: 25px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin2 {
+        	padding-left: 75px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in3 {
+        	padding-left: 50px;
+        }
+        p.tightin3 {
+        	padding-left: 50px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin3 {
+        	padding-left: 50px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin3 {
+        	padding-left: 100px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in4 {
+        	padding-left: 75px;
+        }
+        p.tightin4 {
+        	padding-left: 75px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin4 {
+        	padding-left: 75px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin4 {
+        	padding-left: 125px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in5 {
+        	padding-left: 100px;
+        }
+        p.tightin5 {
+        	padding-left: 100px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin5 {
+        	padding-left: 100px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin5 {
+        	padding-left: 150px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in6 {
+        	padding-left: 125px;
+        }
+        p.tightin6 {
+        	padding-left: 125px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin6 {
+        	padding-left: 125px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin6 {
+        	padding-left: 175px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in7 {
+        	padding-left: 150px;
+        }
+        p.tightin7 {
+        	padding-left: 150px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin7 {
+        	padding-left: 150px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin7 {
+        	padding-left: 200px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in8 {
+        	padding-left: 175px;
+        }
+        p.tightin8 {
+        	padding-left: 175px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin8 {
+        	padding-left: 175px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin8 {
+        	padding-left: 225px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in9 {
+        	padding-left: 200px;
+        }
+        p.tightin9 {
+        	padding-left: 200px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin9 {
+        	padding-left: 200px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin9 {
+        	padding-left: 250px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+
+        /* (2) Index page layout material */
+
+        /* The periodic table display has "sidebars", usually grey and taller than they
+        are wide; they contain no text. */
+
+        div.periodictablesidebar {
+        	height: 56px;
+        	width: 16px;
+        }
+        .periodictablesidebar a:link { text-decoration: none; }
+        .periodictablesidebar a:visited { text-decoration: none; }
+        .periodictablesidebar a:active { text-decoration: none; }
+
+        /* The "element boxes" are the cells appearing in the periodic-table display
+        on the welcome page of the index: */
+
+        .elementbox {
+        	position: relative;
+        	height: 56px;
+        	width: 56px;
+        	padding: 0px;
+        }
+
+        .elementbox a:link { text-decoration: none; }
+        .elementbox a:visited { text-decoration: none; }
+        .elementbox a:active { text-decoration: none; }
+        .elementbox a:hover { text-decoration: none; }
+        .elementbox:hover {
+        	opacity: 0.6;
+        }
+
+        /* The "small element boxes" look like those, but are smaller, and used on
+        the headings of the content which those original boxes link to: */
+
+        .smallelementbox {
+        	position: relative;
+        	height: 40px;
+        	width: 40px;
+        	padding: 0px;
+        }
+
+        .smallelementbox a:link { text-decoration: none; }
+        .smallelementbox a:visited { text-decoration: none; }
+        .smallelementbox a:active { text-decoration: none; }
+        .smallelementbox a:hover { text-decoration: none; }
+        .smallelementbox:hover {
+        	opacity: 0.6;
+        }
+
+        /* This is a class for the links formed by the element boxes: */
+
+        a.elementlink {
+        	position: absolute;
+        	top: -4px;
+        	left: -1px;
+        	width: 100%;
+        	padding: 14px 0px 14px 1px;
+        	text-align: center;
+        }
+
+        /* Similarly for the "atomic number" - a single digit - in the top left corner
+        of these boxes: */
+
+        div.elementnumber {
+        	position: absolute;
+        	top: 1px;
+        	left: 3px;
+        	text-align: left;
+        }
+
+        /* For the text of the element title, to the right of the element box: */
+
+        div.elementtitle {
+        	position: absolute;
+        	top: 35px;
+        	width: 100%;
+        	text-align: center;
+        }
+
+        /* Used for the book-contents-page style leaders on the Contents element of
+           the index: */
+
+        ul.leaders {
+        	padding: 0;
+        	margin-top: 1px;
+        	margin-bottom: 0;
+        	overflow-x: hidden;
+        	list-style: none}
+        ul.leaders li.leaded:before {
+        	float: left;
+        	width: 0;
+        	white-space: nowrap;
+        	content:
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "}
+        ul.leaders li.leaded span:first-child {
+        	padding-right: 0.33em;
+        }
+        ul.leaders li.leaded span + span {
+        	float: right;
+        	padding-left: 0.33em;
+        }
+        li.indent1 span:first-child {
+        	padding-left: 25px;
+        }
+        li.indent2 span:first-child {
+        	padding-left: 50px;
+        }
+        li.indent3 span:first-child {
+        	padding-left: 75px;
+        }
+        li.indent4 span:first-child {
+        	padding-left: 100px;
+        }
+        li.indent5 span:first-child {
+        	padding-left: 125px;
+        }
+        li.indent6 span:first-child {
+        	padding-left: 150px;
+        }
+        li.indent7 span:first-child {
+        	padding-left: 175px;
+        }
+        li.indent8 span:first-child {
+        	padding-left: 200px;
+        }
+        li.indent9 span:first-child {
+        	padding-left: 225px;
+        }
+
+        li.unleaded:before {
+        	content: "";
+        }
+
+        /* On Registry index pages (such as the Public Library), these are used for
+        download buttons and the like: */
+
+        span.registrybuttons {
+        	height: 20px;
+        	padding: 2px 8px 2px 8px;
+        	margin: 2px;
+        	border:1px solid;
+        	border-radius: 5px;
+        }
+
+        span.registryminibuttons {
+        	height: 14px;
+        	padding: 2px 5px 2px 5px;
+        	margin: 2px;
+        	border:1px solid;
+        	border-radius: 4px;
+        }
+
+        /* Used to hide or display sections in the Registry pages: */
+
+        div.registrysectionitemsopen {
+        	display: block;
+        }
+
+        div.registrysectionitemsclosed {
+        	display: none;
+        }
+
+        /* Hanging indentation for Registry item paragraphs: */
+
+        p.registryitem {
+        	padding-left: 80px;
+        	text-indent: -40px;
+        }
+
+        p.registryaddition {
+        	padding-left: 40px;
+        	text-indent: -40px;
+        }
+
+        -->
+    </style>
+    <script type="text/javascript">
+        function project() {
+            return window.Project;
+        }
+        function showExtra(id, imid) {
+        	if (document.getElementById(id).style.display == 'block') {
+        		document.getElementById(id).style.display = 'none';
+        		document.getElementById(imid).src = 'inform:/extra.png';
+        	} else {
+        		document.getElementById(id).style.display = 'block';
+        		document.getElementById(imid).src = 'inform:/extraclose.png';
+        	}
+        }
+        function openExtra(id, imid) {
+        	document.getElementById(id).style.display = 'block';
+        	document.getElementById(imid).src = 'inform:/extraclose.png';
+        }
+        function closeExtra(id, imid) {
+        	document.getElementById(id).style.display = 'none';
+        	document.getElementById(imid).src = 'inform:/extra.png';
+        }
+        function pasteCode(code) {
+            var myProject = project();
+
+            myProject.selectView('source');
+            myProject.pasteCode(code);
+        }
+
+    </script>
+</head>
+<body>
+    <!--CONTENT BEGINS-->
+    <table CELLPADDING=0 CELLSPACING=0 width="100%" bgcolor="#000000"><tr><TD width=38px height=26px align="center" valign="center"><a href="inform://Extensions/Extensions.html" border=0><img border=0 src="inform:/doc_images/Hookindex.png" border=0></a></td><TD width=38px height=26px align="center" valign="center"></td><td halign="left" valign="center" CELLPADDING=0 CELLSPACING=0><font color="#FFFFFF" size=2>Extensions</font></a></td><TD width=56px height=26px align="right" valign="center"><a href="inform:/index.html" border=0><img border=0 src="inform:/doc_images/Hookup.png" border=0></a></td></tr></table>
+
+    <p><a href="javascript:pasteCode('Include Gender Options by Nathanael Nerode.[=0x000A=][=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a>&nbsp;<b>Gender Options<span class="extensionindexentry"> by </span>Nathanael Nerode</b></p>
+    <p><span class="smaller">Version 3.0.210331</span></p>
+    <p>More broad-minded English language gender/number model where male, female, and neuter are three separate true-false properties.  Allows for objects to respond to any specified combination of HE, SHE, IT, and THEY.  As fast as the Standard Rules.  Tested with Inform 6M62.</p>
+    <p></p>
+    </p>
+
+    <p> Section 1 - Summary</p>
+
+    <p> Gender Options makes male, female, and neuter into independent on-off properties, each of which determines respectively whether &quot;HE&quot;, &quot;SHE&quot;, or &quot;IT&quot; can be used to refer to the thing. It makes &quot;THEY&quot; refer to any plural-named or ambiguously plural thing. It also allows some authorial choices over which pronoun to print for things with multiple valid genders or numbers. It should be just as fast and efficient as the standard rules.</p>
+
+    <p> I have a taste for writing stuff with odd gender behavior, and so I decided to do this in a general-purpose manner. There are several purposes most of which are shown in the City Park example.</p>
+
+    <p> Section 2 - Gender/Number Model and Pronouns</p>
+
+    <p> In the new model, male, female, and neuter are each separate properties, so that a thing is &quot;male&quot; or &quot;not male&quot;, &quot;female&quot; or &quot;not female&quot;, and &quot;neuter&quot; or &quot;not neuter&quot;. This allows for maximum flexibility short of adding new pronouns (which is much more complicated and probably slower).</p>
+
+    <p> The gender is primarily for pronoun purposes. When the player types &quot;HE&quot;, anything male will match. When the player types, &quot;SHE&quot;, anything female will match. When the player types &quot;IT&quot;, anything neuter will match. Something which is none of the three will never match any singular pronoun, which is not usually desirable, but may occasionally be useful (e.g. &quot;The Exalted One shall not be referred to by pronouns!&quot;).</p>
+
+    <p> If you define a &quot;man&quot; or &quot;men&quot;, it will by default be male, and not female or neuter. If you define a &quot;woman&quot; or &quot;women&quot;, it will by default be female, and not male or neuter. If you define a &quot;person&quot; or &quot;people&quot;, it will by default be male and female, but not neuter. This makes more sense than it might at first appear; a person of unknown gender can be referred to as &quot;he&quot; or &quot;she&quot; by the player. If you define a &quot;thing&quot; or an &quot;animal&quot;, it will by default be neuter, and not male or female.</p>
+
+    <p> All of these can be overrriden and changed by specifying things like:<blockquote><span class="indexdullblue"> Tracy is not male.<br>
+     Tracy is not female.<br>
+     Tracy is neuter.</span></blockquote>
+
+    <p> The parser will update and recognize the appropriate pronouns when used by the player. So a character who is both male and female can be referred to as &quot;he&quot; or &quot;she&quot; by the player, a ship can be referred to as &quot;it&quot; or &quot;she&quot;, etc.</p>
+
+    <p> A similarly flexible model is implemented for number. Any object which is plural-named or ambiguously plural can be referred to as &quot;THEY&quot;. Any object which is ambiguously plural can additionally be referred to using the singular pronouns -- whichever ones apply according to its gender.</p>
+
+    <p> So an amibguously plural, male, female, neuter thing can be referred to by any of the pronouns THEY, HE, SHE, IT. Even if it's singular-named.<blockquote><span class="indexdullblue"> The jumble is an ambiguously plural, male, female, neuter thing.<br>
+     The description of the jumble is &quot;Things and people, all in a jumble! [They] [are] quite something.&quot;</span></blockquote>
+
+    <p> The concept of &quot;ambiguously plural&quot; items is present in the Standard Rules but is not fully implemented. (A singular-named ambiguously plural item will not match &quot;they&quot; in the Standard Rules. It will match with Gender Options active.)</p>
+
+    <p> Section 3 - Advice on the gender model</p>
+
+    <p> This is designed to be a plug-in extension which requires no change in existing code and keeps the same behavior if you have been using &quot;man&quot;, &quot;woman&quot;, or &quot;animal&quot;. If you have been using &quot;person&quot; to refer to generic non-gendered people and using &quot;ambiguously plural&quot; appropriately, this should simply improve the pronoun behavior with no code changes necessary. But there may be some changes required if you have been using explicit gender adjectives.</p>
+
+    <p> This is because now male, female, and neuter are entirely separate traits; setting one does not set another. Consider this code:<blockquote><span class="indexdullblue"> Tracy is a person.<br>
+     Tracy is male.</span></blockquote>
+
+    <p> Because the default for &quot;person&quot; is both male and female, responding to &quot;him&quot; and &quot;her&quot;, this makes Tracy both male and female; the &quot;male&quot; adjective does nothing. If you want to make Tracy a man (male and not female), you would have to do this:<blockquote><span class="indexdullblue"> Now Tracy is not female.</span></blockquote>
+
+    <p> Now suppose you want to change Tracy from a man to a woman (female and not male). You'll have to make two statements:<blockquote><span class="indexdullblue"> Now Tracy is female.<br>
+     Now Tracy is not male.</span></blockquote>
+
+    <p> Now you want to make Tracy respond to &quot;it&quot;.<blockquote><span class="indexdullblue"> Now Tracy is neuter.</span></blockquote>
+
+    <p> Tracy is still female. If you want Tracy to stop responding to &quot;her&quot;:<blockquote><span class="indexdullblue"> Now Tracey is not female.</span></blockquote>
+
+    <p> Similarly, if you make an animal female, the player can refer to the animal as both &quot;it&quot; and &quot;her&quot; (unless you also make the animal not neuter):<blockquote><span class="indexdullblue"> Peppy is a female animal.</span></blockquote>
+
+    <p> This is usually desirable.</p>
+
+    <p> Section 4 - Gender in output messages</p>
+
+    <p> Gender and number is used for a second purpose other than recognizing pronouns in the English Language extension, and we must fix this up too. It shows up in message substitutions such as. For this, each object must have a single preferred grammatical gender, even when it has multiple genders which match player input.</p>
+
+    <p> We define two variables for this purpose: &quot;prefer neuter gender&quot; and &quot;default animate gender&quot;. These are variables so that they can be changed at runtime (for effect).</p>
+
+    <p><blockquote><span class="indexdullblue"> Prefer neuter gender is a truth state which varies.<br>
+     Prefer neuter gender is usually true. If you have a dog or a ship which can be referred to as &quot;it&quot; or &quot;her&quot;, this will print &quot;it&quot;. If you would rather have &quot;she&quot; printed, use this:<br>
+     Prefer neuter gender is false.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> The preferred animate gender is a grammatical gender which varies.<br>
+     The preferred animate gender is usually the masculine gender. If you have an androgynous person (both male and female, but not neuter), this will print &quot;him&quot;. If you would rather have &quot;her&quot; printed, use this:<br>
+     The preferred animate gender is the feminine gender.</span></blockquote>
+
+    <p> Prefer neuter gender is checked first; if it is false, then the preferred animate gender is checked. An object will never be printed with a pronoun which isn't valid for it, unless it is not male, not female, *and* not neuter -- not responding to any pronouns from the player -- in which case &quot;it&quot; will be used.</p>
+
+    <p> Note that these use values of a different kind from the genders of objects for parsing purposes; the phrase &quot;masculine gender&quot;, &quot;feminine gender&quot;, and &quot;neuter gender&quot; must be specifically used.</p>
+
+    <p> This is all implemented with the following decide phrase. If you don't like these rules and want to do something even more complicated (perhaps a per-object choice), override the decide phrase.</p>
+
+    <p><blockquote><span class="indexdullblue"> To decide which grammatical gender is the printing gender for (o - an object):</span></blockquote>
+
+    <p> Section 5 - Number in output messages</p>
+
+    <p> Ambiguously plural items (like &quot;pair of shoes&quot;) will be treated as plural or singular by output messages depending on whether they are &quot;plural-named&quot; or &quot;singular-named&quot; This is standard behavior. This does not affect the ability to refer to them by pronouns (you can always use both &quot;they&quot; and the singular pronouns for their gender).</p>
+
+    <p> The plural-named property is also used for the items like &quot;the trees&quot; which are always plural. This is standard behavior.</p>
+
+    <p> Please note that for a thing which is ambiguously plural but singular-named, such as &quot;pair of dice&quot;, the substitution &quot;[they're]&quot; will produce &quot;that's&quot;, while &quot;[they]['re]&quot; will produce &quot;it's&quot;. Choose wisely!</p>
+
+    <p> Section 6 - Printing differences from standard behavior</p>
+
+    <p> For reference, this is the procedure currently used in the Standard Rules as of the time of writing:</p>
+
+    <p><blockquote><span class="indexdullblue"> For non-people:<br>
+     If person is plural, the plural form (&quot;they&quot;) is used.<br>
+     Otherwise, neuter form (&quot;it&quot;) is used.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> For people (including animals)<br>
+     If person is the player, &quot;you&quot; is used.<br>
+     If person is plural, plural form (&quot;they&quot;) is used.<br>
+     Otherwise, if person is female, female form (&quot;her&quot;) is used.<br>
+     Otherwise, if person is neuter, neuter form (&quot;it&quot;) is used.<br>
+     Otherwise, male form (&quot;him&quot;) is used.</span></blockquote>
+
+    <p> In contrast, this is the procedure in Emily Short's Plurality:</p>
+
+    <p><blockquote><span class="indexdullblue"> If the thing/person is plural, plural form (&quot;they&quot;) is used.<br>
+     Otherwise, if the thing/person is the player, &quot;you&quot; is used.<br>
+     Otherwise, if the thing/person is neuter, neuter form (&quot;it&quot;) is used.<br>
+     Otherwise, if the thing/person is male, male form (&quot;he&quot;) is used.<br>
+     Otherwise, if the thing/person is female, female form (&quot;she&quot;) is used.</span></blockquote>
+
+    <p> Changing the gender model causes these to be two different procedures, which is why I wrote an entirely new and more versatile procedure.</p>
+
+    <p> Section 7 - Interaction with Other Extensions</p>
+
+    <p> Gender Options replaces parts of Standard Rules by Graham Nelson and should be included after it. Gender Options replaces most of English Language by Graham Nelson and should be included after it.</p>
+
+    <p> Gender Options is compatible with Neutral Standard Responses by Nathanael Nerode. Gender Options is incompatible with Neutral Library Messages by Aaron Reed, which predates the &quot;reponses&quot; system. Neutral Standard Responses is intended as a replacement.</p>
+
+    <p> Gender Options includes fixes for the gender handling in Original Parser by Ron Newcomb. However, Original Parser is broken on the current version of Inform, so don't use it. As a result this is untested and Gender Options probably doesn't work as well with Original Parser as it does with the standard parser.</p>
+
+    <p> Gender Options is compatible with Plurality by Emily Short in that it is safe to include both. But they will probably not interact well due to conflicting gender assumptions. Plurality is largely obsolete due to incorporation of most of its features in the Standard Rules as of Inform 6M62; please use the Standard Rules features in preference to the features in Plurality.</p>
+
+    <p> Gender Options is incompatible with Second Gender by Felix Larsson. The two do very similar things, but IMO Gender Options does so in a cleaner and more comprehensive fashion. It was developed completely independently.</p>
+
+    <p> Section 8 - Changelog</p>
+
+    <p> Version 3/210331 - Fix example / testsuite. Version 3/170818 - Small documentation and comment tweaks. Version 3/170816 - Replaced &quot;always&quot; with &quot;usually&quot; for man and woman. Eliminated implications which didn't work. Mboved &quot;person is usually not neuter&quot; into correct section. Removed androgyne kind and collective noun property for efficiency (they were syntactic sugar). Revised documentation, comments, and City Park exmaple. Added &quot;It for All&quot; example. Version 2/170815 - First public release for gamma testing.</p>
+
+    <p> Example: * City Park</p>
+
+    <p> This consists of a room with items featuring most of the combinations of gender and number options which seemed plausible. Take special note of the toy ship (you can call it &quot;she&quot;). This is also the test suite for the extension.</p>
+
+    <p><blockquote><span class="indexdullblue"><a href="javascript:pasteCode('[=0x0022=]Everyone Comes To City Park[=0x0022=] by Nathanael Nerode[=0x000A=][=0x000A=]The release number is 3.[=0x000A=]Include Gender Options by Nathanael Nerode.[=0x000A=]City Park is a room.[=0x000A=]The description of City Park is [=0x0022=]Everyone comes to City Park![=0x0022=][=0x000A=][=0x000A=]The shadow is a person in the park. [=0x0022=]Someone skulks in the shadow.[=0x0022=][=0x000A=]Understand [=0x0022=]skulker[=0x0022=] as the shadow.[=0x000A=]The description of the shadow is [=0x0022=][We] [can[=0x0027=]t get] a good look at [regarding the shadow][them].[=0x0022=][=0x000A=]The shadow is neuter.[=0x000A=][=0x000A=]John is a man in the park.[=0x000A=]The description of John is [=0x0022=]John is a dapper man.[=0x0022=][=0x000A=]Understand [=0x0022=]dapper man[=0x0022=] as John.[=0x000A=][=0x000A=]Jane is a woman in the park.[=0x000A=]The description of Jane is [=0x0022=]Jane is an elegant woman.[=0x0022=][=0x000A=]Understand [=0x0022=]elegant woman[=0x0022=] as Jane.[=0x000A=][=0x000A=]A deity is a person in the park.[=0x000A=]Understand [=0x0022=]Hermaphroditus[=0x0022=] as deity.[=0x000A=]Description of deity is [=0x0022=]A deity with both male and female characteristics.[=0x0022=][=0x000A=]Deity is male.[=0x000A=]Deity is female.[=0x000A=][=0x000A=]A couple of girls are women in the park.[=0x000A=]Description of couple of girls is [=0x0022=]Two girls who clutch each other inseparably.[=0x0022=][=0x000A=]A couple of girls is ambiguously plural.[=0x000A=]A couple of girls is plural-named.[=0x000A=]A couple of girls has indefinite article [=0x0022=]a[=0x0022=].[=0x000A=][=0x000A=]A bunch of boys are men in the park.[=0x000A=]Description of bunch of boys is [=0x0022=]A bunch of boys wander around.[=0x0022=][=0x000A=]A bunch of boys is ambiguously plural.[=0x000A=]A bunch of boys is plural-named.[=0x000A=]A bunch of boys has indefinite article [=0x0022=]a[=0x0022=].[=0x000A=][=0x000A=]Some sunbathers are people in the park.[=0x000A=]Description of the sunbathers is [=0x0022=]A mixed-gender group is out bathing in the sun.[=0x0022=][=0x000A=]Sunbathers are male.[=0x000A=]Sunbathers are female.[=0x000A=]Sunbathers are ambiguously plural.[=0x000A=]Sunbathers are plural-named.[=0x000A=]Sunbathers are not proper-named.[=0x000A=]Sunbathers have indefinite article [=0x0022=]a few[=0x0022=].[=0x000A=]Understand [=0x0022=]few sunbathers[=0x0022=] as sunbathers.[=0x000A=]Understand [=0x0022=]group[=0x0022=] as sunbathers.[=0x000A=]Understand [=0x0022=]mixed-gender group[=0x0022=] as sunbathers.[=0x000A=][=0x000A=]A deer-animal is a kind of animal.[=0x000A=]Deer-animal usually have printed plural name [=0x0022=]deer[=0x0022=].[=0x000A=][=0x000A=]A group of does are deer-animal in the park.[=0x000A=]Description of the does is [=0x0022=]A group of does are grazing in the park.[=0x0022=][=0x000A=]Does are female.[=0x000A=]Does are ambiguously plural.[=0x000A=]Does are plural-named.[=0x000A=]Does have indefinite article [=0x0022=]a[=0x0022=].[=0x000A=]Understand [=0x0022=]deer[=0x0022=] as does.[=0x000A=][=0x000A=]A buck is an deer-animal in the park.[=0x000A=]Description of the buck is [=0x0022=]The buck is watching the does.[=0x0022=][=0x000A=]Buck is male.[=0x000A=]Understand [=0x0022=]deer[=0x0022=] as buck.[=0x000A=][=0x000A=]A cute puppy is an animal in the park.[=0x000A=]Description of the puppy is [=0x0022=]There[=0x0027=]s a cute puppy running around.[=0x0022=][=0x000A=]Puppy is female.[=0x000A=]Puppy is neuter.[=0x000A=][=0x000A=]A plastic banana is a thing in the park.[=0x000A=]Description of banana is [=0x0022=]It[=0x0027=]s a plastic banana.  I don[=0x0027=]t know why it exists, either.[=0x0022=][=0x000A=][=0x000A=]A pair of dice is a thing in the park. [=0x0022=]A pair of dice lie abandoned on the ground.[=0x0022=][=0x000A=]Description of pair of dice is [=0x0022=]A pair of casino-style dice.[=0x0022=][=0x000A=]A pair of dice is ambiguously plural.[=0x000A=]A pair of dice is not plural-named.[=0x000A=][=0x000A=]A toy ship is a thing in the park. [=0x0022=]A toy ship lies abandoned to one side.[=0x0022=][=0x000A=]Description of ship is [=0x0022=]A toy ship called the [=0x0027=]Santa Maria[=0x0027=].[=0x0022=][=0x000A=]Ship is female.[=0x000A=]Understand [=0x0022=]Santa Maria[=0x0022=] as ship.[=0x000A=][=0x000A=]A large cardboard box is a container in the park.[=0x000A=]Description of cardboard box is [=0x0022=]A large cardboard box is lying out in the sun.[=0x0022=][=0x000A=]Cardboard box is enterable.[=0x000A=]Cardboard box is openable.[=0x000A=][=0x000A=]The jumble is an ambiguously plural, male, female, neuter thing in the park.[=0x000A=]The description of the jumble is [=0x0022=]Things and people, all in a jumble! [They] [are] quite something.[=0x0022=].[=0x000A=][=0x000A=]The Unpronounable One is a thing in the park.[=0x000A=]The description of the Unpronounable One is [=0x0022=][We] [may] not refer to the Unpronounable One by pronouns.[=0x0022=][=0x000A=]The Unpronounable One is not neuter.[=0x000A=][=0x000A=]Analyzing is an action applying to one thing.[=0x000A=]Understand [=0x0022=]gender [something][=0x0022=] as analyzing.[=0x000A=]Carry out analyzing:[=0x000A=][=0x0009=]say [=0x0022=][A noun] [are] here; [regarding the noun][they][[=0x0027=]re] here.[=0x0022=][=0x000A=][=0x000A=]setting female default is an action applying to nothing.[=0x000A=]Understand [=0x0022=]matriarchy[=0x0022=] as setting female default.[=0x000A=]Carry out setting female default:[=0x000A=][=0x0009=]now preferred animate gender is feminine gender.[=0x000A=][=0x000A=]setting male default is an action applying to nothing.[=0x000A=]Understand [=0x0022=]patriarchy[=0x0022=] as setting male default.[=0x000A=]Carry out setting male default:[=0x000A=][=0x0009=]now preferred animate gender is masculine gender.[=0x000A=][=0x000A=]setting gendered default is an action applying to nothing.[=0x000A=]Understand [=0x0022=]anthropomorphize[=0x0022=] as setting gendered default.[=0x000A=]Carry out setting gendered default:[=0x000A=][=0x0009=]now prefer neuter gender is false.[=0x000A=][=0x000A=]setting neuter default is an action applying to nothing.[=0x000A=]Understand [=0x0022=]objectify[=0x0022=] as setting neuter default.[=0x000A=]Carry out setting neuter default:[=0x000A=][=0x0009=]now prefer neuter gender is true.[=0x000A=][=0x000A=]test pronouns with [=0x0022=]pronouns / x john / pronouns / x jane / pronouns / x deity / pronouns / x girls / pronouns / x boys / pronouns / x sunbathers / pronouns / x does / pronouns / x buck  / pronouns  / x dice / pronouns / x ship / pronouns / x unpronounable one / pronouns / x jumble / pronouns[=0x0022=] in City Park.[=0x000A=][=0x000A=]test gender with [=0x0022=]anthropomorphize / gender buck / gender puppy / gender shadow / objectify / gender buck / gender puppy / gender shadow / anthropomorphize / matriarchy / gender deity  / gender shadow  / x shadow / patriarchy / gender deity / gender shadow / x shadow[=0x0022=] in City Park.[=0x000A=][=0x000A=]test number with [=0x0022=]gender girls / gender boys / gender sunbathers / gender dice[=0x0022=] in City Park.[=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a> &quot;Everyone Comes To City Park&quot; by Nathanael Nerode</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> The release number is 3.<br>
+     Include Gender Options by Nathanael Nerode.<br>
+     City Park is a room.<br>
+     The description of City Park is &quot;Everyone comes to City Park!&quot;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> The shadow is a person in the park. &quot;Someone skulks in the shadow.&quot;<br>
+     Understand &quot;skulker&quot; as the shadow.<br>
+     The description of the shadow is &quot;[We] [can't get] a good look at [regarding the shadow][them].&quot;<br>
+     The shadow is neuter.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> John is a man in the park.<br>
+     The description of John is &quot;John is a dapper man.&quot;<br>
+     Understand &quot;dapper man&quot; as John.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Jane is a woman in the park.<br>
+     The description of Jane is &quot;Jane is an elegant woman.&quot;<br>
+     Understand &quot;elegant woman&quot; as Jane.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> A deity is a person in the park.<br>
+     Understand &quot;Hermaphroditus&quot; as deity.<br>
+     Description of deity is &quot;A deity with both male and female characteristics.&quot;<br>
+     Deity is male.<br>
+     Deity is female.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> A couple of girls are women in the park.<br>
+     Description of couple of girls is &quot;Two girls who clutch each other inseparably.&quot;<br>
+     A couple of girls is ambiguously plural.<br>
+     A couple of girls is plural-named.<br>
+     A couple of girls has indefinite article &quot;a&quot;.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> A bunch of boys are men in the park.<br>
+     Description of bunch of boys is &quot;A bunch of boys wander around.&quot;<br>
+     A bunch of boys is ambiguously plural.<br>
+     A bunch of boys is plural-named.<br>
+     A bunch of boys has indefinite article &quot;a&quot;.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Some sunbathers are people in the park.<br>
+     Description of the sunbathers is &quot;A mixed-gender group is out bathing in the sun.&quot;<br>
+     Sunbathers are male.<br>
+     Sunbathers are female.<br>
+     Sunbathers are ambiguously plural.<br>
+     Sunbathers are plural-named.<br>
+     Sunbathers are not proper-named.<br>
+     Sunbathers have indefinite article &quot;a few&quot;.<br>
+     Understand &quot;few sunbathers&quot; as sunbathers.<br>
+     Understand &quot;group&quot; as sunbathers.<br>
+     Understand &quot;mixed-gender group&quot; as sunbathers.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> A deer-animal is a kind of animal.<br>
+     Deer-animal usually have printed plural name &quot;deer&quot;.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> A group of does are deer-animal in the park.<br>
+     Description of the does is &quot;A group of does are grazing in the park.&quot;<br>
+     Does are female.<br>
+     Does are ambiguously plural.<br>
+     Does are plural-named.<br>
+     Does have indefinite article &quot;a&quot;.<br>
+     Understand &quot;deer&quot; as does.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> A buck is an deer-animal in the park.<br>
+     Description of the buck is &quot;The buck is watching the does.&quot;<br>
+     Buck is male.<br>
+     Understand &quot;deer&quot; as buck.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> A cute puppy is an animal in the park.<br>
+     Description of the puppy is &quot;There's a cute puppy running around.&quot;<br>
+     Puppy is female.<br>
+     Puppy is neuter.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> A plastic banana is a thing in the park.<br>
+     Description of banana is &quot;It's a plastic banana.  I don't know why it exists, either.&quot;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> A pair of dice is a thing in the park. &quot;A pair of dice lie abandoned on the ground.&quot;<br>
+     Description of pair of dice is &quot;A pair of casino-style dice.&quot;<br>
+     A pair of dice is ambiguously plural.<br>
+     A pair of dice is not plural-named.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> A toy ship is a thing in the park. &quot;A toy ship lies abandoned to one side.&quot;<br>
+     Description of ship is &quot;A toy ship called the 'Santa Maria'.&quot;<br>
+     Ship is female.<br>
+     Understand &quot;Santa Maria&quot; as ship.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> A large cardboard box is a container in the park.<br>
+     Description of cardboard box is &quot;A large cardboard box is lying out in the sun.&quot;<br>
+     Cardboard box is enterable.<br>
+     Cardboard box is openable.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> The jumble is an ambiguously plural, male, female, neuter thing in the park.<br>
+     The description of the jumble is &quot;Things and people, all in a jumble! [They] [are] quite something.&quot;.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> The Unpronounable One is a thing in the park.<br>
+     The description of the Unpronounable One is &quot;[We] [may] not refer to the Unpronounable One by pronouns.&quot;<br>
+     The Unpronounable One is not neuter.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Analyzing is an action applying to one thing.<br>
+     Understand &quot;gender [something]&quot; as analyzing.<br>
+     Carry out analyzing:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; say &quot;[A noun] [are] here; [regarding the noun][they]['re] here.&quot;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> setting female default is an action applying to nothing.<br>
+     Understand &quot;matriarchy&quot; as setting female default.<br>
+     Carry out setting female default:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; now preferred animate gender is feminine gender.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> setting male default is an action applying to nothing.<br>
+     Understand &quot;patriarchy&quot; as setting male default.<br>
+     Carry out setting male default:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; now preferred animate gender is masculine gender.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> setting gendered default is an action applying to nothing.<br>
+     Understand &quot;anthropomorphize&quot; as setting gendered default.<br>
+     Carry out setting gendered default:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; now prefer neuter gender is false.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> setting neuter default is an action applying to nothing.<br>
+     Understand &quot;objectify&quot; as setting neuter default.<br>
+     Carry out setting neuter default:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; now prefer neuter gender is true.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> test pronouns with &quot;pronouns / x john / pronouns / x jane / pronouns / x deity / pronouns / x girls / pronouns / x boys / pronouns / x sunbathers / pronouns / x does / pronouns / x buck  / pronouns  / x dice / pronouns / x ship / pronouns / x unpronounable one / pronouns / x jumble / pronouns&quot; in City Park.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> test gender with &quot;anthropomorphize / gender buck / gender puppy / gender shadow / objectify / gender buck / gender puppy / gender shadow / anthropomorphize / matriarchy / gender deity  / gender shadow  / x shadow / patriarchy / gender deity / gender shadow / x shadow&quot; in City Park.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> test number with &quot;gender girls / gender boys / gender sunbathers / gender dice&quot; in City Park.</span></blockquote>
+
+    <p> Example: ** It for All</p>
+
+    <p> Some authors have requested that &quot;it&quot; apply to anything, plural or singular, of any gender, for the convenience of their players.</p>
+
+    <p><blockquote><span class="indexdullblue"> &quot;It for All&quot;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Include Gender Options by Nathanael Nerode.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> A person is neuter. A man is neuter. A woman is neuter.<br>
+     A plural-named thing is ambiguously plural.<br>
+     Prefer neuter gender is false.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Marching Grounds is a room. &quot;The place for marching!&quot;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> to march is a verb. to watch is a verb.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> The soldiers are plural-named men in Marching Grounds.<br>
+     The description of the soldiers is &quot;[Regarding the soldiers][They] [march] up and down.&quot;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> An observer is a improper-named woman in Marching Grounds.<br>
+     The description of the observer is &quot;[Regarding the observer][They] [watch] the soldiers.&quot;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> test pronouns with &quot;x soldiers / pronouns / x observer / pronouns&quot;.</span></blockquote>
+
+    <p></p>
+
+    <p>
+    <!--CONTENT ENDS-->
+</body>
+</html>

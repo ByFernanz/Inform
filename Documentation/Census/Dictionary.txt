@@ -1,0 +1,764 @@
+|Aaron Reed|Commonly Unimplemented|20230130204129/685:Mon 30 January 2023 20:41|indexing|
+|Aaron Reed|Dynamic Rooms|20230130204129/1854:Mon 30 January 2023 20:41|indexing|
+|Aaron Reed|Extended Grammar|20230130204129/258:Mon 30 January 2023 20:41|indexing|
+|Aaron Reed|Keyword Interface|20230130204129/2867:Mon 30 January 2023 20:41|indexing|
+|Aaron Reed|Numbered Disambiguation Choices|20230130204129/438:Mon 30 January 2023 20:41|indexing|
+|Aaron Reed|Poor Man's Mistype|20230130204129/258:Mon 30 January 2023 20:41|indexing|
+|Aaron Reed|Response Assistant|20230130204129/170:Mon 30 January 2023 20:41|indexing|
+|Aaron Reed|Small Kindnesses|20230130204129/391:Mon 30 January 2023 20:41|indexing|
+|Aaron Reed|Smarter Parser|20230130204129/6382:Mon 30 January 2023 20:41|indexing|
+|Alice Grove|Common Commands Sidebar|20230130204129/5086:Mon 30 January 2023 20:41|indexing|
+|Alice Grove|Simple Spelling|20230130204129/461:Mon 30 January 2023 20:41|indexing|
+|Andrew Owen|Secret Doors|20230130204129/383:Mon 30 January 2023 20:41|indexing|
+|Andrew Plotkin|Disappearing Doors|20230130204129/568:Mon 30 January 2023 20:41|indexing|
+|Andrew Plotkin|Optimized Epistemology|20230130204129/1485:Mon 30 January 2023 20:41|indexing|
+|Andrew Plotkin|Serial And Fix|20230130204129/0:Mon 30 January 2023 20:41|indexing|
+|Andrew Plotkin|Unified Glulx Input|20230130204129/7894:Mon 30 January 2023 20:41|indexing|
+|Andrew Schultz|In-Line Topical Hints|20230130204129/3186:Mon 30 January 2023 20:41|indexing|
+|Aw Freyr|Hybrid Choices|20230130204129/7846:Mon 30 January 2023 20:41|indexing|
+|B David Paulsen|Rapid Prototyping|20230130204129/543:Mon 30 January 2023 20:41|indexing|
+|Bart Massey|Basic Literacy|20230130204129/701:Mon 30 January 2023 20:41|indexing|
+|Brady Garvin|Object Kinds|20230130204129/473:Mon 30 January 2023 20:41|indexing|
+|Brady Garvin|Scopability|20230130204129/262:Mon 30 January 2023 20:41|indexing|
+|Brian Rushton|Clues And Conversation|20230130204129/3160:Mon 30 January 2023 20:41|indexing|
+|Chris Conley|Conversation Builder|20230130204129/2413:Mon 30 January 2023 20:41|indexing|
+|Chris Conley|Threaded Conversation|20230130204129/13297:Mon 30 January 2023 20:41|indexing|
+|Creative Commons|Configurable Creative Commons License|20230130204129/586:Mon 30 January 2023 20:41|indexing|
+|Daniel Gaskell|Volumetric Limiter|20230130204129/725:Mon 30 January 2023 20:41|indexing|
+|Daniel Stelzer|Alternate Lighting System|20230130204129/254:Mon 30 January 2023 20:41|indexing|
+|Daniel Stelzer|Boolean Variables|20230130204129/0:Mon 30 January 2023 20:41|indexing|
+|Daniel Stelzer|Cleared Events|20230130204129/83:Mon 30 January 2023 20:41|indexing|
+|Daniel Stelzer|Command Casing|20230130204129/0:Mon 30 January 2023 20:41|indexing|
+|Daniel Stelzer|Command Modification|20230130204129/111:Mon 30 January 2023 20:41|indexing|
+|Daniel Stelzer|Command Preloading|20230130204129/54:Mon 30 January 2023 20:41|indexing|
+|Daniel Stelzer|Conversation Touchability Fix|20230130204129/34:Mon 30 January 2023 20:41|indexing|
+|Daniel Stelzer|Debugging|20230130204129/0:Mon 30 January 2023 20:41|indexing|
+|Daniel Stelzer|Default Styles|20230130204129/0:Mon 30 January 2023 20:41|indexing|
+|Daniel Stelzer|Empty Command Handling|20230130204129/97:Mon 30 January 2023 20:41|indexing|
+|Daniel Stelzer|Formatting Capture|20230130204129/167:Mon 30 January 2023 20:41|indexing|
+|Daniel Stelzer|Glulx Text Styles|20230130204129/215:Mon 30 January 2023 20:41|indexing|
+|Daniel Stelzer|Helpful Functions|20230130204129/0:Mon 30 January 2023 20:41|indexing|
+|Daniel Stelzer|Hidden Prompt|20230130204129/93:Mon 30 January 2023 20:41|indexing|
+|Daniel Stelzer|Inline Hyperlinks|20230130204129/2800:Mon 30 January 2023 20:41|indexing|
+|Daniel Stelzer|Modified Timekeeping|20230130204129/123:Mon 30 January 2023 20:41|indexing|
+|Daniel Stelzer|Music|20230130204129/284:Mon 30 January 2023 20:41|indexing|
+|Daniel Stelzer|Output Silencing|20230130204129/0:Mon 30 January 2023 20:41|indexing|
+|Daniel Stelzer|Runtime Replacements|20230130204129/523:Mon 30 January 2023 20:41|indexing|
+|Daniel Stelzer|Subcommands|20230130204129/234:Mon 30 January 2023 20:41|indexing|
+|Daniel Stelzer|Third Noun|20230130204129/0:Mon 30 January 2023 20:41|indexing|
+|Daniel Stelzer|Typographical Conveniences|20230130204129/0:Mon 30 January 2023 20:41|indexing|
+|Dannii Willis|Alternative Startup Rules|20230130204129/0:Mon 30 January 2023 20:41|indexing|
+|Dannii Willis|Benchmarking|20230130204129/1100:Mon 30 January 2023 20:41|indexing|
+|Dannii Willis|Collections|20230130204129/801:Mon 30 January 2023 20:41|indexing|
+|Dannii Willis|Data Structures|20230130204129/1063:Mon 30 January 2023 20:41|indexing|
+|Dannii Willis|Glk Events|20230130204129/0:Mon 30 January 2023 20:41|indexing|
+|Dannii Willis|Glk Object Recovery|20230130204129/194:Mon 30 January 2023 20:41|indexing|
+|Dannii Willis|Glk Text Formatting|20230130204129/420:Mon 30 January 2023 20:41|indexing|
+|Dannii Willis|Glulx Definitions|20230130204129/431:Mon 30 January 2023 20:41|indexing|
+|Dannii Willis|Highscores|20230130204129/181:Mon 30 January 2023 20:41|indexing|
+|Dannii Willis|Infra Undo|20230130204129/370:Mon 30 January 2023 20:41|indexing|
+|Dannii Willis|Json|20230130204129/807:Mon 30 January 2023 20:41|indexing|
+|Dannii Willis|Menus|20230130204129/983:Mon 30 January 2023 20:41|indexing|
+|Dannii Willis|Startup Precomputation|20230130204129/281:Mon 30 January 2023 20:41|indexing|
+|Dannii Willis|Xorshift|20230130204129/294:Mon 30 January 2023 20:41|indexing|
+|Dave Robinson|Snippetage|20230130204129/972:Mon 30 January 2023 20:41|indexing|
+|David A Wheeler|Dice|20230130204129/375:Mon 30 January 2023 20:41|indexing|
+|David Corbett|Mobile Doors|20230130204129/528:Mon 30 January 2023 20:41|indexing|
+|David Cornelson|Basic Help|20230130204129/192:Mon 30 January 2023 20:41|indexing|
+|David Ratliff|Armed|20230130204129/1484:Mon 30 January 2023 20:41|indexing|
+|Edward Griffiths|Adventure Book|20230130204129/21203:Mon 30 January 2023 20:41|indexing|
+|Eliuk Blau|Glulx Boxed Quotation|20230130204129/129:Mon 30 January 2023 20:41|indexing|
+|Emily Short|Approaches|20230130204129/2868:Mon 30 January 2023 20:41|indexing|
+|Emily Short|Assorted Text Generation|20230130204129/1344:Mon 30 January 2023 20:41|indexing|
+|Emily Short|Automated Drawers|20230130204129/696:Mon 30 January 2023 20:41|indexing|
+|Emily Short|Basic Help Menu Sp|20230130204129/452:Mon 30 January 2023 20:41|indexing|
+|Emily Short|Basic Hyperlinks|20230130204129/525:Mon 30 January 2023 20:41|indexing|
+|Emily Short|Basic Screen Effects Sp|20230130204129/55:Mon 30 January 2023 20:41|indexing|
+|Emily Short|Computers|20230130204129/4607:Mon 30 January 2023 20:41|indexing|
+|Emily Short|Deluxe Doors|20230130204129/1048:Mon 30 January 2023 20:41|indexing|
+|Emily Short|Dishes|20230130204129/370:Mon 30 January 2023 20:41|indexing|
+|Emily Short|Facing|20230130204129/897:Mon 30 January 2023 20:41|indexing|
+|Emily Short|Glulx Entry Points|20230130204129/964:Mon 30 January 2023 20:41|indexing|
+|Emily Short|Introductions|20230130204129/2311:Mon 30 January 2023 20:41|indexing|
+|Emily Short|Location Images|20230130204129/152:Mon 30 January 2023 20:41|indexing|
+|Emily Short|Measured Liquid|20230130204129/5801:Mon 30 January 2023 20:41|indexing|
+|Emily Short|Menus Sp|20230130204129/13:Mon 30 January 2023 20:41|indexing|
+|Emily Short|Modern Conveniences|20230130204129/1088:Mon 30 January 2023 20:41|indexing|
+|Emily Short|Modified Exit|20230130204129/824:Mon 30 January 2023 20:41|indexing|
+|Emily Short|Mood Variations|20230130204129/811:Mon 30 January 2023 20:41|indexing|
+|Emily Short|Ordinary Room Description|20230130204129/194:Mon 30 January 2023 20:41|indexing|
+|Emily Short|Postures|20230130204129/837:Mon 30 January 2023 20:41|indexing|
+|Emily Short|Power Sources|20230130204129/2323:Mon 30 January 2023 20:41|indexing|
+|Emily Short|Property Checking|20230130204129/214:Mon 30 January 2023 20:41|indexing|
+|Emily Short|Recorded Endings|20230130204129/674:Mon 30 January 2023 20:41|indexing|
+|Emily Short|Room Description Control|20230130204129/996:Mon 30 January 2023 20:41|indexing|
+|Emily Short|Simple Followers|20230130204129/482:Mon 30 January 2023 20:41|indexing|
+|Emily Short|Simple Graphical Window|20230130204129/727:Mon 30 January 2023 20:41|indexing|
+|Emily Short|Single Paragraph Description|20230130204129/341:Mon 30 January 2023 20:41|indexing|
+|Emily Short|Tailored Room Description|20230130204129/2648:Mon 30 January 2023 20:41|indexing|
+|Emily Short|Transit System|20230130204129/970:Mon 30 January 2023 20:41|indexing|
+|Emily Short|Tutorial Mode|20230130204129/740:Mon 30 January 2023 20:41|indexing|
+|Eric Eve|Adaptive Hints|20230130204129/2562:Mon 30 January 2023 20:41|indexing|
+|Eric Eve|Alternatives|20230130204129/1350:Mon 30 January 2023 20:41|indexing|
+|Eric Eve|Bulk Limiter|20230130204129/428:Mon 30 January 2023 20:41|indexing|
+|Eric Eve|Conversation Framework|20230130204129/3117:Mon 30 January 2023 20:41|indexing|
+|Eric Eve|Conversation Nodes|20230130204129/4396:Mon 30 January 2023 20:41|indexing|
+|Eric Eve|Conversation Package|20230130204129/1975:Mon 30 January 2023 20:41|indexing|
+|Eric Eve|Conversation Responses|20230130204129/814:Mon 30 January 2023 20:41|indexing|
+|Eric Eve|Conversation Rules|20230130204129/4807:Mon 30 January 2023 20:41|indexing|
+|Eric Eve|Conversation Suggestions|20230130204129/2041:Mon 30 January 2023 20:41|indexing|
+|Eric Eve|Conversational Defaults|20230130204129/1437:Mon 30 January 2023 20:41|indexing|
+|Eric Eve|Exit Lister|20230130204129/2187:Mon 30 January 2023 20:41|indexing|
+|Eric Eve|Hiding Under|20230130204129/2657:Mon 30 January 2023 20:41|indexing|
+|Eric Eve|Implicit Actions|20230130204129/5645:Mon 30 January 2023 20:41|indexing|
+|Eric Eve|Limited Implicit Actions|20230130204129/3237:Mon 30 January 2023 20:41|indexing|
+|Eric Eve|List Control|20230130204129/1644:Mon 30 January 2023 20:41|indexing|
+|Eric Eve|List Controller|20230130204129/1903:Mon 30 January 2023 20:41|indexing|
+|Eric Eve|Npc Implicit Actions|20230130204129/658:Mon 30 January 2023 20:41|indexing|
+|Eric Eve|Text Capture|20230130204129/870:Mon 30 January 2023 20:41|indexing|
+|Eric Eve|Underside|20230130204129/1620:Mon 30 January 2023 20:41|indexing|
+|Eric Eve|Variable Time Control|20230130204129/1137:Mon 30 January 2023 20:41|indexing|
+|Erik Temple|Extended Debugging|20230130204129/827:Mon 30 January 2023 20:41|indexing|
+|Erik Temple|Glimmr Canvas Animation|20230130204129/19512:Mon 30 January 2023 20:41|indexing|
+|Erik Temple|Glimmr Canvas-Based Drawing|20230130204129/24775:Mon 30 January 2023 20:41|indexing|
+|Erik Temple|Glimmr Drawing Commands|20230130204129/12013:Mon 30 January 2023 20:41|indexing|
+|Erik Temple|Glimmr Graphic Hyperlinks|20230130204129/1980:Mon 30 January 2023 20:41|indexing|
+|Erik Temple|Inline Hyperlinks|20230130204129/2799:Mon 30 January 2023 20:41|indexing|
+|Erik Temple|Real-Time Delays|20230130204129/675:Mon 30 January 2023 20:41|indexing|
+|Erik Temple|Undo Output Control|20230130204129/3293:Mon 30 January 2023 20:41|indexing|
+|Friends Of I7|6m62 Patches|20230130204129/26:Mon 30 January 2023 20:41|indexing|
+|Friends Of I7|Interpreter Sniffing|20230130204129/568:Mon 30 January 2023 20:41|indexing|
+|Gavin Lambert|Brief Room Descriptions|20230130204129/380:Mon 30 January 2023 20:41|indexing|
+|Gavin Lambert|Enterable Underside|20230130204129/1054:Mon 30 January 2023 20:41|indexing|
+|Gavin Lambert|Exit Lister|20230130204129/2688:Mon 30 January 2023 20:41|indexing|
+|Gavin Lambert|Extended Banner|20230130204129/356:Mon 30 January 2023 20:41|indexing|
+|Gavin Lambert|Glk Input Suspending|20230130204129/315:Mon 30 January 2023 20:41|indexing|
+|Gavin Lambert|Hyperlink Extension Registry|20230130204129/1370:Mon 30 January 2023 20:41|indexing|
+|Gavin Lambert|Hyperlinks|20230130204129/1778:Mon 30 January 2023 20:41|indexing|
+|Gavin Lambert|Inline Hyperlinks|20230130204129/5331:Mon 30 January 2023 20:41|indexing|
+|Gavin Lambert|Prepositional Correctness|20230130204129/1558:Mon 30 January 2023 20:41|indexing|
+|Gavin Lambert|Rideable Vehicles|20230130204129/135:Mon 30 January 2023 20:41|indexing|
+|Gavin Lambert|Secret Doors|20230130204129/887:Mon 30 January 2023 20:41|indexing|
+|Gavin Lambert|Title Page|20230130204129/1516:Mon 30 January 2023 20:41|indexing|
+|Hanon Ondricek|Easy Doors|20230130204129/4008:Mon 30 January 2023 20:41|indexing|
+|Jeff Nyman|Contextual Descriptions|20230130204129/557:Mon 30 January 2023 20:41|indexing|
+|Jeff Nyman|Description Decay|20230130204129/1582:Mon 30 January 2023 20:41|indexing|
+|Jeff Nyman|Nuanced Timekeeping|20230130204129/81:Mon 30 January 2023 20:41|indexing|
+|Jeff Nyman|Relative Placement And Direction|20230130204129/864:Mon 30 January 2023 20:41|indexing|
+|Jeff Nyman|Story Substrate|20230130204129/735:Mon 30 January 2023 20:41|indexing|
+|Jeff Nyman|Supplemental|20230130204129/264:Mon 30 January 2023 20:41|indexing|
+|Jeff Nyman|World Knowledge|20230130204129/1370:Mon 30 January 2023 20:41|indexing|
+|Jeff Sheets|Graphic Links|20230130204129/318:Mon 30 January 2023 20:41|indexing|
+|Jesse Mcgrew|Dynamic Objects|20230130204129/966:Mon 30 January 2023 20:41|indexing|
+|Jesse Mcgrew|Dynamic Tables|20230130204129/1788:Mon 30 January 2023 20:41|indexing|
+|Jesse Mcgrew|Hypothetical Questions|20230130204129/848:Mon 30 January 2023 20:41|indexing|
+|Jim Aikin|Notepad|20230130204129/1883:Mon 30 January 2023 20:41|indexing|
+|Johan Paz|Cortos|20230130204129/531:Mon 30 January 2023 20:41|indexing|
+|John Clemens|Consolidated Multiple Actions|20230130204129/2643:Mon 30 January 2023 20:41|indexing|
+|John Clemens|Scheduled Activities|20230130204129/2443:Mon 30 January 2023 20:41|indexing|
+|Jon Ingold|Disambiguation Control|20230130204129/4832:Mon 30 January 2023 20:41|indexing|
+|Jon Ingold|Far Away|20230130204129/1754:Mon 30 January 2023 20:41|indexing|
+|Jon Ingold|Flexible Windows|20230130204129/1806:Mon 30 January 2023 20:41|indexing|
+|Jon Ingold|Title Page|20230130204129/545:Mon 30 January 2023 20:41|indexing|
+|Juhana Leinonen|Achievements|20230130204129/519:Mon 30 January 2023 20:41|indexing|
+|Juhana Leinonen|Bulky Items|20230130204129/1170:Mon 30 January 2023 20:41|indexing|
+|Juhana Leinonen|Debug Files|20230130204129/943:Mon 30 January 2023 20:41|indexing|
+|Juhana Leinonen|Object Response Tests|20230130204129/1218:Mon 30 January 2023 20:41|indexing|
+|Juhana Leinonen|Regional Travel|20230130204129/1065:Mon 30 January 2023 20:41|indexing|
+|Juhana Leinonen|Reversed Persuasion Correction|20230130204129/484:Mon 30 January 2023 20:41|indexing|
+|Juhana Leinonen|Vorple Element Manipulation|20230130204129/1337:Mon 30 January 2023 20:41|indexing|
+|Juhana Leinonen|Vorple Modal Windows|20230130204129/537:Mon 30 January 2023 20:41|indexing|
+|Juhana Leinonen|Vorple Notifications|20230130204129/644:Mon 30 January 2023 20:41|indexing|
+|Juhana Leinonen|Vorple Status Line|20230130204129/1722:Mon 30 January 2023 20:41|indexing|
+|Juhana Leinonen|Vorple Tooltips|20230130204129/1191:Mon 30 January 2023 20:41|indexing|
+|Leonardo Boselli|Automap It|20230130204129/15:Mon 30 January 2023 20:41|indexing|
+|Leonardo Boselli|Basic Help Menu It|20230130204129/34:Mon 30 January 2023 20:41|indexing|
+|Leonardo Boselli|Bulky Items It|20230130204129/13:Mon 30 January 2023 20:41|indexing|
+|Leonardo Boselli|Creative Commons Public License It|20230130204129/42:Mon 30 January 2023 20:41|indexing|
+|Leonardo Boselli|Menus It|20230130204129/32:Mon 30 January 2023 20:41|indexing|
+|Leonardo Boselli|Milleuna For Gargoyle With Graphics|20230130204129/6:Mon 30 January 2023 20:41|indexing|
+|Leonardo Boselli|Milleuna For Gargoyle|20230130204129/6:Mon 30 January 2023 20:41|indexing|
+|Leonardo Boselli|Milleuna For Quixe With Graphics|20230130204129/6:Mon 30 January 2023 20:41|indexing|
+|Leonardo Boselli|Milleuna For Quixe|20230130204129/6:Mon 30 January 2023 20:41|indexing|
+|Leonardo Boselli|Milleuna World|20230130204129/25:Mon 30 January 2023 20:41|indexing|
+|Leonardo Boselli|Numbered Disambiguation Choices It|20230130204129/13:Mon 30 January 2023 20:41|indexing|
+|Leonardo Boselli|Patrollers It|20230130204129/15:Mon 30 January 2023 20:41|indexing|
+|Leonardo Boselli|Questions It|20230130204129/15:Mon 30 January 2023 20:41|indexing|
+|Leonardo Boselli|Release For Gargoyle|20230130204129/0:Mon 30 January 2023 20:41|indexing|
+|Leonardo Boselli|Release For Quixe|20230130204129/0:Mon 30 January 2023 20:41|indexing|
+|Leonardo Boselli|Scoring It|20230130204129/6:Mon 30 January 2023 20:41|indexing|
+|Leonardo Boselli|Scoring|20230130204129/6:Mon 30 January 2023 20:41|indexing|
+|Leonardo Boselli|Simple Followers It|20230130204129/13:Mon 30 January 2023 20:41|indexing|
+|Leonardo Boselli|Simple Graphical Window|20230130204129/14:Mon 30 January 2023 20:41|indexing|
+|Leonardo Boselli|Simple Html Window|20230130204129/23:Mon 30 January 2023 20:41|indexing|
+|Leonardo Boselli|Title Page It|20230130204129/16:Mon 30 January 2023 20:41|indexing|
+|Leonardo Boselli|Written Inventory|20230130204129/16:Mon 30 January 2023 20:41|indexing|
+|Mark Tilford|Automap|20230130204129/2295:Mon 30 January 2023 20:41|indexing|
+|Massimo Stella|Italian Language|20230130204129/1832:Mon 30 January 2023 20:41|indexing|
+|Massimo Stella|Multiple Sounds Sp|20230130204129/350:Mon 30 January 2023 20:41|indexing|
+|Massimo Stella|Multiple Sounds|20230130204129/569:Mon 30 January 2023 20:41|indexing|
+|Matt Weiner|Actions On Groups|20230130204129/3872:Mon 30 January 2023 20:41|indexing|
+|Matt Weiner|Indefinite Article Substitution Fix|20230130204129/743:Mon 30 January 2023 20:41|indexing|
+|Matt Weiner|Responsive Disambiguation For 6m62|20230130204129/564:Mon 30 January 2023 20:41|indexing|
+|Michael Callaghan|Patrollers Sp|20230130204129/4457:Mon 30 January 2023 20:41|indexing|
+|Michael Callaghan|Questions|20230130204129/3911:Mon 30 January 2023 20:41|indexing|
+|Michael Kielstra|Debug Tags|20230130204129/1131:Mon 30 January 2023 20:41|indexing|
+|Michael Martin|Assumed Conversers|20230130204129/162:Mon 30 January 2023 20:41|indexing|
+|Michael Martin|Quip-Based Conversation Sp|20230130204129/1661:Mon 30 January 2023 20:41|indexing|
+|Michael Martin|Quip-Based Conversation|20230130204129/1661:Mon 30 January 2023 20:41|indexing|
+|Michael Martin|Reactable Quips Sp|20230130204129/1807:Mon 30 January 2023 20:41|indexing|
+|Michael Martin|Reactable Quips|20230130204129/1807:Mon 30 January 2023 20:41|indexing|
+|Michael Martin|Unicode Interrogation|20230130204129/103:Mon 30 January 2023 20:41|indexing|
+|Mikael Segercrantz|Achievements|20230130204129/1288:Mon 30 January 2023 20:41|indexing|
+|Mikael Segercrantz|Atmospheric Effects|20230130204129/4260:Mon 30 January 2023 20:41|indexing|
+|Mikael Segercrantz|Randomness|20230130204129/286:Mon 30 January 2023 20:41|indexing|
+|Mikael Segercrantz|Trinity Inventory|20230130204129/1430:Mon 30 January 2023 20:41|indexing|
+|Mike Ciul|Autotaking|20230130204129/454:Mon 30 January 2023 20:41|indexing|
+|Mike Ciul|Effective Infinity|20230130204129/285:Mon 30 January 2023 20:41|indexing|
+|Mike Ciul|Flexible Action Requirements|20230130204129/1076:Mon 30 January 2023 20:41|indexing|
+|Mike Ciul|Objects Matching Snippets|20230130204129/656:Mon 30 January 2023 20:41|indexing|
+|Mike Ciul|Scope Caching|20230130204129/901:Mon 30 January 2023 20:41|indexing|
+|Mike Ciul|Takeability|20230130204129/0:Mon 30 January 2023 20:41|indexing|
+|Mike Ciul|Unknown Word Error|20230130204129/281:Mon 30 January 2023 20:41|indexing|
+|Nate Cull|Basic Plans|20230130204129/924:Mon 30 January 2023 20:41|indexing|
+|Nate Cull|Planner|20230130204129/1992:Mon 30 January 2023 20:41|indexing|
+|Nathanael Nerode|Character Portraits|20230130204129/872:Mon 30 January 2023 20:41|indexing|
+|Nathanael Nerode|Compliant Characters|20230130204129/2752:Mon 30 January 2023 20:41|indexing|
+|Nathanael Nerode|Gender Options|20230130204129/2750:Mon 30 January 2023 20:41|indexing|
+|Nathanael Nerode|Gender Speedup|20230130204129/276:Mon 30 January 2023 20:41|indexing|
+|Nathanael Nerode|Initial Cursor At Top Or Bottom|20230130204129/1093:Mon 30 January 2023 20:41|indexing|
+|Nathanael Nerode|Large Game Speedup|20230130204129/1648:Mon 30 January 2023 20:41|indexing|
+|Nathanael Nerode|Nathanael's Cookbook|20230130204129/2904:Mon 30 January 2023 20:41|indexing|
+|Nathanael Nerode|Nathanael's Debug Tools|20230130204129/82:Mon 30 January 2023 20:41|indexing|
+|Nathanael Nerode|Neutral Standard Responses|20230130204129/3212:Mon 30 January 2023 20:41|indexing|
+|Nathanael Nerode|Parser Error Number Bugfix|20230130204129/75:Mon 30 January 2023 20:41|indexing|
+|Nathanael Nerode|Room Description Supporter Bugfixes|20230130204129/576:Mon 30 January 2023 20:41|indexing|
+|Nathanael Nerode|Standard Rules Dead Code Removal|20230130204129/112:Mon 30 January 2023 20:41|indexing|
+|Nathanael Nerode|Tab Removal|20230130204129/137:Mon 30 January 2023 20:41|indexing|
+|Nathanael Nerode|Title Case For Headings|20230130204129/2006:Mon 30 January 2023 20:41|indexing|
+|Nathanael Nerode|Undo Output Control|20230130204129/3293:Mon 30 January 2023 20:41|indexing|
+|Nathanael Nerode|Verb Stripping|20230130204129/154:Mon 30 January 2023 20:41|indexing|
+|Peter Orme|Checkpoints|20230130204129/1466:Mon 30 January 2023 20:41|indexing|
+|Peter Orme|Developer Framework|20230130204129/242:Mon 30 January 2023 20:41|indexing|
+|Peter Orme|Flexible Logger|20230130204129/1133:Mon 30 January 2023 20:41|indexing|
+|Peter Orme|Object Descriptors|20230130204129/336:Mon 30 January 2023 20:41|indexing|
+|Peter Orme|Possible Movements|20230130204129/29:Mon 30 January 2023 20:41|indexing|
+|Peter Orme|Unit Testing|20230130204129/834:Mon 30 January 2023 20:41|indexing|
+|Peter Orme|Universal Opening|20230130204129/307:Mon 30 January 2023 20:41|indexing|
+|Ron Newcomb|After Not Doing Something|20230130204129/213:Mon 30 January 2023 20:41|indexing|
+|Ron Newcomb|Command Prompt On Cue|20230130204129/856:Mon 30 January 2023 20:41|indexing|
+|Ron Newcomb|Editable Stored Actions|20230130204129/1384:Mon 30 January 2023 20:41|indexing|
+|Ron Newcomb|Permission To Visit|20230130204129/2264:Mon 30 January 2023 20:41|indexing|
+|Ron Newcomb|Phrases For Adaptive Pacing|20230130204129/1416:Mon 30 January 2023 20:41|indexing|
+|Ron Newcomb|Phrases For Tables With Topics|20230130204129/495:Mon 30 January 2023 20:41|indexing|
+|Ron Newcomb|Real Date And Time|20230130204129/941:Mon 30 January 2023 20:41|indexing|
+|Ron Newcomb|Rewrite The Command Line|20230130204129/681:Mon 30 January 2023 20:41|indexing|
+|Ron Newcomb|Scope Control|20230130204129/583:Mon 30 January 2023 20:41|indexing|
+|Ron Newcomb|Unsuccessful Pc Attempt|20230130204129/495:Mon 30 January 2023 20:41|indexing|
+|Sarah Morayati|Basic Real Time|20230130204129/976:Mon 30 January 2023 20:41|indexing|
+|Sean Turner|Plugs And Sockets|20230130204129/2232:Mon 30 January 2023 20:41|indexing|
+|Shin|Game Ending Reloaded|20230130204129/17:Mon 30 January 2023 20:41|indexing|
+|Shin|Points Awarding Reloaded|20230130204129/17:Mon 30 January 2023 20:41|indexing|
+|Shin|Singing Reloaded|20230130204129/16:Mon 30 January 2023 20:41|indexing|
+|Shin|Swearing Reloaded|20230130204129/16:Mon 30 January 2023 20:41|indexing|
+|Stephen Granade|Footnotes|20230130204129/500:Mon 30 January 2023 20:41|indexing|
+|Taryn Michelle|Print Stage Detection|20230130204129/1448:Mon 30 January 2023 20:41|indexing|
+|Wade Clarke|Basic Help Menu|20230130204129/683:Mon 30 January 2023 20:41|indexing|
+|Wade Clarke|Menus|20230130204129/13316:Mon 30 January 2023 20:41|indexing|
+|Xavid|Command Unit Testing|20230130204129/744:Mon 30 January 2023 20:41|indexing|
+|Xavid|Directional Disambiguation|20230130204129/110:Mon 30 January 2023 20:41|indexing|
+|Xavid|Expanded Understanding|20230130204129/2487:Mon 30 January 2023 20:41|indexing|
+|Xavid|Graphical Map|20230130204129/1430:Mon 30 January 2023 20:41|indexing|
+|Xavid|Liquids|20230130204129/988:Mon 30 January 2023 20:41|indexing|
+|Xavid|Object Matching|20230130204129/611:Mon 30 January 2023 20:41|indexing|
+|Xavid|Scenery Words|20230130204129/129:Mon 30 January 2023 20:41|indexing|
+|Xavid|Visible From A Distance|20230130204129/100:Mon 30 January 2023 20:41|indexing|
+|Zed Lopez|Bit Ops|20230130204129/822:Mon 30 January 2023 20:41|indexing|
+|Zed Lopez|Char|20230130204129/553:Mon 30 January 2023 20:41|indexing|
+|Zed Lopez|Code|20230130204129/387:Mon 30 January 2023 20:41|indexing|
+|Zed Lopez|Custom Banner And Version|20230130204129/1173:Mon 30 January 2023 20:41|indexing|
+|Zed Lopez|If True|20230130204129/47:Mon 30 January 2023 20:41|indexing|
+|Zed Lopez|Inquiry|20230130204129/1037:Mon 30 January 2023 20:41|indexing|
+|Zed Lopez|List Utilities|20230130204129/2561:Mon 30 January 2023 20:41|indexing|
+|Zed Lopez|Parser Error Details|20230130204129/105:Mon 30 January 2023 20:41|indexing|
+|Zed Lopez|Pseudodevices|20230130204129/265:Mon 30 January 2023 20:41|indexing|
+|Zed Lopez|Screenreader|20230130204129/294:Mon 30 January 2023 20:41|indexing|
+|Zed Lopez|Speechless|20230130204129/178:Mon 30 January 2023 20:41|indexing|
+|Zed Lopez|Strange Loopiness|20230130204129/700:Mon 30 January 2023 20:41|indexing|
+|Zed Lopez|Supercredits|20230130204129/188:Mon 30 January 2023 20:41|indexing|
+|Zed Lopez|Switch|20230130204129/166:Mon 30 January 2023 20:41|indexing|
+|Zed Lopez|Tabulate|20230130204129/76:Mon 30 January 2023 20:41|indexing|
+|Zed Lopez|Text Loops|20230130204129/120:Mon 30 January 2023 20:41|indexing|
+|Zed Lopez|Textile|20230130204129/1379:Mon 30 January 2023 20:41|indexing|
+|Zed Lopez|Trial|20230130204129/65:Mon 30 January 2023 20:41|indexing|
+|Zed Lopez|Unicode File Io|20230130204129/430:Mon 30 January 2023 20:41|indexing|
+|Zed Lopez|Unit Tests|20230130204129/3611:Mon 30 January 2023 20:41|indexing|
+|Zed Lopez|Untrimmed Lines|20230130204129/197:Mon 30 January 2023 20:41|indexing|
+|Zed Lopez|Verbal Commands|20230130204129/158:Mon 30 January 2023 20:41|indexing|
+|Zed Lopez|Verbs|20230130204129/180:Mon 30 January 2023 20:41|indexing|
+|Emily Short|Basic Help Menu|20230130204129/452:Mon 30 January 2023 20:41|indexing|
+|Emily Short|Complex Listing|20230130204129/2213:Mon 30 January 2023 20:41|indexing|
+|Emily Short|Glulx Image Centering|20230130204129/152:Mon 30 January 2023 20:41|indexing|
+|Emily Short|Glulx Text Effects|20230130204129/1179:Mon 30 January 2023 20:41|indexing|
+|Emily Short|Inanimate Listeners|20230130204129/313:Mon 30 January 2023 20:41|indexing|
+|Emily Short|Locksmith|20230130204129/2153:Mon 30 January 2023 20:41|indexing|
+|Emily Short|Menus|20230130204129/1000:Mon 30 January 2023 20:41|indexing|
+|Emily Short|Punctuation Removal|20230130204129/800:Mon 30 January 2023 20:41|indexing|
+|Emily Short|Skeleton Keys|20230130204129/371:Mon 30 January 2023 20:41|indexing|
+|Eric Eve|Epistemology|20230130204129/1148:Mon 30 January 2023 20:41|indexing|
+|Graham Nelson|Approximate Metric Units|20230130204129/2334:Mon 30 January 2023 20:41|indexing|
+|Graham Nelson|Metric Units|20230130204129/2042:Mon 30 January 2023 20:41|indexing|
+|Graham Nelson|Rideable Vehicles|20230130204129/953:Mon 30 January 2023 20:41|indexing|
+|Graham Nelson|Unicode Character Names|20230130204129/102:Mon 30 January 2023 20:41|indexing|
+|Graham Nelson|Unicode Full Character Names|20230130204129/91:Mon 30 January 2023 20:41|indexing|
+|Graham Nelson|Standard Rules|20230130214754/42655:Mon 30 January 2023 21:47|indexing|
+|Graham Nelson|Standard Rules|room|kind|
+|Graham Nelson|Standard Rules|thing|kind|
+|Graham Nelson|Standard Rules|direction|kind|
+|Graham Nelson|Standard Rules|door|kind|
+|Graham Nelson|Standard Rules|container|kind|
+|Graham Nelson|Standard Rules|supporter|kind|
+|Graham Nelson|Standard Rules|backdrop|kind|
+|Graham Nelson|Standard Rules|person|kind|
+|Graham Nelson|Standard Rules|region|kind|
+|Graham Nelson|Standard Rules|man|kind|
+|Graham Nelson|Standard Rules|woman|kind|
+|Graham Nelson|Standard Rules|animal|kind|
+|Graham Nelson|Standard Rules|device|kind|
+|Graham Nelson|Standard Rules|vehicle|kind|
+|Graham Nelson|Standard Rules|player's holdall|kind|
+|Graham Nelson|Standard Rules|natural language|kind|
+|Graham Nelson|Standard Rules|command parser error|kind|
+|Graham Nelson|Standard Rules|north|direction|
+|Graham Nelson|Standard Rules|northeast|direction|
+|Graham Nelson|Standard Rules|northwest|direction|
+|Graham Nelson|Standard Rules|south|direction|
+|Graham Nelson|Standard Rules|southeast|direction|
+|Graham Nelson|Standard Rules|southwest|direction|
+|Graham Nelson|Standard Rules|east|direction|
+|Graham Nelson|Standard Rules|west|direction|
+|Graham Nelson|Standard Rules|up|direction|
+|Graham Nelson|Standard Rules|down|direction|
+|Graham Nelson|Standard Rules|inside|direction|
+|Graham Nelson|Standard Rules|outside|direction|
+|Graham Nelson|Standard Rules|player|value|
+|Graham Nelson|Standard Rules|location|value|
+|Graham Nelson|Standard Rules|score|value|
+|Graham Nelson|Standard Rules|last notified score|value|
+|Graham Nelson|Standard Rules|maximum score|value|
+|Graham Nelson|Standard Rules|turn count|value|
+|Graham Nelson|Standard Rules|time of day|value|
+|Graham Nelson|Standard Rules|darkness witnessed|value|
+|Graham Nelson|Standard Rules|noun|value|
+|Graham Nelson|Standard Rules|second noun|value|
+|Graham Nelson|Standard Rules|person asked|value|
+|Graham Nelson|Standard Rules|reason the action failed|value|
+|Graham Nelson|Standard Rules|item described|value|
+|Graham Nelson|Standard Rules|person reaching|value|
+|Graham Nelson|Standard Rules|container in question|value|
+|Graham Nelson|Standard Rules|supporter in question|value|
+|Graham Nelson|Standard Rules|particular possession|value|
+|Graham Nelson|Standard Rules|player's command|value|
+|Graham Nelson|Standard Rules|matched text|value|
+|Graham Nelson|Standard Rules|current item from the multiple object list|value|
+|Graham Nelson|Standard Rules|command prompt|value|
+|Graham Nelson|Standard Rules|left hand status line|value|
+|Graham Nelson|Standard Rules|right hand status line|value|
+|Graham Nelson|Standard Rules|listing group size|value|
+|Graham Nelson|Standard Rules|language of play|value|
+|Graham Nelson|Standard Rules|prior named object|value|
+|Graham Nelson|Standard Rules|latest parser error|value|
+|Graham Nelson|Standard Rules|Figure of cover|value|
+|Graham Nelson|Standard Rules|Entire Game|value|
+|Graham Nelson|Standard Rules|didn't understand error|value|
+|Graham Nelson|Standard Rules|only understood as far as error|value|
+|Graham Nelson|Standard Rules|didn't understand that number error|value|
+|Graham Nelson|Standard Rules|can only do that to something animate error|value|
+|Graham Nelson|Standard Rules|can't see any such thing error|value|
+|Graham Nelson|Standard Rules|said too little error|value|
+|Graham Nelson|Standard Rules|aren't holding that error|value|
+|Graham Nelson|Standard Rules|can't use multiple objects error|value|
+|Graham Nelson|Standard Rules|can only use multiple objects error|value|
+|Graham Nelson|Standard Rules|not sure what it refers to error|value|
+|Graham Nelson|Standard Rules|excepted something not included error|value|
+|Graham Nelson|Standard Rules|not a verb I recognise error|value|
+|Graham Nelson|Standard Rules|not something you need to refer to error|value|
+|Graham Nelson|Standard Rules|can't see it at the moment error|value|
+|Graham Nelson|Standard Rules|didn't understand the way that finished error|value|
+|Graham Nelson|Standard Rules|not enough of those available error|value|
+|Graham Nelson|Standard Rules|nothing to do error|value|
+|Graham Nelson|Standard Rules|noun did not make sense in that context error|value|
+|Graham Nelson|Standard Rules|referred to a determination of scope error|value|
+|Graham Nelson|Standard Rules|I beg your pardon error|value|
+|Graham Nelson|Standard Rules|can't again the addressee error|value|
+|Graham Nelson|Standard Rules|comma can't begin error|value|
+|Graham Nelson|Standard Rules|can't see whom to talk to error|value|
+|Graham Nelson|Standard Rules|can't talk to inanimate things error|value|
+|Graham Nelson|Standard Rules|didn't understand addressee's last name error|value|
+|Graham Nelson|Standard Rules|Taking inventory|action|
+|Graham Nelson|Standard Rules|Taking|action|
+|Graham Nelson|Standard Rules|Removing it from|action|
+|Graham Nelson|Standard Rules|Dropping|action|
+|Graham Nelson|Standard Rules|Putting it on|action|
+|Graham Nelson|Standard Rules|Inserting it into|action|
+|Graham Nelson|Standard Rules|Eating|action|
+|Graham Nelson|Standard Rules|Going|action|
+|Graham Nelson|Standard Rules|Entering|action|
+|Graham Nelson|Standard Rules|Exiting|action|
+|Graham Nelson|Standard Rules|Getting off|action|
+|Graham Nelson|Standard Rules|Looking|action|
+|Graham Nelson|Standard Rules|Examining|action|
+|Graham Nelson|Standard Rules|Looking under|action|
+|Graham Nelson|Standard Rules|Searching|action|
+|Graham Nelson|Standard Rules|Consulting it about|action|
+|Graham Nelson|Standard Rules|Locking it with|action|
+|Graham Nelson|Standard Rules|Unlocking it with|action|
+|Graham Nelson|Standard Rules|Switching on|action|
+|Graham Nelson|Standard Rules|Switching off|action|
+|Graham Nelson|Standard Rules|Opening|action|
+|Graham Nelson|Standard Rules|Closing|action|
+|Graham Nelson|Standard Rules|Wearing|action|
+|Graham Nelson|Standard Rules|Taking off|action|
+|Graham Nelson|Standard Rules|Giving it to|action|
+|Graham Nelson|Standard Rules|Showing it to|action|
+|Graham Nelson|Standard Rules|Waking|action|
+|Graham Nelson|Standard Rules|Throwing it at|action|
+|Graham Nelson|Standard Rules|Attacking|action|
+|Graham Nelson|Standard Rules|Kissing|action|
+|Graham Nelson|Standard Rules|Answering it that|action|
+|Graham Nelson|Standard Rules|Telling it about|action|
+|Graham Nelson|Standard Rules|Asking it about|action|
+|Graham Nelson|Standard Rules|Asking it for|action|
+|Graham Nelson|Standard Rules|Waiting|action|
+|Graham Nelson|Standard Rules|Touching|action|
+|Graham Nelson|Standard Rules|Waving|action|
+|Graham Nelson|Standard Rules|Pulling|action|
+|Graham Nelson|Standard Rules|Pushing|action|
+|Graham Nelson|Standard Rules|Turning|action|
+|Graham Nelson|Standard Rules|Pushing it to|action|
+|Graham Nelson|Standard Rules|Squeezing|action|
+|Graham Nelson|Standard Rules|Saying yes|action|
+|Graham Nelson|Standard Rules|Saying no|action|
+|Graham Nelson|Standard Rules|Burning|action|
+|Graham Nelson|Standard Rules|Waking up|action|
+|Graham Nelson|Standard Rules|Thinking|action|
+|Graham Nelson|Standard Rules|Smelling|action|
+|Graham Nelson|Standard Rules|Listening to|action|
+|Graham Nelson|Standard Rules|Tasting|action|
+|Graham Nelson|Standard Rules|Cutting|action|
+|Graham Nelson|Standard Rules|Jumping|action|
+|Graham Nelson|Standard Rules|Tying it to|action|
+|Graham Nelson|Standard Rules|Drinking|action|
+|Graham Nelson|Standard Rules|Saying sorry|action|
+|Graham Nelson|Standard Rules|Swinging|action|
+|Graham Nelson|Standard Rules|Rubbing|action|
+|Graham Nelson|Standard Rules|Setting it to|action|
+|Graham Nelson|Standard Rules|Waving hands|action|
+|Graham Nelson|Standard Rules|Buying|action|
+|Graham Nelson|Standard Rules|Climbing|action|
+|Graham Nelson|Standard Rules|Sleeping|action|
+|Graham Nelson|Standard Rules|Quitting the game|action|
+|Graham Nelson|Standard Rules|Saving the game|action|
+|Graham Nelson|Standard Rules|Restoring the game|action|
+|Graham Nelson|Standard Rules|Restarting the game|action|
+|Graham Nelson|Standard Rules|Verifying the story file|action|
+|Graham Nelson|Standard Rules|Switching the story transcript on|action|
+|Graham Nelson|Standard Rules|Switching the story transcript off|action|
+|Graham Nelson|Standard Rules|Requesting the story file version|action|
+|Graham Nelson|Standard Rules|Requesting the score|action|
+|Graham Nelson|Standard Rules|Preferring abbreviated room descriptions|action|
+|Graham Nelson|Standard Rules|Preferring unabbreviated room descriptions|action|
+|Graham Nelson|Standard Rules|Preferring sometimes abbreviated room descriptions|action|
+|Graham Nelson|Standard Rules|Switching score notification on|action|
+|Graham Nelson|Standard Rules|Switching score notification off|action|
+|Graham Nelson|Standard Rules|Requesting the pronoun meanings|action|
+|Graham Nelson|Standard Rules|be|verb|
+|Graham Nelson|Standard Rules|have|verb|
+|Graham Nelson|Standard Rules|relate|verb|
+|Graham Nelson|Standard Rules|mean|verb|
+|Graham Nelson|Standard Rules|provide|verb|
+|Graham Nelson|Standard Rules|contain|verb|
+|Graham Nelson|Standard Rules|support|verb|
+|Graham Nelson|Standard Rules|incorporate|verb|
+|Graham Nelson|Standard Rules|enclose|verb|
+|Graham Nelson|Standard Rules|carry|verb|
+|Graham Nelson|Standard Rules|hold|verb|
+|Graham Nelson|Standard Rules|wear|verb|
+|Graham Nelson|Standard Rules|be able to see|verb|
+|Graham Nelson|Standard Rules|be able to touch|verb|
+|Graham Nelson|Standard Rules|conceal|verb|
+|Graham Nelson|Standard Rules|unlock|verb|
+|Graham Nelson|Standard Rules|worn|adjective|
+|Graham Nelson|Standard Rules|carried|adjective|
+|Graham Nelson|Standard Rules|held|adjective|
+|Graham Nelson|Standard Rules|visible|adjective|
+|Graham Nelson|Standard Rules|invisible|adjective|
+|Graham Nelson|Standard Rules|touchable|adjective|
+|Graham Nelson|Standard Rules|untouchable|adjective|
+|Graham Nelson|Standard Rules|concealed|adjective|
+|Graham Nelson|Standard Rules|unconcealed|adjective|
+|Graham Nelson|Standard Rules|on-stage|adjective|
+|Graham Nelson|Standard Rules|off-stage|adjective|
+|Graham Nelson|Standard Rules|offstage|adjective|
+|Graham Nelson|Standard Rules|adjacent|adjective|
+|Graham Nelson|Standard Rules|even|adjective|
+|Graham Nelson|Standard Rules|odd|adjective|
+|Graham Nelson|Standard Rules|positive|adjective|
+|Graham Nelson|Standard Rules|negative|adjective|
+|Graham Nelson|Standard Rules|empty|adjective|
+|Graham Nelson|Standard Rules|non-empty|adjective|
+|Graham Nelson|Standard Rules|substituted|adjective|
+|Graham Nelson|Standard Rules|unsubstituted|adjective|
+|Graham Nelson|Standard Rules|happening|adjective|
+|Graham Nelson|Standard Rules|full|adjective|
+|Graham Nelson|Standard Rules|non-full|adjective|
+|Graham Nelson|Standard Rules|going on|adjective|
+|Graham Nelson|Standard Rules|active|adjective|
+|Graham Nelson|Standard Rules|inactive|adjective|
+|Graham Nelson|Standard Rules|equivalence|adjective|
+|Graham Nelson|Standard Rules|symmetric|adjective|
+|Graham Nelson|Standard Rules|one-to-one|adjective|
+|Graham Nelson|Standard Rules|one-to-various|adjective|
+|Graham Nelson|Standard Rules|various-to-one|adjective|
+|Graham Nelson|Standard Rules|various-to-various|adjective|
+|Graham Nelson|Standard Rules|modal|adjective|
+|Graham Nelson|Standard Rules|non-modal|adjective|
+|Graham Nelson|Standard Rules|meaningful|adjective|
+|Graham Nelson|Standard Rules|meaningless|adjective|
+|Graham Nelson|Standard Rules|infinite|adjective|
+|Graham Nelson|Standard Rules|finite|adjective|
+|Graham Nelson|Standard Rules|nonexistent|adjective|
+|Graham Nelson|Standard Rules|existent|adjective|
+|Graham Nelson|Standard Rules|locale-supportable|adjective|
+|Graham Nelson|Standard Rules|plural-named|adjective|
+|Graham Nelson|Standard Rules|singular-named|adjective|
+|Graham Nelson|Standard Rules|proper-named|adjective|
+|Graham Nelson|Standard Rules|improper-named|adjective|
+|Graham Nelson|Standard Rules|ambiguously plural|adjective|
+|Graham Nelson|Standard Rules|privately-named|adjective|
+|Graham Nelson|Standard Rules|publicly-named|adjective|
+|Graham Nelson|Standard Rules|lighted|adjective|
+|Graham Nelson|Standard Rules|dark|adjective|
+|Graham Nelson|Standard Rules|visited|adjective|
+|Graham Nelson|Standard Rules|unvisited|adjective|
+|Graham Nelson|Standard Rules|lit|adjective|
+|Graham Nelson|Standard Rules|unlit|adjective|
+|Graham Nelson|Standard Rules|edible|adjective|
+|Graham Nelson|Standard Rules|inedible|adjective|
+|Graham Nelson|Standard Rules|fixed in place|adjective|
+|Graham Nelson|Standard Rules|portable|adjective|
+|Graham Nelson|Standard Rules|scenery|adjective|
+|Graham Nelson|Standard Rules|wearable|adjective|
+|Graham Nelson|Standard Rules|pushable between rooms|adjective|
+|Graham Nelson|Standard Rules|handled|adjective|
+|Graham Nelson|Standard Rules|described|adjective|
+|Graham Nelson|Standard Rules|undescribed|adjective|
+|Graham Nelson|Standard Rules|marked for listing|adjective|
+|Graham Nelson|Standard Rules|unmarked for listing|adjective|
+|Graham Nelson|Standard Rules|mentioned|adjective|
+|Graham Nelson|Standard Rules|unmentioned|adjective|
+|Graham Nelson|Standard Rules|enterable|adjective|
+|Graham Nelson|Standard Rules|opaque|adjective|
+|Graham Nelson|Standard Rules|transparent|adjective|
+|Graham Nelson|Standard Rules|open|adjective|
+|Graham Nelson|Standard Rules|closed|adjective|
+|Graham Nelson|Standard Rules|openable|adjective|
+|Graham Nelson|Standard Rules|unopenable|adjective|
+|Graham Nelson|Standard Rules|lockable|adjective|
+|Graham Nelson|Standard Rules|locked|adjective|
+|Graham Nelson|Standard Rules|unlocked|adjective|
+|Graham Nelson|Standard Rules|switched on|adjective|
+|Graham Nelson|Standard Rules|switched off|adjective|
+|Graham Nelson|Standard Rules|recurring|adjective|
+|Graham Nelson|Standard Rules|non-recurring|adjective|
+|Graham Nelson|Standard Rules|list grouping key|property|
+|Graham Nelson|Standard Rules|printed name|property|
+|Graham Nelson|Standard Rules|printed plural name|property|
+|Graham Nelson|Standard Rules|indefinite article|property|
+|Graham Nelson|Standard Rules|description|property|
+|Graham Nelson|Standard Rules|map region|property|
+|Graham Nelson|Standard Rules|initial appearance|property|
+|Graham Nelson|Standard Rules|opposite|property|
+|Graham Nelson|Standard Rules|other side|property|
+|Graham Nelson|Standard Rules|carrying capacity|property|
+|Graham Nelson|Standard Rules|matching key|property|
+|Graham Nelson|Standard Rules|plural-named|property|
+|Graham Nelson|Standard Rules|singular-named|property|
+|Graham Nelson|Standard Rules|proper-named|property|
+|Graham Nelson|Standard Rules|improper-named|property|
+|Graham Nelson|Standard Rules|ambiguously plural|property|
+|Graham Nelson|Standard Rules|lighted|property|
+|Graham Nelson|Standard Rules|dark|property|
+|Graham Nelson|Standard Rules|visited|property|
+|Graham Nelson|Standard Rules|unvisited|property|
+|Graham Nelson|Standard Rules|lit|property|
+|Graham Nelson|Standard Rules|unlit|property|
+|Graham Nelson|Standard Rules|edible|property|
+|Graham Nelson|Standard Rules|inedible|property|
+|Graham Nelson|Standard Rules|fixed in place|property|
+|Graham Nelson|Standard Rules|portable|property|
+|Graham Nelson|Standard Rules|scenery|property|
+|Graham Nelson|Standard Rules|wearable|property|
+|Graham Nelson|Standard Rules|pushable between rooms|property|
+|Graham Nelson|Standard Rules|handled|property|
+|Graham Nelson|Standard Rules|described|property|
+|Graham Nelson|Standard Rules|undescribed|property|
+|Graham Nelson|Standard Rules|marked for listing|property|
+|Graham Nelson|Standard Rules|unmarked for listing|property|
+|Graham Nelson|Standard Rules|mentioned|property|
+|Graham Nelson|Standard Rules|unmentioned|property|
+|Graham Nelson|Standard Rules|enterable|property|
+|Graham Nelson|Standard Rules|opaque|property|
+|Graham Nelson|Standard Rules|transparent|property|
+|Graham Nelson|Standard Rules|open|property|
+|Graham Nelson|Standard Rules|closed|property|
+|Graham Nelson|Standard Rules|openable|property|
+|Graham Nelson|Standard Rules|unopenable|property|
+|Graham Nelson|Standard Rules|lockable|property|
+|Graham Nelson|Standard Rules|locked|property|
+|Graham Nelson|Standard Rules|unlocked|property|
+|Graham Nelson|Standard Rules|switched on|property|
+|Graham Nelson|Standard Rules|switched off|property|
+|Graham Nelson|Standard Rules|recurring|property|
+|Graham Nelson|Standard Rules|non-recurring|property|
+|Graham Nelson|Standard Rules|ineffectual|use option|
+|Graham Nelson|Standard Rules|dynamic memory allocation|use option|
+|Graham Nelson|Standard Rules|maximum text length|use option|
+|Graham Nelson|Standard Rules|index figure thumbnails|use option|
+|Graham Nelson|Standard Rules|maximum things understood at once|use option|
+|Graham Nelson|Standard Rules|American dialect|use option|
+|Graham Nelson|Standard Rules|serial comma|use option|
+|Graham Nelson|Standard Rules|full-length room descriptions|use option|
+|Graham Nelson|Standard Rules|abbreviated room descriptions|use option|
+|Graham Nelson|Standard Rules|memory economy|use option|
+|Graham Nelson|Standard Rules|authorial modesty|use option|
+|Graham Nelson|Standard Rules|scoring|use option|
+|Graham Nelson|Standard Rules|no scoring|use option|
+|Graham Nelson|Standard Rules|engineering notation|use option|
+|Graham Nelson|Standard Rules|unabbreviated object names|use option|
+|Graham Nelson|Standard Rules|command line echoing|use option|
+|Graham Nelson|Standard Rules|manual pronouns|use option|
+|Graham Nelson|Standard Rules|undo prevention|use option|
+|Graham Nelson|Standard Rules|predictable randomisation|use option|
+|Graham Nelson|Standard Rules|fast route-finding|use option|
+|Graham Nelson|Standard Rules|slow route-finding|use option|
+|Graham Nelson|Standard Rules|numbered rules|use option|
+|Graham Nelson|Standard Rules|telemetry recordings|use option|
+|Graham Nelson|Standard Rules|no deprecated features|use option|
+|Graham Nelson|Standard Rules|gn testing version|use option|
+|Graham Nelson|Standard Rules|VERBOSE room descriptions|use option|
+|Graham Nelson|Standard Rules|BRIEF room descriptions|use option|
+|Graham Nelson|Standard Rules|SUPERBRIEF room descriptions|use option|
+|Graham Nelson|English Language|20230130214754/2297:Mon 30 January 2023 21:47|indexing|
+|Sebastian Arg|Spanish Language|20230130214754/11604:Mon 30 January 2023 21:47|indexing|
+|Sebastian Arg|Spanish Language|grammatical tense|kind|
+|Sebastian Arg|Spanish Language|narrative viewpoint|kind|
+|Sebastian Arg|Spanish Language|grammatical case|kind|
+|Sebastian Arg|Spanish Language|grammatical gender|kind|
+|Sebastian Arg|Spanish Language|yourself|person|
+|Sebastian Arg|Spanish Language|story title|value|
+|Sebastian Arg|Spanish Language|story author|value|
+|Sebastian Arg|Spanish Language|story headline|value|
+|Sebastian Arg|Spanish Language|story genre|value|
+|Sebastian Arg|Spanish Language|story description|value|
+|Sebastian Arg|Spanish Language|release number|value|
+|Sebastian Arg|Spanish Language|story creation year|value|
+|Sebastian Arg|Spanish Language|story tense|value|
+|Sebastian Arg|Spanish Language|story viewpoint|value|
+|Sebastian Arg|Spanish Language|present tense|value|
+|Sebastian Arg|Spanish Language|past tense|value|
+|Sebastian Arg|Spanish Language|perfect tense|value|
+|Sebastian Arg|Spanish Language|past perfect tense|value|
+|Sebastian Arg|Spanish Language|future tense|value|
+|Sebastian Arg|Spanish Language|first person singular|value|
+|Sebastian Arg|Spanish Language|second person singular|value|
+|Sebastian Arg|Spanish Language|third person singular|value|
+|Sebastian Arg|Spanish Language|first person plural|value|
+|Sebastian Arg|Spanish Language|second person plural|value|
+|Sebastian Arg|Spanish Language|third person plural|value|
+|Sebastian Arg|Spanish Language|nominative|value|
+|Sebastian Arg|Spanish Language|accusative|value|
+|Sebastian Arg|Spanish Language|neuter gender|value|
+|Sebastian Arg|Spanish Language|masculine gender|value|
+|Sebastian Arg|Spanish Language|feminine gender|value|
+|Sebastian Arg|Spanish Language|Entering to room|action|
+|Sebastian Arg|Spanish Language|Bajando|action|
+|Sebastian Arg|Spanish Language|Subiendo|action|
+|Sebastian Arg|Spanish Language|female|adjective|
+|Sebastian Arg|Spanish Language|male|adjective|
+|Sebastian Arg|Spanish Language|neuter|adjective|
+|Sebastian Arg|Spanish Language|neuter gender|adjective|
+|Sebastian Arg|Spanish Language|masculine gender|adjective|
+|Sebastian Arg|Spanish Language|feminine gender|adjective|
+|Sebastian Arg|Spanish Language|female|property|
+|Sebastian Arg|Spanish Language|male|property|
+|Sebastian Arg|Spanish Language|neuter|property|
+|Sebastian Arg|Spanish Language|grammatical gender|property|
+|Sebastian Arg|Spanish Language|Dialecto Castellano|use option|
+|Sebastian Arg|Spanish Language|Dialecto Sudamericano|use option|
+|Sebastian Arg|Spanish Language|maximum capture buffer length|use option|
+|Juhana Leinonen|Vorple|20230130214754/5672:Mon 30 January 2023 21:47|indexing|
+|Juhana Leinonen|Vorple|Vorple support|value|
+|Juhana Leinonen|Vorple|Vorple prompt|value|
+|Juhana Leinonen|Vorple|file of Vorple Handshake|value|
+|Juhana Leinonen|Vorple|file of JavaScript Evaluation Input|value|
+|Juhana Leinonen|Vorple|file of JavaScript Return Value|value|
+|Juhana Leinonen|Vorple|file of JavaScript Return Value Type|value|
+|Juhana Leinonen|Vorple Multimedia|20230130214754/3906:Mon 30 January 2023 21:47|indexing|
+|Juhana Leinonen|Vorple Screen Effects|20230130214754/2682:Mon 30 January 2023 21:47|indexing|
+|Juhana Leinonen|Vorple Screen Effects|Vorple style|kind|
+|Juhana Leinonen|Vorple Screen Effects|cursive font|value|
+|Juhana Leinonen|Vorple Screen Effects|emphasized font|value|
+|Juhana Leinonen|Vorple Screen Effects|fantasy font|value|
+|Juhana Leinonen|Vorple Screen Effects|monospace font|value|
+|Juhana Leinonen|Vorple Screen Effects|nowrap font|value|
+|Juhana Leinonen|Vorple Screen Effects|strikethrough font|value|
+|Juhana Leinonen|Vorple Screen Effects|strong font|value|
+|Juhana Leinonen|Vorple Screen Effects|underlined font|value|
+|Juhana Leinonen|Vorple Screen Effects|xx-small font|value|
+|Juhana Leinonen|Vorple Screen Effects|x-small font|value|
+|Juhana Leinonen|Vorple Screen Effects|small font|value|
+|Juhana Leinonen|Vorple Screen Effects|large font|value|
+|Juhana Leinonen|Vorple Screen Effects|x-large font|value|
+|Juhana Leinonen|Vorple Screen Effects|xx-large font|value|
+|Juhana Leinonen|Vorple Screen Effects|white letters|value|
+|Juhana Leinonen|Vorple Screen Effects|black letters|value|
+|Juhana Leinonen|Vorple Screen Effects|blue letters|value|
+|Juhana Leinonen|Vorple Screen Effects|green letters|value|
+|Juhana Leinonen|Vorple Screen Effects|cyan letters|value|
+|Juhana Leinonen|Vorple Screen Effects|red letters|value|
+|Juhana Leinonen|Vorple Screen Effects|magenta letters|value|
+|Juhana Leinonen|Vorple Screen Effects|brown letters|value|
+|Juhana Leinonen|Vorple Screen Effects|yellow letters|value|
+|Juhana Leinonen|Vorple Screen Effects|dark gray letters|value|
+|Juhana Leinonen|Vorple Screen Effects|light gray letters|value|
+|Juhana Leinonen|Vorple Screen Effects|light blue letters|value|
+|Juhana Leinonen|Vorple Screen Effects|light green letters|value|
+|Juhana Leinonen|Vorple Screen Effects|light cyan letters|value|
+|Juhana Leinonen|Vorple Screen Effects|light red letters|value|
+|Juhana Leinonen|Vorple Screen Effects|light magenta letters|value|
+|Juhana Leinonen|Vorple Screen Effects|white background|value|
+|Juhana Leinonen|Vorple Screen Effects|black background|value|
+|Juhana Leinonen|Vorple Screen Effects|blue background|value|
+|Juhana Leinonen|Vorple Screen Effects|green background|value|
+|Juhana Leinonen|Vorple Screen Effects|cyan background|value|
+|Juhana Leinonen|Vorple Screen Effects|red background|value|
+|Juhana Leinonen|Vorple Screen Effects|magenta background|value|
+|Juhana Leinonen|Vorple Screen Effects|brown background|value|
+|Juhana Leinonen|Vorple Screen Effects|yellow background|value|
+|Juhana Leinonen|Vorple Screen Effects|dark gray background|value|
+|Juhana Leinonen|Vorple Screen Effects|light gray background|value|
+|Juhana Leinonen|Vorple Screen Effects|light blue background|value|
+|Juhana Leinonen|Vorple Screen Effects|light green background|value|
+|Juhana Leinonen|Vorple Screen Effects|light cyan background|value|
+|Juhana Leinonen|Vorple Screen Effects|light red background|value|
+|Juhana Leinonen|Vorple Screen Effects|light magenta background|value|
+|Juhana Leinonen|Vorple Hyperlinks|20230130214754/1814:Mon 30 January 2023 21:47|indexing|
+|Juhana Leinonen|Vorple Command Prompt Control|20230130214754/2086:Mon 30 January 2023 21:47|indexing|
+|Emily Short|Status Line Removal|20230130214754/147:Mon 30 January 2023 21:47|indexing|
+|Matthew Fletcher|Exit Descriptions Sp|20230130214754/311:Mon 30 January 2023 21:47|indexing|
+|Matthew Fletcher|Exit Descriptions Sp|amount|value|
+|Matthew Fletcher|Exit Descriptions Sp|num|value|
+|Emily Short|Basic Screen Effects|20230130214754/2218:Mon 30 January 2023 21:47|indexing|
+|Emily Short|Basic Screen Effects|Status bar table|value|
+|Emily Short|Basic Screen Effects|Right alignment depth|value|

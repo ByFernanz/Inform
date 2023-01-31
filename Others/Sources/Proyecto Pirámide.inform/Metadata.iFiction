@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ifindex version="1.0" xmlns="http://babel.ifarchive.org/protocol/iFiction/">
+    <story>
+        <identification>
+            <ifid>F4FD7EBA-6202-4AB0-9BE1-4393613F70A7</ifid>
+            <format>glulx</format>
+        </identification>
+        <bibliographic>
+            <title>Proyecto Pirámide</title>
+            <author>Ariadna Aguilera Moral</author>
+            <headline>Una Aventura en Egipto</headline>
+            <genre>Ficción</genre>
+            <firstpublished>2017</firstpublished>
+            <description>Nailah, una niña pequeña esclava de una banda de ladrones de tumbas, va a descubrir por accidente el gran secreto de la pirámide de Keops.</description>
+            <language>es</language>
+            <group>Inform</group>
+        </bibliographic>
+        <releases>
+            <attached>
+                <release>
+                    <releasedate>2022-03-05</releasedate>
+                    <version>1</version>
+                    <compiler>Inform 7</compiler>
+                    <compilerversion>6M62</compilerversion>
+                </release>
+            </attached>
+        </releases>
+        <colophon>
+            <generator>Inform 7</generator>
+            <generatorversion>6M62</generatorversion>
+            <originated>2022-03-05</originated>
+        </colophon>
+        <glulx>
+            <serial>220305</serial>
+            <release>1</release>
+            <compiler>Inform 7 build 6M62</compiler>
+        </glulx>
+    </story>
+</ifindex>

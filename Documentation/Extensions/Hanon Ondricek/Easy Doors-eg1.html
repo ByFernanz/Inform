@@ -1,0 +1,1269 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Extension</title>
+    <style type="text/css">
+        <!--
+        /* The default font (family) and size */
+
+        body, p, td {
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.8rem; /* 100/125 */
+        }
+
+        /* For fixed-point material within text, such as the typing on the Library Card index page */
+
+        span.typewritten {
+        	font-family: monospace;
+        	font-size: 0.867rem; /* 13/12 * 100/125 */
+        }
+
+        /* For less important material: the small print */
+
+        span.smaller {
+        	font-size: 80%;
+        }
+
+        /* The "heading panel" is the coloured box, high up on the page. The colours
+        vary depending on the page: for example, the style on a report of a translation
+        with no problems is "headingpanelsucceeded", usually green, but if there were
+        problems then "headingpanelfailed" is used, which is usually red. "headingpanel"
+        itself is a more neutral grey by default. "headingpanelDark" is an alternative
+        look to make the extensions index pages have some visual contrast with the others;
+        by default they are a darker grey. */
+
+        .headingpanel {
+        	background: #eeeeee;
+        }
+        .headingpanelsucceeded {
+        	background: #E6FFE6;
+        }
+        .headingpanelfailed {
+        	background: #f69Ca6;
+        }
+        .headingpanelalt {
+        	background: #808080;
+        }
+
+        /* Heading panels have two lines of text: an upper one in a larger size, and a
+        lower one in a smaller. Again, the alt versions are meant to contrast.
+
+        	Report on Translation: Succeeded                <-- headingpaneltext
+        	Produced by Inform 10.1.0 (build 6U97)          <-- headingpanelrubric
+
+        	Installed Extensions                            <-- headingpaneltextalt
+        	Bundles of extra rules or phrases to...         <-- headingpanelrubricalt
+
+        */
+
+        span.headingpaneltext {
+        	color: #222222;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+        span.headingpaneltextalt {
+        	color: #ffffff;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        span.headingpanelrubric {
+        	color: #222222;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.733rem; /* 11/12 * 100/125 */
+        	font-weight: bold;
+        }
+        span.headingpanelrubricalt {
+        	color: #ffffff;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.733rem; /* 11/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* Horizontal rule styling */
+
+        div.hr {
+        	border: 0;
+        	width: 100%;
+        	color: #707070;
+        	background-color: #707070;
+        	height: 5px;
+        }
+
+        /* This styles the (usually white) text of the example numbers written inside
+        oval blobs in the extension documentation, which mimic the look of the in-app
+        documentation. */
+
+        .oval, .oval td {
+        	background-image:url('inform:/doc_images/ovoid.png');
+        	color:white;
+        }
+
+        /* Styling used in the extension documentation indexes: */
+
+        /* Used for extension names in the extensions pane of the app */
+
+        span.extensioncensusentry {
+        	color: #ffffff;
+        }
+
+        span.extensionindexentry {
+        	color: #404040;
+        }
+
+        span.extensionindexerror {
+        	color: #ff8080;
+        }
+
+        /* This is used in extension documentation, where an example is presented
+        in a slightly tinted box: */
+
+        table.extensionexample {
+        	background-color: #f0f0f0;
+        }
+
+        span.extensionexampleletter {
+        	color: #202020;
+        	font-size: 14px;
+        	font-weight: bold;
+        }
+
+        /* Seen in problem messages: */
+
+        span.problemred {
+        	color: #800000;
+        }
+
+        span.problemgreen {
+        	color: #008000;
+        }
+
+        span.phraseword {
+        	color: #808080;
+        }
+
+        span.phrasetokentext {
+        	color: #e00060;
+        }
+
+        span.phrasetokendesctext {
+        	color: #4040ff;
+        }
+
+        span.phrasetokenvaluetext {
+        	color: #ff4040;
+        }
+
+        /* Now we move on to styling used in the Index pages only: */
+
+        /* The periodic table display has "sidebars", usually grey and taller than they
+        are wide; they contain no text. */
+
+        div.periodictablesidebarcolour {
+        	background: #888;
+        }
+        div.periodictablesidebar:hover {
+        	background: #222;
+        }
+
+        /* The text of the element-abbreviation, such as "Lx" or "Ph", uses: */
+
+        span.elementtext {
+        	color: #ffffff;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* Similarly for the "atomic number" - a single digit - in the top left corner
+        of these boxes: */
+
+        span.elementnumbertext {
+        	color: #ffffff;
+        	font-size: 0.622rem; /* 7/12 * 96/72 * 100/125 */
+        }
+
+        /* For the text of the element title, to the right of the element box: */
+
+        span.elementtitletext {
+        	color: #ffffff;
+        	font-size: 0.6rem; /* 9/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* The banner at the top of each element: */
+
+        table.elementbanner {
+        	background: #eeeeee;
+        }
+
+        /* For the typewriting on the Library Card: */
+
+        span.librarycardtitle {
+        	color: #803030;
+        }
+
+        span.librarycardother {
+        	color: #303030;
+        }
+
+        /* Generically used for "more details" boxes in the index: */
+
+        table.indexmorebox {
+        	background-color: #e0e0e0;
+            border-radius: 8px;
+        }
+
+        /* But not for activity contents: */
+
+        table.indexactivitycontents {
+        	background-color: #e8e0c0;
+            border-radius: 8px;
+        }
+
+        /* For responses in index entries about rules: */
+
+        span.indexresponseletter {
+        	color: #ffffff;
+        	font-family: 'Courier New', Courier, monospace;
+        	background-color: #8080ff;
+        }
+
+        span.indexresponsetext {
+        	color: #000066;
+        }
+
+        /* Used ubiquitously throughout the index and extension documentation: */
+
+        span.indexblack {
+        	color: #000000;
+        }
+
+        span.indexgrey {
+        	color: #808080;
+        }
+
+        span.indexdarkgrey {
+            color: #505050;
+        }
+
+        span.indexdullred {
+        	color: #800000;
+        }
+
+        span.indexdullgreen {
+        	color: #008000;
+        }
+
+        span.indexdullblue {
+        	color: #000080;
+        }
+
+        /* Used for the room squares in the World map in the Index (which is currently
+        a table with one row of one column) */
+
+        table.indexmaproom {
+        	border-color: #000000;
+        }
+
+        /* Used in the numbering of levels of the World map in the Index */
+
+        span.indexmaplevelnumbers {
+        	color: #c0c0c0;
+        }
+
+        /* Used e.g. for title rows in the Chart of basic kinds in the Index */
+
+        tr.headingrow {
+        	background-color: #e0e0e0;
+        }
+
+        /* Standard rows have black text on striped background colours, these being
+        the usual ones seen in Mac OS X applications such as iTunes. */
+
+        tr.stripeone {
+        	background-color: #ffffff;
+        }
+
+        tr.stripetwo {
+        	background-color: #f3f6fa;
+        }
+
+        tr.tintedrow {
+        	background-color: #808080;
+        }
+
+        /* In the Figures index, this is the background colour used behind images
+        (though in fact it will only be visible if the image fails to load, or uses
+        transparency): */
+
+        div.figureindexbox {
+        	background-color: #6495ed;
+        }
+
+        /* To get the book-contents-page style leaders on the Contents element of
+           the index to work, these must use the background colour of the body of
+           the page, whatever that is: */
+
+        ul.leaders li.leaded span:first-child {
+        	background: white;
+        }
+        ul.leaders li.leaded span + span {
+        	background: white;
+        }
+
+        /* On Registry index pages (such as the Public Library), these are used for
+        download buttons and the like: */
+
+        span.registrybuttontext {
+        	font-size: 11px;
+        	border-color: #000000;
+        }
+
+        span.registryminibuttontext {
+        	font-size: 10px;
+        	border-color: #000000;
+        }
+
+        span.registrybuttonuninstalled {
+        	color: #000000;
+        	background: #ffffdd;
+        }
+
+        span.registrybuttoninstalled {
+        	color: #000000;
+        	background: #ffffff;
+        	pointer-events: none;
+        }
+
+        span.registrybuttonbuiltin {
+        	color: #888888;
+        	background: #ffffff;
+        	pointer-events: none;
+        }
+
+        span.registrybuttonupdate {
+        	color: #000000;
+        	background: #aaddff;
+        }
+
+        span.registrybuttonrevert {
+        	color: #000000;
+        	background: #ddaaff;
+        }
+
+        span.registrybuttonrevealer {
+        	color: #ffffff;
+        	background: #444444;
+        }
+
+        /* Registry index section headings: */
+
+        span.registrysectionname {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 16px;
+        	line-height: 18px;
+        }
+        span.registrysubsectionname {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 14px;
+        	line-height: 16px;
+        }
+
+        /* These are for the "mark" for a section, usually a section-symbol and number */
+
+        span.registrysectionmark {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 16px;
+        	line-height: 18px;
+        	color: #666;
+        }
+        span.registrysubsectionmark {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 14px;
+        	line-height: 16px;
+        	color: #666;
+        }
+
+        /* Text of an item listed in a registry: */
+
+        span.registryitemtext {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 12px;
+        	line-height: 16px;
+        }
+
+        /* And how the links in a registry index page behave: */
+
+        a.registrysilentlink {
+        	text-decoration: none;
+        	color: #000;
+        }
+        a.registrybuttonlink {
+        	text-decoration: none;
+        }
+        a.registrycontentslink:link {
+        	text-decoration: none;
+        	color: #202020;
+        }
+        a.registrycontentslink:visited {
+        	text-decoration: none;
+        	color: #202020;
+        }
+        a.registrycontentslink:hover {
+        	text-decoration: none;
+        	color: #D00000;
+        }
+        a.registrycontentslink:active {
+        	text-decoration: none;
+        	color: #D00000;
+        }
+
+        -->
+    </style>
+    <style type="text/css">
+        <!--
+        /* (1) General layout material */
+
+        *, *:before, *:after {
+        	-moz-box-sizing: border-box;
+        	-webkit-box-sizing: border-box;
+        	box-sizing: border-box;
+        }
+        .headingpanellayout {
+        	position: relative;
+        	height: 56px;
+        	padding: 0px;
+        	white-space:nowrap;
+        }
+        .headingpanellayoutdeeper {
+        	position: relative;
+        	height: 117px;
+        	padding: 0px;
+        	white-space:nowrap;
+        }
+        .headingtext {
+        	position: absolute;
+        	top: -4px;
+        	left: -1px;
+        	width: 100%;
+        	padding: 14px 10px 0px 10px;
+        }
+        .headingrubric {
+        	position: absolute;
+        	top: 36px;
+        	width: 100%;
+        	padding: 0px 10px 0px 10px;
+        }
+        h3.tighter {
+        	margin-top: 0px;
+        }
+        p.hang {
+        	padding-left: 25px;
+        	text-indent: -25px;
+        	margin-top: 0px;
+        	margin-bottom: 0px;
+        }
+        p.in1 {
+        	padding-left: 0px;
+        }
+        p.tightin1 {
+        	padding-left: 0px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin1 {
+        	padding-left: 0px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin1 {
+        	padding-left: 50px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in2 {
+        	padding-left: 25px;
+        }
+        p.tightin2 {
+        	padding-left: 25px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin2 {
+        	padding-left: 25px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin2 {
+        	padding-left: 75px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in3 {
+        	padding-left: 50px;
+        }
+        p.tightin3 {
+        	padding-left: 50px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin3 {
+        	padding-left: 50px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin3 {
+        	padding-left: 100px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in4 {
+        	padding-left: 75px;
+        }
+        p.tightin4 {
+        	padding-left: 75px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin4 {
+        	padding-left: 75px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin4 {
+        	padding-left: 125px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in5 {
+        	padding-left: 100px;
+        }
+        p.tightin5 {
+        	padding-left: 100px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin5 {
+        	padding-left: 100px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin5 {
+        	padding-left: 150px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in6 {
+        	padding-left: 125px;
+        }
+        p.tightin6 {
+        	padding-left: 125px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin6 {
+        	padding-left: 125px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin6 {
+        	padding-left: 175px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in7 {
+        	padding-left: 150px;
+        }
+        p.tightin7 {
+        	padding-left: 150px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin7 {
+        	padding-left: 150px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin7 {
+        	padding-left: 200px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in8 {
+        	padding-left: 175px;
+        }
+        p.tightin8 {
+        	padding-left: 175px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin8 {
+        	padding-left: 175px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin8 {
+        	padding-left: 225px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in9 {
+        	padding-left: 200px;
+        }
+        p.tightin9 {
+        	padding-left: 200px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin9 {
+        	padding-left: 200px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin9 {
+        	padding-left: 250px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+
+        /* (2) Index page layout material */
+
+        /* The periodic table display has "sidebars", usually grey and taller than they
+        are wide; they contain no text. */
+
+        div.periodictablesidebar {
+        	height: 56px;
+        	width: 16px;
+        }
+        .periodictablesidebar a:link { text-decoration: none; }
+        .periodictablesidebar a:visited { text-decoration: none; }
+        .periodictablesidebar a:active { text-decoration: none; }
+
+        /* The "element boxes" are the cells appearing in the periodic-table display
+        on the welcome page of the index: */
+
+        .elementbox {
+        	position: relative;
+        	height: 56px;
+        	width: 56px;
+        	padding: 0px;
+        }
+
+        .elementbox a:link { text-decoration: none; }
+        .elementbox a:visited { text-decoration: none; }
+        .elementbox a:active { text-decoration: none; }
+        .elementbox a:hover { text-decoration: none; }
+        .elementbox:hover {
+        	opacity: 0.6;
+        }
+
+        /* The "small element boxes" look like those, but are smaller, and used on
+        the headings of the content which those original boxes link to: */
+
+        .smallelementbox {
+        	position: relative;
+        	height: 40px;
+        	width: 40px;
+        	padding: 0px;
+        }
+
+        .smallelementbox a:link { text-decoration: none; }
+        .smallelementbox a:visited { text-decoration: none; }
+        .smallelementbox a:active { text-decoration: none; }
+        .smallelementbox a:hover { text-decoration: none; }
+        .smallelementbox:hover {
+        	opacity: 0.6;
+        }
+
+        /* This is a class for the links formed by the element boxes: */
+
+        a.elementlink {
+        	position: absolute;
+        	top: -4px;
+        	left: -1px;
+        	width: 100%;
+        	padding: 14px 0px 14px 1px;
+        	text-align: center;
+        }
+
+        /* Similarly for the "atomic number" - a single digit - in the top left corner
+        of these boxes: */
+
+        div.elementnumber {
+        	position: absolute;
+        	top: 1px;
+        	left: 3px;
+        	text-align: left;
+        }
+
+        /* For the text of the element title, to the right of the element box: */
+
+        div.elementtitle {
+        	position: absolute;
+        	top: 35px;
+        	width: 100%;
+        	text-align: center;
+        }
+
+        /* Used for the book-contents-page style leaders on the Contents element of
+           the index: */
+
+        ul.leaders {
+        	padding: 0;
+        	margin-top: 1px;
+        	margin-bottom: 0;
+        	overflow-x: hidden;
+        	list-style: none}
+        ul.leaders li.leaded:before {
+        	float: left;
+        	width: 0;
+        	white-space: nowrap;
+        	content:
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "}
+        ul.leaders li.leaded span:first-child {
+        	padding-right: 0.33em;
+        }
+        ul.leaders li.leaded span + span {
+        	float: right;
+        	padding-left: 0.33em;
+        }
+        li.indent1 span:first-child {
+        	padding-left: 25px;
+        }
+        li.indent2 span:first-child {
+        	padding-left: 50px;
+        }
+        li.indent3 span:first-child {
+        	padding-left: 75px;
+        }
+        li.indent4 span:first-child {
+        	padding-left: 100px;
+        }
+        li.indent5 span:first-child {
+        	padding-left: 125px;
+        }
+        li.indent6 span:first-child {
+        	padding-left: 150px;
+        }
+        li.indent7 span:first-child {
+        	padding-left: 175px;
+        }
+        li.indent8 span:first-child {
+        	padding-left: 200px;
+        }
+        li.indent9 span:first-child {
+        	padding-left: 225px;
+        }
+
+        li.unleaded:before {
+        	content: "";
+        }
+
+        /* On Registry index pages (such as the Public Library), these are used for
+        download buttons and the like: */
+
+        span.registrybuttons {
+        	height: 20px;
+        	padding: 2px 8px 2px 8px;
+        	margin: 2px;
+        	border:1px solid;
+        	border-radius: 5px;
+        }
+
+        span.registryminibuttons {
+        	height: 14px;
+        	padding: 2px 5px 2px 5px;
+        	margin: 2px;
+        	border:1px solid;
+        	border-radius: 4px;
+        }
+
+        /* Used to hide or display sections in the Registry pages: */
+
+        div.registrysectionitemsopen {
+        	display: block;
+        }
+
+        div.registrysectionitemsclosed {
+        	display: none;
+        }
+
+        /* Hanging indentation for Registry item paragraphs: */
+
+        p.registryitem {
+        	padding-left: 80px;
+        	text-indent: -40px;
+        }
+
+        p.registryaddition {
+        	padding-left: 40px;
+        	text-indent: -40px;
+        }
+
+        -->
+    </style>
+    <script type="text/javascript">
+        function project() {
+            return window.Project;
+        }
+        function showExtra(id, imid) {
+        	if (document.getElementById(id).style.display == 'block') {
+        		document.getElementById(id).style.display = 'none';
+        		document.getElementById(imid).src = 'inform:/extra.png';
+        	} else {
+        		document.getElementById(id).style.display = 'block';
+        		document.getElementById(imid).src = 'inform:/extraclose.png';
+        	}
+        }
+        function openExtra(id, imid) {
+        	document.getElementById(id).style.display = 'block';
+        	document.getElementById(imid).src = 'inform:/extraclose.png';
+        }
+        function closeExtra(id, imid) {
+        	document.getElementById(id).style.display = 'none';
+        	document.getElementById(imid).src = 'inform:/extra.png';
+        }
+        function pasteCode(code) {
+            var myProject = project();
+
+            myProject.selectView('source');
+            myProject.pasteCode(code);
+        }
+
+    </script>
+</head>
+<body>
+    <!--CONTENT BEGINS-->
+    <table CELLPADDING=0 CELLSPACING=0 width="100%" bgcolor="#000000"><tr><TD width=38px height=26px align="center" valign="center"><a href="inform://Extensions/Extensions.html" border=0><img border=0 src="inform:/doc_images/Hookindex.png" border=0></a></td><TD width=38px height=26px align="center" valign="center"></td><td halign="left" valign="center" CELLPADDING=0 CELLSPACING=0><font color="#FFFFFF" size=2>Extensions</font></a></td><TD width=56px height=26px align="right" valign="center"><a href="inform:/index.html" border=0><img border=0 src="inform:/doc_images/Hookup.png" border=0></a></td></tr></table>
+
+    <p><a href="javascript:pasteCode('Include Easy Doors by Hanon Ondricek.[=0x000A=][=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a>&nbsp;<b>Easy Doors<span class="extensionindexentry"> by </span>Hanon Ondricek</b></p>
+    <p><span class="smaller">Version 3.0.160425</span></p>
+    <p>Easy Doors provides a new kind of door which does not use map connections, and may be manipulated via rules more flexibly than the standard doors provided in Inform 7.  Version 3 removes elements for compatibility with 6M62</p>
+    <p></p>
+    <hr>
+    <p><span class="indexblack"><b><a style="text-decoration: none" href=#docsec1>Chapter 1: </a></b></span>Introduction<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec2>Section 1.1: </a></span>Update Log<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec3>Section 1.2: </a></span>Acknowledgements<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec4>Chapter 2: </a></b></span>Creating Easydoors<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec5>Section 2.1: </a></span>One-Way Easydoors<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec6>Section 2.2: </a></span>Two-Way Doors<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec7>Section 2.3: </a></span>Portalling Two Easydoors as One<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec8>Section 2.4: </a></span>Dooraction<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec9>Section 2.5: </a></span>After Entering an Easydoor<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec10>Section 2.6: </a></span>Portable Doors<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec11>Chapter 3: </a></b></span>Debug<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec12>Chapter 4: </a></b></span>NPCs, and Pathfinding<br>
+    <br>
+    <b>Examples</b><br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href="Easy Doors-eg1.html#eg1">A &mdash; And I Want to Paint It</a></span><br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href="Easy Doors-eg2.html#eg2">B &mdash; His Lovely Assistant</a></span><br>
+    </p>
+    <hr>
+    <p></p>
+    </p>
+
+    <p><p><span class="indexdullred"><b><span id=docsec1>Chapter 1: Introduction</span></b></span></p>
+    </p>
+
+    <p> Doors as implemented in Inform 7 are limited and sometimes frustrating to use since they must connect two rooms using map directions. They can thwart some architectural and magical realism: they cannot be moved during play, and they cannot change their destination. We cannot have an enterable broom closet on the same wall as a map direction. Doors cannot be part of an object, or inside an enterable container.</p>
+
+    <p> Easy Doors is a small extension that provides a new kind called &quot;easydoor&quot;. These behave like normal doors and can be placed anywhere, providing one-way, directionless transport to any location in the game world. Easydoors can be moved around the map, on and off-stage, and can change what location they lead to at the author's whim using normal rules. Since easydoors do not require directional hookups on the map, they are very simple to implement.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec2>Section 1.1: Update Log</span></b></span></p>
+    </p>
+
+    <p> 2016.04-25 - Removed &quot;perform&quot; functionality as it no longer operates consistently in 6M62 and using it with certain actions cause a compiler error with no specific indication what caused the error. Functionality can be duplicated using the &quot;carry out&quot; phase of entering an easydoor as explained below.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec3>Section 1.2: Acknowledgements</span></b></span></p>
+    </p>
+
+    <p> Thanks to Carolyn VanEseltine and Jason Lautzenheimer for suggestions about door behaviors. Also to Daniel Stelzer and Andrew Schultz for assistance and advice and testing.</p>
+
+    <p> Please feel free to email hanon.ondricek@gmail.com with any feedback, questions, or bug reports.</p>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec4>Chapter 2: Creating Easydoors</span></b></span></p>
+    </p>
+
+    <p> Easydoors can be created and placed wherever we want. They behave in the expected way a door would, by default fixed in place, openable and closed. We can declare them also lockable and locked or unlocked (unlocked is default) and create keys to unlock them. We can make them open and unopenable to simulate stairs or an open passage. We also specify where an easydoor leads to when a player enters one.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec5>Section 2.1: One-Way Easydoors</span></b></span></p>
+    </p>
+
+    <p><blockquote><span class="indexdullblue"> The front door is an easydoor in Porch. It leads to Foyer.</span></blockquote>
+
+    <p> This is the minimum code for a working easydoor. We can of course give our easydoor an initial appearance, a description (the default just says whether the door is closed or open) and use all of the normal rules for opening and closing and locking. (The exception to be careful with is AFTER ENTERING - see the section later for details.)</p>
+
+    <p><blockquote><span class="indexdullblue"> An iron grating is an easydoor in Dungeon Mouth. It leads to Dungeon Throat. It is lockable and locked.<br>
+     The dungeon key unlocks iron grating. Dungeon key is carried by the fearsome ogre.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> A windy passage is an easydoor in Dungeon Throat. &quot;A windy passage leads deeper into the dungeon.&quot; It is unopenable and open. It leads to Dungeon Lungs.</span></blockquote>
+
+    <p> Notice none of these specify compass directions. We can place as many doors in a location as we wish. The player can enter an easydoor and be transported to the location it leads to by using any synonym of the entering action, or by typing the name of an easydoor as if it were a direction.</p>
+
+    <p><blockquote><span class="indexdullblue"> &gt;ENTER FRONT DOOR<br>
+     &gt;GRATING<br>
+     &gt;GO THROUGH WINDY PASSAGE</span></blockquote>
+
+    <p> If the easydoor is closed and not locked, the parser will open it implicitly. If it is locked, the player will be informed and not allowed to open it until they find a key.</p>
+
+    <p> We can simulate that an easydoor leads in a direction by redirecting the player's input to the entering action.</p>
+
+    <p><blockquote><span class="indexdullblue"> A revolving door is an easydoor in Plaza. &quot;The department store's revolving door slices and dices holiday shoppers to the north.&quot; It is unopenable and open. It leads to Women's Shoes. The description of revolving door is &quot;It makes you sort of ill to watch it for too long.&quot;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Instead of going north in Plaza: try entering revolving door.</span></blockquote>
+
+    <p><p><span class="indexblack"><b><span id=docsec6>Section 2.2: Two-Way Doors</span></b></span></p>
+    </p>
+
+    <p> Since easydoors traverse only one way, we might wish to provide the other half of the door so there is a two-way connection.</p>
+
+    <p><blockquote><span class="indexdullblue"> some automatic doors are an easydoor in Women's Shoes. &quot;You note some automatic doors to the south that lead back out into the street.&quot; It leads to Plaza. The dooraction is &quot;At least you don't have to contend with the revolving door this time as glass panels are whisked aside automatically for you.&quot;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Instead of going south in Women's Shoes:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; try entering automatic doors.</span></blockquote>
+
+    <p><p><span class="indexblack"><b><span id=docsec7>Section 2.3: Portalling Two Easydoors as One</span></b></span></p>
+    </p>
+
+    <p> When we are simulating both sides of a door with two separate easydoors, we would like them to stay in sync with regard to locking, unlocking, opening and closing. We do that by connecting them with the portalling relation, which is reciprocal and only needs to be declared on one of the matching portals.</p>
+
+    <p><blockquote><span class="indexdullblue"> The coaster security gate is an easydoor in Midway. It is lockable and locked. It leads to Roller Coaster. The description is &quot;Through the chain link, you can see the wooden supports of the roller coaster.&quot; Understand &quot;chain/link&quot; as security gate.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> The gate back to the midway is an easydoor in Roller Coaster. &quot;A gate here appears to lead back to the midway.&quot; The description is &quot;It's the back side of that security gate you saw earlier.&quot; It leads to midway. It portals coaster security gate. Understand &quot;security&quot; as gate back to midway.<br>
+     The passkey unlocks coaster security gate. Passkey is on security guard's corpse.</span></blockquote>
+
+    <p> This will ensure that if we unlock the security gate from one side but slip into the Roller Coaster grounds by other means, when we encounter the allegedly same gate from the other side that it will also be unlocked. It also allows the same key to lock and unlock the other half of the portalled door.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec8>Section 2.4: Dooraction</span></b></span></p>
+    </p>
+
+    <p> Every easydoor contains a text called &quot;dooraction&quot; which can optionally be used to provide some descriptive text when the player moves through the door.</p>
+
+    <p><blockquote><span class="indexdullblue"> a spiral staircase is an open, unopenable easydoor in Minimalistic Apartment. It leads to Loft. the dooraction of spiral staircase is &quot;Your knees complain as you climb the wrought iron twists of this contraption.&quot;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> a time machine is an open, unopenable easydoor in Laboratory. &quot;A humming time machine sits in the corner, the passage into it glowing expectantly.&quot; It leads to Swirly Void. The dooraction of time machine is &quot;All right.  Here goes.&quot;</span></blockquote>
+
+    <p> The dooraction should encompass the actual traversal of the door. The opening and closing are separate actions and shouldn't necessarily be included in the dooraction.</p>
+
+    <p><blockquote><span class="indexdullblue"> a crypt door is an openable easydoor in Graveyard. It leads to Inner Tomb. The dooraction is &quot;As you cross the threshold, a cold wind ruffles your hair.&quot;.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> After an actor opening crypt door, say &quot;The door of the crypt creaks open.&quot;<br>
+     After an actor closing crypt door, say &quot;The crypt door bangs shut.&quot;</span></blockquote>
+
+    <p><p><span class="indexblack"><b><span id=docsec9>Section 2.5: After Entering an Easydoor</span></b></span></p>
+    </p>
+
+    <p> In most cases, we should not override the AFTER ENTERING rules affecting an easydoor, as this is where the player is moved to the location that the door leads to (called an &quot;outpoint&quot; in code). Should you need to do anything fancy when an easydoor is traversed, The best place to work it out is in the carry out phase of entering.</p>
+
+    <p><blockquote><span class="indexdullblue"> A revolving door is an easydoor in Plaza. &quot;The department store's revolving door slices and dices holiday shoppers to the north.&quot; It is unopenable and open. It leads to Women's Shoes. The description of revolving door is &quot;It makes you sort of ill to watch it for too long.&quot; The dooraction of revolving door is &quot;You are whirled for several minutes[if the player encloses a mitten], losing a mitten in the process[end if].  Finally you are through and your shopping can begin!&quot;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Carry out entering revolving door:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; if the player encloses a mitten:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; now a random mitten enclosed by the player is off-stage.</span></blockquote>
+
+    <p> If you decide you need to use the after rules, you should ensure that you move the player to the outpoint of the easydoor as well.</p>
+
+    <p> Easy Doors usually lead to a room. Altering the AFTER ENTERING rules would be one way to, for whatever reason, have a door lead to the inside of an enterable container or onto a supporter. Take care with this, as getting your player stuck inside an object or in a backdrop might have strange consequences. An example is provided below.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec10>Section 2.6: Portable Doors</span></b></span></p>
+    </p>
+
+    <p> Easydoors are usually immobile as far as the player is concerned, although the author can move them as part of gameplay using rules. An easydoor can be declared portable, leading to wild effects.</p>
+
+    <p><blockquote><span class="indexdullblue"> A round black hole is an easydoor carried by the player. It is portable. It leads to Phobos.</span></blockquote>
+
+    <p> A portable door must be dropped before it can be entered, of course, because carrying a door through itself would break even imaginary laws of physics and cause your game to collapse into itself and wink out of existence.</p>
+
+    <p><blockquote><span class="indexdullblue"> Carry out turning the Infinite Improbability dial:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; now round black hole leads to Magrathea.</span></blockquote>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec11>Chapter 3: Debug</span></b></span></p>
+    </p>
+
+    <p> An easydoor without a destination (in code, an &quot;outpoint&quot;) would transport the player off-stage, which could cause all kinds of nasty effects. When a game is run in the Inform IDE, easydoors without outpoints will be flagged when play begins.</p>
+
+    <p> We may have good reason to have a destination-less door (as shown in the example below) and can ignore these warnings which will not appear in a published game. This is provided to notify the author in case of inadvertently forgetting to include a destination for an easydoor. Instead of recklessly transporting the player offstage, the extension will inform the player that the door leads nowhere, and change the outpoint of the easydoor to its own location should the player try again.</p>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec12>Chapter 4: NPCs, and Pathfinding</span></b></span></p>
+    </p>
+
+    <p> Easy Doors can handle an NPC character manipulating and entering an easydoor if manually told to in rules by the author, or by a player if persuasion succeeds. Unfortunately Inform's automatic pathfinding (&quot;The best route from A to B&quot;) will not take easydoors into account. Any route to a location will detour around an easydoor if there is another way using regular map connections and doors, or will fail as &quot;nothing&quot; if an easydoor is the only route.</p>
+
+    <p> If our game relies on routefinding and autonomous NPCs, some suggestions are:</p>
+
+    <p> A: Create the world with map connections and regular doors where we need NPCs to travel, reserving easydoors for special cases. (In TRANSPARENT, there is a map connection between the study and the library that ghosts can use, but the player is directed from the map connection through an easydoor, which might be locked.)</p>
+
+    <p> B: Divide the map into regions that easydoors connect, and have Inform find &quot;The best route from A to (an easydoor).&quot; Once arrived, have the NPC try entering the easydoor and continue their route to a destination.</p>
+
+    <p> C: Find plot reasons to teleport the NPCs.</p>
+
+    <p> Hopefully if our game involves traveling NPCs and extended logic to move them, we are skilled enough to manage within the limitations of this extension, or modify it to suit.</p>
+
+    <p> A vague caution: This extension is designed to help authors solve some door problems, and create special effects. While it can be used to make an entire game full of non-traditional map traversal, it has not been stress-tested with hundreds of portaling doors in a game. Some memory limitations and weirdness might be encountered if we are using this extension to write a game called &quot;Maze of a Million Doors&quot;.</p>
+
+    <p><hr>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td halign="left" valign="top" cellpadding=0 cellspacing=0 width=38px>
+                <span id=eg1><table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="oval">
+                        <td width=38px height=30px align="left" valign="center">
+                            <a href="Easy Doors.html#eg1" style="text-decoration: none"><div class="paragraph Body" style="line-height: 1px; margin-bottom: 0px; margin-top: 0px; padding-bottom: 0pt; padding-top: 0px; text-align: center;">
+                                <span class="extensionexampleletter">A</span></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                </span>
+            </td>
+            <td cellpadding=0 cellspacing=0 halign="left" valign="top">
+                <a href="Easy Doors.html#eg1" style="text-decoration: none"><img border="0" src='inform:/doc_images/asterisk.png'><img border="0" src='inform:/doc_images/asterisk.png'><b><span class="indexdarkgrey">&nbsp;Example&nbsp;</span><span class="indexblack">And I Want to Paint It</span></b></a><br>
+                <p>Easy Doors in action, hopefully demonstrating the entire range of use, including debug messages.</p>
+
+            </td>
+        </tr>
+    </table>
+    <table border="0" cellspacing="0" cellpadding="0" class="extensionexample" width=100%>
+        <tr>
+            <td align="left" valign="top">
+                <p></p>
+
+                <p><blockquote><span class="indexdullblue"><a href="javascript:pasteCode('[=0x0022=]And I Want to Paint It[=0x0022=][=0x000A=][=0x000A=]Include Easy Doors by Hanon Ondricek.[=0x000A=][=0x000A=]Hub is a room.[=0x000A=]Room1 is a room.[=0x000A=]Room2 is a room.[=0x000A=]Room3 is a room.[=0x000A=][=0x000A=]Alice is a woman in Hub. [=0x0022=]Alice is here, looking rather lost.[=0x0022=][=0x000A=][=0x000A=]Before Alice entering an easydoor:[=0x000A=][=0x0009=]say [=0x0022=][=0x0027=]Aha![=0x0027=] Alice exclaims.[=0x0022=][=0x000A=][=0x000A=]A persuasion rule: persuasion succeeds.[=0x000A=][=0x000A=]An easydoor called the first door is an easydoor in Hub. It leads to room1.[=0x000A=][=0x000A=]A green door is a lockable, locked easydoor in Hub. It leads to room2.[=0x000A=][=0x000A=]A blue door is a lockable, locked easydoor in Hub. It leads to room3.[=0x000A=][=0x000A=]The player carries a green key. Green key unlocks green door.[=0x000A=][=0x000A=]A blue key is in Room2. It unlocks blue door.[=0x000A=][=0x000A=]An incorrectly-made door is an easydoor in Hub.[=0x000A=][=0x000A=]a return door is a kind of easydoor.[=0x000A=]One return door is in room1. It leads to Hub. It portals first door.[=0x000A=]One return door is in room2. It leads to Hub. It is lockable and locked. It portals green door.[=0x000A=]One return door is in room3. It leads to Hub. It is lockable and locked. It portals blue door.[=0x000A=][=0x000A=]A false door is an easydoor in Hub.[=0x000A=][=0x000A=]After opening false door:[=0x000A=]say [=0x0022=]Hunh.  This door opens onto a solid brick wall.  You[=0x0027=]re not going anywhere through this.[=0x0022=][=0x000A=][=0x000A=]Yourself can be injured.[=0x000A=][=0x000A=]The dooraction of false door is [=0x0022=]Ow.  Bricks meet nose.[=0x0022=][=0x000A=][=0x000A=]Carry out entering false door:[=0x000A=][=0x0009=]now the player is injured.[=0x000A=][=0x000A=]A red herring door is an easydoor in hub. It is lockable and locked.[=0x000A=][=0x000A=]a time machine is an open, unopenable easydoor in Room3. [=0x0022=]A humming time machine sits in the corner, the passage into it glowing expectantly.[=0x0022=] It leads to Swirly Void. The dooraction of time machine is [=0x0022=]All right.  Here goes.[=0x0022=][=0x000A=][=0x000A=]Swirly Void is a room. [=0x0022=]How temporally disorienting![=0x0022=].[=0x000A=][=0x000A=]A rapidly approaching light is an open, unopenable easydoor in Swirly Void. The description is [=0x0022=]It[=0x0027=]s approaching fast.[=0x0022=] It leads to Drawing Room. The dooraction of rapidly approaching light is [=0x0022=]You fall for a long time, afraid of meeting the ground at rapid pace.  Luckily the next time you blink, you find yourself somewhere else...and there seems to be no way back.[=0x0022=][=0x000A=][=0x000A=]Drawing Room is a room. [=0x0022=]You[=0x0027=]ve arrived in Victorian London, it seems, from the look of this place.[=0x0022=][=0x000A=][=0x000A=]The parlour door is an easydoor in Drawing Room. [=0x0022=]The Parlour is west.[=0x0022=] It leads to The Parlor.[=0x000A=][=0x000A=]Instead of going west in Drawing Room: try entering parlour door.[=0x000A=][=0x000A=]The Parlor is a room. [=0x0022=]The Parlour.  How boring.[=0x0022=]. The printed name of parlor is [=0x0022=]The Parlour[=0x0022=][=0x000A=][=0x000A=]The drawing room door is an easydoor in Parlor. [=0x0022=]The drawing room door leads back to the east.[=0x0022=]. It leads to Drawing Room. It portals parlour door.[=0x000A=][=0x000A=]Instead of going east in parlor: try entering the drawing room door.[=0x000A=][=0x000A=]A magic mushroom is an edible thing in Drawing Room.[=0x000A=][=0x000A=]Carry out eating magic mushroom:[=0x000A=][=0x0009=]say [=0x0022=]The parlour door seems to ripple strangely.[=0x0022=];[=0x000A=][=0x0009=]now the parlour door leads to Wonderland;[=0x000A=][=0x0009=]now the dooraction of parlour door is [=0x0022=]As you cross the threshold of the parlour door, there is a liquid ripple and your surroundings melt away, leading you somewhere else...[=0x0022=].[=0x000A=][=0x000A=]Wonderland is a room. [=0x0022=]Oh no.  Not this again.  Your croquet skills are rusty.  You feel like jumping in frustration.[=0x0022=][=0x000A=][=0x000A=]some very damp clothing is a wearable thing.[=0x000A=][=0x000A=]The pool of tears is a fixed in place, enterable, transparent container in wonderland.[=0x000A=][=0x000A=]Carry out entering pool of tears:[=0x000A=][=0x0009=]now the player wears damp clothing.[=0x000A=][=0x000A=]hundreds of gallons of tears is a fixed in place thing in pool of tears.[=0x000A=][=0x000A=]Yourself can be wet.[=0x000A=][=0x000A=]A whirlpool is an open, unopenable easydoor. It leads to Hub. The dooraction is [=0x0022=]Down...down...down...whirling...you hold your breath until finally you end up in... Well, foo.  That was all for naught.[=0x0022=][=0x000A=][=0x000A=]Carry out entering whirlpool:[=0x000A=][=0x0009=]now the player wears damp clothing.[=0x000A=][=0x000A=]Instead of jumping:[=0x000A=][=0x0009=]say [=0x0022=]You stamp your foot angrily.[=0x0022=];[=0x000A=][=0x0009=]if the location is Wonderland:[=0x000A=][=0x0009=][=0x0009=]say [=0x0022=][line break]The rumbling of your frustration seems to have caused a crack in the earth to open up, and the pool of tears begins to circle, draining away.[=0x0022=];[=0x000A=][=0x0009=][=0x0009=]now whirlpool is in pool of tears;[=0x000A=][=0x0009=]rule succeeds.[=0x000A=][=0x000A=]test me with [=0x0022=]open green door/alice, open blue door/alice, enter red herring door/enter false door/unlock green door with green key/alice, go through green door/enter green door/alice, take blue key/alice, go return door/return/alice, unlock blue door/alice, open blue door/enter blue door/get in time machine/enter light/take mushroom/w/e/eat mushroom/w/x pool/jump/enter pool/enter whirlpool[=0x0022=][=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a> &quot;And I Want to Paint It&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Include Easy Doors by Hanon Ondricek.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Hub is a room.<br>
+                 Room1 is a room.<br>
+                 Room2 is a room.<br>
+                 Room3 is a room.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Alice is a woman in Hub. &quot;Alice is here, looking rather lost.&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Before Alice entering an easydoor:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; say &quot;'Aha!' Alice exclaims.&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> A persuasion rule: persuasion succeeds.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> An easydoor called the first door is an easydoor in Hub. It leads to room1.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> A green door is a lockable, locked easydoor in Hub. It leads to room2.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> A blue door is a lockable, locked easydoor in Hub. It leads to room3.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The player carries a green key. Green key unlocks green door.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> A blue key is in Room2. It unlocks blue door.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> An incorrectly-made door is an easydoor in Hub.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> a return door is a kind of easydoor.<br>
+                 One return door is in room1. It leads to Hub. It portals first door.<br>
+                 One return door is in room2. It leads to Hub. It is lockable and locked. It portals green door.<br>
+                 One return door is in room3. It leads to Hub. It is lockable and locked. It portals blue door.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> A false door is an easydoor in Hub.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> After opening false door:<br>
+                 say &quot;Hunh.  This door opens onto a solid brick wall.  You're not going anywhere through this.&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Yourself can be injured.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The dooraction of false door is &quot;Ow.  Bricks meet nose.&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Carry out entering false door:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; now the player is injured.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> A red herring door is an easydoor in hub. It is lockable and locked.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> a time machine is an open, unopenable easydoor in Room3. &quot;A humming time machine sits in the corner, the passage into it glowing expectantly.&quot; It leads to Swirly Void. The dooraction of time machine is &quot;All right.  Here goes.&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Swirly Void is a room. &quot;How temporally disorienting!&quot;.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> A rapidly approaching light is an open, unopenable easydoor in Swirly Void. The description is &quot;It's approaching fast.&quot; It leads to Drawing Room. The dooraction of rapidly approaching light is &quot;You fall for a long time, afraid of meeting the ground at rapid pace.  Luckily the next time you blink, you find yourself somewhere else...and there seems to be no way back.&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Drawing Room is a room. &quot;You've arrived in Victorian London, it seems, from the look of this place.&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The parlour door is an easydoor in Drawing Room. &quot;The Parlour is west.&quot; It leads to The Parlor.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Instead of going west in Drawing Room: try entering parlour door.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The Parlor is a room. &quot;The Parlour.  How boring.&quot;. The printed name of parlor is &quot;The Parlour&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The drawing room door is an easydoor in Parlor. &quot;The drawing room door leads back to the east.&quot;. It leads to Drawing Room. It portals parlour door.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Instead of going east in parlor: try entering the drawing room door.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> A magic mushroom is an edible thing in Drawing Room.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Carry out eating magic mushroom:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; say &quot;The parlour door seems to ripple strangely.&quot;;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; now the parlour door leads to Wonderland;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; now the dooraction of parlour door is &quot;As you cross the threshold of the parlour door, there is a liquid ripple and your surroundings melt away, leading you somewhere else...&quot;.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Wonderland is a room. &quot;Oh no.  Not this again.  Your croquet skills are rusty.  You feel like jumping in frustration.&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> some very damp clothing is a wearable thing.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The pool of tears is a fixed in place, enterable, transparent container in wonderland.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Carry out entering pool of tears:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; now the player wears damp clothing.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> hundreds of gallons of tears is a fixed in place thing in pool of tears.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Yourself can be wet.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> A whirlpool is an open, unopenable easydoor. It leads to Hub. The dooraction is &quot;Down...down...down...whirling...you hold your breath until finally you end up in... Well, foo.  That was all for naught.&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Carry out entering whirlpool:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; now the player wears damp clothing.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Instead of jumping:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; say &quot;You stamp your foot angrily.&quot;;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; if the location is Wonderland:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say &quot;[line break]The rumbling of your frustration seems to have caused a crack in the earth to open up, and the pool of tears begins to circle, draining away.&quot;;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; now whirlpool is in pool of tears;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; rule succeeds.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> test me with &quot;open green door/alice, open blue door/alice, enter red herring door/enter false door/unlock green door with green key/alice, go through green door/enter green door/alice, take blue key/alice, go return door/return/alice, unlock blue door/alice, open blue door/enter blue door/get in time machine/enter light/take mushroom/w/e/eat mushroom/w/x pool/jump/enter pool/enter whirlpool&quot;</span></blockquote>
+
+                <p></p>
+
+            </td>
+        </tr>
+    </table>
+    <hr>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td halign="left" valign="top" cellpadding=0 cellspacing=0 width=38px>
+                <span id=eg2><table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="oval">
+                        <td width=38px height=30px align="left" valign="center">
+                            <a href="Easy Doors-eg2.html#eg2" style="text-decoration: none"><div class="paragraph Body" style="line-height: 1px; margin-bottom: 0px; margin-top: 0px; padding-bottom: 0pt; padding-top: 0px; text-align: center;">
+                                <span class="extensionexampleletter">B</span></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                </span>
+            </td>
+            <td cellpadding=0 cellspacing=0 halign="left" valign="top">
+                <a href="Easy Doors-eg2.html#eg2" style="text-decoration: none"><img border="0" src='inform:/doc_images/asterisk.png'><img border="0" src='inform:/doc_images/asterisk.png'><img border="0" src='inform:/doc_images/asterisk.png'><img border="0" src='inform:/doc_images/asterisk.png'><b><span class="indexdarkgrey">&nbsp;Example&nbsp;</span><span class="indexblack">His Lovely Assistant</span></b></a><br>
+                <p>Using Easy Doors to transport the player into an enterable container.</p>
+
+            </td>
+        </tr>
+    </table>
+    </p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p>
+    <!--CONTENT ENDS-->
+</body>
+</html>

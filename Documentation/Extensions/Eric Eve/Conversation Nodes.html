@@ -1,0 +1,1337 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Extension</title>
+    <style type="text/css">
+        <!--
+        /* The default font (family) and size */
+
+        body, p, td {
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.8rem; /* 100/125 */
+        }
+
+        /* For fixed-point material within text, such as the typing on the Library Card index page */
+
+        span.typewritten {
+        	font-family: monospace;
+        	font-size: 0.867rem; /* 13/12 * 100/125 */
+        }
+
+        /* For less important material: the small print */
+
+        span.smaller {
+        	font-size: 80%;
+        }
+
+        /* The "heading panel" is the coloured box, high up on the page. The colours
+        vary depending on the page: for example, the style on a report of a translation
+        with no problems is "headingpanelsucceeded", usually green, but if there were
+        problems then "headingpanelfailed" is used, which is usually red. "headingpanel"
+        itself is a more neutral grey by default. "headingpanelDark" is an alternative
+        look to make the extensions index pages have some visual contrast with the others;
+        by default they are a darker grey. */
+
+        .headingpanel {
+        	background: #eeeeee;
+        }
+        .headingpanelsucceeded {
+        	background: #E6FFE6;
+        }
+        .headingpanelfailed {
+        	background: #f69Ca6;
+        }
+        .headingpanelalt {
+        	background: #808080;
+        }
+
+        /* Heading panels have two lines of text: an upper one in a larger size, and a
+        lower one in a smaller. Again, the alt versions are meant to contrast.
+
+        	Report on Translation: Succeeded                <-- headingpaneltext
+        	Produced by Inform 10.1.0 (build 6U97)          <-- headingpanelrubric
+
+        	Installed Extensions                            <-- headingpaneltextalt
+        	Bundles of extra rules or phrases to...         <-- headingpanelrubricalt
+
+        */
+
+        span.headingpaneltext {
+        	color: #222222;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+        span.headingpaneltextalt {
+        	color: #ffffff;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        span.headingpanelrubric {
+        	color: #222222;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.733rem; /* 11/12 * 100/125 */
+        	font-weight: bold;
+        }
+        span.headingpanelrubricalt {
+        	color: #ffffff;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.733rem; /* 11/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* Horizontal rule styling */
+
+        div.hr {
+        	border: 0;
+        	width: 100%;
+        	color: #707070;
+        	background-color: #707070;
+        	height: 5px;
+        }
+
+        /* This styles the (usually white) text of the example numbers written inside
+        oval blobs in the extension documentation, which mimic the look of the in-app
+        documentation. */
+
+        .oval, .oval td {
+        	background-image:url('inform:/doc_images/ovoid.png');
+        	color:white;
+        }
+
+        /* Styling used in the extension documentation indexes: */
+
+        /* Used for extension names in the extensions pane of the app */
+
+        span.extensioncensusentry {
+        	color: #ffffff;
+        }
+
+        span.extensionindexentry {
+        	color: #404040;
+        }
+
+        span.extensionindexerror {
+        	color: #ff8080;
+        }
+
+        /* This is used in extension documentation, where an example is presented
+        in a slightly tinted box: */
+
+        table.extensionexample {
+        	background-color: #f0f0f0;
+        }
+
+        span.extensionexampleletter {
+        	color: #202020;
+        	font-size: 14px;
+        	font-weight: bold;
+        }
+
+        /* Seen in problem messages: */
+
+        span.problemred {
+        	color: #800000;
+        }
+
+        span.problemgreen {
+        	color: #008000;
+        }
+
+        span.phraseword {
+        	color: #808080;
+        }
+
+        span.phrasetokentext {
+        	color: #e00060;
+        }
+
+        span.phrasetokendesctext {
+        	color: #4040ff;
+        }
+
+        span.phrasetokenvaluetext {
+        	color: #ff4040;
+        }
+
+        /* Now we move on to styling used in the Index pages only: */
+
+        /* The periodic table display has "sidebars", usually grey and taller than they
+        are wide; they contain no text. */
+
+        div.periodictablesidebarcolour {
+        	background: #888;
+        }
+        div.periodictablesidebar:hover {
+        	background: #222;
+        }
+
+        /* The text of the element-abbreviation, such as "Lx" or "Ph", uses: */
+
+        span.elementtext {
+        	color: #ffffff;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* Similarly for the "atomic number" - a single digit - in the top left corner
+        of these boxes: */
+
+        span.elementnumbertext {
+        	color: #ffffff;
+        	font-size: 0.622rem; /* 7/12 * 96/72 * 100/125 */
+        }
+
+        /* For the text of the element title, to the right of the element box: */
+
+        span.elementtitletext {
+        	color: #ffffff;
+        	font-size: 0.6rem; /* 9/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* The banner at the top of each element: */
+
+        table.elementbanner {
+        	background: #eeeeee;
+        }
+
+        /* For the typewriting on the Library Card: */
+
+        span.librarycardtitle {
+        	color: #803030;
+        }
+
+        span.librarycardother {
+        	color: #303030;
+        }
+
+        /* Generically used for "more details" boxes in the index: */
+
+        table.indexmorebox {
+        	background-color: #e0e0e0;
+            border-radius: 8px;
+        }
+
+        /* But not for activity contents: */
+
+        table.indexactivitycontents {
+        	background-color: #e8e0c0;
+            border-radius: 8px;
+        }
+
+        /* For responses in index entries about rules: */
+
+        span.indexresponseletter {
+        	color: #ffffff;
+        	font-family: 'Courier New', Courier, monospace;
+        	background-color: #8080ff;
+        }
+
+        span.indexresponsetext {
+        	color: #000066;
+        }
+
+        /* Used ubiquitously throughout the index and extension documentation: */
+
+        span.indexblack {
+        	color: #000000;
+        }
+
+        span.indexgrey {
+        	color: #808080;
+        }
+
+        span.indexdarkgrey {
+            color: #505050;
+        }
+
+        span.indexdullred {
+        	color: #800000;
+        }
+
+        span.indexdullgreen {
+        	color: #008000;
+        }
+
+        span.indexdullblue {
+        	color: #000080;
+        }
+
+        /* Used for the room squares in the World map in the Index (which is currently
+        a table with one row of one column) */
+
+        table.indexmaproom {
+        	border-color: #000000;
+        }
+
+        /* Used in the numbering of levels of the World map in the Index */
+
+        span.indexmaplevelnumbers {
+        	color: #c0c0c0;
+        }
+
+        /* Used e.g. for title rows in the Chart of basic kinds in the Index */
+
+        tr.headingrow {
+        	background-color: #e0e0e0;
+        }
+
+        /* Standard rows have black text on striped background colours, these being
+        the usual ones seen in Mac OS X applications such as iTunes. */
+
+        tr.stripeone {
+        	background-color: #ffffff;
+        }
+
+        tr.stripetwo {
+        	background-color: #f3f6fa;
+        }
+
+        tr.tintedrow {
+        	background-color: #808080;
+        }
+
+        /* In the Figures index, this is the background colour used behind images
+        (though in fact it will only be visible if the image fails to load, or uses
+        transparency): */
+
+        div.figureindexbox {
+        	background-color: #6495ed;
+        }
+
+        /* To get the book-contents-page style leaders on the Contents element of
+           the index to work, these must use the background colour of the body of
+           the page, whatever that is: */
+
+        ul.leaders li.leaded span:first-child {
+        	background: white;
+        }
+        ul.leaders li.leaded span + span {
+        	background: white;
+        }
+
+        /* On Registry index pages (such as the Public Library), these are used for
+        download buttons and the like: */
+
+        span.registrybuttontext {
+        	font-size: 11px;
+        	border-color: #000000;
+        }
+
+        span.registryminibuttontext {
+        	font-size: 10px;
+        	border-color: #000000;
+        }
+
+        span.registrybuttonuninstalled {
+        	color: #000000;
+        	background: #ffffdd;
+        }
+
+        span.registrybuttoninstalled {
+        	color: #000000;
+        	background: #ffffff;
+        	pointer-events: none;
+        }
+
+        span.registrybuttonbuiltin {
+        	color: #888888;
+        	background: #ffffff;
+        	pointer-events: none;
+        }
+
+        span.registrybuttonupdate {
+        	color: #000000;
+        	background: #aaddff;
+        }
+
+        span.registrybuttonrevert {
+        	color: #000000;
+        	background: #ddaaff;
+        }
+
+        span.registrybuttonrevealer {
+        	color: #ffffff;
+        	background: #444444;
+        }
+
+        /* Registry index section headings: */
+
+        span.registrysectionname {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 16px;
+        	line-height: 18px;
+        }
+        span.registrysubsectionname {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 14px;
+        	line-height: 16px;
+        }
+
+        /* These are for the "mark" for a section, usually a section-symbol and number */
+
+        span.registrysectionmark {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 16px;
+        	line-height: 18px;
+        	color: #666;
+        }
+        span.registrysubsectionmark {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 14px;
+        	line-height: 16px;
+        	color: #666;
+        }
+
+        /* Text of an item listed in a registry: */
+
+        span.registryitemtext {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 12px;
+        	line-height: 16px;
+        }
+
+        /* And how the links in a registry index page behave: */
+
+        a.registrysilentlink {
+        	text-decoration: none;
+        	color: #000;
+        }
+        a.registrybuttonlink {
+        	text-decoration: none;
+        }
+        a.registrycontentslink:link {
+        	text-decoration: none;
+        	color: #202020;
+        }
+        a.registrycontentslink:visited {
+        	text-decoration: none;
+        	color: #202020;
+        }
+        a.registrycontentslink:hover {
+        	text-decoration: none;
+        	color: #D00000;
+        }
+        a.registrycontentslink:active {
+        	text-decoration: none;
+        	color: #D00000;
+        }
+
+        -->
+    </style>
+    <style type="text/css">
+        <!--
+        /* (1) General layout material */
+
+        *, *:before, *:after {
+        	-moz-box-sizing: border-box;
+        	-webkit-box-sizing: border-box;
+        	box-sizing: border-box;
+        }
+        .headingpanellayout {
+        	position: relative;
+        	height: 56px;
+        	padding: 0px;
+        	white-space:nowrap;
+        }
+        .headingpanellayoutdeeper {
+        	position: relative;
+        	height: 117px;
+        	padding: 0px;
+        	white-space:nowrap;
+        }
+        .headingtext {
+        	position: absolute;
+        	top: -4px;
+        	left: -1px;
+        	width: 100%;
+        	padding: 14px 10px 0px 10px;
+        }
+        .headingrubric {
+        	position: absolute;
+        	top: 36px;
+        	width: 100%;
+        	padding: 0px 10px 0px 10px;
+        }
+        h3.tighter {
+        	margin-top: 0px;
+        }
+        p.hang {
+        	padding-left: 25px;
+        	text-indent: -25px;
+        	margin-top: 0px;
+        	margin-bottom: 0px;
+        }
+        p.in1 {
+        	padding-left: 0px;
+        }
+        p.tightin1 {
+        	padding-left: 0px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin1 {
+        	padding-left: 0px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin1 {
+        	padding-left: 50px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in2 {
+        	padding-left: 25px;
+        }
+        p.tightin2 {
+        	padding-left: 25px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin2 {
+        	padding-left: 25px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin2 {
+        	padding-left: 75px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in3 {
+        	padding-left: 50px;
+        }
+        p.tightin3 {
+        	padding-left: 50px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin3 {
+        	padding-left: 50px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin3 {
+        	padding-left: 100px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in4 {
+        	padding-left: 75px;
+        }
+        p.tightin4 {
+        	padding-left: 75px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin4 {
+        	padding-left: 75px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin4 {
+        	padding-left: 125px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in5 {
+        	padding-left: 100px;
+        }
+        p.tightin5 {
+        	padding-left: 100px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin5 {
+        	padding-left: 100px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin5 {
+        	padding-left: 150px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in6 {
+        	padding-left: 125px;
+        }
+        p.tightin6 {
+        	padding-left: 125px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin6 {
+        	padding-left: 125px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin6 {
+        	padding-left: 175px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in7 {
+        	padding-left: 150px;
+        }
+        p.tightin7 {
+        	padding-left: 150px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin7 {
+        	padding-left: 150px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin7 {
+        	padding-left: 200px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in8 {
+        	padding-left: 175px;
+        }
+        p.tightin8 {
+        	padding-left: 175px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin8 {
+        	padding-left: 175px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin8 {
+        	padding-left: 225px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in9 {
+        	padding-left: 200px;
+        }
+        p.tightin9 {
+        	padding-left: 200px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin9 {
+        	padding-left: 200px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin9 {
+        	padding-left: 250px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+
+        /* (2) Index page layout material */
+
+        /* The periodic table display has "sidebars", usually grey and taller than they
+        are wide; they contain no text. */
+
+        div.periodictablesidebar {
+        	height: 56px;
+        	width: 16px;
+        }
+        .periodictablesidebar a:link { text-decoration: none; }
+        .periodictablesidebar a:visited { text-decoration: none; }
+        .periodictablesidebar a:active { text-decoration: none; }
+
+        /* The "element boxes" are the cells appearing in the periodic-table display
+        on the welcome page of the index: */
+
+        .elementbox {
+        	position: relative;
+        	height: 56px;
+        	width: 56px;
+        	padding: 0px;
+        }
+
+        .elementbox a:link { text-decoration: none; }
+        .elementbox a:visited { text-decoration: none; }
+        .elementbox a:active { text-decoration: none; }
+        .elementbox a:hover { text-decoration: none; }
+        .elementbox:hover {
+        	opacity: 0.6;
+        }
+
+        /* The "small element boxes" look like those, but are smaller, and used on
+        the headings of the content which those original boxes link to: */
+
+        .smallelementbox {
+        	position: relative;
+        	height: 40px;
+        	width: 40px;
+        	padding: 0px;
+        }
+
+        .smallelementbox a:link { text-decoration: none; }
+        .smallelementbox a:visited { text-decoration: none; }
+        .smallelementbox a:active { text-decoration: none; }
+        .smallelementbox a:hover { text-decoration: none; }
+        .smallelementbox:hover {
+        	opacity: 0.6;
+        }
+
+        /* This is a class for the links formed by the element boxes: */
+
+        a.elementlink {
+        	position: absolute;
+        	top: -4px;
+        	left: -1px;
+        	width: 100%;
+        	padding: 14px 0px 14px 1px;
+        	text-align: center;
+        }
+
+        /* Similarly for the "atomic number" - a single digit - in the top left corner
+        of these boxes: */
+
+        div.elementnumber {
+        	position: absolute;
+        	top: 1px;
+        	left: 3px;
+        	text-align: left;
+        }
+
+        /* For the text of the element title, to the right of the element box: */
+
+        div.elementtitle {
+        	position: absolute;
+        	top: 35px;
+        	width: 100%;
+        	text-align: center;
+        }
+
+        /* Used for the book-contents-page style leaders on the Contents element of
+           the index: */
+
+        ul.leaders {
+        	padding: 0;
+        	margin-top: 1px;
+        	margin-bottom: 0;
+        	overflow-x: hidden;
+        	list-style: none}
+        ul.leaders li.leaded:before {
+        	float: left;
+        	width: 0;
+        	white-space: nowrap;
+        	content:
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "}
+        ul.leaders li.leaded span:first-child {
+        	padding-right: 0.33em;
+        }
+        ul.leaders li.leaded span + span {
+        	float: right;
+        	padding-left: 0.33em;
+        }
+        li.indent1 span:first-child {
+        	padding-left: 25px;
+        }
+        li.indent2 span:first-child {
+        	padding-left: 50px;
+        }
+        li.indent3 span:first-child {
+        	padding-left: 75px;
+        }
+        li.indent4 span:first-child {
+        	padding-left: 100px;
+        }
+        li.indent5 span:first-child {
+        	padding-left: 125px;
+        }
+        li.indent6 span:first-child {
+        	padding-left: 150px;
+        }
+        li.indent7 span:first-child {
+        	padding-left: 175px;
+        }
+        li.indent8 span:first-child {
+        	padding-left: 200px;
+        }
+        li.indent9 span:first-child {
+        	padding-left: 225px;
+        }
+
+        li.unleaded:before {
+        	content: "";
+        }
+
+        /* On Registry index pages (such as the Public Library), these are used for
+        download buttons and the like: */
+
+        span.registrybuttons {
+        	height: 20px;
+        	padding: 2px 8px 2px 8px;
+        	margin: 2px;
+        	border:1px solid;
+        	border-radius: 5px;
+        }
+
+        span.registryminibuttons {
+        	height: 14px;
+        	padding: 2px 5px 2px 5px;
+        	margin: 2px;
+        	border:1px solid;
+        	border-radius: 4px;
+        }
+
+        /* Used to hide or display sections in the Registry pages: */
+
+        div.registrysectionitemsopen {
+        	display: block;
+        }
+
+        div.registrysectionitemsclosed {
+        	display: none;
+        }
+
+        /* Hanging indentation for Registry item paragraphs: */
+
+        p.registryitem {
+        	padding-left: 80px;
+        	text-indent: -40px;
+        }
+
+        p.registryaddition {
+        	padding-left: 40px;
+        	text-indent: -40px;
+        }
+
+        -->
+    </style>
+    <script type="text/javascript">
+        function project() {
+            return window.Project;
+        }
+        function showExtra(id, imid) {
+        	if (document.getElementById(id).style.display == 'block') {
+        		document.getElementById(id).style.display = 'none';
+        		document.getElementById(imid).src = 'inform:/extra.png';
+        	} else {
+        		document.getElementById(id).style.display = 'block';
+        		document.getElementById(imid).src = 'inform:/extraclose.png';
+        	}
+        }
+        function openExtra(id, imid) {
+        	document.getElementById(id).style.display = 'block';
+        	document.getElementById(imid).src = 'inform:/extraclose.png';
+        }
+        function closeExtra(id, imid) {
+        	document.getElementById(id).style.display = 'none';
+        	document.getElementById(imid).src = 'inform:/extra.png';
+        }
+        function pasteCode(code) {
+            var myProject = project();
+
+            myProject.selectView('source');
+            myProject.pasteCode(code);
+        }
+
+    </script>
+</head>
+<body>
+    <!--CONTENT BEGINS-->
+    <table CELLPADDING=0 CELLSPACING=0 width="100%" bgcolor="#000000"><tr><TD width=38px height=26px align="center" valign="center"><a href="inform://Extensions/Extensions.html" border=0><img border=0 src="inform:/doc_images/Hookindex.png" border=0></a></td><TD width=38px height=26px align="center" valign="center"></td><td halign="left" valign="center" CELLPADDING=0 CELLSPACING=0><font color="#FFFFFF" size=2>Extensions</font></a></td><TD width=56px height=26px align="right" valign="center"><a href="inform:/index.html" border=0><img border=0 src="inform:/doc_images/Hookup.png" border=0></a></td></tr></table>
+
+    <p><a href="javascript:pasteCode('Include Conversation Nodes by Eric Eve.[=0x000A=][=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a>&nbsp;<b>Conversation Nodes<span class="extensionindexentry"> by </span>Eric Eve</b></p>
+    <p><span class="smaller">Version 7</span></p>
+    <p>Builds on Conversational Defaults and adds the ability to define particular points in a conversational thread (nodes) at which particular conversational options become available.</p>
+    <p></p>
+    <hr>
+    <p><span class="indexblack"><b><a style="text-decoration: none" href=#docsec1>Chapter 1: </a></b></span>Introduction and Overview<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec2>Chapter 2: </a></b></span>The basics of using convnodes.<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec3>Section 2.1: </a></span>Defining a New Convnode<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec4>Section 2.2: </a></span>NPCs and Convnodes<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec5>Section 2.3: </a></span>The Current Interlocutor and the Current Node<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec6>Section 2.4: </a></span>Changing Nodes in Mid-Conversation.<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec7>Chapter 3: </a></b></span>Defining Conversation Responses for Conversation Nodes<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec8>Section 3.1: </a></span>Ordinary Conversation Responses:<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec9>Section 3.2: </a></span>Default Responses:<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec10>Section 3.3: </a></span>Using Instead and After Rules as alternatives to Response Rules.<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec11>Chapter 4: </a></b></span>Setting Up an Open Node<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec12>Chapter 5: </a></b></span>Setting Up a Closed Node<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec13>Section 5.1: </a></span>Overview - The Basic Minimum<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec14>Section 5.2: </a></span>Node-Introduction Rules<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec15>Section 5.3: </a></span>Node-Continuation Rules<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec16>Section 5.4: </a></span>Node-Termination Rules<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec17>Chapter 6: </a></b></span>NPC-Initiated Conversation<br>
+    <br>
+    <b>Examples</b><br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href="Conversation Nodes-eg1.html#eg1">A &mdash; Sarah's Jealous Suspicions</a></span><br>
+    </p>
+    <hr>
+    <p></p>
+    </p>
+
+    <p><p><span class="indexdullred"><b><span id=docsec1>Chapter 1: Introduction and Overview</span></b></span></p>
+    </p>
+
+    <p> Many ask/tell conversations in works of Interactive Fiction can end up a bit like querying a database: we ASK BOB ABOUT THIS and TELL SUE ABOUT THAT, but there may not be much sense of the conversation progressing, and the NPC we're talking with can seem a purely passive conversationalist, only ever responding to the player's conversational commands as if he or she were little more than a talking encyclopaedia.</p>
+
+    <p> Conversation nodes provide a way of giving more structure to a conversation. They even allow allow us to have an NPC ask a question and insist upon receiving a reply. Alternatively they might model a fleeting point in the conversation at which the player could meaningfully respond with YES or NO, say, but could equally well decide to move on to another topic, e.g.:</p>
+
+    <p><blockquote><span class="indexdullblue"> &gt;ask sarah about mary<br>
+     &quot;Do you know Mary,&quot; you ask.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> &quot;Yes, I know her well,&quot; she replies, &quot;Nice girl, don't you think?&quot;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> &gt;yes<br>
+     &quot;Absolutely,&quot; you agree.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Sarah nods her approval.</span></blockquote>
+
+    <p> Which could just as well have been:</p>
+
+    <p><blockquote><span class="indexdullblue"> &gt;ask sarah about mary<br>
+     &quot;Do you know Mary,&quot; you ask.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> &quot;Yes, I know her well,&quot; she replies, &quot;Nice girl, don't you think?&quot;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> &gt;tell sarah about tom<br>
+    ...</span></blockquote>
+
+    <p> In the second case Sarah's question is ignored as effectively rhetorical, which it could not be if, for example, Sarah had just asked, &quot;Are you seeing another woman?&quot;, and won't let go till she gets an answer!</p>
+
+    <p> The first kind of node, in which Sarah just asks &quot;Nice girl, don't you think?&quot;, is an open node. The player could reply yes or no here, but doesn't have to, and is free to move straight on to another topic. The other kind of node, in which the NPC insists on an answer before the conversation can move on, is a closed node. We'll say more about open and closed nodes below.</p>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec2>Chapter 2: The basics of using convnodes.</span></b></span></p>
+    </p>
+
+    <p><p><span class="indexblack"><b><span id=docsec3>Section 2.1: Defining a New Convnode</span></b></span></p>
+    </p>
+
+    <p> Defining a new convnode is easy. We just use a statement like:</p>
+
+    <p><blockquote><span class="indexdullblue"> The bob-kitchen-node is a convnode.<br>
+     The sarah-jealousy-node is a closed convnode.</span></blockquote>
+
+    <p> Note that a convnode is open unless we say otherwise.</p>
+
+    <p> A convnode has a couple of other properties we can define: next-node and node-time. We'll see how these can be used in more detail below, but briefly speaking next-node is the the convnode we'll go to when we leave this one, and node-time is the number of turns on which there are conversational commands for which we'll stick with this node. Next-node is normally the null-node, and node-timer is normally 1. Node-timer is only relevant for open nodes (we stay in a closed node until we say otherwise).</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec4>Section 2.2: NPCs and Convnodes</span></b></span></p>
+    </p>
+
+    <p> Each NPC in the game has a property called node, which holds the current convnode object for that NPC. Normally (and if we don't define otherwise), this will be the null-node, which effectively means we're not at any convnode at all (there's nothing to stop us altering the behaviour of the null-node, but it's probably not a very good idea, since we need something to mean 'effectively no node at all', and this extension assumes that the null-node is it).</p>
+
+    <p> If we want an NPC to start off in another convnode, we can do so easily enough:</p>
+
+    <p><blockquote><span class="indexdullblue"> Bob is a man in the kitchen. The node is the bob-kitchen-node.</span></blockquote>
+
+    <p> We can also change an NPC's node in the normal way, with, for example:</p>
+
+    <p><blockquote><span class="indexdullblue"> now the node of Bob is the null node;</span></blockquote>
+
+    <p> or</p>
+
+    <p><blockquote><span class="indexdullblue"> now the node of Bob is the bob-lounge-node;</span></blockquote>
+
+    <p> This is fine if the player is not currently talking to Bob and we want to set Bob up for his next conversation, but if we want to switch Bob's node in the middle of a conversation, it's better to use the node-switching machinery provided by the extension.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec5>Section 2.3: The Current Interlocutor and the Current Node</span></b></span></p>
+    </p>
+
+    <p> Conversation Nodes inherits the global variable current interlocutor from Conversation Framework. The current interlocutor is the person we're currently speaking to, if there's a conversation in progress.</p>
+
+    <p> It follows that the current conversation node is the node of the current interlocutor. Since this is rather a long expression to type, we can refer to it simply as &quot;the current node&quot;. Note that we can use &quot;the current node&quot; to get at the value of the current conversation node, but we can't change &quot;the current node&quot; (it's a to decide... phrase, not a global variable). It's also safe to use &quot;the current node&quot; when there isn't a current interlocutor (the value of the current node is then the null-node).</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec6>Section 2.4: Changing Nodes in Mid-Conversation.</span></b></span></p>
+    </p>
+
+    <p> Conversation Nodes defines two to say phrases which make it easy to switch to a new conversation node in the middle of a conversation (something we may frequently wish to do):</p>
+
+    <p><blockquote><span class="indexdullblue"> to say node (new-node - a convnode):<br>
+     to say leavenode:</span></blockquote>
+
+    <p> These phrases would normally be embedded in pieces of text:</p>
+
+    <p><blockquote><span class="indexdullblue"> response for sarah-jealousy-node when saying yes:<br>
+     say &quot;'Yes, I'm seeing a really nice girl I met...'<br>
+    <br>
+    'You [italic type]bastard[roman type]!'[node sarah-furious-node] she shrieks, 'What do have to say for yourself? Do you have any excuse to offer at all?'&quot;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> response for sarah-furious-node when saying no:<br>
+     say &quot;'No, none,' you admit.<br>
+    <br>
+    'Then I think you should just go,' [leavenode] she says flatly.&quot;</span></blockquote>
+
+    <p> The first of these &quot;[node sarah-furious-node]&quot; switches the node to sarah-furious-node. The second &quot;[leavenode]&quot; switches the node to whatever the next-node of sarah-furious-node happens to be. We can also use the phrase:</p>
+
+    <p><blockquote><span class="indexdullblue"> setnode bob-kitchen-node;</span></blockquote>
+
+    <p> Outside a piece of text to change convnode.</p>
+
+    <p> Note that these phrases don't actually change the convnode straight away; they schedule a change of convnode at the end of the turn (thus preventing any odd effects we might get from a mid-turn convnode switch). They also ensure that certain housekeeping tasks are carried out that keep the node-switching machinery working smoothly. That's why we should always use these phrases to change node in mid-conversation rather than trying to change the node of the current interlocutor directly.</p>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec7>Chapter 3: Defining Conversation Responses for Conversation Nodes</span></b></span></p>
+    </p>
+
+    <p><p><span class="indexblack"><b><span id=docsec8>Section 3.1: Ordinary Conversation Responses:</span></b></span></p>
+    </p>
+
+    <p> The Conversation Responses extension included by Conversation Nodes allows you to define conversational responses for an NPC with rules like:</p>
+
+    <p><blockquote><span class="indexdullblue"> Response of Bob when asked about &quot;money&quot;:<br>
+     Response of Sarah when told about Bob:</span></blockquote>
+
+    <p> When defining conversational responses relating to a specific node, we use same the format, but substitute the node name for the name of the NPC. The kinds of rule we can use for defining node-specific conversational response are thus:</p>
+
+    <p><blockquote><span class="indexdullblue"> Response of my-node when asked about &quot;money&quot;:<br>
+     Response of my-node when asked about the gold ring:<br>
+     Response of my-node when told about &quot;life&quot;:<br>
+     Response of my-node when told about Napoleon:<br>
+     Response of my-node when asked-or-told about &quot;canadian politics&quot;:<br>
+     Response of my-node when asked for &quot;advice&quot;:<br>
+     Response of my-node when asked for the brass key:<br>
+     Response of my-node when answered that &quot;probably&quot;:<br>
+     Response of my-node when shown the diamond ring:<br>
+     Response of my-node when given the copper coin:<br>
+     Response of my-node when given-or-shown the brass farthing:<br>
+     Response of my-node when saying yes:<br>
+     Response of my-node when saying no:<br>
+     Response of my-node when saying sorry:</span></blockquote>
+
+    <p> Note the asked-or-told and given-or-shown forms, which allow us to combine responses for ASK and TELL, and for GIVE and SHOW.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec9>Section 3.2: Default Responses:</span></b></span></p>
+    </p>
+
+    <p> For a closed node (see below) we need additionally to define one or more default responses to handle conversational commands not specifically dealt with in the node. This will normally be a response in which the NPC insists that the player character answer the question s/he's just been asked. For example:</p>
+
+    <p><blockquote><span class="indexdullblue"> Default response for sarah-jealous-node:<br>
+     say &quot;'Don't try to change the subject!' she snaps, 'I asked you if you were seeing another woman. Well, are you or aren't you: yes or no?&quot;</span></blockquote>
+
+    <p> We define default responses for (closed) nodes in the same way that the Conversational Defaults extension (included with this one) lets us define them for NPCs, except that we use the name of the node instead of the NPC. Although a simple &quot;Default response for&quot; is often enough, the complete ramge of default response types is available:</p>
+
+    <p><blockquote><span class="indexdullblue"> Default ask response for my-mode:<br>
+     Defaut tell response for my-node:<br>
+     Default ask-tell response for my-node:<br>
+     Default give response for my-node:<br>
+     Default show response for my-node:<br>
+     Default give-show response for my-node:<br>
+     Default answer response for my-node:<br>
+     Default ask-for response for my-node:<br>
+     Default yes-no response for my-node:<br>
+     Default response for my-node:</span></blockquote>
+
+    <p> The last of these is a catch-all default response that will catch any conversational command for which we haven't provided a more specific default response. For example if we defined a Default ask response rule and a Default response rule, the Default ask response rule would trap any ASK SOMEONE ABOUT SOMETHING commands, and the Default response rule would respond to all the rest (for which we had not provided more specific responses in the node).</p>
+
+    <p> Note the hyphen in &quot;Default ask-for response&quot;. The name &quot;Default ask for response&quot; would confuse the I7 compiler.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec10>Section 3.3: Using Instead and After Rules as alternatives to Response Rules.</span></b></span></p>
+    </p>
+
+    <p> It is not absolutely necessary to use &quot;Response for...&quot; rules. We can (more or less) achieve the same effect by using Instead rules for node-specific responses and After rules for actor-specific responses, e.g.:</p>
+
+    <p><blockquote><span class="indexdullblue"> Instead of asking Bob about &quot;money&quot; when the current node is the bob-impecunious-node:<br>
+     say &quot;'I could really do with some,' he tells you.&quot;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> After asking Bob about &quot;money&quot;:<br>
+     say &quot;'It's nice if you've got it,' Bob opines.&quot;</span></blockquote>
+
+    <p> Using Instead and After in this way ensures that node-specific responses are always used in preference to those that are not node-specific (which is almost certainly what we want); it also ensures that closed nodes work properly (closed nodes look for default responses at the Check stage). The node-specific rule shown above may look long-winded but it could be written more concisely as:</p>
+
+    <p><blockquote><span class="indexdullblue"> Instead of asking Bob about &quot;money&quot; when at-node bob-impecunious-node:<br>
+     say &quot;'I could really do with some,' he tells you.&quot;</span></blockquote>
+
+    <p> Which you may or may not prefer to:</p>
+
+    <p><blockquote><span class="indexdullblue"> Response of bob-impecunious-nose when asked about &quot;money&quot;:<br>
+     say &quot;'I could really do with some,' he tells you.&quot;</span></blockquote>
+
+    <p> Although even if you use Instead and After for specific responses, it's a good idea to use Default response rules for default ones.</p>
+
+    <p> Although this extension should work either way, there may be certain advantages to using Response rules:</p>
+
+    <p> 1. In a conversation-heavy game, the mass of after and instead rules would presumably have to be checked for every single action (since the After and Instead rulebooks are not action-specific), and this might have some impact on performance. Response rules are only checked for conversational commands (they're invoked from the Check and Report rulebooks).</p>
+
+    <p> 2. Response rules make it easier to write rules relating to more than one type of conversational command, combining responses to ASK ABOUT and TELL ABOUT and to GIVE and SHOW.</p>
+
+    <p> 3. We can use Response rules without having to remember the names of a variety of actions (e.g. asking it about and quizzing it about for ASK X ABOUT Y or requesting it for and imploring it for for ASK X FOR Y). This:</p>
+
+    <p><blockquote><span class="indexdullblue"> Response of Bob when asked for &quot;advice&quot;:</span></blockquote>
+
+    <p> May be clearer (and easier to remember) than this:</p>
+
+    <p><blockquote><span class="indexdullblue"> After imploring Bob for &quot;advice&quot;:</span></blockquote>
+
+    <p> 4. Using the Response rules helps ensures that everything happens in the right sequence:</p>
+
+    <p><blockquote><span class="indexdullblue"> Normal responses for a closed convnode<br>
+     Default responses for a closed convnode<br>
+     Normal responses for an open convnode<br>
+     Normal responses for the NPC<br>
+     Default responses for the NPC</span></blockquote>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec11>Chapter 4: Setting Up an Open Node</span></b></span></p>
+    </p>
+
+    <p> Open Nodes (which are generally intended to be fleeting) are generally the easier kind to set up. First we need to define our node object:</p>
+
+    <p><blockquote><span class="indexdullblue"> mary-nice-node is a convnode.</span></blockquote>
+
+    <p> Then we need to define the responses that apply when that node is active:</p>
+
+    <p><blockquote><span class="indexdullblue"> response for mary-nice-node when saying yes:<br>
+     &quot;'Absolutely,' you agree.<br>
+    <br>
+    Sarah nods in silent approval.&quot;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> response for mary-nice-node when saying no:<br>
+     &quot;'No. Actually I can't stand the woman!' you declare.<br>
+    <br>
+    'Goodness!' Sarah exclaims, 'Well, perhaps we'd better change the subject.'&quot;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> response for mary-nice-node when asked about Mary:<br>
+     &quot;'Are we talking about the same Mary?' you wonder.<br>
+    <br>
+    'I think so,' she replies, 'I thought the only one we both knew is Mary Parker.'&quot;</span></blockquote>
+
+    <p> An open node is usually transient. In other words it usually only lasts for one conversational turn (note, not simply one turn, since the player can carry out any number of non-conversational commands without effecting the status of an open node). This is probably the commonest case, but there may be times when we want an open node to last longer, e.g. in order to make a whole group of conversational responses available over some portion of the conversation (any of which will take precedence over responses we have defined for the NPC).</p>
+
+    <p> There are two ways in which we can make an open node more persistent. One is to make its next-node property point to itself. For example, if we were to define:</p>
+
+    <p><blockquote><span class="indexdullblue"> my-node is a convnode. The next-node is my-node.</span></blockquote>
+
+    <p> Then my-node will still try to change after one conversational command, but what it changes to is the node defined in its next-node property, which is now my-node, so the effect is that we stay in my-node until we take some active step to leave it.</p>
+
+    <p> The other way is to change the node-time property of the node to something greater than 1. For example, if we were to define:</p>
+
+    <p><blockquote><span class="indexdullblue"> my-node is a convnode. The node-time is 3.</span></blockquote>
+
+    <p> Then my-node would persist for three conversational turns before changing to whatever its next-node property defined (usually null-node). If we defined node-time to be sme very large number indeed this would effectively make my-node semi-permanent (i.e. it would stay in force until we took active steps to change it, or until we ended the conversation with the NPC).</p>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec12>Chapter 5: Setting Up a Closed Node</span></b></span></p>
+    </p>
+
+    <p><p><span class="indexblack"><b><span id=docsec13>Section 5.1: Overview - The Basic Minimum</span></b></span></p>
+    </p>
+
+    <p> While an open node is generally transient, a closed node generally persists until the player gives the current interlocutor an answer he or she is prepared to accept. Also, whereas an open node does not prevent the player from addressing the topics defined for the NPC outside the node (unless it defines one for the same topic), a closed node does. It's called a closed node because we can't reach outside it until we're allowed to leave.</p>
+
+    <p> For a closed node the minimum we must define is:</p>
+
+    <p> 1. One or more response rules (or instead rules) corresponding to the responses the current interlocutor will accept. These responses must then take the player out of the node via &quot;[node another-node]&quot;, &quot;[leavenode]&quot; or setnode another-node.</p>
+
+    <p> 2. A default response rule for the node, that defines the current interlocutor's response when the player attempts a conversational command the current interlocutor rejects. Normally this should repeat the question the current interlocutor wants answered, together with some indications of what s/he's likely to accept as an answer.</p>
+
+    <p> We can also define specific responses for other topics the current interlocutor won't accept, and more specific types of default response (e.g. default give-show response), if we so wish. There are also a number of other things we can do to make the closed node behave in a more sophisticated way. We'll look at those below.</p>
+
+    <p> So, the basic minimum for a closed node would be something like the following:</p>
+
+    <p><blockquote><span class="indexdullblue"> sarah-jealous-node is a closed convnode.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> response for sarah-jealous-node when saying yes:<br>
+     say &quot;[leavenode]'Yes, I am, but only for psychotherapy sessions, and the therapist is old enough to be my grandmother!' you reply.&quot;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> response for sarah-jealous-node when saying no:<br>
+     say &quot;[leavenode]'No, of course not, you know you're the only woman in my life!' you protest.&quot;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> default response for sarah-jealous-node:<br>
+     say &quot;'Don't try to change the subject!' she storms, 'I asked if you were seeing another woman. Well, are you? Yes or no!'&quot;</span></blockquote>
+
+    <p><p><span class="indexblack"><b><span id=docsec14>Section 5.2: Node-Introduction Rules</span></b></span></p>
+    </p>
+
+    <p> Provided we use the built-in machinery for switching nodes (&quot;[node another-node]&quot;, &quot;[leavenode]&quot; or setnode another-node), the first thing that happens when a convnode is switched is that we run the node-introduction rules for the new node (this is one reason the node-switching machinery waits till the end of the turn to switch nodes). This allows use to do anything we like at the start of the new node, but it's particularly intended for two purposes:</p>
+
+    <p> 1. If there are several ways into the node, or the current interlocutor wants to pose a question before the player has said anything, we can use a node-introduction rule to allow the current interlocutor to pose the question to which s/he wants the answer; e.g.:</p>
+
+    <p><blockquote><span class="indexdullblue"> node-introduction for sarah-jealous-node:<br>
+     say &quot;'Are you seeing another woman?' Sarah asks suspiciously.&quot;</span></blockquote>
+
+    <p> 2. If it isn't obvious what might count as a valid answer to the NPC's question, we can use a node-introduction rule to prompt the player:</p>
+
+    <p><blockquote><span class="indexdullblue"> node-introduction for sarah-jealous-node:<br>
+     say &quot;(You could say yes or no)[paragraph break]&quot;.</span></blockquote>
+
+    <p><p><span class="indexblack"><b><span id=docsec15>Section 5.3: Node-Continuation Rules</span></b></span></p>
+    </p>
+
+    <p> If the current interlocutor is really determined to get an answer, s/he might not be content to simply stand around while the player examines everything in sight, takes inventory a couple of times, moves objects around and generally carries on as if the NPC wasn't there and hadn't just asked a question. We can use a node-continuation rule to have the NPC prompt the player for a reply:</p>
+
+    <p><blockquote><span class="indexdullblue"> node-continuation for sarah-jealous-node:<br>
+     if a random chance of 1 in 2 succeeds then<br>
+     say &quot;'Hey! Didn't you hear me?' Sarah demands, 'I asked you if you were seeing another woman - well, are you?'&quot;</span></blockquote>
+
+    <p> Using a random chance is probably a good idea in a node-continuation rule to avoid the mechanical repetitiveness of having the NPC nag the player on every conversational turn. We can also avoid such repetitiveness, of course, by using the a &quot;[one of]... [or]... [or]... [in random order]&quot; type construction to vary what's said.</p>
+
+    <p> Note that a node-continuation rule is only used on non-conversational turns. Conversing sets the global variable conversed-this-turn to true, which tells the node continuation rule (an every turn rule) not to run the node-continuation rules.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec16>Section 5.4: Node-Termination Rules</span></b></span></p>
+    </p>
+
+    <p> If an NPC is determined to get an answer, s/he may not appreciate it if the player attempts to evade the question by simply terminating the conversation, either by walking away or by saying goodbye. We can use node-termination rules to block such attempts, e.g.:</p>
+
+    <p><blockquote><span class="indexdullblue"> node-termination for sarah-jealous-node when going:<br>
+     now conversed-this-turn is true;<br>
+     say &quot;'Don't you walk away while I'm talking to you!' Sarah storms, 'I asked you a question: are you seeing another woman?'&quot;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> node-termination for sarah-jealous-node when saying goodbye to Sarah:<br>
+     now conversed-this-turn is true;<br>
+     say &quot;'Don't you 'goodbye' me!' Sarah snaps, 'Answer my question: are you seeing another woman?'&quot;</span></blockquote>
+
+    <p> Note the &quot;now conversed-this-turn is true&quot; statements. We include these to tell the node continuation rule that Sarah's already said something this turn, so we don't also want her to nag the player in a node-continuation rule.</p>
+
+    <p> The node-termination rules are checked in response to a movement command or a saying goodbye command. Note that the node-termination rulebook has a default failure outcome, so the very existence of a node-termination rule matching a condition suffices to block a going or saying goodbye action.</p>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec17>Chapter 6: NPC-Initiated Conversation</span></b></span></p>
+    </p>
+
+    <p> So far we have tacitly assumed that we reach a new convnode via an NPC's response to something said during an ongoing conversation, but it may be that we want an NPC to start a conversation, perhaps by asking a question. We can do this by using the phrase:</p>
+
+    <p><blockquote><span class="indexdullblue"> Initiate a conversation with NPC at node whatever-node.</span></blockquote>
+
+    <p> For example, we might write:</p>
+
+    <p><blockquote><span class="indexdullblue"> After going to the Lounge for the first time:<br>
+     initiate a conversation with Sarah at sarah-jealous-node;<br>
+     continue the action.</span></blockquote>
+
+    <p> This sets Sarah as the current interlocutor and schedules sarah-jealous-node as the node to be switched to at the end of this turn. This means that we can use &quot;continue the action&quot; here to have the going to action proceed to print out a room description, and then have Sarah's question (presumably provided by a node-introduction rule) displayed after the room description.</p>
+
+    <p> This works when the player character enters the presence of an NPC, but may not work so well when an NPC enters the presence of the player character and needs to initiate the conversation straight away. In this situation you may find that the conversation is being started on the turn after the one you want. If you come across this problem, you can add the phrase option 'immediately' to the 'Initiate a conversation' phrase to ensure that the conversation starts at the node you want right away, for example:</p>
+
+    <p><blockquote><span class="indexdullblue"> At the time when Sarah enters:<br>
+     move Sarah to the hall;<br>
+     say &quot;Sarah bursts into the hall.&quot;;<br>
+     initiate a conversation with Sarah at sarah-jealous-node, immediately.</span></blockquote>
+
+    <p><hr>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td halign="left" valign="top" cellpadding=0 cellspacing=0 width=38px>
+                <span id=eg1><table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="oval">
+                        <td width=38px height=30px align="left" valign="center">
+                            <a href="Conversation Nodes-eg1.html#eg1" style="text-decoration: none"><div class="paragraph Body" style="line-height: 1px; margin-bottom: 0px; margin-top: 0px; padding-bottom: 0pt; padding-top: 0px; text-align: center;">
+                                <span class="extensionexampleletter">A</span></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                </span>
+            </td>
+            <td cellpadding=0 cellspacing=0 halign="left" valign="top">
+                <a href="Conversation Nodes-eg1.html#eg1" style="text-decoration: none"><img border="0" src='inform:/doc_images/asterisk.png'><b><span class="indexdarkgrey">&nbsp;Example&nbsp;</span><span class="indexblack">Sarah's Jealous Suspicions</span></b></a><br>
+                <p>Putting convnodes through their paces.</p>
+
+            </td>
+        </tr>
+    </table>
+    </p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p>
+    <!--CONTENT ENDS-->
+</body>
+</html>

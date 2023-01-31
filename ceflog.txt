@@ -1,0 +1,13 @@
+[0130/204134.765:INFO:CONSOLE(822)] "Uncaught ReferenceError: test is not defined", source: file:///C:/Program%20Files/Inform/Documentation/advice/TestingTemplate.html (822)
+[0130/204134.780:INFO:CONSOLE(822)] "Uncaught ReferenceError: test is not defined", source: file:///C:/Program%20Files/Inform/Documentation/advice/TestingTemplate.html (822)
+[0130/204327.237:ERROR:gpu_init.cc(486)] Passthrough is not supported, GL is disabled, ANGLE is 
+[0130/213211.936:WARNING:dns_config_service_win.cc(584)] Failed to read DnsConfig.
+[0130/213211.936:WARNING:dns_config_service_win.cc(584)] Failed to read DnsConfig.
+[0130/214623.419:WARNING:dns_config_service_win.cc(584)] Failed to read DnsConfig.
+[0130/214623.435:WARNING:dns_config_service_win.cc(584)] Failed to read DnsConfig.
+[0130/223438.576:WARNING:dns_config_service_win.cc(584)] Failed to read DnsConfig.
+[0130/223438.732:WARNING:dns_config_service_win.cc(584)] Failed to read DnsConfig.
+[0131/003440.974:WARNING:dns_config_service_win.cc(584)] Failed to read DnsConfig.
+[0131/003441.037:WARNING:dns_config_service_win.cc(584)] Failed to read DnsConfig.
+[0131/003446.025:WARNING:dns_config_service_win.cc(584)] Failed to read DnsConfig.
+[0131/003446.072:WARNING:dns_config_service_win.cc(584)] Failed to read DnsConfig.

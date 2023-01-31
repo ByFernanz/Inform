@@ -1,0 +1,1283 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Extension</title>
+    <style type="text/css">
+        <!--
+        /* The default font (family) and size */
+
+        body, p, td {
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.8rem; /* 100/125 */
+        }
+
+        /* For fixed-point material within text, such as the typing on the Library Card index page */
+
+        span.typewritten {
+        	font-family: monospace;
+        	font-size: 0.867rem; /* 13/12 * 100/125 */
+        }
+
+        /* For less important material: the small print */
+
+        span.smaller {
+        	font-size: 80%;
+        }
+
+        /* The "heading panel" is the coloured box, high up on the page. The colours
+        vary depending on the page: for example, the style on a report of a translation
+        with no problems is "headingpanelsucceeded", usually green, but if there were
+        problems then "headingpanelfailed" is used, which is usually red. "headingpanel"
+        itself is a more neutral grey by default. "headingpanelDark" is an alternative
+        look to make the extensions index pages have some visual contrast with the others;
+        by default they are a darker grey. */
+
+        .headingpanel {
+        	background: #eeeeee;
+        }
+        .headingpanelsucceeded {
+        	background: #E6FFE6;
+        }
+        .headingpanelfailed {
+        	background: #f69Ca6;
+        }
+        .headingpanelalt {
+        	background: #808080;
+        }
+
+        /* Heading panels have two lines of text: an upper one in a larger size, and a
+        lower one in a smaller. Again, the alt versions are meant to contrast.
+
+        	Report on Translation: Succeeded                <-- headingpaneltext
+        	Produced by Inform 10.1.0 (build 6U97)          <-- headingpanelrubric
+
+        	Installed Extensions                            <-- headingpaneltextalt
+        	Bundles of extra rules or phrases to...         <-- headingpanelrubricalt
+
+        */
+
+        span.headingpaneltext {
+        	color: #222222;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+        span.headingpaneltextalt {
+        	color: #ffffff;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        span.headingpanelrubric {
+        	color: #222222;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.733rem; /* 11/12 * 100/125 */
+        	font-weight: bold;
+        }
+        span.headingpanelrubricalt {
+        	color: #ffffff;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.733rem; /* 11/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* Horizontal rule styling */
+
+        div.hr {
+        	border: 0;
+        	width: 100%;
+        	color: #707070;
+        	background-color: #707070;
+        	height: 5px;
+        }
+
+        /* This styles the (usually white) text of the example numbers written inside
+        oval blobs in the extension documentation, which mimic the look of the in-app
+        documentation. */
+
+        .oval, .oval td {
+        	background-image:url('inform:/doc_images/ovoid.png');
+        	color:white;
+        }
+
+        /* Styling used in the extension documentation indexes: */
+
+        /* Used for extension names in the extensions pane of the app */
+
+        span.extensioncensusentry {
+        	color: #ffffff;
+        }
+
+        span.extensionindexentry {
+        	color: #404040;
+        }
+
+        span.extensionindexerror {
+        	color: #ff8080;
+        }
+
+        /* This is used in extension documentation, where an example is presented
+        in a slightly tinted box: */
+
+        table.extensionexample {
+        	background-color: #f0f0f0;
+        }
+
+        span.extensionexampleletter {
+        	color: #202020;
+        	font-size: 14px;
+        	font-weight: bold;
+        }
+
+        /* Seen in problem messages: */
+
+        span.problemred {
+        	color: #800000;
+        }
+
+        span.problemgreen {
+        	color: #008000;
+        }
+
+        span.phraseword {
+        	color: #808080;
+        }
+
+        span.phrasetokentext {
+        	color: #e00060;
+        }
+
+        span.phrasetokendesctext {
+        	color: #4040ff;
+        }
+
+        span.phrasetokenvaluetext {
+        	color: #ff4040;
+        }
+
+        /* Now we move on to styling used in the Index pages only: */
+
+        /* The periodic table display has "sidebars", usually grey and taller than they
+        are wide; they contain no text. */
+
+        div.periodictablesidebarcolour {
+        	background: #888;
+        }
+        div.periodictablesidebar:hover {
+        	background: #222;
+        }
+
+        /* The text of the element-abbreviation, such as "Lx" or "Ph", uses: */
+
+        span.elementtext {
+        	color: #ffffff;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* Similarly for the "atomic number" - a single digit - in the top left corner
+        of these boxes: */
+
+        span.elementnumbertext {
+        	color: #ffffff;
+        	font-size: 0.622rem; /* 7/12 * 96/72 * 100/125 */
+        }
+
+        /* For the text of the element title, to the right of the element box: */
+
+        span.elementtitletext {
+        	color: #ffffff;
+        	font-size: 0.6rem; /* 9/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* The banner at the top of each element: */
+
+        table.elementbanner {
+        	background: #eeeeee;
+        }
+
+        /* For the typewriting on the Library Card: */
+
+        span.librarycardtitle {
+        	color: #803030;
+        }
+
+        span.librarycardother {
+        	color: #303030;
+        }
+
+        /* Generically used for "more details" boxes in the index: */
+
+        table.indexmorebox {
+        	background-color: #e0e0e0;
+            border-radius: 8px;
+        }
+
+        /* But not for activity contents: */
+
+        table.indexactivitycontents {
+        	background-color: #e8e0c0;
+            border-radius: 8px;
+        }
+
+        /* For responses in index entries about rules: */
+
+        span.indexresponseletter {
+        	color: #ffffff;
+        	font-family: 'Courier New', Courier, monospace;
+        	background-color: #8080ff;
+        }
+
+        span.indexresponsetext {
+        	color: #000066;
+        }
+
+        /* Used ubiquitously throughout the index and extension documentation: */
+
+        span.indexblack {
+        	color: #000000;
+        }
+
+        span.indexgrey {
+        	color: #808080;
+        }
+
+        span.indexdarkgrey {
+            color: #505050;
+        }
+
+        span.indexdullred {
+        	color: #800000;
+        }
+
+        span.indexdullgreen {
+        	color: #008000;
+        }
+
+        span.indexdullblue {
+        	color: #000080;
+        }
+
+        /* Used for the room squares in the World map in the Index (which is currently
+        a table with one row of one column) */
+
+        table.indexmaproom {
+        	border-color: #000000;
+        }
+
+        /* Used in the numbering of levels of the World map in the Index */
+
+        span.indexmaplevelnumbers {
+        	color: #c0c0c0;
+        }
+
+        /* Used e.g. for title rows in the Chart of basic kinds in the Index */
+
+        tr.headingrow {
+        	background-color: #e0e0e0;
+        }
+
+        /* Standard rows have black text on striped background colours, these being
+        the usual ones seen in Mac OS X applications such as iTunes. */
+
+        tr.stripeone {
+        	background-color: #ffffff;
+        }
+
+        tr.stripetwo {
+        	background-color: #f3f6fa;
+        }
+
+        tr.tintedrow {
+        	background-color: #808080;
+        }
+
+        /* In the Figures index, this is the background colour used behind images
+        (though in fact it will only be visible if the image fails to load, or uses
+        transparency): */
+
+        div.figureindexbox {
+        	background-color: #6495ed;
+        }
+
+        /* To get the book-contents-page style leaders on the Contents element of
+           the index to work, these must use the background colour of the body of
+           the page, whatever that is: */
+
+        ul.leaders li.leaded span:first-child {
+        	background: white;
+        }
+        ul.leaders li.leaded span + span {
+        	background: white;
+        }
+
+        /* On Registry index pages (such as the Public Library), these are used for
+        download buttons and the like: */
+
+        span.registrybuttontext {
+        	font-size: 11px;
+        	border-color: #000000;
+        }
+
+        span.registryminibuttontext {
+        	font-size: 10px;
+        	border-color: #000000;
+        }
+
+        span.registrybuttonuninstalled {
+        	color: #000000;
+        	background: #ffffdd;
+        }
+
+        span.registrybuttoninstalled {
+        	color: #000000;
+        	background: #ffffff;
+        	pointer-events: none;
+        }
+
+        span.registrybuttonbuiltin {
+        	color: #888888;
+        	background: #ffffff;
+        	pointer-events: none;
+        }
+
+        span.registrybuttonupdate {
+        	color: #000000;
+        	background: #aaddff;
+        }
+
+        span.registrybuttonrevert {
+        	color: #000000;
+        	background: #ddaaff;
+        }
+
+        span.registrybuttonrevealer {
+        	color: #ffffff;
+        	background: #444444;
+        }
+
+        /* Registry index section headings: */
+
+        span.registrysectionname {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 16px;
+        	line-height: 18px;
+        }
+        span.registrysubsectionname {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 14px;
+        	line-height: 16px;
+        }
+
+        /* These are for the "mark" for a section, usually a section-symbol and number */
+
+        span.registrysectionmark {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 16px;
+        	line-height: 18px;
+        	color: #666;
+        }
+        span.registrysubsectionmark {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 14px;
+        	line-height: 16px;
+        	color: #666;
+        }
+
+        /* Text of an item listed in a registry: */
+
+        span.registryitemtext {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 12px;
+        	line-height: 16px;
+        }
+
+        /* And how the links in a registry index page behave: */
+
+        a.registrysilentlink {
+        	text-decoration: none;
+        	color: #000;
+        }
+        a.registrybuttonlink {
+        	text-decoration: none;
+        }
+        a.registrycontentslink:link {
+        	text-decoration: none;
+        	color: #202020;
+        }
+        a.registrycontentslink:visited {
+        	text-decoration: none;
+        	color: #202020;
+        }
+        a.registrycontentslink:hover {
+        	text-decoration: none;
+        	color: #D00000;
+        }
+        a.registrycontentslink:active {
+        	text-decoration: none;
+        	color: #D00000;
+        }
+
+        -->
+    </style>
+    <style type="text/css">
+        <!--
+        /* (1) General layout material */
+
+        *, *:before, *:after {
+        	-moz-box-sizing: border-box;
+        	-webkit-box-sizing: border-box;
+        	box-sizing: border-box;
+        }
+        .headingpanellayout {
+        	position: relative;
+        	height: 56px;
+        	padding: 0px;
+        	white-space:nowrap;
+        }
+        .headingpanellayoutdeeper {
+        	position: relative;
+        	height: 117px;
+        	padding: 0px;
+        	white-space:nowrap;
+        }
+        .headingtext {
+        	position: absolute;
+        	top: -4px;
+        	left: -1px;
+        	width: 100%;
+        	padding: 14px 10px 0px 10px;
+        }
+        .headingrubric {
+        	position: absolute;
+        	top: 36px;
+        	width: 100%;
+        	padding: 0px 10px 0px 10px;
+        }
+        h3.tighter {
+        	margin-top: 0px;
+        }
+        p.hang {
+        	padding-left: 25px;
+        	text-indent: -25px;
+        	margin-top: 0px;
+        	margin-bottom: 0px;
+        }
+        p.in1 {
+        	padding-left: 0px;
+        }
+        p.tightin1 {
+        	padding-left: 0px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin1 {
+        	padding-left: 0px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin1 {
+        	padding-left: 50px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in2 {
+        	padding-left: 25px;
+        }
+        p.tightin2 {
+        	padding-left: 25px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin2 {
+        	padding-left: 25px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin2 {
+        	padding-left: 75px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in3 {
+        	padding-left: 50px;
+        }
+        p.tightin3 {
+        	padding-left: 50px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin3 {
+        	padding-left: 50px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin3 {
+        	padding-left: 100px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in4 {
+        	padding-left: 75px;
+        }
+        p.tightin4 {
+        	padding-left: 75px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin4 {
+        	padding-left: 75px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin4 {
+        	padding-left: 125px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in5 {
+        	padding-left: 100px;
+        }
+        p.tightin5 {
+        	padding-left: 100px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin5 {
+        	padding-left: 100px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin5 {
+        	padding-left: 150px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in6 {
+        	padding-left: 125px;
+        }
+        p.tightin6 {
+        	padding-left: 125px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin6 {
+        	padding-left: 125px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin6 {
+        	padding-left: 175px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in7 {
+        	padding-left: 150px;
+        }
+        p.tightin7 {
+        	padding-left: 150px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin7 {
+        	padding-left: 150px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin7 {
+        	padding-left: 200px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in8 {
+        	padding-left: 175px;
+        }
+        p.tightin8 {
+        	padding-left: 175px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin8 {
+        	padding-left: 175px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin8 {
+        	padding-left: 225px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in9 {
+        	padding-left: 200px;
+        }
+        p.tightin9 {
+        	padding-left: 200px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin9 {
+        	padding-left: 200px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin9 {
+        	padding-left: 250px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+
+        /* (2) Index page layout material */
+
+        /* The periodic table display has "sidebars", usually grey and taller than they
+        are wide; they contain no text. */
+
+        div.periodictablesidebar {
+        	height: 56px;
+        	width: 16px;
+        }
+        .periodictablesidebar a:link { text-decoration: none; }
+        .periodictablesidebar a:visited { text-decoration: none; }
+        .periodictablesidebar a:active { text-decoration: none; }
+
+        /* The "element boxes" are the cells appearing in the periodic-table display
+        on the welcome page of the index: */
+
+        .elementbox {
+        	position: relative;
+        	height: 56px;
+        	width: 56px;
+        	padding: 0px;
+        }
+
+        .elementbox a:link { text-decoration: none; }
+        .elementbox a:visited { text-decoration: none; }
+        .elementbox a:active { text-decoration: none; }
+        .elementbox a:hover { text-decoration: none; }
+        .elementbox:hover {
+        	opacity: 0.6;
+        }
+
+        /* The "small element boxes" look like those, but are smaller, and used on
+        the headings of the content which those original boxes link to: */
+
+        .smallelementbox {
+        	position: relative;
+        	height: 40px;
+        	width: 40px;
+        	padding: 0px;
+        }
+
+        .smallelementbox a:link { text-decoration: none; }
+        .smallelementbox a:visited { text-decoration: none; }
+        .smallelementbox a:active { text-decoration: none; }
+        .smallelementbox a:hover { text-decoration: none; }
+        .smallelementbox:hover {
+        	opacity: 0.6;
+        }
+
+        /* This is a class for the links formed by the element boxes: */
+
+        a.elementlink {
+        	position: absolute;
+        	top: -4px;
+        	left: -1px;
+        	width: 100%;
+        	padding: 14px 0px 14px 1px;
+        	text-align: center;
+        }
+
+        /* Similarly for the "atomic number" - a single digit - in the top left corner
+        of these boxes: */
+
+        div.elementnumber {
+        	position: absolute;
+        	top: 1px;
+        	left: 3px;
+        	text-align: left;
+        }
+
+        /* For the text of the element title, to the right of the element box: */
+
+        div.elementtitle {
+        	position: absolute;
+        	top: 35px;
+        	width: 100%;
+        	text-align: center;
+        }
+
+        /* Used for the book-contents-page style leaders on the Contents element of
+           the index: */
+
+        ul.leaders {
+        	padding: 0;
+        	margin-top: 1px;
+        	margin-bottom: 0;
+        	overflow-x: hidden;
+        	list-style: none}
+        ul.leaders li.leaded:before {
+        	float: left;
+        	width: 0;
+        	white-space: nowrap;
+        	content:
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "}
+        ul.leaders li.leaded span:first-child {
+        	padding-right: 0.33em;
+        }
+        ul.leaders li.leaded span + span {
+        	float: right;
+        	padding-left: 0.33em;
+        }
+        li.indent1 span:first-child {
+        	padding-left: 25px;
+        }
+        li.indent2 span:first-child {
+        	padding-left: 50px;
+        }
+        li.indent3 span:first-child {
+        	padding-left: 75px;
+        }
+        li.indent4 span:first-child {
+        	padding-left: 100px;
+        }
+        li.indent5 span:first-child {
+        	padding-left: 125px;
+        }
+        li.indent6 span:first-child {
+        	padding-left: 150px;
+        }
+        li.indent7 span:first-child {
+        	padding-left: 175px;
+        }
+        li.indent8 span:first-child {
+        	padding-left: 200px;
+        }
+        li.indent9 span:first-child {
+        	padding-left: 225px;
+        }
+
+        li.unleaded:before {
+        	content: "";
+        }
+
+        /* On Registry index pages (such as the Public Library), these are used for
+        download buttons and the like: */
+
+        span.registrybuttons {
+        	height: 20px;
+        	padding: 2px 8px 2px 8px;
+        	margin: 2px;
+        	border:1px solid;
+        	border-radius: 5px;
+        }
+
+        span.registryminibuttons {
+        	height: 14px;
+        	padding: 2px 5px 2px 5px;
+        	margin: 2px;
+        	border:1px solid;
+        	border-radius: 4px;
+        }
+
+        /* Used to hide or display sections in the Registry pages: */
+
+        div.registrysectionitemsopen {
+        	display: block;
+        }
+
+        div.registrysectionitemsclosed {
+        	display: none;
+        }
+
+        /* Hanging indentation for Registry item paragraphs: */
+
+        p.registryitem {
+        	padding-left: 80px;
+        	text-indent: -40px;
+        }
+
+        p.registryaddition {
+        	padding-left: 40px;
+        	text-indent: -40px;
+        }
+
+        -->
+    </style>
+    <script type="text/javascript">
+        function project() {
+            return window.Project;
+        }
+        function showExtra(id, imid) {
+        	if (document.getElementById(id).style.display == 'block') {
+        		document.getElementById(id).style.display = 'none';
+        		document.getElementById(imid).src = 'inform:/extra.png';
+        	} else {
+        		document.getElementById(id).style.display = 'block';
+        		document.getElementById(imid).src = 'inform:/extraclose.png';
+        	}
+        }
+        function openExtra(id, imid) {
+        	document.getElementById(id).style.display = 'block';
+        	document.getElementById(imid).src = 'inform:/extraclose.png';
+        }
+        function closeExtra(id, imid) {
+        	document.getElementById(id).style.display = 'none';
+        	document.getElementById(imid).src = 'inform:/extra.png';
+        }
+        function pasteCode(code) {
+            var myProject = project();
+
+            myProject.selectView('source');
+            myProject.pasteCode(code);
+        }
+
+    </script>
+</head>
+<body>
+    <!--CONTENT BEGINS-->
+    <table CELLPADDING=0 CELLSPACING=0 width="100%" bgcolor="#000000"><tr><TD width=38px height=26px align="center" valign="center"><a href="inform://Extensions/Extensions.html" border=0><img border=0 src="inform:/doc_images/Hookindex.png" border=0></a></td><TD width=38px height=26px align="center" valign="center"></td><td halign="left" valign="center" CELLPADDING=0 CELLSPACING=0><font color="#FFFFFF" size=2>Extensions</font></a></td><TD width=56px height=26px align="right" valign="center"><a href="inform:/index.html" border=0><img border=0 src="inform:/doc_images/Hookup.png" border=0></a></td></tr></table>
+
+    <p><a href="javascript:pasteCode('Include Easy Doors by Hanon Ondricek.[=0x000A=][=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a>&nbsp;<b>Easy Doors<span class="extensionindexentry"> by </span>Hanon Ondricek</b></p>
+    <p><span class="smaller">Version 3.0.160425</span></p>
+    <p>Easy Doors provides a new kind of door which does not use map connections, and may be manipulated via rules more flexibly than the standard doors provided in Inform 7.  Version 3 removes elements for compatibility with 6M62</p>
+    <p></p>
+    <hr>
+    <p><span class="indexblack"><b><a style="text-decoration: none" href=#docsec1>Chapter 1: </a></b></span>Introduction<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec2>Section 1.1: </a></span>Update Log<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec3>Section 1.2: </a></span>Acknowledgements<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec4>Chapter 2: </a></b></span>Creating Easydoors<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec5>Section 2.1: </a></span>One-Way Easydoors<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec6>Section 2.2: </a></span>Two-Way Doors<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec7>Section 2.3: </a></span>Portalling Two Easydoors as One<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec8>Section 2.4: </a></span>Dooraction<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec9>Section 2.5: </a></span>After Entering an Easydoor<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec10>Section 2.6: </a></span>Portable Doors<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec11>Chapter 3: </a></b></span>Debug<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec12>Chapter 4: </a></b></span>NPCs, and Pathfinding<br>
+    <br>
+    <b>Examples</b><br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href="Easy Doors-eg1.html#eg1">A &mdash; And I Want to Paint It</a></span><br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href="Easy Doors-eg2.html#eg2">B &mdash; His Lovely Assistant</a></span><br>
+    </p>
+    <hr>
+    <p></p>
+    </p>
+
+    <p><p><span class="indexdullred"><b><span id=docsec1>Chapter 1: Introduction</span></b></span></p>
+    </p>
+
+    <p> Doors as implemented in Inform 7 are limited and sometimes frustrating to use since they must connect two rooms using map directions. They can thwart some architectural and magical realism: they cannot be moved during play, and they cannot change their destination. We cannot have an enterable broom closet on the same wall as a map direction. Doors cannot be part of an object, or inside an enterable container.</p>
+
+    <p> Easy Doors is a small extension that provides a new kind called &quot;easydoor&quot;. These behave like normal doors and can be placed anywhere, providing one-way, directionless transport to any location in the game world. Easydoors can be moved around the map, on and off-stage, and can change what location they lead to at the author's whim using normal rules. Since easydoors do not require directional hookups on the map, they are very simple to implement.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec2>Section 1.1: Update Log</span></b></span></p>
+    </p>
+
+    <p> 2016.04-25 - Removed &quot;perform&quot; functionality as it no longer operates consistently in 6M62 and using it with certain actions cause a compiler error with no specific indication what caused the error. Functionality can be duplicated using the &quot;carry out&quot; phase of entering an easydoor as explained below.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec3>Section 1.2: Acknowledgements</span></b></span></p>
+    </p>
+
+    <p> Thanks to Carolyn VanEseltine and Jason Lautzenheimer for suggestions about door behaviors. Also to Daniel Stelzer and Andrew Schultz for assistance and advice and testing.</p>
+
+    <p> Please feel free to email hanon.ondricek@gmail.com with any feedback, questions, or bug reports.</p>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec4>Chapter 2: Creating Easydoors</span></b></span></p>
+    </p>
+
+    <p> Easydoors can be created and placed wherever we want. They behave in the expected way a door would, by default fixed in place, openable and closed. We can declare them also lockable and locked or unlocked (unlocked is default) and create keys to unlock them. We can make them open and unopenable to simulate stairs or an open passage. We also specify where an easydoor leads to when a player enters one.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec5>Section 2.1: One-Way Easydoors</span></b></span></p>
+    </p>
+
+    <p><blockquote><span class="indexdullblue"> The front door is an easydoor in Porch. It leads to Foyer.</span></blockquote>
+
+    <p> This is the minimum code for a working easydoor. We can of course give our easydoor an initial appearance, a description (the default just says whether the door is closed or open) and use all of the normal rules for opening and closing and locking. (The exception to be careful with is AFTER ENTERING - see the section later for details.)</p>
+
+    <p><blockquote><span class="indexdullblue"> An iron grating is an easydoor in Dungeon Mouth. It leads to Dungeon Throat. It is lockable and locked.<br>
+     The dungeon key unlocks iron grating. Dungeon key is carried by the fearsome ogre.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> A windy passage is an easydoor in Dungeon Throat. &quot;A windy passage leads deeper into the dungeon.&quot; It is unopenable and open. It leads to Dungeon Lungs.</span></blockquote>
+
+    <p> Notice none of these specify compass directions. We can place as many doors in a location as we wish. The player can enter an easydoor and be transported to the location it leads to by using any synonym of the entering action, or by typing the name of an easydoor as if it were a direction.</p>
+
+    <p><blockquote><span class="indexdullblue"> &gt;ENTER FRONT DOOR<br>
+     &gt;GRATING<br>
+     &gt;GO THROUGH WINDY PASSAGE</span></blockquote>
+
+    <p> If the easydoor is closed and not locked, the parser will open it implicitly. If it is locked, the player will be informed and not allowed to open it until they find a key.</p>
+
+    <p> We can simulate that an easydoor leads in a direction by redirecting the player's input to the entering action.</p>
+
+    <p><blockquote><span class="indexdullblue"> A revolving door is an easydoor in Plaza. &quot;The department store's revolving door slices and dices holiday shoppers to the north.&quot; It is unopenable and open. It leads to Women's Shoes. The description of revolving door is &quot;It makes you sort of ill to watch it for too long.&quot;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Instead of going north in Plaza: try entering revolving door.</span></blockquote>
+
+    <p><p><span class="indexblack"><b><span id=docsec6>Section 2.2: Two-Way Doors</span></b></span></p>
+    </p>
+
+    <p> Since easydoors traverse only one way, we might wish to provide the other half of the door so there is a two-way connection.</p>
+
+    <p><blockquote><span class="indexdullblue"> some automatic doors are an easydoor in Women's Shoes. &quot;You note some automatic doors to the south that lead back out into the street.&quot; It leads to Plaza. The dooraction is &quot;At least you don't have to contend with the revolving door this time as glass panels are whisked aside automatically for you.&quot;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Instead of going south in Women's Shoes:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; try entering automatic doors.</span></blockquote>
+
+    <p><p><span class="indexblack"><b><span id=docsec7>Section 2.3: Portalling Two Easydoors as One</span></b></span></p>
+    </p>
+
+    <p> When we are simulating both sides of a door with two separate easydoors, we would like them to stay in sync with regard to locking, unlocking, opening and closing. We do that by connecting them with the portalling relation, which is reciprocal and only needs to be declared on one of the matching portals.</p>
+
+    <p><blockquote><span class="indexdullblue"> The coaster security gate is an easydoor in Midway. It is lockable and locked. It leads to Roller Coaster. The description is &quot;Through the chain link, you can see the wooden supports of the roller coaster.&quot; Understand &quot;chain/link&quot; as security gate.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> The gate back to the midway is an easydoor in Roller Coaster. &quot;A gate here appears to lead back to the midway.&quot; The description is &quot;It's the back side of that security gate you saw earlier.&quot; It leads to midway. It portals coaster security gate. Understand &quot;security&quot; as gate back to midway.<br>
+     The passkey unlocks coaster security gate. Passkey is on security guard's corpse.</span></blockquote>
+
+    <p> This will ensure that if we unlock the security gate from one side but slip into the Roller Coaster grounds by other means, when we encounter the allegedly same gate from the other side that it will also be unlocked. It also allows the same key to lock and unlock the other half of the portalled door.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec8>Section 2.4: Dooraction</span></b></span></p>
+    </p>
+
+    <p> Every easydoor contains a text called &quot;dooraction&quot; which can optionally be used to provide some descriptive text when the player moves through the door.</p>
+
+    <p><blockquote><span class="indexdullblue"> a spiral staircase is an open, unopenable easydoor in Minimalistic Apartment. It leads to Loft. the dooraction of spiral staircase is &quot;Your knees complain as you climb the wrought iron twists of this contraption.&quot;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> a time machine is an open, unopenable easydoor in Laboratory. &quot;A humming time machine sits in the corner, the passage into it glowing expectantly.&quot; It leads to Swirly Void. The dooraction of time machine is &quot;All right.  Here goes.&quot;</span></blockquote>
+
+    <p> The dooraction should encompass the actual traversal of the door. The opening and closing are separate actions and shouldn't necessarily be included in the dooraction.</p>
+
+    <p><blockquote><span class="indexdullblue"> a crypt door is an openable easydoor in Graveyard. It leads to Inner Tomb. The dooraction is &quot;As you cross the threshold, a cold wind ruffles your hair.&quot;.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> After an actor opening crypt door, say &quot;The door of the crypt creaks open.&quot;<br>
+     After an actor closing crypt door, say &quot;The crypt door bangs shut.&quot;</span></blockquote>
+
+    <p><p><span class="indexblack"><b><span id=docsec9>Section 2.5: After Entering an Easydoor</span></b></span></p>
+    </p>
+
+    <p> In most cases, we should not override the AFTER ENTERING rules affecting an easydoor, as this is where the player is moved to the location that the door leads to (called an &quot;outpoint&quot; in code). Should you need to do anything fancy when an easydoor is traversed, The best place to work it out is in the carry out phase of entering.</p>
+
+    <p><blockquote><span class="indexdullblue"> A revolving door is an easydoor in Plaza. &quot;The department store's revolving door slices and dices holiday shoppers to the north.&quot; It is unopenable and open. It leads to Women's Shoes. The description of revolving door is &quot;It makes you sort of ill to watch it for too long.&quot; The dooraction of revolving door is &quot;You are whirled for several minutes[if the player encloses a mitten], losing a mitten in the process[end if].  Finally you are through and your shopping can begin!&quot;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Carry out entering revolving door:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; if the player encloses a mitten:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; now a random mitten enclosed by the player is off-stage.</span></blockquote>
+
+    <p> If you decide you need to use the after rules, you should ensure that you move the player to the outpoint of the easydoor as well.</p>
+
+    <p> Easy Doors usually lead to a room. Altering the AFTER ENTERING rules would be one way to, for whatever reason, have a door lead to the inside of an enterable container or onto a supporter. Take care with this, as getting your player stuck inside an object or in a backdrop might have strange consequences. An example is provided below.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec10>Section 2.6: Portable Doors</span></b></span></p>
+    </p>
+
+    <p> Easydoors are usually immobile as far as the player is concerned, although the author can move them as part of gameplay using rules. An easydoor can be declared portable, leading to wild effects.</p>
+
+    <p><blockquote><span class="indexdullblue"> A round black hole is an easydoor carried by the player. It is portable. It leads to Phobos.</span></blockquote>
+
+    <p> A portable door must be dropped before it can be entered, of course, because carrying a door through itself would break even imaginary laws of physics and cause your game to collapse into itself and wink out of existence.</p>
+
+    <p><blockquote><span class="indexdullblue"> Carry out turning the Infinite Improbability dial:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; now round black hole leads to Magrathea.</span></blockquote>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec11>Chapter 3: Debug</span></b></span></p>
+    </p>
+
+    <p> An easydoor without a destination (in code, an &quot;outpoint&quot;) would transport the player off-stage, which could cause all kinds of nasty effects. When a game is run in the Inform IDE, easydoors without outpoints will be flagged when play begins.</p>
+
+    <p> We may have good reason to have a destination-less door (as shown in the example below) and can ignore these warnings which will not appear in a published game. This is provided to notify the author in case of inadvertently forgetting to include a destination for an easydoor. Instead of recklessly transporting the player offstage, the extension will inform the player that the door leads nowhere, and change the outpoint of the easydoor to its own location should the player try again.</p>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec12>Chapter 4: NPCs, and Pathfinding</span></b></span></p>
+    </p>
+
+    <p> Easy Doors can handle an NPC character manipulating and entering an easydoor if manually told to in rules by the author, or by a player if persuasion succeeds. Unfortunately Inform's automatic pathfinding (&quot;The best route from A to B&quot;) will not take easydoors into account. Any route to a location will detour around an easydoor if there is another way using regular map connections and doors, or will fail as &quot;nothing&quot; if an easydoor is the only route.</p>
+
+    <p> If our game relies on routefinding and autonomous NPCs, some suggestions are:</p>
+
+    <p> A: Create the world with map connections and regular doors where we need NPCs to travel, reserving easydoors for special cases. (In TRANSPARENT, there is a map connection between the study and the library that ghosts can use, but the player is directed from the map connection through an easydoor, which might be locked.)</p>
+
+    <p> B: Divide the map into regions that easydoors connect, and have Inform find &quot;The best route from A to (an easydoor).&quot; Once arrived, have the NPC try entering the easydoor and continue their route to a destination.</p>
+
+    <p> C: Find plot reasons to teleport the NPCs.</p>
+
+    <p> Hopefully if our game involves traveling NPCs and extended logic to move them, we are skilled enough to manage within the limitations of this extension, or modify it to suit.</p>
+
+    <p> A vague caution: This extension is designed to help authors solve some door problems, and create special effects. While it can be used to make an entire game full of non-traditional map traversal, it has not been stress-tested with hundreds of portaling doors in a game. Some memory limitations and weirdness might be encountered if we are using this extension to write a game called &quot;Maze of a Million Doors&quot;.</p>
+
+    <p><hr>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td halign="left" valign="top" cellpadding=0 cellspacing=0 width=38px>
+                <span id=eg1><table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="oval">
+                        <td width=38px height=30px align="left" valign="center">
+                            <a href="Easy Doors-eg1.html#eg1" style="text-decoration: none"><div class="paragraph Body" style="line-height: 1px; margin-bottom: 0px; margin-top: 0px; padding-bottom: 0pt; padding-top: 0px; text-align: center;">
+                                <span class="extensionexampleletter">A</span></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                </span>
+            </td>
+            <td cellpadding=0 cellspacing=0 halign="left" valign="top">
+                <a href="Easy Doors-eg1.html#eg1" style="text-decoration: none"><img border="0" src='inform:/doc_images/asterisk.png'><img border="0" src='inform:/doc_images/asterisk.png'><b><span class="indexdarkgrey">&nbsp;Example&nbsp;</span><span class="indexblack">And I Want to Paint It</span></b></a><br>
+                <p>Easy Doors in action, hopefully demonstrating the entire range of use, including debug messages.</p>
+
+            </td>
+        </tr>
+    </table>
+    </p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p><hr>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td halign="left" valign="top" cellpadding=0 cellspacing=0 width=38px>
+                <span id=eg2><table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="oval">
+                        <td width=38px height=30px align="left" valign="center">
+                            <a href="Easy Doors.html#eg2" style="text-decoration: none"><div class="paragraph Body" style="line-height: 1px; margin-bottom: 0px; margin-top: 0px; padding-bottom: 0pt; padding-top: 0px; text-align: center;">
+                                <span class="extensionexampleletter">B</span></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                </span>
+            </td>
+            <td cellpadding=0 cellspacing=0 halign="left" valign="top">
+                <a href="Easy Doors.html#eg2" style="text-decoration: none"><img border="0" src='inform:/doc_images/asterisk.png'><img border="0" src='inform:/doc_images/asterisk.png'><img border="0" src='inform:/doc_images/asterisk.png'><img border="0" src='inform:/doc_images/asterisk.png'><b><span class="indexdarkgrey">&nbsp;Example&nbsp;</span><span class="indexblack">His Lovely Assistant</span></b></a><br>
+                <p>Using Easy Doors to transport the player into an enterable container.</p>
+
+            </td>
+        </tr>
+    </table>
+    <table border="0" cellspacing="0" cellpadding="0" class="extensionexample" width=100%>
+        <tr>
+            <td align="left" valign="top">
+                <p></p>
+
+                <p><blockquote><span class="indexdullblue"><a href="javascript:pasteCode('[=0x0022=]His Lovely Assistant[=0x0022=][=0x000A=][=0x000A=]Include Easy Doors by Hanon Ondricek.[=0x000A=][=0x000A=]Use scoring.[=0x000A=][=0x000A=]The Wicked Stage is a room. [=0x0022=][one of]Here, elevated on the boards before a sold-out audience, Mumford the Magician has but one astounding trick left to perform.[or]The audience watches raptly, each member perched on the edge of their respective seat.[stopping][=0x0022=][=0x000A=][=0x000A=]a magic trunk is a fixed in place, enterable, openable, closed, lit container in Wicked Stage. The description is [=0x0022=]It[=0x0027=]s big enough for a person to get into, but exceedingly heavy to carry around as you well know.[=0x0022=] Understand [=0x0022=]disappearing/box[=0x0022=] as trunk.[=0x000A=][=0x000A=]a trap door is an easydoor in magic trunk. It leads to Understage. It is openable. The dooraction is [=0x0022=]You contort your body through the narrow square trap in the bottom of the trunk and the hole cut underneath it down through the stage floor.[=0x0022=][=0x000A=][=0x000A=]After opening trap door:[=0x000A=][=0x0009=]say [=0x0022=]You quietly open the trap door.[=0x0022=][=0x000A=][=0x000A=]Instead of going down when the player is in magic trunk:[=0x000A=][=0x0009=]try entering trap door.[=0x000A=][=0x000A=]a concealed panel is an easydoor in Understage. [=0x0022=]Above your head you can see the concealed panel through the trap cut into the stage that the trunk is sitting on top of.[=0x0022=] It leads to Wicked Stage. It portals trap door. Understand [=0x0022=]trap[=0x0022=] as concealed panel.[=0x000A=][=0x000A=]The printed name of Understage is [=0x0022=]Beneath the Stage[=0x0022=].[=0x000A=][=0x000A=]a scrap of newspaper clipping is in understage. The description is [=0x0022=]Hmn.  It[=0x0027=]s a slightly-charred newspaper article detailing the rash of stage magician[=0x0027=]s assistant murders that has been ravaging the community!  This looks like an important clue to the mystery![=0x0022=][=0x000A=][=0x000A=]Carry out taking scrap of newspaper for the first time:[=0x000A=][=0x0009=]increase the score by 1.[=0x000A=][=0x000A=]After closing concealed panel:[=0x000A=][=0x0009=]say [=0x0022=]You close the panel with the slightly audible [=0x0027=]thunk[=0x0027=] that Mumford is listening for.[=0x0022=][=0x000A=][=0x000A=]After entering concealed panel:[=0x000A=][=0x0009=]now the player is in magic trunk;[=0x000A=][=0x0009=]say [=0x0022=]You twist your way flexibly back up through the stage into the trunk.[=0x0022=][=0x000A=][=0x000A=]Instead of going up in understage: try entering concealed panel.[=0x000A=][=0x000A=]To say response:[=0x000A=][=0x0009=]say [=0x0022=][line break][=0x0027=][one of]Ooooooooh[or]Ahhhhhh[or]Ooh! Ahh[cycling]![=0x0027=] goes the audience.[=0x0022=][=0x000A=][=0x000A=]To say murmur:[=0x000A=][=0x0009=]say [=0x0022=]The audience murmurs, perhaps a bit less astounded than they were before.[=0x0022=][=0x000A=][=0x000A=]The audience is scenery in Wicked Stage. The description is [=0x0022=]There are hundreds of people out there, even if you can[=0x0027=]t make out anyone specifically.  Any one of them could be the Magician[=0x0027=]s Assistant Murderer!  You hope you catch him soon so you can stop this whole undercover gig for Mumford.[=0x0022=][=0x000A=][=0x000A=]Pre Magic is a scene. Pre Magic begins when the turn count is 2. Pre Magic ends when the player is in magic trunk.[=0x000A=][=0x000A=]When Pre Magic Begins:[=0x000A=][=0x0009=]say [=0x0022=]Mumford holds up his hands, cutting off the applause from the previous trick.  [=0x0027=]And now, for our spectacular finale.  I give you THE MAGIC DISAPPEARING BOX![=0x0027=][response][=0x0022=];[=0x000A=][=0x0009=]if magic trunk is closed:[=0x000A=][=0x0009=][=0x0009=]say [=0x0022=]He flourishes his cape, and opens the trunk.[=0x0022=];[=0x000A=][=0x0009=][=0x0009=]now magic trunk is open.[=0x000A=][=0x000A=]Every turn during Pre Magic:[=0x000A=][=0x0009=]say [=0x0022=][one of]Mumford offers a hand to assist you.  [=0x0027=]And now, my lovely assistant will enter the mysterious mystery of THE DISAPPEARING BOX![=0x0027=][response][or][=0x0027=]That[=0x0027=]s it, my lovely assistant,[=0x0027=] Mumford says.  [=0x0027=]Just step into THE MAGIC DISAPPEARING BOX![=0x0027=][response][or][=0x0027=]Ha ha!  My lovely assistant fears THE MAGIC DISAPPEARING BOX![=0x0027=][response][or]Mumford mutters under his breath, [=0x0027=]Just get in the box like we rehearsed it, okay?[=0x0027=]  He flourishes and smiles for the audience to stall for you.[stopping][murmur][=0x0022=].[=0x000A=][=0x000A=]Switcheroo is a scene. Switcheroo begins when Pre Magic Ends. Switcheroo ends when the player is in understage and concealed panel is closed.[=0x000A=][=0x000A=]To say magicwords:[=0x000A=][=0x0009=]say [=0x0022=][=0x0027=]And now for [one of]some[or]some more[stopping] magic words![=0x0027=] Mumford bellows above.  [=0x0027=][one of]ABRACADABRA[OR]ALAKHAZAM[OR]HOCUS POCUS[OR]...erm MACARONI AND CHEESE[or]...and you will be AMAZED when you CANNOT SEE my LOVELY ASSISTANT!  Who [italic type]WILL HAVE VANISHED[roman type] from the MAGIC DISAPPEARING BOX[or]...UT-SHAY THE AGIC-MAY ANEL-PAY[or]I[=0x0027=]m thinking I[=0x0027=]ll be in the market for a new Lovely Assistant soon,[=0x0027=] Mumford ad-libs, no doubt waggling his eyebrows at the audience who chuckle appreciatively.  [=0x0027=]BIBBITY BOBBITY[or]...um HAVA NAGILA[cycling]![=0x0027=][response][=0x0022=][=0x000A=][=0x000A=]When Switcheroo begins:[=0x000A=][=0x0009=]say [=0x0022=]Mumford swirls his cape.  [=0x0027=]And we say goodbye to my lovely assistant as we explore the mysteries of THE MAGICAL DISAPPEARING BOX![=0x0027=] he says, wiggling his fingers as you duck down in the trunk.[response]He closes the trunk lid and you hear him making a big show with the locks on the outside.[=0x0022=];[=0x000A=][=0x0009=]now magic trunk is closed.[=0x000A=][=0x000A=]Every turn during switcheroo:[=0x000A=][=0x0009=]if magic trunk is open:[=0x000A=][=0x0009=][=0x0009=]now magic trunk is closed;[=0x000A=][=0x0009=][=0x0009=]say [=0x0022=]Mumford [one of]pushes the trunk closed again.[or]slams the trunk, almost taking one of your fingers with it.[or]resolutely pushes the trunk closed and holds it for a moment.[cycling][=0x0022=];[=0x000A=][=0x0009=]say [=0x0022=][magicwords][=0x0022=].[=0x000A=][=0x000A=]When switcheroo ends:[=0x000A=][=0x0009=]say [=0x0022=][=0x0027=]And now...WATCH and be ASTOUNDED![=0x0027=] hollers Mumford from above.[=0x0022=][=0x000A=][=0x000A=]The audience can be amazed.[=0x000A=][=0x000A=]The Show is a scene. The Show begins when switcheroo ends. The show ends when audience is amazed.[=0x000A=][=0x000A=]Instead of entering concealed panel during The Show:[=0x000A=][=0x0009=]say [=0x0022=]You really not supposed to be in the box while Mumford is doing his stuff.[=0x0022=];[=0x000A=][=0x0009=]stop the action.[=0x000A=][=0x000A=]some fake scorpions are a thing.[=0x000A=][=0x000A=]showcount is a number that varies. showcount is 0.[=0x000A=][=0x000A=]Every turn during The Show:[=0x000A=][=0x0009=]increase showcount by 1;[=0x000A=][=0x0009=]if fake scorpions are not in magic trunk:[=0x000A=][=0x0009=][=0x0009=]move fake scorpions to magic trunk;[=0x000A=][=0x0009=]say [=0x0022=][one of][=0x0027=]You all saw my Lovely Assistant locked securely inside THE DISAPPEARING BOX![=0x0027=] he announces.  But things ARE NOT ALWAYS WHAT THEY APPEAR![=0x0027=][or][=0x0027=]If my Lovely Assistant were in the MAGICAL DISAPPEARING BOX, would I consider STABBING IT REPEATEDLY WITH THESE RAZOR SHARP SWORDS?[=0x0027=]  (You hear metal clashing above.)[response][or][=0x0027=]Or would I pour this bucket of LIVE DEADLY SCORPIONS DIRECTLY INTO THE MAGICAL DISAPPEARING BOX?[=0x0027=]  (You hear a pattering above.)[response][or][=0x0027=]Would I even consider SETTING THE MAGICAL DISAPPEARING BOX ON FIRE???[=0x0027=]  (You hear a crackling whoosh of flash powder.)[response][or]I wouldn[=0x0027=]t do these things unless my Lovely Assistant HAD ACTUALLY DISAPPEARED![=0x0027=]  The audience applauds enthusiastically as he drops the front of the trunk to reveal that you are, indeed, not inside it.[stopping][=0x0022=];[=0x000A=][=0x0009=]if showcount is 5:[=0x000A=][=0x0009=][=0x0009=]now the audience is amazed.[=0x000A=][=0x000A=]When The Show ends:[=0x000A=][=0x0009=]say [=0x0022=]You hear the trunk being hastily reassembled above, and Mumford continues.  [=0x0027=]But THE MAGICAL DISAPPEARING BOX has a secret!  With more magic words...the mystery can be solved!  DUCK A LA RAHNGE![=0x0027=] he calls, which is your cue.[=0x0022=][=0x000A=][=0x000A=]The Reveal is a scene. The reveal begins when The Show ends. The reveal ends when the player is in magic trunk and magic trunk is open.[=0x000A=][=0x000A=]Every turn during the Reveal:[=0x000A=][=0x0009=]say [=0x0022=][one of][=0x0027=]I said DUCKALARAAAANGE![=0x0027=][or][=0x0027=]Could my Lovely Assistant have suffered some type of TERRIBLE PERIL?[=0x0027=] Mumford yells, and you can hear his foot tapping the trunk above.[or][=0x0027=]Hey![=0x0027=] he whispers harshly above.[or][=0x0027=]More magic words![=0x0027=] he cheefully announces.  [=0x0027=]ET-GAY OR-YAY UTT-BAY ACK-BAY IN THE OX-BAY![=0x0027=][cycling][=0x0022=][=0x000A=][=0x000A=]When the Reveal ends:[=0x000A=][=0x0009=]say [=0x0022=]Mumford drinks in the deafening applause for a minute, before deferring some to you.  [=0x0027=]MY LOVELY ASSISTANT, LADIES AND GENTLEMAN!!![=0x0027=]  You take a graceful bow, understanding finally what it[=0x0027=]s like to be adored by hundreds of people.  But it is short-lived as there[=0x0027=]s a [=0x0027=]thoop[=0x0027=] sound and a simultaneous gasp in the audience.  Mumford[=0x0027=]s eyes are wide as he realizes he[=0x0027=]s been shot with a poison crossbow!  The Killer is in the audience!  You yell for nobody to move as you retrieve your sidearm from where it was uncomfortably concealed in your skimpy outfit...[=0x0022=];[=0x000A=][=0x0009=]end the story saying [=0x0022=]You vow to avenge the Mystical Mumford the Magician![=0x0022=][=0x000A=][=0x000A=]The player wears a skimpy outfit. The description of skimpy outfit is [=0x0022=]It[=0x0027=]s a bit tighter and feathery-er than your normal uniform.[=0x0022=][=0x000A=][=0x000A=]Instead of taking off skimpy outfit, say [=0x0022=]Like this isn[=0x0027=]t humiliating enough.[=0x0022=][=0x000A=][=0x000A=]The description of the player is [=0x0022=]Yes, you are actually wearing feathers.  It[=0x0027=]s going to be a good long time before your cohorts stop giving you hell for this back at the station.[=0x0022=][=0x000A=][=0x000A=]A person called The Amazing Mumford is in wicked stage. The description is [=0x0022=]He[=0x0027=]s been around the block a few times, and probably in his younger days was quite dashing in his cape and top hat.[=0x0022=][=0x000A=][=0x000A=]test me with [=0x0022=]z/enter box/open box/z/open trap/d/shut panel/x newspaper/take newspaper/up/z/enter panel/open box[=0x0022=][=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a> &quot;His Lovely Assistant&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Include Easy Doors by Hanon Ondricek.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Use scoring.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The Wicked Stage is a room. &quot;[one of]Here, elevated on the boards before a sold-out audience, Mumford the Magician has but one astounding trick left to perform.[or]The audience watches raptly, each member perched on the edge of their respective seat.[stopping]&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> a magic trunk is a fixed in place, enterable, openable, closed, lit container in Wicked Stage. The description is &quot;It's big enough for a person to get into, but exceedingly heavy to carry around as you well know.&quot; Understand &quot;disappearing/box&quot; as trunk.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> a trap door is an easydoor in magic trunk. It leads to Understage. It is openable. The dooraction is &quot;You contort your body through the narrow square trap in the bottom of the trunk and the hole cut underneath it down through the stage floor.&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> After opening trap door:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; say &quot;You quietly open the trap door.&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Instead of going down when the player is in magic trunk:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; try entering trap door.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> a concealed panel is an easydoor in Understage. &quot;Above your head you can see the concealed panel through the trap cut into the stage that the trunk is sitting on top of.&quot; It leads to Wicked Stage. It portals trap door. Understand &quot;trap&quot; as concealed panel.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The printed name of Understage is &quot;Beneath the Stage&quot;.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> a scrap of newspaper clipping is in understage. The description is &quot;Hmn.  It's a slightly-charred newspaper article detailing the rash of stage magician's assistant murders that has been ravaging the community!  This looks like an important clue to the mystery!&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Carry out taking scrap of newspaper for the first time:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; increase the score by 1.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> After closing concealed panel:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; say &quot;You close the panel with the slightly audible 'thunk' that Mumford is listening for.&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> After entering concealed panel:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; now the player is in magic trunk;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; say &quot;You twist your way flexibly back up through the stage into the trunk.&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Instead of going up in understage: try entering concealed panel.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> To say response:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; say &quot;[line break]'[one of]Ooooooooh[or]Ahhhhhh[or]Ooh! Ahh[cycling]!' goes the audience.&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> To say murmur:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; say &quot;The audience murmurs, perhaps a bit less astounded than they were before.&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The audience is scenery in Wicked Stage. The description is &quot;There are hundreds of people out there, even if you can't make out anyone specifically.  Any one of them could be the Magician's Assistant Murderer!  You hope you catch him soon so you can stop this whole undercover gig for Mumford.&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Pre Magic is a scene. Pre Magic begins when the turn count is 2. Pre Magic ends when the player is in magic trunk.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> When Pre Magic Begins:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; say &quot;Mumford holds up his hands, cutting off the applause from the previous trick.  'And now, for our spectacular finale.  I give you THE MAGIC DISAPPEARING BOX!'[response]&quot;;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; if magic trunk is closed:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say &quot;He flourishes his cape, and opens the trunk.&quot;;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; now magic trunk is open.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Every turn during Pre Magic:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; say &quot;[one of]Mumford offers a hand to assist you.  'And now, my lovely assistant will enter the mysterious mystery of THE DISAPPEARING BOX!'[response][or]'That's it, my lovely assistant,' Mumford says.  'Just step into THE MAGIC DISAPPEARING BOX!'[response][or]'Ha ha!  My lovely assistant fears THE MAGIC DISAPPEARING BOX!'[response][or]Mumford mutters under his breath, 'Just get in the box like we rehearsed it, okay?'  He flourishes and smiles for the audience to stall for you.[stopping][murmur]&quot;.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Switcheroo is a scene. Switcheroo begins when Pre Magic Ends. Switcheroo ends when the player is in understage and concealed panel is closed.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> To say magicwords:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; say &quot;'And now for [one of]some[or]some more[stopping] magic words!' Mumford bellows above.  '[one of]ABRACADABRA[OR]ALAKHAZAM[OR]HOCUS POCUS[OR]...erm MACARONI AND CHEESE[or]...and you will be AMAZED when you CANNOT SEE my LOVELY ASSISTANT!  Who [italic type]WILL HAVE VANISHED[roman type] from the MAGIC DISAPPEARING BOX[or]...UT-SHAY THE AGIC-MAY ANEL-PAY[or]I'm thinking I'll be in the market for a new Lovely Assistant soon,' Mumford ad-libs, no doubt waggling his eyebrows at the audience who chuckle appreciatively.  'BIBBITY BOBBITY[or]...um HAVA NAGILA[cycling]!'[response]&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> When Switcheroo begins:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; say &quot;Mumford swirls his cape.  'And we say goodbye to my lovely assistant as we explore the mysteries of THE MAGICAL DISAPPEARING BOX!' he says, wiggling his fingers as you duck down in the trunk.[response]He closes the trunk lid and you hear him making a big show with the locks on the outside.&quot;;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; now magic trunk is closed.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Every turn during switcheroo:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; if magic trunk is open:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; now magic trunk is closed;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say &quot;Mumford [one of]pushes the trunk closed again.[or]slams the trunk, almost taking one of your fingers with it.[or]resolutely pushes the trunk closed and holds it for a moment.[cycling]&quot;;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; say &quot;[magicwords]&quot;.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> When switcheroo ends:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; say &quot;'And now...WATCH and be ASTOUNDED!' hollers Mumford from above.&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The audience can be amazed.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The Show is a scene. The Show begins when switcheroo ends. The show ends when audience is amazed.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Instead of entering concealed panel during The Show:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; say &quot;You really not supposed to be in the box while Mumford is doing his stuff.&quot;;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; stop the action.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> some fake scorpions are a thing.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> showcount is a number that varies. showcount is 0.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Every turn during The Show:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; increase showcount by 1;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; if fake scorpions are not in magic trunk:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; move fake scorpions to magic trunk;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; say &quot;[one of]'You all saw my Lovely Assistant locked securely inside THE DISAPPEARING BOX!' he announces.  But things ARE NOT ALWAYS WHAT THEY APPEAR!'[or]'If my Lovely Assistant were in the MAGICAL DISAPPEARING BOX, would I consider STABBING IT REPEATEDLY WITH THESE RAZOR SHARP SWORDS?'  (You hear metal clashing above.)[response][or]'Or would I pour this bucket of LIVE DEADLY SCORPIONS DIRECTLY INTO THE MAGICAL DISAPPEARING BOX?'  (You hear a pattering above.)[response][or]'Would I even consider SETTING THE MAGICAL DISAPPEARING BOX ON FIRE???'  (You hear a crackling whoosh of flash powder.)[response][or]I wouldn't do these things unless my Lovely Assistant HAD ACTUALLY DISAPPEARED!'  The audience applauds enthusiastically as he drops the front of the trunk to reveal that you are, indeed, not inside it.[stopping]&quot;;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; if showcount is 5:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; now the audience is amazed.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> When The Show ends:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; say &quot;You hear the trunk being hastily reassembled above, and Mumford continues.  'But THE MAGICAL DISAPPEARING BOX has a secret!  With more magic words...the mystery can be solved!  DUCK A LA RAHNGE!' he calls, which is your cue.&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The Reveal is a scene. The reveal begins when The Show ends. The reveal ends when the player is in magic trunk and magic trunk is open.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Every turn during the Reveal:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; say &quot;[one of]'I said DUCKALARAAAANGE!'[or]'Could my Lovely Assistant have suffered some type of TERRIBLE PERIL?' Mumford yells, and you can hear his foot tapping the trunk above.[or]'Hey!' he whispers harshly above.[or]'More magic words!' he cheefully announces.  'ET-GAY OR-YAY UTT-BAY ACK-BAY IN THE OX-BAY!'[cycling]&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> When the Reveal ends:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; say &quot;Mumford drinks in the deafening applause for a minute, before deferring some to you.  'MY LOVELY ASSISTANT, LADIES AND GENTLEMAN!!!'  You take a graceful bow, understanding finally what it's like to be adored by hundreds of people.  But it is short-lived as there's a 'thoop' sound and a simultaneous gasp in the audience.  Mumford's eyes are wide as he realizes he's been shot with a poison crossbow!  The Killer is in the audience!  You yell for nobody to move as you retrieve your sidearm from where it was uncomfortably concealed in your skimpy outfit...&quot;;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; end the story saying &quot;You vow to avenge the Mystical Mumford the Magician!&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The player wears a skimpy outfit. The description of skimpy outfit is &quot;It's a bit tighter and feathery-er than your normal uniform.&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Instead of taking off skimpy outfit, say &quot;Like this isn't humiliating enough.&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The description of the player is &quot;Yes, you are actually wearing feathers.  It's going to be a good long time before your cohorts stop giving you hell for this back at the station.&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> A person called The Amazing Mumford is in wicked stage. The description is &quot;He's been around the block a few times, and probably in his younger days was quite dashing in his cape and top hat.&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> test me with &quot;z/enter box/open box/z/open trap/d/shut panel/x newspaper/take newspaper/up/z/enter panel/open box&quot;</span></blockquote>
+
+                <p></p>
+
+            </td>
+        </tr>
+    </table>
+    </p>
+
+    <p>
+    <!--CONTENT ENDS-->
+</body>
+</html>

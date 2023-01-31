@@ -1,0 +1,1379 @@
+"LMS-THE VIDEO GAME" by John Goettle
+
+Part 1 - Beginning
+
+[Library card stuff]
+
+The story description is "LMS THE VIDEO GAME is a
+Action Interactive
+ Fiction Game were you battle Evil Robots, collect items, earn points in order to take back control at Langley Middle School.".
+
+The story headline is "Action Interactive Fiction".
+
+the story genre  is "Action/Fun". 
+
+The story creation year is 2008.
+
+The Release Number is 7.
+
+[Story Info]
+
+Asking for Story Info is an action out of world.
+Understand "Story Info" as asking for Story Info.
+Carry out asking for Story Info:  say "Three Evil Robots have taken over Langley Middle School (LMS) and have taken all the teachers and students. You are the last student at LMS. You must now alone take on
+the three Evil Robots in order to take back control at Langley Middle School.
+Three teachers (Mr. Barrat, Mr. Bergquist and Mr. Snelling) have defeat some of the evil robots
+and hide. Evil Robots. They may be able to help you on your
+way.
+
+LIST OF ADJECTIVES TO COMPLETE:
+
+DESTROY EVIL ROBOT: Evil Robot is in The Courtyard.
+Destroy him by
+ attacking him with your Sword, net or other weapons.
+
+DESTROY MEGA BOT: Mega Bot is in the Cooler which is
+west of the lunch
+ room. Destroy him by attacking him with your Sword,
+net or other
+ weapons.
+
+DESTROY R7-24: R7-24 is in the Basket Ball Court which
+is west of The
+ Two Story. Destroy him by attacking him with your
+Sword, net or other
+ weapons.
+
+EARN 1100: You also need to earn 1100 points. You earn
+points by
+ taking/eating items and attacking.
+
+You can also collect items and earn points to complete
+the game. 
+
+For fun you can go to the School Store which is east
+of The Two Story
+ and buy stuff."
+
+
+[Sitting]
+
+Understand the commands "sit" and "sit on" and
+"sit in" as
+something new. 
+
+Sitting on is an action applying to one thing. Understand "sit in/on [something]"
+as sitting on. 
+
+Carry out sitting on: say "You sit on [the noun], wacthing time pass...".
+
+Instead of sitting on a person: say "That's not something you can sit on."; stop the action.
+
+[Max Score]
+
+The maximum score is 1620.
+
+[Carrying Limitations]
+
+The carrying capacity of the player is 11.
+
+[help]
+After printing a parser error: say "Are you new to Interfractive Fiction, type story info for help and info"
+
+[Controling things by time]
+
+Every turn:
+AT 12:30 PM: say "Hint: After you defeat or kill a
+robot you get one of
+ there weapons.  You may want to check you inventory
+to see all your
+ items. Check inventory by typing i or inventory.".
+
+Every turn:
+AT 12:47 PM: say "Hint: A plunger is in the boy's
+bathroom which is
+ below the Two Story and west of the hall. The plunger
+can be used as a
+ powerful weapon.".
+
+Every turn:
+AT 12:03 PM: say "Hint: Type story info for help and
+story and your list
+ of adjectives to complete in this game.".
+
+Every turn:
+AT 2:30 PM: if the score is not greater than 400,
+remove the Sword from
+ play.
+
+Every turn:
+AT 12:42 PM: if A Evil Robot is not dead, end the game
+in death.
+
+[Courtyard]
+
+The Courtyard is a room.
+"You walk into the Courtyard with your backpack on
+your back. You see
+ round stones. North you see the Two Story. West you
+see a door leading
+ to the Lunch room. East you see the Parking Lot.
+South you see a
+ wooden
+ door leading to Barrat Land.
+
+You look up to the right and see the school sign. The
+sign says,
+ Welcome to LMS THE VIDEO GAME. You also see a
+flagpole.".
+
+Every turn:
+if the player is not carrying the backpack, change the
+description of
+ the Courtyard to "You see round stones. North you see
+the Two Story.
+ West you see a door leading to the Lunch room. East
+you see the
+ Parking
+ Lot. South you see a wooden door leading to Barrat
+Land.
+
+You look up to the right and see the school sign. The
+sign says,
+ Welcome to LMS THE VIDEO GAME. You also see a
+flagpole.".
+
+[Backpack]
+
+The player carries a backpack. The backpack is a
+container. The
+ backpack is openable and closed. 
+
+The backpack contains a credit card. The backpack
+contains a note.
+
+The description of the note is "The note reads,
+Welcome to the Langley
+ Middle School Interactive Fiction Video Game!".
+
+After taking the credit card: end the game saying "YOU
+WON! You found
+ Bill Gate's  credit card with 58 billion on it. ".
+
+After dropping the backpack: say "You set your
+backpack on the
+ ground.".
+
+[Evil Robot]
+
+A Evil Robot is a thing in the courtyard. "Evil Robot
+says, Evil Robo
+ must kill.". The description of A Evil Robot is "Evil
+Robot is a small
+ short robot with red eyes and is sliver.". Understand
+"ER" and "evil
+ robo" as A Evil Robot.
+
+Every turn:
+  if the player is in courtyard and Evil Robot is
+not dead, change
+ the right hand status line to "EVIL ROBOT: [current
+hit points of A
+ Evil
+ Robot]".
+
+After attacking a evil robot with a weapon for the 7th
+time: award 300
+ points; say "Good job.. Keep it up.".
+
+Every turn:
+if A Evil Robot is dead, now the
+Lightsaber is carried by the player.
+
+[Sword and Net]
+
+The description of the Sword is "Your sword is a
+trusted weapon. It can
+ be very useful in combat.".
+After dropping the Sword: say "You dropped your Sword
+on the ground.".
+
+After dropping the Net: say "You dropped your Net on
+the ground.".
+
+[Attacking/Killing]
+
+Section 1 - Hit Points 
+
+
+A person has a number called maximum hit points. A
+person has a number
+ called current hit points. 
+
+
+The maximum hit points of the player is 445. The
+maximum hit points of
+ the A Evil Robot is 100.
+
+When play begins: 
+    repeat with victim running through people 
+    begin; 
+        now the current hit points of the victim is
+the maximum hit
+ points of the victim; 
+    end repeat. 
+
+
+Definition: a person is dead if his current hit points
+are less than 0.
+ 
+
+
+Section 2 - Diagnosis 
+
+
+Diagnosing is an action applying to one visible thing.
+Understand
+ "diagnose [something]" as diagnosing. 
+
+
+Check diagnosing: 
+    if the noun is not a person, say "Only people can
+have diagnoses."
+ instead. 
+
+
+Carry out diagnosing: 
+    say "[if the noun is the player]You
+have[otherwise][The noun]
+ has[end if] [current hit points of the noun] out of a
+possible
+ [maximum hit
+ points of the noun] hit points remaining." 
+
+
+Section 3 - Weapons 
+
+
+A weapon is a kind of thing. A weapon has a number
+called the maximum
+ damage. The maximum damage of a weapon is usually 15.
+
+
+
+A Evil Robot carries a weapon called a Lightsaber. The
+maximum damage
+ of the Lightsaber is 14. A Evil Robot carries a
+weapon called a
+ Electric
+ Sock Stick. The maximum damage of the Electric Sock
+Stick is 14.
+
+Every turn:
+if the player carries the Lightsaber, now the maximum
+damage of the
+ lightsaber is 22.
+
+The player carries a weapon called a Sword. The
+maximum damage of the
+ Sword is 27. The player carries a weapon called a
+net. The maximum
+ damage of the net is 12.
+
+
+Section 4 - Attacking it with 
+
+Understand the commands "attack" and "punch" and
+"destroy" and "kill"
+ and "murder" and "hit" and "thump" and "break" and
+"smash" and "stab"
+ and "shoot" and "squirt" and "torture" and "wreck" as
+something new. 
+
+Attacking it with is an action applying to one visible
+thing and one
+ carried thing. Understand "attack [someone] with
+[something preferably
+ held]" as attacking it with. 
+
+Understand the commands "punch" and "destroy" and
+"kill" and "murder"
+ and "hit" and "thump" and "break" and "smash" and
+"stab" and "torture"
+ and "shoot" and "squirt" and "wreck" as "attack". 
+
+The attacking it with action has a number called the
+damage inflicted. 
+
+
+Setting action variables for attacking something with
+something: 
+    if the second noun is a weapon 
+    begin; 
+        let the maximum attack be the maximum damage
+of the second
+ noun; 
+        change the damage inflicted to a random number
+between 1 and
+ the maximum attack; 
+    end if. 
+
+
+Check an actor attacking something with something
+(this is the can't
+ attack with something that isn't a weapon rule): 
+    if the second noun is not a weapon 
+    begin; 
+        if the actor is the player, say "[The second
+noun] does not
+ qualify as a weapon."; 
+        stop the action; 
+    end if. 
+
+
+Check an actor attacking something with something
+(this is the can't
+ attack a non-person rule): 
+    if the noun is not a person 
+    begin; 
+        if the actor is the player, say "[The noun]
+has no life to
+ lose."; 
+        stop the action; 
+    end if. 
+
+
+Carry out an actor attacking something with something
+(this is the
+ standard attacking it with a weapon rule): 
+    decrease the current hit points of the noun by the
+damage
+ inflicted; 
+    if the noun is dead, remove the noun from play. 
+
+Report attacking a dead person with something (this is
+the death-report
+ priority rule): 
+    say "You attack with [the second noun], killing
+[the noun]!"
+ instead. 
+
+
+Report attacking someone with something (this is the
+normal attacking
+ report rule): 
+    say "You attack [the noun] with [the second noun],
+causing [damage
+ inflicted] point[s] of damage!" instead. 
+
+
+Report someone attacking the player with something
+when the player is
+ dead (this is the player's-death priority rule): 
+    say "[The actor] attacks you with [the second
+noun], finishing you
+ off!"; 
+    end the game in death; 
+    stop the action 
+
+
+Report someone attacking the player with something
+(this is the
+ standard report someone attacking the player with
+rule): 
+    say "[The actor] attacks you with [the second
+noun], causing
+ [damage inflicted] point[s] of damage!" instead. 
+
+
+Report someone attacking something with something
+(this is the standard
+ report attacking it with rule): 
+    say "[The actor] attacks [the noun] with [the
+second noun], causing
+ [damage inflicted] point[s] of damage!" instead. 
+
+
+When play begins: 
+    change the left hand status line to "You: [current
+hit points of
+ player]"; 
+    change the right hand status line to "EVIL ROBOT:
+[current hit
+ points of A Evil Robot]" 
+
+Every turn: 
+    if the player is in the courtyard and A Evil Robot
+is not dead, try
+ A Evil Robot attacking the player with a random
+weapon which is
+ carried by A Evil Robot. 
+
+
+Test me with "hit Evil Robot with Sword / kill
+Evil Robot / drop
+ Sword / attack Evil Robot / attack Evil Robot
+with Sword / g / g".
+ 
+Part 2 - Middle
+
+[Lunch room]
+
+North of the blue door is the Lunch room. The Lunch
+room is a room. "You
+ walk through the hall to the lunch room. You see
+several lunch tables.
+ West you see  a gray door leading to the cooler.".
+
+A tray of food is in the lunch room. The tray of food
+is edible. "You
+ see a tray of food on the ground.".
+
+After eating the tray of food for the first time:
+award 100 points.
+
+A cookie is in the lunch room. A cookie is edible. The
+description of
+ the cookie is "The cookie is a declivous chocolate
+chip cookie with
+ peanut butter."
+
+After taking cookie for the first time: award 70
+points.
+
+Instead of eating the cookie: end the game saying "You
+feel heart burn
+ as you bit down on the cookie.".
+
+[Door 3]
+
+The blue door is west of The Courtyard and east of the
+lunch room. The
+ blue door is a door.  The blue door is lockable and
+locked. The brass
+ key unlocks the blue door.
+
+After opening the blue door: say "You open the blue
+door."; now the
+ player is in the lunch room.
+
+[Outside of the game stuff]
+
+Understand "save" as Saving the game.
+
+Understand "q" and "quit" as Quitting the game.
+
+Understand "restart" and "r" as Restarting the game.
+
+Understand "score" as Requesting the score.
+
+[Room tally]
+
+Requesting the room tally is an action out of world. 
+Report requesting the room tally: say "You have been
+to [number of
+ visited rooms] out of [number of rooms] room[s]." 
+Understand "rooms" as requesting the room tally. 
+
+[Pausing the game]
+
+Requesting to pause the game is an action out of
+world.
+Report requesting to pause the game: say "The game is
+paused. type
+ resume game or unpause to unpause the game. ".
+Understand "pause game" and "pause" and "p" as
+requesting to pause the
+ game.
+
+Requesting to unpause the game is an action out of
+world.
+Report requesting to unpause the game: say "The game
+is unpaused."..
+Understand "resume game" and "unpause" as requesting
+to unpause the
+ game.
+
+[Requesting Time]
+
+Requesting the time is an action out of world.
+Report requesting the time: say "the time is [time of
+day]".
+Understand "time" as requesting the time.
+
+[Motion Clock]
+
+A clock is a kind of device. A clock has a time called
+the current
+ time. A clock can be analog or digital. The current
+time of a clock is
+ usually 11:25 AM. The description of a clock is "It
+shows the time to
+ be
+ [if analog]about [the current time to the nearest
+five minutes in
+ words][otherwise][the current time][end if]." 
+
+
+Understand "set [clock] to [time]" as setting it by
+time. Setting it by
+ time is an action applying to one thing and one time.
+
+
+
+Instead of setting a clock to something: 
+    say "[The noun] can be set only to a time of day,
+such as 11:25 AM,
+ or midnight." 
+
+
+Carry out setting a clock by time: 
+    change the current time of the noun to the time
+understood. 
+
+
+Report setting a clock by time: 
+    say "You set [the noun] to [time understood]." 
+
+
+Every turn: 
+    repeat with item running through switched on
+clocks 
+    begin; 
+        change the current time of the item to one
+minute after the
+ current time of the item; 
+    end repeat. 
+
+The battery clock is a switched on digital clock in the
+lunch room. After
+ taking the battery clock: say "Taken."..
+
+After printing the name of the battery clock while taking
+inventory: say
+ "(Time: [time of day])."
+
+The time of day is 12:00 PM. 
+
+[The Cooler]
+
+The Cooler is a room. The description of the cooler is
+"The Cooler is
+ the oldest of all three P.E room's at LMS. You see
+the Weight lifting
+ room to the west. It's called the Cooler because it's so cool".
+
+[Door 4]
+
+The gray door is west of the lunch room and east of
+the cooler. The
+ gray door is a door.
+
+After opening the gray door: say "You open the gray
+door."; now the
+ player is in the cooler.
+
+A hockey stick is in the cooler. A hockey stick is a
+weapon. The
+ maximum damage of the hockey stick is 21. The
+description of the
+ hockey stick
+ is "The hockey stick is for playing hockey, but can
+be used as a
+ weapon.".
+
+A fire alarm is a device. A fire alarm is in the
+Cooler. The fire alarm
+ is switched off.
+
+Understand "Pull [something switched off]" as
+switching on. 
+
+Every turn:
+if the fire alarm is switched on, end the game saying
+"You pulled the
+ fire alarm. You hear police and fire truck sirens.".
+
+[Weight Lifting room]
+
+The Weight Lifting room is west of the cooler. The
+Weight Lifting room
+ is a room. The description of the weight lifting room
+is "You see
+ dumbbells and other types of Weight Lifting equipment. You
+also smell sweet.".
+
+A 70 pound dumbbell is a thing in the Weight Lifting room.
+Understand
+ "dumbbell" as 70 pound dumbbell.
+
+After taking the 70 pound dumbbell: say "You lift up the
+heavy 77 pound
+ dumbbell.".
+
+After dropping the 70 pound dumbbell: say "You drop the
+heavy 70 pond dumbbell
+ barely missing your feet.".
+
+[Mega Bot]
+
+Mega Bot is a thing in the cooler. "Mega Bot says,
+you, prepare to
+ die!". The description of Mega Bot is "Mega Bot is a
+tall cyber robot
+ with
+ red eyes and strong mental armor." The maximum hit
+points of Mega Bot
+ is 200. Mega Bot carries a weapon called a Staff. The
+maximum damage
+ of
+ the Staff is 14. Mega Bot carries a weapon called a
+Blaster. The
+ maximum damage of the Blaster is 14.. Understand "MB"
+and "bot" as Mega
+ Bot.
+
+Every turn: 
+    if the player is in the cooler and mega bot is not
+dead, try Mega
+ Bot attacking the player with a random weapon which
+is carried by Mega
+ Bot.
+
+Every turn:
+  if the player is in the cooler and Mega Bot is not
+dead, change the
+ right hand status line to "MEGA BOT: [current hit
+points of Mega Bot]"
+ .
+
+After attacking Mega Bot with a weapon for 14th time:
+award 300 points;
+ say "Come on. Keep it up.".
+
+Every turn:
+if Mega Bot is dead, now the Staff is carried by the player.
+
+[Door 2]
+
+The wooden door is south of The Courtyard and north of
+Barrat Land. The
+ wooden door is a door. 
+
+After opening the wooden door: say "You open the
+wooden door."; now the
+ player is in Barrat Land.
+
+[Barrat Land]
+
+South of the wooden door is Barrat Land. Barrat Land
+is a room. "You
+ walk into Barrat Land from the Courtyard. You see
+tons of signs on the
+ walls. You see the Blue room to the west.".
+
+Mr Barrat is a man in Barrat Land. "Mr. Barrat says,
+something is
+ just wrong with pancakes in a can! Oh, your here. All
+give you my
+ wedding
+ ring for a chocolate chip cookie with peanut butter."
+The description
+ of Mr Barrat is "Mr. Barrat is short, fat and mold.".
+Understand "Rat" as Mr Barrat.
+
+Mr Barrat holds a wedding ring. The wedding ring is a
+thing. The
+ description of the wedding ring is "Mr. Barrat's
+wedding ring is shiny
+ and
+ gold.".
+
+Instead of giving the cookie to Mr Barrat: say
+"Mr. Barrat says, Thank
+ you. I will consume this immensity. Oh I forgot, here
+you go.
+ (Mr. Barrat gives you his wedding ring)"; now Mr
+Barrat holds the cookie; now the
+  wedding ring is carried by the player.
+
+Instead of attacking Mr Barrat with a weapon: end the game saying "Mr. Barrat grabs his ruler and hits you with it. You lose consent.".
+
+[Light switch]
+
+A Light switch is a device. A light switch is in
+Barrat Land. The
+ device is switched on.
+
+Understand "flip [something switched off]" as
+switching on. Understand
+ "flip[something switched on]" as switching off.
+
+After switching off the light switch: say "Now it is
+pitch black in
+ here.".
+
+After switching on the light switch: say "Now it is
+lighted in here.".
+
+[Blue room]
+
+West of Barrat Land is the Blue room. The blue room is
+a room. The
+ description of the blue room is "The blue room is
+painted blue. To the
+ west
+ you see a window. You see box's of Mr. Barrat's junk
+in here.".
+
+[Window]
+
+The window is a door. The window is west of the blue
+room and east of
+ the district yard.
+
+Instead of searching the window: 
+    say "Through the window, you see [the other side
+of the window]." 
+
+Instead of climbing the window: 
+    try entering the window. 
+
+Understand "climb through [something]" as climbing.
+Understand "jump
+ through [something]" as climbing. 
+
+Instead of going through the closed window: 
+    say "The window is shut: you'd break the glass." 
+
+After opening the window: say "You open the window.";
+now the player is
+ in the district yard.
+
+[District yard]
+
+The District yard is a room. The District yard is west
+of the window.
+ The description of the District yard is "You
+see trees above,
+ the sunny sky and birds. Your outside of the District
+building.".
+
+A soda is in the District yard. The soda is
+edible. "You see a
+ Pepsi Max on the ground.". Understand "pepsi" and
+"pepsi max" as soda.
+
+Above the District yard is a Tree. A Tree is a room.
+
+A bird's nest is in the tree. A bird's nest is a
+container. The bird's
+ nest contains a Egg.
+A Egg is a thing.
+
+Instead of taking the Egg:
+say "The mother bird fly's down, grabs you and drops
+you."; now the
+ player is in the district yard; stop the action.
+
+After going from the district yard to the tree: say
+"You climb up the
+ tall tree."; continue the action.
+
+[Vehicles]
+
+Include Rideable Vehicles by Graham Nelson.
+
+A dirt bike is a rideable vehicle in the courtyard.
+Understand
+ "dirtbike" and "dirt-bike" and "bike" as dirt bike.
+
+After mounting the dirt bike: say "You get on the
+sweet dirt bike.";
+ award 50 points; continue the action.
+
+Instead of going by the dirt bike from the parking lot
+to the
+ courtyard: say "The sign says, No bikes on school
+grounds."; stop the
+ action.
+
+Instead of going by the car from the parking lot to
+the courtyard for
+ the first time: say "The sign says, No vehicles on
+school grounds.".
+
+Instead of going by the car from the parking lot to
+the courtyard for
+ the second time: say "You run over the sign and ride
+your car from the
+ parking lot to the Courtyard."; now the player is on
+the car in the
+ courtyard.
+
+Instead of opening a door when the player is on a
+rideable vehicle: say
+ "You can't open a door when your on the dirt bike.
+Try getting out of
+ the dirt bike."; stop the action.
+
+[Parking lot]
+
+East of the courtyard is the Parking Lot. The Parking
+Lot is a room.
+ "You jump off the sidewalk of the Courtyard into the
+Parking Lot. You
+ see
+ the ground covered with guileful. Northeast is
+Langley road.".
+
+A car is a rideable vehicle in the Parking Lot. "You
+see a sweet feria
+ in the parking lot.". Understand "feria" and "sweet
+feria"as car.
+
+After mounting car for the first time: award 100
+points.
+
+Northeast of the parking lot is the Langley road.
+
+Instead of going from the parking lot to Langley road:
+say "You can't
+ leave school grounds. Unless you find a way to sneak
+out some other
+ way."; stop the action.
+
+[Two Story]
+
+North of the courtyard is the Two Story.. The Two Story
+is a room. "The
+ Two Story is the oldest building at LMS, back when
+LMS was LHS
+ (Langley
+ High School). Your outside of the Two Story. West you
+see the Basket
+ Ball Court. East you see the School Store."
+
+After going to the Two Story Entrance from The Two
+Story:
+say "You walk up a few steps throw a door to the Two
+Story Entrance.";
+ continue the action.
+
+The Two Story Entrance is north of the red door. The
+Two Story Entrance
+ is a room. "You walk into the cozy Two Story. You see stairs leading to the school
+library above and
+ stairs leading to the hall below.".
+
+[hiding items under othere items]
+
+Underlying relates various things to one thing. The verb to underlie (he underlies, they underlie, he underlaid, it is underlaid, he is underlying) implies the underlying relation. The verb to be under implies the underlying relation. The verb to be beneath implies the underlying relation.
+Instead of looking under a thing which is underlaid by something (called the lost object):
+say "You find [the list of things which underlie the noun]!"; now every thing which underlies the noun is carried by the player; 
+    now every thing which underlies the noun does not underlie the noun.
+
+The rug is in the Two Story. The brass key is under the rug. The brass key unlocks the blue door.
+
+The description of the brass key is "This key unlocks the blue door.".
+
+[Drinking]
+
+Instead of drinking the soda: 
+    remove the noun from play; 
+    say "You gulp down the Pepsi. Not bad."; award
+ 10 points.
+
+A drink is a kind of thing. The soda is a drink.
+
+[Door]
+
+The red door is north of the Two Story and south of
+the Two Story
+ Entrance. The red door is a door. 
+
+After opening the red door: say "You open the red
+door."; now the
+ player is in the Two Story Entrance.
+
+[Basket ball court]
+
+West of The Two Story is The Basket Ball Court. The
+Basket Ball Court
+ is a room. "You walk to the School Basket Ball Court.
+You see the
+ sunny
+ sky and basket ball hoops. To the left you see a
+fence. West you see
+ the field.".
+
+A dodge ball is in The Basket Ball Court. The dodge
+ball is a thing.
+ The description of the dodge ball is "The dodge ball
+is red.".
+ Understand
+ "Dodge ball" and "ball"
+as dodge ball.
+
+[Field]
+
+The Field is south of the Track. The Field
+is a room. The
+ description of the field is "The Field is the place
+where guys play
+ Football. You see grass, The LMS Cougars Football
+score board  and the
+ WWII
+ Memoir. You see a Hill North.
+
+SCORE BOARD:
+COUGARS: 27 GUEST: 1".
+
+The football is a thing in the field. The description
+of the football
+ is "This is a signed football by Matt Hasselbeck.
+Matt Hasselbeck is a
+ player for the Seattle Seahawks.".
+
+After taking the football: say "You now carry a
+Football signed by Matt
+ Hasselbeck in your backpack."; award 100 points.
+
+[Hill]
+
+North of the Field is the Hill. Hill is a room. "You roll down the
+hill into the
+ grass. South you see the Field. East you see a Frence.".
+
+[Frence]
+
+East of the Hill is a Frence. 
+
+Instead of going east from the Hill: Now the player is in the Basket Ball Court.
+
+[Track]
+
+West of The Basket Ball Court is the Track. The Track is a room.
+"You see that
+ the Track is covered with guileful and is 1 mile
+long. South is the Field".
+
+A soccer ball is in the Track. The soccer ball is a
+thing. The
+ description of the soccer ball is "A soccer ball.".
+
+After taking the soccer ball: award 70 points.
+
+[R7-24]
+
+R7-24 is a thing in the basket ball court. "R7 says,
+beep, beep, your
+ about to face death.". The description of R7-24 is
+"R7-24 is a short,
+ powerful, shiny black and red robot." The maximum hit
+points of R7-24
+ is
+ 275. R7-24 carries a weapon called a Sock Shooter.
+The maximum damage
+ of the Sock Shooter is 18. Understand "R7" as R7-24.
+
+Every turn: 
+    if the player is in the basket ball court and
+R7-24 is not dead,
+ try R7-24 attacking the player with a random weapon
+which is carried
+ by
+ R7-24.
+
+Every turn:
+if R7-24 is dead, now the Sock
+Shooter is carried by the player.
+
+Every turn:
+  if the player is in the basket ball court and R7-24
+is not dead,
+ change the right hand status line to "R7: [current
+hit points of
+ R7-24]" .
+
+After attacking R7-24 for the 20th time: award 300
+ points; say "Come on. Keep it up.".
+
+[School Library]
+
+The School Library is above The Two Story Entrance.
+The School Library
+ is a room. "You walk up the stairs to the school
+library. You see
+ several book selves filled with books. Northeast you
+see the Annex. ".
+
+A book is in The School Library. "You see a old book
+laying on the
+ floor. The title of the book is THE TIME MACHINE
+(1895).". The
+ description
+ of the book is "THE TIME MACHINE (1895) by H.G. Wells
+(1866-1946)."
+ Understand "THE TIME MACHINE" as book.
+
+After taking the book: say "The book slips into your
+backpack"; award
+ 20 points.
+
+After dropping the book: say "You drop your book on
+the cold ground.".
+
+[Hall]
+
+The Hall is below The Two Story Entrance. The hall is
+a room. "You walk
+ down some stairs into the hall. You see a water
+fountain. West you see
+ the boy's bathroom. Northeast you see Mr. B's room.".
+
+[Boy's bathroom]
+
+The boy's bathroom is a room. The boy's bathroom is
+west of the hall.
+ "You walk into the boy's bathroom. You here sounds of
+flushing.".
+
+A Toilet is inside the boy's bathroom. The toilet is fixed in place.
+The description of the toilet is "A dirty toilet.".
+
+A weapon called a plunger is in the boy's bathroom.
+The maximum damage
+ of the plunger is 20. The description of the plunger
+is "A plunger is
+ a
+ tool used to unclog a toilet. Don't know how much use
+you will have
+ with this but, okay. Maybe you can use it as a
+weapon.".
+
+After taking the plunger for the first time: say "You
+now carry a
+ plunger" ; award 50 points.
+
+Part 3 - End
+
+[Status line]
+
+When play begins: 
+    change the left hand status line to 
+        "[the player's surroundings] / You: [current hit points of player] / Score: [score] / Exits:[exit list] / Time: [time of day]"; 
+
+To say exit list: 
+    let place be location; 
+    repeat with way running through directions 
+    begin; 
+        let place be the room way from the location; 
+        if place is a room, say " [way]"; 
+    end repeat. 
+
+[Mr. B's room]
+
+Mr B's room is a room. Mr B's room is northeast of the
+hall. "You walk
+ into Mr. B's room.".
+
+Mr Bergquist is a man in Mr B's room. "Mr. Berquist
+says, What's Up?".
+ The description of Mr Bergquist is "Mr. Bergquist is
+a tall man with a
+ short bread.". Understand "Mr B"
+as Mr Bergquist.
+
+Instead of giving the dodge ball to Mr Bergquist: say
+"Mr. Bergquist
+ says, Thank you, runs out the door to the Basket
+Ball Court."; now
+ the dodge ball is carried by Mr Bergquist; now Mr
+Bergquist is in the
+ basket ball court.
+
+A Macintosh Computer is in Mr B's room. The Macintosh is a device. The device is switched off. Understand "Turn [something  switched off]" as switching on. 
+Understand "Turn [something  switched on]" as switching off.
+ Understand "Mac" and "Apple Mac" and "Apple Macintosh" and "Computer" as Macintosh Computer. After switching off Macintosh Computer: say "You switch off the Mac"
+
+ After switching on Macintosh Computer: say "You switch on the Mac" 
+
+Every turn: 
+After switching on the Macintosh Computer: award 15 points
+
+The description of the Macintosh Computer is a "A beloved Apple 2006 iMac with Mac OS X 10.4 Tiger"
+
+Instead of taking the Macintosh Computer: remove the Macintosh Computer from play; say "As you lift the iMac, you drop it. The iMac breaks into thousands of pieces! Woops";
+ award 50 points.. 
+
+Instead of asking Mr Bergquist about "evil robots/robots" :
+say "Mr. Bergquist
+ says, Here take this.This may help you. (Mr. 
+Bergquist gives you a spoon)
+ Your epic battle with the robots awaits you."; now
+the spoon is carried by the player.
+
+Mr Bergquist holds a spoon. A spoon is a weapon. The
+maximum damage of
+ the spoon is 7.
+
+Instead of attacking Mr Bergquist with a weapon: end the game saying "Mr. Bergquist slams you down to the floor. You lose consent. ".
+
+[School Store]
+
+The School Store is east of The Two Story. The School
+Store is a room.
+ "The school store is the place where students buy
+what ever they want.
+ North you see Downtown Langley.".
+
+Tux is a man in The School Store. "Tux
+says, Welcome to the
+ LMS Store.". The description of Tux is
+"Tux is the
+ manager of the school store. Tux is a Penguin".
+
+Instead of asking Tux about "buying stuff": say "Tux says, you can buy the water gun, the candy bar or the ice cream.".
+
+Instead of asking Tux about "the water gun": say "Tux says, I would recommend you buy the water gun. Because it's a powerfull weapon against those the robots that have been hanging around here.".
+
+Instead of asking Tux about "the candy bar": say "Tux says, the candy bar is special dark chocolate.".
+
+Instead of asking Tux about "the ice cream": say "Tux says, the ice cream is a declivous vanilla ice cream.".
+
+Instead of buying Tux: say "You can't buy the manager of the store!"
+
+[Downtown Langley]
+
+Downtown Langley is north of the school store.
+Downtown Langley is a
+ room. The description of Downtown Langley is
+"Downtown Langley is the
+ busiest place in Langley. You see cars and business's
+everywhere you
+ look. North is the Beach".
+
+After going to Downtown Langley from the school store:
+say "You sneak passed on your dirt bike. You feel the
+cool wind blow
+ throw your hair as you ride down the hill to Downtown
+Langley.";
+ continue
+ the action.
+
+Instead of going to Downtown Langley from the school
+store
+when the player is not on a rideable vehicle : say "It
+will take to
+ long to walk to Downtown Langley. Maybe you should
+get a dirt bike and
+ try
+ riding down there.".
+
+A trash can is in Downtown Langley.. The trash can is a
+container. The
+ trash can contains a banana peel. The trash can is
+openable and
+ closed.
+
+The description of the banana peel is "A old gloss banana peel.".
+
+After taking the banana peel: say "You pick up the old
+banana peel.".
+
+After opening the trash can: say "You lift up the
+trash can lid and
+ throw it on the ground. You see a old gloss banana peel in
+the trash can.".
+
+After closing the trash can: say "You pick up the
+trash can lid and put
+ it back on the trash can.".
+
+A wrapper is a thing in downtown Langley. The
+description of the
+ wrapper is "A old candy bar wrapper.".
+
+After taking the wrapper: say "You pick up the wrapper and get zip points for it.".
+
+Instead of inserting the wrapper into the trash can: end the game saying
+"YOU WON! Way to clean up. Victory is yours!".
+
+North of Downtown Langley is Langley Beach. Langley Beach is a room. "You step on to the the sandy beach. North is the water" 
+
+North of Langley Beach is the Water.
+
+Instead of going to the Water from Langley Beach: end the game saying "You get into the Water and get eaten by a Shark!"
+
+Instead of going to Langley Beach from Downtown Langley when the player is on the dirt bike: say "You can't ride your bike onto the beach."
+
+[Money and Buying]
+
+Price is a kind of value. $10.99 specifies a price. A
+thing has a
+ price. The price of a thing is usually $3.00. After
+examining
+ something for
+ sale that is in the school store, say "It can be
+yours for [the price
+ of the noun]."
+
+Before buying something for sale when the money is
+free: 
+    say "You're broke." instead. 
+
+Definition: a thing is free if the price of it is
+$0.00. 
+Definition: a thing is for sale if it is not free. 
+
+Instead of taking something that is in the school
+store: 
+    say "You'll have to pay for that." 
+
+
+Before buying something for sale when the money is not
+in the wallet: 
+    say "You're broke." instead. 
+
+
+
+Before buying something for sale when the price of the
+money is less
+ than the price of the noun: 
+    say "Your funds do not run to the price of [the
+noun]." instead. 
+
+
+Instead of buying something when the player carries the wallet: 
+    change price of the money to the price of the
+money minus the price
+ of the noun; 
+    say "You fork over [the price of the noun] for
+[the noun], leaving
+ yourself with [the price of the money]."; 
+    if the money is free, remove the money from play; 
+    change the price of the noun to $0.00; 
+    now the player is carrying the noun. 
+The wallet is in the backpack. The wallet contains
+money. The price of
+ the money is $10.00. The printed name of the money is
+"[price of the
+ money] in cash". Understand "cash" as the money. 
+
+
+Instead of taking the money: 
+    say "Best to leave it alone until you need to buy
+something." 
+
+
+Instead of buying something free: 
+    say "[The noun] is yours already." 
+
+
+Instead of buying the money: 
+    say "The money belongs to you; you buy things with
+it." 
+
+[items you can buy]
+
+The vanilla ice cream is an edible thing in the School
+Store. The price
+ of the ice cream is $2.45. The description is "In the
+scale of ice
+ creams, you recognize this as a very inferior vanilla
+because it has
+ no
+ adjectives in the title." 
+
+The candy bar is an edible thing in the School Store.
+The price of the
+ candy bar is $1.12. The description is "A declivous
+dark chocolate
+ candy bar.". 
+
+The water gun is a weapon in the school store. The
+price of the water
+ gun is $6.00. The description of the water gun is "A
+powerful water
+ gun
+ that shoots out allot of water pressure. 
+". The maximum damage of the water gun is 20.
+
+After attacking with the water gun: say "You squirt
+water at [the
+ noun], socking [the noun]! causing [damage inflicted]
+point[s] of
+ damage!".
+
+After attacking a dead person with the water gun: say
+"You squirt water
+ at [the noun] , killing [the noun]!".
+
+[Annex]
+
+The Annex is northeast of the school library. The
+Annex is a room. "You
+ walk to the Annex. You see several Apple Macintosh computers.
+Above the Annex
+ is the chill room."
+
+A Apple is in the Annex. The Apple is
+edible. "You see a
+ declivous apple on the floor.".
+
+After taking the Apple for the 1st time: award 50
+points.
+
+Instead of eating the Apple: end the game saying
+"You bit into the
+ apple. You drop dead to the ground.".
+
+Mr Snelling is a man in the Annex. The description of Mr Snelling is "Mr. Snelling is a tall man with a bread.". "Mr. Snelling says, hi.". Understand "CS" as Mr Snelling.
+
+Instead of asking Mr Snelling about "PCS": say "Mr. Snelling says, Windows sucks.".
+
+Instead of asking Mr Snelling about "Macs": say "Mr. Snelling says, Macs are Wonderful!"
+
+Instead of attacking Mr Snelling with a weapon: end the game saying "Mr. Snelling lifts you over his head and slams you down to the floor. You lose consent.".
+
+[Chill room]
+
+Above the Annex is the chill room. The chill room is a
+room. The
+ description of the chill room is "The chill room is a
+place where you
+ can
+ chill, get away from annoying 14 year old girls and get fresh air, look
+out the window
+ to
+ the streets of Langley or just hang-out and drink
+water out of the
+ water
+ fountain.".
+
+A cup of water is in the chill room. A cup of water is
+edible. "You see
+ a cup of water by the water fountain.".
+
+Instead of drinking the cup of water: 
+    remove the noun from play; 
+    say "You gulp down the water. You feel refreshed."
+
+The cup of water is a drink.
+
+[Ending the game]
+
+Every turn:
+if R7-24 is dead and Mega Bot is dead and A Evil Robot
+is dead and the
+ score is greater than 1100, end the game saying "YOU
+WON!,
+ Congratulations! You have defeated all the Evil
+Robots and have
+ restored the
+ teachers and students to LMS. Now wasn't that easy.".
+
+Every turn:
+If the score is greater than 1300, end the game in
+victory.

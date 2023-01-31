@@ -1,0 +1,277 @@
+[
+Copyright ou © ou Copr. BALROG
+
+solaredo@gmail.com
+
+Ce logiciel est un programme informatique servant à s'amuser en interagissant avec du texte.
+
+Ce logiciel est régi par la licence CeCILL soumise au droit français et
+respectant les principes de diffusion des logiciels libres. Vous pouvez
+utiliser, modifier et/ou redistribuer ce programme sous les conditions
+de la licence CeCILL telle que diffusée par le CEA, le CNRS et l'INRIA
+sur le site "http://www.cecill.info".
+
+En contrepartie de l'accessibilité au code source et des droits de copie,
+de modification et de redistribution accordés par cette licence, il n'est
+offert aux utilisateurs qu'une garantie limitée.  Pour les mêmes raisons,
+seule une responsabilité restreinte pèse sur l'auteur du programme,  le
+titulaire des droits patrimoniaux et les concédants successifs.
+
+A cet égard  l'attention de l'utilisateur est attirée sur les risques
+associés au chargement,  à l'utilisation,  à la modification et/ou au
+développement et à la reproduction du logiciel par l'utilisateur étant
+donné sa spécificité de logiciel libre, qui peut le rendre complexe à
+manipuler et qui le réserve donc à des développeurs et des professionnels
+avertis possédant  des  connaissances  informatiques approfondies.  Les
+utilisateurs sont donc invités à charger  et  tester  l'adéquation  du
+logiciel à leurs besoins dans des conditions permettant d'assurer la
+sécurité de leurs systèmes et ou de leurs données et, plus généralement,
+à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+
+Le fait que vous puissiez accéder à cet en-tête signifie que vous avez
+pris connaissance de la licence CeCILL, et que vous en avez accepté les
+termes.
+]
+
+
+"Morne Lune" by "BALROG".
+Include French by Eric Forgeot.
+Use French language.
+
+
+Part 1 - Introduction et informations
+
+To say lire licence :
+   say "[line break]Copyright ou © ou Copr. BALROG[paragraph break]solaredo@gmail.com[paragraph break]Ce logiciel est un programme informatique servant à s'amuser en interagissant avec du texte.[paragraph break]Ce logiciel est régi par la licence CeCILL soumise au droit français et respectant les principes de diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les conditions de la licence CeCILL telle que diffusée par le CEA, le CNRS et l'INRIA sur le site 'http://www.cecill.info'.[paragraph break]En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée. Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire des droits patrimoniaux et les concédants successifs.[paragraph break]A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve donc à des développeurs et des professionnels avertis possédant des connaissances informatiques approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et, plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.[paragraph break]Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence CeCILL, et que vous en avez accepté les termes.".
+Understand "licence", "license", "lire licence" as a mistake ("[lire licence]").
+
+Understand "auteur" as a mistake ("Salut c'est moi l'auteur de Morne Lune, A.K.A. BALROG ![line break]Si vous souhaitez suivre l'avancement de mes projets, rendez vous sur mon site web, PorAmaDev : http://sites.google.com/site/poramadev/home.[paragraph break]Je voudrais ausi remercier Otto Grimwald, qui m'a beaucoup aidé dans la réalisation de cette fiction interactive. Sans lui, il y aurait encore des bugs et des fautes de partout, ou alors vous ne seriez pas en train de lire ces lignes !").
+
+Understand "info", "infos" as a mistake ("Cette fiction interactive est un logiciel libre. Vous êtes libre d'en faire ce que vous voulez à condition de respecter les termes de la licence CeCILL (version 2). Tapez 'licence' pour plus de détails à ce sujet. Vous pouvez aussi vous référer au texte complet de la licence, trouvable ici : http://www.cecill.info/licences/Licence_CeCILL_V2-fr.txt.[paragraph break]Veuillez également noter que le logo utilisé pour représenter le jeu sur le net est en fait une image, modifiée par mes soins, du photographe Pierre J. Vous pourrez trouvez l'image d'origine ici : http://www.flickr.com/photos/7969902@N07/2118661963/sizes/m/. Cette image étant placée sous licence Creative Commons BY-NC-SA-2.0, il est nécessaire de respecter les termes de cette licence si vous comptez l'utiliser. Il en va de même pour 'ma' version modifiée de l'image, placée sous la même licence...[paragraph break]Si vous ne savez pas comment jouer à ce genre de jeux, tapez 'aide'[line break]Pour obtenir des informations sur l'auteur de cette fiction interactive, tapez 'auteur'.[line break]Enfin, si vous êtes vraiment bloqué, vous pouvez consulter la rubrique 'soluce', mais attention au spoil !")
+
+Understand "soluce", "cheminement", "solution" as a mistake ("Cette fiction est très courte et peu compliquée. Pour en voir le boût, en résumé, il vous faudra trouver un objet dissimulé dans une forêt sombre puis rentrer chez vous. Et c'est tout ![line break]En chemin, vous tomberez probablement sur un lieu 'optionnel', où règne le danger...[line break]Sachez qu'en tout, il existe deux fins différentes : une bonne et une mauvaise. De plus, si vous n'y prenez pas garde, vous pourriez bien perdre votre vie lors de cette soirée. Vous voilà prévenu.").
+
+To say aide :
+   say "Bonjour à toi, voyageur nocturne ! Si tu es ici, alors peut-être as-tu besoin de mon aide. Tout d'abord, ce jeu est une fiction interactive. Il est composé uniquement de texte, sans interface, et pour jouer il faut taper des commandes/ordres. Je vais faire ici un inventaire des commandes de 'survie', sans les expliquer toutefois car c'est du français et c'est assez intuitif ! La plupart du temps, les commandes se construisent de la manière suivante : Verbe à l'infinitif + objet/personne/truc. Voici quelques mots-clés à utiliser :[paragraph break]*déplacements :[line break]nord, sud, est, ouest, nord est, sud est, nord ouest, sud ouest[line break]entrer, sortir[line break]monter, descendre[paragraph break]*manipulation des objets :[line break]prendre, poser, jeter[line break]allumer, éteindre[line break]casser, ouvrir, dévérouiller[line break]mettre[paragraph break]*environnement[line break]fouiller[line break]écouter[line break]sentir[line break]regarder, voir, examiner[paragraph break]*autres :[line break]parler, crier[line break]dormir[paragraph break]Et il y en a d'autres... que je vous laisse découvrir.[paragraph break]Veuillez noter que la plupart de ces commandes peuvent être abrégées... je n'en dis pas plus, testez donc ![paragraph break]De même, certaines instructions doivent bien naturellement se composer de plus de deux mots. Par exemple : mettre pain dans soupe[line break](on peut aussi écrire, évidemment : mettre le pain dans la soupe)[paragraph break]Enfin, sachez que les accents sont optionnels; vous pouvez taper vos instructions sans, en principe.[paragraph break]Je n'ai rien d'autre d'important à ajouter.[line break]Bon jeu !".
+Understand "help", "aide" as a mistake ("[aide]").
+
+
+When play begins, say "Dans la chambre...[line break]Ce lit, bien que douillet, ne satisfait plus. Il est probablement déjà très tard, mais impossible de trouver le sommeil... et inutile de se rendormir.[paragraph break]Dans l'obscurité...[line break]Désormais assis sur ce lit, en proie à des pensées pas tout à fait des plus pures. Les yeux ouverts, il apparait comme évident qu'il serait judicieux de commencer à s'en servir.[paragraph break]À la fenêtre...[line break]Cette pathétique demie-Lune n'a rien de réjouissant, mais qu'importe. De toute façon, pour l'heure, il ne s'agit que d'observer.".
+
+After printing the banner text, say "[one of][line break]Vous descendez donc par la fenêtre. Une fois dehors, vous faites en sorte que vos fenêtres et volets aient l'air fermés, et ne laissent plus filtrer l'air.[or][stopping]".
+
+
+Part 2 - Actions globales ou presque
+
+shouting is an action applying to nothing.
+Understand "crier" as shouting.
+Instead of shouting :
+   if the location is not Cuisine
+   begin;
+      say "Le silence, coriace, perdure.";
+   end if.
+
+Instead of examining player, say "Après réflexion, vous renoncez à l'idée de contempler votre visage...[line break]Vous ne disposez ni de l'envie ni des outils pour ça.[line break]Quant au reste de votre corps, vous n'en avez que faire pour le moment.".
+
+Instead of listening, say "[if location is Foret]Mêlé au bruit de vos pas, vous parvenez à entendre les bruissements provoqués par quelques formes de vie des alentours. De temps à autres, ce sont les feuillages qui s'agitent.[else if location is Foret2]Ici, point de nuisances. Vous pouvez Penser.[else if location is Cuisine]Vous entendez les hurlements ravageurs du vent. Et quelque chose qui claque.[else]Mis à part les bruissements de votre corps, vous ne percevez le moindre son.[end if]".
+
+Instead of sleeping, say "[if location is in NATURE]Sombrer dans le sommeil en ce lieu serait pour vous une erreur aux conséquences très incertaines.[else if location is Cuisine]Cette excitation... impossible de s'endormir.[else]Pour sommeiller, vous auriez été bien mieux dans votre lit...[end if]".
+
+Instead of talking to player, say "Vous grognez.".
+
+A thing is usually undescribed.
+Use full-length room descriptions.
+Use no scoring.
+
+[attention, ce qui suit est déconseillé aux mineurs !]
+To say insulte :
+   say "Héhéhé, mais c'est que vous avez la rage !".
+Understand "con", "connard", "enfoire", "batard", "idiot" as a mistake ("[insulte]").
+
+
+Part 3 - Lieux et objets
+
+Chapter 1 - Près de votre maison
+
+Home is a room with the description "Il fait sombre et frais. La maison dans le dos, vous pouvez distinguer nombre de choses dans l'obscurité. Parmi celles-ci, selon vous, seule la Lune a un quelconque intérêt. Ce n'est pas ici que vous aurez à travailler, de toute manière.[line break]Au Nord, vous pouvez emprunter un petit chemin qui se poursuit jusqu[']à une forêt sombre. À l'Est et à l'Ouest, rien d'autre que des passages vers d'autres membres de l'espèce humaine.".
+The printed name of Home is "Près de votre maison".
+
+The maison is a female thing in Home with the description "[if the player is carrying boite]Vous contemplez l'extérieur de votre habitat, éclairé tant bien que mal par cette morne Lune.[else]Vous n[']êtes certainement pas sorti pour regagner votre maison.[line break]Cela se fera, mais, pour l'heure, préoccupez-vous plutôt de la manière dont vous aurez à traiter les évènements.[end if]".
+
+Some volets is a scenery thing in Home with the description "Vos volets ont vraiment l'air d[']être fermés.".
+Understand "volet", "fenetre", "fenetres" as volets.
+
+Entering maison is acting like a thief.
+Entering volets is acting like a thief.
+Opening volets is acting like a thief.
+Instead of acting like a thief :
+   if the player is not carrying boite 
+   begin;
+      say "Vous n'avez fait que vous promener, jusqu[']à présent. Vous n[']êtes pourtant pas sorti par cette heure sans raison. [line break]Rentrer maintenant serait une bien étonnante erreur de votre part.";
+   otherwise;
+      say "Ainsi, vous remontez dans votre chambre.[paragraph break]Dans l'obscurité...[line break]Avec impatience, une clé est sortie de sous le lit.[line break]Le chemin vers la serrure est trouvé.[line break]Dans la quiétude de la nuit, entouré par le silence...[line break]Le son d'un verrou qui bouge retentit, accompagné par un discret rire malsain.[line break]Sortent de leur enclo des bouts de papier.[paragraph break]En temps voulu, vous prendrez connaissance du contenu de ces documents.[line break]Pour agir.";
+      End the game in victory;
+      say "[paragraph break]Vous avez dévouvert la bonne fin, ce qui est louable.[line break]Mais tâchez de vous méfier s'il vous arrivait de refaire une escapade de ce genre-là.[line break]Les choses ne se passent pas toujours aussi bien.";
+   end if.
+
+
+Chapter 2 - Un petit chemin vers les ténèbres
+
+Chemin is a room with the description "Vous suivez un étroit chemin traversant une plaine sur laquelle se trouvent quelques maisons familières.[line break]Il se poursuit en ligne droite vers le Nord, votre territoire officiel se trouvant au Sud.".
+Chemin is north from Home.
+The printed name of Chemin is "Un petit chemin vers les ténèbres".
+
+
+Chapter 3 - A la lisière de la forêt
+
+FinChemin is a room with the description "Le chemin principal s'arrête ici.[line break]Au Nord, la douce noirceur de cette forêt familière. Non loin d'ici, au Nord-Ouest, une silhouette humaine se dégage de la fenêtre d'une cabane en bois miteuse. Au Sud, le chemin conduit à votre tant appréciée maison.[if the player is carrying boite][line break]L'homme qui tourne en rond dans sa cabane... vous commencez à vous rappeler dans quelles circonstances vous l'avez connu. Heureusement, lui ne vous connait pas encore. Il ne serait pas superflu d'aller lui rendre visite, un de ces quatre.[end if]". 
+FinChemin is north from Chemin.
+The printed name of FinChemin is "À la lisière de la forêt".
+
+The silhouette is man in FinChemin with the description "Vous ne pouvez, d'ici, observer convenablement cette personne.".
+Understand "ombre", "homme", "humain", "type" as silhouette.
+Instead of talking to silhouette, say "Il ne pourrait pas vous entendre d'ici.".
+
+
+Chapter 3.1 - Devant la cabane
+
+DevantCabane is a room with the description "À cette distance, vous pouvez d'autant plus constater l[']état déplorable de cet habitat.[line break]La porte, qui ressemble étrangement à une planche en carton, n[']est pas ouverte. En faisant le tour de la cabane vous ne voyez, mis à part la fenêtre, d'autres ouvertures vers l'extérieur.[line break]Au Sud-Est se trouve un large chemin de terre.". 
+DevantCabane is northwest from FinChemin.
+The printed name of DevantCabane is "Devant la cabane".
+
+The fenetre is a female scenery thing in DevantCabane with the description "Les vitres sont en verre, malgré tout.[line break]Elles transmettent une lueur jaunâtre et laissent apparaitre une ombre pour le moins intrigante.".
+Understand "vitre", "vitres", "fenetres" as fenetre.
+Instead of attacking fenetre, say "Vous n[']êtes pas armé. Cet hommme, lui, est dans son territoire, et devrait donc disposer de tout un tas de moyens pour se protéger en cas d'attaque. C'est grâce à cette réflexion que vous renoncez à entrer par effraction dans la cabane.".
+
+The homme is a man in DevantCabane with the description "Il semblerait qu'un homme à la carrure imposante et à la cinquantaine passée se tienne non loin de la fenêtre.[line break]Il est désormais de face, et vous pouvez remarquer qu'il tient quelque chose dans sa main droite.[line break]Malheureusement, vous risquez fortement de vous faire repérer si vous approchez plus.".
+Understand "silhouette", "ombre", "type", "humain" as homme.
+Instead of talking to homme, say "Il serait préférable de ne pas engager la conversation, à un moment pareil, avec cet inconnu.".
+Instead of attacking homme, say "Tuer... pourquoi feriez vous une telle chose, hein ?".
+
+The couteau is a scenery thing in DevantCabane with the description "Vous ne voyez pas... de couteau ![line break]Mais peut-être ce homme en a-t-il un.".
+
+The main is a female scenery thing in DevantCabane with the description "Dans cette main, vous croyez distinguer quelque chose qui vous est familier. Cet être... n'est peut-être pas la proie idéale.".
+
+The cabane is a female scenery thing in DevantCabane with the description "Admirer ce modeste habitat ne vous mènera à rien.".
+Understand "maison", "baraque", "habitat" as cabane.
+
+The porte is a female scenery thing in DevantCabane with the description "La personne habitant cette maison ne connait apparemment pas le concept de la serrure. En effet, la porte est vierge de toute ouverture. Qui plus est, cette entrée semble être vraiment fragile.".
+Instead of opening porte, say "C'est vérouillé.".
+Instead of attacking porte :
+   if the player is not carrying boite 
+   begin;
+      say "Vous défoncez la porte d'un coup de pied violent puis surgissez dans la cuisine, où se trouvait le vieil homme.[line break]C'est alors que vous sentez un souffle derrière votre crâne. Vous vous retournez et, à ce moment là, sentez une froide matière métallique pénétrer votre gorge.[line break]Une éclaboussure. Une chute.[line break]Dans la souffrance, vous sombrez, cessant d'agiter le tas de chair qu'est devenu votre corps.[line break]Le faiblard éclat de cette misérable lampe sera votre dernier spectacle.";
+      End the game in death;
+   otherwise;
+      say "Vous brisez violemment la porte d'un coup de pied, puis entrez calmement dans cette cabane. Soudain, vous êtes plongé dans le noir.[line break]Vous sentez un courant d'air frais. À moins qu'il ne s'agisse de la Peur. Prenant garde à ne pas vous faire surprendre, vous avancez jusqu[']à la cuisine.";
+      move the player to Cuisine;
+   end if.
+
+
+Chapter 3.1.1 - Dans la cuisine
+
+Cuisine is a room with the description "Le mobilier est très simple : une table, deux chaises, un placard."
+The printed name of cuisine is "Dans la cuisine".
+Instead of going nowhere from Cuisine, say "Il serait préférable de connaitre la position de ce vieil homme avant de s'en aller... bien qu'il puisse en effet être difficile de garder son calme, dans de telles circonstances.".
+
+The table is a female scenery thing in Cuisine with the description "Une ancienne table en bois, de petite taille et apparemment peu résistante.".
+Instead of searching table, say "En parcourant le dessus de la table avec vos mains, vous sentez un petit morceau de pain mordillé, un verre à vin vide, une fourchette... et rien d'autre.".
+
+The babiole is a female scenery thing in Cuisine with the description "Un objet on ne peut plus banal dans un lieu pareil.".
+Understand "fourchette", "verre", "babioles", "outil", "outils" as babiole.
+Instead of taking babiole, say "Il serait ridicule d'emmener ceci avec vous.".
+
+The placard is a scenery thing in Cuisine with the description "Un meuble tout à fait ordinaire. Il est ouvert et ne contient rien de plus que quelques aliments secs ainsi que des outils en bois pour manger, et autres babioles sans intérêt.".
+Instead of opening placard, say "Il est déjà ouvert.".
+Instead of closing placard, say "Finalement, vous remettez comme elles l'étaient les portes du placard.".
+
+The nourriture is a female scenery thing in Cuisine with the description "Du vieux saucisson, du fromage de l'an 300 et du pain dur...".
+Understand "pain", "pain dur", "aliments secs", "aliment sec", "aliment", "aliments", "saucisson", "vieu saucisson" as nourriture.
+Instead of taking nourriture, say "Tenez-vous vraiment à consommer de telles denrées ?".
+Instead of smelling nourriture, say "Il n'y a rien qui ne sente pas le moisi, dans ce placard.".
+
+Instead of smelling Cuisine, say "Une odeur de bois mouillé et de charcuterie.".
+
+The chaise is a female scenery thing in Cuisine with the description "De petites et fragiles chaises en bois un peu tordues.".
+Understand "chaises" as chaise.
+Instead of taking chaise, say "Un objet du même genre se trouve déjà dans votre maison.".
+Instead of attacking chaise, say "Mieux vaudrait que vous restiez discret.".
+
+The fenetreOuverte is a female scenery thing in Cuisine with the description "Les fenêtres sont ouvertes et leur position varie selon les désirs du vent. Souvent, elles percutent la cabane avec lourdeur.".
+Understand "vitre", "vitres", "fenetre", "fenetres" as fenetreOuverte.
+Instead of attacking fenetreOuverte, say "Vous vous feriez mal.".
+Instead of opening fenetreOuverte, say "Les fenêtres sont déjà ouvertes.".
+Instead of closing fenetreOuverte, say "Non. L'idée d'être enfermé ici vous déplait.".
+
+Going down in Cuisine is acting like a fugitive.
+Entering fenetreOuverte is acting like a fugitive.
+Instead of acting like a fugitive :
+   say "Vous enjambez la fenêtre. Une fois les pieds au sol, vous l'apercevez...[line break]Accroupi dans les ténèbres...[line break]Le reflet de la sphère d'argent sur l'embout métallique... une agressive lumière.[line break]Soudain, une explosion. Impossible de bouger, foudroyé par cette détonation.[line break]Terrassé... une vive douleur. Vous sentez le sang couler...[line break]N'ayant plus la force de penser, vous sombrez.";
+  End the game in death. 
+
+Instead of exiting in Cuisine, say "Vous pourriez, en empruntant la porte en miette, sortir d'ici. Ce n'est pas impossible. Mais vous ne le souhaitez pas vraiment. À vrai dire, vous ne savez que faire désormais.[line break]La fatigue commence à se faire ressentir...[line break]La puissance du vent ne cesse de croître... tandis que vous faiblissez.[line break]Vous ressentez ça... de la colère !".
+
+Instead of shouting in Cuisine : 
+   say "Vous hurlez ! Fou de rage, possédé par la haine, vous commencez à détruire de vos mains tout ce qui est.[line break]De l'intérieur de la cabane, il ne reste qu'un tas d'objets fracassés.[line break]Soulagé, vous sortez par cette porte endommagée.[paragraph break]Dans la tranquilité de la nuit...[line break]Cet homme a, semble-t-il, fui.[line break]La boîte, dans votre poche... vous savez à peu près ce qu'elle contient. Mais les choses se sont compliquées, cette nuit. Avez-vous essayé de... tuer ?[paragraph break]Sans vous précipiter, vous retournez chez vous, marchant sous cette Lune pâle à moitié morte.[paragraph break]Allongé sur ce mou matelas... vous vous endormez, pris par une légère angoisse.".;
+   End the game in victory;
+   say "[paragraph break]Félicitations, vous avez vu la mauvaise fin ! =)".
+
+
+Chapter 3.2 - Au coeur de la forêt
+
+Foret is a room with the description "Vous y voilà. Un lieu agréable et rassurant. Autour de vous, rien d'autre que les ténèbres, le silence... la paix.[line break]C'est ici que tout a commencé pour vous; que d'un humain fébrile et piégé, vous êtes devenu un être vivant véritable.[line break]Vous foulez un petit sentier qui s'enfonce dans la forêt. Pour le moment, seul avancer importe.[line break]Ceci-dit, certains, acablés par la peur, auraient probablement choisis de faire marche arrière sur le champ.".
+Foret is north from FinChemin.
+The printed name of Foret is "Au coeur de la forêt".
+
+
+Chapter 3.2.1 - Dans les profondeurs de la forêt
+
+Foret2 is a room with the description "Voilà donc, comme prévu, une impasse...[line break]Ici, la végétation se fait plus dense, les arbres sont plus serrés. Le sol sous vos pieds est toujours le même : couvert de brindilles, d'herbes et de petits cailloux.[line break]À travers les branches, vous pouvez distinguer l[']éclat risible de la Lune.[line break]Il est possible de rebrousser chemin en vous dirigeant vers le Sud.".
+Foret2 is north from Foret.
+The printed name of Foret2 is "Dans les profondeurs de la forêt".
+
+The caillou is a female scenery thing in Foret2 with the description "Vous songez qu'il serait préférable, au lieu de s'amuser avec des bouts de bois et des cailloux, de vous presser un peu.".
+Understand "herbe", "herbes", "brindille", "brindilles", "cailloux", "pierre", "pierres" as caillou.
+
+Instead of examining sol in Foret2, say "[if the player is not carrying boite]Vous tatez le sol de vos pieds nus, et sentez la fraîcheur du métal sous votre pouce.[else]Apparemment, la terre a été manipulée récemment... par vos mains, peut-être.[end if]".
+Instead of searching sol in Foret2, say "[if the player is not carrying boite]Vous grattez la terre jusqu[']à découvrir le dessus d'une petite boîte grise.[else]Il n[']y a plus quoi que ce soit d'intéressant par terre.[end if]".
+
+The boite is a female thing in Foret2 with the description "Il s'agit d'un petite et lourde boîte métallique, un peu rouillée.".
+Instead of opening boite, say "Imposible de l'ouvrir. C'est solidement verouillé, et la serrure est franchement peu commune.".
+Instead of attacking boite, say "Vous connaissez très bien vos limites... inutile de s'acharner sur un ojet aussi résistant.".
+Instead of waving boite, say "...".
+Instead of taking boite for the first time :
+   move boite to player;
+   say "Vous mettez cette boîte dans votre poche.[line break]...[line break]Voilà un moment que vous savourez cette virée nocturne. Il serait peut-être temps de cesser vos activités douteuses, pensez-vous.";
+   Stop the action.
+Instead of dropping boite, say "La boîte est tout à fait à sa place, dans votre poche.".
+
+The serrure is a female scenery thing in Foret2 with the description "Vous tâtez la serrure... mais pour quoi faire ? Ce n'est pas comme si vous aviez sur vous de quoi l'ouvrir.". 
+
+
+Part 4 - Régions
+
+MONDE is a region.
+Cuisine is in MONDE.
+
+VILLAGE is a region in MONDE.
+Home, Chemin, FinChemin, DevantCabane are in VILLAGE.
+Instead of going nowhere from VILLAGE, say "Ce n'est pas précisément l'heure idéale pour aller rendre visite à vos sympathiques voisins.".
+
+NATURE is a region in MONDE.
+Foret, Foret2 are in NATURE.
+Instead of going nowhere from NATURE, say "Inutile d'errer ainsi dans la nature.".
+
+
+Part 5 - Backdrops
+
+The sol is backdrop in MONDE with the description "Vous savez pertinament que le parterre n'a aucune sorte d'intérêt. Ceci dit, vous prenez garde à rester sur vos deux jambes et à ne pas faire de pas précipités.".
+
+The arbre is backdrop in NATURE with the description "Ce maudit vent fait remuer la tête des arbres.".
+Understand "arbres", "branche", "branches" as arbre.
+
+The Lune is female backdrop in MONDE with the description "[if location is Cuisine]D'ici, vous n'apercevez de la Lune qu'une mitigée lumière.[else]Cette demie-Lune...[line break]Son faible éclat vous inspire le plus profond des dégoûts.[end if]".
+
+
+
+

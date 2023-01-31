@@ -1,0 +1,1784 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Extension</title>
+    <style type="text/css">
+        <!--
+        /* The default font (family) and size */
+
+        body, p, td {
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.8rem; /* 100/125 */
+        }
+
+        /* For fixed-point material within text, such as the typing on the Library Card index page */
+
+        span.typewritten {
+        	font-family: monospace;
+        	font-size: 0.867rem; /* 13/12 * 100/125 */
+        }
+
+        /* For less important material: the small print */
+
+        span.smaller {
+        	font-size: 80%;
+        }
+
+        /* The "heading panel" is the coloured box, high up on the page. The colours
+        vary depending on the page: for example, the style on a report of a translation
+        with no problems is "headingpanelsucceeded", usually green, but if there were
+        problems then "headingpanelfailed" is used, which is usually red. "headingpanel"
+        itself is a more neutral grey by default. "headingpanelDark" is an alternative
+        look to make the extensions index pages have some visual contrast with the others;
+        by default they are a darker grey. */
+
+        .headingpanel {
+        	background: #eeeeee;
+        }
+        .headingpanelsucceeded {
+        	background: #E6FFE6;
+        }
+        .headingpanelfailed {
+        	background: #f69Ca6;
+        }
+        .headingpanelalt {
+        	background: #808080;
+        }
+
+        /* Heading panels have two lines of text: an upper one in a larger size, and a
+        lower one in a smaller. Again, the alt versions are meant to contrast.
+
+        	Report on Translation: Succeeded                <-- headingpaneltext
+        	Produced by Inform 10.1.0 (build 6U97)          <-- headingpanelrubric
+
+        	Installed Extensions                            <-- headingpaneltextalt
+        	Bundles of extra rules or phrases to...         <-- headingpanelrubricalt
+
+        */
+
+        span.headingpaneltext {
+        	color: #222222;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+        span.headingpaneltextalt {
+        	color: #ffffff;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        span.headingpanelrubric {
+        	color: #222222;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.733rem; /* 11/12 * 100/125 */
+        	font-weight: bold;
+        }
+        span.headingpanelrubricalt {
+        	color: #ffffff;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.733rem; /* 11/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* Horizontal rule styling */
+
+        div.hr {
+        	border: 0;
+        	width: 100%;
+        	color: #707070;
+        	background-color: #707070;
+        	height: 5px;
+        }
+
+        /* This styles the (usually white) text of the example numbers written inside
+        oval blobs in the extension documentation, which mimic the look of the in-app
+        documentation. */
+
+        .oval, .oval td {
+        	background-image:url('inform:/doc_images/ovoid.png');
+        	color:white;
+        }
+
+        /* Styling used in the extension documentation indexes: */
+
+        /* Used for extension names in the extensions pane of the app */
+
+        span.extensioncensusentry {
+        	color: #ffffff;
+        }
+
+        span.extensionindexentry {
+        	color: #404040;
+        }
+
+        span.extensionindexerror {
+        	color: #ff8080;
+        }
+
+        /* This is used in extension documentation, where an example is presented
+        in a slightly tinted box: */
+
+        table.extensionexample {
+        	background-color: #f0f0f0;
+        }
+
+        span.extensionexampleletter {
+        	color: #202020;
+        	font-size: 14px;
+        	font-weight: bold;
+        }
+
+        /* Seen in problem messages: */
+
+        span.problemred {
+        	color: #800000;
+        }
+
+        span.problemgreen {
+        	color: #008000;
+        }
+
+        span.phraseword {
+        	color: #808080;
+        }
+
+        span.phrasetokentext {
+        	color: #e00060;
+        }
+
+        span.phrasetokendesctext {
+        	color: #4040ff;
+        }
+
+        span.phrasetokenvaluetext {
+        	color: #ff4040;
+        }
+
+        /* Now we move on to styling used in the Index pages only: */
+
+        /* The periodic table display has "sidebars", usually grey and taller than they
+        are wide; they contain no text. */
+
+        div.periodictablesidebarcolour {
+        	background: #888;
+        }
+        div.periodictablesidebar:hover {
+        	background: #222;
+        }
+
+        /* The text of the element-abbreviation, such as "Lx" or "Ph", uses: */
+
+        span.elementtext {
+        	color: #ffffff;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* Similarly for the "atomic number" - a single digit - in the top left corner
+        of these boxes: */
+
+        span.elementnumbertext {
+        	color: #ffffff;
+        	font-size: 0.622rem; /* 7/12 * 96/72 * 100/125 */
+        }
+
+        /* For the text of the element title, to the right of the element box: */
+
+        span.elementtitletext {
+        	color: #ffffff;
+        	font-size: 0.6rem; /* 9/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* The banner at the top of each element: */
+
+        table.elementbanner {
+        	background: #eeeeee;
+        }
+
+        /* For the typewriting on the Library Card: */
+
+        span.librarycardtitle {
+        	color: #803030;
+        }
+
+        span.librarycardother {
+        	color: #303030;
+        }
+
+        /* Generically used for "more details" boxes in the index: */
+
+        table.indexmorebox {
+        	background-color: #e0e0e0;
+            border-radius: 8px;
+        }
+
+        /* But not for activity contents: */
+
+        table.indexactivitycontents {
+        	background-color: #e8e0c0;
+            border-radius: 8px;
+        }
+
+        /* For responses in index entries about rules: */
+
+        span.indexresponseletter {
+        	color: #ffffff;
+        	font-family: 'Courier New', Courier, monospace;
+        	background-color: #8080ff;
+        }
+
+        span.indexresponsetext {
+        	color: #000066;
+        }
+
+        /* Used ubiquitously throughout the index and extension documentation: */
+
+        span.indexblack {
+        	color: #000000;
+        }
+
+        span.indexgrey {
+        	color: #808080;
+        }
+
+        span.indexdarkgrey {
+            color: #505050;
+        }
+
+        span.indexdullred {
+        	color: #800000;
+        }
+
+        span.indexdullgreen {
+        	color: #008000;
+        }
+
+        span.indexdullblue {
+        	color: #000080;
+        }
+
+        /* Used for the room squares in the World map in the Index (which is currently
+        a table with one row of one column) */
+
+        table.indexmaproom {
+        	border-color: #000000;
+        }
+
+        /* Used in the numbering of levels of the World map in the Index */
+
+        span.indexmaplevelnumbers {
+        	color: #c0c0c0;
+        }
+
+        /* Used e.g. for title rows in the Chart of basic kinds in the Index */
+
+        tr.headingrow {
+        	background-color: #e0e0e0;
+        }
+
+        /* Standard rows have black text on striped background colours, these being
+        the usual ones seen in Mac OS X applications such as iTunes. */
+
+        tr.stripeone {
+        	background-color: #ffffff;
+        }
+
+        tr.stripetwo {
+        	background-color: #f3f6fa;
+        }
+
+        tr.tintedrow {
+        	background-color: #808080;
+        }
+
+        /* In the Figures index, this is the background colour used behind images
+        (though in fact it will only be visible if the image fails to load, or uses
+        transparency): */
+
+        div.figureindexbox {
+        	background-color: #6495ed;
+        }
+
+        /* To get the book-contents-page style leaders on the Contents element of
+           the index to work, these must use the background colour of the body of
+           the page, whatever that is: */
+
+        ul.leaders li.leaded span:first-child {
+        	background: white;
+        }
+        ul.leaders li.leaded span + span {
+        	background: white;
+        }
+
+        /* On Registry index pages (such as the Public Library), these are used for
+        download buttons and the like: */
+
+        span.registrybuttontext {
+        	font-size: 11px;
+        	border-color: #000000;
+        }
+
+        span.registryminibuttontext {
+        	font-size: 10px;
+        	border-color: #000000;
+        }
+
+        span.registrybuttonuninstalled {
+        	color: #000000;
+        	background: #ffffdd;
+        }
+
+        span.registrybuttoninstalled {
+        	color: #000000;
+        	background: #ffffff;
+        	pointer-events: none;
+        }
+
+        span.registrybuttonbuiltin {
+        	color: #888888;
+        	background: #ffffff;
+        	pointer-events: none;
+        }
+
+        span.registrybuttonupdate {
+        	color: #000000;
+        	background: #aaddff;
+        }
+
+        span.registrybuttonrevert {
+        	color: #000000;
+        	background: #ddaaff;
+        }
+
+        span.registrybuttonrevealer {
+        	color: #ffffff;
+        	background: #444444;
+        }
+
+        /* Registry index section headings: */
+
+        span.registrysectionname {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 16px;
+        	line-height: 18px;
+        }
+        span.registrysubsectionname {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 14px;
+        	line-height: 16px;
+        }
+
+        /* These are for the "mark" for a section, usually a section-symbol and number */
+
+        span.registrysectionmark {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 16px;
+        	line-height: 18px;
+        	color: #666;
+        }
+        span.registrysubsectionmark {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 14px;
+        	line-height: 16px;
+        	color: #666;
+        }
+
+        /* Text of an item listed in a registry: */
+
+        span.registryitemtext {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 12px;
+        	line-height: 16px;
+        }
+
+        /* And how the links in a registry index page behave: */
+
+        a.registrysilentlink {
+        	text-decoration: none;
+        	color: #000;
+        }
+        a.registrybuttonlink {
+        	text-decoration: none;
+        }
+        a.registrycontentslink:link {
+        	text-decoration: none;
+        	color: #202020;
+        }
+        a.registrycontentslink:visited {
+        	text-decoration: none;
+        	color: #202020;
+        }
+        a.registrycontentslink:hover {
+        	text-decoration: none;
+        	color: #D00000;
+        }
+        a.registrycontentslink:active {
+        	text-decoration: none;
+        	color: #D00000;
+        }
+
+        -->
+    </style>
+    <style type="text/css">
+        <!--
+        /* (1) General layout material */
+
+        *, *:before, *:after {
+        	-moz-box-sizing: border-box;
+        	-webkit-box-sizing: border-box;
+        	box-sizing: border-box;
+        }
+        .headingpanellayout {
+        	position: relative;
+        	height: 56px;
+        	padding: 0px;
+        	white-space:nowrap;
+        }
+        .headingpanellayoutdeeper {
+        	position: relative;
+        	height: 117px;
+        	padding: 0px;
+        	white-space:nowrap;
+        }
+        .headingtext {
+        	position: absolute;
+        	top: -4px;
+        	left: -1px;
+        	width: 100%;
+        	padding: 14px 10px 0px 10px;
+        }
+        .headingrubric {
+        	position: absolute;
+        	top: 36px;
+        	width: 100%;
+        	padding: 0px 10px 0px 10px;
+        }
+        h3.tighter {
+        	margin-top: 0px;
+        }
+        p.hang {
+        	padding-left: 25px;
+        	text-indent: -25px;
+        	margin-top: 0px;
+        	margin-bottom: 0px;
+        }
+        p.in1 {
+        	padding-left: 0px;
+        }
+        p.tightin1 {
+        	padding-left: 0px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin1 {
+        	padding-left: 0px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin1 {
+        	padding-left: 50px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in2 {
+        	padding-left: 25px;
+        }
+        p.tightin2 {
+        	padding-left: 25px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin2 {
+        	padding-left: 25px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin2 {
+        	padding-left: 75px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in3 {
+        	padding-left: 50px;
+        }
+        p.tightin3 {
+        	padding-left: 50px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin3 {
+        	padding-left: 50px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin3 {
+        	padding-left: 100px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in4 {
+        	padding-left: 75px;
+        }
+        p.tightin4 {
+        	padding-left: 75px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin4 {
+        	padding-left: 75px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin4 {
+        	padding-left: 125px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in5 {
+        	padding-left: 100px;
+        }
+        p.tightin5 {
+        	padding-left: 100px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin5 {
+        	padding-left: 100px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin5 {
+        	padding-left: 150px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in6 {
+        	padding-left: 125px;
+        }
+        p.tightin6 {
+        	padding-left: 125px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin6 {
+        	padding-left: 125px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin6 {
+        	padding-left: 175px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in7 {
+        	padding-left: 150px;
+        }
+        p.tightin7 {
+        	padding-left: 150px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin7 {
+        	padding-left: 150px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin7 {
+        	padding-left: 200px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in8 {
+        	padding-left: 175px;
+        }
+        p.tightin8 {
+        	padding-left: 175px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin8 {
+        	padding-left: 175px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin8 {
+        	padding-left: 225px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in9 {
+        	padding-left: 200px;
+        }
+        p.tightin9 {
+        	padding-left: 200px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin9 {
+        	padding-left: 200px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin9 {
+        	padding-left: 250px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+
+        /* (2) Index page layout material */
+
+        /* The periodic table display has "sidebars", usually grey and taller than they
+        are wide; they contain no text. */
+
+        div.periodictablesidebar {
+        	height: 56px;
+        	width: 16px;
+        }
+        .periodictablesidebar a:link { text-decoration: none; }
+        .periodictablesidebar a:visited { text-decoration: none; }
+        .periodictablesidebar a:active { text-decoration: none; }
+
+        /* The "element boxes" are the cells appearing in the periodic-table display
+        on the welcome page of the index: */
+
+        .elementbox {
+        	position: relative;
+        	height: 56px;
+        	width: 56px;
+        	padding: 0px;
+        }
+
+        .elementbox a:link { text-decoration: none; }
+        .elementbox a:visited { text-decoration: none; }
+        .elementbox a:active { text-decoration: none; }
+        .elementbox a:hover { text-decoration: none; }
+        .elementbox:hover {
+        	opacity: 0.6;
+        }
+
+        /* The "small element boxes" look like those, but are smaller, and used on
+        the headings of the content which those original boxes link to: */
+
+        .smallelementbox {
+        	position: relative;
+        	height: 40px;
+        	width: 40px;
+        	padding: 0px;
+        }
+
+        .smallelementbox a:link { text-decoration: none; }
+        .smallelementbox a:visited { text-decoration: none; }
+        .smallelementbox a:active { text-decoration: none; }
+        .smallelementbox a:hover { text-decoration: none; }
+        .smallelementbox:hover {
+        	opacity: 0.6;
+        }
+
+        /* This is a class for the links formed by the element boxes: */
+
+        a.elementlink {
+        	position: absolute;
+        	top: -4px;
+        	left: -1px;
+        	width: 100%;
+        	padding: 14px 0px 14px 1px;
+        	text-align: center;
+        }
+
+        /* Similarly for the "atomic number" - a single digit - in the top left corner
+        of these boxes: */
+
+        div.elementnumber {
+        	position: absolute;
+        	top: 1px;
+        	left: 3px;
+        	text-align: left;
+        }
+
+        /* For the text of the element title, to the right of the element box: */
+
+        div.elementtitle {
+        	position: absolute;
+        	top: 35px;
+        	width: 100%;
+        	text-align: center;
+        }
+
+        /* Used for the book-contents-page style leaders on the Contents element of
+           the index: */
+
+        ul.leaders {
+        	padding: 0;
+        	margin-top: 1px;
+        	margin-bottom: 0;
+        	overflow-x: hidden;
+        	list-style: none}
+        ul.leaders li.leaded:before {
+        	float: left;
+        	width: 0;
+        	white-space: nowrap;
+        	content:
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "}
+        ul.leaders li.leaded span:first-child {
+        	padding-right: 0.33em;
+        }
+        ul.leaders li.leaded span + span {
+        	float: right;
+        	padding-left: 0.33em;
+        }
+        li.indent1 span:first-child {
+        	padding-left: 25px;
+        }
+        li.indent2 span:first-child {
+        	padding-left: 50px;
+        }
+        li.indent3 span:first-child {
+        	padding-left: 75px;
+        }
+        li.indent4 span:first-child {
+        	padding-left: 100px;
+        }
+        li.indent5 span:first-child {
+        	padding-left: 125px;
+        }
+        li.indent6 span:first-child {
+        	padding-left: 150px;
+        }
+        li.indent7 span:first-child {
+        	padding-left: 175px;
+        }
+        li.indent8 span:first-child {
+        	padding-left: 200px;
+        }
+        li.indent9 span:first-child {
+        	padding-left: 225px;
+        }
+
+        li.unleaded:before {
+        	content: "";
+        }
+
+        /* On Registry index pages (such as the Public Library), these are used for
+        download buttons and the like: */
+
+        span.registrybuttons {
+        	height: 20px;
+        	padding: 2px 8px 2px 8px;
+        	margin: 2px;
+        	border:1px solid;
+        	border-radius: 5px;
+        }
+
+        span.registryminibuttons {
+        	height: 14px;
+        	padding: 2px 5px 2px 5px;
+        	margin: 2px;
+        	border:1px solid;
+        	border-radius: 4px;
+        }
+
+        /* Used to hide or display sections in the Registry pages: */
+
+        div.registrysectionitemsopen {
+        	display: block;
+        }
+
+        div.registrysectionitemsclosed {
+        	display: none;
+        }
+
+        /* Hanging indentation for Registry item paragraphs: */
+
+        p.registryitem {
+        	padding-left: 80px;
+        	text-indent: -40px;
+        }
+
+        p.registryaddition {
+        	padding-left: 40px;
+        	text-indent: -40px;
+        }
+
+        -->
+    </style>
+    <script type="text/javascript">
+        function project() {
+            return window.Project;
+        }
+        function showExtra(id, imid) {
+        	if (document.getElementById(id).style.display == 'block') {
+        		document.getElementById(id).style.display = 'none';
+        		document.getElementById(imid).src = 'inform:/extra.png';
+        	} else {
+        		document.getElementById(id).style.display = 'block';
+        		document.getElementById(imid).src = 'inform:/extraclose.png';
+        	}
+        }
+        function openExtra(id, imid) {
+        	document.getElementById(id).style.display = 'block';
+        	document.getElementById(imid).src = 'inform:/extraclose.png';
+        }
+        function closeExtra(id, imid) {
+        	document.getElementById(id).style.display = 'none';
+        	document.getElementById(imid).src = 'inform:/extra.png';
+        }
+        function pasteCode(code) {
+            var myProject = project();
+
+            myProject.selectView('source');
+            myProject.pasteCode(code);
+        }
+
+    </script>
+</head>
+<body>
+    <!--CONTENT BEGINS-->
+    <table CELLPADDING=0 CELLSPACING=0 width="100%" bgcolor="#000000"><tr><TD width=38px height=26px align="center" valign="center"><a href="inform://Extensions/Extensions.html" border=0><img border=0 src="inform:/doc_images/Hookindex.png" border=0></a></td><TD width=38px height=26px align="center" valign="center"></td><td halign="left" valign="center" CELLPADDING=0 CELLSPACING=0><font color="#FFFFFF" size=2>Extensions</font></a></td><TD width=56px height=26px align="right" valign="center"><a href="inform:/index.html" border=0><img border=0 src="inform:/doc_images/Hookup.png" border=0></a></td></tr></table>
+
+    <p><a href="javascript:pasteCode('Include Measured Liquid by Emily Short.[=0x000A=][=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a>&nbsp;<b>Measured Liquid<span class="extensionindexentry"> by </span>Emily Short</b></p>
+    <p><span class="smaller">Version 6.0.201125</span></p>
+    <p>Measured Liquid provides a concept of volume, together with the ability to fill containers, pour measured amounts of liquid, and drink from containers. It handles mixtures as well, if desired. It is compatible with, but does not require, the Metric Units extension by Graham Nelson.</p>
+    <p></p>
+    <hr>
+    <p><span class="indexblack"><b><a style="text-decoration: none" href=#docsec1>Chapter 1: </a></b></span>New Units<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec2>Section 1.1: </a></span>Volumes<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec3>Chapter 2: </a></b></span>New Kinds<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec4>Section 2.1: </a></span>Liquids<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec5>Section 2.2: </a></span>Fluid containers and their descriptions<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec6>Section 2.3: </a></span>Fluid containers and solid objects<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec7>Section 2.4: </a></span>Inserting fluid containers<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec8>Section 2.5: </a></span>Cleaning fluid containers<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec9>Section 2.6: </a></span>Liquid Sources<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec10>Chapter 3: </a></b></span>New Actions<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec11>Section 3.1: </a></span>Drinking<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec12>Section 3.2: </a></span>Pouring and Filling<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec13>Section 3.3: </a></span>Simple Mixing<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec14>Section 3.4: </a></span>Mixing with Quantified Ingredients<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec15>Section 3.5: </a></span>Swimming<br>
+    <br>
+    <b>Examples</b><br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href="Measured Liquid-eg1.html#eg1">A &mdash; Lakeshore</a></span><br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href="Measured Liquid-eg2.html#eg2">B &mdash; Lakeshore Swim</a></span><br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href="Measured Liquid-eg3.html#eg3">C &mdash; Metric Lakeshore</a></span><br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href="Measured Liquid-eg4.html#eg4">D &mdash; Chemist's Lakeshore</a></span><br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href="Measured Liquid-eg5.html#eg5">E &mdash; Poisons</a></span><br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href="Measured Liquid-eg6.html#eg6">F &mdash; Guzzle and Gulp</a></span><br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href="Measured Liquid-eg7.html#eg7">G &mdash; Cranvodka</a></span><br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href="Measured Liquid-eg8.html#eg8">H &mdash; Crantini</a></span><br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href="Measured Liquid-eg9.html#eg9">I &mdash; Clarktini</a></span><br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href="Measured Liquid-eg10.html#eg10">J &mdash; Crashtini</a></span><br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href="Measured Liquid-eg11.html#eg11">K &mdash; Exactitude</a></span><br>
+    </p>
+    <hr>
+    <p></p>
+    </p>
+
+    <p> Measured Liquid provides a concept of volume, kinds for fluid containers and liquid sources, and actions for pouring, drinking, and swimming. It handles mixture recipes and allows players to combine liquids to produce new ones. It also provides full support for non-player characters to use the same actions.</p>
+
+    <p> Measured Liquid can be used with the Metric Units extension by Graham Nelson, or on its own, in which case it will assume the use of Imperial units. (Note that Metric Units requires Glulx.)</p>
+
+    <p> The inclusion of Assorted Text Generation by Emily Short will add some additional detail to the description of partially-filled containers, but that extension is not required.</p>
+
+    <p><p><span class="indexdullred"><b><span id=docsec1>Chapter 1: New Units</span></b></span></p>
+    </p>
+
+    <p><p><span class="indexblack"><b><span id=docsec2>Section 1.1: Volumes</span></b></span></p>
+    </p>
+
+    <p> Volumes are by default measured in fl oz, fluid ounces; but should we prefer metric measurement, including Metric Units by Graham Nelson will handle all volumes in milliliters/cubic centimeters instead.</p>
+
+    <p> In the event that neither fluid ounces nor milliliters are suitable for a project, or we want to use mL but without committing to Glulx as Metric Units requires, we may safely alter the units of volume however we wish by replacing the relevant section of this extension.</p>
+
+    <p> For instance, if we wanted to go a bit cookery-crazy and use nothing but teaspoons for measurement, we might write:</p>
+
+    <p><blockquote><span class="indexdullblue"> Section 1 - Definition (in place of Section 1I - Definition (for use without Metric Units by Graham Nelson) in Measured Liquid by Emily Short)</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> A volume is a kind of value. 1 tsp specifies a volume.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> A fluid container has a volume called a fluid capacity. A fluid container has a volume called fluid content. The fluid capacity of a fluid container is usually 50 tsp. The fluid content of a fluid container is usually 0 tsp.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> The sip size is a volume that varies. The sip size is usually 1 tsp.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> The max volume is a volume that varies. The max volume is 2147483647 tsp.</span></blockquote>
+
+    <p> (Note that our max volume should be 2147483647 of the base unit if we are compiling for Glulx, or 32767 if compiling for the Z-machine, as these are the maximum possible values.)</p>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec3>Chapter 2: New Kinds</span></b></span></p>
+    </p>
+
+    <p><p><span class="indexblack"><b><span id=docsec4>Section 2.1: Liquids</span></b></span></p>
+    </p>
+
+    <p> Liquids are a kind of value in the present system. By default, only water and a null value, &quot;nonliquid&quot;, are defined, but we may revise the list by adding entries to the Table of Liquids, like this:</p>
+
+    <p><blockquote><span class="indexdullblue"> Table of Liquids (continued)</span><br>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> liquid</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> potable</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> flavor
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> absinthe</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> true</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;It tastes bitter.&quot;
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> motor oil</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> false</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> --</span>
+            </td>
+        </tr>
+    </table>
+    </blockquote>
+
+    <p> The potable entry indicates whether the liquid can be drunk.</p>
+
+    <p> The flavor sentence is optional, but is used to construct more interesting results for tasting and drinking, as demonstrated below. Providing a flavor sentence for a non-potable liquid will never have any interesting effect.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec5>Section 2.2: Fluid containers and their descriptions</span></b></span></p>
+    </p>
+
+    <p> A fluid container is assigned a liquid and two volumes.</p>
+
+    <p> The liquid is whatever the container contained last (or perhaps still contains).</p>
+
+    <p> The volumes are the fluid capacity (how much it could possibly contain at maximum) and the fluid content (how much it does contain at the moment).</p>
+
+    <p> Like regular containers, fluid containers respond to examination by adding a line of text about their contents, as in:</p>
+
+    <p><blockquote><span class="indexdullblue"> &gt;EXAMINE TUMBLER<br>
+     A heavy tumbler with gold flecks in the glass.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> The tumbler is about half full of scotch.</span></blockquote>
+
+    <p> For the purpose of puzzles involving measurement, a fluid container can be &quot;graduated&quot; or &quot;ungraduated&quot;. Containers are ungraduated by default, and will only declare proportional information about the amount they contain, as in</p>
+
+    <p><blockquote><span class="indexdullblue"> The pitcher is full of absinthe.<br>
+     The pitcher is mostly full of absinthe.<br>
+     The pitcher is about half full of absinthe.<br>
+     The pitcher is mostly empty of absinthe.</span></blockquote>
+
+    <p> Including Assorted Text Generation by Emily Short will make this proportional information more detailed, as in</p>
+
+    <p><blockquote><span class="indexdullblue"> The cup is approximately three quarters full of water.</span></blockquote>
+
+    <p> Graduated fluid containers always give the exact measurement of their content, thus:</p>
+
+    <p><blockquote><span class="indexdullblue"> The pitcher contains 8.8 fl oz of absinthe.</span></blockquote>
+
+    <p> If we want to make more substantial changes to the way a fluid container is described with respect to its contents, we may do this with the describing the fullness activity. This activity should print only the text that comes after the name of the object, and should end with no line break.</p>
+
+    <p> For instance, one of the describing fullness rules currently is</p>
+
+    <p><blockquote><span class="indexdullblue"> Rule for describing the fullness of a non-empty graduated emptyable fluid container (called the sample cup) (this is the describe graduated containers rule):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; say &quot;contain[s] [the fluid content of the sample cup] of [the liquid of the sample cup].[no line break]&quot;;</span></blockquote>
+
+    <p> This produces the text that is shown on examining a fluid container, and sometimes after pouring.</p>
+
+    <p> We can also remove the entire rule that prints this content, as in</p>
+
+    <p><blockquote><span class="indexdullblue"><a href="javascript:pasteCode('The examining fluid containers rule is not listed in any rulebook.[=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a> The examining fluid containers rule is not listed in any rulebook.</span></blockquote>
+
+    <p>... but this approach should be handled with caution. If we take this rule out and also do not define any description text for the fluid container, the Standard Rules' &quot;examining containers&quot; rule will run and print something like &quot;The pitcher is empty&quot; because the pitcher contains no solid objects, even if the pitcher is in fact brimming with Belgian ale at the time.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec6>Section 2.3: Fluid containers and solid objects</span></b></span></p>
+    </p>
+
+    <p> By default the player is prevented from putting solid objects into any fluid container. This prevents many complicated situations where part of the volume of a glass might be displaced by a a metal cube, where a cork might float on the surface of some wine, where a handwritten note might be put into a coffee cup and rendered illegible, where a scrap of cloth might be discolored by its contact with red fruit punch, and so on.</p>
+
+    <p> If we want to remove this constraint, we can unlist it by writing</p>
+
+    <p><blockquote><span class="indexdullblue"><a href="javascript:pasteCode('The can[=0x0027=]t put solids into a fluid container rule is not listed in any rulebook.[=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a> The can't put solids into a fluid container rule is not listed in any rulebook.</span></blockquote>
+
+    <p>... but then it's up to us to deal with the implications, whatever those might be.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec7>Section 2.4: Inserting fluid containers</span></b></span></p>
+    </p>
+
+    <p> By default, we are not allowed to put an open, non-empty fluid container into another portable container, because it's likely to spill. (Fixed in place or scenery containers are exempt, to allow for refrigerators, cabinets, and similar installations.) This gets around the nonsensical situation of stowing a vase full of water into a backpack and then coming back later to find that the water all stayed in.</p>
+
+    <p> If we do want to allow this after all, we can unlist the relevant rule thus:</p>
+
+    <p><blockquote><span class="indexdullblue"><a href="javascript:pasteCode('The can[=0x0027=]t stash full cups rule is not listed in any rulebook.[=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a> The can't stash full cups rule is not listed in any rulebook.</span></blockquote>
+
+    <p> If Measured Liquid is used alongside Jon Ingold's Considerate Holdall extension, it will provide holdall a rule so that the game does not even attempt to stash an open non-empty container. The rule in question is the don't try to stash full cups rule.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec8>Section 2.5: Cleaning fluid containers</span></b></span></p>
+    </p>
+
+    <p> By default, when we drink from something, even an empty cup retains a trace amount of the liquid it used to contain. This information is used in descriptions of the cup, and is also used to determine reactions if we try to DRINK JUICE after the juice cup is already emptied. Further, the game will assume we want to fill the container with more of whatever it previously contained, if that option is available.</p>
+
+    <p> Only an explicit command to RUB (or CLEAN, which is the same action) the cup will remove this trace; if we do that, however, its liquid is changed back to the null value, nonliquid.</p>
+
+    <p> To remove this behavior, add:</p>
+
+    <p><blockquote><span class="indexdullblue"><a href="javascript:pasteCode('Use no trace amounts.[=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a> Use no trace amounts.</span></blockquote>
+
+    <p> whereupon drinking or pouring will always leave vessels empty and the behavior of RUB will not be interfered with.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec9>Section 2.6: Liquid Sources</span></b></span></p>
+    </p>
+
+    <p> Fluid containers have a sub-kind called a liquid source. Liquid sources are supplies of water that flow eternally and never run out; it doesn't matter how much we take from this source.</p>
+
+    <p> Yet further sub-kinds are the liquid lake and the liquid stream.</p>
+
+    <p> The liquid lake represents a body of water large enough to swim in, and into which we can safely empty smaller containers without significantly diluting the content. Lakes are also relevant to the swim verb (see below).</p>
+
+    <p> The liquid stream is better used for fountains, faucets, and other flows of liquid that provide a constant supply but no standing body of liquid.</p>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec10>Chapter 3: New Actions</span></b></span></p>
+    </p>
+
+    <p><p><span class="indexblack"><b><span id=docsec11>Section 3.1: Drinking</span></b></span></p>
+    </p>
+
+    <p> The player is allowed to drink liquids from a fluid container, assuming those liquids have not been defined to be not potable.</p>
+
+    <p> By default, the output is one of the following, depending on whether the supply is depleted as a result:</p>
+
+    <p><blockquote><span class="indexdullblue"> You take a sip of (the liquid).<br>
+     You take a sip of (the liquid), leaving (the container) empty.</span></blockquote>
+
+    <p> If we have defined a flavor sentence for that liquid, that is added as the next sentence, as in:</p>
+
+    <p><blockquote><span class="indexdullblue"> You take a sip of fruit punch, leaving the glass empty. The flavor is exceptionally cloying.</span></blockquote>
+
+    <p> The amount of liquid swallowed by a sip is determined by the sip size. By default the sip size is 2.0 fl oz, or (with Metric Units) 55 mL. These are not exactly equal volumes, but each is 1/6 the size of a standard-volume soda can, 12 fl oz or 330 mL, in the US and Britain respectively.</p>
+
+    <p> Sometimes liquid measurement may be used as part of a puzzle in which we want the player to be compelled to measure things precisely. In this case, it might be desirable to make sips non-uniform in size so that the player cannot safely quantify liquids by sipping them. To do this, we have the option to</p>
+
+    <p><blockquote><span class="indexdullblue"> Use variable sip size.</span></blockquote>
+
+    <p> When using variable sip size, the sip is subject to a variation of up to 2/3 the standard size of a sip. (So, for instance, if the sip size is set at 0.3 fl oz, the possible variation is up to 0.2 fl oz, with the result that any given sip might range in volume from 0.1 fl oz to 0.5 fl oz.)</p>
+
+    <p> It will not be possible to have a sip size of 0 as a result of random variation.</p>
+
+    <p> Finally, a fluid container can be &quot;preferred for drinking&quot;. We can set this with, for instance:</p>
+
+    <p><blockquote><span class="indexdullblue"> The cocktail glass is preferred for drinking.</span></blockquote>
+
+    <p> This indicates that, in any ambiguous case, the game should try to drink from that vessel rather than from something else. This makes it easier to implement polite player characters who prefer to drink from glasses rather than from the carton, even though both may contain the same kind of liquid.</p>
+
+    <p> The drinking action has a liquid that varies, called &quot;the liquid drunk&quot;.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec12>Section 3.2: Pouring and Filling</span></b></span></p>
+    </p>
+
+    <p> This extension supports a wide range of pouring and filling grammar, including</p>
+
+    <p><blockquote><span class="indexdullblue"> fill something with/from something<br>
+     pour something in/into/on/onto something<br>
+     mix something in/with something<br>
+     empty something into something</span></blockquote>
+
+    <p> By default, if the player types only</p>
+
+    <p><blockquote><span class="indexdullblue"> FILL CUP</span></blockquote>
+
+    <p> the game will attempt to find a source that provides the same kind of liquid already in the cup in order to fill it back up; then it will default to some other liquid source, if no matching liquid source is available.</p>
+
+    <p> The player is prohibited from pouring a container into itself, overfilling a container that is already full, or filling from an empty container.</p>
+
+    <p> The pouring action has a liquid that varies, called &quot;the liquid poured&quot;, and a volume that varies, called &quot;the amount poured&quot;. These values can be used in constructing our own report rules to describe the action differently; for instance, we might write</p>
+
+    <p><blockquote><span class="indexdullblue"> Report pouring something into a graduated container:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; say &quot;You pour [the amount poured] of [the liquid poured] into [the second noun].&quot; instead.</span></blockquote>
+
+    <p> if we wished to describe pouring more precisely in the context of volume-marked containers.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec13>Section 3.3: Simple Mixing</span></b></span></p>
+    </p>
+
+    <p> By default, the player is not allowed to mix liquids of different types, since such mixtures make extra work for the author and may not always be desirable. Moreover, there is a text that varies which contains the refusal the player will receive, defined as follows:</p>
+
+    <p><blockquote><span class="indexdullblue"> The liquid-mixture refusal is some text that varies. The liquid-mixture refusal is &quot;That would mix [the liquid of the noun] with [the liquid of the second noun].&quot;</span></blockquote>
+
+    <p> If we want to keep the default behavior but change the message, we should alter the liquid-mixture refusal, as in</p>
+
+    <p><blockquote><span class="indexdullblue"> When play begins:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; now the liquid-mixture refusal is &quot;[The person asked] dare not mix liquids!&quot;</span></blockquote>
+
+    <p>... or some similar message, bearing in mind that if characters other than the player can be persuaded to pour liquids, their responses as well as the player's will be handled by the liquid-mixture refusal.</p>
+
+    <p> If we do want to mix liquids, we may write</p>
+
+    <p><blockquote><span class="indexdullblue"> Use mixed liquids.</span></blockquote>
+
+    <p> With this use option enabled, we allow the player to mix together liquids to produce new ones. In order to indicate how drinks should work, we must include all the liquids that can be mixed, as well as all their components, in our Table of Liquids, like so:</p>
+
+    <p><blockquote><span class="indexdullblue"> Table of Liquids (continued)</span><br>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> liquid</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> potable</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> flavor
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> cranberry juice</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> true</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;It tastes deliciously tangy.&quot;
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> vodka</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> true</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;It doesn't taste like much except alcohol.&quot;
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> crantini</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> true</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;It's cranberry juice, but with more of a kick.&quot;</span>
+            </td>
+        </tr>
+    </table>
+    </blockquote>
+
+    <p> And we must also provide an exhaustive collection of recipes in the form</p>
+
+    <p><blockquote><span class="indexdullblue"> Table of Liquid Mixtures (continued)</span><br>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> mix-list</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> result
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> { cranberry juice, vodka }</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> crantini</span>
+            </td>
+        </tr>
+    </table>
+    </blockquote>
+
+    <p> If the player combines two liquids in any proportion, they create a third liquid as determined by a list of mixture components.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec14>Section 3.4: Mixing with Quantified Ingredients</span></b></span></p>
+    </p>
+
+    <p> By default, there is no attempt to determine whether the mixture involves precise quantities of elements; if we want that, we should provide our own, more precise specification of how mixture components are to behave.</p>
+
+    <p> We can do this by meddling with the liquid-mixing rulebook, which currently contains two rules: &quot;keep same recipe as before rule&quot;, which makes no change if we're pouring more of a component into a recipe that already contains that component, and the &quot;create mixtures&quot; rule, which applies the rather simple criteria we currently use. De-listing those and replacing them with more exacting rules will alter the behavior of mixture.</p>
+
+    <p> The following rulebook variables may be useful:</p>
+
+    <p><blockquote><span class="indexdullblue"> The liquid-mixing rulebook has a fluid container called the destination container.<br>
+     The liquid-mixing rulebook has a list of liquids called the recipe contents.</span></blockquote>
+
+    <p> The recipe contents are always sorted when they're created, so that they can be reliably checked against other liquid lists.</p>
+
+    <p> The liquid-mixing rulebook is called during the phase of setting action variables for pouring, which means that if it has results, the choice of result will be saved as &quot;the resulting liquid&quot;.</p>
+
+    <p> The example &quot;Exactitude&quot;, below, shows off one possible way to edit this rulebook to provide stricter kinds of mixing simulation.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec15>Section 3.5: Swimming</span></b></span></p>
+    </p>
+
+    <p> By default, the player is not allowed to swim, but the verb is implemented in order to provide sensible responses in a range of situations. The command to swim will produce the message</p>
+
+    <p><blockquote><span class="indexdullblue"> There's nothing sensible to swim in.</span></blockquote>
+
+    <p> unless the player can see a liquid lake, in which case he'll be told</p>
+
+    <p><blockquote><span class="indexdullblue"> You don't feel like a dip in (the liquid lake) just now.</span></blockquote>
+
+    <p> SWIM IN (some specific item) will also be understood, though again there will be a default refusal in all cases.</p>
+
+    <p> If we want to allow swimming in liquid lakes, we should begin by unlisting the block swimming rule, as in</p>
+
+    <p><blockquote><span class="indexdullblue"> The block swimming in liquid lakes rule is not listed in any rulebook.</span></blockquote>
+
+    <p>... and then supplying some carry out rules for swimming.</p>
+
+    <p><hr>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td halign="left" valign="top" cellpadding=0 cellspacing=0 width=38px>
+                <span id=eg1><table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="oval">
+                        <td width=38px height=30px align="left" valign="center">
+                            <a href="Measured Liquid-eg1.html#eg1" style="text-decoration: none"><div class="paragraph Body" style="line-height: 1px; margin-bottom: 0px; margin-top: 0px; padding-bottom: 0pt; padding-top: 0px; text-align: center;">
+                                <span class="extensionexampleletter">A</span></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                </span>
+            </td>
+            <td cellpadding=0 cellspacing=0 halign="left" valign="top">
+                <a href="Measured Liquid-eg1.html#eg1" style="text-decoration: none"><img border="0" src='inform:/doc_images/asterisk.png'><b><span class="indexdarkgrey">&nbsp;Example&nbsp;</span><span class="indexblack">Lakeshore</span></b></a><br>
+                <p>A lakeshore with a lake as a liquid source, an openable graduated flask that can be used to drink from it, and examples of attempted swimming.</p>
+
+            </td>
+        </tr>
+    </table>
+    </p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p><hr>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td halign="left" valign="top" cellpadding=0 cellspacing=0 width=38px>
+                <span id=eg2><table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="oval">
+                        <td width=38px height=30px align="left" valign="center">
+                            <a href="Measured Liquid-eg2.html#eg2" style="text-decoration: none"><div class="paragraph Body" style="line-height: 1px; margin-bottom: 0px; margin-top: 0px; padding-bottom: 0pt; padding-top: 0px; text-align: center;">
+                                <span class="extensionexampleletter">B</span></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                </span>
+            </td>
+            <td cellpadding=0 cellspacing=0 halign="left" valign="top">
+                <a href="Measured Liquid-eg2.html#eg2" style="text-decoration: none"><img border="0" src='inform:/doc_images/asterisk.png'><b><span class="indexdarkgrey">&nbsp;Example&nbsp;</span><span class="indexblack">Lakeshore Swim</span></b></a><br>
+                <p>A lakeshore where the player can swim successfully.</p>
+
+            </td>
+        </tr>
+    </table>
+    </p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p><hr>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td halign="left" valign="top" cellpadding=0 cellspacing=0 width=38px>
+                <span id=eg3><table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="oval">
+                        <td width=38px height=30px align="left" valign="center">
+                            <a href="Measured Liquid-eg3.html#eg3" style="text-decoration: none"><div class="paragraph Body" style="line-height: 1px; margin-bottom: 0px; margin-top: 0px; padding-bottom: 0pt; padding-top: 0px; text-align: center;">
+                                <span class="extensionexampleletter">C</span></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                </span>
+            </td>
+            <td cellpadding=0 cellspacing=0 halign="left" valign="top">
+                <a href="Measured Liquid-eg3.html#eg3" style="text-decoration: none"><img border="0" src='inform:/doc_images/asterisk.png'><b><span class="indexdarkgrey">&nbsp;Example&nbsp;</span><span class="indexblack">Metric Lakeshore</span></b></a><br>
+                <p>As above, but in cubic centimeters. Note that this example will compile only if our settings panel is set to Glulx.</p>
+
+            </td>
+        </tr>
+    </table>
+    </p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p><hr>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td halign="left" valign="top" cellpadding=0 cellspacing=0 width=38px>
+                <span id=eg4><table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="oval">
+                        <td width=38px height=30px align="left" valign="center">
+                            <a href="Measured Liquid-eg4.html#eg4" style="text-decoration: none"><div class="paragraph Body" style="line-height: 1px; margin-bottom: 0px; margin-top: 0px; padding-bottom: 0pt; padding-top: 0px; text-align: center;">
+                                <span class="extensionexampleletter">D</span></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                </span>
+            </td>
+            <td cellpadding=0 cellspacing=0 halign="left" valign="top">
+                <a href="Measured Liquid-eg4.html#eg4" style="text-decoration: none"><img border="0" src='inform:/doc_images/asterisk.png'><img border="0" src='inform:/doc_images/asterisk.png'><b><span class="indexdarkgrey">&nbsp;Example&nbsp;</span><span class="indexblack">Chemist's Lakeshore</span></b></a><br>
+                <p>Now we let the player type POUR 1.0 FL OZ OF LAKE WATER INTO FLASK, using measurements whenever the target vessel is graduated.</p>
+
+            </td>
+        </tr>
+    </table>
+    </p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p><hr>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td halign="left" valign="top" cellpadding=0 cellspacing=0 width=38px>
+                <span id=eg5><table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="oval">
+                        <td width=38px height=30px align="left" valign="center">
+                            <a href="Measured Liquid-eg5.html#eg5" style="text-decoration: none"><div class="paragraph Body" style="line-height: 1px; margin-bottom: 0px; margin-top: 0px; padding-bottom: 0pt; padding-top: 0px; text-align: center;">
+                                <span class="extensionexampleletter">E</span></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                </span>
+            </td>
+            <td cellpadding=0 cellspacing=0 halign="left" valign="top">
+                <a href="Measured Liquid-eg5.html#eg5" style="text-decoration: none"><img border="0" src='inform:/doc_images/asterisk.png'><b><span class="indexdarkgrey">&nbsp;Example&nbsp;</span><span class="indexblack">Poisons</span></b></a><br>
+                <p>A drink that has a strong effect on the drinker.</p>
+
+            </td>
+        </tr>
+    </table>
+    </p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p><hr>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td halign="left" valign="top" cellpadding=0 cellspacing=0 width=38px>
+                <span id=eg6><table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="oval">
+                        <td width=38px height=30px align="left" valign="center">
+                            <a href="Measured Liquid.html#eg6" style="text-decoration: none"><div class="paragraph Body" style="line-height: 1px; margin-bottom: 0px; margin-top: 0px; padding-bottom: 0pt; padding-top: 0px; text-align: center;">
+                                <span class="extensionexampleletter">F</span></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                </span>
+            </td>
+            <td cellpadding=0 cellspacing=0 halign="left" valign="top">
+                <a href="Measured Liquid.html#eg6" style="text-decoration: none"><img border="0" src='inform:/doc_images/asterisk.png'><b><span class="indexdarkgrey">&nbsp;Example&nbsp;</span><span class="indexblack">Guzzle and Gulp</span></b></a><br>
+                <p>Adding GULP and GUZZLE verbs alongside DRINK to allow the player to take different sizes of sip at will. GULP drinks a very large sip, while GUZZLE consumes all the liquid in a container in a single move. Demonstrates the use of sip size.</p>
+
+            </td>
+        </tr>
+    </table>
+    <table border="0" cellspacing="0" cellpadding="0" class="extensionexample" width=100%>
+        <tr>
+            <td align="left" valign="top">
+                <p></p>
+
+                <p><blockquote><span class="indexdullblue"><a href="javascript:pasteCode('[=0x0022=]Guzzle and Gulp[=0x0022=][=0x000A=][=0x000A=]Include Measured Liquid by Emily Short.[=0x000A=][=0x000A=]Lakeside is a room. The lake is a liquid lake in Lakeside. The liquid of the lake is water.[=0x000A=][=0x000A=]The player carries a closed openable fluid container called a flask.[=0x000A=][=0x000A=]Understand [=0x0022=]gulp [something][=0x0022=] as gulping. Understand [=0x0022=]gulp [a fluid container][=0x0022=] as gulping.[=0x000A=]Gulping is an action applying to one thing.[=0x000A=][=0x000A=]Carry out gulping:[=0x000A=][=0x0009=]let old sip size be the sip size;[=0x000A=][=0x0009=]now the sip size is 5.0 fl oz;[=0x000A=][=0x0009=]try drinking the noun;[=0x000A=][=0x0009=]now the sip size is the old sip size.[=0x000A=][=0x000A=]Report drinking something when the sip size is greater than 2.0 fl oz:[=0x000A=][=0x0009=]say [=0x0022=][We] [take] a long drink of [the liquid of the noun].[=0x0022=] instead.[=0x000A=][=0x000A=]Understand [=0x0022=]guzzle [something][=0x0022=] as guzzling. Understand [=0x0022=]guzzle [a fluid container][=0x0022=] as guzzling. Guzzling is an action applying to one thing.[=0x000A=][=0x000A=]Carry out guzzling:[=0x000A=][=0x0009=]let old sip size be the sip size;[=0x000A=][=0x0009=]now the sip size is the fluid content of the noun;[=0x000A=][=0x0009=]try drinking the noun;[=0x000A=][=0x0009=]now the sip size is the old sip size.[=0x000A=][=0x000A=]To toss is a verb. To finish is a verb.[=0x000A=][=0x000A=]Report drinking something when the sip size is greater than 5.0 fl oz and the noun is empty:[=0x000A=][=0x0009=]say [=0x0022=][We] [toss] back all the [liquid of the noun] at once.[=0x0022=] instead.[=0x000A=][=0x000A=]Report drinking something when the sip size is greater than 2.0 fl oz and the noun is empty:[=0x000A=][=0x0009=]say [=0x0022=][We] [finish] off the [liquid of the noun] in one long swig.[=0x0022=] instead.[=0x000A=][=0x000A=]Test me with [=0x0022=]fill flask / sip flask / g / g / g / g / g / fill flask / gulp flask / g / g / fill flask / guzzle flask / g[=0x0022=].[=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a> &quot;Guzzle and Gulp&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Include Measured Liquid by Emily Short.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Lakeside is a room. The lake is a liquid lake in Lakeside. The liquid of the lake is water.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The player carries a closed openable fluid container called a flask.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Understand &quot;gulp [something]&quot; as gulping. Understand &quot;gulp [a fluid container]&quot; as gulping.<br>
+                 Gulping is an action applying to one thing.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Carry out gulping:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; let old sip size be the sip size;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; now the sip size is 5.0 fl oz;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; try drinking the noun;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; now the sip size is the old sip size.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Report drinking something when the sip size is greater than 2.0 fl oz:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; say &quot;[We] [take] a long drink of [the liquid of the noun].&quot; instead.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Understand &quot;guzzle [something]&quot; as guzzling. Understand &quot;guzzle [a fluid container]&quot; as guzzling. Guzzling is an action applying to one thing.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Carry out guzzling:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; let old sip size be the sip size;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; now the sip size is the fluid content of the noun;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; try drinking the noun;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; now the sip size is the old sip size.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> To toss is a verb. To finish is a verb.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Report drinking something when the sip size is greater than 5.0 fl oz and the noun is empty:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; say &quot;[We] [toss] back all the [liquid of the noun] at once.&quot; instead.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Report drinking something when the sip size is greater than 2.0 fl oz and the noun is empty:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; say &quot;[We] [finish] off the [liquid of the noun] in one long swig.&quot; instead.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Test me with &quot;fill flask / sip flask / g / g / g / g / g / fill flask / gulp flask / g / g / fill flask / guzzle flask / g&quot;.</span></blockquote>
+
+                <p></p>
+
+            </td>
+        </tr>
+    </table>
+    <hr>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td halign="left" valign="top" cellpadding=0 cellspacing=0 width=38px>
+                <span id=eg7><table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="oval">
+                        <td width=38px height=30px align="left" valign="center">
+                            <a href="Measured Liquid-eg7.html#eg7" style="text-decoration: none"><div class="paragraph Body" style="line-height: 1px; margin-bottom: 0px; margin-top: 0px; padding-bottom: 0pt; padding-top: 0px; text-align: center;">
+                                <span class="extensionexampleletter">G</span></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                </span>
+            </td>
+            <td cellpadding=0 cellspacing=0 halign="left" valign="top">
+                <a href="Measured Liquid-eg7.html#eg7" style="text-decoration: none"><img border="0" src='inform:/doc_images/asterisk.png'><b><span class="indexdarkgrey">&nbsp;Example&nbsp;</span><span class="indexblack">Cranvodka</span></b></a><br>
+                <p>An example of liquids that cannot be mixed.</p>
+
+            </td>
+        </tr>
+    </table>
+    </p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p><hr>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td halign="left" valign="top" cellpadding=0 cellspacing=0 width=38px>
+                <span id=eg8><table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="oval">
+                        <td width=38px height=30px align="left" valign="center">
+                            <a href="Measured Liquid-eg8.html#eg8" style="text-decoration: none"><div class="paragraph Body" style="line-height: 1px; margin-bottom: 0px; margin-top: 0px; padding-bottom: 0pt; padding-top: 0px; text-align: center;">
+                                <span class="extensionexampleletter">H</span></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                </span>
+            </td>
+            <td cellpadding=0 cellspacing=0 halign="left" valign="top">
+                <a href="Measured Liquid-eg8.html#eg8" style="text-decoration: none"><img border="0" src='inform:/doc_images/asterisk.png'><b><span class="indexdarkgrey">&nbsp;Example&nbsp;</span><span class="indexblack">Crantini</span></b></a><br>
+                <p>An example of liquids that can be mixed, producing new liquids.</p>
+
+            </td>
+        </tr>
+    </table>
+    </p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p><hr>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td halign="left" valign="top" cellpadding=0 cellspacing=0 width=38px>
+                <span id=eg9><table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="oval">
+                        <td width=38px height=30px align="left" valign="center">
+                            <a href="Measured Liquid-eg9.html#eg9" style="text-decoration: none"><div class="paragraph Body" style="line-height: 1px; margin-bottom: 0px; margin-top: 0px; padding-bottom: 0pt; padding-top: 0px; text-align: center;">
+                                <span class="extensionexampleletter">I</span></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                </span>
+            </td>
+            <td cellpadding=0 cellspacing=0 halign="left" valign="top">
+                <a href="Measured Liquid-eg9.html#eg9" style="text-decoration: none"><img border="0" src='inform:/doc_images/asterisk.png'><b><span class="indexdarkgrey">&nbsp;Example&nbsp;</span><span class="indexblack">Clarktini</span></b></a><br>
+                <p>The same as before, but this time with our servant Clark doing all the mixing and drinking.</p>
+
+            </td>
+        </tr>
+    </table>
+    </p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p><hr>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td halign="left" valign="top" cellpadding=0 cellspacing=0 width=38px>
+                <span id=eg10><table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="oval">
+                        <td width=38px height=30px align="left" valign="center">
+                            <a href="Measured Liquid-eg10.html#eg10" style="text-decoration: none"><div class="paragraph Body" style="line-height: 1px; margin-bottom: 0px; margin-top: 0px; padding-bottom: 0pt; padding-top: 0px; text-align: center;">
+                                <span class="extensionexampleletter">J</span></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                </span>
+            </td>
+            <td cellpadding=0 cellspacing=0 halign="left" valign="top">
+                <a href="Measured Liquid-eg10.html#eg10" style="text-decoration: none"><img border="0" src='inform:/doc_images/asterisk.png'><b><span class="indexdarkgrey">&nbsp;Example&nbsp;</span><span class="indexblack">Crashtini</span></b></a><br>
+                <p>A pyrotechnic variation in which the wrong mixture of liquids explodes both containers entirely. Demonstrates using the &quot;resulting liquid&quot; variable in the pouring it into action.</p>
+
+            </td>
+        </tr>
+    </table>
+    </p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p><hr>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td halign="left" valign="top" cellpadding=0 cellspacing=0 width=38px>
+                <span id=eg11><table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="oval">
+                        <td width=38px height=30px align="left" valign="center">
+                            <a href="Measured Liquid-eg11.html#eg11" style="text-decoration: none"><div class="paragraph Body" style="line-height: 1px; margin-bottom: 0px; margin-top: 0px; padding-bottom: 0pt; padding-top: 0px; text-align: center;">
+                                <span class="extensionexampleletter">K</span></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                </span>
+            </td>
+            <td cellpadding=0 cellspacing=0 halign="left" valign="top">
+                <a href="Measured Liquid-eg11.html#eg11" style="text-decoration: none"><img border="0" src='inform:/doc_images/asterisk.png'><img border="0" src='inform:/doc_images/asterisk.png'><img border="0" src='inform:/doc_images/asterisk.png'><b><span class="indexdarkgrey">&nbsp;Example&nbsp;</span><span class="indexblack">Exactitude</span></b></a><br>
+                <p>Requiring the player to use precise quantities of liquids to attain mixture results. Mixtures that are not included in the recipe book are rejected, so that the player can't make arbitrary combinations. Demonstrates using the liquid-mixture rulebook.</p>
+
+            </td>
+        </tr>
+    </table>
+    </p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p>
+    <!--CONTENT ENDS-->
+</body>
+</html>

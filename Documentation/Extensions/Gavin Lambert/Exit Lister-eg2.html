@@ -1,0 +1,1139 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Extension</title>
+    <style type="text/css">
+        <!--
+        /* The default font (family) and size */
+
+        body, p, td {
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.8rem; /* 100/125 */
+        }
+
+        /* For fixed-point material within text, such as the typing on the Library Card index page */
+
+        span.typewritten {
+        	font-family: monospace;
+        	font-size: 0.867rem; /* 13/12 * 100/125 */
+        }
+
+        /* For less important material: the small print */
+
+        span.smaller {
+        	font-size: 80%;
+        }
+
+        /* The "heading panel" is the coloured box, high up on the page. The colours
+        vary depending on the page: for example, the style on a report of a translation
+        with no problems is "headingpanelsucceeded", usually green, but if there were
+        problems then "headingpanelfailed" is used, which is usually red. "headingpanel"
+        itself is a more neutral grey by default. "headingpanelDark" is an alternative
+        look to make the extensions index pages have some visual contrast with the others;
+        by default they are a darker grey. */
+
+        .headingpanel {
+        	background: #eeeeee;
+        }
+        .headingpanelsucceeded {
+        	background: #E6FFE6;
+        }
+        .headingpanelfailed {
+        	background: #f69Ca6;
+        }
+        .headingpanelalt {
+        	background: #808080;
+        }
+
+        /* Heading panels have two lines of text: an upper one in a larger size, and a
+        lower one in a smaller. Again, the alt versions are meant to contrast.
+
+        	Report on Translation: Succeeded                <-- headingpaneltext
+        	Produced by Inform 10.1.0 (build 6U97)          <-- headingpanelrubric
+
+        	Installed Extensions                            <-- headingpaneltextalt
+        	Bundles of extra rules or phrases to...         <-- headingpanelrubricalt
+
+        */
+
+        span.headingpaneltext {
+        	color: #222222;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+        span.headingpaneltextalt {
+        	color: #ffffff;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        span.headingpanelrubric {
+        	color: #222222;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.733rem; /* 11/12 * 100/125 */
+        	font-weight: bold;
+        }
+        span.headingpanelrubricalt {
+        	color: #ffffff;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.733rem; /* 11/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* Horizontal rule styling */
+
+        div.hr {
+        	border: 0;
+        	width: 100%;
+        	color: #707070;
+        	background-color: #707070;
+        	height: 5px;
+        }
+
+        /* This styles the (usually white) text of the example numbers written inside
+        oval blobs in the extension documentation, which mimic the look of the in-app
+        documentation. */
+
+        .oval, .oval td {
+        	background-image:url('inform:/doc_images/ovoid.png');
+        	color:white;
+        }
+
+        /* Styling used in the extension documentation indexes: */
+
+        /* Used for extension names in the extensions pane of the app */
+
+        span.extensioncensusentry {
+        	color: #ffffff;
+        }
+
+        span.extensionindexentry {
+        	color: #404040;
+        }
+
+        span.extensionindexerror {
+        	color: #ff8080;
+        }
+
+        /* This is used in extension documentation, where an example is presented
+        in a slightly tinted box: */
+
+        table.extensionexample {
+        	background-color: #f0f0f0;
+        }
+
+        span.extensionexampleletter {
+        	color: #202020;
+        	font-size: 14px;
+        	font-weight: bold;
+        }
+
+        /* Seen in problem messages: */
+
+        span.problemred {
+        	color: #800000;
+        }
+
+        span.problemgreen {
+        	color: #008000;
+        }
+
+        span.phraseword {
+        	color: #808080;
+        }
+
+        span.phrasetokentext {
+        	color: #e00060;
+        }
+
+        span.phrasetokendesctext {
+        	color: #4040ff;
+        }
+
+        span.phrasetokenvaluetext {
+        	color: #ff4040;
+        }
+
+        /* Now we move on to styling used in the Index pages only: */
+
+        /* The periodic table display has "sidebars", usually grey and taller than they
+        are wide; they contain no text. */
+
+        div.periodictablesidebarcolour {
+        	background: #888;
+        }
+        div.periodictablesidebar:hover {
+        	background: #222;
+        }
+
+        /* The text of the element-abbreviation, such as "Lx" or "Ph", uses: */
+
+        span.elementtext {
+        	color: #ffffff;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* Similarly for the "atomic number" - a single digit - in the top left corner
+        of these boxes: */
+
+        span.elementnumbertext {
+        	color: #ffffff;
+        	font-size: 0.622rem; /* 7/12 * 96/72 * 100/125 */
+        }
+
+        /* For the text of the element title, to the right of the element box: */
+
+        span.elementtitletext {
+        	color: #ffffff;
+        	font-size: 0.6rem; /* 9/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* The banner at the top of each element: */
+
+        table.elementbanner {
+        	background: #eeeeee;
+        }
+
+        /* For the typewriting on the Library Card: */
+
+        span.librarycardtitle {
+        	color: #803030;
+        }
+
+        span.librarycardother {
+        	color: #303030;
+        }
+
+        /* Generically used for "more details" boxes in the index: */
+
+        table.indexmorebox {
+        	background-color: #e0e0e0;
+            border-radius: 8px;
+        }
+
+        /* But not for activity contents: */
+
+        table.indexactivitycontents {
+        	background-color: #e8e0c0;
+            border-radius: 8px;
+        }
+
+        /* For responses in index entries about rules: */
+
+        span.indexresponseletter {
+        	color: #ffffff;
+        	font-family: 'Courier New', Courier, monospace;
+        	background-color: #8080ff;
+        }
+
+        span.indexresponsetext {
+        	color: #000066;
+        }
+
+        /* Used ubiquitously throughout the index and extension documentation: */
+
+        span.indexblack {
+        	color: #000000;
+        }
+
+        span.indexgrey {
+        	color: #808080;
+        }
+
+        span.indexdarkgrey {
+            color: #505050;
+        }
+
+        span.indexdullred {
+        	color: #800000;
+        }
+
+        span.indexdullgreen {
+        	color: #008000;
+        }
+
+        span.indexdullblue {
+        	color: #000080;
+        }
+
+        /* Used for the room squares in the World map in the Index (which is currently
+        a table with one row of one column) */
+
+        table.indexmaproom {
+        	border-color: #000000;
+        }
+
+        /* Used in the numbering of levels of the World map in the Index */
+
+        span.indexmaplevelnumbers {
+        	color: #c0c0c0;
+        }
+
+        /* Used e.g. for title rows in the Chart of basic kinds in the Index */
+
+        tr.headingrow {
+        	background-color: #e0e0e0;
+        }
+
+        /* Standard rows have black text on striped background colours, these being
+        the usual ones seen in Mac OS X applications such as iTunes. */
+
+        tr.stripeone {
+        	background-color: #ffffff;
+        }
+
+        tr.stripetwo {
+        	background-color: #f3f6fa;
+        }
+
+        tr.tintedrow {
+        	background-color: #808080;
+        }
+
+        /* In the Figures index, this is the background colour used behind images
+        (though in fact it will only be visible if the image fails to load, or uses
+        transparency): */
+
+        div.figureindexbox {
+        	background-color: #6495ed;
+        }
+
+        /* To get the book-contents-page style leaders on the Contents element of
+           the index to work, these must use the background colour of the body of
+           the page, whatever that is: */
+
+        ul.leaders li.leaded span:first-child {
+        	background: white;
+        }
+        ul.leaders li.leaded span + span {
+        	background: white;
+        }
+
+        /* On Registry index pages (such as the Public Library), these are used for
+        download buttons and the like: */
+
+        span.registrybuttontext {
+        	font-size: 11px;
+        	border-color: #000000;
+        }
+
+        span.registryminibuttontext {
+        	font-size: 10px;
+        	border-color: #000000;
+        }
+
+        span.registrybuttonuninstalled {
+        	color: #000000;
+        	background: #ffffdd;
+        }
+
+        span.registrybuttoninstalled {
+        	color: #000000;
+        	background: #ffffff;
+        	pointer-events: none;
+        }
+
+        span.registrybuttonbuiltin {
+        	color: #888888;
+        	background: #ffffff;
+        	pointer-events: none;
+        }
+
+        span.registrybuttonupdate {
+        	color: #000000;
+        	background: #aaddff;
+        }
+
+        span.registrybuttonrevert {
+        	color: #000000;
+        	background: #ddaaff;
+        }
+
+        span.registrybuttonrevealer {
+        	color: #ffffff;
+        	background: #444444;
+        }
+
+        /* Registry index section headings: */
+
+        span.registrysectionname {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 16px;
+        	line-height: 18px;
+        }
+        span.registrysubsectionname {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 14px;
+        	line-height: 16px;
+        }
+
+        /* These are for the "mark" for a section, usually a section-symbol and number */
+
+        span.registrysectionmark {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 16px;
+        	line-height: 18px;
+        	color: #666;
+        }
+        span.registrysubsectionmark {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 14px;
+        	line-height: 16px;
+        	color: #666;
+        }
+
+        /* Text of an item listed in a registry: */
+
+        span.registryitemtext {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 12px;
+        	line-height: 16px;
+        }
+
+        /* And how the links in a registry index page behave: */
+
+        a.registrysilentlink {
+        	text-decoration: none;
+        	color: #000;
+        }
+        a.registrybuttonlink {
+        	text-decoration: none;
+        }
+        a.registrycontentslink:link {
+        	text-decoration: none;
+        	color: #202020;
+        }
+        a.registrycontentslink:visited {
+        	text-decoration: none;
+        	color: #202020;
+        }
+        a.registrycontentslink:hover {
+        	text-decoration: none;
+        	color: #D00000;
+        }
+        a.registrycontentslink:active {
+        	text-decoration: none;
+        	color: #D00000;
+        }
+
+        -->
+    </style>
+    <style type="text/css">
+        <!--
+        /* (1) General layout material */
+
+        *, *:before, *:after {
+        	-moz-box-sizing: border-box;
+        	-webkit-box-sizing: border-box;
+        	box-sizing: border-box;
+        }
+        .headingpanellayout {
+        	position: relative;
+        	height: 56px;
+        	padding: 0px;
+        	white-space:nowrap;
+        }
+        .headingpanellayoutdeeper {
+        	position: relative;
+        	height: 117px;
+        	padding: 0px;
+        	white-space:nowrap;
+        }
+        .headingtext {
+        	position: absolute;
+        	top: -4px;
+        	left: -1px;
+        	width: 100%;
+        	padding: 14px 10px 0px 10px;
+        }
+        .headingrubric {
+        	position: absolute;
+        	top: 36px;
+        	width: 100%;
+        	padding: 0px 10px 0px 10px;
+        }
+        h3.tighter {
+        	margin-top: 0px;
+        }
+        p.hang {
+        	padding-left: 25px;
+        	text-indent: -25px;
+        	margin-top: 0px;
+        	margin-bottom: 0px;
+        }
+        p.in1 {
+        	padding-left: 0px;
+        }
+        p.tightin1 {
+        	padding-left: 0px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin1 {
+        	padding-left: 0px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin1 {
+        	padding-left: 50px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in2 {
+        	padding-left: 25px;
+        }
+        p.tightin2 {
+        	padding-left: 25px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin2 {
+        	padding-left: 25px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin2 {
+        	padding-left: 75px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in3 {
+        	padding-left: 50px;
+        }
+        p.tightin3 {
+        	padding-left: 50px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin3 {
+        	padding-left: 50px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin3 {
+        	padding-left: 100px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in4 {
+        	padding-left: 75px;
+        }
+        p.tightin4 {
+        	padding-left: 75px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin4 {
+        	padding-left: 75px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin4 {
+        	padding-left: 125px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in5 {
+        	padding-left: 100px;
+        }
+        p.tightin5 {
+        	padding-left: 100px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin5 {
+        	padding-left: 100px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin5 {
+        	padding-left: 150px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in6 {
+        	padding-left: 125px;
+        }
+        p.tightin6 {
+        	padding-left: 125px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin6 {
+        	padding-left: 125px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin6 {
+        	padding-left: 175px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in7 {
+        	padding-left: 150px;
+        }
+        p.tightin7 {
+        	padding-left: 150px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin7 {
+        	padding-left: 150px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin7 {
+        	padding-left: 200px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in8 {
+        	padding-left: 175px;
+        }
+        p.tightin8 {
+        	padding-left: 175px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin8 {
+        	padding-left: 175px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin8 {
+        	padding-left: 225px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in9 {
+        	padding-left: 200px;
+        }
+        p.tightin9 {
+        	padding-left: 200px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin9 {
+        	padding-left: 200px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin9 {
+        	padding-left: 250px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+
+        /* (2) Index page layout material */
+
+        /* The periodic table display has "sidebars", usually grey and taller than they
+        are wide; they contain no text. */
+
+        div.periodictablesidebar {
+        	height: 56px;
+        	width: 16px;
+        }
+        .periodictablesidebar a:link { text-decoration: none; }
+        .periodictablesidebar a:visited { text-decoration: none; }
+        .periodictablesidebar a:active { text-decoration: none; }
+
+        /* The "element boxes" are the cells appearing in the periodic-table display
+        on the welcome page of the index: */
+
+        .elementbox {
+        	position: relative;
+        	height: 56px;
+        	width: 56px;
+        	padding: 0px;
+        }
+
+        .elementbox a:link { text-decoration: none; }
+        .elementbox a:visited { text-decoration: none; }
+        .elementbox a:active { text-decoration: none; }
+        .elementbox a:hover { text-decoration: none; }
+        .elementbox:hover {
+        	opacity: 0.6;
+        }
+
+        /* The "small element boxes" look like those, but are smaller, and used on
+        the headings of the content which those original boxes link to: */
+
+        .smallelementbox {
+        	position: relative;
+        	height: 40px;
+        	width: 40px;
+        	padding: 0px;
+        }
+
+        .smallelementbox a:link { text-decoration: none; }
+        .smallelementbox a:visited { text-decoration: none; }
+        .smallelementbox a:active { text-decoration: none; }
+        .smallelementbox a:hover { text-decoration: none; }
+        .smallelementbox:hover {
+        	opacity: 0.6;
+        }
+
+        /* This is a class for the links formed by the element boxes: */
+
+        a.elementlink {
+        	position: absolute;
+        	top: -4px;
+        	left: -1px;
+        	width: 100%;
+        	padding: 14px 0px 14px 1px;
+        	text-align: center;
+        }
+
+        /* Similarly for the "atomic number" - a single digit - in the top left corner
+        of these boxes: */
+
+        div.elementnumber {
+        	position: absolute;
+        	top: 1px;
+        	left: 3px;
+        	text-align: left;
+        }
+
+        /* For the text of the element title, to the right of the element box: */
+
+        div.elementtitle {
+        	position: absolute;
+        	top: 35px;
+        	width: 100%;
+        	text-align: center;
+        }
+
+        /* Used for the book-contents-page style leaders on the Contents element of
+           the index: */
+
+        ul.leaders {
+        	padding: 0;
+        	margin-top: 1px;
+        	margin-bottom: 0;
+        	overflow-x: hidden;
+        	list-style: none}
+        ul.leaders li.leaded:before {
+        	float: left;
+        	width: 0;
+        	white-space: nowrap;
+        	content:
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "}
+        ul.leaders li.leaded span:first-child {
+        	padding-right: 0.33em;
+        }
+        ul.leaders li.leaded span + span {
+        	float: right;
+        	padding-left: 0.33em;
+        }
+        li.indent1 span:first-child {
+        	padding-left: 25px;
+        }
+        li.indent2 span:first-child {
+        	padding-left: 50px;
+        }
+        li.indent3 span:first-child {
+        	padding-left: 75px;
+        }
+        li.indent4 span:first-child {
+        	padding-left: 100px;
+        }
+        li.indent5 span:first-child {
+        	padding-left: 125px;
+        }
+        li.indent6 span:first-child {
+        	padding-left: 150px;
+        }
+        li.indent7 span:first-child {
+        	padding-left: 175px;
+        }
+        li.indent8 span:first-child {
+        	padding-left: 200px;
+        }
+        li.indent9 span:first-child {
+        	padding-left: 225px;
+        }
+
+        li.unleaded:before {
+        	content: "";
+        }
+
+        /* On Registry index pages (such as the Public Library), these are used for
+        download buttons and the like: */
+
+        span.registrybuttons {
+        	height: 20px;
+        	padding: 2px 8px 2px 8px;
+        	margin: 2px;
+        	border:1px solid;
+        	border-radius: 5px;
+        }
+
+        span.registryminibuttons {
+        	height: 14px;
+        	padding: 2px 5px 2px 5px;
+        	margin: 2px;
+        	border:1px solid;
+        	border-radius: 4px;
+        }
+
+        /* Used to hide or display sections in the Registry pages: */
+
+        div.registrysectionitemsopen {
+        	display: block;
+        }
+
+        div.registrysectionitemsclosed {
+        	display: none;
+        }
+
+        /* Hanging indentation for Registry item paragraphs: */
+
+        p.registryitem {
+        	padding-left: 80px;
+        	text-indent: -40px;
+        }
+
+        p.registryaddition {
+        	padding-left: 40px;
+        	text-indent: -40px;
+        }
+
+        -->
+    </style>
+    <script type="text/javascript">
+        function project() {
+            return window.Project;
+        }
+        function showExtra(id, imid) {
+        	if (document.getElementById(id).style.display == 'block') {
+        		document.getElementById(id).style.display = 'none';
+        		document.getElementById(imid).src = 'inform:/extra.png';
+        	} else {
+        		document.getElementById(id).style.display = 'block';
+        		document.getElementById(imid).src = 'inform:/extraclose.png';
+        	}
+        }
+        function openExtra(id, imid) {
+        	document.getElementById(id).style.display = 'block';
+        	document.getElementById(imid).src = 'inform:/extraclose.png';
+        }
+        function closeExtra(id, imid) {
+        	document.getElementById(id).style.display = 'none';
+        	document.getElementById(imid).src = 'inform:/extra.png';
+        }
+        function pasteCode(code) {
+            var myProject = project();
+
+            myProject.selectView('source');
+            myProject.pasteCode(code);
+        }
+
+    </script>
+</head>
+<body>
+    <!--CONTENT BEGINS-->
+    <table CELLPADDING=0 CELLSPACING=0 width="100%" bgcolor="#000000"><tr><TD width=38px height=26px align="center" valign="center"><a href="inform://Extensions/Extensions.html" border=0><img border=0 src="inform:/doc_images/Hookindex.png" border=0></a></td><TD width=38px height=26px align="center" valign="center"></td><td halign="left" valign="center" CELLPADDING=0 CELLSPACING=0><font color="#FFFFFF" size=2>Extensions</font></a></td><TD width=56px height=26px align="right" valign="center"><a href="inform:/index.html" border=0><img border=0 src="inform:/doc_images/Hookup.png" border=0></a></td></tr></table>
+
+    <p><a href="javascript:pasteCode('Include Exit Lister by Gavin Lambert.[=0x000A=][=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a>&nbsp;<b>Exit Lister<span class="extensionindexentry"> by </span>Gavin Lambert</b></p>
+    <p><span class="smaller">Version 4</span></p>
+    <p>Automatic listing of available exits, with a reasonable dose of customisation built in.</p>
+    <p></p>
+    <hr>
+    <p><span class="indexblack"><b><a style="text-decoration: none" href=#docsec1>Chapter 1: </a></b></span>About<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec2>Chapter 2: </a></b></span>Reference<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec3>Section 2.1: </a></span>New commands<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec4>Section 2.2: </a></span>Properties and Text<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec5>Section 2.3: </a></span>Advanced<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec6>Chapter 3: </a></b></span>Integration<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec7>Chapter 4: </a></b></span>Change Log<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec8>Section 4.1: </a></span>Changes from version 2 to version 4<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec9>Section 4.2: </a></span>Changes from version 1 to version 2<br>
+    <br>
+    <b>Examples</b><br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href="Exit Lister-eg1.html#eg1">A &mdash; Test Game for Exit Lister</a></span><br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href="Exit Lister-eg2.html#eg2">B &mdash; Simple Cave with Secret Door and Lever, plus Exit Listing</a></span><br>
+    </p>
+    <hr>
+    <p></p>
+    </p>
+
+    <p><p><span class="indexdullred"><b><span id=docsec1>Chapter 1: About</span></b></span></p>
+    </p>
+
+    <p> This extension is based on Exit Lister by Andre Kosmos. I've tried to keep the author-facing interface compatible while reworking the internal design and adding some extra features.</p>
+
+    <p> This gives you a list of available exits at the end of the room description. There are options to mention doors that are in your way, to mention rooms you have already visited, and how much info to reveal in dark rooms.</p>
+
+    <p> For suggestions and feedback, Gavin Lambert can be contacted via &quot;http://www.mirality.co.nz/&quot; or via GitHub.</p>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec2>Chapter 2: Reference</span></b></span></p>
+    </p>
+
+    <p><p><span class="indexblack"><b><span id=docsec3>Section 2.1: New commands</span></b></span></p>
+    </p>
+
+    <p>... for the player</p>
+
+    <p><blockquote><span class="indexdullblue"> 'EXITS' ------- this gives a list of the available exits.<br>
+     'EXITS ON' ---- after this command there will be a list of available exits at the end of the room description. (default setting)<br>
+     'EXITS OFF' --- after this command the list of exits will no longer appear at the end of the room description.</span></blockquote>
+
+    <p>... for the author: (note: these are phrases, and must appear inside a rule; eg. &quot;when play begins&quot;)</p>
+
+    <p><blockquote><span class="indexdullblue"> 'mention doors'<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; after this command the exit lister will mention if there is a door in the way of an exit. (default setting)</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> 'don't mention doors'<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; after this command doors will no longer be mentioned in the exit list.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> 'mention visited rooms'<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; after this command exits leading to a visited room will mention this room. (default setting)</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> 'don't mention visited rooms'<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; after this command exits leading to a visited room will no longer mention this room.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> 'mention visited rooms in darkness'<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; after this command exits leading to a visited room will still be mentioned when in darkness. (default setting)</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> 'don't mention visited rooms in darkness'<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; after this command no exits will be mentioned when in darkness.</span></blockquote>
+
+    <p><p><span class="indexblack"><b><span id=docsec4>Section 2.2: Properties and Text</span></b></span></p>
+    </p>
+
+    <p> Doors have a new property called passing text. The default is &quot;through&quot;. Some suggestions for other types of doors are: &quot;over&quot; for bridges, &quot;climbing&quot; for ropes and ladders.<blockquote><span class="indexdullblue"> The passing text for the Wooden Bridge is &quot;over&quot;.</span></blockquote>
+
+    <p> Doors have a new property called closed text. The default is &quot;[closed door]&quot;, to make it use the common definition from previous versions of this extension, described below. This can be overridden on a case by case basis, eg:<blockquote><span class="indexdullblue"> The closed text for the brown door is &quot;(barred)&quot;.</span></blockquote>
+
+    <p> If the closed text for a door is not defined, closed doors are mentioned with the text &quot;(closed)&quot; by default, but you can write your own text with:<blockquote><span class="indexdullblue"> To say closed door: say &quot;(tightly shut)&quot;.</span></blockquote>
+
+    <p> If you don't want to mention the fact that doors are closed (unless you've defined a &quot;closed text&quot; for it) you can use:<blockquote><span class="indexdullblue"> To say closed door: do nothing instead.</span></blockquote>
+
+    <p> You can also change the text shown when no obvious exits are visible (which doesn't necessarily mean no exits are present; note that as this is a phrase, it must appear inside a rule -- typically &quot;when play begins&quot;.) In previous versions of this extension, this was done with the rule &quot;To say no obvious exits, say ...&quot; instead, but this method is more in the spirit of the new rule-response system in Inform:<blockquote><span class="indexdullblue"> now the standard exit listing rule response (A) is &quot;There doesn't seem to be anywhere that you can go.&quot;</span></blockquote>
+
+    <p> In addition, you can override the normal description by using the &quot;listing exits&quot; activity. For example:<blockquote><span class="indexdullblue"> Rule for listing exits when the location is Fog Bank: say &quot;It's too foggy to see the exits.&quot;</span></blockquote>
+
+    <p> Doors can be made &quot;not obvious&quot;. This will cause them to be hidden from exit listings (and they will stay that way even after use unless you later mark them as &quot;obvious&quot;).<blockquote><span class="indexdullblue"> Hidden Trapdoor is a door. It is not obvious.</span></blockquote>
+
+    <p><p><span class="indexblack"><b><span id=docsec5>Section 2.3: Advanced</span></b></span></p>
+    </p>
+
+    <p> For more complicated cases, you can also define a rule:<blockquote><span class="indexdullblue"> A door obviousness rule for the Concealed Trapdoor:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; if the Secret Passage is not visited, rule fails.</span></blockquote>
+
+    <p> This also works for exits, by checking against where they go to:<blockquote><span class="indexdullblue"> An exit obviousness rule for the Hidden Chamber:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; if the Hidden Chamber is not visited, rule fails.</span></blockquote>
+
+    <p> Note that it is best to only use &quot;rule fails&quot; and &quot;make no decision&quot; -- this permits other rules (such as the standard &quot;darkness hides exits rule&quot;) to also hide the door/exit.</p>
+
+    <p> You can also decide on a room-by-room basis (the destination room) whether you want to tell the player the destination of the exit or not. The default rule is to only show the destination if the player has been there before (&quot;visited&quot;), but for example if there's a glass door between the two locations then it may be reasonable for the player to know what's on the other side regardless (you can check &quot;the location&quot; to see where they are now). Conversely in a maze you may not want the player to know which rooms they've been to already:</p>
+
+    <p><blockquote><span class="indexdullblue"> A room memory rule for the Garden:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; if the location is the Conservatory, rule succeeds;<br>
+     A room memory rule for Inside the Well:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; if the well cover is open, rule succeeds;<br>
+     A room memory rule:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; if the location is mazelike, rule fails.</span></blockquote>
+
+    <p> Also, while it's a little odd, you can choose to completely avoid describing specific exits like so (this will still display the direction, but won't display the name of the door or where it leads to):<blockquote><span class="indexdullblue"> After printing the name of east while listing exits:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; if the location is the Garden, do nothing instead.</span></blockquote>
+
+    <p> The standard &quot;mention / don't mention visited rooms in darkness&quot; controls let you decide if you want to tell the player the way to get out (ie. the way they came in) while hiding other paths (although bear in mind that by default Inform doesn't stop them actually using those other paths), or whether you want to hide all the exits and report that there are no obvious exits. Note that only the room's visited flag is checked; in the Test Game example, the path up out of darkness to the Main Road is listed because the player has been to the Main Road, even though they haven't used that specific exit before.</p>
+
+    <p> In addition, there are a couple of other potentially useful alternatives. One is to use a technique shown above to hide the message entirely (or to display a different message from normal):<blockquote><span class="indexdullblue"> Rule for listing exits while in darkness: do nothing instead.</span></blockquote>
+
+    <p> Another is to remove darkness handling entirely and to show all exits. This breaks realism, so probably won't be common, but the option is there:<blockquote><span class="indexdullblue"> The darkness hides exits rule is not listed in any rulebook.</span></blockquote>
+
+    <p> One final option would be to override all normal handling (including testing for darkness) for a single exit -- perhaps you have a self-lit door (or with light seeping through the cracks), giving enough light to see the door but not its surroundings:<blockquote><span class="indexdullblue"> A door obviousness rule for the Glowing Door:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; rule succeeds.</span></blockquote>
+
+    <p> There are a few more things that you can tweak if you delve into the innards of the extension, but I couldn't come up with a compelling example for when you'd want to. If you do come up with something, let me know and I'll add it to the list!</p>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec6>Chapter 3: Integration</span></b></span></p>
+    </p>
+
+    <p> If the &quot;Secret Doors by Andrew Owen&quot; (or its update, &quot;Secret Doors by Gavin Lambert&quot;) extension is in use (this is optional), then an unrevealed secret door is automatically unobvious as well.</p>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec7>Chapter 4: Change Log</span></b></span></p>
+    </p>
+
+    <p><p><span class="indexblack"><b><span id=docsec8>Section 4.1: Changes from version 2 to version 4</span></b></span></p>
+    </p>
+
+    <p> Updated various phrases for 6L02 compatibility, after some prompting by Joey Cramsey.</p>
+
+    <p> Replaced &quot;To say no obvious exits&quot; with &quot;the standard exit listing rule response (A)&quot;. (Response (B) is also editable, but that seems less useful as it's already pretty flexible.)</p>
+
+    <p> Added room memory rulebook to allow further customisation.</p>
+
+    <p> Skipped version 3 because Mark Harviston used that version number in the Friends of i7 repo (since I didn't republish this quickly enough); this version ignores and supersedes those changes.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec9>Section 4.2: Changes from version 1 to version 2</span></b></span></p>
+    </p>
+
+    <p> Replaced &quot;object-based-rulebook&quot; with &quot;object-based rulebook&quot;, which seems to make recent versions of I7 happier.</p>
+
+    <p> Replaced custom &quot;yes_no_flag&quot; variable kind with the built-in &quot;truth state&quot; (added in 5G67), to reduce clutter.</p>
+
+    <p> Added &quot;closed text&quot; property to doors.</p>
+
+    <p> When printing the names of exit destinations, the definite article is used (if you've used any article when defining the place in your source text).</p>
+
+    <p><hr>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td halign="left" valign="top" cellpadding=0 cellspacing=0 width=38px>
+                <span id=eg1><table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="oval">
+                        <td width=38px height=30px align="left" valign="center">
+                            <a href="Exit Lister-eg1.html#eg1" style="text-decoration: none"><div class="paragraph Body" style="line-height: 1px; margin-bottom: 0px; margin-top: 0px; padding-bottom: 0pt; padding-top: 0px; text-align: center;">
+                                <span class="extensionexampleletter">A</span></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                </span>
+            </td>
+            <td cellpadding=0 cellspacing=0 halign="left" valign="top">
+                <a href="Exit Lister-eg1.html#eg1" style="text-decoration: none"><img border="0" src='inform:/doc_images/asterisk.png'><b><span class="indexdarkgrey">&nbsp;Example&nbsp;</span><span class="indexblack">Test Game for Exit Lister</span></b></a><br>
+                <p>Lots of interesting rooms and doors to explore.</p>
+
+            </td>
+        </tr>
+    </table>
+    </p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p><hr>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td halign="left" valign="top" cellpadding=0 cellspacing=0 width=38px>
+                <span id=eg2><table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="oval">
+                        <td width=38px height=30px align="left" valign="center">
+                            <a href="Exit Lister.html#eg2" style="text-decoration: none"><div class="paragraph Body" style="line-height: 1px; margin-bottom: 0px; margin-top: 0px; padding-bottom: 0pt; padding-top: 0px; text-align: center;">
+                                <span class="extensionexampleletter">B</span></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                </span>
+            </td>
+            <td cellpadding=0 cellspacing=0 halign="left" valign="top">
+                <a href="Exit Lister.html#eg2" style="text-decoration: none"><img border="0" src='inform:/doc_images/asterisk.png'><b><span class="indexdarkgrey">&nbsp;Example&nbsp;</span><span class="indexblack">Simple Cave with Secret Door and Lever, plus Exit Listing</span></b></a><br>
+                <p>Secret Doors example plus Exit Listing</p>
+
+            </td>
+        </tr>
+    </table>
+    <table border="0" cellspacing="0" cellpadding="0" class="extensionexample" width=100%>
+        <tr>
+            <td align="left" valign="top">
+                <p></p>
+
+                <p> For ease of testing the different behaviour, this example also asks the player whether they want to see exits listed when play begins; normally this can just be left to the default.</p>
+
+                <p><blockquote><span class="indexdullblue"><a href="javascript:pasteCode('[=0x0022=]Secret Cave Passage with Listed Exits[=0x0022=] by Gavin Lambert[=0x000A=][=0x000A=]Include Secret Doors by Gavin Lambert.[=0x000A=]Include Exit Lister by Gavin Lambert.[=0x000A=][=0x000A=]Big Cave is a room. [=0x0022=]You[=0x0027=]re not sure how you ended up here, but you[=0x0027=]re surrounded on all sides by slightly damp rock.  Fortunately the walls seem to contain faintly glowing moss, so there[=0x0027=]s enough light to see by.[=0x0022=][=0x000A=]The faintly glowing moss is scenery in the Big Cave. [=0x0022=]It glows just barely enough to make out your surroundings.[=0x0022=][=0x000A=][=0x000A=]Secret Passage is a room. [=0x0022=]For being so close to a cave, this passage is surprisingly well built and is lit by standard electrical bulbs.  Unfortunately it also appears to be blocked by rubble not too far from the entrance; you can[=0x0027=]t seem to proceed any further.[=0x0022=][=0x000A=]The rubble is scenery in the Secret Passage. [=0x0022=]It looks completely impassable.[=0x0022=][=0x000A=][=0x000A=]The passage door is an unopenable secret door. [=0x0022=]It[=0x0027=]s fairly unassuming.  You[=0x0027=]d never have known it was there until it opened.[=0x0022=][=0x000A=]It is west of the Big Cave and east of the Secret Passage.[=0x000A=][=0x000A=]The hidden lever is a secret switch in the Big Cave. [=0x0022=]Nestled almost invisibly between two rocks in the cave wall.  [if the passage door is revealed]It has been pulled downwards.[otherwise]It points invitingly upwards.[end if][=0x0022=][=0x000A=][=0x000A=]The cave wall is scenery in the Big Cave. [=0x0022=]Nothing else more interesting presents itself.  Just more glowing moss.[=0x0022=][=0x000A=]Understand [=0x0022=]damp rock[=0x0022=] or [=0x0022=]rock[=0x0022=] as the cave wall.[=0x000A=][=0x000A=]Instead of searching or examining the cave wall for the first time:[=0x000A=][=0x0009=]now the lever is revealed;[=0x000A=][=0x0009=]say [=0x0022=]As you examine the cave wall, in a gap between two rocks you discover a lever.[=0x0022=][=0x000A=][=0x000A=]Instead of pulling or pushing the revealed lever:[=0x000A=][=0x0009=]if the passage door is revealed:[=0x000A=][=0x0009=][=0x0009=]say [=0x0022=]You don[=0x0027=]t have any desire to close the passage again.[=0x0022=];[=0x000A=][=0x0009=]otherwise:[=0x000A=][=0x0009=][=0x0009=]now the passage door is revealed;[=0x000A=][=0x0009=][=0x0009=]now the passage door is open;[=0x000A=][=0x0009=][=0x0009=]say [=0x0022=]A secret door opens with a rumble, revealing a secret passage in the west wall![=0x0022=][=0x000A=][=0x000A=]When play begins:[=0x000A=][=0x0009=]say [=0x0022=]Do you want a list of possible exits at the end of the room description?[=0x0022=];[=0x000A=][=0x0009=]if player consents, try turning exits on;[=0x000A=][=0x0009=]otherwise try turning exits off;[=0x000A=][=0x0009=]say [=0x0022=][paragraph break]You can always turn the exit list on or off with the commands EXITS ON and EXITS OFF. You can also always ask for an exit list with the command EXITS.[paragraph break][=0x0022=];[=0x000A=][=0x000A=]Test me with [=0x0022=]w / x door / pull lever / x wall / pull lever / w[=0x0022=][=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a> &quot;Secret Cave Passage with Listed Exits&quot; by Gavin Lambert</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Include Secret Doors by Gavin Lambert.<br>
+                 Include Exit Lister by Gavin Lambert.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Big Cave is a room. &quot;You're not sure how you ended up here, but you're surrounded on all sides by slightly damp rock.  Fortunately the walls seem to contain faintly glowing moss, so there's enough light to see by.&quot;<br>
+                 The faintly glowing moss is scenery in the Big Cave. &quot;It glows just barely enough to make out your surroundings.&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Secret Passage is a room. &quot;For being so close to a cave, this passage is surprisingly well built and is lit by standard electrical bulbs.  Unfortunately it also appears to be blocked by rubble not too far from the entrance; you can't seem to proceed any further.&quot;<br>
+                 The rubble is scenery in the Secret Passage. &quot;It looks completely impassable.&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The passage door is an unopenable secret door. &quot;It's fairly unassuming.  You'd never have known it was there until it opened.&quot;<br>
+                 It is west of the Big Cave and east of the Secret Passage.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The hidden lever is a secret switch in the Big Cave. &quot;Nestled almost invisibly between two rocks in the cave wall.  [if the passage door is revealed]It has been pulled downwards.[otherwise]It points invitingly upwards.[end if]&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The cave wall is scenery in the Big Cave. &quot;Nothing else more interesting presents itself.  Just more glowing moss.&quot;<br>
+                 Understand &quot;damp rock&quot; or &quot;rock&quot; as the cave wall.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Instead of searching or examining the cave wall for the first time:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; now the lever is revealed;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; say &quot;As you examine the cave wall, in a gap between two rocks you discover a lever.&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Instead of pulling or pushing the revealed lever:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; if the passage door is revealed:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say &quot;You don't have any desire to close the passage again.&quot;;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; otherwise:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; now the passage door is revealed;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; now the passage door is open;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say &quot;A secret door opens with a rumble, revealing a secret passage in the west wall!&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> When play begins:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; say &quot;Do you want a list of possible exits at the end of the room description?&quot;;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; if player consents, try turning exits on;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; otherwise try turning exits off;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; say &quot;[paragraph break]You can always turn the exit list on or off with the commands EXITS ON and EXITS OFF. You can also always ask for an exit list with the command EXITS.[paragraph break]&quot;;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Test me with &quot;w / x door / pull lever / x wall / pull lever / w&quot;</span></blockquote>
+
+                <p></p>
+
+            </td>
+        </tr>
+    </table>
+    </p>
+
+    <p>
+    <!--CONTENT ENDS-->
+</body>
+</html>

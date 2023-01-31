@@ -1,0 +1,1392 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Extension</title>
+    <style type="text/css">
+        <!--
+        /* The default font (family) and size */
+
+        body, p, td {
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.8rem; /* 100/125 */
+        }
+
+        /* For fixed-point material within text, such as the typing on the Library Card index page */
+
+        span.typewritten {
+        	font-family: monospace;
+        	font-size: 0.867rem; /* 13/12 * 100/125 */
+        }
+
+        /* For less important material: the small print */
+
+        span.smaller {
+        	font-size: 80%;
+        }
+
+        /* The "heading panel" is the coloured box, high up on the page. The colours
+        vary depending on the page: for example, the style on a report of a translation
+        with no problems is "headingpanelsucceeded", usually green, but if there were
+        problems then "headingpanelfailed" is used, which is usually red. "headingpanel"
+        itself is a more neutral grey by default. "headingpanelDark" is an alternative
+        look to make the extensions index pages have some visual contrast with the others;
+        by default they are a darker grey. */
+
+        .headingpanel {
+        	background: #eeeeee;
+        }
+        .headingpanelsucceeded {
+        	background: #E6FFE6;
+        }
+        .headingpanelfailed {
+        	background: #f69Ca6;
+        }
+        .headingpanelalt {
+        	background: #808080;
+        }
+
+        /* Heading panels have two lines of text: an upper one in a larger size, and a
+        lower one in a smaller. Again, the alt versions are meant to contrast.
+
+        	Report on Translation: Succeeded                <-- headingpaneltext
+        	Produced by Inform 10.1.0 (build 6U97)          <-- headingpanelrubric
+
+        	Installed Extensions                            <-- headingpaneltextalt
+        	Bundles of extra rules or phrases to...         <-- headingpanelrubricalt
+
+        */
+
+        span.headingpaneltext {
+        	color: #222222;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+        span.headingpaneltextalt {
+        	color: #ffffff;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        span.headingpanelrubric {
+        	color: #222222;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.733rem; /* 11/12 * 100/125 */
+        	font-weight: bold;
+        }
+        span.headingpanelrubricalt {
+        	color: #ffffff;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.733rem; /* 11/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* Horizontal rule styling */
+
+        div.hr {
+        	border: 0;
+        	width: 100%;
+        	color: #707070;
+        	background-color: #707070;
+        	height: 5px;
+        }
+
+        /* This styles the (usually white) text of the example numbers written inside
+        oval blobs in the extension documentation, which mimic the look of the in-app
+        documentation. */
+
+        .oval, .oval td {
+        	background-image:url('inform:/doc_images/ovoid.png');
+        	color:white;
+        }
+
+        /* Styling used in the extension documentation indexes: */
+
+        /* Used for extension names in the extensions pane of the app */
+
+        span.extensioncensusentry {
+        	color: #ffffff;
+        }
+
+        span.extensionindexentry {
+        	color: #404040;
+        }
+
+        span.extensionindexerror {
+        	color: #ff8080;
+        }
+
+        /* This is used in extension documentation, where an example is presented
+        in a slightly tinted box: */
+
+        table.extensionexample {
+        	background-color: #f0f0f0;
+        }
+
+        span.extensionexampleletter {
+        	color: #202020;
+        	font-size: 14px;
+        	font-weight: bold;
+        }
+
+        /* Seen in problem messages: */
+
+        span.problemred {
+        	color: #800000;
+        }
+
+        span.problemgreen {
+        	color: #008000;
+        }
+
+        span.phraseword {
+        	color: #808080;
+        }
+
+        span.phrasetokentext {
+        	color: #e00060;
+        }
+
+        span.phrasetokendesctext {
+        	color: #4040ff;
+        }
+
+        span.phrasetokenvaluetext {
+        	color: #ff4040;
+        }
+
+        /* Now we move on to styling used in the Index pages only: */
+
+        /* The periodic table display has "sidebars", usually grey and taller than they
+        are wide; they contain no text. */
+
+        div.periodictablesidebarcolour {
+        	background: #888;
+        }
+        div.periodictablesidebar:hover {
+        	background: #222;
+        }
+
+        /* The text of the element-abbreviation, such as "Lx" or "Ph", uses: */
+
+        span.elementtext {
+        	color: #ffffff;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* Similarly for the "atomic number" - a single digit - in the top left corner
+        of these boxes: */
+
+        span.elementnumbertext {
+        	color: #ffffff;
+        	font-size: 0.622rem; /* 7/12 * 96/72 * 100/125 */
+        }
+
+        /* For the text of the element title, to the right of the element box: */
+
+        span.elementtitletext {
+        	color: #ffffff;
+        	font-size: 0.6rem; /* 9/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* The banner at the top of each element: */
+
+        table.elementbanner {
+        	background: #eeeeee;
+        }
+
+        /* For the typewriting on the Library Card: */
+
+        span.librarycardtitle {
+        	color: #803030;
+        }
+
+        span.librarycardother {
+        	color: #303030;
+        }
+
+        /* Generically used for "more details" boxes in the index: */
+
+        table.indexmorebox {
+        	background-color: #e0e0e0;
+            border-radius: 8px;
+        }
+
+        /* But not for activity contents: */
+
+        table.indexactivitycontents {
+        	background-color: #e8e0c0;
+            border-radius: 8px;
+        }
+
+        /* For responses in index entries about rules: */
+
+        span.indexresponseletter {
+        	color: #ffffff;
+        	font-family: 'Courier New', Courier, monospace;
+        	background-color: #8080ff;
+        }
+
+        span.indexresponsetext {
+        	color: #000066;
+        }
+
+        /* Used ubiquitously throughout the index and extension documentation: */
+
+        span.indexblack {
+        	color: #000000;
+        }
+
+        span.indexgrey {
+        	color: #808080;
+        }
+
+        span.indexdarkgrey {
+            color: #505050;
+        }
+
+        span.indexdullred {
+        	color: #800000;
+        }
+
+        span.indexdullgreen {
+        	color: #008000;
+        }
+
+        span.indexdullblue {
+        	color: #000080;
+        }
+
+        /* Used for the room squares in the World map in the Index (which is currently
+        a table with one row of one column) */
+
+        table.indexmaproom {
+        	border-color: #000000;
+        }
+
+        /* Used in the numbering of levels of the World map in the Index */
+
+        span.indexmaplevelnumbers {
+        	color: #c0c0c0;
+        }
+
+        /* Used e.g. for title rows in the Chart of basic kinds in the Index */
+
+        tr.headingrow {
+        	background-color: #e0e0e0;
+        }
+
+        /* Standard rows have black text on striped background colours, these being
+        the usual ones seen in Mac OS X applications such as iTunes. */
+
+        tr.stripeone {
+        	background-color: #ffffff;
+        }
+
+        tr.stripetwo {
+        	background-color: #f3f6fa;
+        }
+
+        tr.tintedrow {
+        	background-color: #808080;
+        }
+
+        /* In the Figures index, this is the background colour used behind images
+        (though in fact it will only be visible if the image fails to load, or uses
+        transparency): */
+
+        div.figureindexbox {
+        	background-color: #6495ed;
+        }
+
+        /* To get the book-contents-page style leaders on the Contents element of
+           the index to work, these must use the background colour of the body of
+           the page, whatever that is: */
+
+        ul.leaders li.leaded span:first-child {
+        	background: white;
+        }
+        ul.leaders li.leaded span + span {
+        	background: white;
+        }
+
+        /* On Registry index pages (such as the Public Library), these are used for
+        download buttons and the like: */
+
+        span.registrybuttontext {
+        	font-size: 11px;
+        	border-color: #000000;
+        }
+
+        span.registryminibuttontext {
+        	font-size: 10px;
+        	border-color: #000000;
+        }
+
+        span.registrybuttonuninstalled {
+        	color: #000000;
+        	background: #ffffdd;
+        }
+
+        span.registrybuttoninstalled {
+        	color: #000000;
+        	background: #ffffff;
+        	pointer-events: none;
+        }
+
+        span.registrybuttonbuiltin {
+        	color: #888888;
+        	background: #ffffff;
+        	pointer-events: none;
+        }
+
+        span.registrybuttonupdate {
+        	color: #000000;
+        	background: #aaddff;
+        }
+
+        span.registrybuttonrevert {
+        	color: #000000;
+        	background: #ddaaff;
+        }
+
+        span.registrybuttonrevealer {
+        	color: #ffffff;
+        	background: #444444;
+        }
+
+        /* Registry index section headings: */
+
+        span.registrysectionname {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 16px;
+        	line-height: 18px;
+        }
+        span.registrysubsectionname {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 14px;
+        	line-height: 16px;
+        }
+
+        /* These are for the "mark" for a section, usually a section-symbol and number */
+
+        span.registrysectionmark {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 16px;
+        	line-height: 18px;
+        	color: #666;
+        }
+        span.registrysubsectionmark {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 14px;
+        	line-height: 16px;
+        	color: #666;
+        }
+
+        /* Text of an item listed in a registry: */
+
+        span.registryitemtext {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 12px;
+        	line-height: 16px;
+        }
+
+        /* And how the links in a registry index page behave: */
+
+        a.registrysilentlink {
+        	text-decoration: none;
+        	color: #000;
+        }
+        a.registrybuttonlink {
+        	text-decoration: none;
+        }
+        a.registrycontentslink:link {
+        	text-decoration: none;
+        	color: #202020;
+        }
+        a.registrycontentslink:visited {
+        	text-decoration: none;
+        	color: #202020;
+        }
+        a.registrycontentslink:hover {
+        	text-decoration: none;
+        	color: #D00000;
+        }
+        a.registrycontentslink:active {
+        	text-decoration: none;
+        	color: #D00000;
+        }
+
+        -->
+    </style>
+    <style type="text/css">
+        <!--
+        /* (1) General layout material */
+
+        *, *:before, *:after {
+        	-moz-box-sizing: border-box;
+        	-webkit-box-sizing: border-box;
+        	box-sizing: border-box;
+        }
+        .headingpanellayout {
+        	position: relative;
+        	height: 56px;
+        	padding: 0px;
+        	white-space:nowrap;
+        }
+        .headingpanellayoutdeeper {
+        	position: relative;
+        	height: 117px;
+        	padding: 0px;
+        	white-space:nowrap;
+        }
+        .headingtext {
+        	position: absolute;
+        	top: -4px;
+        	left: -1px;
+        	width: 100%;
+        	padding: 14px 10px 0px 10px;
+        }
+        .headingrubric {
+        	position: absolute;
+        	top: 36px;
+        	width: 100%;
+        	padding: 0px 10px 0px 10px;
+        }
+        h3.tighter {
+        	margin-top: 0px;
+        }
+        p.hang {
+        	padding-left: 25px;
+        	text-indent: -25px;
+        	margin-top: 0px;
+        	margin-bottom: 0px;
+        }
+        p.in1 {
+        	padding-left: 0px;
+        }
+        p.tightin1 {
+        	padding-left: 0px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin1 {
+        	padding-left: 0px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin1 {
+        	padding-left: 50px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in2 {
+        	padding-left: 25px;
+        }
+        p.tightin2 {
+        	padding-left: 25px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin2 {
+        	padding-left: 25px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin2 {
+        	padding-left: 75px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in3 {
+        	padding-left: 50px;
+        }
+        p.tightin3 {
+        	padding-left: 50px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin3 {
+        	padding-left: 50px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin3 {
+        	padding-left: 100px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in4 {
+        	padding-left: 75px;
+        }
+        p.tightin4 {
+        	padding-left: 75px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin4 {
+        	padding-left: 75px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin4 {
+        	padding-left: 125px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in5 {
+        	padding-left: 100px;
+        }
+        p.tightin5 {
+        	padding-left: 100px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin5 {
+        	padding-left: 100px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin5 {
+        	padding-left: 150px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in6 {
+        	padding-left: 125px;
+        }
+        p.tightin6 {
+        	padding-left: 125px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin6 {
+        	padding-left: 125px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin6 {
+        	padding-left: 175px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in7 {
+        	padding-left: 150px;
+        }
+        p.tightin7 {
+        	padding-left: 150px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin7 {
+        	padding-left: 150px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin7 {
+        	padding-left: 200px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in8 {
+        	padding-left: 175px;
+        }
+        p.tightin8 {
+        	padding-left: 175px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin8 {
+        	padding-left: 175px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin8 {
+        	padding-left: 225px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in9 {
+        	padding-left: 200px;
+        }
+        p.tightin9 {
+        	padding-left: 200px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin9 {
+        	padding-left: 200px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin9 {
+        	padding-left: 250px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+
+        /* (2) Index page layout material */
+
+        /* The periodic table display has "sidebars", usually grey and taller than they
+        are wide; they contain no text. */
+
+        div.periodictablesidebar {
+        	height: 56px;
+        	width: 16px;
+        }
+        .periodictablesidebar a:link { text-decoration: none; }
+        .periodictablesidebar a:visited { text-decoration: none; }
+        .periodictablesidebar a:active { text-decoration: none; }
+
+        /* The "element boxes" are the cells appearing in the periodic-table display
+        on the welcome page of the index: */
+
+        .elementbox {
+        	position: relative;
+        	height: 56px;
+        	width: 56px;
+        	padding: 0px;
+        }
+
+        .elementbox a:link { text-decoration: none; }
+        .elementbox a:visited { text-decoration: none; }
+        .elementbox a:active { text-decoration: none; }
+        .elementbox a:hover { text-decoration: none; }
+        .elementbox:hover {
+        	opacity: 0.6;
+        }
+
+        /* The "small element boxes" look like those, but are smaller, and used on
+        the headings of the content which those original boxes link to: */
+
+        .smallelementbox {
+        	position: relative;
+        	height: 40px;
+        	width: 40px;
+        	padding: 0px;
+        }
+
+        .smallelementbox a:link { text-decoration: none; }
+        .smallelementbox a:visited { text-decoration: none; }
+        .smallelementbox a:active { text-decoration: none; }
+        .smallelementbox a:hover { text-decoration: none; }
+        .smallelementbox:hover {
+        	opacity: 0.6;
+        }
+
+        /* This is a class for the links formed by the element boxes: */
+
+        a.elementlink {
+        	position: absolute;
+        	top: -4px;
+        	left: -1px;
+        	width: 100%;
+        	padding: 14px 0px 14px 1px;
+        	text-align: center;
+        }
+
+        /* Similarly for the "atomic number" - a single digit - in the top left corner
+        of these boxes: */
+
+        div.elementnumber {
+        	position: absolute;
+        	top: 1px;
+        	left: 3px;
+        	text-align: left;
+        }
+
+        /* For the text of the element title, to the right of the element box: */
+
+        div.elementtitle {
+        	position: absolute;
+        	top: 35px;
+        	width: 100%;
+        	text-align: center;
+        }
+
+        /* Used for the book-contents-page style leaders on the Contents element of
+           the index: */
+
+        ul.leaders {
+        	padding: 0;
+        	margin-top: 1px;
+        	margin-bottom: 0;
+        	overflow-x: hidden;
+        	list-style: none}
+        ul.leaders li.leaded:before {
+        	float: left;
+        	width: 0;
+        	white-space: nowrap;
+        	content:
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "}
+        ul.leaders li.leaded span:first-child {
+        	padding-right: 0.33em;
+        }
+        ul.leaders li.leaded span + span {
+        	float: right;
+        	padding-left: 0.33em;
+        }
+        li.indent1 span:first-child {
+        	padding-left: 25px;
+        }
+        li.indent2 span:first-child {
+        	padding-left: 50px;
+        }
+        li.indent3 span:first-child {
+        	padding-left: 75px;
+        }
+        li.indent4 span:first-child {
+        	padding-left: 100px;
+        }
+        li.indent5 span:first-child {
+        	padding-left: 125px;
+        }
+        li.indent6 span:first-child {
+        	padding-left: 150px;
+        }
+        li.indent7 span:first-child {
+        	padding-left: 175px;
+        }
+        li.indent8 span:first-child {
+        	padding-left: 200px;
+        }
+        li.indent9 span:first-child {
+        	padding-left: 225px;
+        }
+
+        li.unleaded:before {
+        	content: "";
+        }
+
+        /* On Registry index pages (such as the Public Library), these are used for
+        download buttons and the like: */
+
+        span.registrybuttons {
+        	height: 20px;
+        	padding: 2px 8px 2px 8px;
+        	margin: 2px;
+        	border:1px solid;
+        	border-radius: 5px;
+        }
+
+        span.registryminibuttons {
+        	height: 14px;
+        	padding: 2px 5px 2px 5px;
+        	margin: 2px;
+        	border:1px solid;
+        	border-radius: 4px;
+        }
+
+        /* Used to hide or display sections in the Registry pages: */
+
+        div.registrysectionitemsopen {
+        	display: block;
+        }
+
+        div.registrysectionitemsclosed {
+        	display: none;
+        }
+
+        /* Hanging indentation for Registry item paragraphs: */
+
+        p.registryitem {
+        	padding-left: 80px;
+        	text-indent: -40px;
+        }
+
+        p.registryaddition {
+        	padding-left: 40px;
+        	text-indent: -40px;
+        }
+
+        -->
+    </style>
+    <script type="text/javascript">
+        function project() {
+            return window.Project;
+        }
+        function showExtra(id, imid) {
+        	if (document.getElementById(id).style.display == 'block') {
+        		document.getElementById(id).style.display = 'none';
+        		document.getElementById(imid).src = 'inform:/extra.png';
+        	} else {
+        		document.getElementById(id).style.display = 'block';
+        		document.getElementById(imid).src = 'inform:/extraclose.png';
+        	}
+        }
+        function openExtra(id, imid) {
+        	document.getElementById(id).style.display = 'block';
+        	document.getElementById(imid).src = 'inform:/extraclose.png';
+        }
+        function closeExtra(id, imid) {
+        	document.getElementById(id).style.display = 'none';
+        	document.getElementById(imid).src = 'inform:/extra.png';
+        }
+        function pasteCode(code) {
+            var myProject = project();
+
+            myProject.selectView('source');
+            myProject.pasteCode(code);
+        }
+
+    </script>
+</head>
+<body>
+    <!--CONTENT BEGINS-->
+    <table CELLPADDING=0 CELLSPACING=0 width="100%" bgcolor="#000000"><tr><TD width=38px height=26px align="center" valign="center"><a href="inform://Extensions/Extensions.html" border=0><img border=0 src="inform:/doc_images/Hookindex.png" border=0></a></td><TD width=38px height=26px align="center" valign="center"></td><td halign="left" valign="center" CELLPADDING=0 CELLSPACING=0><font color="#FFFFFF" size=2>Extensions</font></a></td><TD width=56px height=26px align="right" valign="center"><a href="inform:/index.html" border=0><img border=0 src="inform:/doc_images/Hookup.png" border=0></a></td></tr></table>
+
+    <p><a href="javascript:pasteCode('Include Inline Hyperlinks by Gavin Lambert.[=0x000A=][=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a>&nbsp;<b>Inline Hyperlinks<span class="extensionindexentry"> by </span>Gavin Lambert</b></p>
+    <p><span class="smaller">(For Glulx Only)&nbsp; <img border=0 src=inform:/doc_images/vm_glulx.png>&nbsp;Version 2.0.200930</span></p>
+    <p>Provides a simple HTML-inspired syntax for adding hyperlinks within any say phrases.</p>
+    <p></p>
+    <hr>
+    <p><span class="indexblack"><a style="text-decoration: none" href=#docsec1>Section 1: </a></span>Basic Usage<br>
+    <span class="indexblack"><a style="text-decoration: none" href=#docsec2>Section 2: </a></span>Keypresses (or: Line vs Character Input)<br>
+    <span class="indexblack"><a style="text-decoration: none" href=#docsec3>Section 3: </a></span>Advanced Usage<br>
+    <span class="indexblack"><a style="text-decoration: none" href=#docsec4>Section 4: </a></span>Internals<br>
+    <span class="indexblack"><a style="text-decoration: none" href=#docsec5>Section 5: </a></span>Debugging<br>
+    </p>
+    <hr>
+    <p></p>
+    </p>
+
+    <p> Inline Hyperlinks allows us to specify text hyperlinks that provide a replacement command (and optionally some other special action). Hyperlinks are specified directly in descriptions and other &quot;say&quot; text, and are automatically tracked and numbered as required by the underlying glk system.</p>
+
+    <p> This version of Inline Hyperlinks was completely rewritten, but borrows heavily from both Inline Hyperlinks by Daniel Stelzer (with modifications by Eric Temple) and Hyperlinks by Dannii Willis. It was written for Inform 7 6M62.</p>
+
+    <p> Version 2 was updated to remove the old id reservation system in favour of using the Hyperlink Extension Registry instead.</p>
+
+    <p> Inline Hyperlinks requires Text Capture by Eric Eve, and Hyperlinks and Hyperlink Extension Registry by Gavin Lambert.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec1>Section 1: Basic Usage</span></b></span></p>
+    </p>
+
+    <p> Hyperlinks can be specified in two ways. We can specify the text of the hyperlink, followed by the text of the replacement command that clicking on that hyperlink will generate. For example, the following command will hyperlink the word &quot;north&quot;; when the link is clicked, the command &quot;GO NORTH&quot; will be generated.</p>
+
+    <p><blockquote><span class="indexdullblue"> say &quot;There is only one exit, to the [link]north[as]GO NORTH[end link].&quot;</span></blockquote>
+
+    <p> If we want the command generated to be the same as the hyperlinked text, we simply surround the text with the link tags:</p>
+
+    <p><blockquote><span class="indexdullblue"> say &quot;It appears that the only thing to do here is to [link]jump[end link].&quot;</span></blockquote>
+
+    <p> Inline Hyperlinks will also register hyperlinks in the status line. We define these like we do any other hyperlink, e.g.:</p>
+
+    <p><blockquote><span class="indexdullblue"> When play begins:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; now the right hand status line is &quot;Exits: [link]N[end link]&quot;</span></blockquote>
+
+    <p> While this does not require Flexible Windows by Jon Ingold, if you have included that before you included Inline Hyperlinks then it will automatically allow hyperlinks to appear in any other window as well.</p>
+
+    <p> Note that, because Inline Hyperlinks uses text capture (via Eric Eve's Text Capture extension) to store commands, we gain a significant advantage over methods of storing hyperlinks that rely on text. Whereas the latter types are limited to utilizing types that can be stored (leaving out temporary values such as might be generated by a loop, for example), Inline Hyperlinks is limited only to what can be printed, which makes assigning hyperlinks much easier. If we use text substitutions in our linked text, for example, the value of the substitution will be the value *at the time the link was created*. See the &quot;Maze&quot; example below for an example.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec2>Section 2: Keypresses (or: Line vs Character Input)</span></b></span></p>
+    </p>
+
+    <p> Most of the time, stories are expected to be paused waiting for &quot;line input&quot; from the player (typing a full command). It is only when in this state that clicking a hyperlink can actually inject a command.</p>
+
+    <p> In some cases, a story might be prompting for a single keypress (without pressing Enter afterwards), for such things as menus or yes/no prompts, among other things. When in this state, clicking a hyperlink that produces a command will use the first character of that command as the player's keypress -- the rest of the command will be discarded. However, this does allow you to provide usable hyperlinks for these sorts of inputs. As is standard for character input, the actual key &quot;pressed&quot; is not printed.</p>
+
+    <p> If the story is not waiting for either of these things, then input replacement cannot occur. Clicking on a hyperlink will still run any custom rules associated with it (see Advanced Usage) but will not actually inject any input. This could still be useful in a wholly choice-based story (or a choice-based section of a larger story), where perhaps the normal line parser is not actually running.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec3>Section 3: Advanced Usage</span></b></span></p>
+    </p>
+
+    <p> By default, the command portion of the hyperlink is interpreted as a command to be entered as if the player had typed it rather than clicking the link. (Due to various quirks the injected command is usually printed on a separate line, unlike normally-entered commands.)</p>
+
+    <p> But this is not the only thing that can be done. Either in addition to or instead of the standard behaviour, you can define alternative actions for specific commands or in general using the &quot;hyperlink command processing rules&quot; rulebook.</p>
+
+    <p> Creating a new rule in this rulebook can look something like this:</p>
+
+    <p><blockquote><span class="indexdullblue"> A hyperlink command processing rule for &quot;xyzzy&quot; when the gazebo is in the location:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; rule succeeds with result &quot;cast magic missile at the gazebo&quot;.</span></blockquote>
+
+    <p> These rules take the hyperlink command as a parameter (so you can define different rules for different commands), have an optional 'when' clause like any other rules, and along with whatever other processing you like can end with one of the following:</p>
+
+    <p><blockquote><span class="indexdullblue"> rule succeeds with result &quot;text&quot;. (this rulebook immediately ends and &quot;text&quot; will be entered as the player's input instead of the hyperlink command itself)<br>
+     continue the action. (this rule ends but other rules continue; by default it will then enter the original hyperlink command text as the player's input)<br>
+     stop the action. (this rulebook immediately ends; nothing else happens)</span></blockquote>
+
+    <p> Among other manipulation of the model world, thanks to the Glk Input Suspending extension, you can &quot;say&quot; things either instead of or in addition to providing an input command (although that should be used sparingly, to avoid weird display), and if you do &quot;stop the action&quot; instead of providing a command then any partially-typed input by the player should be restored afterwards. Note however that if the story is waiting for a keypress at the time that the hyperlink is clicked then only the first character of the replacement command will be read as that keypress; the remaining text will be lost. However this does allow you to provide hyperlinks in contexts where single-key answers are expected as well.</p>
+
+    <p> If you want to write a more generic rule that can perform more complex tests on the hyperlink command itself, then this is the pattern to use:</p>
+
+    <p><blockquote><span class="indexdullblue"> A hyperlink command processing rule for text (called command):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; if command matches the text &quot;frob&quot;:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...</span></blockquote>
+
+    <p> See the example &quot;Magic Words&quot; for a demonstration of this. Note that the hyperlink command need not be anything actually parsable as a player command if you always &quot;stop the action&quot; or substitute an alternative command instead.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec4>Section 4: Internals</span></b></span></p>
+    </p>
+
+    <p> Internally, Glk refers to each link only by a numeric identifier. Inline Hyperlinks keys that identifier to a list of texts (the &quot;hyperlink list&quot;); for example, if the ID for a given link is 10, Inline Hyperlinks will look up the 10th entry in the list for the linked command. Commands are not repeated, so if we repeatedly print a link with the replacement command &quot;go north&quot; then the same number will be assigned to the link each time. This helps keep the hyperlink list as short as it can be.</p>
+
+    <p> In actual fact, thanks to the Hyperlink Extension Registry, this extension doesn't really start at link id 1, but rather uses some high bits as a &quot;tag&quot; to indicate that it's a link from this extension, with the remaining bits encoding the link id 1 (or whatever it is). These tag values are automatically chosen based on the extensions that have been included, so as long as all hyperlink extensions are using the same registry then there can't be any collisions or mixing-up of the links.</p>
+
+    <p> This also means that you're free to use manually numbered links as well if you wish, since Hyperlink Extension Registry keeps the &quot;low numbers&quot; (those with high bits all zero) free for the author's use. You can see an example of this in the &quot;Systematic Derangement of the Inner Compass&quot; example below.</p>
+
+    <p> Performance will gradually decrease (though usually quite slowly) as unique commands are added to the list. If you are concerned about the size of the hyperlink list, you may want to clean it out periodically. Inline Hyperlinks doesn't do this automatically, since different stories may have different needs. But keep in mind that (because most interpreters offer scrollback functionality) the entire story text is theoretically accessible to the player at any time: if you make changes to the hyperlink list, a player who scrolls back to click on a link may find that the link does not work as expected. (While most links will probably be context-sensitive anyway and not be *useful* outside of the room where they were first printed, that is at least unsurprising behaviour, whereas if clicking a link produced a completely different command then it would be another matter.) The safest way to flush the list is probably to clear the screen periodically, resetting the scrollback buffer on most interpreters. At the same time that the screen is cleared, empty the hyperlink list, e.g:</p>
+
+    <p><blockquote><span class="indexdullblue"> To clear the screen and hyperlink list:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; clear the screen;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; clear the hyperlink list.</span></blockquote>
+
+    <p> If you are going to flush the list like this, be careful not to clear the screen without good reason. Choose natural break-points (such as chapters, or changes in setting) to avoid confusing (and frustrating) the player. While it may be tempting to do this more frequently to get rid of &quot;outdated&quot; commands that won't even work properly in another room or another context, this also removes the player's record of their journey thus far, which can leave them without important clues.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec5>Section 5: Debugging</span></b></span></p>
+    </p>
+
+    <p> If we are testing the game in the Inform IDE, or if we have included the Extended Debugging extension, we can type HYPERLINKS at the command line at any time to see the current list of hyperlinked commands and their numeric identifiers (used by Glulx to identify the link).</p>
+
+    <p> Example: * Survival Mode</p>
+
+    <p> A simple example that shows the most basic usage. The &quot;before reading a command&quot; rule is really the only relevant thing in the example.</p>
+
+    <p><blockquote><span class="indexdullblue"><a href="javascript:pasteCode('[=0x0022=]Survival Mode[=0x0022=][=0x000A=][=0x000A=]Include Inline Hyperlinks by Gavin Lambert.[=0x000A=][=0x000A=]The Jungle is a room. [=0x0022=]You are [swing state] from a thick, rope-like vine. Another dangles from the canopy twenty-five or so feet away. A thick jungle mist obscures the view beyond, as well as the forest floor.[=0x0022=][=0x000A=][=0x000A=]Before reading a command:[=0x000A=][=0x0009=]say [=0x0022=]You can [link]swing[end link] or [link]release[as]jump[end link].[=0x0022=][=0x000A=][=0x000A=]Yourself can be hanging or swaying. Yourself is hanging.[=0x000A=][=0x000A=]Instead of swinging yourself:[=0x000A=][=0x0009=]if the player is swaying:[=0x000A=][=0x0009=][=0x0009=]say [=0x0022=]You swing faster.[=0x0022=];[=0x000A=][=0x0009=]otherwise:[=0x000A=][=0x0009=][=0x0009=]say [=0x0022=]You sway a bit to get the vine moving, and soon are swinging in a wide arc.[=0x0022=];[=0x000A=][=0x0009=][=0x0009=]now the player is swaying.[=0x000A=][=0x000A=]To say swing state:[=0x000A=][=0x0009=]if the player is hanging:[=0x000A=][=0x0009=][=0x0009=]say [=0x0022=]hanging[=0x0022=];[=0x000A=][=0x0009=]if the player is swaying:[=0x000A=][=0x0009=][=0x0009=]say [=0x0022=]swinging[=0x0022=].[=0x000A=][=0x000A=]Instead of jumping:[=0x000A=][=0x0009=]if the player is swaying:[=0x000A=][=0x0009=][=0x0009=]say [=0x0022=]You release the vine, impeccably timing your leap. You grab onto the other vine and hold. Through the mist you see yet another vine hanging thirty feet or so ahead.[=0x0022=];[=0x000A=][=0x0009=][=0x0009=]now the player is hanging;[=0x000A=][=0x0009=]otherwise:[=0x000A=][=0x0009=][=0x0009=]say [=0x0022=]You release the vine and drop toward the jungle floor. Tumbling through the mist, you land hard on [one of]a thorn-tree; the baroque profusion of spines the size of railroad spikes ends your life[or]a massive hill of flesh-eating ants. They swarm over you before you can regain your feet[or]a path used exclusively by stampeding boars; a pack of the loathsome creatures happens to be passing[purely at random].[=0x0022=];[=0x000A=][=0x0009=][=0x0009=]end the story saying [=0x0022=]You have died[=0x0022=].[=0x000A=][=0x000A=]Understand [=0x0022=]swing[=0x0022=] as swinging.[=0x000A=][=0x000A=]Rule for supplying a missing noun while swinging:[=0x000A=][=0x0009=]now the noun is yourself.[=0x000A=][=0x000A=]Instead of doing anything other than looking or swinging or jumping:[=0x000A=][=0x0009=]say [=0x0022=]There is no time for anything but survival.[=0x0022=][=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a> &quot;Survival Mode&quot;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Include Inline Hyperlinks by Gavin Lambert.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> The Jungle is a room. &quot;You are [swing state] from a thick, rope-like vine. Another dangles from the canopy twenty-five or so feet away. A thick jungle mist obscures the view beyond, as well as the forest floor.&quot;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Before reading a command:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; say &quot;You can [link]swing[end link] or [link]release[as]jump[end link].&quot;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Yourself can be hanging or swaying. Yourself is hanging.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Instead of swinging yourself:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; if the player is swaying:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say &quot;You swing faster.&quot;;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; otherwise:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say &quot;You sway a bit to get the vine moving, and soon are swinging in a wide arc.&quot;;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; now the player is swaying.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> To say swing state:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; if the player is hanging:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say &quot;hanging&quot;;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; if the player is swaying:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say &quot;swinging&quot;.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Instead of jumping:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; if the player is swaying:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say &quot;You release the vine, impeccably timing your leap. You grab onto the other vine and hold. Through the mist you see yet another vine hanging thirty feet or so ahead.&quot;;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; now the player is hanging;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; otherwise:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say &quot;You release the vine and drop toward the jungle floor. Tumbling through the mist, you land hard on [one of]a thorn-tree; the baroque profusion of spines the size of railroad spikes ends your life[or]a massive hill of flesh-eating ants. They swarm over you before you can regain your feet[or]a path used exclusively by stampeding boars; a pack of the loathsome creatures happens to be passing[purely at random].&quot;;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; end the story saying &quot;You have died&quot;.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Understand &quot;swing&quot; as swinging.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Rule for supplying a missing noun while swinging:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; now the noun is yourself.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Instead of doing anything other than looking or swinging or jumping:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; say &quot;There is no time for anything but survival.&quot;</span></blockquote>
+
+    <p> Example: * Maze</p>
+
+    <p> It can be difficult to work with text substitutions in Inform, because it often refuses to allow temporary values to be restored for later usage. Inline Hyperlinks uses text capture, however, letting us avoid such problems. This example shows how we can build links as needed to automate exit-listing. All hyperlink handling occurs in the &quot;to say exits&quot; phrase.</p>
+
+    <p><blockquote><span class="indexdullblue"><a href="javascript:pasteCode('[=0x0022=]Maze[=0x0022=][=0x000A=][=0x000A=]Include Inline Hyperlinks by Gavin Lambert.[=0x000A=][=0x000A=]The printed name of a room is [=0x0022=]Maze[=0x0022=]. The description of a room is usually [=0x0022=]A maze of twisty little passages, all alike. Exits: [exits][=0x0022=].[=0x000A=][=0x000A=]To say exits:[=0x000A=][=0x0009=]let count be 0;[=0x000A=][=0x0009=]repeat with way running through all directions:[=0x000A=][=0x0009=][=0x0009=]let destination be the room way from the location;[=0x000A=][=0x0009=][=0x0009=]if destination is nothing, next;[=0x000A=][=0x0009=][=0x0009=]if count is greater than zero, say [=0x0022=], [=0x0022=];[=0x000A=][=0x0009=][=0x0009=]let dir be text;[=0x000A=][=0x0009=][=0x0009=]let dir be [=0x0022=][way][=0x0022=];[=0x000A=][=0x0009=][=0x0009=]let dir be [=0x0022=][dir][=0x0022=];[=0x000A=][=0x0009=][=0x0009=]say [=0x0022=][link][way][as]go [dir][end link][=0x0022=];[=0x000A=][=0x0009=][=0x0009=]increment count;[=0x000A=][=0x0009=]if count is greater than zero, say [=0x0022=]. [=0x0022=].[=0x000A=][=0x000A=]R01 is a room. R02 is north of R01. R03 is east of R01. R04 is north of R02 and northwest of R03. R05 is northeast of R02. R06 is north of R05. R07 is west of R06. R08 is southwest of R04 and northwest of R02. R09 is east of R06. R10 is northeast of R06. R11 is east of R10. R12 is southeast of R09. R13 is south of R12. R14 is northeast of R12. R14 is southeast of R11. R15 is up from R03. R16 is east of R15. R17 is north of R16. R18 is down from R17. The description of R18 is [=0x0022=]A maze of twisty little passages, all alike. A breeze blows from the northeast. Exits: [exits][=0x0022=][=0x000A=][=0x000A=]Exit is northeast of R18. Exit is outside from R18. The printed name of Exit is [=0x0022=]Outside[=0x0022=]. [=0x0022=]You emerge into sunlight.[=0x0022=] Southwest from Exit is nowhere. Inside from Exit is nowhere. After looking in Exit, end the story saying [=0x0022=]You have won.[=0x0022=][=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a> &quot;Maze&quot;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Include Inline Hyperlinks by Gavin Lambert.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> The printed name of a room is &quot;Maze&quot;. The description of a room is usually &quot;A maze of twisty little passages, all alike. Exits: [exits]&quot;.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> To say exits:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; let count be 0;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; repeat with way running through all directions:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; let destination be the room way from the location;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if destination is nothing, next;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if count is greater than zero, say &quot;, &quot;;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; let dir be text;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; let dir be &quot;[way]&quot;;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; let dir be &quot;[dir]&quot;;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say &quot;[link][way][as]go [dir][end link]&quot;;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; increment count;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; if count is greater than zero, say &quot;. &quot;.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> R01 is a room. R02 is north of R01. R03 is east of R01. R04 is north of R02 and northwest of R03. R05 is northeast of R02. R06 is north of R05. R07 is west of R06. R08 is southwest of R04 and northwest of R02. R09 is east of R06. R10 is northeast of R06. R11 is east of R10. R12 is southeast of R09. R13 is south of R12. R14 is northeast of R12. R14 is southeast of R11. R15 is up from R03. R16 is east of R15. R17 is north of R16. R18 is down from R17. The description of R18 is &quot;A maze of twisty little passages, all alike. A breeze blows from the northeast. Exits: [exits]&quot;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Exit is northeast of R18. Exit is outside from R18. The printed name of Exit is &quot;Outside&quot;. &quot;You emerge into sunlight.&quot; Southwest from Exit is nowhere. Inside from Exit is nowhere. After looking in Exit, end the story saying &quot;You have won.&quot;</span></blockquote>
+
+    <p> Example: ** I'll have a Side of Inline Inventory, Please</p>
+
+    <p> This example borrows from the similarly-named example from the Hyperlinks extension; presenting the inventory as a sidebar, and providing a link to examine the object when clicked. Where it differs from that one is that the links are managed more automatically.</p>
+
+    <p><blockquote><span class="indexdullblue"><a href="javascript:pasteCode('[=0x0022=]I[=0x0027=]ll have a Side of Inline Inventory, Please[=0x0022=][=0x000A=][=0x000A=]Include Flexible Windows by Jon Ingold.[=0x000A=]Include Inline Hyperlinks by Gavin Lambert.[=0x000A=][=0x000A=]Rule for printing the name of something (called item) when the current focus window is the side window:[=0x000A=][=0x0009=]say [=0x0022=][link][printed name of item][as]x [printed name of item][end link][=0x0022=].[=0x000A=][=0x000A=]The side window is a text buffer g-window spawned by the main window.[=0x000A=]The position of the side window is g-placeright.[=0x000A=]The measurement of the side window is 30.[=0x000A=][=0x000A=]Rule for refreshing the side window:[=0x000A=][=0x0009=]try taking inventory.[=0x000A=][=0x000A=]When play begins:[=0x000A=][=0x0009=]open the side window.[=0x000A=][=0x000A=]Every turn:[=0x000A=][=0x0009=]refresh the side window;[=0x000A=][=0x0009=]focus the main window.[=0x000A=][=0x000A=]The Study is a room. In the study is an old oak desk. On the desk is a Parker pen, a letter, an envelope and twenty dollars.[=0x000A=]The description of pen is [=0x0022=]Metallic, with a stainless tip and other trimmings, but otherwise the body is all matte black.  [if carried]You feel fancier just holding it.[=0x0022=][=0x000A=]The description of letter is [=0x0022=]You[=0x0027=]ve read this letter so many times that you can[=0x0027=]t stand to read it again.  And yet, you know you will, eventually.[=0x0022=][=0x000A=]The description of envelope is [=0x0022=]This is the envelope that the letter came in, on that fateful night just a few days ago.[=0x0022=][=0x000A=]The description of twenty dollars is [=0x0022=]A creased twenty dollar bill.  It was in the envelope along with the letter.[=0x0022=][=0x000A=][=0x000A=]Test me with [=0x0022=]take pen/take letter/i/take all[=0x0022=].[=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a> &quot;I'll have a Side of Inline Inventory, Please&quot;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Include Flexible Windows by Jon Ingold.<br>
+     Include Inline Hyperlinks by Gavin Lambert.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Rule for printing the name of something (called item) when the current focus window is the side window:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; say &quot;[link][printed name of item][as]x [printed name of item][end link]&quot;.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> The side window is a text buffer g-window spawned by the main window.<br>
+     The position of the side window is g-placeright.<br>
+     The measurement of the side window is 30.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Rule for refreshing the side window:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; try taking inventory.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> When play begins:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; open the side window.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Every turn:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; refresh the side window;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; focus the main window.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> The Study is a room. In the study is an old oak desk. On the desk is a Parker pen, a letter, an envelope and twenty dollars.<br>
+     The description of pen is &quot;Metallic, with a stainless tip and other trimmings, but otherwise the body is all matte black.  [if carried]You feel fancier just holding it.&quot;<br>
+     The description of letter is &quot;You've read this letter so many times that you can't stand to read it again.  And yet, you know you will, eventually.&quot;<br>
+     The description of envelope is &quot;This is the envelope that the letter came in, on that fateful night just a few days ago.&quot;<br>
+     The description of twenty dollars is &quot;A creased twenty dollar bill.  It was in the envelope along with the letter.&quot;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Test me with &quot;take pen/take letter/i/take all&quot;.</span></blockquote>
+
+    <p> You do need to be a little careful when printing the name of an item from the &quot;printing the name of something&quot; rule itself -- trying to say just &quot;[item]&quot; would re-invoke the same rule and cause a stack overflow. There are some other ways to solve this, and there might be some other caveats if you want to customise the printed name of certain objects in other ways, so this is not a fully robust solution -- that's left as an exercise for another extension to solve.</p>
+
+    <p> Example: ** Magic Words</p>
+
+    <p> There may be times when we want a hyperlink to do something other than paste a straightforward command. In this example, a single hyperlink in the status bar issues different commands depending on what room the player is in. This could have been done by issuing the same command and giving it different contextual rules, but this is a little more mysterious since the player can't type the command themselves.</p>
+
+    <p> This also demonstrates that interrupted input is automatically resumed after clicking a hyperlink, provided that the hyperlink does not actually produce a replacement command. You can see this by clicking the link at least twice in the Laboratory -- subsequent clicks do nothing, and if you have a half-typed command when clicking the link a third or subsequent time then your input is restored. And finally it also demonstrates that printing text during hyperlink processing works as expected.</p>
+
+    <p><blockquote><span class="indexdullblue"><a href="javascript:pasteCode('[=0x0022=]Magic Words[=0x0022=][=0x000A=][=0x000A=]Include Inline Hyperlinks by Gavin Lambert.[=0x000A=][=0x000A=]When play begins:[=0x000A=][=0x0009=]now the right hand status line is [=0x0022=][link]xyzzy[end link][=0x0022=].[=0x000A=][=0x000A=]Laboratory is a room. [=0x0022=]Various odds and ends are scattered about.  The main door to the lab has become jammed shut due to.... reasons -- but you can still get outside via the fire exit.[=0x0022=][=0x000A=][=0x000A=]A beaker is in laboratory. The description is [=0x0022=]An uninteresting glass beaker.[=0x0022=][=0x000A=]Instead of attacking the beaker for the first time, say [=0x0022=]You flail at the beaker, knocking it dangerously close to the edge of the table -- but fortunately it survives.[=0x0022=][=0x000A=]Instead of attacking the beaker:[=0x000A=][=0x0009=]now the beaker is nowhere;[=0x000A=][=0x0009=]say [=0x0022=]The beaker was less fortunate the second time -- it smashes to the ground and shatters into a million tiny fragments.  A swarm of small cleaning bots scurry out of the walls and quickly dispose of the mess, then just as suddenly vanish back from whence they came.[=0x0022=][=0x000A=][=0x000A=]Fire Escape is outside of Laboratory. [=0x0022=]Just outside the emergency exit door of your laboratory (safety alarm conveniently disabled) lies the fire escape landing.  A chill breeze runs through your hair -- the air is quite cold this high up.[=0x0022=][=0x000A=]Instead of examining down in Fire Escape, say [=0x0022=]You[=0x0027=]re pretty sure that[=0x0027=]s a cloud below you.[=0x0022=][=0x000A=]Instead of jumping in Fire Escape for the first time, say [=0x0022=]You[=0x0027=]re not quite that silly -- are you?[=0x0022=][=0x000A=]Instead of jumping in Fire Escape:[=0x000A=][=0x0009=]say [=0x0022=]Apparently you are.[paragraph break]It takes several minutes of plummeting, but you eventually do discover the ground beneath.[=0x0022=];[=0x000A=][=0x0009=]end the story saying [=0x0022=]It does not want to be friends[=0x0022=][=0x000A=][=0x000A=]After answering the player that:[=0x000A=][=0x0009=]say [=0x0022=][We] [say], [=0x0027=][topic understood].[=0x0027=][=0x0022=].[=0x000A=][=0x000A=]A hyperlink command processing rule for [=0x0022=]xyzzy[=0x0022=] when the location is Laboratory:[=0x000A=][=0x0009=]if the beaker is in the location:[=0x000A=][=0x0009=][=0x0009=]rule succeeds with result [=0x0022=]break beaker[=0x0022=];[=0x000A=][=0x0009=]say [=0x0022=]The magic word fizzles aimlessly.[=0x0022=] instead.[=0x000A=][=0x000A=]A hyperlink command processing rule for [=0x0022=]xyzzy[=0x0022=] when the location is Fire Escape:[=0x000A=][=0x0009=]rule succeeds with result [=0x0022=]jump[=0x0022=].[=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a> &quot;Magic Words&quot;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Include Inline Hyperlinks by Gavin Lambert.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> When play begins:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; now the right hand status line is &quot;[link]xyzzy[end link]&quot;.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Laboratory is a room. &quot;Various odds and ends are scattered about.  The main door to the lab has become jammed shut due to.... reasons -- but you can still get outside via the fire exit.&quot;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> A beaker is in laboratory. The description is &quot;An uninteresting glass beaker.&quot;<br>
+     Instead of attacking the beaker for the first time, say &quot;You flail at the beaker, knocking it dangerously close to the edge of the table -- but fortunately it survives.&quot;<br>
+     Instead of attacking the beaker:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; now the beaker is nowhere;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; say &quot;The beaker was less fortunate the second time -- it smashes to the ground and shatters into a million tiny fragments.  A swarm of small cleaning bots scurry out of the walls and quickly dispose of the mess, then just as suddenly vanish back from whence they came.&quot;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Fire Escape is outside of Laboratory. &quot;Just outside the emergency exit door of your laboratory (safety alarm conveniently disabled) lies the fire escape landing.  A chill breeze runs through your hair -- the air is quite cold this high up.&quot;<br>
+     Instead of examining down in Fire Escape, say &quot;You're pretty sure that's a cloud below you.&quot;<br>
+     Instead of jumping in Fire Escape for the first time, say &quot;You're not quite that silly -- are you?&quot;<br>
+     Instead of jumping in Fire Escape:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; say &quot;Apparently you are.[paragraph break]It takes several minutes of plummeting, but you eventually do discover the ground beneath.&quot;;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; end the story saying &quot;It does not want to be friends&quot;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> After answering the player that:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; say &quot;[We] [say], '[topic understood].'&quot;.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> A hyperlink command processing rule for &quot;xyzzy&quot; when the location is Laboratory:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; if the beaker is in the location:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; rule succeeds with result &quot;break beaker&quot;;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; say &quot;The magic word fizzles aimlessly.&quot; instead.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> A hyperlink command processing rule for &quot;xyzzy&quot; when the location is Fire Escape:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; rule succeeds with result &quot;jump&quot;.</span></blockquote>
+
+    <p> Note that &quot;xyzzy&quot; itself is not actually a verb that the parser recognises -- typing it in will not run these rules, only clicking links will. However, other than special cases like this, you should not have links that can't be typed in instead, unless you want to limit your players to only use interpreters that support hyperlinks.</p>
+
+    <p> Example: ** Derangement of the Inner Compass</p>
+
+    <p> In this example, which builds on the Maze example above, we demonstrate a bit of perverseness using a custom hyperlink rule.</p>
+
+    <p> The player can eat a pill, which temporarily thwarts her attempts to move in a given direction; instead of moving the direction indicated, an entirely random direction is substituted. This could have been done by simply changing the going action, but instead the hyperlink has been changed for illustrative purposes (along with the typed action, for consistency).</p>
+
+    <p> The player eventually recovers from the disorienting effects of the drug, and we track this using a variable called derangement.</p>
+
+    <p><blockquote><span class="indexdullblue"><a href="javascript:pasteCode('[=0x0022=]Derangement of the Inner Compass[=0x0022=][=0x000A=][=0x000A=]Include Basic Screen Effects by Emily Short.[=0x000A=]Include Inline Hyperlinks by Gavin Lambert.[=0x000A=][=0x000A=]The derangement is initially zero. Definition: yourself is deranged if the derangement is greater than zero.[=0x000A=][=0x000A=]Every turn when the player is deranged:[=0x000A=][=0x0009=]decrement derangement;[=0x000A=][=0x0009=]if the player is not deranged, handle player recovery.[=0x000A=][=0x000A=]Instead of going nowhere when the player is deranged:[=0x000A=][=0x0009=]say [=0x0022=]You collide with a wall.[=0x0022=][=0x000A=][=0x000A=]To say exits:[=0x000A=][=0x0009=]let count be 0;[=0x000A=][=0x0009=]repeat with way running through all directions:[=0x000A=][=0x0009=][=0x0009=]let destination be the room way from the location;[=0x000A=][=0x0009=][=0x0009=]if destination is nothing, next;[=0x000A=][=0x0009=][=0x0009=]if count is greater than zero, say [=0x0022=], [=0x0022=];[=0x000A=][=0x0009=][=0x0009=]say [=0x0022=][link][way][as]go [way][end link][=0x0022=];[=0x000A=][=0x0009=][=0x0009=]increment count;[=0x000A=][=0x0009=]if count is greater than zero, say [=0x0022=]. [=0x0022=].[=0x000A=][=0x000A=]Hyperlink command processing rule for text (called command) when the player is deranged:[=0x000A=][=0x0009=]if command matches the text [=0x0022=]go [=0x0022=]:[=0x000A=][=0x0009=][=0x0009=]show the glk input event replacement [=0x0022=]go ???[=0x0022=];[=0x000A=][=0x0009=][=0x0009=]replace the current glk input event with text input [=0x0022=]go north[=0x0022=], silently;[=0x000A=][=0x0009=][=0x0009=]rule succeeds with result [=0x0022=][=0x0022=].[=0x000A=][=0x000A=]Before going a direction when the player is deranged:[=0x000A=][=0x0009=]now the noun is a random direction;[=0x000A=][=0x0009=]follow setting action variables.[=0x000A=][=0x000A=]The printed name of a room is [=0x0022=]Maze[=0x0022=]. The description of a room is usually [=0x0022=]A maze of twisty little passages, all alike. Exits: [exits][=0x0022=].[=0x000A=][=0x000A=]There is a red pill in R01. The red pill is edible. The printed name is [=0x0022=][link]red pill[as]eat red pill[end link][=0x0022=]. [=0x0022=][A red pill] lies on the floor here. Perhaps this will give you the mental acuity necessary to see through the maze![=0x0022=][=0x000A=][=0x000A=]Understand [=0x0022=]take [something edible][=0x0022=] as eating when the player holds the noun.[=0x000A=][=0x000A=]Instead of eating the red pill:[=0x000A=][=0x0009=]now the red pill is nowhere;[=0x000A=][=0x0009=]say [=0x0022=]You pop the red pill with great anticipation...[paragraph break][bracket]Press any key[close bracket][=0x0022=];[=0x000A=][=0x0009=]wait for any key;[=0x000A=][=0x0009=]clear screen;[=0x000A=][=0x0009=]say [=0x0022=]You begin to feel odd indeed. Like the synapses aren[=0x0027=]t properly connected. Your body has been divorced from your inner compass![paragraph break][=0x0022=];[=0x000A=][=0x0009=]now the derangement is a random number between 4 and 9;[=0x000A=][=0x0009=]silently try looking.[=0x000A=][=0x000A=]To handle player recovery:[=0x000A=][=0x0009=]say [=0x0022=][line break]The odd feeling fades a bit.[paragraph break][bracket]Press any key[close bracket][=0x0022=];[=0x000A=][=0x0009=]wait for any key;[=0x000A=][=0x0009=]clear screen;[=0x000A=][=0x0009=]say [=0x0022=]You shake your head, feeling it clear. All is right again![paragraph break][=0x0022=];[=0x000A=][=0x0009=]silently try looking;[=0x000A=][=0x0009=]now the red pill is in R01;[=0x000A=][=0x0009=]now the red pill is not handled;[=0x000A=][=0x0009=]if the player is in R01, say [=0x0022=]A tiny concealed chute opens and another [red pill] rolls out.[=0x0022=][=0x000A=][=0x000A=]R01 is a room. R02 is north of R01. R03 is east of R01. R04 is north of R02 and northwest of R03. R05 is northeast of R02. R06 is north of R05. R07 is west of R06. R08 is southwest of R04 and northwest of R02. R09 is east of R06. R10 is northeast of R06. R11 is east of R10. R12 is southeast of R09. R13 is south of R12. R14 is northeast of R12. R14 is southeast of R11. R15 is up from R03. R16 is east of R15. R17 is north of R16. R18 is down from R17. The description of R18 is [=0x0022=]A maze of twisty little passages, all alike. A breeze blows from the northeast. Exits: [exits][=0x0022=][=0x000A=][=0x000A=]Exit is northeast of R18. Exit is outside from R18. The printed name of Exit is [=0x0022=]Outside[=0x0022=]. [=0x0022=]You emerge into sunlight.[=0x0022=] Southwest from Exit is nowhere. Inside from Exit is nowhere. After looking in Exit, end the story saying [=0x0022=]You have won[=0x0022=].[=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a> &quot;Derangement of the Inner Compass&quot;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Include Basic Screen Effects by Emily Short.<br>
+     Include Inline Hyperlinks by Gavin Lambert.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> The derangement is initially zero. Definition: yourself is deranged if the derangement is greater than zero.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Every turn when the player is deranged:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; decrement derangement;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; if the player is not deranged, handle player recovery.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Instead of going nowhere when the player is deranged:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; say &quot;You collide with a wall.&quot;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> To say exits:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; let count be 0;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; repeat with way running through all directions:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; let destination be the room way from the location;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if destination is nothing, next;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if count is greater than zero, say &quot;, &quot;;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say &quot;[link][way][as]go [way][end link]&quot;;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; increment count;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; if count is greater than zero, say &quot;. &quot;.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Hyperlink command processing rule for text (called command) when the player is deranged:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; if command matches the text &quot;go &quot;:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; show the glk input event replacement &quot;go ???&quot;;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; replace the current glk input event with text input &quot;go north&quot;, silently;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; rule succeeds with result &quot;&quot;.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Before going a direction when the player is deranged:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; now the noun is a random direction;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; follow setting action variables.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> The printed name of a room is &quot;Maze&quot;. The description of a room is usually &quot;A maze of twisty little passages, all alike. Exits: [exits]&quot;.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> There is a red pill in R01. The red pill is edible. The printed name is &quot;[link]red pill[as]eat red pill[end link]&quot;. &quot;[A red pill] lies on the floor here. Perhaps this will give you the mental acuity necessary to see through the maze!&quot;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Understand &quot;take [something edible]&quot; as eating when the player holds the noun.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Instead of eating the red pill:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; now the red pill is nowhere;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; say &quot;You pop the red pill with great anticipation...[paragraph break][bracket]Press any key[close bracket]&quot;;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; wait for any key;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; clear screen;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; say &quot;You begin to feel odd indeed. Like the synapses aren't properly connected. Your body has been divorced from your inner compass![paragraph break]&quot;;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; now the derangement is a random number between 4 and 9;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; silently try looking.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> To handle player recovery:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; say &quot;[line break]The odd feeling fades a bit.[paragraph break][bracket]Press any key[close bracket]&quot;;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; wait for any key;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; clear screen;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; say &quot;You shake your head, feeling it clear. All is right again![paragraph break]&quot;;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; silently try looking;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; now the red pill is in R01;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; now the red pill is not handled;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; if the player is in R01, say &quot;A tiny concealed chute opens and another [red pill] rolls out.&quot;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> R01 is a room. R02 is north of R01. R03 is east of R01. R04 is north of R02 and northwest of R03. R05 is northeast of R02. R06 is north of R05. R07 is west of R06. R08 is southwest of R04 and northwest of R02. R09 is east of R06. R10 is northeast of R06. R11 is east of R10. R12 is southeast of R09. R13 is south of R12. R14 is northeast of R12. R14 is southeast of R11. R15 is up from R03. R16 is east of R15. R17 is north of R16. R18 is down from R17. The description of R18 is &quot;A maze of twisty little passages, all alike. A breeze blows from the northeast. Exits: [exits]&quot;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Exit is northeast of R18. Exit is outside from R18. The printed name of Exit is &quot;Outside&quot;. &quot;You emerge into sunlight.&quot; Southwest from Exit is nowhere. Inside from Exit is nowhere. After looking in Exit, end the story saying &quot;You have won&quot;.</span></blockquote>
+
+    <p> We could have instead simply jumbled up the visible link text and the actual command when printing the links while the player is deranged. But this demonstrates how you can have a special rule that only sometimes applies and that alters which command is actually run. We also demonstrate how to display a different command from the one that actually executes as well. (Although that should be used sparingly, as it will likely confuse the player -- but in this case, that was the goal.)</p>
+
+    <p> In this example, we know that the only links available while the player is deranged are movement commands (the only other link was &quot;eat pill&quot;, but that's been cleared away), so we didn't need to check what link was actually clicked in the hyperlink command processing rule, but we did anyway for illustrative purposes.</p>
+
+    <p> Example: **** Systematic Derangement of the Inner Compass</p>
+
+    <p> This example further changes the &quot;Derangement of the Inner Compass&quot; example by using another method of custom link actions; we use some manually numbered link ids, and write a new hyperlink processing rule that will respond when hyperlinks with these IDs are activated. Other hyperlinks will react normally.</p>
+
+    <p> Most of the mechanics of derangement are the same, but instead of picking a direction entirely at random, the hyperlinks behave a bit more systematic, and will instead pick a single direction at the time they are printed and will stick with that if clicked again. (This does mean that at times none of the printed links will ever successfully lead anywhere.) This could have been done simply by setting the link command accordingly, but we needed something to demonstrate reserved ids.</p>
+
+    <p> Also, rather than changing the going action directly, we instead use a different means to intercept typed commands (typed commands still pick a direction entirely at random). Note that this is less robust -- it relies on the links using &quot;go [direction]&quot; while the player types &quot;[direction]&quot;, which gives the verbose player a method of cheating the system; there are ways to fix that (the easiest being to set a flag when a hyperlink command is recognised) but that is left as an exercise for the reader. In most cases you should just use unique and easily recognised link commands rather than doing things this way anyway.</p>
+
+    <p><blockquote><span class="indexdullblue"><a href="javascript:pasteCode('[=0x0022=]Systematic Derangement of the Inner Compass[=0x0022=][=0x000A=][=0x000A=]Include Basic Screen Effects by Emily Short.[=0x000A=]Include Inline Hyperlinks by Gavin Lambert.[=0x000A=][=0x000A=]The derangement is initially zero. Definition: yourself is deranged if the derangement is greater than zero.[=0x000A=][=0x000A=]Every turn when the player is deranged:[=0x000A=][=0x0009=]decrement derangement;[=0x000A=][=0x0009=]if the player is not deranged, handle player recovery.[=0x000A=][=0x000A=]Instead of going nowhere when the player is deranged:[=0x000A=][=0x0009=]say [=0x0022=]You collide with a wall.[=0x0022=][=0x000A=][=0x000A=]To say exits:[=0x000A=][=0x0009=]let count be 0;[=0x000A=][=0x0009=]repeat with way running through all directions:[=0x000A=][=0x0009=][=0x0009=]let destination be the room way from the location;[=0x000A=][=0x0009=][=0x0009=]if destination is nothing, next;[=0x000A=][=0x0009=][=0x0009=]if count is greater than zero, say [=0x0022=], [=0x0022=];[=0x000A=][=0x0009=][=0x0009=]say [=0x0022=][link][way][as]go [way][end link][=0x0022=];[=0x000A=][=0x0009=][=0x0009=]increment count;[=0x000A=][=0x0009=]if count is greater than zero, say [=0x0022=]. [=0x0022=].[=0x000A=][=0x000A=]To say skewed exits:[=0x000A=][=0x0009=]let count be 0;[=0x000A=][=0x0009=]repeat with way running through all directions:[=0x000A=][=0x0009=][=0x0009=]let destination be the room way from the location;[=0x000A=][=0x0009=][=0x0009=]if destination is nothing, next;[=0x000A=][=0x0009=][=0x0009=]if count is greater than zero, say [=0x0022=], [=0x0022=];[=0x000A=][=0x0009=][=0x0009=]say [=0x0022=][set link (a random number between 1 and 12)][way][clear link][=0x0022=];[=0x000A=][=0x0009=][=0x0009=]increment count;[=0x000A=][=0x0009=]if count is greater than zero, say [=0x0022=]. [=0x0022=].[=0x000A=][=0x000A=]Hyperlink id processing rule for a number (called id):[=0x000A=][=0x0009=]if there is an ID of id in the Table of Ways:[=0x000A=][=0x0009=][=0x0009=]if the player is not deranged, rule succeeds with result [=0x0022=] [=0x0022=];[=0x000A=][=0x0009=][=0x0009=]choose row with ID of id in the Table of Ways;[=0x000A=][=0x0009=][=0x0009=]show the glk input event replacement [=0x0022=]go ???[=0x0022=];[=0x000A=][=0x0009=][=0x0009=]replace the current glk input event with text input [=0x0022=]go [direction entry][=0x0022=], silently;[=0x000A=][=0x0009=][=0x0009=]rule succeeds with result [=0x0022=][=0x0022=].[=0x000A=][=0x000A=]After reading a command when the player is deranged:[=0x000A=][=0x0009=]if the player[=0x0027=]s command matches [=0x0022=][direction][=0x0022=]:[=0x000A=][=0x0009=][=0x0009=]say [=0x0022=]Confusion... [=0x0022=];[=0x000A=][=0x0009=][=0x0009=]choose a random row in the Table of Ways;[=0x000A=][=0x0009=][=0x0009=]replace the player[=0x0027=]s command with [=0x0022=]go [direction entry][=0x0022=].[=0x000A=][=0x000A=]Table of Ways[=0x000A=]ID[=0x0009=]direction[=0x000A=]1[=0x0009=][=0x0022=]north[=0x0022=][=0x000A=]2[=0x0009=][=0x0022=]east[=0x0022=][=0x000A=]3[=0x0009=][=0x0022=]south[=0x0022=][=0x000A=]4[=0x0009=][=0x0022=]west[=0x0022=][=0x000A=]5[=0x0009=][=0x0022=]northeast[=0x0022=][=0x000A=]6[=0x0009=][=0x0022=]southeast[=0x0022=][=0x000A=]7[=0x0009=][=0x0022=]southwest[=0x0022=][=0x000A=]8[=0x0009=][=0x0022=]northwest[=0x0022=][=0x000A=]9[=0x0009=][=0x0022=]up[=0x0022=][=0x000A=]10[=0x0009=][=0x0022=]down[=0x0022=][=0x000A=]11[=0x0009=][=0x0022=]inside[=0x0022=][=0x000A=]12[=0x0009=][=0x0022=]outside[=0x0022=][=0x000A=][=0x000A=]The printed name of a room is [=0x0022=]Maze[=0x0022=]. The description of a room is usually [=0x0022=]A maze of twisty little passages, all alike. Exits: [if the player is deranged][skewed exits][otherwise][exits][end if][=0x0022=].[=0x000A=][=0x000A=]There is a red pill in R01. The red pill is edible. The printed name is [=0x0022=][link]red pill[as]eat red pill[end link][=0x0022=]. [=0x0022=][A red pill] lies on the floor here. Perhaps this will give you the mental acuity necessary to see through the maze![=0x0022=][=0x000A=][=0x000A=]Understand [=0x0022=]take [something edible][=0x0022=] as eating when the player holds the noun.[=0x000A=][=0x000A=]Instead of eating the red pill:[=0x000A=][=0x0009=]now the red pill is nowhere;[=0x000A=][=0x0009=]say [=0x0022=]You pop the red pill with great anticipation...[paragraph break][bracket]Press any key[close bracket][=0x0022=];[=0x000A=][=0x0009=]wait for any key;[=0x000A=][=0x0009=]clear screen;[=0x000A=][=0x0009=]say [=0x0022=]You begin to feel odd indeed. Like the synapses aren[=0x0027=]t properly connected. Your body has been divorced from your inner compass![paragraph break][=0x0022=];[=0x000A=][=0x0009=]now the derangement is a random number between 4 and 9;[=0x000A=][=0x0009=]silently try looking.[=0x000A=][=0x000A=]To handle player recovery:[=0x000A=][=0x0009=]say [=0x0022=][line break]The odd feeling fades a bit.[paragraph break][bracket]Press any key[close bracket][=0x0022=];[=0x000A=][=0x0009=]wait for any key;[=0x000A=][=0x0009=]clear screen;[=0x000A=][=0x0009=]say [=0x0022=]You shake your head, feeling it clear. All is right again![paragraph break][=0x0022=];[=0x000A=][=0x0009=]silently try looking;[=0x000A=][=0x0009=]now the red pill is in R01;[=0x000A=][=0x0009=]now the red pill is not handled;[=0x000A=][=0x0009=]if the player is in R01, say [=0x0022=]A tiny concealed chute opens and another [red pill] rolls out.[=0x0022=][=0x000A=][=0x000A=]R01 is a room. R02 is north of R01. R03 is east of R01. R04 is north of R02 and northwest of R03. R05 is northeast of R02. R06 is north of R05. R07 is west of R06. R08 is southwest of R04 and northwest of R02. R09 is east of R06. R10 is northeast of R06. R11 is east of R10. R12 is southeast of R09. R13 is south of R12. R14 is northeast of R12. R14 is southeast of R11. R15 is up from R03. R16 is east of R15. R17 is north of R16. R18 is down from R17. The description of R18 is [=0x0022=]A maze of twisty little passages, all alike. A breeze blows from the northeast. Exits: [exits][=0x0022=][=0x000A=][=0x000A=]Exit is northeast of R18. Exit is outside from R18. The printed name of Exit is [=0x0022=]Outside[=0x0022=]. [=0x0022=]You emerge into sunlight.[=0x0022=] Southwest from Exit is nowhere. Inside from Exit is nowhere. After looking in Exit, end the story saying [=0x0022=]You have won[=0x0022=].[=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a> &quot;Systematic Derangement of the Inner Compass&quot;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Include Basic Screen Effects by Emily Short.<br>
+     Include Inline Hyperlinks by Gavin Lambert.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> The derangement is initially zero. Definition: yourself is deranged if the derangement is greater than zero.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Every turn when the player is deranged:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; decrement derangement;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; if the player is not deranged, handle player recovery.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Instead of going nowhere when the player is deranged:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; say &quot;You collide with a wall.&quot;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> To say exits:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; let count be 0;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; repeat with way running through all directions:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; let destination be the room way from the location;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if destination is nothing, next;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if count is greater than zero, say &quot;, &quot;;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say &quot;[link][way][as]go [way][end link]&quot;;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; increment count;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; if count is greater than zero, say &quot;. &quot;.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> To say skewed exits:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; let count be 0;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; repeat with way running through all directions:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; let destination be the room way from the location;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if destination is nothing, next;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if count is greater than zero, say &quot;, &quot;;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say &quot;[set link (a random number between 1 and 12)][way][clear link]&quot;;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; increment count;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; if count is greater than zero, say &quot;. &quot;.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Hyperlink id processing rule for a number (called id):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; if there is an ID of id in the Table of Ways:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if the player is not deranged, rule succeeds with result &quot; &quot;;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; choose row with ID of id in the Table of Ways;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; show the glk input event replacement &quot;go ???&quot;;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; replace the current glk input event with text input &quot;go [direction entry]&quot;, silently;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; rule succeeds with result &quot;&quot;.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> After reading a command when the player is deranged:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; if the player's command matches &quot;[direction]&quot;:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say &quot;Confusion... &quot;;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; choose a random row in the Table of Ways;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; replace the player's command with &quot;go [direction entry]&quot;.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Table of Ways</span><br>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> ID</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> direction
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> 1</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;north&quot;
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> 2</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;east&quot;
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> 3</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;south&quot;
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> 4</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;west&quot;
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> 5</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;northeast&quot;
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> 6</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;southeast&quot;
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> 7</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;southwest&quot;
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> 8</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;northwest&quot;
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> 9</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;up&quot;
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> 10</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;down&quot;
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> 11</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;inside&quot;
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> 12</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;outside&quot;</span>
+            </td>
+        </tr>
+    </table>
+    </blockquote>
+
+    <p><blockquote><span class="indexdullblue"> The printed name of a room is &quot;Maze&quot;. The description of a room is usually &quot;A maze of twisty little passages, all alike. Exits: [if the player is deranged][skewed exits][otherwise][exits][end if]&quot;.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> There is a red pill in R01. The red pill is edible. The printed name is &quot;[link]red pill[as]eat red pill[end link]&quot;. &quot;[A red pill] lies on the floor here. Perhaps this will give you the mental acuity necessary to see through the maze!&quot;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Understand &quot;take [something edible]&quot; as eating when the player holds the noun.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Instead of eating the red pill:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; now the red pill is nowhere;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; say &quot;You pop the red pill with great anticipation...[paragraph break][bracket]Press any key[close bracket]&quot;;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; wait for any key;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; clear screen;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; say &quot;You begin to feel odd indeed. Like the synapses aren't properly connected. Your body has been divorced from your inner compass![paragraph break]&quot;;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; now the derangement is a random number between 4 and 9;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; silently try looking.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> To handle player recovery:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; say &quot;[line break]The odd feeling fades a bit.[paragraph break][bracket]Press any key[close bracket]&quot;;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; wait for any key;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; clear screen;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; say &quot;You shake your head, feeling it clear. All is right again![paragraph break]&quot;;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; silently try looking;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; now the red pill is in R01;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; now the red pill is not handled;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; if the player is in R01, say &quot;A tiny concealed chute opens and another [red pill] rolls out.&quot;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> R01 is a room. R02 is north of R01. R03 is east of R01. R04 is north of R02 and northwest of R03. R05 is northeast of R02. R06 is north of R05. R07 is west of R06. R08 is southwest of R04 and northwest of R02. R09 is east of R06. R10 is northeast of R06. R11 is east of R10. R12 is southeast of R09. R13 is south of R12. R14 is northeast of R12. R14 is southeast of R11. R15 is up from R03. R16 is east of R15. R17 is north of R16. R18 is down from R17. The description of R18 is &quot;A maze of twisty little passages, all alike. A breeze blows from the northeast. Exits: [exits]&quot;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Exit is northeast of R18. Exit is outside from R18. The printed name of Exit is &quot;Outside&quot;. &quot;You emerge into sunlight.&quot; Southwest from Exit is nowhere. Inside from Exit is nowhere. After looking in Exit, end the story saying &quot;You have won&quot;.</span></blockquote>
+
+    <p> First, we reserve the hyperlink ID numbers 1 through 12 for manual use. This simply assigns an empty text to the first 12 hyperlink commands, i.e. &quot;&quot;. If these are clicked outside of their intended use, they will thus have no effect.</p>
+
+    <p> We then revisit the exit lister from the Maze example above, and implement it in two different ways. The first represents the player while &quot;straight&quot;, and is the same as in the Maze example. The second example, used when the player is &quot;deranged,&quot; assigns random link IDs to the listed directions.</p>
+
+    <p> We then write a new hyperlink processing rule that will supersede the default command-pasting rule. This rule takes effect only when the hyperlink that was clicked has an ID in the set of 12 that we reserved above. The rule pastes text to the command line that indicates the PC's confusion (&quot;go ???&quot;). It is important to note, however, that this command is not entered; if it were, Inform would not understand it, since??? is not a valid direction. Instead, we look the hyperlink ID number up in a table of stored directions and we enter that as a command instead, without printing the real command. (Note that a table is not actually required for this purpose -- we could have used Inform's built in &quot;list of directions&quot; instead. But it's likely that if you wanted to reserve ids you'd have a table of text commands you'd want to use, so we went that route.)</p>
+
+    <p> (Ordinarily, you could just &quot;rule succeeds with result 'x'&quot; to alter the command -- so clicking &quot;north&quot; could end up running &quot;go west&quot; simply by returning that, with no need to bypass the normal action processing. This is much simpler, but also does end up printing the 'real' command. In this example we took the weirder path mostly to demonstrate the advanced features.)</p>
+
+    <p> Note that, in this example, we clear the screen to ensure that the player will never be able to click on our special links during her normal state, nor on the normal links during her deranged state. However, if she were to click on one of the 12 special links while not deranged, there would ordinarily be no result, because the accompanying commands are all empty texts, i.e. &quot;&quot;. But there's one time when the links are still clickable and the player is no longer deranged -- when waiting for a keypress to acknowledge recovery. In this case, clicking on any of the leftover deranged links will acknowledge the keypress prompt, thanks to explicitly returning a non-empty command.</p>
+
+    <p> A companion rule for input redirects the player's typed direction command in the same way. (A better way to do this would be to do something more like the prior example, but we choose to lie in the hole we've dug ourselves...)</p>
+
+    <p></p>
+
+    <p>
+    <!--CONTENT ENDS-->
+</body>
+</html>

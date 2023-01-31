@@ -1,0 +1,5138 @@
+Kerkerkruip Items by Victor Gijsbers begins here.
+
+Use authorial modesty.
+
+Book - Treasures
+
+
+
+
+
+Chapter - Rules for placement
+
+Section - Valuation
+
+Valuation is a kind of value. The valuations are minor, major, epic, unique, special and non-treasure.
+[The number of treasures of each valuation which is placed is set at the end of Dungeon Generation.]
+[Valuation also determines how far from Entrance Hall a treasure will generally be found.]
+
+A thing has a valuation. A thing is usually non-treasure.
+
+A treasure scoring rule (this is the better treasures farther away rule):
+	if considered treasure is major:
+		increase current room score by distance of considered room;
+	if considered treasure is epic:
+		increase current room score by two times distance of considered room;
+	if considered treasure is special:
+		increase current room score by two times distance of considered room.
+
+The verb to value (it values, they value, it is valuing) implies the valuation property.
+
+Section - Mood
+
+A thing has a mood. The mood of a thing is usually non-mood.
+		
+A treasure scoring rule (this is the mood rule):
+	if mood of considered treasure is mood of considered room:
+		increase current room score by 2;
+	if mood of considered treasure is non-mood:
+		say "BUG: forgot to set mood of [considered treasure].".
+
+
+
+
+
+
+Chapter - Treasure packs
+		
+[Suppose we want to put three potions of X together as a treasure. First, we probably don't want to make all tokens of a type into placeable treasures. Second, how do we get three together? The solution to both is the treasure pack: a dummy item that gets placed, and is then turned into whatever it contains.]
+
+A treasure pack is a kind of container.
+
+Dungeon finish rule (this is the remove treasure packs rule):
+	repeat with item running through treasure packs:
+		if item is not off-stage:
+			let X be a random object that contains item;
+			if the location of item contains item, let X be the location of item; 
+			repeat with Y running through things contained by item:
+				move Y to X;
+			remove item from play.
+
+
+
+
+
+
+Chapter - Basic item properties
+
+Section - Incorruptible
+
+[Incorruptible objects are immune from all effects adversely affecting them.]
+
+A thing can be corruptible or incorruptible. A thing is usually corruptible.
+
+Section - Hidden identity
+
+[Some objects appear to be A, but are actually B. In order to do handle this smoothly, including references to it, we just use object A, and replace it with object B as soon as it is used.]
+
+The non-thing is a thing. [This is a dummy object.]
+The non-thing is incorruptible.
+
+A thing has a thing called the hidden identity. The hidden identity of a thing is usually the non-thing.
+Definition: a thing (called item) is hidden-identifiable if hidden identity of item is not the non-thing.
+
+A thing can be superhidden-identity. A thing is usually not superhidden-identity. [Use this for items that are always used by others, and shoulnd't function as their hidden identity. It bypasses the "hidden identities also revealed by enemies rule".]
+
+Report wearing:
+	unless the hidden identity of the noun is the non-thing:
+		now the hidden identity of the noun is curse-identified;
+		now the player is wearing the hidden identity of the noun;
+		set pronouns from the hidden identity of the noun;
+		remove the noun from play;
+		say "As soon as you put on [the noun], your flesh crawls. You realise that [the noun] [are] actually [bold type][the hidden identity of the noun][roman type]!" instead.
+
+Report readying:
+	unless the hidden identity of the noun is the non-thing:
+		remove the noun from play;
+		now the hidden identity of the noun is curse-identified;
+		now the player carries the hidden identity of the noun;
+		now the hidden identity of the noun is readied;
+		set pronouns from the hidden identity of the noun;
+		say "As soon as you ready [the noun], a chilling feeling goes through your arms. [The noun] [are] actually [bold type][the hidden identity of the noun][roman type]!" instead.
+
+Last dungeon interest rule (this is the hidden identities also revealed by enemies rule):
+	repeat with item running through wearable hidden-identifiable not superhidden-identity things:
+		if a person wears item:
+			let guy be a random person wearing item;
+			now guy is wearing hidden identity of item;
+			remove item from play;
+	repeat with item running through hidden-identifiable weapons:
+		if item is readied:
+			let guy be a random person enclosing item;
+			now guy carries hidden identity of item;
+			now hidden identity of item is readied;
+			now item is not readied;
+			remove item from play.
+	
+
+Section - Cursed
+
+A thing can be cursed. A thing is usually not cursed.
+A thing can be curse-identified. A thing is usually not curse-identified.
+
+Understand the curse-identified property as describing a thing.
+
+Definition: a thing (called item) is improperly-curse-identified if item is not cursed and item is curse-identified.
+
+Before looking or taking inventory (this is the fix curse-idenfication before showing lists of items rule):
+	repeat with item running through improperly-curse-identified things:
+		now item is not curse-identified.
+
+
+
+Section - Cursed clothing
+
+Check taking off something:
+	if the noun is cursed:
+		say "A curse makes the item unmovable." instead.
+
+After wearing a cursed not curse-identified thing:
+	 say "As soon as you put on [the noun], a chill goes through your body. You realise that [the noun] [are] cursed and cannot be removed with normal means.";
+	now the noun is curse-identified.
+		
+Before printing the name of a cursed curse-identified thing:
+	say "cursed ".
+
+Before printing the plural name of a cursed curse-identified thing:
+	say "cursed ".
+
+A treasure placement rule (this is the sometimes curse clothing rule):
+	repeat with item running through corruptible clothing:
+		[ Do the last random chance early so that the number of random numbers generated doesn't depend on the difficulty ]
+		let r be a random number between 1 and 5;
+		if a random chance of 1 in 5 succeeds and a random chance of difficulty in 5 succeeds:
+			now item is cursed;
+			if generation info is true, say "* Cursed [item].";			
+		if item is cursed and r is 1:
+			now item is curse-identified.
+			
+Section - Cursed weapons
+
+After readying something cursed:
+	say "As soon as you ready [the noun], a chill goes through your body. You realise that [the noun] [are] cursed and that you cannot let go.";
+	now the noun is curse-identified.
+
+Check readying (this is the cannot ready when holding a cursed weapon rule):
+	if the player wields a cursed weapon:
+		let item be a random cursed weapon wielded by the player;
+		say "You cannot ready a new weapon until you have gotten rid of [the item]." instead.
+
+Check dropping (this is the cannot drop a cursed readied weapon rule):
+	if the noun is a readied cursed weapon wielded by the player:
+		say "You cannot let go of [the noun]." instead.
+
+Check putting it on (this is the cannot put on a cursed readied weapon rule):
+	if the noun is a cursed weapon wielded by the player:
+		say "You cannot let go of [the noun]." instead.
+		
+Check inserting it into (this is the cannot insert a cursed readied weapon rule):
+	if the noun is a cursed weapon wielded by the player:
+		say "You cannot let go of [the noun]." instead.
+
+A treasure placement rule (this is the sometimes curse weapons rule):
+	repeat with item running through corruptible weapons:
+		unless item is a natural weapon:
+			[ Do the last random chance early so that the number of random numbers generated doesn't depend on the difficulty ]
+			let r be a random number between 1 and 4;
+			if a random chance of 1 in 10 succeeds and a random chance of difficulty in 5 succeeds:
+				now item is cursed;
+				if generation info is true, say "* Cursed [item].";
+			if item is cursed and r is 1:
+				now item is curse-identified.
+
+
+
+
+
+
+
+Chapter - Essences
+
+Section - The Essence Kind
+
+An essence is a kind of thing. Understand "essence" and "small" and "metal" and "bottle" as an essence.
+An essence is usually magical.
+An essence is usually iron.
+An essence is usually advanced.
+
+Inhaling is an action applying to one carried thing. Understand "inhale [thing]" as inhaling.
+Does the player mean inhaling an essence: it is very likely.
+
+Check inhaling:
+	if the noun is a package of ment:
+		try snorting the noun instead;
+	if the noun is not an essence:
+		take no time;
+		say "Only magical essences can be consumed through inhaling." instead.
+
+First carry out inhaling:
+	say "You uncork the little bottle and push its mouth deep into your [one of]left[or]right[at random] nostril, pressing the other side of your nose closed with your fingers. You inhale deeply -- and with a burning sensation, the magical essence flows up and into your brain.[run paragraph on]"
+
+Last carry out inhaling:
+	remove the noun from play.
+
+Instead of opening an essence:
+	take no time;
+	say "The minute amount of magical essence would immediately evaporate and be lost forever. To use an essence, [italic type]inhale[roman type] it.".
+
+Instead of drinking an essence:
+	take no time;
+	say "The gaseous essence is no fluid, and cannot be drunk. You could, however, [italic type]inhale[roman type] it.".
+
+
+Section - Essence of Caution (minor)
+
+The essence of caution is a minor essence. The indefinite article is "the".
+The essence of caution is magical.
+The essence of caution is iron.
+
+
+A person can be cautious. A person is usually not cautious.
+
+The description of the essence of caution is "This small metal bottle contains the magical essence of caution, distilled from the brain of [one of]the only councilor of Hargo the Furious of Yahvinna who lived to die of old age[or]the famous Algirian general al-Hawabi, who fought only two battles in a forty year campaign -- and won both[or]an unknown rogue, whose exploits would be legendary if only they were known[sticky random]. When inhaled, it confers this mindset to the user. [italic type](+3 defence bonus when retreating, -1 spirit.)[roman type]".
+
+Carry out inhaling the essence of caution:
+	say " The decision to do this suddenly seems exceedingly rash.";
+	now the player is cautious;
+	decrease spirit score of the player by 1.
+	
+An attack modifier rule (this is the caution grants better retreat rule):
+	if the global defender is the player and the player is retreater:
+		if the player is cautious:
+			say " - 3 (essence of caution)[run paragraph on]";
+			decrease the attack strength by 3.
+
+Status attribute rule (this is the cautious status rule):
+	if player is cautious:
+		if long status is true:
+			say "You are [bold type]cautious[roman type]: +3 defence bonus when retreating.[line break][run paragraph on]".
+
+Section - Essence of Rage (minor)
+
+The essence of rage is a minor essence. The indefinite article is "the".
+The essence of rage is magical.
+The essence of rage is iron.
+
+The description of the essence of rage is "This small metal bottle contains the magical essence of rage, distilled from the brain of [one of]a berserk warrior from the far north[or]Charles IV of Averoigne, who, at the moment of his greatest victory, was poisoned by the brother he had always cherished[sticky random]. When inhaled, it confers this mindset to the user. [italic type](+2 body, +2 spirit, -2 mind, +1 attack, unable to retreat.)[roman type]".
+
+Carry out inhaling the essence of rage:
+	say " You will show them all that you are not to be toyed with!";
+	increase body score of the player by 2;
+	increase spirit score of the player by 2;
+	decrease mind score of the player by 2;
+	increase melee of the player by 1;
+	now the player is enraged.
+
+
+
+Section - Essence of Patience (minor)
+
+The essence of patience is a minor essence. The indefinite article is "the".
+The essence of patience is magical.
+The essence of patience is iron.
+
+A person can be patient. A person is usually not patient.
+
+The description of the essence of patience is "This small metal bottle contains the magical essence of patience, distilled from the brain of [one of]a High Priest of Yahvinna who endured fifty-three years of torture just to hear the news of his enemy's death[or]the author of 'A Careful Calculation of the first Twenty Thousand Decimals of the Squared Circle'[sticky random]. When inhaled, it confers this mindset to the user. [italic type](Whenever you wait, the tension is halved.)[roman type]".
+
+Carry out inhaling the essence of patience:
+	say " You relish the smell. There is no need to hurry.";
+	now the player is patient.
+
+Carry out waiting:
+	if player is patient:
+		now tension is tension divided by 2.
+
+First report waiting:
+	if player is patient:
+		say "You wait patiently. You feel no tension." instead.
+
+Status attribute rule (this is the patient status rule):
+	if player is patient:
+		if long status is true:
+			say "You are [bold type]patient[roman type]: when you wait, the tension is halved.[line break][run paragraph on]".
+
+
+Section - Essence of Greed (major)
+
+The essence of greed is a major essence. The indefinite article is "the".
+The essence of greed is magical.
+The essence of greed is iron.
+
+A person can be greedy. A person is usually not greedy.
+
+The description of the essence of greed is "This small metal bottle contains the magical essence of greed, distilled from the bones of the legendary thief Mithaldo, whose hunger for treasure was so great that he let himself be swallowed by a dragon in order to get at the jewels the beast had eaten through the centuries. When the dragon was slain some decades later, Mithaldo's bony fingers were found in the dragon's stomach, still clinging to a large diamond. [italic type](When absorbing a soul, the player receives much more health, but permanently loses one or more points of defence.)[roman type]".
+
+Carry out inhaling the essence of greed:
+	say " You want to absorb souls. Lots of souls. Now.";
+	now the player is greedy.
+	
+The greed-health-variable is a number that varies.	
+	
+First absorbing a power:
+	now greed-health-variable is permanent health of the player.
+
+Last absorbing a power (called the granted power):
+	if the player is greedy:
+		let greed bonus be permanent health of the player minus greed-health-variable;
+		increase permanent health of the player by greed bonus;
+		let guy be a random person that grants the granted power;
+		let n be 0;
+		if level of guy is less than 3:
+			now n is 1;
+		otherwise:
+			now n is 2;
+		decrease defence of the player by n;
+		say "Your greed causes you to absorb an extra [greed bonus] health, but it also gives you a permanent -[n] defence penalty.[paragraph break]".
+		
+Status attribute rule (this is the greedy status rule):
+	if player is greedy:
+		if long status is true:
+			say "You are [bold type]greedy[roman type]: absorbing a power decreases your defence, but grants you more health.[line break][run paragraph on]".	
+
+Section - Essence of Addiction (epic)
+
+The essence of addiction is an epic essence. The indefinite article is "the".
+The essence of addiction is magical.
+The essence of addiction is iron.
+
+The description of the essence of addiction is "This small metal bottle contains the magical essence of addiction, distilled from the brain of a ment user. When inhaled, it greatly increases you addiction to ment -- increasing both the positive effects of a high and the negative effects of a low.".
+
+Carry out inhaling the essence of addiction:
+	say " You feel very [if ment timer is less than 1]low[otherwise]high[end if]!";
+	increase ment addiction by 2;
+	if ment addiction is 6:
+		award achievement Sixth heaven.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Chapter - Clothing
+
+Section - Clothing kinds
+
+Clothing is a kind of thing. Clothing is usually wearable.
+Does the player mean wearing clothing: it is very likely.
+
+A necklace is a kind of clothing.
+A hat is a kind of clothing.
+A shirt is a kind of clothing.
+A cloak is a kind of clothing.
+Shoes are a kind of clothing.
+Trousers are a kind of clothing.
+A belt is a kind of clothing.
+Gauntlets are a kind of clothing.
+A mask is a kind of clothing. [Includes masks, goggles, and anything else that covers the face.]
+A suit is a kind of clothing. [Suits include hat, shirt, shoes, trousers, gauntlets. Furthermore, you cannot put on a suit if you wear a cursed cloak or a cursed belt.]
+A shield is a kind of clothing.  A shield has a number called the block bonus. The block bonus of a shield is usually 1.
+
+Last check wearing a necklace:
+	if the player wears a necklace:
+		let item be a random necklace worn by the player;
+		take no time;
+		say "You will first have to take off [the item]." instead. 
+
+Last check wearing a hat:
+	if the player wears a hat:
+		let item be a random hat worn by the player;
+		take no time;
+		say "You will first have to take off [the item]." instead;
+	[abide by the suit check rule.]
+		
+Last check wearing a shirt:
+	if the player wears a shirt:
+		let item be a random shirt worn by the player;
+		take no time;
+		say "You will first have to take off [the item]." instead;
+	abide by the suit check rule.
+
+Last check taking off a shirt:
+	if the player wears a cursed cloak:
+		let item be a random cloak worn by the player;
+		take no time;
+		say "You will first have to uncurse [the item]." instead.
+		
+Last check wearing a cloak:
+	if the player wears a cloak:
+		let item be a random cloak worn by the player;
+		take no time;
+		say "You will first have to take off [the item]." instead. 
+		
+Last check wearing shoes:
+	if the player wears shoes:
+		let item be a random shoes worn by the player;
+		take no time;
+		say "You will first have to take off [the item]." instead;
+	[abide by the suit check rule.]
+		
+Last check wearing a trousers:
+	if the player wears a trousers:
+		let item be a random trousers worn by the player;
+		take no time;
+		say "You will first have to take off [the item]." instead;
+	abide by the suit check rule. 
+		
+Last check wearing a belt:
+	if the player wears a belt:
+		let item be a random belt worn by the player;
+		take no time;
+		say "You will first have to take off [the item]." instead. 
+		
+Last check wearing gauntlets:
+	if the player wields at least one cursed weapon:
+		let item be a random cursed weapon wielded by the player;
+		take no time;
+		say "You will first have to uncurse [the item]." instead;
+	if the player wears gauntlets:
+		let item be a random gauntlets worn by the player;
+		take no time;
+		say "You will first have to take off [the item]." instead.
+	[abide by the suit check rule]. 
+
+Last check taking off gauntlets:
+	if the player wields at least one cursed weapon:
+		let item be a random cursed weapon wielded by the player;
+		take no time;
+		say "You will first have to uncurse [the item]." instead.
+				
+Last check wearing a mask:
+	if the player wears a mask:
+		let item be a random mask worn by the player;
+		take no time;
+		say "You will first have to take off [the item]." instead. 
+
+Last check wearing a suit:
+[	if the player wears a hat:
+		let item be a random hat worn by the player;
+		take no time;
+		say "You will first have to take off [the item]." instead; ]
+	if the player wears a shirt:
+		let item be a random shirt worn by the player;
+		take no time;
+		say "You will first have to take off [the item]." instead;
+	if the player wears a cursed cloak:
+		let item be a random cloak worn by the player;
+		take no time;
+		say "You will first have to uncurse [the item]." instead; 
+[	if the player wears shoes:
+		let item be a random shoes worn by the player;
+		take no time;
+		say "You will first have to take off [the item]." instead; ]
+	if the player wears a trousers:
+		let item be a random trousers worn by the player;
+		take no time;
+		say "You will first have to take off [the item]." instead; 
+	if the player wears a cursed belt:
+		let item be a random belt worn by the player;
+		take no time;
+		say "You will first have to uncurse [the item]." instead;
+[	if the player wears gauntlets:
+		let item be a random gauntlets worn by the player;
+		take no time;
+		say "You will first have to take off [the item]." instead;]
+	if the player wears a cursed shield:
+		let item be a random shield worn by the player;
+		take no time;
+		say "You will first have to uncurse [the item]." instead;		
+	abide by the suit check rule. 
+	
+This is the suit check rule:
+	if the player wears a suit:
+		let item be a random suit worn by the player;
+		take no time;
+		say "You will first have to take off [the item].";
+		rule fails.
+
+Last check taking off a suit:
+	if the player wears a cursed cloak:
+		let item be a random cloak worn by the player;
+		take no time;
+		say "You will first have to uncurse [the item]." instead;
+	if the player wears a cursed belt:
+		let item be a random belt worn by the player;
+		take no time;
+		say "You will first have to uncurse [the item]." instead;
+	if the player wears a cursed shield:
+		let item be a random shield worn by the player;
+		take no time;
+		say "You will first have to uncurse [the item]." instead;
+
+Last check wearing a shield:
+	if the player wears a shield:
+		let item be a random shield worn by the player;
+		take no time;
+		say "You will first have to take off [the item]." instead. 
+
+Does the player mean taking off something worn:
+	it is very likely.
+	
+Does the player mean taking off something not worn:
+	it is very unlikely.	
+
+Does the player mean wearing something worn:
+	it is very unlikely.
+
+Does the player mean wearing something not worn:
+	it is very likely.
+
+
+Chapter - Necklaces
+
+Section - Tormenting necklace (major)
+
+The tormenting necklace is a major necklace.
+The tormenting necklace is deathly.
+The tormenting necklace is iron.
+
+The description of the tormenting necklace is "This monstrous necklace is made of shards of glass, fossilised teeth, broken points of daggers and thorns. It is imbued with a magic that deals paralysing pain to those who are wounded in combat. [italic type](The necklace is activated in two circumstances: when the wearer is dealt damage by an attack, and when an attack by the wearer deals damage to someone else. The person who has been dealt damage will writhe in agony and must skip the next [if blood magic level of tormenting necklace is 0]turn. Feeding the necklace will increase this to two turns[otherwise]two turns[end if].)[roman type]".
+
+The blood magic cost of tormenting necklace is 15.
+The blood magic level of tormenting necklace is 0.
+The blood magic maximum of tormenting necklace is 1.
+
+The tormenting necklace is advanced.
+
+A person has a number called the necklace-torment-counter. The necklace-torment-counter of a person is usually 0.
+Definition: a person (called guy) is necklace-torment-affected if necklace-torment-counter of guy is not 0.
+
+Aftereffects rule (this is the tormenting necklace rule):
+	if the global defender wears the tormenting necklace or the global attacker wears the tormenting necklace:
+		if the total damage is greater than 0:
+			now necklace-torment-counter of global defender is (1 + blood magic level of tormenting necklace).
+
+To writhe is a verb.
+
+This is the necklace of torment rule:
+	if necklace-torment-counter of the main actor is not 0 and combat status is combat:
+		say "[The main actor] [writhe] in [bold type]agony[roman type]!";
+		decrease necklace-torment-counter of main actor by 1;
+		now combat status is concluding.
+
+The necklace of torment rule is listed before the the main actor chooses an action rule in the combat round rules.
+
+Every turn when at least one person is necklace-torment-affected:
+	if combat status is peace:
+		repeat with guy running through necklace-torment-affected people:
+			now necklace-torment-counter of guy is 0.
+
+[Torment should be canceled outside combat.]
+
+Section - Miranda's amulet (monster)
+
+Miranda's amulet is a necklace. Miranda's amulet is proper-named.
+Miranda's amulet is magical.
+Miranda's amulet is silver.
+
+The description of Miranda's amulet is "This silver amulet, shaped like the sun and imbued with magic, was given to Miranda by her father when she set out on a life of adventure. It will reflect ranged attacks back to the attacker 10% of the time.".
+
+Last check an actor hitting when the noun wears Miranda's amulet (this is the Miranda's amulet rule):
+	if the global attacker weapon is ranged:
+		unless reflection-attack is true: [No infinite reflection cascade!]
+			if a random chance of 1 in 10 succeeds:
+				if noun is not runner or noun is not player:
+					say "The magic of Miranda's amulet [bold type]reflects[roman type] the attack back to [the actor]!";
+				otherwise:
+					say "[The actor] [attack] you, but Miranda's amulet [bold type]reflects[roman type] the attack back!";
+				now reflection-attack is true;
+				try the actor hitting the actor instead.
+
+
+Section - Periapt of prophecy (epic)
+
+The periapt of prophecy is an epic necklace.
+The periapt of prophecy is magical.
+The periapt of prophecy is silver.
+
+The description of the periapt of prophecy is "In most circumstances, this tiny amulet hanging from a delicate silver necklace is merely decorative. But when you are under the influence of ment, it will reveal its powers of precognition.".
+
+The periapt attack strength is a number that varies.
+
+This is the periapt rule:
+	if the player wears the periapt of prophecy and the ment timer is greater than 0:
+		if the combat status is combat:
+			if the main actor is the player:
+				if tome-of-law-number is not 0:
+					now periapt attack strength is tome-of-law-number;
+				otherwise:
+					now the periapt attack strength is a roll of the dice;
+				say "If you choose to attack, your performance will be [if periapt attack strength is less than 4]weak[otherwise if periapt attack strength is less than 8]average[otherwise if periapt attack strength is not 20]strong[otherwise]heroic[end if].".
+
+The periapt rule is listed before the main actor chooses an action rule in the combat round rules.
+
+A special set attack strength rule (this is the periapt attack roll rule):
+	if the player wears the periapt of prophecy and the ment timer is greater than 0:
+		if the main actor is the player:
+			now attack strength is periapt attack strength.
+
+Section - Addict's amulet (special)
+
+[Part of the special addict's starting kit.]
+
+The addict's amulet is a cursed curse-identified necklace.
+The addict's amulet is magical.
+The addict's amulet is silver.
+
+The description of the addict's amulet is "Silver cunningly wrought in the likeness of the fruit of kings, the fruit from which the divine substance known as ment is made. It has been imbued with a magic that makes the wearer's trances last several turns longer.".
+
+[The amulet's logic is inside the "have the ment kick in routine".]
+
+
+
+Chapter - Hats
+
+Section - Crown of the empire (minor)
+
+The crown of the empire is a minor hat. The indefinite article is "the". 
+The crown of the empire is civilised.
+The crown of the empire is iron.
+
+A treasure placement rule (this is the crown of empire can be crown of Hargo rule):
+	if a random chance of 1 in 5 succeeds:
+		now the hidden identity of the crown of the empire is the crown of Hargo.
+
+A mind bonus rule (this is the mind bonus of the crown of the empire rule):
+	if the test subject wears the crown of the empire:
+		increase faculty bonus score by 2.
+
+The description of the crown of the empire is "This harsh and heavy crown was once worn by one of the emperors of Yahvinna, a line of rulers known for their unbending willpower. [italic type](It grants a +2 mind bonus.)[roman type]".
+
+Section - Crown of Hargo (cursed)
+
+The crown of Hargo is a cursed curse-identified hat. The indefinite article is "the". 
+The crown of Hargo is iron.
+The crown of Hargo is tricky.
+
+An attack modifier rule (this is the crown of Hargo rule):
+	if the global defender wears the crown of Hargo:
+		say " + 1 (defender is overconfident)[run paragraph on]";
+		increase the attack strength by 1.
+
+Chance to win rule when the global defender wears the crown of Hargo (this is the CTW crown of Hargo bonus rule):
+	increase the chance-to-win by 1.
+
+A mind bonus rule (this is the mind bonus of crown of Hargo rule):
+	if the test subject wears the crown of Hargo:
+		increase faculty bonus score by 4.
+
+The description of Crown of Hargo is "Of all the emperors of Yahvinna, Hargo was the most arrogant and the most obstinate. This was both the foundation of his military successes and the cause of his eventual downfall. [italic type](The crown grants a +4 mind bonus, but a -1 penalty to defence.)[roman type]".
+
+Section - Diadem of the priestess (minor)
+
+The diadem of the priestess is a minor hat. The indefinite article is "the". 
+The diadem of the priestess is religious.
+The diadem of the priestess is silver.
+
+A spirit bonus rule (this is the spirit bonus of the diadem of the priestess rule):
+	if the test subject wears the diadem of the priestess:
+		increase faculty bonus score by 2.
+
+A treasure placement rule (this is the diadem of the priestess can be devil's diadem rule):
+	if a random chance of 1 in 4 succeeds:
+		now the hidden identity of the diadem of the priestess is the demon lord's diadem.
+
+The description of the diadem of the priestess is "This graceful diadem has been used thousands of times in rites for gods now long dead. [italic type](It grants a +2 spirit bonus.)[roman type]".
+
+Section - The demon lord's diadem (cursed)
+
+The demon lord's diadem is a cursed curse-identified hat. The indefinite article is "the". 
+The demon lord's diadem is silver.
+The demon lord's diadem is tricky.
+
+A spirit bonus rule (this is the spirit bonus of the demon lord's diadem rule):
+	if the test subject wears the demon lord's diadem:
+		increase faculty bonus score by 4.
+
+The description of the demon lord's diadem is "Everyone agreed that this magical diadem helped Marcia Gracewood rise to the rank of high priestess, but only her enemies believed the rumours that if was gifted to her by a powerful demon lord in exchange for her eternal service. The manner of her 'death' proved them right in the most dramatic way possible. [italic type](It grants a +4 spirit bonus. As for the demon... well... who knows?)[roman type]".
+
+The demon-diadem-number is a number that varies.
+
+A treasure placement rule (this is the demon's diadem calibration rule):
+	if a random chance of 1 in 4 succeeds:
+		now the demon-diadem-number is 0;
+	otherwise:
+		now the demon-diadem-number is a random number between 10 and 80.
+
+Every turn when the player wears the demon lord's diadem:
+	if the main actor is the player:
+		if the demon-diadem-number is not 0:
+			decrease the demon-diadem-number by 1;
+			if the demon-diadem-number is 0:
+				do the claim of the demon.
+
+To do the claim of the demon:
+	remove demon lord's diadem from play;
+	say "With a sudden flash, a [bold type]demoness carrying a bright red whip[roman type] appears in the room. She gestures, and the silver diadem you've been wearing disappears. 'I don't think you'll need that anymore,' she states in a harsh whisper. 'Seeing how you will be spending the rest of eternity serving my master.'";
+	move the demonic mistress to the location.
+
+
+Section - Metastasio's hat (minor)
+
+Metastasio's hat is a minor hat. The description of Metastasio's hat is "Metastasio envisioned whole armies that would lob grenades at the enemy, and he designed this hat to help soldiers succeed. When worn, it decreases the chance that grenades get thrown back at you by 15%.". Metastasio's hat is proper-named.
+Metastasio's hat is alchemical.
+Metastasio's hat is cloth.
+
+Grenade returning rule (this is the Metastasio's hat rule):
+	if player wears Metastasio's hat:
+		decrease grenade-return-percentage by 15.
+
+
+Section - Crown of the god-king (major)
+
+The crown of the god-king is a major hat. The indefinite article is "the". 
+The crown of the god-king is religious.
+The crown of the god-king is iron.
+
+The blood magic cost of crown of the god-king is 5.
+The blood magic level of crown of the god-king is 0.
+The blood magic maximum of crown of the god-king is 99.
+
+The description of the crown of the god-king is "This terrible crown, made of magical iron needles, can grant immense powers to its wearer. But they have to be bought at a high price. [italic type](Current bonus: +[blood magic level of the crown of the god-king] to body, mind and spirit. This bonus will increase to +[blood magic level of the crown of the god-king + 1] if you feed the crown [current blood cost of crown of the god-king] blood.)[roman type]".
+
+A faculty bonus rule (this is the crown of the god-king bonus rule):
+	if the test subject wears the crown of the god-king:
+		increase faculty bonus score by blood magic level of the crown of the god-king.
+
+
+Section - The inquisitor's hood (Nomos)
+
+[Gifted by Nomos.]
+
+The inquisitor's hood is a hat. The description of the inquisitor's hood is "Dedication to Nomos requires discipline and concentration. To avoid being distracted by the blows of their enemies and the screams of tortured heretics, the inquisitors wear these magical hoods. This particular one gives you a +[current hood bonus]% chance of remaining concentrated when damaged. It also allows you to maintain concentration when paying blood magic costs. [italic type]Feeding [current blood cost of the inquisitor's hood] blood to the hood will temporarily add 15% to the chance of remaining concentrated[roman type]."
+
+The blood magic cost of the inquisitor's hood is 5.
+The minimum blood timeout of the inquisitor's hood is 10.
+The maximum blood timeout of the inquisitor's hood is 15.
+The blood magic maximum of the hood is 8.
+
+To decide what number is the current hood bonus:
+	Decide on 20 + (blood magic level of the inquisitor's hood * 15);
+
+A remain concentrated rule (this is the inquisitor's hood concentration rule):
+	if global concentration loser wears the inquisitor's hood:
+		increase remain concentrated chance by the current hood bonus.
+
+The standard carry out feeding rule does nothing if the player wears the hood.
+
+[TODO: roll this behavior into general damage and concentration systems]
+
+Carry out feeding when the inquisitor's hood is worn (this is the keep concentration when feeding rule):
+	let n be current blood cost of the noun;
+	decrease health of the player by n; [bypassing damage system, of course]
+	if health of the player is less than 1:
+		say "You feed [n] health to [the noun], which is more than your body can handle.";
+		end the story saying "Foolish people should not dabble in blood magic.";
+	otherwise:		
+		say "You feed [n] health to [the noun], [if the noun is blood-awakened]making it active[otherwise]increasing [their] power[end if][if concentration of the player is greater than 0] (maintaining concentration)[end if]!";
+		increase blood magic level of the noun by 1;
+		reset the blood timer of the noun;
+		increase total blood magic by n;
+		if total blood magic is greater than 49:
+			award achievement Give them blood.
+
+
+Section - Antler of the Tungausy Shaman (major)
+
+The antler of the Tungausy shaman is a major hat. The indefinite article is "the".
+The antler of the Tungausy shaman is religious.
+The antler of the Tungausy shaman is silver.
+
+Rarity of the antler of the Tungausy shaman is 2.
+
+The blood magic cost of antler of the tungausy shaman is 2.
+The blood magic level of antler of the tungausy shaman is 0.
+The blood magic maximum of antler of the tungausy shaman is 8.
+
+The description of the antler of the tungausy shaman is "Resembling the antler of a deer, this piece of jewelry is used by the Tungausy shaman to have the spirits help him in his quest. The spirits may be mischievous, however, so be careful. [italic type](It has a [50 + 5 times blood magic level of the antler of the tungausy shaman] percent chance to correctly predict the attack strength of the opponent[unless blood magic level of the antler of the tungausy shaman is blood magic maximum of the antler of the tungausy shaman]. You can increase this chance by 5 percent if you feed the antler [current blood cost of the antler of the tungausy shaman] blood[end if].) [roman type]".
+
+antlerattackstrength is a number that varies.
+
+This is the antlerattack rule:
+	if the player wears the antler of the tungausy shaman:
+		if the combat status is player choosing and the player is at-React:
+			if tome-of-law-number is not 0:
+				now the antlerattackstrength is tome-of-law-number;
+			otherwise:
+				now the antlerattackstrength is a roll of the dice;
+			let x be 50;
+			increase x by 5 times the blood magic level of antler of the tungausy shaman;
+			if a random  chance of x in 100 succeeds:
+				say "The shamanic spirits predict that [the main actor]'s attack will be [if antlerattackstrength is less than 4]weak[otherwise if antlerattackstrength is less than 8]average[otherwise if antlerattackstrength is not 20]strong[otherwise]heroic[end if].";
+			otherwise:
+				say "The shamanic spirits predict that [the main actor]'s attack will be [one of]weak[or]average[or]strong[or]heroic[purely at random].".
+
+The antlerattack rule is listed before the player chooses an action or reaction rule  in the combat round rules.
+
+A special set attack strength rule (this is the antler attack roll rule):
+	if the player wears the antler of the tungausy shaman:
+		if the main actor is not the player:
+			now attack strength is antlerattackstrength.
+
+
+
+Section - Pale phylactery
+
+The pale phylactery is an epic hat.
+The pale phylactery is magical.
+The pale phylactery is silver.
+
+The description of the pale phylactery is "A small silver amulet inlaid with colourless stones that were not formed on our planet. When worn on the forehead, the phylactery gives you a +10% chance of remaining concentrated when damaged. But its true power is only revealed when you are under the influence of ment: for in that state, it ensures that you lose only one level of concentration when you attack.".
+
+A remain concentrated rule (this is the pale phylactery concentration rule):
+	if global concentration loser wears the pale phylactery:
+		increase remain concentrated chance by 10.
+
+After an actor hitting (this is the alternative lose concentration after attacking rule):
+	unless (global attacker is the player and player wears pale phylactery and ment timer is greater than 0):
+		now the concentration of the global attacker is 0;
+	otherwise:
+		now concentration of the global attacker is (concentration of the global attacker - 1);
+		if concentration of the global attacker < 0:
+			now the concentration of the global attacker is 0;
+	continue the action.
+
+The lose concentration after attacking rule is not listed in any rulebook.
+
+
+
+
+Chapter - Shirts
+
+Section - Smoky robe (minor)
+
+The smoky robe is a minor shirt.
+The smoky robe is alchemical.
+The smoke robe is cloth.
+
+The description of the smoky robe is "This robe is adorned with smoke-like, cloudy patterns.".
+
+An attack modifier rule (this is the smoky robe is better when smoke rule):
+	if the global defender wears the smoky robe:
+		unless the global attacker is smoke immune:
+			if the smoke penalty of the location is not 0:
+				let n be the smoke penalty of the location;
+				say " - [n] (the smoky robe is hard to see)[run paragraph on]";
+				decrease the attack strength by n.
+
+Chance to win rule (this is the CTW smoky robe penalty rule):
+	if the global defender wears the smoky robe:
+		unless the global attacker is smoke immune:
+			if the smoke penalty of the location is not 0:
+				let n be the smoke penalty of the location;
+				decrease the chance-to-win by n.
+				
+Section - Bodice of physique (minor)
+
+The bodice of physique is a minor shirt. The indefinite article is "the". 
+The bodice of physique is civilised.
+The bodice of physique is cloth.
+
+A body bonus rule (this is the body bonus of the bodice of physique rule):
+	if the test subject wears the bodice of physique:
+		increase faculty bonus score by 2.
+
+The description of the bodice of physique is "This magical item is an elegant green and black garment, stiffened with whalebone and laced in front. It makes the wearer's body supple and responsive as never before. [italic type](It grants a +2 body bonus.)[roman type]".	
+
+A treasure placement rule (this is the bodice of physique can be bodice of breathlessness rule):
+	if a random chance of 1 in 6 succeeds:
+		now the hidden identity of the bodice of physique is the bodice of breathlessness.
+
+Section - Bodice of breathlessness (cursed)
+
+The bodice of breathlessness is a cursed curse-identified shirt. The indefinite article is "the".
+The bodice of breathlessness is cloth.
+The bodice of breathlessness is tricky.
+
+A body bonus rule (this is the body bonus of the bodice of breathlessness rule):
+	if the test subject wears the bodice of breathlessness:
+		let m be (concentration of the test subject * 2);
+		let n be (2 - m);
+		increase faculty bonus score by n.
+
+The description of the bodice of breathlessness is "This magical item is an elegant green and black garment, stiffened with whalebone and laced in front. While it makes the wearer's body supple and responsive as never before, it has a hidden defect: when you concentrate, the lace tightens and pushes the breath from your body.[paragraph break][italic type](The bodice of breathlessness grants a +2 body bonus when not concentrated, but this is reduced by 2 for every level of concentration. Thus, you will have a -4 body penalty when you have 3 levels of concentration.)[roman type]".
+
+To decide whether breathlessness is the case:
+	if the player wears the bodice of breathlessness:
+		decide yes;
+	otherwise:
+		decide no.
+
+Report concentrating when breathlessness is the case (this is the bodice of breathlessness reporting rule):
+	if the concentration of the actor is:
+		-- 1:
+			say "You are now mildly concentrated. The lace of your bodice tightens uncomfortably.";
+		-- 2:
+			say "You are now quite concentrated.  Your bodice tightens even more, making it hard to breath.";
+		-- 3:
+			say "You are now maximally concentrated.  You struggle to get air as the bodice almost crushes your ribs.";
+	rule fails.
+
+[
+[Too boring right now, because there are almost no flaming weapons.]
+
+Section - Asbestos vest (minor)
+
+The asbestos vest is a minor shirt. The description of asbestos vest is "While it doesn't provide much protection against weapons, this vest could be useful for its fire resistance. It bears the signs of the Montenoir alchemist guild.".
+Asbestos vest is alchemical.
+Asbestos vest is other-material.
+
+Heat resistance rule (this is the asbestos vest heat resistance rule):
+	if test subject wears asbestos vest:
+		increase temp-heat by 4.]
+
+
+Section - Monk's robe (monster)
+
+The monk's robe is a shirt. The monk's robe is cloth.
+
+The description of monk's robe is "A plain and simple brown robe. Years of being worn by deniers of the flesh has instilled ascetic virtues in the fabric. [italic type](-2 body, +2 mind, +2 spirit)[roman type]".
+
+A body bonus rule (this is the body penalty of the monk's robe rule):
+	if the test subject wears the monk's robe:
+		decrease faculty bonus score by 2.
+
+A mind bonus rule (this is the mind bonus of the monk's robe rule):
+	if the test subject wears the monk's robe:
+		increase faculty bonus score by 2.		
+
+A spirit bonus rule (this is the spirit bonus of the monk's robe rule):
+	if the test subject wears the monk's robe:
+		increase faculty bonus score by 2.
+
+
+
+Section - Mendele's robe (major)
+
+Mendele's robe is a major shirt. Mendele's robe is proper-named, alchemical and cloth.
+
+The description of Mendele's robe is "The mad monk Mendele gained notoriety for his fanatical belief in the malleability of the human body. This cloak is one of his most insane creations: whenever the wearer absorbs a soul, his or her body will mutate in unpredictable ways.".
+
+Last absorbing a power (called the granted power):
+	if the player wears Mendele's robe:
+		say "The robe of the mad monk lights up in a flash of mutagenic glow.[paragraph break]";
+		follow the mutating rules.
+
+
+Section - Robe of the Dead Mage (epic)
+
+[Concentration not broken on hit; damage increased by 33% per point of concentration.]
+
+The robe of the dead mage is an epic shirt.
+The robe of the dead mage is magical.
+The material of the robe of the dead mage is cloth.
+The indefinite article of the robe of the dead mage is "the".
+The robe of the dead mage is advanced.
+
+The description of the robe of the dead mage is "Dominique, marquis of Savon, one of the great mages of his generation, was so fed up with losing his concentration when he was hit that he developed this robe. It increases the wearer's defence by 1; and when the wearer is damaged, he will not lose his concentration. However, the protection comes from his life force, and the damage dealt to him is increased by 25% for every level of concentration. They say nobody ever died with as much attention as Dominique.".
+
+A general damage multiplier rule when the victim wears the robe of the dead mage (this is the robe of the dead mage damage multiplier rule):
+	if concentration of the global defender is:
+		-- 1:
+			add damage comment "+ 25% (robe of the dead mage)";
+			increase the total damage by the total damage divided by 4;
+		-- 2:
+			add damage comment "+ 50% (robe of the dead mage)";
+			increase the total damage by the total damage divided by 2;		
+		-- 3:
+			add damage comment "+ 75% (robe of the dead mage)";
+			let n be the total damage divided by 4;
+			now the total damage is the total damage times 2;
+			decrease the total damage by n;
+		-- 4:
+			add damage comment "+ 100% (robe of the dead mage)";
+			now the total damage is the total damage times 2.
+
+An attack modifier rule (this is the robe of the dead mage protects you rule):
+	if the global defender wears the robe of the dead mage:
+		say " - 1 (robe of the dead mage)[run paragraph on]";
+		decrease the attack strength by 1.		
+
+Chance to win rule (this is the CTW robe of the dead mage rule):
+	if the global defender wears the robe of the dead mage:
+		decrease the chance-to-win by 1.
+
+A remain concentrated rule (this is the robe of the dead mage concentration rule):
+	if global concentration loser wears the robe of the dead mage:
+		increase remain concentrated chance by 1000.
+
+
+An AI action selection rule for an at-Act person (called P) (this is the robe of the dead mage discourages attacking rule):
+	if chosen target wears the robe of the dead mage:
+		choose row with an Option of the action of P attacking the chosen target in the Table of AI Action Options;
+		decrease the Action Weight entry by the concentration of the chosen target.
+
+Section - Gown of the red court (Nomos)
+
+The gown of the red court is a shirt. The gown of the red court is cloth. The description of the gown of the red court is "Citizens of Montenoir who have been accused of a capital offence are always judged by a special court comprised of their female relatives. Foreigners often scoff at this system, assuming that nobody is ever convicted. They do not understand that the love of law is greater than the love of family, and that the sight of one's own mother or wife in the blood red judge's gown will make even the most hardened criminals tremble. [italic type](Wearing the gown gives you [the gown's current bonus in words] level[s] of dreadful presence. You can feed the gown [current blood cost of the gown of the red court] blood to temporarily increase the bonus.)[roman type]".
+
+To decide which number is the/-- gown's current bonus:
+	decide on 1 + the blood magic level of the gown of the red court;
+
+A dread rule (this is the gown of the red court dread rule):
+	if test subject wears gown of the red court:
+		increase dread dummy by the gown's current bonus.
+
+The blood magic cost of the gown of the red court is 2.
+The blood magic maximum of the gown of the red court is 5.
+The minimum blood timeout of the gown of the red court is 4.
+The maximum blood timeout of the gown of the red court is 10.
+
+
+Section - Armour of thorns (major)
+
+[Armour of thorns, nails, spikes, spears.]
+
+The armour of thorns is a major shirt. The armour of thorns is civilised and iron.
+Understand "thorns" and "nails" and "spikes" and "spears" as the armour of thorns.
+The indefinite article of the armour of thorns is "the".
+
+The description of the armour of thorns is "This leather shirts is covered with [if blood magic level of armour of thorns is 1]tiny thorns[otherwise if blood magic level of armour of thorns is 2]small nails[otherwise if blood magic level of armour of thorns is 3]large spikes[otherwise]huge spears[end if]. Anyone who successfully attacks you in melee will suffer [blood magic level of the armour of thorns] damage[unless blood magic level of the armour of thorns is blood magic maximum of the armour of thorns]. Feeding the armour will increase this by 1[end if]."
+
+Before printing the name of the armour of thorns:
+	if blood magic level of the armour of thorns is 1:
+		now printed name of armour of thorns is "armour of thorns";
+	if blood magic level of the armour of thorns is 2:
+		now printed name of armour of thorns is "armour of nails";
+	if blood magic level of the armour of thorns is 3:
+		now printed name of armour of thorns is "armour of spikes";
+	if blood magic level of the armour of thorns is 4:
+		now printed name of armour of thorns is "armour of spears".
+
+The blood magic cost of the armour of thorns is 6.
+The blood magic level of the armour of thorns is 1.
+The blood magic maximum of the armour of thorns is 4.
+
+An aftereffects rule (this is the armour of thorns rule):
+	if the global attacker came too close to the armour of thorns:
+		if total damage is greater than 0:
+			let n be blood magic level of the armour of thorns;
+			if n is greater than 0:
+				say "The [armour of thorns] [if blood magic level of armour of thorns is 1]scratches[otherwise if blood magic level of armour of thorns is 2]pricks[otherwise if blood magic level of armour of thorns is 3]hurts[otherwise]impales[end if] [the global attacker] for [run paragraph on]";
+				deal n points of physical damage;
+				have armour of thorns inflict damage on global attacker;
+				say "[if the global attacker is dead], killing [regarding the global attacker][them][end if].";
+
+A dungeon interest rule (this is the sometimes feed armour of thorns rule):
+	if a random chance of 1 in 10 succeeds:
+		increase blood magic level of the armour of thorns by 1;
+	if a random chance of 1 in 10 succeeds:
+		increase blood magic level of the armour of thorns by 1.
+
+
+Chapter - Cloaks
+
+Section - Fuligin cloak (epic)
+
+The fuligin cloak is an epic cloak. [An homage to the Book of the New Sun.]
+The fuligin cloak is civilised.
+The fuligin cloak is cloth.
+
+The description of the fuligin cloak is "Fuligin, the colour that is darker than black. Wearing this powerful cloak allows you to become hidden and sneak through the dungeon undetected. It also makes you somewhat resistant to radiant damage.".
+
+Every turn when the player wears the fuligin cloak (this is the blend into shadows rule):
+	update the combat status; [TODO: is this safe? "hate is present" might be safer]
+	if combat status is peace:
+		if the player is not hidden and the player is alive and the player is the main actor:
+			hide.
+
+After taking off the fuligin cloak when the player is hidden:
+	now player is not hidden;
+	say "You reveal your presence to the world.".
+	
+A remove specific damage rule (this is the fuligin cloak removes radiant damage rule):
+	if the victim wears the fuligin cloak:
+		if damage-material is radiance:
+			remove 2 points of physical damage with reason "fuligin cloak".
+
+Section - Cloak of reflection (minor)
+
+The cloak of reflection is a minor cloak.
+The cloak of reflection is magical.
+The cloak of reflection is cloth.
+
+The cloak of reflection is advanced.
+
+The blood magic cost of cloak of reflection is 4.
+The blood magic level of cloak of reflection is 0.
+The blood magic maximum of cloak of reflection is 3.
+
+To decide which number is the cloak of reflection percentage:
+	let n be 15 * blood magic level of cloak of reflection;
+	increase n by 15;
+	decide on n.
+
+The description of the cloak of reflection is "A piece of silk with thousands of small magical mirrors sewn on it, this cloak is both beautiful and useful. It will reflect ranged attacks back to the attacker [cloak of reflection percentage]% of the time[if blood magic level of cloak of reflection is not blood magic maximum of cloak of reflection]. This will increase by 15% if the cloak is fed[end if].".
+
+Last check an actor hitting when the noun wears the cloak of reflection (this is the cloak of reflection rule):
+	if the global attacker weapon is ranged:
+		unless reflection-attack is true: [No infinite reflections]
+			let n be 15 * (1 + blood magic level of cloak of reflection);
+			if a random chance of n in 100 succeeds:
+				if noun is not runner or noun is not player:
+					say "[if the noun is the player]The[otherwise][regarding the noun][Possessive][end if] cloak of reflection [bold type]reflects[roman type] the attack back to [the actor]!";
+				otherwise:
+					say "[The actor] [attack] you, but the cloak of reflection [bold type]reflects[roman type] the attack back!";
+				now reflection-attack is true;
+				try the actor hitting the actor instead.
+
+Last starting kit setup for Malygris (this is the Malygris sometimes wears the cloak of reflection rule):
+	if a random chance of 1 in 10 succeeds:
+		if Malygris does not wear a cloak:
+			now Malygris wears the cloak of reflection;
+			if generation info is true, say "* Malygris wears the cloak of reflection.".
+
+
+Section - Psychedelic cloak (minor)
+
+The psychedelic cloak is a minor cloak.
+The psychedelic cloak is magical.
+The psychedelic cloak is cloth.
+
+The description of the psychedelic cloak is "[if ment timer is 0]Despite its name, it is just a boring square cloak.[otherwise]Bright patches of colour move chaotically across the psychedelic cloak. Groovy! [italic type](The distracting presence of this object is bound to temporarily lower the mind scores of those who see it -- you excluded.)[roman type][end if]"
+
+A mind bonus rule (this is the psychedelic cloak rule):
+	if the test subject can see the psychedelic cloak and test subject is not the player:
+		if the player wears the psychedelic cloak and the ment timer is not 0:
+			decrease faculty bonus score by (1 + ment bonus).
+
+Last carry out snorting a package of ment:
+	if the player wears the psychedelic cloak:
+		say "Your cloak suddenly becomes very psychedelic!".
+
+[Last carry out rules fires even when silently taking off, e.g., when doing "drop cloak". First report rule stops normal report rule.]
+
+Last carry out wearing the psychedelic cloak:
+	if the ment timer is not 0:
+		say "As you fasten it, the cloak suddenly becomes very psychedelic!".
+	
+First report wearing the psychedelic cloak:
+	if the ment timer is not 0:
+		rule succeeds.
+	
+Last carry out taking off the psychedelic cloak:
+	if the ment timer is not 0:
+		say "The cloak returns to its dull, grey state.".
+	
+First report taking off the psychedelic cloak:
+	if the ment timer is not 0:
+		rule succeeds.
+	
+
+Chapter - Shoes
+
+Section - Soft slippers (minor)
+
+The soft slippers are minor shoes. The soft slippers are plural-named. The description of the soft slippers is "A pair of comfortable slippers, looking like cute [one of]pink[or]yellow[or]mint green[or]baby blue[or]turquoise[sticky random] [one of]mindslugs[or]Tooloos[or]blood apes[or]armadillos[or]demons of rage[or]minotaurs[or]abysses of the soul[or]imps[sticky random]. They will allow you to remain hidden more easily.".
+Soft slippers are civilised.
+
+Detection rule (this is the soft slippers detection rule):
+	if the player wears the soft slippers:
+		say " + 1 (soft slippers)[run paragraph on]";
+		increase the hiding roll by 1.
+
+
+Section - Boots of the war dance (major)
+
+The boots of the war dance are major shoes. The boots of the war dance are plural-named. The indefinite article of the boots of the war dance is "the". The description of boots of the war dance is "These graceful boots, supposedly made by the master of Algir, will grant you impeccable footwork in combat. [italic type](They give you a +1 bonus to dodging.)[roman type]".
+Boots of the war dance are civilised.
+
+This is the boots of the wardance rule:
+	if the global defender is at dodge and the global defender wears the boots of the war dance:
+		if the numbers boolean is true:
+			say " - 1 (boots of the war dance)[run paragraph on]";
+		decrease the attack strength by 1.
+
+The boots of the wardance rule is listed before the standard tension attack modifier rule in the attack modifier rules.
+		
+A treasure placement rule (this is the war dance can be wandering rule):
+	if a random chance of 1 in 4 succeeds:
+		now the hidden identity of the boots of the war dance is boots of wandering.
+
+Section - Boots of wandering (cursed)
+
+The boots of wandering are cursed curse-identified shoes. The boots of wandering are plural-named. The indefinite article of boots of wandering is "the". The description of boots of wandering is "These graceful boots were supposed to grant their wearer impeccable footwork in combat. Unfortunately, when a prince of Algir wore these boots in the War of the Woods, they were cursed by a dying druid. They are now exceedingly unsafe.".
+
+The boots of wandering are tricky.
+
+Before doing anything when the player wears the boots of wandering (this is the boots of wandering weirdness rule):
+	if the player can move:
+		unless the combat state of the player is at-React:
+			if a random chance of 1 in 40 succeeds:
+				if at least one room is adjacent to the location of the player:
+					let place2 be the location of the player; [needed because of a bug in inform]
+					let place be a random room which is adjacent to place2;
+					let way be the direction from the location of the player to place;
+					say "Before you can do anything, the [bold type]boots of wandering[roman type] attempt to run [way]!";
+					now forced-action is true;
+					try going way instead.
+
+
+Section - Sandals of the prophet (major)
+
+The sandals of the prophet are major shoes. The sandals of the prophet are plural-named. The indefinite article of the sandals of the prophet is "the". The description of the sandals of the prophet is "Simple sandals, but they have been imbued with special significance ever since the great prophet Habamia was beaten to death with them. Wearing these slippers will significantly increase the probability of your god intervening on your behalf -- interventions will come as if your favour were 3 points higher."
+Sandals of the prophet are religious.
+
+An intervention bonus rule (this is the sandals of the prophet intervention bonus rule):
+	if intervention-guy wears the sandals of the prophet:
+		if intervention-guy worships intervention-god:
+			increase intervention-bonus by 3.
+			
+A treasure placement rule (this is the sandals can be heretical rule):
+	if a random chance of 1 in 4 succeeds:
+		now the hidden identity of the sandals of the prophet is sandals of the heretic.			
+
+Section - Sandals of the heretic (cursed)
+
+The sandals of the heretic are cursed curse-identified shoes. The sandals of the heretic are plural-named. The indefinite article of the sandals of the heretic is "the". The description of the sandals of the heretic is "Simple sandals, but they have been imbued with special significance ever since the infamous heretic Volter used them to trample a high priest. Wearing these slippers will make it impossible to sacrifice powers to the gods, but does grant you 2 resistance against divine damage.".
+
+The sandals of the heretic are tricky.
+
+Check sacrificing (this is the cannot sacrifice when wearing heretical sandals rule):
+	if the player wears the sandals of the heretic:
+		take no time;
+		say "The gods will not listen to your prayers while you are wearing such heretical footwear." instead.
+		
+A remove specific damage rule (this is the sandals of the heretic rule):
+	if victim wears sandals of the heretic:
+		remove 2 points of divine damage with reason "sandals of the heretic".
+
+Chapter - Trousers
+
+
+Chapter - Belts
+
+
+Chapter - Gauntlets
+
+Section - Gauntlets allow parrying with fists
+
+An attack modifier rule (this is the gauntlet attack modifier rule):
+	if the global defender wears gauntlets:
+		if the global defender is at parry:
+			if global defender weapon is a natural weapon:
+				let n be parry-with bonus of the global defender weapon;
+				let m be 0 minus n;
+				if m is greater than 0:
+					say " - [m] (gauntlets help when parrying with fists)[run paragraph on]";
+					decrease the attack strength by m.
+
+[TODO: give gauntlets their own parry-with bonus?]
+
+Section - Gauntlets of grip (major)
+
+The gauntlets of grip are major gauntlets. The gauntlets of grip are plural-named. The indefinite article is "the".
+The gauntlets of grip are civilised.
+The gauntlets of grip are iron.
+The description of the gauntlets of grip is "These sturdy armoured gloves make it easier to parry your opponent's attacks.".
+
+This is the gauntlets of grip rule:
+	if the global defender is at parry and the global defender wears the gauntlets of grip:
+		unless global defender weapon is a natural weapon:
+			if the gauntlets of grip are not rusted:
+				if the numbers boolean is true:
+					say " - 1 (gauntlets of grip)[run paragraph on]";
+				decrease the attack strength by 1.
+
+The gauntlets of grip rule is listed before the dodge defence bonus rule in the attack modifier rules.
+
+A treasure placement rule (this is the grip can be greasy rule):
+	if a random chance of 1 in 6 succeeds:
+		now the hidden identity of the gauntlets of grip is greasy gauntlets.
+
+Section - Greasy gauntlets (cursed)
+
+The greasy gauntlets are cursed curse-identified gauntlets. The greasy gauntlets are plural-named. The indefinite article is "the".
+The greasy gauntlets are iron.
+The description of the greasy gauntlets is "These armoured gloves are supernaturally slick and greasy. It might be hard to hold on to a weapon while wearing them.".
+
+The greasy gauntlets are tricky.
+
+Last aftereffects rule (this is the greasy gauntlets rule):
+	Let the item be whatever the global attacker weapon struck;
+	[TODO: why don't we drop our weapon when parried or blocked?]
+	if the item is the global defender and the global attacker weapon is not projectile:
+		test strength 6 grip of global attacker against grease;
+	if the item is the global defender weapon:
+		if the parry-against bonus of the global attacker weapon is greater than -1:
+			test strength 4 grip of global defender against grease.
+
+To test strength (grip strength - a number) grip of (guy - a person) against grease:
+	if guy wears the greasy gauntlets and a random chance of 1 in (grip strength) succeeds:
+		let item be the current weapon of guy;
+		unless item is a natural weapon:
+			now item is not readied;
+			move item to the location of guy;
+			if guy is the player:
+				say "Because of the force of the blow and the slipperiness of the gauntlets, you [bold type]drop [the item][roman type].";
+			otherwise:
+				say "[The guy] [drop] [the item].".
+
+Section - Gauntlet of attraction (monster)
+
+[Angel of Mercy]
+
+To wrest is a verb.
+To retain is a verb.
+To try is a verb.
+To reach is a verb.
+
+The gauntlet of attraction is gauntlets. The indefinite article is "the".
+The gauntlet of attraction is radiance. The description is "This single gauntlet encircles the hand with rings of force. When the wearer is unarmed, it gives a -2 parry bonus and may sometimes capture the weapon it parries - but it also halves the damage done by the wearer's fist."
+
+This is the gauntlet of attraction attack modifier rule:
+	if the global defender wears the gauntlet of attraction:
+		if the global defender is at parry:
+			if global defender weapon is a natural weapon:
+				say " - [2] (gauntlet attracts weapons)[run paragraph on]";
+				decrease the attack strength by 2.
+
+The gauntlet of attraction attack modifier rule substitutes for the gauntlet attack modifier rule when the global defender wears the gauntlet of attraction.
+
+The parry defence bonus rule does nothing when the global defender wears the gauntlet of attraction and the global defender weapon is a natural weapon.
+
+[This phrase returns yes if the wearer of the gauntlet has the ability to steal weapons. It does not check if they parried successfully, or if they parried at all - that's done in the aftereffects.]
+
+To decide whether the gauntlet can steal (item - an object) for (guy - a person):
+	if item is not a weapon:
+		no;
+	unless the guy wears the gauntlet of attraction:
+		no;
+	if the current weapon of the guy is an artificial weapon:
+		no;
+	if the item is a natural weapon or the item is tethered:
+		[TODO: this could mean grappling]
+		no;
+	yes.
+
+A weapon has an object called the previous owner.
+
+An aftereffects rule (this is the gauntlet of attraction steals weapons rule):
+	Let the loot be whatever the global defender weapon struck;
+	If the gauntlet can steal the loot for the global defender:
+		[TODO: parrying natural and tethered weapons causes grappling]
+		say "The gauntlet of attraction grips [the loot]![paragraph break][The global attacker] [try] to hold on. [run paragraph on]";
+		Let the attraction-force be the final body of the global defender;
+		now roller is the global defender;
+		increase the attraction-force by a roll of the dice;
+		if the loot is cursed:
+			decrease attraction-force by 3;
+		if the global attacker wears the greasy gauntlets: [a hack! need a rulebook?]
+			increase attraction-force by 3;
+		if the global attacker wears the gauntlets of grip:
+			decrease attraction-force by 3;
+		test the body of the global attacker against the attraction-force;
+		if test result is false:
+			say " [The global defender] [bold type][wrest] [the loot] away[roman type] from [the global attacker][if the loot is curse-identified], uncursing it in the process[end if]!";
+			now the previous owner of the loot is the global attacker;
+			now the global defender carries the loot;
+			now the loot is not readied;
+			now the loot is not cursed;
+			now the loot is not curse-identified;
+		otherwise:
+			say " [The global attacker] [bold type][retain] [the loot][roman type] and the gauntlet lets go!".
+
+Report an actor parrying when the actor wears the gauntlet of attraction (this is the report parrying with the gauntlet of attraction rule):
+	Let the loot be the current weapon of the main actor;
+	if the gauntlet can steal the loot for the actor:
+		say "[The actor] [reach] out a gauntleted hand to stop [the loot].";
+		rule succeeds.
+	
+A specific damage multiplier rule when the global attacker wears the gauntlet of attraction (this is the gauntlet softens blows rule):
+	if damage-by-hitting is true and the global attacker weapon is a natural weapon:
+		multiply primary damage by 50 percent with reason "gauntlet softens blows".
+
+Chapter - Masks
+[Includes masks, goggles, and anything else that covers the face.]
+
+[Section - War mask (minor)
+
+The war mask is a minor mask. The description of the war mask is "This warlike metal mask is painted with the holy symbols of Aite, and is a sacred object of her religion.".
+The war mask is religious.
+The war mask is iron.
+
+A beloved of Aite rule (this is the war mask Aite rule):
+	if the test subject wears the war mask:
+		rule succeeds.]
+
+Section - Blindfold (minor)
+
+The blindfold is a minor mask. The description of the blindfold is "Wearing this blindfold will prevent you from seeing anything.".
+The blindfold is civilised.
+The blindfold is cloth.
+
+A perception rule (this is the blindfold rule):
+	if the test subject wears the blindfold:
+		rule fails.
+
+Section - Goggles of acuity (major)
+
+The goggles of acuity are a major mask. They are plural-named. The indefinite article is "the". 
+The goggles of acuity are civilised.
+The goggles of acuity are leather.
+
+A treasure placement rule (this is the acuity can be blindness rule):
+	if a random chance of 1 in 6 succeeds:
+		now the hidden identity of the goggles of acuity is the goggles of blindness.
+
+A faculty bonus rule (this is the faculty bonus of the goggles of acuity rule):
+	if the test subject wears the goggles of acuity and the test subject is using eyes:
+		increase faculty bonus score by 1.
+
+The description of the goggles of acuity is "These goggles have been magically enchanted to make the wearer more aware of anything that happens around him. They were originally made for the marquis of Savon, who wasted his eyes poring over ancient tomes in his ill-lit library, but their use extends far beyond that of reading glasses. [italic type](They grant a +1 bonus to body, mind and spirit if you are using your eyes to see.)[roman type]".
+
+Section - Goggles of blindness (cursed)
+
+The goggles of blindness are a cursed curse-identified mask. They are plural-named. The indefinite article is "the". 
+The goggles of blindness are leather.
+The goggles of blindness are tricky.
+
+A perception rule (this is the goggles of blindness rule):
+	if the test subject wears the goggles of blindness:
+		rule fails.
+
+blindness-goggles-secret-known is a truth state that varies.
+
+To decide whether we share the blindness-goggles secret:
+	if blindness-goggles-secret-known is true, yes;
+	if the player wears the goggles of blindness and the player is perceptive:
+		now blindness-goggles-secret-known is true;
+		yes;
+	no.
+
+The description of goggles of blindness is "These goggles prevent the wearer from seeing anything at all. A free-for-all fight between condemned criminals forced to wear such goggles is one of the most beloved shows during the Feast of Flesh; you smile as you recall the spectacle[if we share the blindness-goggles secret]. However, they grant a +1 bonus to body, mind, and spirit if you can still see when you're wearing them[end if].".
+
+A faculty bonus rule (this is the goggles of blindness surprise bonus rule):
+	if the test subject wears the goggles of blindness and the test subject is perceptive:
+		increase faculty bonus score by 1.
+
+Last report wearing the goggles of blindness (this is the reveal blindness-goggles secret rule):
+	if the player is perceptive:
+		say "Your eyeless vision combines with the magic of the goggles to give you heightened senses! (+1 bonus to body, mind and spirit.)";
+		now blindness-goggles-secret-known is true.
+		
+Last mutating rule (this is the reveal eyeless with goggles secret rule):
+	if blindness-goggles-secret-known is true:
+		make no decision;
+	if the player wears the goggles of blindness and the player is perceptive:
+		say "The magic of the goggles combines with your eyeless vision to give you heightened senses! (+1 bonus to body, mind, and spirit.)";
+		now blindness-goggles-secret-known is true.
+	
+Chapter - Suits
+
+[Suits include hat, shirt, shoes, trousers, gauntlets. Furthermore, you cannot put on a suit if you wear a cursed cloak or a cursed belt.]
+
+Section - Suit of plate mail (major)
+
+The suit of plate mail is a major suit.
+Suit of plate mail is alchemical.
+Suit of plate mail is iron.
+
+Constriction prevention of suit of plate mail is 3.
+
+The description of the suit of plate mail is "Functional rather than beautiful, this suit has been made for a true warrior. It will protect you from harm, although it also slows you down. [italic type](-2 physical damage, -1 attack, -2 body.)[roman type]".
+			
+A remove specific damage rule (this is the plate mail physical damage reduction rule):
+	if the victim is wearing the suit of plate mail:
+		remove 2 points of physical damage with reason "plate mail".
+			
+An attack modifier rule (this is the plate mail attack modifiers rule):
+	if the global defender wears suit of plate mail:
+		if the global defender is retreater or the global defender is runner:
+			say " + 2 (defender slowed down by plate mail)[run paragraph on]";
+			increase the attack strength by 2;
+	if the global attacker wears suit of plate mail:
+		say " - 1 (slowed down by plate mail)[run paragraph on]";
+		decrease the attack strength by 1.
+
+A body bonus rule (this is the body penalty of the suit of plate mail rule):
+	if the test subject wears the suit of plate mail:
+		decrease faculty bonus score by 2.
+
+Chance to win rule (this is the CTW plate mail rule):
+	if the global attacker wears suit of plate mail:
+		decrease the chance-to-win by 1.
+
+An attack modifier rule (this is the plate mail running rule):
+	if the global defender is the player and the player carries the suit of plate mail:
+		if the player is retreater or the player is runner:
+			say " + 2 (you are slowed down by carrying a suit of plate mail)[run paragraph on]";
+			increase the attack strength by 2.
+
+An AI action selection rule for a person (called P) (this is the concentrate to compensate for the suit of plate mail rule):
+	if the chosen target is wearing the suit of plate mail:
+		choose row with an Option of the action of P concentrating in the Table of AI Action Options;
+		increase the Action Weight entry by 3.
+
+Section - Suit of dragon armour (epic)
+
+The suit of dragon armour is an epic suit.
+Suit of dragon armour is magical.
+Suit of dragon armour is dragon skin.
+Understand "armor" as the suit of dragon armour.
+
+[The difficulty level of suit of dragon armour is 3.]
+
+The blood magic cost of suit of dragon armour is 3.
+The blood magic level of suit of dragon armour is 2.
+The blood magic maximum of suit of dragon armour is 99.
+
+The description of the suit of dragon armour is "This lovely suit has been made of dragon leather, the most durable and most magical substance known to man. Whenever the wearer is hit, the suit absorbs between 0 and [blood magic level of suit of dragon armour] damage. The maximum will increase by 1 when the suit is fed. Additionally, the armour makes the wearer highly resistant to heat.".
+			
+A remove specific damage rule (this is the dragon armour heat resistance rule):
+	if victim is wearing the suit of dragon armour:
+		remove 4 points of heat damage with reason "dragon armour protects against heat".
+
+[The internal heat of the suit of dragon armour is 4.]
+
+A remove specific damage rule (this is the dragon armour damage reduction rule):
+	if the victim is wearing the dragon armour:
+		let n be a random number between 0 and blood magic level of suit of dragon armour;
+		remove n points of physical damage with reason "dragon armour".
+
+[Before printing the name of suit of dragon armour:
+	now not-mentioning-hotness is true.
+
+After printing the name of suit of dragon armour:
+	now not-mentioning-hotness is false.]
+
+An AI action selection rule for a person (called P) (this is the concentrate to compensate for the dragon armour rule):
+	if the chosen target is wearing the suit of dragon armour:
+		choose row with an Option of the action of P concentrating in the Table of AI Action Options;
+		increase the Action Weight entry by 4.
+
+
+
+
+Chapter - Shields
+
+A shield can be size-agnostic. A shield is usually not size-agnostic.
+
+Check readying a shield:
+	try wearing the noun instead.
+	
+Check unreadying a shield:
+	try taking off the noun instead.
+
+Section - Wooden buckler (minor)
+
+The wooden buckler is a minor shield.
+The wooden buckler is civilised.
+The wooden buckler is wood.
+
+The block bonus of wooden buckler is 3.
+
+The description of the wooden buckler is "No warrior could be proud of this small, unimpressive shield. Nonetheless, wearing it will allow you to block incoming attacks. [italic type]Block bonus: +3[roman type].".
+
+
+Section - Bulwark of faith (major)
+
+There is a major shield called the bulwark of faith.
+The bulwark of faith is religious.
+The bulwark of faith is radiance.
+The bulwark of faith is size-agnostic.
+
+The block bonus of the bulwark of faith is 0.
+
+Instead of examining the bulwark of faith:
+	if the bulwark of faith is worn:
+		let guy be a random person enclosing the bulwark of faith;
+		if guy is a person:
+			calculate the block bonus of the bulwark of faith;
+			say "This shield of shimmering [if the guy worships aite]red light[otherwise if the guy worships sul]golden light[otherwise if the guy worships nomos]silver light[otherwise if the guy worships chton]darkness[otherwise if the guy worships herm]shadows[otherwise]light[end if] gains its power from [regarding the guy][possessive] devotion to [if guy worships a god][a random god worshipped by guy][otherwise]a god[end if]. It's block bonus is equal to (favour + 2) / 2. Wearing it also slightly increases the chance of divine interventions on [regarding the guy][possessive] behalf. [italic type]Current block bonus: +[block bonus of the bulwark of faith][roman type]." instead;
+	say "This shield of shimmering light gains its power from the wearer's devotion to a god. It's block bonus is equal to (favour + 2) / 2. Wearing it also slightly increases the chance of divine interventions on your behalf.".
+		
+To calculate the block bonus of the bulwark of faith:
+	now block bonus of the bulwark of faith is 0;
+	if the bulwark of faith is worn:
+		let guy be a random person enclosing the bulwark of faith;
+		if guy is a person:
+			let n be favour of guy;
+			increase n by 2;
+			now n is (n / 2);
+			now block bonus of the bulwark of faith is n;
+
+First carry out an actor blocking (this is the bulwark of faith must be updated rule):
+	if the actor encloses the bulwark of faith:
+		calculate the block bonus of the bulwark of faith.
+
+An intervention bonus rule (this is the bulwark of faith intervention bonus rule):
+	if intervention-guy wears the bulwark of faith:
+		if intervention-guy worships intervention-god:
+			increase intervention-bonus by 1.		
+
+
+Section - Adamantine shield (major)
+
+The adamantine shield is a major shield.
+The adamantine shield is civilised.
+The adamantine shield is adamant.
+
+The block bonus of adamantine shield is 4.
+
+The description of adamantine shield is "Three serpents are eating each other on the intricate design of this indestructible shield. [italic type]Block bonus: +4[roman type].".
+
+
+Section - Lion's shield (special)
+
+[The reward from the Dream of Monty Hall.]
+
+The lion's shield is a shield.
+The lion's shield is iron.
+Understand "lion" as the lion's shield.
+
+The block bonus of the lion's shield is 4.
+
+The description of the lion's shield is "A lion's head has been painted on this magnificent shield. It is extremely lifelike -- so lifelike, in fact, that it will bite your enemies if you successfully block a non-projectile attack. [italic type]Block bonus: +4. Deals 2 damage on a successful block[roman type].".
+
+Last aftereffects rule (this is the lion's shield rule):
+	if the global attacker came too close to the lion's shield:
+		if the total damage is 0:
+			deal 2 points of physical damage;
+			have lion's shield inflict damage on global attacker, silently;
+			if total damage is 0:
+				[rust can cause this, but it's hard to understand why from the text... write some tests for this?]
+				say "The lion on the shield strikes out, biting [the global attacker]. But the lion's teeth are not sharp enough to penetrate and do damage.";
+			otherwise:
+				say "The lion on the shield strikes out, and bites [the global attacker] for [bold type][total damage] damage[roman type][if health of global attacker is less than 1], which is [bold type]lethal[roman type][end if].";
+			now total damage is 0.
+				
+[we could maybe use "damage consequences" here, but we don't want redundant concentration-losing messages]
+
+Section - Thick metal sheet (monster)
+
+[Automatos]
+
+The metal sheet is a shield.
+The metal sheet is huge. The metal sheet is iron.
+
+The block bonus of the metal sheet is 4.
+
+The description of the metal sheet is "This thick sheet of metal has been fashioned into a crude shield. But when you can put several inches of steel between yourself and your attacker, you can afford crudeness. [italic type]Block bonus: +4[roman type].".
+
+Section - Shield of fanaticism (monster)
+
+[Defender of Aite]
+
+The shield of fanaticism is a shield. The shield of fanaticism is iron.
+
+The block bonus of the shield of fanaticism is 6.
+
+Instead of examining the shield of fanaticism:
+	calculate the block bonus of the shield of fanaticism;
+	say "It is well-known that nothing beats fanaticism when it comes to shielding the mind from outside influences; but the defenders of Aite have managed to transpose this trite observation to the much more vital dimension of physical protection. The block bonus of this aggressively decorated shield is equal to twice the number of worshippers of Aite in the location; currently, that comes to [block bonus of the shield of fanaticism].".
+		
+To calculate the block bonus of the shield of fanaticism:
+	let room be the location of the shield of fanaticism;
+	let n be 0;
+	repeat with guy running through people enclosed by room:
+		if guy worships aite or guy is Aite-loved:
+			increase n by 2;
+	now block bonus of the shield of fanaticism is n.
+
+First carry out an actor blocking (this is the shield of fanaticism must be updated rule):
+	if the actor encloses the shield of fanaticism:
+		calculate the block bonus of the shield of fanaticism.
+
+Section - Shield of reflection (monster)
+
+[Angel of Mercy]
+
+The shield of reflection is a shield. The shield of reflection is radiance.
+
+The block bonus of the shield of reflection is 3. The description is "Lines of force radiate and spiral out from this [if the shield of reflection is radiance]radiant[end if] shield. It possesses the power to repel ranged attacks and reflect them back at the attacker. Reflected attacks benefit from the wearer's concentration, but also cause the wearer to lose concentration. [italic type]Block bonus: [block bonus of the shield of reflection][roman type]."
+
+The shield of reflection is size-agnostic.
+
+reflection-linked-guy is an object that varies.
+
+Aftereffects (this is the shield of reflection reflects attacks rule):
+	if the global attacker weapon is ranged and reflection-attack is false:
+		if the shield of reflection is whatever the global attacker weapon struck:
+			say "The attack [bold type]bounces off[roman type] the shield of reflection towards [the global attacker]!";
+			now reflection-attack is true;
+			now reflection-linked-guy is the global defender;
+			try the global attacker hitting the global attacker;
+			now the concentration of reflection-linked-guy is 0;
+			now reflection-linked-guy is nothing;
+
+An attack modifier rule (this is the shield reflection attack bonus rule):
+	if reflection-linked-guy is a person:
+		let the bonus be the concentration attack bonus of reflection-linked-guy;
+		if the bonus > 0:
+			say " + [bonus] (concentration of shield bearer)[run paragraph on]";
+			increase the attack strength by the bonus;
+
+An add specific damage rule (this is the shield reflection damage modifier rule):
+	if damage-by-hitting is true and reflection-linked-guy is a person:
+		Let the first dummy be the concentration damage bonus of reflection-linked-guy;
+		if the first dummy > 0:
+			add first dummy points of damage with reason "concentration of shield bearer".
+
+Chapter - Cloneable
+
+Definition: A thing is cloneable: no. [Lots of things can be cloned, but most things don't need to be cloned. Cloneable means we shouldn't use the original]
+
+Chapter - Grenades
+
+Section - The grenades kind
+
+A grenade is a kind of thing.
+A grenade is usually alchemical.
+A grenade is usually iron.
+
+Definition: a grenade is cloneable: yes.
+
+A grenade is either damaging or not-damaging. A grenade is usually not-damaging.
+A grenade is either reverse-following or not reverse-following. A grenade is usually not reverse-following. [A grenade is reversin-following if people come to you in case they've successfuly throw the grenade back at you, rather than the other way around.]
+
+Exploding-location is a room that varies.
+Exploding-grenade is a thing that varies.
+
+The exploding rules are a rulebook.
+
+First exploding rule (this is the exploding wakes people up rule):
+	repeat with guy running through persons in exploding-location:
+		if guy is sleeping in this world:
+			now guy is not asleep.
+
+Section - Custom grenade
+
+A custom-grenade is a kind of grenade. The indefinite article of a custom-grenade is usually "the". A custom-grenade can be exploded. [a custom-grenade is unique, and can only appear in the dungeon once]
+
+Definition: A custom-grenade is cloneable: no.
+
+Definition: A custom-grenade is placed if it is not off-stage or it is exploded.
+
+
+Section - Normal throwing
+
+Instead of throwing a grenade at something:
+	try throwing the noun instead.
+
+Understand the command "throw" as something new.	
+Throwing is an action applying to one carried thing. Understand "throw [something]" as throwing.
+Does the player mean throwing a grenade: it is likely.
+
+Check throwing:
+	if the noun is not a grenade:
+		move the noun to the location;
+		say "You throw [the noun] away." instead.
+
+Carry out throwing:
+	now exploding-location is the location;
+	now exploding-grenade is the noun;
+	follow the exploding rules.
+	
+Section - Throwing in a direction
+
+Throwing it to is an action applying to one carried thing and one visible thing. Understand "throw [something] [a direction]" and "throw [something] to [a direction]" as throwing it to.
+
+Check throwing something to:
+	if the noun is not a grenade:
+		take no time;
+		say "That is only possible with grenades." instead.
+		
+Check throwing something to:		
+	if the second noun is not a direction:
+		take no time;
+		say "You can either simply throw a grenade, or throw it in one of the cardinal directions (north, west, south, east, up, down)." instead.
+		
+Check throwing something to:
+	let place be the room second noun from the location;
+	unless place is a room:
+		take no time;
+		say "There is no passage in that direction." instead.
+
+Grenade-return-percentage is a number that varies.
+The grenade returning rules are a rulebook.
+	
+Carry out throwing something to:
+	now exploding-location is the room second noun from the location;
+	let target-room be exploding-location; [saving this for later use, e.g., after being teleported]
+	let source-room be location; [saving this for later use, e.g., after being teleported]
+	now exploding-grenade is the noun;
+	if the number of alive thrower persons in exploding-location is 0:
+		now grenade-return-percentage is 0;
+	otherwise:
+		follow the grenade returning rules;
+	if a random chance of grenade-return-percentage in 100 succeeds:
+		say "You throw [the noun] [second noun] -- but before it can explode, it is thrown back towards you!";
+		if exploding-grenade is reverse-following:
+			if a random chance of 2 in 7 succeeds:
+				repeat with guy running through alive persons in exploding-location:
+					now guy is follower;
+					if follower percentile chance of guy is less than 90:
+						increase follower percentile chance of guy by 10;
+		now exploding-location is the location;
+		follow the exploding rules;		
+	otherwise:
+		say "You throw [the noun] [second noun], where you hear it explode.";
+		follow the exploding rules;
+		unless exploding-grenade is reverse-following:
+			if a random chance of 2 in 7 succeeds:
+				repeat with guy running through alive persons in exploding-location:
+					now guy is follower;
+					if follower percentile chance of guy is less than 90:
+						increase follower percentile chance of guy by 10;
+	if target-room collapses source-room:
+		if a random chance of 1 in 20 succeeds:
+			let X be target-room;
+			change the second noun exit of source-room to nothing;
+			let reverse be the opposite of second noun;
+			change the reverse exit of X to nothing;
+			if location is source-room or location is target-room:
+				say "That grenade seems to have hit the walls of the passage [second noun] with a little too much force. With a huge crash, the [if second noun is up or second noun is down]staircase[otherwise]corridor[end if] [bold type]collapses[roman type]!";
+			otherwise:
+				say "You hear a huge crash somewhere in the dungeon, like a [bold type][if second noun is up or second noun is down]staircase[otherwise]corridor[end if] collapsing[roman type].";
+			now X does not collapse location;
+			now location does not collapse X.
+	
+First grenade returning rule:
+	now grenade-return-percentage is 25.
+
+Grenade returning rule (this is the people throw back grenades rule):
+	let q be the number of alive thrower persons in exploding-location;
+	increase grenade-return-percentage by (5 * q).
+	
+Grenade returning rule (this is the up and down direction grenade throwing rule):
+	if direction from exploding-location to location is down:
+		increase grenade-return-percentage by 20;
+	if direction from exploding-location to location is up:
+		decrease grenade-return-percentage by 20.
+	
+
+Section - Flash grenades
+
+A flash grenade is a kind of grenade. The description of a flash grenade is "When thrown, this magical grenade emits a pulse of searing light so strong that it will blind anyone in its vicinity, even if they close their eyes. The device is universally judged to be Metastasio's most useless invention.".
+A flash grenade is iron. A flash grenade is reverse-following.
+
+A person has a number called the flash-grenade-timer.
+
+Every turn (this is the recover from flash rule):
+	if the flash-grenade-timer of the main actor is greater than 0:
+		decrease flash-grenade-timer of the main actor by 1;
+		if flash-grenade-timer of the main actor is 0:
+			if the main actor is using eyes:
+				if the main actor is alive:
+					if the location of the main actor is the location of the player:
+						if the main actor is conscious in this world:
+							say "[The main actor] can [bold type]see again[roman type]!";
+						otherwise:
+							say "[regarding the main actor][Possessive] [bold type]eyes function again[roman type].".
+				
+A perception rule (this is the blind if flashed rule):
+	if flash-grenade-timer of test subject is greater than 0:
+		rule fails.				
+
+A reviving rule for a person (called guy) (this is the reset flash grenade timer when reviving rule):
+	now the flash-grenade-timer of the guy is 0;
+	
+An exploding rule (this is the flash grenade explodes rule):
+	if the exploding-grenade is a flash grenade:
+		if the noun is rusted and a random chance of 1 in 2 succeeds:
+			if exploding-location is the location:
+				say "There is only a feeble explosion. The rust must have rendered the flash grenade useless.";
+			otherwise:
+				say "The explosion does seem to be very feeble, though.";
+		otherwise:
+			let lijst be a list of person;
+			repeat with guy running through alive persons in exploding-location:
+				if guy is using eyes:
+					let n be 15;
+					decrease n by (final body of guy / 3);
+					unless guy is smoke immune:
+						decrease n by smoke penalty of the exploding-location;
+					if n is less than 0:
+						now n is 0;
+					if n is not 0:
+						add guy to lijst;
+						now flash-grenade-timer of guy is n;
+			if exploding-location is location:
+				say "The flash grenade explodes, and a blinding light [unless lijst is empty]burns away the retinae of anyone unlucky enough to see it clearly, namely, [lijst with definite articles][otherwise]flashes through the room[end if].";
+		remove exploding-grenade from play.
+
+Section - Rust grenade
+
+A rust grenade is a kind of grenade. The description of a rust grenade is "When thrown, this grenade will release a thick cloud of rust spores -- a nasty fungus that rusts away iron. Its use is forbidden in all civilised and most uncivilised countries.".
+A rust grenade is iron.
+
+An exploding rule (this is the rust grenade explodes rule):
+	if the exploding-grenade is a rust grenade:
+		if exploding-location is the location:
+			say "The rust grenade explodes, and it immediately releases a cloud of rust spores!";
+		remove exploding-grenade from play;
+		now the exploding-location is rust-spored.
+
+Section - Smoke grenade
+
+A smoke grenade is a kind of grenade. The description of a smoke grenade is "When thrown, this grenade will release thick clouds of smoke. You once used such devices to help the prince escape from a confrontation with the henchmen of the vengeful countess of Poitier; that was long before your relationship soured.".
+A smoke grenade is iron.
+
+An exploding rule:
+	if the exploding-grenade is a smoke grenade:
+		if the noun is rusted and a random chance of 1 in 2 succeeds:
+			if exploding-location is the location:
+				say "There is only a feeble explosion. The rust must have rendered the smoke grenade useless.";
+			otherwise:
+				say "The explosion does seem to be very feeble, though.";
+		otherwise:
+			if exploding-location is location:
+				say "The smoke grenade explodes, releasing a large cloud of smoke.";
+			let n be a random number between 6 and 8;
+			increase the smoke timer of the exploding-location by n;
+		remove exploding-grenade from play.
+
+Section - Fragmentation grenade
+
+A fragmentation grenade is a kind of grenade. The description of a fragmentation grenade is "When thrown, the [if the fragmentation grenade is silver]silver [end if]fragmentation grenade will explode into many sharp fragments. These are guaranteed to deal damage to everyone in the location[if the fragmentation grenade is silver], but especially to undead and demons[end if]. You cannot handle these items without a feeling of national pride; for it was this invention of Metastasio's that allowed the outnumbered forces of Louis VIII to defeat the Algirian hordes.".
+A fragmentation grenade is iron.
+A fragmentation grenade is damaging.
+Understand "frag" as a fragmentation grenade.
+
+An exploding rule (this is the fragmentation grenade explodes rule):
+	if the exploding-grenade is a fragmentation grenade:
+		if the noun is rusted and a random chance of 1 in 2 succeeds:
+			if exploding-location is the location:
+				say "There is only a feeble explosion. The rust must have rendered the fragmentation grenade useless.";
+			otherwise:
+				say "The explosion does seem to be very feeble, though.";
+		otherwise:
+			if exploding-location is the location:
+				say "The grenade explodes, dealing[run paragraph on]";
+			have a fragmentation event in exploding-location with noun by player.
+
+Section - Blessed Grenade (major)
+
+The Blessed Grenade is a major custom-grenade. The description of the Blessed Grenade is "This grenade is rumoured to be extremely effective against undead."
+
+An exploding rule (this is the Blessed Grenade explodes rule):
+[	unless the exploding-grenade is a custom-grenade:
+		make no decision;]
+	if the exploding-grenade is the Blessed Grenade:
+		if the noun is rusted and a random chance of 1 in 2 succeeds:	
+			if exploding-location is the location:
+				say "There is only a feeble explosion. The rust must have rendered [the noun] useless.";
+			otherwise:
+				say "The explosion does seem to be very feeble, though.";
+		otherwise if the number of alive undead persons in the exploding-location is less than 1:
+			if the location is the exploding-location:
+				say "As the grenade explodes you hear the singing of angels. But nothing further appears to happen.";
+		otherwise:
+			let K be the list of alive undead persons in the location;
+			if the location is the exploding-location:
+				say "As the grenade explodes you hear the singing of angels, several of whom swoop down from the heavens with huge swords and eviscerate [K with definite articles].";
+			repeat with guy running through K:
+				now health of guy is -1;  [Bypassing the damage system; this is an insta-kill effect.]
+				have an event of the player killing guy;
+			if the player is dead:
+				end the story saying "The undead should not seek blessings.";
+[	otherwise:
+		say "[The noun] explodes, but nothing happens. It must be one of those prank grenades that you see in magic shops.";]
+	remove the exploding-grenade from play;
+	
+An exploding rule (this is the mark custom grenades as exploded rule):
+	if the exploding-grenade is a custom-grenade:
+		now the exploding-grenade is exploded;
+
+
+
+Section - Teleportation grenade
+
+A teleportation grenade is a kind of grenade. The description of a teleportation grenade is "When thrown, this grenade will release powerful magic that randomly teleports everyone in the room.".
+A teleportation grenade is iron.
+Understand "tele" and "teleport" as a teleportation grenade.
+
+An exploding rule (this is the teleportation grenade explodes rule):
+	if the exploding-grenade is a teleportation grenade:
+		if the noun is rusted and a random chance of 1 in 2 succeeds:
+			if exploding-location is the location:
+				say "There is only a feeble explosion. The rust must have rendered the teleportation grenade useless.";
+			otherwise:
+				say "The explosion does seem to be very feeble, though.";
+		otherwise:
+			if exploding-location is location:
+				say "The teleportation grenade explodes in a dazzling, multi-coloured flash!";
+			repeat with guy running through alive people in exploding-location:
+				if guy is not the player:
+					let n be teleport amount of guy;
+					try the guy teleporting;
+					if exploding-location is not the location of the player and location of the guy is not the location of the player:
+						now last-seen-location of the guy is Null-Room; [resets remembering even when the player isn't there to witness the teleportation, but did throw the grenade]
+					now teleport amount of guy is n; [compensating]
+					if follower percentile chance of guy is greater than 20:
+						decrease follower percentile chance of guy by 10; [disoriented]
+			if exploding-location is location:
+				unless teleportation is impossible for the player:
+					teleport the player;
+				otherwise:
+					say "Something has stopped you from teleporting.";
+		remove exploding-grenade from play.
+
+Section - Morphean grenade
+
+A Morphean grenade is a kind of grenade. The description of a Morphean grenade is "When thrown, this grenade will release a sleeping gas that drives everyone into the embrace of Morpheus."
+A Morphean grenade is iron.  A Morphean grenade is reverse-following.
+
+An exploding rule (this is the Morphean grenade explodes rule):
+	if the exploding-grenade is a Morphean grenade:
+		if the noun is rusted and a random chance of 1 in 2 succeeds:
+			if exploding-location is the location:
+				say "There is only a feeble explosion. The rust must have rendered the Morphean grenade useless.";
+			otherwise:
+				say "The explosion does seem to be very feeble, though.";
+		otherwise:
+			if dreaming is false:
+				if exploding-location is location:
+					say "The Morphean grenade explodes, and you are immediately overwhelmed by sleep.";
+					repeat with guy running through alive people in exploding-location:
+						if guy is sleeper:
+							now guy is asleep;
+				otherwise:
+					repeat with guy running through alive people in exploding-location:
+						if guy is sleeper:
+							now guy is asleep;
+			otherwise:
+				if exploding-location is location:
+					say "The grenade doesn't seem to do anything -- and for a moment, you remember that you are already dreaming.";
+		remove exploding-grenade from play.
+
+Section - Cranial grenade
+
+The cranial grenade is a custom-grenade. The description of the cranial grenade is "This disgusting, rotting head used to belong to an animated corpse. Disconcertingly, its eyes still follow your every move, and it grins all the time as if it is in on some joke you don't know about. Who knows what black magic will be activated when you throw it at someone?"
+The cranial grenade is flesh.
+
+An exploding rule (this is the cranial grenade explosion rule):
+	if the exploding-grenade is the cranial grenade:
+		if a random chance of 1 in 2 succeeds: [50%]
+			if exploding-location is the location:
+				say "The head bounces around a couple of times and then disintegrates. The magic must have failed.";
+			otherwise:
+				say "You only hear the wet sound of the rotting head smashing to pieces.";
+		otherwise if a random chance of 4 in 5 succeeds: [40%]
+			now unholy wave location is the exploding-location;
+			if exploding-location is the location:
+				follow the unholy wave rules;
+			otherwise:
+				say "You sense a wave of necromantic magic being released!";
+				follow the unholy wave rules;
+		otherwise: [10%]
+			if at least one alive undead person is off-stage: [can be a super-undead!]
+				let guy be a random alive off-stage undead person;
+				move guy to exploding-location;
+				if exploding-location is the location:
+					say "The head bounces around a couple of times and then explodes in a foul-smelling black cloud. When the cloud dissipates, you see [the guy].";
+				otherwise:
+					say "It seems to explode, but you're not sure what happened.";
+			otherwise:
+				if exploding-location is the location:
+					say "The head bounces around a couple of times and then disintegrates. The magic must have failed.";
+				otherwise:
+					say "You only hear the wet sound of the rotting head smashing to pieces.";
+		remove exploding-grenade from play.
+
+
+
+Section - Grenade packs
+
+The small-flash-grenade-pack is a minor treasure pack. Two flash grenades are in the small-flash-grenade-pack.
+The small-flash-grenade-pack is elemental.
+
+The large-flash-grenade-pack is a major treasure pack. Three flash grenades are in the large-flash-grenade-pack.
+The large-flash-grenade-pack is elemental.
+
+The small-rust-grenade-pack is a minor treasure pack. One rust grenade is in the small-rust-grenade-pack.
+The small-rust-grenade-pack is barren. The rarity of the small-rust-grenade-pack is 1.
+
+The small-smoke-grenade-pack is a minor treasure pack. One smoke grenade is in the small-smoke-grenade-pack.
+The small-smoke-grenade-pack is alchemical.
+
+The large-smoke-grenade-pack is a major treasure pack. Three smoke grenades are in the large-smoke-grenade-pack.
+The large-smoke-grenade-pack is alchemical.
+
+The small-fragmentation-grenade-pack is a minor treasure pack. One fragmentation grenade is in the small-fragmentation-grenade-pack.
+The small-fragmentation-grenade-pack is alchemical.
+
+The large-fragmentation-grenade-pack is a major treasure pack. Two fragmentation grenades are in the large-fragmentation-grenade-pack.
+The large-fragmentation-grenade-pack is alchemical.
+
+The small-teleportation-grenade-pack is a minor treasure pack. One teleportation grenade is in the small-teleportation-grenade-pack.
+The small-teleportation-grenade-pack is magical.
+
+The large-teleportation-grenade-pack is a major treasure pack. Two teleportation grenades are in the large-teleportation-grenade-pack.
+The large-teleportation-grenade-pack is magical.
+
+The small-Morphean-grenade-pack is a minor treasure pack. One Morphean grenade is in the small-Morphean-grenade-pack.
+The small-Morphean-grenade-pack is magical.
+
+The large-Morphean-grenade-pack is a major treasure pack. Two Morphean grenades are in the large-Morphean-grenade-pack.
+The large-Morphean-grenade-pack is magical.
+
+The first-misc-grenade-pack is a major treasure pack. One fragmentation grenade is in the first-misc-grenade-pack. One teleportation grenade is in the first-misc-grenade-pack. One flash grenade is in the first-misc-grenade-pack.
+The first-misc-grenade-pack is alchemical.
+
+The second-misc-grenade-pack is a major treasure pack. One fragmentation grenade is in the second-misc-grenade-pack. One Morphean grenade is in the second-misc-grenade-pack. One rust grenade is in the second-misc-grenade-pack.
+The second-misc-grenade-pack is alchemical.
+
+
+
+
+Chapter - Salves
+
+Section - The salves kind
+
+A salve is a kind of thing.
+A salve is usually alchemical.
+A salve can be reusable. A salve is usually not reusable.
+
+Applying it to is an action applying to one carried thing and one thing. Understand "apply [something] to [something]" as applying it to. Understand "rub [something] on [something]" as applying it to.
+Does the player mean applying a salve to something: it is very likely.
+
+Check putting a salve on something:
+	try applying the noun to the second noun instead.
+
+Check applying it to:
+	if the second noun is enclosed by a person:
+		let guy be a random person enclosing the second noun;
+		if faction of the guy hates faction of the player:
+			take no time;
+			say "You cannot rub a salve on a weapon held by someone who is hostile to you." instead.
+
+Before applying something to a person (this is the putting a salve on someone is risky rule):
+	if the player is the second noun, make no decision;
+	[in an arena, the player becomes arena-faction, and opposes herself. Otherwise this should apply:]
+	if the second noun opposes the player:
+		if player is not hidden:
+			say "The salve at the ready, you attempt to reach [the second noun].";
+			now player is risky;
+			try the second noun hitting the player;
+			now player is not risky;
+			if player is dead:
+				stop the action;
+		now player is not hidden.
+
+Carry out applying something to something:
+	say "Nothing particular seems to happen.";
+	unless the noun is reusable:
+		remove the noun from play.
+
+Section - Unguentum argenti
+
+An unguentum argenti is a kind of salve. The plural of unguentum argenti is unguenta argenti. The description of unguentum argenti is "An expensive alchemical salve that can be rubbed on iron objects to turn them into silver.". Understand "salve" as unguentum argenti.
+
+Carry out applying unguentum argenti to an iron weapon:
+	say "You carefully apply the salve to [the second noun], turning it into a silver weapon.";
+	now the second noun is silver;
+	remove noun from play;
+	rule succeeds.
+
+Carry out applying unguentum argenti to an alive iron person:
+	say "You apply the salve wherever you can, significantly weakening [the second noun].";
+	now the second noun is silver;
+	remove noun from play;
+	now permanent health of the second noun is permanent health of the second noun divided by 2;  [Bypasses the damage system.]
+	now health of the second noun is health of the second noun divided by 2;
+	if health of the second noun is less than 1:
+		now health of the second noun is 1;
+	rule succeeds.
+	
+[TODO: Restore full permanent health when reviving?]
+
+Carry out applying unguentum argenti to an iron thing:
+	say "You carefully apply the salve to [the second noun], turning it into silver.";
+	now second noun is silver;
+	remove noun from play;
+	rule succeeds.
+		
+The small-unguentum-argenti-pack is a minor treasure pack. One unguentum argenti is in the small-unguentum-argenti-pack.
+The small-unguentum-argenti-pack is alchemical.
+
+The large-unguentum-argenti-pack is a major treasure pack. Two unguenta argenti are in the large-unguentum-argenti-pack.
+The large-unguentum-argenti-pack is alchemical.
+
+
+Section - Unguentum crescendi (minor)
+
+[Growing and shrinking are now reversible, so we can allow the player to use both salves on the same weapon. We keep immunities for stuff like the mace of the ape king.] 
+
+A thing can be crescendi-immune. A thing is usually not crescendi-immune.
+
+An unguentum crescendi is a kind of salve. The plural of unguentum crescendi is unguenta crescendi. The description of unguentum crescendi is "An expensive alchemical salve that can be rubbed on weapons or people to make them grow. It can be used multiple times.". Understand "salve" as unguentum crescendi.
+
+Carry out applying unguentum crescendi to something:
+	unless the second noun is a weapon or the second noun is a shield or the second noun is a person:
+		say "The salve will only work on weapons, shields and persons.";
+		take no time;
+	otherwise:
+		if the second noun is gargantuan:
+			say "You cannot make [if the second noun is the player]yourself[otherwise][the second noun][end if] any bigger.";
+			take no time;
+		otherwise:
+			if the second noun is crescendi-immune:
+				say "Some magic seems to protect [the second noun] from the salve.";
+			otherwise:
+				say "You carefully apply the salve to [if the second noun is the player]yourself[otherwise][the second noun][end if], ";
+				increase the size of the second noun;
+				say "turning [regarding the second noun][them] [size of the second noun].";
+	rule succeeds.
+
+The small-unguentum-crescendi-pack is a minor treasure pack. One unguentum crescendi is in the small-unguentum-crescendi-pack.
+The small-unguentum-crescendi-pack is alchemical.
+
+Section - Unguentum diminuendi (minor)
+
+A thing can be diminuendi-immune. A thing is usually not diminuendi-immune.
+
+An unguentum diminuendi is a kind of salve. The plural of unguentum diminuendi is unguenta diminuendi. The description of unguentum diminuendi is "An expensive alchemical salve that can be rubbed on weapons or people to make them shrink. It can be used multiple times.". Understand "salve" as unguentum diminuendi.
+
+Carry out applying unguentum diminuendi to something:
+	unless the second noun is a weapon or the second noun is a shield or the second noun is a person:
+		say "The salve will only work on weapons, shields and persons.";
+		take no time;
+	otherwise:
+		if the second noun is tiny:
+			say "You cannot make [if the second noun is the player]yourself[otherwise][the second noun][end if] any smaller.";
+			take no time;
+		otherwise:
+			if the second noun is diminuendi-immune:
+				say "Some magic seems to protect [the second noun] from the salve.";
+			otherwise:		
+				say "You carefully apply the salve to [if the second noun is the player]yourself[otherwise][the second noun][end if], ";
+				decrease the size of the second noun;
+				say "turning [regarding the second noun][them] [size of the second noun].";
+	rule succeeds.
+
+The small-unguentum-diminuendi-pack is a minor treasure pack. One unguentum diminuendi is in the small-unguentum-diminuendi-pack.
+The small-unguentum-diminuendi-pack is alchemical.
+
+
+Chapter - Sprayables
+
+Section - The sprayables kind
+
+A sprayable is a kind of thing.
+A sprayable is usually alchemical.
+
+Spraying is an action applying to one carried thing. Understand "spray [something]" as spraying.
+Does the player mean spraying a sprayable: it is very likely.
+
+Check spraying:
+	if noun is not a sprayable:
+		take no time;
+		say "That cannot be sprayed." instead.
+
+Section - Fungicide contraption
+
+The fungicide contraption is a minor sprayable. The description of the fungicide contraption is "This weird contraption contains a powerful fungus killing substance. Spraying it will immediately clear a room of all spores.".
+
+Carry out spraying fungicide contraption:
+	if location is rust-spored:
+		say "You spray the fungicide all around. The rust spores blacken and wither.";
+		now location is not rust-spored;
+	otherwise:
+		say "You spray the fungicide all around.";
+	repeat with way running through cardinal directions:
+		let place be the room way from the location;
+		unless place is nothing:
+			now place is not rust-spored.
+
+
+
+
+
+
+
+
+Chapter - Scrolls
+
+Section - The scrolls kind
+
+A scroll is a kind of thing. 
+A scroll is usually improper-named.
+A scroll is usually civilised.
+A scroll is usually paper.
+A scroll is readable-aloud.
+Understand "scroll" as a scroll.
+Understand "scrolls" as the plural of a scroll.
+
+Definition: A scroll is cloneable: yes.
+
+Carry out reading a scroll:
+	remove the noun from play.
+
+Section - Unidentified Scrolls
+
+[ Scroll names are used for printing and parsing scrolls. Each kind of scroll needs a corresponding scroll name value.
+If the scroll kind is just one word, it's easy - follow the example of the scroll of teleportation.
+If it has more than one word you'll need to add extra understand phrases - see the scroll of curse removal. ]
+
+A scroll name is a kind of value.
+Some scroll names are defined by the Table of Scroll Names.
+
+A scroll name has a mood. A scroll name is usually civilised.
+
+Table of Scroll Names
+scroll name	printed name	obfuscated	mood
+mort	"MORT EILYSH"	true	civilised [Emily Short]
+cemil	"CEMIL KUI"	true  [Mike Ciul]
+ban	"BAN GNAD"	true   [Angband]
+chetnak	"CHETNAK"	true   [Nethack]
+cistrob	"CISTROB JIRSGEV"	true   [Victor Gijsbers]
+rebogu	"REBOGU"	true  [Brogue]
+hermei	"HERMEI LE SCHIM"	true   [Michiel Hermes]
+lonsifira	"LONSIFIRA"	true   [?]
+kripmeteel	"KRIPMETEEL"	true   [Erik Temple]
+souspenot	"SOUSPENOT"	true   [?]
+krome	"KROME"	true    [Remko]
+petrichor	"PETRICHOR"	true    [?]
+malleote	"MALLEOTE"	true    [?]
+sliwi 	"SLIWI LIDINNA"	true   [Dannii Willis]
+clawe	"CLAWE DARKE"	true   [Wade Clarke]
+
+Definition: a scroll name is obfuscated if obfuscated of it is true.
+Definition: a scroll name is findable if it is not an obfuscated scroll name. [Use special case definitions to make scrolls unfindable]
+
+Understand "mort" and "eilysh" as mort.
+Understand "cemil" and "kui" as cemil.
+Understand "ban" and "gnad" as ban.
+Understand "cistrob" and "jirsgev" as cistrob.
+Understand "hermei" and "le" and "schim" as hermei.
+Understand "sliwi" and "lidinna" as sliwi.
+Understand "clawe" and "darke" as clawe.
+
+A scroll is usually privately-named.
+Definition: a scroll is identified rather than unidentified if the true name of it is revealed.
+A scroll has a scroll name called obfuscated name.
+A scroll has a scroll name called true name.
+A scroll name can be revealed.
+
+The verb to be identified as means the true name property.
+
+To say label-of (S - a scroll):
+	if S is unidentified:
+		say "labelled [printed name of obfuscated name of S]";
+	otherwise:
+		let name be printed name of true name of S;
+		if the name is not "":
+			say "of [name]";
+		otherwise:
+			say "of [true name of S]";
+	
+Understand the true name property as describing a scroll when the item described is identified.
+Understand the obfuscated name property as describing a scroll.
+
+Understand "labelled" as a scroll when the item described is unidentified.
+Understand "of" as a scroll when the item described is identified.
+
+Rule for printing the name of a scroll (called S) (this is the printing the name of scrolls rule):
+	say "scroll [label-of S]";
+
+Rule for printing the plural name of a scroll (called S) (this is the printing the plural name of scrolls rule):
+	say "scrolls [label-of S]";
+	
+Instead of examining an unidentified scroll:
+	say "You'll have to read this scroll to find out what it does."
+
+When play begins (this is the obfuscate scrolls and set mood rule):
+	let names be the list of obfuscated scroll names;
+	sort names in random order;
+	Repeat with S running through not obfuscated scroll names:
+		Let code-name be entry 1 of names;
+		remove entry 1 from names;
+		repeat with item running through scrolls identified as S:
+			now the obfuscated name of item is code-name;
+			now the mood of item is the mood of S;
+
+To identify (S - a scroll):
+	now the true name of S is revealed.
+	
+First carry out reading an unidentified scroll:
+	identify the noun;
+	say "It is [a noun]!";
+
+
+
+
+Section - Scroll of teleportation
+
+Table of Scroll Names (continued)
+scroll name
+teleportation
+
+A scroll of teleportation is a kind of scroll.
+The true name of a scroll of teleportation is teleportation.
+The description of a scroll of teleportation is "Reading this scroll will instantaneously transport the reader to another location.".
+The plural of scroll of teleportation is scrolls of teleportation.
+
+Carry out reading a scroll of teleportation:
+	unless teleportation is impossible for the player:
+		teleport the player;
+	otherwise:
+		say "The scroll disappears, but something has stopped you from teleporting.";
+
+
+Section - Scroll of Ghoulification		
+
+Table of Scroll Names (continued)
+scroll name	mood
+ghoulification	deathly
+
+A scroll of ghoulification is a kind of scroll.
+The true name of a scroll of ghoulification is ghoulification.
+The description of a scroll of ghoulification is "Reading this scroll will turn you into an undead ghoul.".
+The plural of scroll of ghoulification is scrolls of ghoulification.
+
+Carry out reading a scroll of ghoulification:
+	ghoulify the player;
+
+
+Section - Scroll of Knowledge
+
+Table of Scroll Names (continued)
+scroll name
+knowledge
+
+A scroll of knowledge is a kind of scroll.
+The true name of a scroll of knowledge is knowledge.
+The description of a scroll of knowledge is "Reading this scroll will grant you knowledge about all other scrolls.".
+The plural of scroll of knowledge is scrolls of knowledge.
+
+Carry out reading a scroll of knowledge:
+	say "The nature of scrolls suddenly becomes clear to you.";
+	repeat with S running through not obfuscated scroll names:
+		now S is revealed;
+
+
+Section -  Scroll of Curse Removal
+
+Table of Scroll Names (continued)
+scroll name
+curse removal
+
+Understand "curse" and "removal" as curse removal.
+
+A scroll of curse removal is a kind of scroll.
+The true name of a scroll of curse removal is curse removal.
+The description of a scroll of curse removal is "Reading this scroll will remove any curses from the item you are carrying."
+The plural of scroll of curse removal is scrolls of curse removal.
+
+Definition: a thing (called the item) is uncurseable if (item is cursed and item is corruptible) or (hidden identity of item is not non-thing and hidden identity of item is cursed and hidden identity of item is corruptible).
+
+Carry out reading a scroll of curse removal:
+	if the player has at least one uncurseable thing:
+		let K be a list of things;
+		repeat with item running through uncurseable things had by the player:
+			if hidden identity of item is not non-thing and hidden identity of item is corruptible:
+				now hidden identity of item is not cursed;
+			if item is corruptible:
+				now item is not cursed;
+			add item to K; [we uncurse the hidden identity, but we do not reveal it!]
+		say "The scroll removes the curse[s] from [K with definite articles].";
+	otherwise:
+		say "The scroll does nothing, since you had no cursed items.";
+	now the player is not death-cursed;
+
+
+Section - Scroll of Shadows
+
+[ The scroll of shadows conflicts with the cloak of shadows, so we must call the scroll name shadows-name. ]
+Table of Scroll Names (continued)
+scroll name	printed name
+shadows-name	"shadows"
+
+Understand "shadows" and "shadow" as shadows-name.
+
+A scroll of shadows is a kind of scroll.
+The true name of a scroll of shadows is shadows-name.
+The description of a scroll of shadows is "Reading this scroll will make you hidden, though it may fail if enemies are nearby."
+The plural of scroll of shadows is scrolls of shadows.
+
+Carry out reading a scroll of shadows:
+	if the player is hidden:
+		say "The scroll disappears and you remain hidden.";
+	otherwise:
+		hide;
+
+
+Section - Scroll of Summoning
+
+Table of Scroll Names (continued)
+scroll name	mood
+summoning	deathly
+
+A scroll of summoning is a kind of scroll.
+The true name of a scroll of summoning is summoning.
+The description of a scroll of summoning is "Reading this scroll will summon an undead monster. Be careful, for it does not make the creature friendly."
+The plural of scroll of summoning is scrolls of summoning.
+
+The monster summoned is a monster that varies.
+Carry out reading a scroll of summoning:
+	if at least one alive not super-undead undead person is off-stage:
+		let guy be a random alive off-stage not super-undead undead person;
+		move guy to location of the player;
+		say "You speak the awful spell, and [a guy] appears before you!";
+		now guy is follower;
+		unless the follower percentile chance of guy is greater than 60:
+			now follower percentile chance of guy is 60;
+		now the monster summoned is guy;
+		if the combat state of the player is at-React:
+			let the target for summons avoidance be eleven plus (three times the size number of the guy);
+			test the spirit of the main actor against the target for summons avoidance described as "[the monster summoned] is [the size of the monster summoned]";
+			if the test result is true:
+				say " [regarding the guy][Possessive] sudden appearance does not interfere with [regarding the main actor][their] attack.";
+			otherwise:
+				say " [regarding the guy][Possessive] sudden appearance [bold type]interferes[roman type] with [regarding the main actor][their] attack.";
+				have the main actor start pressing the guy;
+				let the attack action be the action of the main actor hitting the player;
+				choose the row with an action to take of the attack action in the Table of Delayed Actions;
+				now the action to take entry is the action of the main actor hitting the guy;
+	otherwise:
+		say "You speak the awful spell, but nothing happens. The planes must not be well-aligned.";
+
+[Section - Scroll of fireworks
+
+The description of a scroll of fireworks is "Who knows what this weird scroll will do?". The plural of scroll of fireworks is scrolls of fireworks.
+A scroll of fireworks is paper.
+The printed name of a scroll of fireworks is "scroll of fireworks". [Circumventing bug 459: http://inform7.com/mantis/view.php?id=459.]
+
+Carry out reading a scroll:
+	if scroll-effect of the noun is scroll-fireworks:
+		remove noun from play;
+		say "Gratuitous purple fireworks fill the room, spelling the words [bold type]YOU HAVE LOST THE GAME[roman type].";
+		rule succeeds.]
+
+
+Section - Scroll of the blade
+
+Table of Scroll Names (continued)
+scroll name	printed name
+the-blade	"the blade"
+
+Understand "blade" and "the blade" as the-blade.
+
+A scroll of the blade is a kind of scroll.
+The true name of a scroll of the blade is the-blade.
+The description of a scroll of the blade is "Reading this scroll will make a temporary adamantine blade appear in your hands.".
+The plural of scroll of the blade is scrolls of the blade.
+
+Carry out reading a scroll of the blade:
+	repeat with item running through weapons wielded by the player:
+		now item is not readied;
+	move adamantine blade to player;
+	now adamantine blade is readied;
+	set pronouns from adamantine blade;
+	do the adamantine blade shuffle;
+	if the player is not ethereal:
+		say "A magical sword formed of adamant suddenly appears in your hands! [run paragraph on]";
+		try examining the adamantine blade;
+	otherwise:
+		say "A magical sword formed of adamant suddenly appears in your hands -- and falls through them to the ground!";
+		now adamantine blade is not readied;
+		move adamantine blade to the location;
+
+The adamantine blade is an adamant weapon. The description of the adamantine blade is "This summoned blade is made of the hardest substance in the universe. You wonder how long the spell will last." Understand "sword" and "magical" and "summoned" as the adamantine blade.
+
+The adamantine blade timer is a number that varies.
+
+To do the adamantine blade shuffle:
+	now the damage die of the adamantine blade is a random number between 5 and 10;
+	now the weapon attack bonus of the adamantine blade is a random number between -1 and 4;
+	now the weapon damage bonus of the adamantine blade is a random number between 0 and 2;
+	now the dodge bonus of the adamantine blade is a random number between -1 and 2;
+	now the parry-against bonus of the adamantine blade is a random number between -1 and 2;
+	now the parry-with bonus of the adamantine blade is a random number between -1 and 2;
+	now the adamantine blade timer is a random number between 12 and 20;
+	now the adamantine blade is not rusted;
+	now the heat strength of the adamantine blade is 0;
+	now adamantine blade is medium;
+	set the size of the adamantine blade to the size of the player;
+		
+
+Every turn when the adamantine blade is not off-stage (this is the adamantine blade countdown rule):
+	if the main actor is the player:
+		now world test subject is player;
+		if adamantine blade is worldsharer:
+			now adamantine blade timer is adamantine blade timer minus 1;
+			if the adamantine blade timer is less than 1:
+				if the player wields the adamantine blade:
+					say "The adamantine blade [bold type]vanishes[roman type] as suddenly as it appeared!";
+				otherwise if the adamantine blade is visible:
+					say "The adamantine blade suddenly vanishes.";
+				remove the adamantine blade from play.
+
+
+Section - Scroll of Protection
+
+A person has a number called the hit protection. The hit protection of a person is usually 0.
+
+Table of Scroll Names (continued)
+scroll name
+protection
+
+A scroll of protection is a kind of scroll.
+The true name of a scroll of protection is protection.
+The description of a scroll of protection is "Reading this scroll will protect you against all damage from the next one or two attacks."
+The plural of scroll of protection is scrolls of protection.
+
+Carry out reading a scroll of protection:
+	say "You feel protected.";
+	if hit protection of the player is less than 2:
+		now hit protection of the player is 1;
+		if a random chance of 4 in 10 succeeds:
+			now hit protection of the player is 2;
+
+Status attribute rule (this is the protection status rule):
+	if hit protection of the player is greater than 0:
+		if long status is true:
+			say "You are [bold type]protected[roman type] from damage.[line break][run paragraph on]";
+		otherwise:
+			say "[@ check initial position of attribute]protected from damage[run paragraph on]";
+
+A general damage multiplier rule when the hit protection of the victim is greater than 0 (this is the protection damage multiplier rule):
+	if total damage greater than 0:
+		add damage comment "- 100% (protection)";
+		now total damage is 0;
+		decrease hit protection of the victim by 1.
+
+A reviving rule for a person (called guy) (this is the no protection when revived rule):
+	now the hit protection of the guy is 0;
+	
+[Section - Scroll of Etherealness
+
+Table of Scroll Names (continued)
+scroll name
+etherealness
+
+A scroll of etherealness is a kind of scroll.
+The true name of a scroll of etherealness is etherealness.
+The description of a scroll of etherealness is "Reading this scroll will temporarily turn you ethereal."
+The plural of scroll of etherealness is scrolls of etherealness.
+
+Carry out reading a scroll of etherealness:
+	say "You become ethereal[if the player has a not radiance thing]; your possessions drop to the ground[end if]!";
+	make the player ethereal;
+	now ethereal timer of the player is a random number between 10 and 15;]
+		
+
+Section - Scroll of Skill
+
+Table of Scroll Names (continued)
+scroll name
+skill
+
+A scroll of skill is a kind of scroll.
+The true name of a scroll of skill is skill.
+The description of a scroll of skill is "Reading this scroll will give you a temporary bonus to body, mind and spirit."
+The plural of scroll of skill is scrolls of skill.
+
+Carry out reading a scroll of skill:
+	say "You suddenly feel very skilled!";
+	increase the player skill bonus timer by a random number between 15 and 20;
+
+The player skill bonus timer is a number that varies. The player skill bonus timer is 0.
+
+Every turn when the player is the main actor (this is the decrease player skill bonus timer rule):
+	if player skill bonus timer is greater than 0:
+		decrease player skill bonus timer by 1;
+		if player skill bonus timer is 0:
+			say "You suddenly feel [bold type]unskilled[roman type].".
+
+Status attribute rule (this is the skilled status rule):
+	if player skill bonus timer is greater than 0:
+		if long status is true:
+			say "You are [bold type]skilled[roman type]: +3 bonus to body, mind and spirit.[line break][run paragraph on]";
+		otherwise:
+			say "[@ check initial position of attribute]skilled[run paragraph on]";
+
+A faculty bonus rule (this is the faculty bonus of being skilled rule):
+	if the test subject is the player and the player skill bonus timer is greater than 0:
+		increase faculty bonus score by 3.
+
+
+
+Section - Scroll of Death
+
+The unholy wave rules are a rulebook.
+The unholy wave location is a room that varies.
+
+An unholy wave rule (this is the standard unholy wave rule):
+	if the unholy wave location is the location:
+		say "A wave of unholy energy is released, dealing[run paragraph on]";
+	let n be the number of alive not undead persons in the location;
+	let original n be n;
+	if n is greater than 0:
+		repeat with guy running through all alive not undead persons in the location:
+			let m be a random number between 3 and 6;
+			deal m points of necromantic damage;
+			if the unholy wave location is the location:
+				say "[if n is 1 and original n is not 1] and[end if] [run paragraph on]";
+				have no-source inflict damage on guy;
+				say " [damage consequences][if n is not 1];[otherwise].[line break][end if][run paragraph on]";
+			otherwise:
+				have no-source inflict damage on guy, silently;
+			decrease n by 1;
+			if n is 0 and the unholy wave location is the location:
+				say ""; [For an extra newline. Don't ask.]
+	otherwise:
+		if the unholy wave location is the location:
+			say "no damage to anyone.";
+	if health of the player is less than 1:
+		end the story saying "Your life force has been negated".
+
+Table of Scroll Names (continued)
+scroll name	mood
+death	deathly
+
+A scroll of death is a kind of scroll.
+The true name of a scroll of death is death.
+The description of a scroll of death is "Reading this scroll will deal damage to all non-undead creatures in the room."
+The plural of scroll of death is scrolls of death.
+
+Carry out reading a scroll of death:
+	now the unholy wave location is the location;
+	follow the unholy wave rules;
+
+
+Section - Scroll of Alteration
+
+Table of Scroll Names (continued)
+scroll name
+alteration
+
+A scroll of alteration is a kind of scroll.
+The true name of a scroll of alteration is alteration.
+The description of a scroll of alteration is "Reading this scroll can radically alter your body."
+The plural of scroll of alteration is scrolls of alteration.
+
+
+
+Carry out reading a scroll of alteration:
+	follow the mutating rules;
+	if mutated boolean is false:
+		say "Nothing happened!".
+	
+
+
+Section - Scroll of mapping
+
+Table of Scroll Names (continued)
+scroll name
+mapping
+
+Mapping boolean is a truth state variable.
+
+A scroll of mapping is a kind of scroll.
+The true name of a scroll of mapping is mapping.
+The description of a scroll of mapping is "Reading this scroll will instantaneously reveal the plan of the entire dungeon, including secret rooms ([if the map can be shown]check the MAP to see it, or if you prefer not to use the graphical map, [end if]type REMEMBER for more).".
+The plural of scroll of mapping is scrolls of mapping.
+
+Carry out reading a scroll of mapping (this is the reveal the map rule):
+	now all placed not nogo rooms are map-revealed;
+	now the mapping boolean is true;
+	say "As you read the scroll, a complete floor plan of the dungeon of Kerkerkruip imprints itself on your mind! [if the map can be shown]Type MAP to see it. [end if]A description of where you are has [if the map can be shown]also [end if]been added to the REMEMBER command."
+
+
+Section - Scroll of psycholocation
+
+Table of Scroll Names (continued)
+scroll name
+psycholocation
+
+Psycholocation boolean is a truth state variable.
+
+A scroll of psycholocation is a kind of scroll.
+The true name of a scroll of psycholocation is psycholocation.
+The description of a scroll of psycholocation is "Reading this scroll will grant you the ability to sense all of the creatures whose souls you might be able to absorb (check the MAP to see their locations, or use the SENSE command).".
+The plural of scroll of psycholocation is scrolls of psycholocation.
+
+Carry out reading a scroll of psycholocation (this is the reveal enemies rule):
+	let adversary-count be 0;
+	repeat with place running through placed not nogo rooms:
+		repeat with adversary running through persons in place:
+			if the adversary is not the player and the level of the adversary is greater than 0:
+				now place is enemy-revealed;
+				increment adversary-count;
+	if the adversary-count is greater than 0:
+		say "You enter a weird clairvoyant state: The psyche[if adversary-count is greater than 1]s[end if] of your enemies call[if adversary-count is less than 2]s[end if] out to you. For a short time, you will be able to sense the presence and location of creatures whose souls you can absorb. If there are other creatures in the same space, you will see them via soul-reflection. Type [if the map can be shown]MAP or [end if]SENSE to psycholocate. When you are psycholocating, sensing does not take time.";
+		now the psycholocation boolean is true;
+		psycholocator peters out in 10 turns from now;
+	otherwise:
+		say "The scroll's magic enfolds you, but you cannot sense the souls of any enemies. Perhaps there are none remaining."
+	
+At the time when the psycholocator peters out:
+	now all enemy-revealed rooms are not enemy-revealed;
+	now the psycholocation boolean is false;
+	unless psycholocation is active:
+		say "Your clairvoyant sensation fades; you can no longer sense the psyches of your enemies."
+
+The psycholocation rules are a rulebook.
+
+To decide whether psycholocation is active:
+	follow the psycholocation rules;
+	if rule succeeded:
+		decide yes;
+	otherwise:
+		decide no.	
+
+To decide whether psycholocation is inactive:
+	decide on whether or not not psycholocation is active;
+
+A psycholocation rule (this is the psycholocation boolean rule):
+	if psycholocation boolean is true:
+		rule succeeds.
+
+Section - Scroll of Enchantment
+
+Table of Scroll Names (continued)
+scroll name
+enchantment
+
+A scroll of enchantment is a kind of scroll.
+The true name of a scroll of enchantment is enchantment.
+The description of a scroll of enchantment is "Reading this scroll will permanently improve the weapon you are wielding."
+The plural of scroll of enchantment is scrolls of enchantment.
+
+
+Carry out reading a scroll of enchantment (this is the basic weapon enchantment rule):
+	let item be the current weapon of the player;
+	if item is a natural weapon:
+		say "You aren't wielding a weapon, so the scroll of enchantment fizzles.";
+	otherwise:
+		increase weapon attack bonus of item by 1;
+		increase weapon damage bonus of item by 1;
+		set pronouns from item;
+		say "A flash of golden light comes from [the item]! It seems deadlier and more accurate."
+
+Section - Scroll of Afternoon Delights (Malygris)
+
+Table of Scroll Names (continued)
+scroll name
+delights
+
+Definition: delights is findable: no.
+
+Understand "afternoon" and "delights" and "afternoon delights" as delights.
+
+A scroll of afternoon delights is a kind of scroll.
+The true name of a scroll of afternoon delights is delights.
+The description of a scroll of afternoon delights is "You glance at the scroll, and judge that it will probably open a portal. That is going to be a slow and noisy process, though."
+The plural of scroll of afternoon delights is scrolls of afternoon delights.
+
+Carry out reading scroll of afternoon delights:
+	summon the return portal. [See Kerkerkruip Specials]
+
+Malygris-scroll-chest is a container.
+Three scrolls of afternoon delights and one scroll of enchantment and one scroll of summoning are in Malygris-scroll-chest.
+
+Last starting kit setup for Malygris (this is the sometimes give Malygris afternoon delights rule):
+	let item be a random thing in Malygris-scroll-chest;
+	move item to Malygris.
+
+
+Chapter - Scroll packs
+
+Section - Teleportation, small (minor)
+
+The small-scroll-of-teleportation-pack is a minor treasure pack.
+The small-scroll-of-teleportation-pack is civilised.
+One scroll of teleportation is in the small-scroll-of-teleportation-pack.
+
+The second-small-scroll-of-teleportation-pack is a minor treasure pack.
+The second-small-scroll-of-teleportation-pack is civilised.
+One scroll of teleportation is in the second-small-scroll-of-teleportation-pack.
+	
+Section - Teleportation, large (major)	
+	
+The large-scroll-of-teleportation-pack is a major treasure pack.
+Two scrolls of teleportation are in the large-scroll-of-teleportation-pack. [Stock the large-scroll-of-teleportation-pack with 2 clones of scroll of teleportation.]
+The large-scroll-of-teleportation-pack is civilised.
+
+Section - Knowledge (minor)
+
+The small-scroll-of-knowledge-pack is a minor treasure pack.
+The small-scroll-of-knowledge-pack is civilised.
+One scroll of knowledge is in the small-scroll-of-knowledge-pack.
+
+The second-small-scroll-of-knowledge-pack is a minor treasure pack. 
+The second-small-scroll-of-knowledge-pack is civilised.
+One scroll of knowledge is in the second-small-scroll-of-knowledge-pack.
+
+Section - Ghoulification (minor)
+
+The small-scroll-of-ghoulification-pack is a minor treasure pack.
+One scroll of ghoulification is in the small-scroll-of-ghoulification-pack.
+The small-scroll-of-ghoulification-pack is civilised.
+The small-scroll-of-ghoulification-pack is advanced.
+
+Section - Curse removal, small (minor)
+
+The small-scroll-of-remove-curse-pack is a minor treasure pack.
+The small-scroll-of-remove-curse-pack is civilised.
+One scroll of curse removal is in the small-scroll-of-remove-curse-pack.
+
+The second-small-scroll-of-remove-curse-pack is a minor treasure pack.
+The second-small-scroll-of-remove-curse-pack is civilised.
+One scroll of curse removal is in the second-small-scroll-of-remove-curse-pack.
+
+Section - Mapping (minor)
+
+The small-scroll-of-mapping-pack is a minor treasure pack.
+The small-scroll-of-mapping-pack is civilised.
+One scroll of mapping is in the small-scroll-of-mapping-pack.
+
+Section - Psycholocation (minor)
+
+The small-scroll-of-psycholocation-pack is a minor treasure pack.
+The small-scroll-of-psycholocation-pack is civilised.
+One scroll of psycholocation is in the small-scroll-of-psycholocation-pack.
+
+Section - Remove curse, large (major)
+
+The large-scroll-of-remove-curse-pack is a major treasure pack.
+The large-scroll-of-remove-curse-pack is civilised.
+Two scrolls of curse removal is in the large-scroll-of-remove-curse-pack.
+The rarity of large-scroll-of-remove-curse-pack is 1.
+
+Section - Shadows, small (minor)
+
+The small-scroll-of-shadows-pack is a minor treasure pack.
+The small-scroll-of-shadows-pack is civilised.
+One scroll of shadows is in small-scroll-of-shadows-pack.
+
+The second-small-scroll-of-shadows-pack is a minor treasure pack.
+The second-small-scroll-of-shadows-pack is civilised.	
+One scroll of shadows is in second-small-scroll-of-shadows-pack.
+
+Section - Shadows, large (major)
+
+The large-scroll-of-shadows-pack is a major treasure pack.
+The large-scroll-of-shadows-pack is civilised.
+Two scrolls of shadows is in large-scroll-of-shadows-pack.
+
+Section - Summoning (minor)
+
+The small-scroll-of-summoning-pack is a minor treasure pack.
+The small-scroll-of-summoning-pack is magical.	
+The small-scroll-of-summoning-pack is advanced.
+One scroll of summoning is in the small-scroll-of-summoning-pack.
+
+[Section - Fireworks (minor)
+
+The small-scroll-of-fireworks-pack is a minor treasure pack.
+The small-scroll-of-fireworks-pack is magical.	
+The rarity of small-scroll-of-fireworks is 5.
+
+A treasure placement rule:
+	copy scroll of fireworks to small-scroll-of-fireworks-pack.]
+
+Section - Blade, small (minor)
+
+The small-scroll-of-the-blade-pack is a minor treasure pack.
+The small-scroll-of-the-blade-pack is civilised.
+One scroll of the blade is in the small-scroll-of-the-blade-pack.
+
+Section - Blade, large (major)
+
+The large-scroll-of-the-blade-pack is a major treasure pack.
+The large-scroll-of-the-blade-pack is civilised.
+Two scrolls of the blade is in the large-scroll-of-the-blade-pack.
+
+Section - Protection (major)
+
+The small-scroll-of-protection-pack is a major treasure pack.
+The small-scroll-of-protection-pack is civilised.
+One scroll of protection is in the small-scroll-of-protection-pack.
+
+Section - Skill, small (minor)
+
+The small-scroll-of-skill-pack is a minor treasure pack.
+The small-scroll-of-skill-pack is civilised.	
+One scroll of skill is in the small-scroll-of-skill-pack.
+
+Section - Skill, large (major)
+
+The large-scroll-of-skill-pack is a major treasure pack.
+The large-scroll-of-skill-pack is civilised.
+Two scrolls of skill is in the large-scroll-of-skill-pack.
+The rarity of large-scroll-of-skill-pack is 1.
+
+Section - Death, small (minor)
+
+The small-scroll-of-death-pack is a minor treasure pack.
+The small-scroll-of-death-pack is civilised.
+The small-scroll-of-death-pack is advanced.
+One scroll of death is in the small-scroll-of-death-pack.
+
+Section - Death, large (major)
+
+The large-scroll-of-death-pack is a major treasure pack.
+The large-scroll-of-death-pack is civilised.
+The large-scroll-of-death-pack is advanced.
+Two scrolls of death are in the large-scroll-of-death-pack.
+
+Section - Alteration, small and large (minor)
+
+The small-scroll-of-alteration-pack is a minor treasure pack.
+The small-scroll-of-alteration-pack is magical.
+One scroll of alteration is in the small-scroll-of-alteration-pack.
+
+The large-scroll-of-alteration-pack is a minor treasure pack.
+The large-scroll-of-alteration-pack is magical.
+Two scrolls of alteration are in the large-scroll-of-alteration-pack.
+
+Section - Enchantment, small (major)
+
+The small-scroll-of-enchantment-pack is a major treasure pack.
+The small-scroll-of-enchantment-pack is magical.
+One scroll of enchantment is in the small-scroll-of-enchantment-pack.
+
+The other-small-scroll-of-enchantment-pack is a major treasure pack.
+The other-small-scroll-of-enchantment-pack is magical.
+One scroll of enchantment is in the other-small-scroll-of-enchantment-pack.
+
+
+Section - Deathly [summon, ghoul, death], (major)
+
+The deathly-pack is a major treasure pack.
+The deathly-pack is deathly.
+The deathly-pack is advanced.
+One scroll of summoning is in the deathly-pack.
+One scroll of ghoulification is in the deathly-pack.
+One scroll of death is in the deathly-pack.
+
+Section - Combat [blade, protection], (major)
+
+The combat-scroll-pack is a major treasure pack.
+The combat-scroll-pack is civilised.
+One scroll of the blade is in the combat-scroll-pack.
+One scroll of protection is in the combat-scroll-pack.
+
+Section - Thief [shadows, teleport, ethereal], (major)
+
+The thief-scroll-pack is a major treasure pack.
+The thief-scroll-pack is civilised.
+The thief-scroll-pack is advanced.
+Two scrolls of shadows are in the thief-scroll-pack.
+One scroll of teleportation is in the thief-scroll-pack.
+[One scroll of etherealness is in the thief-scroll-pack.]
+
+Section - Knowing [knowledge, mapping, psycholocation], (major)
+
+The knowing-scroll-pack is a major treasure pack.
+The knowing-scroll-pack is civilised.
+One scroll of knowledge is in the knowing-scroll-pack.
+One scroll of mapping is in the knowing-scroll-pack.
+One scroll of psycholocation is in the knowing-scroll-pack.
+
+Section - The palimpsest (epic)
+
+The palimpsest is a readable-aloud blood-awakened epic thing.  The palimpsest is magical.
+Palimpsest-active is a truth state that varies. Palimpsest-active is true.
+
+Palimpsest-scroll is a scroll name that varies.
+Definition: a scroll is palimpsestic if it is palimpsest-equal.
+
+To decide whether (item - a scroll) is palimpsest-equal:
+	let x be true name of item;
+	if x is palimpsest-scroll:
+		decide yes;
+	decide no.
+
+A dungeon interest rule (this is the set original palimpsest scroll rule):
+	let n be a random number between 1 and 8;
+	if n is:
+		-- 1: now palimpsest-scroll is teleportation;
+		-- 2: now palimpsest-scroll is teleportation;
+		-- 3: now palimpsest-scroll is knowledge;
+		-- 4: now palimpsest-scroll is curse removal;
+		-- 5: now palimpsest-scroll is alteration;
+		-- 6: now palimpsest-scroll is death;
+		-- 7: now palimpsest-scroll is protection;
+		-- 8: now palimpsest-scroll is a random not obfuscated scroll name;
+
+The blood magic cost of palimpsest is 4.
+The blood magic level of palimpsest is 0.
+The blood magic maximum of palimpsest is 99.
+
+Instead of examining the palimpsest:
+	let item be a random palimpsestic scroll;
+	say "Before now, you had only heard rumours of such items: magical palimpsests that can replicate again and again the effect of any scroll -- if one is willing to pay the price of blood. This particular example has been used to copy [an item]. (To replicate the contents of another scroll on it, use a command like 'replicate scroll of protection'.)[paragraph break][if palimpsest-active is true]The palimpsest is ready to be used[otherwise]The palimpsest needs to be fed more blood if it is to be used again[end if]."
+
+Check feeding palimpsest:
+	if palimpsest-active is true:
+		take no time;
+		say "The palimpsest is still active, so feeding it would serve no purpose." instead.
+		
+[Feeding message.]
+
+Carry out feeding the palimpsest:
+	now palimpsest-active is true.
+
+[Reading.]
+
+Check reading the palimpsest:
+	if palimpsest-active is false:
+		take no time;
+		say "The palimpsest is inactive now. You'll have to feed it before you can use it again." instead.
+		
+Carry out reading the palimpsest:
+	let item be a random palimpsestic scroll;
+	let place be holder of item;
+	move item to the player;
+	try reading item;
+	if place is nothing:
+		remove item from play;
+	otherwise:
+		move item to place;
+	now palimpsest-active is false.
+
+[Replicating]
+
+Replicating is an action applying to one thing. Understand "replicate [thing]" and "copy [thing]" as replicating.
+
+Check replicating:
+	if the noun is not a scroll:
+		take no time;
+		say "You can only replicate scrolls." instead.
+		
+Check replicating:
+	unless the player has the palimpsest:
+		take no time;
+		say "You must have a magical palimpsest in order to replicate scrolls." instead.
+		
+Check replicating:
+	unless palimpsest-active is true:
+		take no time;
+		say "The palimpsest is currently inactive. You will have to feed it before you can use it in any way." instead.
+		
+Carry out replicating:
+	now palimpsest-scroll is true name of the noun;
+	say "You copy [the noun] onto the palimpsest."
+
+
+Chapter - Magical guides
+
+A magical guide is a kind of thing. A magical guide is silently-readable. Understand "book" and "manual" as a magical guide.
+
+Last before printing the name of a magical guide:
+	say "[italic type]".
+
+First after printing the name of a magical guide:
+	say "[roman type]".
+
+A magical guide has a list of scroll names called the guide list.
+
+Instead of examining a magical guide:
+	say "Reading this little manual of magic will teach you how to recognise scrolls of [readable guide list of the noun].";
+	take no time.
+
+Carry out reading a magical guide:
+	say "From now on, you will recognise scrolls of [readable guide list of the noun].";
+	repeat with S running through not obfuscated scroll names:
+		if S is listed in guide list of noun:
+			now S is revealed;
+				
+To say readable (list-to-print - a list of scroll names):
+	let n be the number of entries in list-to-print;
+	repeat with stuff running through list-to-print:
+		if printed name of stuff is not "":
+			say "[printed name of stuff]";
+		otherwise:
+			say "[stuff]";
+		if n is greater than 2:
+			say ", ";
+		if n is 2:
+			say " and ";
+		decrease n by 1.
+
+
+Section - Introduction to Necromancy (minor)
+
+The Introduction to Necromancy is a minor magical guide.
+The Introduction to Necromancy is magical.
+
+The guide list of the Introduction to Necromancy is {death, ghoulification, summoning}.
+
+Section - Battle Magic of Beginners (minor)
+
+Battle Magic for Beginners is a minor magical guide. Battle Magic for Beginners is proper-named.
+Battle Magic for Beginners is magical.
+
+The guide list of Battle Magic for Beginners is {the-blade, protection, enchantment}.
+
+Section - Handbook of Subtle Magics (minor)
+
+The Handbook of Subtle Magics is a minor magical guide.
+The Handbook of Subtle Magics is magical.
+
+The guide list of the Handbook of Subtle Magics is {skill, shadows-name, teleportation}.
+
+Section - Miscellanea Magica (minor)
+
+Miscellanea Magica is a minor magical guide. Miscellanea Magica is proper-named.
+Miscellanea Magica is magical.
+
+When play begins (this is the write Miscellanea Magica rule):
+	let names be the list of not obfuscated scroll names;
+	sort names in random order;
+	add (entry 1 of names) to guide list of Miscellanea Magica;
+	add (entry 2 of names) to guide list of Miscellanea Magica;		
+	add (entry 3 of names) to guide list of Miscellanea Magica.
+
+
+Chapter - Other readables
+
+Section - Ancient papyrus
+
+The ancient papyrus is a minor thing. The ancient papyrus is paper and readable-aloud.
+The ancient papyrus is deathly.
+
+The description of the ancient papyrus is "This almost crumbling document contains a spell that may bless you or curse you. There's no way of knowing which without reading it -- and even then, the effects may not be immediately apparent.".
+
+Carry out reading the ancient papyrus:
+	say "You unroll the papyrus and take in the weird hieroglyphs. As the scroll crumbles in your hands, you feel a magical force settling down on you -- but you have no idea whether it is for better or for worse.";
+	remove the noun from play;
+	if a random chance of 2 in 3 succeeds: [Needs to be bigger than 50%, because being cursed is generally worse than being blessed.]
+		now the player is death-blessed; 
+	otherwise:
+		now the player is death-cursed.
+
+Part - Weapons
+
+Chapter - Sword
+
+to gain is a verb.
+
+A sword is a kind of weapon. 
+A sword is usually iron.
+The parry-with bonus of a sword is usually 1.
+
+Understand "blade" as a sword.
+
+An aftereffects rule (this is the gain defensive flow from parrying with sword rule):
+	if the global defender is at parry:
+		if whatever the global attacker weapon struck is a sword and a random chance of 1 in 2 succeeds:
+			say "[regarding the global defender][Possessive] sword deflects the blow so well that [they] [gain] a point of defensive flow!";
+			up the defensive flow of the global defender.
+			
+The gain defensive flow from parrying with sword rule is listed after the gain offensive flow from parrying rule in the aftereffects rules.
+
+The special weapon info of a sword is usually "; parrying sometimes adds defensive flow[run paragraph on]".
+
+An AI Action selection rule for an at-react person (called guy) (this is the sword-users like to parry rule):
+	if the current weapon of guy is a sword:
+		choose row with an option of guy parrying in Table of AI Action Options;
+		increase Action Weight entry by 1;
+
+Section - Smoky blade (minor)
+
+The smoky blade is a minor sword.
+The smoky blade is alchemical.
+The smoky blade is iron.
+
+The description of the smoky blade is "While otherwise a normal sword, it has been enchanted to look like smoke or fog.".
+
+The smoky blade is advanced.
+
+An attack modifier rule (this is the smoky blade is better when smoke rule):
+	if the global attacker weapon is the smoky blade:
+		unless the global defender is smoke immune:
+			if the smoke penalty of the location is not 0:
+				let n be the smoke penalty of the location;
+				say " + [n] (the smoky blade is hard to see)[run paragraph on]";
+				increase the attack strength by n.
+
+Chance to win rule (this is the CTW smoky blade penalty rule):
+	if the chosen weapon is the smoky blade:
+		unless the chosen target is smoke immune:
+			if the smoke penalty of the location is not 0:
+				let n be the smoke penalty of the location;
+				increase the chance-to-win by n.
+
+Section - Sneaking sword (monster)
+
+[Mouser carries it]
+
+There is a sword called the sneaking sword. The description of sneaking sword is "This sword is especially suitable for making sneaky attacks, dealing [blood magic level of sneaking sword] extra damage. This damage bonus will increase by 1 if the sword is fed."
+
+The special weapon info of the sneaking sword is "; parrying sometimes adds defensive flow; +[blood magic level of sneaking sword] damage when hidden[run paragraph on]"
+
+The blood magic cost of sneaking sword is 2.
+The blood magic level of sneaking sword is 1.
+The blood magic maximum of sneaking sword is 99.
+
+An add specific damage rule (this is the sneaking sword damage bonus rule):
+	if damage-by-hitting is true:
+		if damage-source is the sneaking sword:
+			if the global attacker is hidden:
+				let n be blood magic level of sneaking sword;
+				add n points of damage with reason "sneaky attack".
+
+A treasure placement rule (this is the sneaking sword can be singing sword rule):
+	if a random chance of 1 in 5 succeeds:
+		now the hidden identity of the sneaking sword is the singing sword;
+		now sneaking sword is superhidden-identity. [Mouser has tamed it.]
+
+Section - Singing sword (cursed)
+
+The singing sword is a cursed curse-identified sword. The description of the singing sword is "When you wield it, this sword hums all the time, and sometimes breaks out into song. This will make it hard to hide. You wonder how Mouser tamed it...".
+The singing sword is tricky.
+
+Every turn (this is the singing sword fun rule):
+	if the player is the main actor and the player wields the singing sword:
+		if the combat status is peace or the singing sword is not tamed:
+			if a random chance of 1 in 15 succeeds:
+				say "'[one of]We are the champions![run paragraph on][or]Who wants to live forever?[run paragraph on][or]Stay true to your dungeon.[run paragraph on][or]We don't need no teleportation![run paragraph on][or]O, the wars, they will be fought again.[run paragraph on][or]I'll take you to the candy shop.[run paragraph on][or]I wanna take a ride on your disco stick![run paragraph on][as decreasingly likely outcomes]' sings your sword.[line break][paragraph break]"
+
+Detection rule (this is the singing sword detection rule):
+	if the player wields the singing sword and the singing sword is not tamed:
+		say " - 5 (singing sword)[run paragraph on]";
+		decrease the hiding roll by 5.
+
+The singing sword can be tamed. The singing sword is not tamed.
+The singing contest is a number that varies. The singing contest is 0.
+
+Instead of singing when the player wields the not tamed singing sword:
+	if singing contest is 0:
+		say "You start singing a soft tune. 'Ha, is that the best you can do?' your sword asks. 'Beat this!' And he breaks out in a loud and boisterous battle song.";
+	if singing contest is 1:
+		say "There is no way this sword is going to outdo you. You give a fine rendition of a popular aria. But the sword isn't impressed. 'I bet you can't do the really [italic type]high[roman type] notes!' he says, and continues to show off his impressive falsetto.";
+	if singing contest is 2:
+		if the player is female:
+			say "You smirk. Your coloratura is second to none; and if your social position had allowed it, you would have been the star of the opera house. So you sing a brilliant rendition of the queen of the night, rising higher and higher, utterly confident.[paragraph break]'Yeah? Think I can't do that just as well?' the sword asks you.[paragraph break]'No, you can't.'[paragraph break]'Yeah, well, well, let me show you! Ahum.'[paragraph break]'I'm waiting.'[paragraph break]'Okay, I can't do it. You win.'[paragraph break]'And now be quiet when I'm battle, you understand?' The sword meekly acquiesces.";
+			now the singing sword is tamed;
+		otherwise:
+			say "You'll show that sword. If he can use his falsetto, so can you. So you embark on an ambitious alto aria -- but after a couple of notes, you come to a sputtering halt. There's no way you can reach that high.[paragraph break]'Bwahaha, loser!' the sword laughs.";
+	if singing contest is 3:
+		say "You're not going to take on the singing sword again.";
+	if singing contest is less than 3:
+		increase singing contest by 1.
+
+
+Section - Claymore (monster)
+
+[Fafhrd carries it.]
+
+The claymore is a sword. The description of claymore is "This big sword is mainly used by barbarian tribes. Depending on your body score, it has a chance of destroying any weapon that parries it or is parried by it. (The probability is 5% for every 4 points of body; i.e., 5% at 4 body, 10% at 8 body, and so on.)"
+
+The special weapon info of the claymore is "; parrying sometimes adds defensive flow; shatters weapons[run paragraph on]"
+
+An aftereffects rule (this is the claymore can cause weapons to break rule):
+	Let target be whatever the claymore struck;
+	If target is a corruptible weapon and target is not a natural weapon:
+		Let the wielder be the holder of the claymore;
+		Let the breaking-force be the final body of the wielder / 4;
+		if a random chance of breaking-force in 20 succeeds:
+			say "The claymore [bold type]shatters [the target][roman type]!";
+			remove target from play.
+						
+Section - Holy sword (monster)
+
+[The healer of Aite carries it.]						
+
+The holy sword is a sword. The description of the holy sword is "This sword shines with a clear white light. It deals additional damage to undead and demons. (It deals 1 extra damage for each 4 points of spirit; i.e., 1 damage at 4 spirit, 2 damage at 8 spirit, and so on.)".
+
+The special weapon info of the holy sword is "; parrying sometimes adds defensive flow; deals extra damage to undead and demons; shines with light, making it harder to hide[run paragraph on]".
+
+Detection rule (this is the holy sword detection rule):
+	if the player wields the holy sword:
+		say " - 2 (holy sword)[run paragraph on]";
+		decrease the hiding roll by 2.
+
+An add specific damage rule (this is the holy sword damage bonus rule):
+	if damage-by-hitting is true:
+		if damage-source is the holy sword:
+			if the global defender is undead or global defender is demonic:
+				let n be (final spirit of global attacker / 4);
+				if n > 0:
+					add n points of divine damage with reason "holiness".
+
+Section - Immaculate sword (monster)
+
+[The defender of Aite carries it.]
+
+The immaculate sword is a sword. The description of the immaculate sword is "Absolutely stainless."
+The immaculate sword is incorruptible.
+Damage die of the immaculate sword is 8.
+
+The special weapon info of the immaculate sword is "; parrying sometimes adds defensive flow; cannot be corrupted[run paragraph on]".
+
+Section - Demon blade (monster)
+
+[Carried by the demonic assassin.]
+
+The demon blade is a sword. The description of the demon blade is "A jagged sword covered in evil-looking runes. It was never meant to be used by humans.".
+
+The demon blade is cursed.
+The internal heat of the demon blade is 4.
+
+Check attacking (this is the attacking with the demon blade is a bad idea rule):
+	if the player wields the demon blade:
+		if a random chance of 3 in 5 succeeds:
+			say "The [bold type]demonic blade[roman type] turns on you!";
+			try the player hitting the player instead;
+
+Section - Sword of light (monster)
+
+[Carried by the angel of compassion.]
+
+The sword of light is a sword. It is radiance. The description of the sword of light is "It seems to consist of pure [material of the sword of light].".
+
+The special weapon info of the sword of light is "; parrying sometimes adds defensive flow; [if sword of light is radiance]damage increases with the wielder's angelic radiance[otherwise]no special bonus when it is made of [material of the sword of light][end if][run paragraph on]".
+
+An add specific damage rule (this is the sword of light damage bonus rule):
+	if damage-by-hitting is true:
+		if the damage-source is the sword of light and damage-material is radiance:
+			let n be radiation of the global attacker;
+			if n > 0:
+				add n points of physical damage with reason "sword of light radiance bonus".
+
+
+Chapter - Rapier
+
+A rapier is a kind of weapon. 
+A rapier is usually iron.
+
+Understand "blade" as a rapier.
+
+The damage die of a rapier is usually 5.
+
+Section - Gilded rapier
+
+The gilded rapier is a rapier. [The player carries the gilded rapier. The gilded rapier is readied.]
+The gilded rapier is iron.
+
+The description of the gilded rapier is "You took it from the body of the young Count of Poitier, that fateful night in Maurice's whorehouse. He would nevermore plot against you.".
+
+
+
+
+
+Chapter - Dagger
+
+A dagger is a kind of weapon. 
+A dagger is usually iron.
+
+Understand "dagger" as a dagger.
+
+The damage die of a dagger is usually 3.
+The weapon attack bonus of a dagger is usually -1.
+The dodge bonus of a dagger is usually 1.
+The parry-with bonus of a dagger is usually -1.
+The parry-against bonus of a dagger is usually -1.
+The weapon damage bonus of a dagger is usually 0.
+
+An attack modifier rule (this is the dagger extra tension attack bonus rule):
+	if the global attacker weapon is a dagger:
+		let n be 0;
+		now n is the tension divided by 2;
+		if n is not 0:
+			say " + ", n, " (dagger benefits from tension)[run paragraph on]";
+			increase the attack strength by n.
+
+Chance to win rule when the chosen weapon is a dagger (this is the CTW dagger concentration bonus rule):
+	let n be the tension divided by 2;
+	increase the chance-to-win by n.
+		
+[daggers used to do extra damage based on tension. That is no longer the case.
+
+An add specific damage rule (this is the dagger extra tension damage bonus rule):
+	if damage-by-hitting is true:
+		if the damage-source is a dagger:
+			let n be 0;
+			if the tension is at least 1, increment n;
+			if the tension is at least 8, increment n;
+			if n is not 0:
+				add n points of primary damage with reason "dagger benefits from tension".
+
+The dagger extra tension damage bonus rule is listed last in the add specific damage rules.]
+
+The special weapon info of a dagger is usually "; attack benefits from tension[run paragraph on]".
+
+Section - Gorgeous dagger (minor)
+
+The gorgeous dagger is a minor dagger.
+The gorgeous dagger is civilised.
+The gorgeous dagger is iron.
+
+The description of the gorgeous dagger is "Adorned with gold and a large emerald at the end of the hilt, this dagger is not only beautiful, but also perfect for precise attacks in tense situations. The decadence of its design proves it to be of Yahvinnan origin.".
+
+Section - Evil dagger (major)
+
+The evil dagger is a major dagger.
+The evil dagger is deathly.
+The evil dagger is iron.
+
+The blood magic cost of evil dagger is 1.
+The blood magic level of evil dagger is 2.
+The blood magic maximum of evil dagger is 49.
+
+The description of evil dagger is "This dagger was once used as a ritual weapon by a Yahvinnan death cult. Whenever it hits someone, its evil magic has a [(blood magic level of evil dagger - 1) * 2]% chance of killing the target outright. This percentage will increase by 2% when the dagger is fed."
+
+A contact rule (this is the evil dagger bonus rule):
+	if the global attacker weapon is the evil dagger:
+		if a random chance of (blood magic level of evil dagger - 1) in 50 succeeds:
+			now health of global defender is -1; [Instakill effect bypasses the damage system.]
+			say "[roman type]The evil magic of the dagger [bold type]immediately kills[roman type] [no dead property][the global defender][dead property]!";
+			rule fails.
+
+Section - Dagger of the double strike (major)
+
+The dagger of the double strike is a major dagger.
+The dagger of the double strike is civilised.
+The dagger of the double strike is iron.
+
+The damage die of the dagger of the double strike is 2.
+The weapon attack bonus of the dagger of double strike is -2.
+
+The description of the dagger of the double strike is "The dagger looks dull and far from dangerous. But appearances deceive, for this weapon has been imbued with a dangerous magic.".
+
+The special weapon info of the dagger of the double strike is "; allows its wielder to strike again immediately if the first attack did no damage; benefits from tension[run paragraph on]".
+
+Making-double-strike is a truth state that varies. Making-double-strike is false.
+
+Last after reporting an actor hitting (this is the hit again with the dagger of double strike rule):
+	if the global attacker weapon is the dagger of double strike:
+		if making-double-strike is false:
+			if the total damage is 0:
+				if the global attacker is alive and the global defender is alive:
+					now making-double-strike is true;
+					say "The dagger of the double strike slashes out again!";
+					try the global attacker hitting the global defender;
+					now making-double-strike is false.
+
+This is the special dagger of double strike rule:
+	if the main actor is the player:
+		if the player wields the dagger of double strike:
+			if making-double-strike is false:
+				if the player is alive and the noun is alive:
+					now making-double-strike is true;
+					say "The dagger of the double strike slashes out again!";
+					try the player hitting the noun;
+					now making-double-strike is false.
+
+Every turn (this is the reset double strike rule):
+	now making-double-strike is false.
+
+
+Section - The backstabber (cursed)
+
+There is a cursed curse-identified dagger called the backstabber.
+The backstabber is iron.
+The backstabber is tricky.
+Understand "dagger" as the backstabber.
+
+A treasure placement rule (this is the double strike can be backstabber rule):
+	if a random chance of 1 in 4 succeeds:
+		now the hidden identity of the dagger of double strike is the backstabber.
+
+The description of the backstabber is "This treacherous blade sometimes strikes out at random people -- including yourself.".
+The special weapon info of the backstabber is "; sometimes attacks a random person instead of the intended target; benefits from tension[run paragraph on]"
+
+Making-backstab is a truth state that varies. Making-backstab is false.
+
+Check an actor hitting when the global attacker weapon is the backstabber (this is the hitting with the backstabber rule):
+	if making-backstab is false:
+		if a random chance of 1 in 2 succeeds:
+			let X be a random alive person in the location of the actor;
+			unless X is the noun:
+				say "The [bold type]backstabber[roman type] attacks [the X] instead!";
+				now making-backstab is true;
+				try the actor hitting X;
+				now making-backstab is false;
+				stop the action;
+
+
+Section - Vampiric dagger (major)
+
+The vampiric dagger is a major dagger.
+The vampiric dagger is deathly.
+The vampiric dagger is iron.
+
+The description of the vampiric dagger is "This sleek dagger will magically transfer some of the damage dealt to the target as health to its owner, provided that the target has blood. Unless you are in vampire form, it cannot heal you beyond your maximum health.".
+
+The special weapon info of the vampiric dagger is "; leeches some health (works much better for vampires); benefits from tension[run paragraph on]".
+
+The damage die of the vampiric dagger is 3.
+The weapon attack bonus of the vampiric dagger is 0.
+The weapon damage bonus of the vampiric dagger is 0.
+
+An aftereffects rule (this is the vampiric dagger leeches rule):
+	if the global attacker weapon is the vampiric dagger and the total damage is greater than 0 and the material of the global defender is flesh and the global defender is not undead:
+		let n be a random number between 1 and the total damage;
+		unless the global attacker is the player and the current form is vampire-form:
+			if n is greater than 1:
+				now n is a random number between 1 and 2;
+			let m be permanent health of the global attacker;
+			decrease m by health of the global attacker;
+			if m is less than n:
+				now n is m;
+			if n is less than 0:
+				now n is 0;
+		increase health of the global attacker by n;
+		unless n is 0:
+			say "The vampiric dagger [bold type]transfers [n] health[roman type] to [the global attacker].".
+
+Section - Giantbane (major)
+
+Giantbane is a major dagger.
+Giantbane is civilised.
+Giantbane is iron.
+Giantbane is proper-named.
+Giantbane is small.
+
+A dungeon interest rule (this is the set giantbane size rule):
+	if a random chance of 1 in 5 succeeds:
+		now giantbane is medium;
+	if a random chance of 2 in 5 succeeds:
+		now giantbane is tiny.
+
+The description of Giantbane is "This dagger deals massive damage to big creatures, the damage bonus increasing as the size of the wielder and that of the victim differ more.".
+
+An add specific damage rule (this is the Giantbane damage bonus rule):
+	if damage-by-hitting is true:
+		if damage-source is Giantbane:
+			let n be the size difference of the global attacker and the global defender;
+			if n is greater than 0:
+				now n is n + 2;
+				add n points of damage with reason "Giantbane's special".
+
+			
+Section - Dagger of draining (monster)
+
+[Used by Malygris]
+
+The dagger of draining is a dagger. The description of the dagger of draining is "This magical dagger saps the powers of any enemy it hits, and transfers it to the wielder.".
+The damage die of the dagger of draining is 8.
+
+The special weapon info of the dagger of draining is "; drains statistics; benefits from tension[run paragraph on]".
+
+An aftereffects rule (this is the dagger of draining aftereffects rule):
+	if the global attacker weapon is the dagger of draining and the total damage is greater than 0:
+		say "The magical dagger saps ";
+		if a random number between 1 and 4 is:
+			-- 1:
+				decrease defence of the global defender by 1;
+				increase defence of the global attacker by 1;
+				say "[regarding the global defender][possessive] defensive reflexes, transferring them to [the global attacker].";
+			-- 2:
+				decrease mind score of the global defender by 1;
+				increase mind score of the global attacker by 1;
+				say "[regarding the global defender][possessive] mind score, transferring it to [the global attacker].";
+			-- 3:
+				decrease body score of the global defender by 1;
+				increase body score of the global attacker by 1;
+				say "[regarding the global defender][possessive] body score, transferring it to [the global attacker].";
+			-- 4:
+				decrease spirit score of the global defender by 1;
+				increase spirit score of the global attacker by 1;
+				say "[regarding the global defender][possessive] spirit score, transferring it to [the global attacker].";
+
+An AI weapon selection rule for the dagger of draining (this is the Malygris prefers the dagger of draining rule):
+	increase the Weight by 10.
+							
+
+
+
+
+Chapter - Axe
+
+An axe is a kind of weapon. 
+An axe is usually iron.
+
+The damage die of an axe is usually 4.
+The weapon attack bonus of an axe is usually -1.
+The weapon damage bonus of an axe is usually 3.
+The dodge bonus of an axe is usually 1.
+The parry-against bonus of an axe is usually -2.
+
+
+Section - Fearsome axe (minor)
+
+The fearsome axe is a minor axe.
+The fearsome axe is deathly.
+The fearsome axe is iron.
+
+The damage die of the fearsome axe is 5.
+The parry-with bonus of the fearsome axe is -1.
+
+The description of the fearsome axe is "While not exactly a nimble weapon, this axe is certainly able to deal out some punishment. It also has a chance of striking fear in the hearts of your enemies. (When you attack with the fearsome axe, there is a chance that they will not be able to react. The probability of this happening is (your mind - their mind) * 4%.)".
+
+To cower is a verb.
+
+Last carry out an actor attacking (this is the fearsome axe rule):
+	if the actor wields the fearsome axe and the noun is conscious in this world:
+		let n be the final mind of the actor;
+		decrease n by the final mind of the noun;
+		if n is greater than 0:
+			if a random chance of n in 25 succeeds:
+				now combat state of noun is at-Inactive;
+				say "[The noun] [cower] in fear before the attack.".
+
+The special weapon info of the fearsome axe is "; inspires fear[run paragraph on]".
+
+A treasure placement rule (this is the fearsome can be fearful rule):
+	if a random chance of 1 in 6 succeeds:
+		now the hidden identity of the fearsome axe is the fearful axe.
+
+Section - Fearful axe (cursed)
+
+The fearful axe is a cursed curse-identified axe. The fearful axe is iron. The fearful axe is tricky.
+
+The damage die of the fearful axe is 5.
+The parry-with bonus of the fearful axe is -1.
+
+The description of the fearful axe is "While not exactly a nimble weapon, this axe is certainly able to deal out some punishment. Unfortunately, the weapon is cursed with an enchantment that sometimes strikes fear into the heart of the wielder, making him forego his attack. (The probability of not attacking because of fear is (20 - your mind)%.)".
+
+The special weapon info of the fearful axe is "; makes the wielder a coward[run paragraph on]".
+
+Last check an actor attacking (this is the fearful axe rule):
+	if the actor wields the fearful axe:
+		let n be (20 - final mind of the actor);
+		if n is greater than 0:
+			if a random chance of n in 100 succeeds:
+				if the actor is the player:
+					say "You are suddenly too afraid to attack!" instead;
+				otherwise:
+					say "[The actor] [if the actor is plural-named]are[otherwise]is[end if] overcome by fear!" instead.
+
+
+Section - Executioner's axe (major)
+
+The executioner's axe is a major axe.
+The executioner's axe is deathly.
+The executioner's axe is iron.
+
+The description of the executioner's axe is "This is the blade that chopped off the head of Philip the Traitor after he had been found guilty of murdering his brother, Charles IV. Ever since, pilgrims have flocked to Montenoir's temple of Nomos to see and revere it. How it has ended up in this dungeon is anyone's guess. Feeding the axe will increase its attack modifier by +1.".
+
+The executioner's axe is advanced.
+
+The blood magic cost of executioner's axe is 15.
+The blood magic level of executioner's axe is 0.
+The blood magic maximum of executioner's axe is 99.
+
+Carry out feeding (this is the feed the executioner's axe rule):
+	if the noun is the executioner's axe:
+		increase the weapon attack bonus of the executioner's axe by 1.
+
+The damage die of the executioner's axe is 7.
+The weapon damage bonus of the executioner's axe is 5.
+The parry-with bonus of the executioner's axe is -2.
+The weapon attack bonus of the executioner's axe is -3.
+
+An add specific damage rule (this is the executioner's axe extra tension damage bonus rule):
+	if damage-by-hitting is true:
+		if damage-source is the executioner's axe:
+			let n be 0;
+			now n is the tension divided by 3;
+			if n is not 0:
+				add n points of damage with reason "executioner's axe benefits from tension".
+
+The executioner's axe extra tension damage bonus rule is listed last in the add specific damage rules.
+
+An attack modifier rule (this is the executioner's axe is better in temple of Nomos rule):
+	if the global attacker weapon is the executioner's axe and the location is the Temple of Nomos:
+		if the numbers boolean is true, say " + 3 (Nomos likes the executioner's axe)[run paragraph on]";
+		increase the attack strength by 3.
+
+Chance to win rule (this is the CTW executioner's axe in temple of Nomos rule):
+	if chosen weapon is the executioner's axe and the location is the Temple of Nomos:
+		increase the chance-to-win by 3.
+
+The special weapon info of the executioner's axe is "; better tension damage bonus[run paragraph on]".
+
+Section - Minotaur's axe (monster)
+
+The minotaur's axe is an axe. The description of the minotaur's axe is "A [size of minotaur's axe] axe covered in mystic runes.".
+
+The minotaur's axe is large.
+
+The damage die of the minotaur's axe is 6.
+The weapon attack bonus of the minotaur's axe is -2.
+The weapon damage bonus of the minotaur's axe is 4.
+The parry-with bonus of the minotaur's axe is -2.
+
+
+An attack modifier rule:
+	if the location of the global attacker is the maze and the global attacker weapon is the minotaur's axe:
+		say " + 3 (minotaur's axe stronger in the maze)[run paragraph on]";
+		increase the attack strength by 3.
+	
+The special weapon info of the minotaur's axe is "; when damage is dealt and the wielder has the power of the minotaur, casts attacker and defender in a magical maze[run paragraph on]".
+
+Last aftereffects rule (this is the minotaur's axe maze rule):
+	if the global attacker weapon is the minotaur's axe:
+		if the global attacker is the minotaur or (the global attacker is the player and the power of the minotaur is granted):
+			if the total damage is greater than 0:
+				if the location of the player is not the maze:
+					maze the global attacker and the global defender.
+					
+
+
+
+Chapter - Scythe
+
+A scythe is a kind of weapon. 
+A scythe is usually iron.
+
+The damage die of a scythe is usually 10.
+The weapon attack bonus of a scythe is usually -1.
+The dodge bonus of a scythe is usually 1.
+The parry-with bonus of a scythe is usually -1.
+The parry-against bonus of a scythe is usually -1.
+The weapon damage bonus of a scythe is usually 0.
+
+
+Section - Scythe of flame (monster)
+
+The scythe of flaming is a scythe. The description of the scythe of flaming is "Enchanted with a spell of heat, this scythe always remains unnaturally hot.".
+The internal heat of scythe of flaming is 3.
+
+Section - Scythe of slaying (monster)
+
+The scythe of slaying is a scythe. The scythe of slaying is silver. The description of the scythe of slaying is "Ages ago, the monks of Averoigne forged these weapons, imbuing them with powerful enchantments against the living dead.".
+
+An add specific damage rule (this is the scythe of slaying deals great damage to undead rule):
+	if damage-by-hitting is true:
+		if damage-source is the scythe of slaying and victim is undead:
+			add 5 points of damage with reason "slaying undead".
+
+The special weapon info of the scythe of slaying is "; massive damage against undead[run paragraph on]".
+
+Section - Scythe of oxidation (monster)
+
+The scythe of oxidation is a scythe. The scythe of oxidation is iron. The scythe of oxidation is rusted. The description of the scythe of oxidation is "Some entropic demon or deity has given this scythe the ability to rust the opponent's weapons in combat.".
+
+The special weapon info of the scythe of oxidation is "; rusts weapons[run paragraph on]".
+
+To rust is a verb.
+
+An aftereffects rule (this is the scythe of oxidation rusts stuff rule):
+	Let the target be whatever the scythe of oxidation struck;
+	If the target is a not rusted iron thing:
+		say "Having been [if the target is the global defender]hit[otherwise]in contact[end if] with the scythe of oxidation, [the target] [rust][if the target is a person]![otherwise].[end if]";
+		now the target is rusted;
+
+	[TODO: if the target is a person or a natural weapon, spread the rust between both?]
+	[TODO: if the damage was reduced to 0, still rust the global defender?]
+
+
+Chapter - Staves
+
+Section - Staff of pain (monster)
+
+[One of these is used by the tormentor of Aite.]
+
+A staff of pain is a kind of weapon. The plural of staff of pain is staves of pain.
+A staff of pain is usually wood. A staff of pain is projectile.
+A staff of pain is size-agnostic.
+A staff of pain is deathly.
+The description of a staff of pain is "The staff of pain wounds with necromantic magic that can be neither parried nor dodged.". [TODO: make this really true - perhaps by using "does nothing" rules, or by making the defender not at-parry or at-dodge]
+
+The damage die of a staff of pain is usually 4.
+The weapon attack bonus of a staff of pain is usually 0.
+The dodge bonus of a staff of pain is usually -2.
+The parry-with bonus of a staff of pain is usually -1.
+The parry-against bonus of a staff of pain is usually -2.
+The weapon damage bonus of a staff of pain is usually 0.
+
+First before damage rule when the damage-source is a staff of pain (this is the staff of pain rule):
+	convert primary damage to necromantic damage.
+
+
+Section - Druidic staff (reward)
+
+The druidic staff is a weapon.
+
+The description of druidic staff is "A simple wooden staff, but very well balanced.".
+
+The druidic staff is wood.
+
+The damage die of the druidic staff is 6.
+The weapon attack bonus of the druidic staff is 1.
+The dodge bonus of the druidic staff is 0.
+The parry-with bonus of the druidic staff is 1.
+The parry-against bonus of the druidic staff is 0.
+The weapon damage bonus of the druidic staff is 1.
+
+Section - Was sceptre (monster)
+
+[Carried by the mummified priest.]
+
+The was sceptre is a weapon.
+
+The description of the was sceptre is "This long staff has the stylised head of an ibis on top, and ends in a fork. While not a great tool for combat, it is a carrier of much spiritual power. [italic type](-2 body, -2 mind, +4 spirit)[roman type]".
+
+The was sceptre is wood.
+
+A dungeon interest rule (this is the maybe curse was sceptre rule):
+	if a random chance of 1 in 3 succeeds:
+		unless was sceptre is incorruptible:
+			now was sceptre is cursed.
+
+The damage die of the was sceptre is 4.
+The weapon attack bonus of the was sceptre is 0.
+The weapon damage bonus of the was sceptre is 0.
+
+A body bonus rule (this is the body penalty of the was sceptre rule):
+	if the test subject wields the was sceptre:
+		decrease faculty bonus score by 2.
+
+A mind bonus rule (this is the mind penalty of the was sceptre rule):
+	if the test subject wields the was sceptre:
+		decrease faculty bonus score by 2.
+
+A spirit bonus rule (this is the spirit bonus of the was sceptre rule):
+	if the test subject wields the was sceptre:
+		increase faculty bonus score by 4.
+
+Section - Caduceus  (epic)
+
+The caduceus is an epic wood magical weapon. The indefinite article of the caduceus is "the".
+
+The description of the caduceus is "A short staff entwined by two serpents and surmounted by wings. [italic type]Anyone hit by the caduceus has a chance equal to (attacker's mind * 2)% to fall asleep.[roman type]".
+
+The damage die of the caduceus is 4.
+The weapon attack bonus of the caduceus is 2.
+The parry-with bonus of the caduceus is 1.
+The weapon damage bonus of the caduceus is 0.
+
+To fall is a verb.
+Aftereffects rule (this is the caduceus may put people asleep rule):
+	if the global attacker weapon is the caduceus and the global defender is not the player:
+		if the total damage is greater than 0 and the global defender is sleeper:
+			let n be final mind of the global attacker;
+			if a random chance of n in 50 succeeds:
+				say "[The global defender] [bold type][fall] asleep[roman type]!";
+				now global defender is asleep.
+
+Section - Staff of insanity (epic)
+
+The staff of insanity is an epic wood magical weapon. The description of the staff of insanity is "Swirling bands of red, blue, orange and green dazzle the eyes and boggle the mind. Wielding this weapon is immensely distracting, but if you do manage to hit someone with it, they will become insane.".
+
+The special weapon info of the staff of insanity is "; -2 attack and defence penalty; -3 penalty to body, mind and spirit; anyone damaged by it becomes insane[run paragraph on]".
+
+The damage die of the staff of insanity is 2.
+The weapon attack bonus of the staff of insanity is 0.
+The weapon damage bonus of the staff of insanity is 0.
+
+Aftereffects rule (this is the staff of insanity makes people insane rule):
+	if the global attacker weapon is the staff of insanity and the global defender is not the player:
+		if the total damage is greater than 0 and the faction of the global defender is not insane and the global defender is not dead:
+			say "As soon as the bizarre staff strikes, [the global defender] goes [bold type]insane[roman type]!";
+			now faction of the global defender is insane.
+
+An attack modifier rule (this is the staff of insanity weakens the wielder rule):
+	if the global defender wields the staff of insanity:
+		say " + 2 (defender wields staff of insanity)[run paragraph on]";
+		increase the attack strength by 2;
+	if the global attacker wields the staff of insanity:
+		say " - 2 (attacker wields staff of insanity)[run paragraph on]";
+		decrease the attack strength by 2.	
+
+A faculty bonus rule (this is the staff of insanity faculty penalty rule):
+	if the test subject wields the staff of insanity:
+		decrease faculty bonus score by 3.
+
+
+Chapter - Maces
+
+A mace is a kind of weapon. 
+A mace is usually iron.
+
+The damage die of a mace is usually 5.
+The weapon attack bonus of a mace is usually 0.
+The weapon damage bonus of a mace is usually 1.
+The dodge bonus of a mace is usually 0.
+The parry-with bonus of a mace is usually 0.
+The parry-against bonus of a mace is usually 0.
+
+Section - Spiked mace of the ape king (major)
+
+The spiked mace of the ape king is a major mace.
+The spiked mace of the ape king is barren.
+The spiked mace of the ape king is iron.
+
+The spiked mace of the ape king is crescendi-immune. The spiked mace of the ape king is diminuendi-immune.
+
+Table of Spiked Mace of the Ape King
+Blood	Dam	WDB	DOD	PAB	PWB	Size
+0	3	0	-1	0	0	tiny
+1	3	0	-1	0	0	tiny
+2	4	0	0	0	0	small
+3	5	1	0	0	0	small
+4	5	1	0	0	0	medium
+5	6	2	0	0	0	medium
+6	7	2	0	0	-1	large
+7	8	3	1	-1	-1	large
+8	8	3	1	-1	-1	huge
+9	9	4	1	-1	-2	huge
+10	10	4	1	-2	-2	gargantuan
+11	11	4	1	-2	-2	gargantuan
+
+Spiked-mace-blood is a number that varies. Spiked-mace-blood is 0.
+
+To set stats for the spiked mace of the ape king:
+	now the spiked mace of the ape king is iron;
+	now the spiked mace of the ape king is not rusted;
+	if spiked-mace-blood is less than 12:
+		choose row with a blood of spiked-mace-blood in the Table of Spiked Mace of the Ape King;
+		now the damage die of the spiked mace of the ape king is Dam entry;
+		now the weapon damage bonus of the spiked mace of the ape king is WDB entry;
+		now the dodge bonus of the spiked mace of the ape king is DOD entry;
+		now the parry-with bonus of the spiked mace of the ape king is PWB entry;
+		now the parry-against bonus of the spiked mace of the ape king is PAB entry;
+		now the size of the spiked mace of the ape king is Size entry;
+	otherwise:
+		let guy be a random person who has the spiked mace of the ape king;
+		unless guy is nothing: [who knows whether we program animated weapons at some point?]
+			say "The [bold type]spiked mace of the ape king[roman type] suddenly grows so big that [guy] cannot hold on to it. It [bold type]crashes[roman type] to the floor!";
+			move spiked mace of the ape king to location of guy;
+		otherwise:
+			say "The [bold type]spiked mace of the ape king[roman type] suddenly [bold type]crashes[roman type] to the floor!";
+			move spiked mace of the ape king to location of spiked mace of the ape king;
+		now spiked mace of the ape king is not readied;
+		now spiked mace of the ape king is fixed in place;
+		now description of spiked mace of the ape king is "The mace has grown to such proportions that not even the strongest man in the world would be able to lift it.".
+	
+Last dungeon interest rule (this is the spiked mace stat set rule): [this puts us after the rule that may randomly change the size of a weapon]
+		set stats for the spiked mace of the ape king.
+		
+The description of spiked mace of the ape king is "A ball studded with sharp spikes and put at the end of a stick makes a simple but effective weapon. It is currently of [size of spiked mace of the ape king] size.".
+
+An aftereffects rule (this is the spiked mace grows rule):
+	if the global attacker weapon is the spiked mace of the ape king:
+		if the total damage is greater than 0:
+			increase spiked-mace-blood by 1;
+			set stats for the spiked mace of the ape king;
+			if spiked-mace-blood is less than 12:
+				say "The spiked mace of the ape king grows!"
+				
+The basic weapon enchantment rule does nothing when the player wields the spiked mace of the ape king.
+
+Carry out reading a scroll of enchantment (this is the enchantment grows spiked mace rule):
+	if the player wields the spiked mace of the ape king:
+		increase spiked-mace-blood by 1;
+		set stats for the spiked mace of the ape king;
+		if spiked-mace-blood is less than 12:
+			say "A flash of red light comes from the spiked mace of the ape king, and it grows!"
+
+
+	
+Chapter - Hammer
+
+Section - Stunning weapon
+
+A weapon can be stunning-weapon. A weapon is usually not stunning-weapon. [A stunning weapon always stuns, without damage penalty. When combined with the stun action, it is extra effective.]
+
+[Stunning is defined in Kerkerkruip Monster Abilities]
+
+Section - The hammer kind
+
+A hammer is a kind of weapon.
+A hammer is usually iron.
+
+The damage die of a hammer is usually 4.
+The weapon attack bonus of a hammer is usually -1.
+The weapon damage bonus of a hammer is usually 2.
+The dodge bonus of a hammer is usually 1.
+The parry-with bonus of a hammer is usually -1.
+The parry-against bonus of a hammer is usually -1.
+
+A hammer is usually stunning-weapon.
+The special weapon info of a hammer is usually "; stuns opponents[run paragraph on]".
+
+Section - Malleus Maleficarum (Nomos)
+
+The Malleus Maleficarum is a hammer. The indefinite article is "the". The description of the Malleus Maleficarum is "To kill witches and other creatures of chaos, one needs to be accurate and methodical. This hammer is an excellent tool for the task. [italic type]Feeding [current blood cost of Malleus maleficarum] blood to the Malleus Maleficarum will give it a[if blood magic level of malleus maleficarum is at least 1]n additional[end if] bonus of +1 attack and +1 damage on your next attack[roman type]. When the Malleus is readied, paying blood magic costs also reduces the tension." Understand "hammer" as the Malleus Maleficarum.
+
+The weapon attack bonus of Malleus Maleficarum is 1.
+The damage die of Malleus Maleficarum is 5.
+The weapon damage bonus of Malleus Maleficarum is 3.
+
+The blood magic cost of Malleus Maleficarum is 1.
+The blood magic maximum of Malleus Maleficarum is 20.
+
+The special weapon info of the Malleus Maleficarum is "; stuns opponents; does not benefit from tension; grants one level of dreadful presence[if blood magic level of Malleus maleficarum is at least 1]; blood bonus of +[blood magic level of malleus maleficarum] attack and +[blood magic level of malleus maleficarum] damage[end if][run paragraph on]".
+
+Malleus-tension-dummy is a number that varies.
+
+First attack modifier rule (this is the Malleus remove tension rule):
+	if global attacker weapon is Malleus Maleficarum:
+		now malleus-tension-dummy is tension;
+		now tension is 0.
+
+First aftereffects rule (this is the Malleus reset tension rule):
+	if global attacker weapon is Malleus Maleficarum:
+		now tension is malleus-tension-dummy.
+
+Aftereffects rule (this is the Malleus blood spent rule):
+	if global attacker weapon is Malleus Maleficarum:
+		now the blood magic level of Malleus Maleficarum is 0.
+	
+A dread rule (this is the malleus dread rule):
+	if test subject wields Malleus Maleficarum:
+		increase dread dummy by 1.
+		
+Attack modifier rule (this is the Malleus blood attack bonus rule):
+	if global attacker weapon is Malleus Maleficarum:
+		let bonus be the blood magic level of Malleus Maleficarum;
+		if the bonus is greater than 0:
+			say " + [bonus] (Malleus Maleficarum blood)[run paragraph on]";
+			increase the attack strength by bonus;
+
+An add specific damage rule (this is the Malleus blood damage bonus rule):
+	if damage-by-hitting is true:
+		if damage-source is Malleus Maleficarum:
+			let bonus be the blood magic level of Malleus Maleficarum;
+			if the bonus is greater than 0:
+				add bonus points of damage with reason "Malleus Maleficarum blood bonus".
+
+Last carry out feeding (this is the feeding reduces tension for Malleus wielder rule):
+	now the tension is the tension after hit;
+	if the player wields the Malleus Maleficarum:
+		say "The Malleus Maleficarum uses your bloodletting to reduce the tension.";
+
+Section - Doomhammer (monster)
+
+The doomhammer is a huge hammer. The doomhammer is iron. The description of the doomhammer is "This [if the doomhammer is huge]fantastically huge [end if]hammer has all the subtlety of a stampede of wild mammoths, and is just as deadly."
+
+The damage die of the doomhammer is 8.
+The weapon damage bonus of the doomhammer is 3.
+
+
+Section - The spiritual hammer
+
+The spiritual hammer is a major religious hammer. The indefinite article is "the". The rarity of the spiritual hammer is 2. The spitirual hammer is iron. The description of the spiritual hammer is "[if final spirit of the player is less than 15]Monastic symbols have been etched into the massive head of this hammer. Already a fine weapon, its true powers will become apparent only when wielded by those with a high spirit score. If your spirit ever rises to 15, the hammer will start to glow with inner fire, dealing significantly more damage[otherwise if player has the spiritual hammer]Monastic symbols have been etched into the massive head of this hammer. Because of your high spirit score, the hammer glows with an inner fire that generates no heat, but will deal significant damage in combat[otherwise]Monastic symbols have been etched into the massive head of this hammer. Already a fine weapon, its true powers will become apparent only when wielded by those with a high spirit score[end if].[line break]"
+
+An add specific damage rule (this is the spiritual hammer bonus damage rule):
+	if damage-by-hitting is true:
+		if damage-source is the spiritual hammer:
+			unless final spirit of the global attacker is less than 15:
+				add 4 points of heat damage with reason "hammer's inner fire".
+			
+The special weapon info of the spiritual hammer is "; stuns opponents; deals extra heat damage when wielded with high spirit score[run paragraph on]".
+
+Chapter - Crossbows
+
+A crossbow is a kind of weapon. 
+A crossbow is usually wood.
+A crossbow is always projectile.
+
+Understand "crossbow" as a crossbow.
+
+The damage die of a crossbow is usually 4.
+The weapon attack bonus of a crossbow is usually 0.
+The dodge bonus of a crossbow is usually 1.
+The parry-with bonus of a crossbow is usually -2.
+The parry-against bonus of a crossbow is usually -2.
+The weapon damage bonus of a crossbow is usually 0.
+
+Chance to win rule when the chosen weapon is a crossbow (this is the CTW crossbow concentration bonus rule):
+	let n be the tension divided by 3;
+	increase the chance-to-win by n.
+		
+An add specific damage rule (this is the crossbow extra tension damage bonus rule):
+	if damage-by-hitting is true:
+		if the damage-source is a crossbow:
+			let n be the tension divided by 2;
+			if n is not 0:
+				add n points of damage with reason "crossbow benefits from tension".
+
+The crossbow extra tension damage bonus rule is listed last in the add specific damage rules.
+
+The special weapon info of a crossbow is usually "; damage benefits strongly from tension[run paragraph on]".
+
+The maximum shots of a crossbow is usually 1.
+The current shots of a crossbow is usually 1.
+The maximum load time of a crossbow is usually 2.
+
+Section - Yahvinnian crossbow
+
+The Yahvinnian crossbow is a minor civilised crossbow.
+
+The description of the Yahvinnian crossbow is "The typical Yahvinnian taste for combining life's two great transgressive pleasures--sex and death--is evident from the erotic carvings on this crossbow.".
+
+The erotic carvings are part of the Yahvinnian crossbow. The description of the erotic carvings is "Wait... is [italic type]that[roman type] physically possible? You simply must try that some day, which adds another reason to escape from this barren dungeon."
+
+
+Section - Snipe (Herm gift)
+
+Snipe is a crossbow. Snipe is proper-named.
+
+The damage die of Snipe is 6.
+The weapon attack bonus of Snipe is 1.
+The maximum load time of Snipe is 4.
+
+The description of Snipe is "This small crossbow is made from very dark wood. It carries the blessing of Herm: when you hit someone with it, they'll have a chance to be teleported away equal to 10% times your favour with the hidden god.".
+
+An aftereffects rule (this is the Snipe rule):
+	if the global attacker weapon is Snipe:
+		if the global attacker worships Herm:
+			if total damage is greater than 0:
+				if a random chance of the favour of the global attacker in 10 succeeds:
+					let n be teleport amount of the global defender;
+					try the global defender teleporting;
+					now teleport amount of global defender is n.
+
+		
+Chapter - Other weapons
+
+Section - Magical pickaxe (major)
+
+The pickaxe is a major iron barren weapon.
+The pickaxe is a digging tool.
+
+Understand "axe" as the pickaxe.
+
+The description of the pickaxe is "Used by wizards to construct their dungeons, a magical pickaxe can be used to dig tunnels in whatever direction you wish. Just dig north, for instance. In a pinch, it can also serve as a weapon.".
+
+[The unlock level of the magical pickaxe is 9.
+The unlock text of the magical pickaxe is "an item that functions both as a weapon and as a tool for digging tunnels".]
+
+The damage die of the pickaxe is 5.
+The weapon attack bonus of the pickaxe is -1.
+The weapon damage bonus of the pickaxe is 3.
+The dodge bonus of the pickaxe is 1.
+The parry-against bonus of the pickaxe is -1.
+The parry-with bonus of the pickaxe is 0.
+
+Section - Glass Cannon (epic)
+
+[Very good weapon which halves you permanent health.]
+
+The glass cannon is an epic weapon.
+The glass cannon is magical.
+The material of the glass cannon is glass.
+
+The glass cannon is projectile.
+The glass cannon is size-agnostic.
+
+The description of the glass cannon is "At first sight this seems to be nothing but a foot-long tube of glass. However, it is a very powerful weapon, the shots of which can quickly destroy even the most powerful enemy. But be warned: not only does the glass cannon make you an easier target, it is also the case that when you ready the weapon, you [bold type]permanently[roman type] lose half of your health.".
+
+The damage die of the glass cannon is 0.
+The weapon attack bonus of the glass cannon is 2.
+The weapon damage bonus of the glass cannon is 10.
+The dodge bonus of the glass cannon is 0.
+The parry-with bonus of the glass cannon is 2.
+The parry-against bonus of the glass cannon is -5.
+
+An attack modifier rule (this is the being a glass cannon rule):
+	if the global defender weapon is the glass cannon:
+		say " + 3 (you are a glass cannon)[run paragraph on]";
+		increase the attack strength by 3.		
+
+Chance to win rule (this is the CTW glass cannon bonus rule):
+	if the global defender weapon is the glass cannon:
+		increase the chance-to-win by 3.
+
+After readying the glass cannon:
+	say "You feel fragile.";
+	now permanent health of player is permanent health of the player divided by 2;
+	now health of the player is health of the player divided by 2;
+	if player is dead:
+		end the story saying "You were a little too fragile for that.".
+
+An aftereffects rule (this is the glass cannon shatters when used to parry rule):
+	if the glass cannon is whatever the global attacker weapon struck:
+		Let fragility be the weapon damage bonus of the glass cannon;
+		if fragility < 1:
+			now fragility is 1;
+		if a random chance of 1 in fragility succeeds:
+			say "The impact [bold type]shatters the glass cannon[roman type].";
+			remove the glass cannon from play;
+		otherwise:
+			say "The glass cannon [bold type]survives the impact[roman type], but barely.";
+			decrease weapon damage bonus of glass cannon by 2.
+
+The special weapon info of the glass cannon is "; makes you easier to hit; permanently halves your health when readied[run paragraph on]".
+
+Section - Nunchuck (monster)
+
+[Carried by Miranda.]
+
+The pair of nunchucks are a weapon. The pair of nunchucks is wood. Understand "nunchuck" and "nunchuk" and "nunchuks" as the pair of nunchucks. The pair of nunchucks is ambiguously plural.
+The description of the pair of nunchucks is "These two pieces of wood with a metal chain between them can be surprisingly dangerous.".
+The parry-with bonus of the pair of nunchucks is 1.
+
+Section - Demon whip (monster)
+
+[Carried by the demonic mistress]
+
+
+The demon whip is a weapon.
+The demon whip is tethered.
+
+The damage die of the demon whip is 3.
+The weapon attack bonus of the demon whip is 1.
+The weapon damage bonus of the demon whip is 2.
+The dodge bonus of the demon whip is 0.
+The parry-against bonus of the demon whip is -1.
+The parry-with bonus of the demon whip is -2.
+
+The demon whip is cursed.
+
+The description of the demon whip is "The demons of the lower hells use these savage whips to break the minds of their slaves.".
+
+An aftereffects rule (this is the demon whip rule):
+	if the global attacker weapon is the demon whip:
+		if the total damage is greater than 0:
+			if the global defender is alive:
+				say "The demon whip [bold type]breaks [regarding the global defender][possessive] will[roman type] (-2 mind score)![paragraph break]";
+				decrease mind score of global defender by 2;
+				if global defender is the player and global attacker is the demonic mistress:
+					if final mind of the player is less than 1:
+						say "'Come. You will serve my master,' the demon mistress breathes in your ear. Your will broken entirely, you meekly kneel as she chains your hands together, puts a collar around your neck, and pulls you along into the depths of hell.";
+						end the story saying "This is infinitely worse than being enslaved by a mindslug.";
+						rule fails.
+
+
+
+
+
+
+
+Chapter - Miscellaneous Items
+
+
+Section - Dimensional anchor (minor)
+
+A dimensional anchor is a minor thing. The description of the dimensional anchor is "The tiny anchor made of marble may seem nothing but a sailor's souvenir, but appearances deceive. It has been imbued with a powerful spell that makes it impossible to teleport away from the room it is in. An ornate 'N' at the bottom designates it as the work of the mysterious sorcerer Ningauble.".
+The dimensional anchor is magical.
+The dimensional anchor is stone.
+
+A teleport impossible rule (this is the dimensional anchor rule):
+	if the location of the test subject encloses the dimensional anchor:
+		rule succeeds.
+
+Section - Magical spade (major)
+
+The magical spade is a major thing. The magical spade is a digging tool. The description of the magical spade is "Used by wizards to construct their dungeons, a magical spade can be used to dig tunnels in whatever direction you wish. Just dig north, for instance.".
+The magical spade is magical.
+The magical spade is iron.
+
+Last dungeon interest rule (this is the extra magical spade placement rule):
+	if magical spade is off-stage:
+		if a random chance of 3 in 10 succeeds:
+			let place be a random placed treasurable room;
+			move magical spade to place.
+
+Section - Vial of Purification (minor)
+
+The vial of purification is a minor religious glass thing. Understand "holy" and "water" and "waters" as vial of purification. The description of vial of purification is "Drinking the holy water in this small vial might cure you of some unfortunate afflictions.".
+
+Instead of eating vial of purification:
+	try drinking vial of purification.
+
+The purification rules are a rulebook.
+player-purified is a truth state that varies.
+
+Instead of drinking vial of purification:
+	remove noun from play;
+	if the player worships Chton:
+		say "Chton prevents the vial of purification from doing its work; but your attempt at escaping undeath did not amuse him. A wave of extreme cold racks your body, dealing [run paragraph on]";
+		deal 15 points of divine damage;
+		have no-source inflict damage on player; [why not Chton?]
+		say "!";
+		if the player is dead:
+			end the story saying "Don't worry; Chton will soon raise you as a mindless zombie.";
+	otherwise:
+		now player-purified is false;
+		follow the purification rules;
+		if player-purified is false:
+			say "The holy water turns out to be powerless against your problems.".
+		
+Purification rule (this is the purify undead influences rule):	
+	let m be 0;
+	now every undead player form is not form-active;
+	now human-form is form-active;
+	if current form is undead:
+		try changing form to human-form;
+		now m is 1;
+	if m is 1:
+		say "The waters purify you of all undead influences.";
+		now player-purified is true.
+			
+Purification rule (this is the purify disintegrating flesh rule):
+	if disintegrating flesh is adapted:
+		unmutate disintegrating flesh;
+		now player-purified is true;
+
+Purification rule (this is the purify vision rule):
+	unless the player is perceptive:
+		now the flash-grenade-timer of the player is 0;
+		if the player wears the cursed goggles of blindness:
+			say "Although the waters cannot break the curse of the goggles, they [run paragraph on]";
+			now eyeless vision is adapted;
+		otherwise if the player is perceptive:
+			say "The waters [run paragraph on]";
+		if the player is perceptive:
+			if the player is using eyes:
+				say "heal your eyes, allowing you to see again.";
+			otherwise:
+				say "give you the power to see without eyes!";
+				follow the reveal eyeless with goggles secret rule;
+			now player-purified is true;
+
+Purification rule (this is the purify stunning rule):
+	if the player is stunned:
+		now the stun count of the player is 0;
+		now the stun strength of the player is 0;
+		say "The waters clear your mind. You are no longer stunned!";
+		now player-purified is true;
+		
+Purification rule (this is the purify sleepiness rule):
+	if the player is just-woken:
+		now the player is not just-woken;
+		say "The waters stimulate your senses. You are now wide awake.";
+		now player-purified is true;
+
+Section - Rod of the Master Builder (epic)
+
+The rod of the master builder is an epic thing.
+The rod of the master builder is barren.
+The rod of the master builder is stone.
+
+The description of the rod of the master builder is "This powerful artefact looks like a smooth tube of white stone. It can be used to [italic type]dig[roman type] new tunnels and [italic type]collapse[roman type] old passages; and it also allows its possessor to walk away from combat in relative safety.".
+
+The rod of the master builder is a digging tool.
+The rod of the master builder is a collapsing tool.
+
+An attack modifier rule (this is the rod of master builder attack modifiers rule):
+	if the global defender is the player and the player has the rod of the master builder:
+		if the player is retreater or the player is runner:
+			say " - 2 (rod of the master builder)[run paragraph on]";
+			decrease the attack strength by 2.
+
+A general damage multiplier rule when the player has the rod of the master builder (this is the rod of master builder damage multiplier rule):
+	if damage-by-hitting is true:
+		if the victim is the player and (the player is retreater or the player is runner):
+			multiply general damage by 50 percent with reason "rod of the master builder".
+
+Instead of readying the rod of the master builder:
+	say "It is not weapon. You can use it without readying it.".
+			
+Section - Drakul's Lifeblood (epic)
+
+Drakul's lifeblood is an epic deathly glass thing.
+Understand "blood" and "vial" as Drakul's lifeblood.
+The description of Drakul's lifeblood is "This small vial holds the blood of a powerful vampire. Drinking it might have far-reaching consequences.".
+Drakul's lifeblood is advanced.
+
+Instead of eating Drakul's lifeblood:
+	try drinking Drakul's lifeblood.
+	
+Instead of drinking Drakul's lifeblood:
+	remove noun from play;
+	say "As you gulp down the blood, you feel your whole body changing -- it becomes cold and fragile, but also swift and lean. Magical power courses through your veins.";
+	vampirise the player.
+
+Section - Hand of Glory (special)
+
+[Is sometimes found in the pile of body parts.]
+
+The hand of a glory is a thing. The material of the hand of glory is flesh. Understand "candle" and "flame" and "embalmed" as the hand of glory.
+The description of the hand of glory is "This hand was cut from the body of a criminal on the gibbet; pickled in salt and the urine of man, woman, dog, horse and mare; smoked with herbs and hay for a month; hung on an oak tree for three nights running, then laid at a crossroads, then hung on a church door for one night. When the candle that it grips is lit and you carry the hand, everyone else in the dungeon will remain motionless. But beware -- the candle may melt away very suddenly, and the spell will also be broken as soon as you attack someone.[paragraph break]The hand is currently [if the hand of glory is lit]burning[otherwise]not burning[end if].".
+The hand of glory is not lit.
+Rule for printing inventory details of hand of glory:
+	say " ([if hand of glory is not lit]not [end if]burning)".
+
+Instead of switching on the hand of glory:
+	if the hand of glory is lit:
+		say "The candle is already burning.";
+	otherwise:
+		say "You light the candle on the hand of glory.";
+		now the hand of glory is lit.
+
+Instead of switching off the hand of glory:
+	if the hand of glory is not lit:
+		say "The candle isn't burning.";
+	otherwise:
+		say "You extinguish the candle on the hand of glory, preserving it for further use.";
+		now the hand of glory is not lit.
+
+Instead of burning the hand of glory:
+	try switching on the hand of glory.
+Understand "extinguish [something]" as switching off.
+
+Every turn when the hand of glory is lit (this is the hand of glory melts rule):
+	if hand of glory and the player share a world:
+		if a random chance of 1 in 35 succeeds:
+			do the hand of glory removal.
+
+Last every turn when the hand of glory is lit (this is the no tension with hand of glory rule):
+	if the player and the hand of glory share a world:
+		now tension is 0.
+
+To do the hand of glory removal:			
+	now hand of glory is not lit;
+	if the location of the player is the location of the hand of glory:
+		say "The hand of glory [bold type]suddenly melts away[roman type]!";
+	remove hand of glory from play.
+				
+Last initiative update rule (this is the hand of glory rule):
+	if the hand of glory is lit:
+		if location of the hand of glory is location of the player:
+			if someone carries the hand of glory:
+				repeat with X running through all alive persons enclosed by the location:	
+					if X carries the hand of glory:
+						now initiative of X is 100;
+					otherwise:
+						now initiative of X is 0.
+
+An impeded movement rule (this is the hand of glory impedes movement rule):
+	if the hand of glory is lit:
+		if someone carries the hand of glory:
+			unless the test subject carries the hand of glory:
+				rule fails.
+
+Before attacking (this is the attacking makes the hand of glory melt away rule):
+	if the player carries the hand of glory:
+		if the hand of glory is lit:
+			do the hand of glory removal.
+
+Section - Hand of Vecna
+
+The hand of Vecna is a thing. The material of the hand of Vecna is flesh. The description of the hand of Vecna is "Ages ago this mummified hand belonged to Vecna, the greatest undead sorceror the world has ever known... and also the most evil[if hand of Vecna is not part of the player]. Rumour has it that if you cut off your own hand and apply Vecna's to the stump, this mummified thing will become one with your body and grant you incredible powers. But it is also whispered that the hand always betrays its owner sooner rather than later. If you are brave and foolish enough to use the hand, simply type [italic type]wield hand[roman type]. You will permanently lose 10 health in the process[otherwise]. Now that the hand is part of your body, your natural attack consists of a very accurate and highly damaging lightning bolt. In addition, by typing 'gesture', you can stun everyone in the room and make them lose concentration, and by typing 'point at [italic type]someone[roman type]', you can fill them with so much agony that they lose two turns[end if]."
+
+Instead of wearing the hand of Vecna:
+	say "The hand of Vecna is not simply worn! If you wish it to be yours, you must cut off your own hand and put the hand of Vecna in its place. If you are sure you desire this, type [italic type]wield hand[roman type]. This action will permanently cost you 10 health.".
+
+Before readying the hand of Vecna:
+	if the hand of Vecna is not part of the player:
+		say "This is not going to be easy. All your instincts rebel against the very thought of cutting off your own hand ... but the lure of power cannot be resisted. At last you steel yourself, and with one fell swoop you sever your hand from your arm. The pain is incredible, and blood sprays everywhere. You push the hand of Vecna against the bleeding stump, and it immediately grafts itself onto your arm. The bleeding stops, thankfully, but it seems that the pain only grows worse.";
+		now the hand of Vecna is part of the player;
+		let X be a random natural weapon part of the player;
+		now X is projectile;
+		now X is size-agnostic;
+		now X is not armour-stoppable;
+		now damage die of X is 12;
+		now weapon attack bonus of X is 1;
+		now dodge bonus of X is 0;
+		now parry-against bonus of X is -2;
+		now parry-with bonus of X is -2;
+		now printed name of X is "a lightning bolt";
+		now material of X is electricity;
+		now original material of X is electricity;
+		decrease health of the player by 10; [bypass damage system]
+		decrease permanent health of the player by 10;
+		if the player is dead:
+			end the story saying "The pain and the loss of blood were too much for your body to handle.";
+		rule succeeds;
+	otherwise:
+		take no time;
+		say "You already performed that foolish action.";
+		rule succeeds.
+
+Before unreadying the hand of Vecna:
+	if the hand of Vecna is part of the player:
+		say "You try to pull the hand off of your arm, but it doesn't budge!";
+		rule succeeds;
+	otherwise:
+		take no time;
+		say "It's not part of you right now.";
+		rule succeeds.
+
+Status attribute rule (this is the hand of Vecna status rule):
+	if the hand of Vecna is part of the player:
+		if long status is true:
+			say "Your have replaced your own hand with the [bold type]Hand of Vecna[roman type] (lightning attack, you can [bold type]point[roman type] at someone to cause pain, and [bold type]gesture[roman type] to stun everyone.)[line break][run paragraph on]";
+			if vecna-betraying is true:
+				say "The hand of Vecna has [bold type]betrayed you[roman type] and now acts unpredictably.[line break][run paragraph on]";
+		otherwise:
+			say "[@ check initial position of attribute][if vecna-betraying is true]betrayed by[otherwise]one with[end if] the hand of Vecna[run paragraph on]";
+		
+Vecna-betraying is a truth state that varies. Vecna-betraying is false.
+Vecna-timer is a number that varies. Vecna-timer is 0.
+
+Every turn when the hand of Vecna is part of the player:	
+	if the player carries a readied weapon:
+		let X be a random readied weapon carried by the player;
+		now X is not readied;
+		move X to the location;
+		say "The hand of Vecna [bold type]drops [the X][roman type] on the floor!";
+	increase Vecna-timer by 1;
+	if Vecna-timer is greater than 6 and Vecna-betraying is false:
+		if main actor is player or a random chance of 1 in 3 succeeds:
+			if a random chance of Vecna-timer in 1000 succeeds:
+				say "The pain in your hand suddenly [bold type]grows far worse[roman type], and the evil spirit of Vecna almost overwhelms you. It seems that those stories about the hand betraying its owner were completely true!";
+				now Vecna-betraying is true;
+	if Vecna-betraying is true:
+		if the number of things carried by the player is not 0:
+			if a random chance of 1 in 10 succeeds:
+				let item be a random thing carried by the player;
+				unless item is a readied weapon:
+					move item to the location;
+					say "The hand of Vecna [bold type]throws [the item][roman type] across the room!".
+
+Check the player hitting when the hand of Vecna is part of the player (this is the hitting with the betraying hand of Vecna rule):
+	if Vecna-betraying is true and making-backstab is false:
+		if a random chance of 3 in 4 succeeds:
+			let X be the noun;
+			if a random chance of 1 in 3 succeeds:
+				now X is a random alive person in the location of the actor;
+			otherwise:
+				now X is the player;
+			unless X is the noun:
+				say "The [bold type]hand of Vecna[roman type] attacks [the X] instead!";
+				now making-backstab is true;
+				try the actor hitting X;
+				now making-backstab is false;
+				stop the action;
+
+Gesturing is an action applying to nothing. Understand "gesture" as gesturing.
+
+Check gesturing:
+	unless the hand of Vecna is part of the player:
+		say "You don't have that power."
+
+Carry out gesturing:
+	if the number of people in the location is one:
+		say "Your gesture has no effect, since you are alone.";
+	otherwise:
+		say "The hand of Vecna gestures a forbidden sign, and everyone around you screams in pain -- they have lost their concentration and will be stunned for the next six turns.";
+		repeat with guy running through people in the location:
+			unless guy is player:
+				now concentration of guy is 0;
+				now the stun count of the guy is 6;
+				now the stun strength of the guy is 6.
+
+Pointing at is an action applying to one thing. Understand "point at [something]" as pointing at.
+
+Check pointing at:
+	unless the hand of Vecna is part of the player:
+		say "You don't have that power."
+
+Check pointing at:
+	if the noun is not a person:
+		say "You can only use this power against people."
+
+Carry out pointing at:
+	say "You point your finger at [the noun], causing excruciating agony.";
+	now necklace-torment-counter of the noun is 2.
+
+Before doing anything when Vecna-betraying is true (this is the Vecna causes agony to you rule):
+	if a random chance of 1 in 6 succeeds:
+		say "Before you can do anything, the [bold type]hand of Vecna points at you[roman type]! You are racked with unendurable pains.";
+		now necklace-torment-counter of the player is 2;
+		rule fails.
+
+
+Chapter - Ment
+
+A package of ment is a kind of thing. The plural of package of ment is packages of ment. The description of a package of ment is "Carefully folded in paper, this is just enough ment to get you pumped up for combat. You could snort it whenever you wish[if the ment addiction is 0] -- though you are a little hesitant to start your habit again[end if].".
+A package of ment is paper.
+
+[There are ten packages of ment.] The player carries three packages of ment.
+
+The ment addiction is a number that varies. The ment addiction is 0.
+
+To decide which number is the ment bonus:
+	let n be ment addiction;
+	decide on n.
+
+The ment timer is a number that varies. The ment timer is 0.
+
+Every turn when the main actor is the player (this is the come down from ment rule):
+	if the ment timer is greater than 0:
+		decrease the ment timer by 1;
+		if the ment timer is 0:
+			say "As suddenly as it began, the rush given by the [bold type]ment[roman type] falls away. You are left feeling empty and only half alive.".
+
+The OD timer is a number that varies. The OD timer is 0.
+
+Every turn when the main actor is the player (this is the ment OD rule):
+	if the OD timer is greater than 0:
+		decrease the OD timer by 1;
+		if the OD timer is 7:
+			say "Your breathing is becoming heavy and irregular.";
+		if the OD timer is 3:
+			say "Respiration becomes more difficult by the second. Your heartbeat feels very irregular.";
+		if the OD timer is 0:
+			end the story saying "You OD'ed".
+
+A faculty bonus rule (this is the ment ability bonus rule):
+	if the test subject is the player:
+		if ment timer is greater than 0:
+			increase faculty bonus score by ment bonus;
+			[say " + [ment bonus] (ment)[run paragraph on]".]
+				
+A faculty bonus rule (this is the feeling down ability penalty rule):
+	if the test subject is the player:
+		if the ment addiction is greater than 0:
+			if the ment timer is 0:
+				decrease faculty bonus score by ment addiction;
+				[say " - [ment addiction] (feeling down)[run paragraph on]".]			
+				
+An attack modifier rule (this is the ment attack and defence bonus rule):
+	if the global attacker is the player:
+		if ment timer is greater than 0:
+			if the numbers boolean is true, say " + [ment bonus] (ment)[run paragraph on]";
+			increase the attack strength by ment bonus;
+	if the global defender is the player:
+		if ment timer is greater than 0:
+			if the numbers boolean is true, say " - [ment bonus] (your defence increased by ment)[run paragraph on]";
+			decrease the attack strength by ment bonus.
+			
+Chance to win rule (this is the CTW ment penalty rule): [To make sure the AI correctly guesses its chance to win.]
+	if the ment timer is greater than 0:
+		decrease the chance-to-win by ment bonus.			
+
+An add specific damage rule (this is the ment damage bonus rule):
+	if damage-by-hitting is true:
+		if the global attacker is the player:
+			if ment timer is greater than 0:
+				add ment bonus points of damage with reason "ment".
+			
+The ment damage bonus rule is listed last in the add specific damage rules.
+
+A remove general damage rule (this is the ment damage protection rule):
+	if victim is the player:
+		if ment timer is greater than 0:
+			remove ment bonus points of general damage with reason "ment".
+
+An attack modifier rule (this is the feeling down attack penalty rule):
+	if the global attacker is the player:
+		if the ment addiction is greater than 0:
+			if the ment timer is 0:
+				if the numbers boolean is true, say " - [ment addiction] (feeling down)[run paragraph on]";
+				decrease the attack strength by ment addiction.	
+
+
+Snorting is an action applying to one carried thing. Understand "snort [thing]" and "sniff [thing]" as snorting. Understand "use [package of ment]" as snorting.
+
+Check snorting:
+	if the noun is an essence:
+		try inhaling the noun instead;
+	otherwise:
+		if the noun is not a package of ment:
+			take no time;
+			say "You cannot snort that." instead.
+
+[Check snorting a package of ment when the combat status is not peace:
+	unless player is hidden:
+		take no time;
+		say "There is absolutely no way you could pull that off in a combat situation. The ment would get spilled everywhere." instead.]
+
+Carry out snorting a package of ment:
+	if the ment addiction is 0 or at least three packages of ment are on-stage:
+		say "You take a small mirror, a razor and a straw from one of your pockets, and carefully cut the ment on the surface of the mirror. The light blue powder is looking very good. Using the straw, you manage to get almost all of it in your nose. You inhale sharply a few times -- and feel the ment do its awesome work.[paragraph break]Everything becomes clear, sharp, easy. You feel strong. You feel focused.";
+	otherwise:
+		say "You repeat the ritual: cutting, forming into a line, snorting through the straw, inhaling sharply. The ment kicks in immediately.";
+	remove the noun from play;
+	have the ment kick in.
+
+To have the ment kick in:
+	increase the ment addiction by 1;
+	unless ment timer is 0:
+		if a random chance of 1 in 2 succeeds:
+			if the OD timer is 0:
+				now the OD timer is 12;
+			otherwise:
+				end the story saying "You OD'ed.";
+	now the ment timer is a random number between 10 and 15;
+	if the player wears the addict's amulet:
+		increase ment timer by a random number between 3 and 4;
+	if ment addiction is 6:
+		award achievement Sixth heaven.
+		
+
+
+Status combat stats rule (this is the ment status rule):
+	if ment timer is greater than 0:
+		if long status is true:
+			say "You are under the influence of [bold type]ment[roman type]: +[ment bonus] attack, +[ment bonus] damage, +[ment bonus] damage resistance, +[ment bonus] defence, +[ment bonus] to all abilities.[line break][run paragraph on]";
+		otherwise:
+			say "[bold type]Ment[roman type]: +[ment bonus] attack, +[ment bonus] damage, -[ment bonus] damage resistance, +[ment bonus] defence, +[ment bonus] abilities.[line break][run paragraph on]";
+	if ment timer is 0 and ment addiction is greater than 0:
+		if long status is true:
+			say "You feel [bold type]down[roman type]: -[ment addiction] attack, -[ment addiction] to all abilities[line break][run paragraph on]";
+		otherwise:
+			say "[bold type]Down[roman type]: -[ment addiction] attack, -[ment addiction] abilities[line break][line break][run paragraph on]";
+
+Instead of eating a package of ment (this is the ment cannot be eaten rule):
+	take no time;
+	say "Ment has to be taken through the nose, not the mouth. Try snorting it.".
+
+
+
+
+
+
+
+
+
+
+
+Chapter - Tomes
+
+A tome is a kind of thing.
+A tome is readable-aloud.
+The indefinite article of a tome is usually "the".
+
+The description of a tome is usually "Who knows what will happen if you decide to read this legendary work of magic?"
+
+Section - Tome of Transmutation
+
+The Tome of Transmutation is a tome. First-trans-material is a material that varies. Second-trans-material is a material that varies.
+Tome of Transmutation is paper.
+Tome of Transmutation is magical.
+
+
+When play begins (this is the set tome of transmutation rule):
+	let n be a random number between 1 and 10;
+	choose row n in Table of Tome Possibilities;
+	now first-trans-material is the first-material entry;
+	now second-trans-material is the second-material entry.
+
+Table of Tome Possibilities
+first-material		second-material
+wood			iron
+wood			silver
+wood			adamant
+iron				wood
+iron				silver
+iron				adamant
+iron				glass
+silver			iron
+silver			wood
+silver			adamant
+
+[The description of tome of transmutation is "When read, this powerful book will turn all [material-adjective of first-trans-material] objects into [second-trans-material].".]
+
+Carry out reading the tome of transmutation:
+	say "You speak the mighty words of power. In a flare of magical light, the tome disappears -- and all [material-adjective of first-trans-material] objects have turned into [second-trans-material]!";
+	remove tome of transmutation from play;
+	repeat with item running through things:
+		if material of item is first-trans-material:
+			now material of item is second-trans-material;
+
+
+Section - Tome of Sudden Death
+
+The Tome of Sudden Death is a tome.
+Tome of Sudden Death is paper.
+Tome of Sudden Death is magical.
+
+The sudden-death-boolean is a truth state that varies. Sudden-death-boolean is false.
+
+Every turn when sudden-death-boolean is true:
+	repeat with guy running through alive persons:
+		now health of guy is 1.
+
+Carry out reading the tome of sudden death:
+	say "Life is fragile. A single blow could kill a man.";
+	remove tome of sudden death from play;
+	now sudden-death-boolean is true;
+
+
+Section - Tome of the Brightest Flame
+
+The Tome of the Brightest Flame is a tome.
+Tome of the Brightest Flame is paper.
+Tome of the Brightest Flame is magical.
+
+Brightest-flame-counter is a number that varies. Brightest-flame-counter is 0.
+
+Carry out reading the tome of the brightest flame:
+	say "You have chosen fame over a long life. Achieve it while you may!";
+	now brightest-flame-counter is 31;
+	remove tome of the brightest flame from play.
+	
+A remove general damage rule (this is the brightest flame damage reduction rule):
+	if the victim is the player and brightest-flame-counter is not 0:
+		let n be total damage;
+		if n is greater than 0:
+			now total damage is 0;
+			add damage comment "- [n] (brightest flame)".
+	
+Every turn when brightest-flame-counter is not 0:
+	if main actor is the player:
+		decrease brightest-flame-counter by 1;
+		if brightest-flame-counter is 30 or brightest-flame-counter is 20 or brightest-flame-counter is 10 or brightest-flame-counter is 5 or brightest-flame-counter is 1:
+			say "You will [bold type]die[roman type] in [brightest-flame-counter] turn[unless brightest-flame-counter is 1]s[end if]!";
+		if brightest-flame-counter is 0:
+			end the story saying "Your moment of fame has come and gone.".
+
+Victory message rule (this is the brightest flame message rule):
+	if brightest-flame-counter is not 0:		
+		end the story saying "You have destroyed your foe, and will be able to enjoy your victory for another [brightest-flame-counter] turns!";
+		rule succeeds.
+
+Section - Tome of Law
+
+The Tome of Law is a tome.
+Tome of Law is paper.
+Tome of Law is magical.
+
+Tome-of-law-number is a number that varies. Tome-of-law-number is 0.
+
+Carry out reading the Tome of Law:
+	now tome-of-law-number is a random number between 1 and 10;
+	say "The page shows the number [tome-of-law-number]."
+
+First special set attack strength rule (this is the tome of law attack roll rule):
+	if the tome-of-law-number is not 0:
+		now attack strength is tome-of-law-number;
+		rule succeeds.
+
+
+Section - Tome of Briar Roses
+
+The Tome of Briar Roses is a tome.
+Tome of Briar Roses is paper.
+Tome of Briar Roses is magical.
+
+Carry out reading Tome of Briar Roses:
+	remove Tome of Briar Roses from play;
+	say "Magical sleep descends on the world.";
+	now world test subject is player;
+	repeat with guy running through worldsharer persons:
+		if guy is sleeper:
+			now guy is asleep.
+
+Chapter - Starting kits
+
+Section - Who needs kits
+
+[Definition: a person is encounterable if it is denizen or the level of it is 0.
+
+A dungeon interest rule (this is the equip all encounterable creatures rule):
+	Repeat with guy running through encounterable people:
+		set up a kit for guy;]
+		
+A dungeon interest rule (this is the equip all creatures rule):
+	Repeat with guy running through people:
+		set up a kit for guy;
+		
+Section - Kit definition
+
+A starting kit is a kind of container. A starting kit has a person called the recipient. The recipient of a starting kit is usually yourself.
+
+A person has an object called the selected kit.
+
+To decide which object is the current kit:
+	Let the owner be the item described; [only works within the starting kit setup rules]
+	If the owner is not a person, decide on nothing;
+	decide on the selected kit of the owner;
+
+To decide whether selecting (item - a starting kit):
+	decide on whether or not the current kit is the item;
+
+[The verb to be equipped by means the selected kit property;]
+
+Section - Starting Kit Placement Possible Rules
+
+The starting kit placement possible rules are a rulebook.
+
+The considered kit recipient is a person that varies.
+The considered starting kit is a starting kit that varies.
+	
+First starting kit placement possible rule (this is the only assign kits to the recipient rule):
+	unless the recipient of considered starting kit is the considered kit recipient, rule fails;
+	
+A starting kit placement possible rule (this is the limit kits in basic game mode rule):
+	if basic game mode is true and considered starting kit is advanced, rule fails;
+	
+A starting kit placement possible rule (this is the control kit rarity rule):
+	if considered starting kit is too rare, rule fails;
+	
+Last starting kit placement possible rule:
+	Rule succeeds.
+	
+Section - Starting Kit Setup Rules
+
+The starting kit setup rules are an object based rulebook. [on starting kits]
+
+Starting kit setup rule for a person (called guy) (this is the unpack starting kit rule):
+	if the selected kit of guy is a starting kit:
+		equip the guy with the selected kit of the guy;
+		
+Section - Setting up a Kit
+
+A starting kit can be available.
+	
+To set up a kit for (guy - a person):
+	now considered kit recipient is the guy;
+	repeat with item running through starting kits:
+		now considered starting kit is the item;
+		now item is not available;
+		Follow the starting kit placement possible rules;
+		If rule succeeded, now item is available;
+	Now the selected kit of guy is a random available starting kit;
+	Follow the starting kit setup rules for the guy;
+
+Chapter - Returning Items to their Owners
+
+A thing has an object called the original owner. [Set the original owner of a starting kit to assign that kit to a person]
+
+The verb to be owned by means the original owner property.
+
+When play begins (this is the set original owner to container rule):
+	[This makes starting kits reusable]
+	Repeat with box running through containers:
+		Repeat with item running through things in box:
+			now the original owner of item is box;
+			
+The set original owner to container rule is listed before the place treasures rule in the dungeon generation rules.
+
+When play begins (this is the note everyone's possessions rule):
+	Repeat with guy running through people:
+		Repeat with item running through things had by guy:
+			now the original owner of item is guy;
+			
+The note everyone's possessions rule is listed before the place treasures rule in the dungeon generation rules.
+		
+Last starting kit setup rule for a person (called guy) (this is the restore ownership rule):
+	Repeat with item running through things owned by guy:
+		equip guy with item;
+						
+to flicker is a verb. to reappear is a verb.
+	
+Definition: a thing is npc-owned if it is non-treasure and it is on-stage.
+Definition: the gilded rapier is npc-owned: no.
+
+To decide which object is the version of (item - a thing) available to (guy - a person):
+	[now item is the original version of item;]
+	if item is npc-owned and item is not enclosed by guy:
+		if the location of the item is the location:
+			say "[The item] [flicker] out of existence[if the location of guy is the location], and [reappear] in the possession of [the guy][end if]!";
+		remove the item from play;
+	decide on item.
+		
+Chapter - Equipping
+
+To equip (guy - a person) with (box - a container):
+	[the set original owner to container rule makes sure everything in a container is owned by the container]
+	repeat with item running through things owned by the box:
+		equip guy with item.
+			
+To equip (guy - a person) with (item - a thing):
+	now item is the version of item available to guy;
+	move item to guy;
+	
+To equip (guy - a person) with (item - a scroll):
+	move item to guy;
+	if guy is the player:
+		identify item.
+		
+To equip (guy - a person) with (item - a grenade):
+	move item to guy;
+		
+To equip (guy - a person) with (item - a weapon):
+	repeat with impediment running through weapons wielded by guy:
+		now impediment is not readied;
+		if impediment is not a natural weapon:
+			remove impediment from play;
+	if item is not a natural weapon:
+		now item is the version of item available to guy;
+		move item to guy;
+	now item is readied;
+	
+[TODO: suits impede shirts and trousers - this isn't handled]
+
+To replace (O - a description of objects) on (guy - a person) with (item - clothing):
+	Repeat with impediment running through things worn by guy:
+		if impediment matches O:
+			[uncurse items?]
+			remove impediment from play;
+	now item is the version of item available to guy;
+	now guy wears item.
+		
+To equip (guy - a person) with (item - a necklace):
+	replace necklaces on guy with item;
+		
+To equip (guy - a person) with (item - a hat):
+	replace hats on guy with item;
+		
+To equip (guy - a person) with (item - a shirt):
+	replace shirts on guy with item;
+		
+To equip (guy - a person) with (item - a cloak):
+	replace cloaks on guy with item;
+		
+To equip (guy - a person) with (item - shoes):
+	replace shoes on guy with item;
+		
+To equip (guy - a person) with (item - trousers):
+	replace trousers on guy with item;
+		
+To equip (guy - a person) with (item - belt):
+	replace belts on guy with item;
+		
+To equip (guy - a person) with (item - gauntlets):
+	replace gauntlets on guy with item;
+		
+To equip (guy - a person) with (item - a mask):
+	replace masks on guy with item;
+		
+To equip (guy - a person) with (item - a suit):
+	replace suits on guy with item;
+		
+To equip (guy - a person) with (item - a shield):
+	replace shields on guy with item;
+		
+
+Kerkerkruip Items ends here.

@@ -1,0 +1,1071 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Extension</title>
+    <style type="text/css">
+        <!--
+        /* The default font (family) and size */
+
+        body, p, td {
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.8rem; /* 100/125 */
+        }
+
+        /* For fixed-point material within text, such as the typing on the Library Card index page */
+
+        span.typewritten {
+        	font-family: monospace;
+        	font-size: 0.867rem; /* 13/12 * 100/125 */
+        }
+
+        /* For less important material: the small print */
+
+        span.smaller {
+        	font-size: 80%;
+        }
+
+        /* The "heading panel" is the coloured box, high up on the page. The colours
+        vary depending on the page: for example, the style on a report of a translation
+        with no problems is "headingpanelsucceeded", usually green, but if there were
+        problems then "headingpanelfailed" is used, which is usually red. "headingpanel"
+        itself is a more neutral grey by default. "headingpanelDark" is an alternative
+        look to make the extensions index pages have some visual contrast with the others;
+        by default they are a darker grey. */
+
+        .headingpanel {
+        	background: #eeeeee;
+        }
+        .headingpanelsucceeded {
+        	background: #E6FFE6;
+        }
+        .headingpanelfailed {
+        	background: #f69Ca6;
+        }
+        .headingpanelalt {
+        	background: #808080;
+        }
+
+        /* Heading panels have two lines of text: an upper one in a larger size, and a
+        lower one in a smaller. Again, the alt versions are meant to contrast.
+
+        	Report on Translation: Succeeded                <-- headingpaneltext
+        	Produced by Inform 10.1.0 (build 6U97)          <-- headingpanelrubric
+
+        	Installed Extensions                            <-- headingpaneltextalt
+        	Bundles of extra rules or phrases to...         <-- headingpanelrubricalt
+
+        */
+
+        span.headingpaneltext {
+        	color: #222222;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+        span.headingpaneltextalt {
+        	color: #ffffff;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        span.headingpanelrubric {
+        	color: #222222;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.733rem; /* 11/12 * 100/125 */
+        	font-weight: bold;
+        }
+        span.headingpanelrubricalt {
+        	color: #ffffff;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.733rem; /* 11/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* Horizontal rule styling */
+
+        div.hr {
+        	border: 0;
+        	width: 100%;
+        	color: #707070;
+        	background-color: #707070;
+        	height: 5px;
+        }
+
+        /* This styles the (usually white) text of the example numbers written inside
+        oval blobs in the extension documentation, which mimic the look of the in-app
+        documentation. */
+
+        .oval, .oval td {
+        	background-image:url('inform:/doc_images/ovoid.png');
+        	color:white;
+        }
+
+        /* Styling used in the extension documentation indexes: */
+
+        /* Used for extension names in the extensions pane of the app */
+
+        span.extensioncensusentry {
+        	color: #ffffff;
+        }
+
+        span.extensionindexentry {
+        	color: #404040;
+        }
+
+        span.extensionindexerror {
+        	color: #ff8080;
+        }
+
+        /* This is used in extension documentation, where an example is presented
+        in a slightly tinted box: */
+
+        table.extensionexample {
+        	background-color: #f0f0f0;
+        }
+
+        span.extensionexampleletter {
+        	color: #202020;
+        	font-size: 14px;
+        	font-weight: bold;
+        }
+
+        /* Seen in problem messages: */
+
+        span.problemred {
+        	color: #800000;
+        }
+
+        span.problemgreen {
+        	color: #008000;
+        }
+
+        span.phraseword {
+        	color: #808080;
+        }
+
+        span.phrasetokentext {
+        	color: #e00060;
+        }
+
+        span.phrasetokendesctext {
+        	color: #4040ff;
+        }
+
+        span.phrasetokenvaluetext {
+        	color: #ff4040;
+        }
+
+        /* Now we move on to styling used in the Index pages only: */
+
+        /* The periodic table display has "sidebars", usually grey and taller than they
+        are wide; they contain no text. */
+
+        div.periodictablesidebarcolour {
+        	background: #888;
+        }
+        div.periodictablesidebar:hover {
+        	background: #222;
+        }
+
+        /* The text of the element-abbreviation, such as "Lx" or "Ph", uses: */
+
+        span.elementtext {
+        	color: #ffffff;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* Similarly for the "atomic number" - a single digit - in the top left corner
+        of these boxes: */
+
+        span.elementnumbertext {
+        	color: #ffffff;
+        	font-size: 0.622rem; /* 7/12 * 96/72 * 100/125 */
+        }
+
+        /* For the text of the element title, to the right of the element box: */
+
+        span.elementtitletext {
+        	color: #ffffff;
+        	font-size: 0.6rem; /* 9/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* The banner at the top of each element: */
+
+        table.elementbanner {
+        	background: #eeeeee;
+        }
+
+        /* For the typewriting on the Library Card: */
+
+        span.librarycardtitle {
+        	color: #803030;
+        }
+
+        span.librarycardother {
+        	color: #303030;
+        }
+
+        /* Generically used for "more details" boxes in the index: */
+
+        table.indexmorebox {
+        	background-color: #e0e0e0;
+            border-radius: 8px;
+        }
+
+        /* But not for activity contents: */
+
+        table.indexactivitycontents {
+        	background-color: #e8e0c0;
+            border-radius: 8px;
+        }
+
+        /* For responses in index entries about rules: */
+
+        span.indexresponseletter {
+        	color: #ffffff;
+        	font-family: 'Courier New', Courier, monospace;
+        	background-color: #8080ff;
+        }
+
+        span.indexresponsetext {
+        	color: #000066;
+        }
+
+        /* Used ubiquitously throughout the index and extension documentation: */
+
+        span.indexblack {
+        	color: #000000;
+        }
+
+        span.indexgrey {
+        	color: #808080;
+        }
+
+        span.indexdarkgrey {
+            color: #505050;
+        }
+
+        span.indexdullred {
+        	color: #800000;
+        }
+
+        span.indexdullgreen {
+        	color: #008000;
+        }
+
+        span.indexdullblue {
+        	color: #000080;
+        }
+
+        /* Used for the room squares in the World map in the Index (which is currently
+        a table with one row of one column) */
+
+        table.indexmaproom {
+        	border-color: #000000;
+        }
+
+        /* Used in the numbering of levels of the World map in the Index */
+
+        span.indexmaplevelnumbers {
+        	color: #c0c0c0;
+        }
+
+        /* Used e.g. for title rows in the Chart of basic kinds in the Index */
+
+        tr.headingrow {
+        	background-color: #e0e0e0;
+        }
+
+        /* Standard rows have black text on striped background colours, these being
+        the usual ones seen in Mac OS X applications such as iTunes. */
+
+        tr.stripeone {
+        	background-color: #ffffff;
+        }
+
+        tr.stripetwo {
+        	background-color: #f3f6fa;
+        }
+
+        tr.tintedrow {
+        	background-color: #808080;
+        }
+
+        /* In the Figures index, this is the background colour used behind images
+        (though in fact it will only be visible if the image fails to load, or uses
+        transparency): */
+
+        div.figureindexbox {
+        	background-color: #6495ed;
+        }
+
+        /* To get the book-contents-page style leaders on the Contents element of
+           the index to work, these must use the background colour of the body of
+           the page, whatever that is: */
+
+        ul.leaders li.leaded span:first-child {
+        	background: white;
+        }
+        ul.leaders li.leaded span + span {
+        	background: white;
+        }
+
+        /* On Registry index pages (such as the Public Library), these are used for
+        download buttons and the like: */
+
+        span.registrybuttontext {
+        	font-size: 11px;
+        	border-color: #000000;
+        }
+
+        span.registryminibuttontext {
+        	font-size: 10px;
+        	border-color: #000000;
+        }
+
+        span.registrybuttonuninstalled {
+        	color: #000000;
+        	background: #ffffdd;
+        }
+
+        span.registrybuttoninstalled {
+        	color: #000000;
+        	background: #ffffff;
+        	pointer-events: none;
+        }
+
+        span.registrybuttonbuiltin {
+        	color: #888888;
+        	background: #ffffff;
+        	pointer-events: none;
+        }
+
+        span.registrybuttonupdate {
+        	color: #000000;
+        	background: #aaddff;
+        }
+
+        span.registrybuttonrevert {
+        	color: #000000;
+        	background: #ddaaff;
+        }
+
+        span.registrybuttonrevealer {
+        	color: #ffffff;
+        	background: #444444;
+        }
+
+        /* Registry index section headings: */
+
+        span.registrysectionname {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 16px;
+        	line-height: 18px;
+        }
+        span.registrysubsectionname {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 14px;
+        	line-height: 16px;
+        }
+
+        /* These are for the "mark" for a section, usually a section-symbol and number */
+
+        span.registrysectionmark {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 16px;
+        	line-height: 18px;
+        	color: #666;
+        }
+        span.registrysubsectionmark {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 14px;
+        	line-height: 16px;
+        	color: #666;
+        }
+
+        /* Text of an item listed in a registry: */
+
+        span.registryitemtext {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 12px;
+        	line-height: 16px;
+        }
+
+        /* And how the links in a registry index page behave: */
+
+        a.registrysilentlink {
+        	text-decoration: none;
+        	color: #000;
+        }
+        a.registrybuttonlink {
+        	text-decoration: none;
+        }
+        a.registrycontentslink:link {
+        	text-decoration: none;
+        	color: #202020;
+        }
+        a.registrycontentslink:visited {
+        	text-decoration: none;
+        	color: #202020;
+        }
+        a.registrycontentslink:hover {
+        	text-decoration: none;
+        	color: #D00000;
+        }
+        a.registrycontentslink:active {
+        	text-decoration: none;
+        	color: #D00000;
+        }
+
+        -->
+    </style>
+    <style type="text/css">
+        <!--
+        /* (1) General layout material */
+
+        *, *:before, *:after {
+        	-moz-box-sizing: border-box;
+        	-webkit-box-sizing: border-box;
+        	box-sizing: border-box;
+        }
+        .headingpanellayout {
+        	position: relative;
+        	height: 56px;
+        	padding: 0px;
+        	white-space:nowrap;
+        }
+        .headingpanellayoutdeeper {
+        	position: relative;
+        	height: 117px;
+        	padding: 0px;
+        	white-space:nowrap;
+        }
+        .headingtext {
+        	position: absolute;
+        	top: -4px;
+        	left: -1px;
+        	width: 100%;
+        	padding: 14px 10px 0px 10px;
+        }
+        .headingrubric {
+        	position: absolute;
+        	top: 36px;
+        	width: 100%;
+        	padding: 0px 10px 0px 10px;
+        }
+        h3.tighter {
+        	margin-top: 0px;
+        }
+        p.hang {
+        	padding-left: 25px;
+        	text-indent: -25px;
+        	margin-top: 0px;
+        	margin-bottom: 0px;
+        }
+        p.in1 {
+        	padding-left: 0px;
+        }
+        p.tightin1 {
+        	padding-left: 0px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin1 {
+        	padding-left: 0px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin1 {
+        	padding-left: 50px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in2 {
+        	padding-left: 25px;
+        }
+        p.tightin2 {
+        	padding-left: 25px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin2 {
+        	padding-left: 25px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin2 {
+        	padding-left: 75px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in3 {
+        	padding-left: 50px;
+        }
+        p.tightin3 {
+        	padding-left: 50px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin3 {
+        	padding-left: 50px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin3 {
+        	padding-left: 100px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in4 {
+        	padding-left: 75px;
+        }
+        p.tightin4 {
+        	padding-left: 75px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin4 {
+        	padding-left: 75px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin4 {
+        	padding-left: 125px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in5 {
+        	padding-left: 100px;
+        }
+        p.tightin5 {
+        	padding-left: 100px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin5 {
+        	padding-left: 100px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin5 {
+        	padding-left: 150px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in6 {
+        	padding-left: 125px;
+        }
+        p.tightin6 {
+        	padding-left: 125px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin6 {
+        	padding-left: 125px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin6 {
+        	padding-left: 175px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in7 {
+        	padding-left: 150px;
+        }
+        p.tightin7 {
+        	padding-left: 150px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin7 {
+        	padding-left: 150px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin7 {
+        	padding-left: 200px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in8 {
+        	padding-left: 175px;
+        }
+        p.tightin8 {
+        	padding-left: 175px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin8 {
+        	padding-left: 175px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin8 {
+        	padding-left: 225px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in9 {
+        	padding-left: 200px;
+        }
+        p.tightin9 {
+        	padding-left: 200px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin9 {
+        	padding-left: 200px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin9 {
+        	padding-left: 250px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+
+        /* (2) Index page layout material */
+
+        /* The periodic table display has "sidebars", usually grey and taller than they
+        are wide; they contain no text. */
+
+        div.periodictablesidebar {
+        	height: 56px;
+        	width: 16px;
+        }
+        .periodictablesidebar a:link { text-decoration: none; }
+        .periodictablesidebar a:visited { text-decoration: none; }
+        .periodictablesidebar a:active { text-decoration: none; }
+
+        /* The "element boxes" are the cells appearing in the periodic-table display
+        on the welcome page of the index: */
+
+        .elementbox {
+        	position: relative;
+        	height: 56px;
+        	width: 56px;
+        	padding: 0px;
+        }
+
+        .elementbox a:link { text-decoration: none; }
+        .elementbox a:visited { text-decoration: none; }
+        .elementbox a:active { text-decoration: none; }
+        .elementbox a:hover { text-decoration: none; }
+        .elementbox:hover {
+        	opacity: 0.6;
+        }
+
+        /* The "small element boxes" look like those, but are smaller, and used on
+        the headings of the content which those original boxes link to: */
+
+        .smallelementbox {
+        	position: relative;
+        	height: 40px;
+        	width: 40px;
+        	padding: 0px;
+        }
+
+        .smallelementbox a:link { text-decoration: none; }
+        .smallelementbox a:visited { text-decoration: none; }
+        .smallelementbox a:active { text-decoration: none; }
+        .smallelementbox a:hover { text-decoration: none; }
+        .smallelementbox:hover {
+        	opacity: 0.6;
+        }
+
+        /* This is a class for the links formed by the element boxes: */
+
+        a.elementlink {
+        	position: absolute;
+        	top: -4px;
+        	left: -1px;
+        	width: 100%;
+        	padding: 14px 0px 14px 1px;
+        	text-align: center;
+        }
+
+        /* Similarly for the "atomic number" - a single digit - in the top left corner
+        of these boxes: */
+
+        div.elementnumber {
+        	position: absolute;
+        	top: 1px;
+        	left: 3px;
+        	text-align: left;
+        }
+
+        /* For the text of the element title, to the right of the element box: */
+
+        div.elementtitle {
+        	position: absolute;
+        	top: 35px;
+        	width: 100%;
+        	text-align: center;
+        }
+
+        /* Used for the book-contents-page style leaders on the Contents element of
+           the index: */
+
+        ul.leaders {
+        	padding: 0;
+        	margin-top: 1px;
+        	margin-bottom: 0;
+        	overflow-x: hidden;
+        	list-style: none}
+        ul.leaders li.leaded:before {
+        	float: left;
+        	width: 0;
+        	white-space: nowrap;
+        	content:
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "}
+        ul.leaders li.leaded span:first-child {
+        	padding-right: 0.33em;
+        }
+        ul.leaders li.leaded span + span {
+        	float: right;
+        	padding-left: 0.33em;
+        }
+        li.indent1 span:first-child {
+        	padding-left: 25px;
+        }
+        li.indent2 span:first-child {
+        	padding-left: 50px;
+        }
+        li.indent3 span:first-child {
+        	padding-left: 75px;
+        }
+        li.indent4 span:first-child {
+        	padding-left: 100px;
+        }
+        li.indent5 span:first-child {
+        	padding-left: 125px;
+        }
+        li.indent6 span:first-child {
+        	padding-left: 150px;
+        }
+        li.indent7 span:first-child {
+        	padding-left: 175px;
+        }
+        li.indent8 span:first-child {
+        	padding-left: 200px;
+        }
+        li.indent9 span:first-child {
+        	padding-left: 225px;
+        }
+
+        li.unleaded:before {
+        	content: "";
+        }
+
+        /* On Registry index pages (such as the Public Library), these are used for
+        download buttons and the like: */
+
+        span.registrybuttons {
+        	height: 20px;
+        	padding: 2px 8px 2px 8px;
+        	margin: 2px;
+        	border:1px solid;
+        	border-radius: 5px;
+        }
+
+        span.registryminibuttons {
+        	height: 14px;
+        	padding: 2px 5px 2px 5px;
+        	margin: 2px;
+        	border:1px solid;
+        	border-radius: 4px;
+        }
+
+        /* Used to hide or display sections in the Registry pages: */
+
+        div.registrysectionitemsopen {
+        	display: block;
+        }
+
+        div.registrysectionitemsclosed {
+        	display: none;
+        }
+
+        /* Hanging indentation for Registry item paragraphs: */
+
+        p.registryitem {
+        	padding-left: 80px;
+        	text-indent: -40px;
+        }
+
+        p.registryaddition {
+        	padding-left: 40px;
+        	text-indent: -40px;
+        }
+
+        -->
+    </style>
+    <script type="text/javascript">
+        function project() {
+            return window.Project;
+        }
+        function showExtra(id, imid) {
+        	if (document.getElementById(id).style.display == 'block') {
+        		document.getElementById(id).style.display = 'none';
+        		document.getElementById(imid).src = 'inform:/extra.png';
+        	} else {
+        		document.getElementById(id).style.display = 'block';
+        		document.getElementById(imid).src = 'inform:/extraclose.png';
+        	}
+        }
+        function openExtra(id, imid) {
+        	document.getElementById(id).style.display = 'block';
+        	document.getElementById(imid).src = 'inform:/extraclose.png';
+        }
+        function closeExtra(id, imid) {
+        	document.getElementById(id).style.display = 'none';
+        	document.getElementById(imid).src = 'inform:/extra.png';
+        }
+        function pasteCode(code) {
+            var myProject = project();
+
+            myProject.selectView('source');
+            myProject.pasteCode(code);
+        }
+
+    </script>
+</head>
+<body>
+    <!--CONTENT BEGINS-->
+    <table CELLPADDING=0 CELLSPACING=0 width="100%" bgcolor="#000000"><tr><TD width=38px height=26px align="center" valign="center"><a href="inform://Extensions/Extensions.html" border=0><img border=0 src="inform:/doc_images/Hookindex.png" border=0></a></td><TD width=38px height=26px align="center" valign="center"></td><td halign="left" valign="center" CELLPADDING=0 CELLSPACING=0><font color="#FFFFFF" size=2>Extensions</font></a></td><TD width=56px height=26px align="right" valign="center"><a href="inform:/index.html" border=0><img border=0 src="inform:/doc_images/Hookup.png" border=0></a></td></tr></table>
+
+    <p><a href="javascript:pasteCode('Include Textile by Zed Lopez.[=0x000A=][=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a>&nbsp;<b>Textile<span class="extensionindexentry"> by </span>Zed Lopez</b></p>
+    <p><span class="smaller">Version 1.0.220331</span></p>
+    <p>Text utility functions.</p>
+    <p></p>
+    </p>
+
+    <p> Chapter Examples</p>
+
+    <p> Example: * Textile</p>
+
+    <p><blockquote><span class="indexdullblue"><a href="javascript:pasteCode('[=0x0022=]Textile[=0x0022=][=0x000A=][=0x000A=]Include Textile by Zed Lopez.[=0x000A=]Include Unit Tests by Zed Lopez.[=0x000A=][=0x000A=]Use test automatically.[=0x000A=]Use quit after autotesting.[=0x000A=][=0x000A=]Lab is a room.[=0x000A=][=0x000A=]To say lbrack: say bracket.[=0x000A=]To say rbrack: say close bracket.[=0x000A=][=0x000A=]expansive is a unit test. [=0x0022=]Expanded[=0x0022=].[=0x000A=][=0x000A=]To say xxx: say [=0x0022=]123[=0x0022=].[=0x000A=]To say zzz: say [=0x0022=]123[=0x0022=].[=0x000A=]To say xyz: say [=0x0022=]456[=0x0022=].[=0x000A=]To say emptiness: say [=0x0022=][=0x0022=].[=0x000A=][=0x000A=]xyzzy is always [=0x0022=]xyzzy[=0x0022=].[=0x000A=]banana is always [=0x0022=]banana[=0x0022=].[=0x000A=][=0x000A=]For testing expansive:[=0x000A=]for [=0x0022=]literal[=0x0022=] assert expanded [=0x0022=]fubar[=0x0022=] exactly matches [=0x0022=]fubar[=0x0022=];[=0x000A=]for [=0x0022=]empty[=0x0022=] assert expanded [=0x0022=][=0x0022=] is blank;[=0x000A=]for [=0x0022=][lbrack]xxx[rbrack][=0x0022=] assert expanded [=0x0022=][xxx][=0x0022=] exactly matches [=0x0022=]123[=0x0022=];[=0x000A=]for [=0x0022=][lbrack]xxx[rbrack][=0x0022=] assert expanded [=0x0022=][xxx][=0x0022=] is [=0x0022=]123[=0x0022=];[=0x000A=][=0x000A=]Exactly-matches is a unit test. [=0x0022=][=0x003C=]text[=0x003E=] exactly matches [=0x003C=]text[=0x003E=][=0x0022=].[=0x000A=][=0x000A=]For testing exactly-matches:[=0x000A=]for [=0x0022=][lbrack]xxx[rbrack][=0x0022=] assert [=0x0022=][xxx][=0x0022=] exactly matches [=0x0022=]123[=0x0022=];[=0x000A=]for [=0x0022=][lbrack]xxx[rbrack] and [lbrack]zzz[rbrack][=0x0022=] assert [=0x0022=][xxx][=0x0022=] exactly matches [=0x0022=][zzz][=0x0022=];[=0x000A=]for [=0x0022=][lbrack]xxx[rbrack][=0x0022=] refute [=0x0022=][xxx][=0x0022=] exactly matches [=0x0022=][xyz][=0x0022=];[=0x000A=]for [=0x0022=][lbrack]xxx[rbrack][=0x0022=] refute [=0x0022=][xxx][=0x0022=] exactly matches [=0x0022=]1231[=0x0022=];[=0x000A=]for [=0x0022=]123[=0x0022=] assert [=0x0022=]123[=0x0022=] exactly matches [=0x0022=]123[=0x0022=];[=0x000A=]for [=0x0022=]123[=0x0022=] refute [=0x0022=]123[=0x0022=] exactly matches [=0x0022=]0123[=0x0022=];[=0x000A=]for [=0x0022=]123[=0x0022=] refute [=0x0022=]123[=0x0022=] exactly matches [=0x0022=]1234[=0x0022=];[=0x000A=]for [=0x0022=]empty[=0x0022=] assert [=0x0022=][=0x0022=] is blank;[=0x000A=]for [=0x0022=]empty[=0x0022=] refute [=0x0022=][=0x0022=] exactly matches [=0x0022=] [=0x0022=];[=0x000A=]for [=0x0022=]empty[=0x0022=] assert [=0x0022=][emptiness][=0x0022=] is blank;[=0x000A=][=0x000A=]Does-not-exactly-match is a unit test. [=0x0022=][=0x003C=]text[=0x003E=] does not exactly match [=0x003C=]text[=0x003E=][=0x0022=].[=0x000A=][=0x000A=]For testing does-not-exactly-match:[=0x000A=]for [=0x0022=][lbrack]xxx[rbrack][=0x0022=] refute [=0x0022=][xxx][=0x0022=] does not exactly match [=0x0022=]123[=0x0022=];[=0x000A=]for [=0x0022=][lbrack]xxx[rbrack] and [lbrack]zzz[rbrack][=0x0022=] refute [=0x0022=][xxx][=0x0022=] does not exactly match [=0x0022=][zzz][=0x0022=];[=0x000A=]for [=0x0022=][lbrack]xxx[rbrack][=0x0022=] assert [=0x0022=][xxx][=0x0022=] does not exactly match [=0x0022=][xyz][=0x0022=];[=0x000A=]for [=0x0022=][lbrack]xxx[rbrack][=0x0022=] assert [=0x0022=][xxx][=0x0022=] does not exactly match [=0x0022=]1231[=0x0022=];[=0x000A=]for [=0x0022=]123[=0x0022=] refute [=0x0022=]123[=0x0022=] does not exactly match [=0x0022=]123[=0x0022=];[=0x000A=]for [=0x0022=]123[=0x0022=] assert [=0x0022=]123[=0x0022=] does not exactly match [=0x0022=]0123[=0x0022=];[=0x000A=]for [=0x0022=]123[=0x0022=] assert [=0x0022=]123[=0x0022=] does not exactly match [=0x0022=]1234[=0x0022=];[=0x000A=]for [=0x0022=]empty[=0x0022=] refute [=0x0022=][=0x0022=] does not exactly match [=0x0022=][=0x0022=];[=0x000A=]for [=0x0022=]empty[=0x0022=] assert [=0x0022=][=0x0022=] does not exactly match [=0x0022=] [=0x0022=];[=0x000A=]for [=0x0022=]empty[=0x0022=] refute [=0x0022=][emptiness][=0x0022=] does not exactly match [=0x0022=][=0x0022=];[=0x000A=][=0x000A=]Text-includes is a unit test. [=0x0022=][=0x003C=]text[=0x003E=] includes [=0x003C=]text[=0x003E=][=0x0022=].[=0x000A=][=0x000A=]For testing text-includes:[=0x000A=]for [=0x0022=]1234[=0x0022=] assert [=0x0022=]1234[=0x0022=] includes [=0x0022=]23[=0x0022=];[=0x000A=]for [=0x0022=]1234[=0x0022=] assert [=0x0022=]1234[=0x0022=] includes [=0x0022=]123[=0x0022=];[=0x000A=]for [=0x0022=]1234[=0x0022=] assert [=0x0022=]1234[=0x0022=] includes [=0x0022=]234[=0x0022=];[=0x000A=]for [=0x0022=]1234[=0x0022=] assert [=0x0022=]1234[=0x0022=] includes [=0x0022=]1[=0x0022=];[=0x000A=]for [=0x0022=]1234[=0x0022=] assert [=0x0022=]1234[=0x0022=] includes [=0x0022=]4[=0x0022=];[=0x000A=]for [=0x0022=]1234[=0x0022=] assert [=0x0022=]1234[=0x0022=] includes [=0x0022=]2[=0x0022=];[=0x000A=]for [=0x0022=]1234[=0x0022=] refute [=0x0022=]1234[=0x0022=] includes [=0x0022=]0[=0x0022=];[=0x000A=]for [=0x0022=]1234[=0x0022=] refute [=0x0022=]1234[=0x0022=] includes [=0x0022=]0234[=0x0022=];[=0x000A=]for [=0x0022=][lbrack]xxx[rbrack][=0x0022=] assert [=0x0022=][xxx][=0x0022=] includes [=0x0022=]3[=0x0022=];[=0x000A=]for [=0x0022=][lbrack]xxx[rbrack][=0x0022=] refute [=0x0022=][xxx][=0x0022=] includes [=0x0022=]5[=0x0022=];[=0x000A=][=0x000A=]Text-does-not-include is a unit test. [=0x0022=][=0x003C=]text[=0x003E=] does not include [=0x003C=]text[=0x003E=][=0x0022=].[=0x000A=][=0x000A=]For testing text-does-not-include:[=0x000A=]for [=0x0022=]1234[=0x0022=] refute [=0x0022=]1234[=0x0022=] does not include [=0x0022=]23[=0x0022=];[=0x000A=]for [=0x0022=]1234[=0x0022=] refute [=0x0022=]1234[=0x0022=] does not include [=0x0022=]123[=0x0022=];[=0x000A=]for [=0x0022=]1234[=0x0022=] refute [=0x0022=]1234[=0x0022=] does not include [=0x0022=]234[=0x0022=];[=0x000A=]for [=0x0022=]1234[=0x0022=] refute [=0x0022=]1234[=0x0022=] does not include [=0x0022=]1[=0x0022=];[=0x000A=]for [=0x0022=]1234[=0x0022=] refute [=0x0022=]1234[=0x0022=] does not include [=0x0022=]4[=0x0022=];[=0x000A=]for [=0x0022=]1234[=0x0022=] refute [=0x0022=]1234[=0x0022=] does not include [=0x0022=]2[=0x0022=];[=0x000A=]for [=0x0022=]1234[=0x0022=] assert [=0x0022=]1234[=0x0022=] does not include [=0x0022=]0[=0x0022=];[=0x000A=]for [=0x0022=]1234[=0x0022=] assert [=0x0022=]1234[=0x0022=] does not include [=0x0022=]0234[=0x0022=];[=0x000A=]for [=0x0022=][lbrack]xxx[rbrack][=0x0022=] refute [=0x0022=][xxx][=0x0022=] does not include [=0x0022=]3[=0x0022=];[=0x000A=]for [=0x0022=][lbrack]xxx[rbrack][=0x0022=] assert [=0x0022=][xxx][=0x0022=] does not include [=0x0022=]5[=0x0022=];[=0x000A=][=0x000A=]Occurrent is a unit test. [=0x0022=]Occurrent[=0x0022=].[=0x000A=][=0x000A=]For testing occurrent:[=0x000A=]for [=0x0022=]x, banana[=0x0022=] assert the occurrences of [=0x0022=]x[=0x0022=] in [=0x0022=]banana[=0x0022=] is 0;[=0x000A=]for [=0x0022=]a, banana[=0x0022=] assert the occurrences of [=0x0022=]a[=0x0022=] in [=0x0022=]banana[=0x0022=] is 3;[=0x000A=]for [=0x0022=]n, banana[=0x0022=] assert the occurrences of [=0x0022=]n[=0x0022=] in [=0x0022=]banana[=0x0022=] is 2;[=0x000A=][=0x000A=]Trimmed is a unit test. [=0x0022=]Trimmed.[=0x0022=][=0x000A=][=0x000A=]For testing trimmed:[=0x000A=]for [=0x0022=]  [lbrack]xxx[rbrack]   [=0x0022=] assert [=0x0022=]  [xxx]   [=0x0022=] trimmed is [=0x0022=][xxx][=0x0022=];[=0x000A=]for [=0x0022=][lbrack]xxx[rbrack]  [=0x0022=] assert [=0x0022=][xxx]  [=0x0022=] trimmed is [=0x0022=][xxx][=0x0022=];[=0x000A=]for [=0x0022=]  [lbrack]xxx[rbrack][=0x0022=] assert [=0x0022=]  [xxx][=0x0022=] trimmed is [=0x0022=][xxx][=0x0022=];[=0x000A=]for [=0x0022=][lbrack]xxx[rbrack][=0x0022=] assert [=0x0022=][xxx][=0x0022=] trimmed is [=0x0022=][xxx][=0x0022=];[=0x000A=]for [=0x0022=]  123   [=0x0022=] assert [=0x0022=]  123   [=0x0022=] trimmed is [=0x0022=]123[=0x0022=];[=0x000A=]for [=0x0022=]123  [=0x0022=] assert [=0x0022=]123  [=0x0022=] trimmed is [=0x0022=]123[=0x0022=];[=0x000A=]for [=0x0022=]  123[=0x0022=] assert [=0x0022=]  123[=0x0022=] trimmed is [=0x0022=]123[=0x0022=];[=0x000A=]for [=0x0022=]123[=0x0022=] assert [=0x0022=]123[=0x0022=] trimmed is [=0x0022=]123[=0x0022=];[=0x000A=][=0x000A=]left-index-regexp is unit test. [=0x0022=]left index regexp[=0x0022=].[=0x000A=][=0x000A=]For testing left-index-regexp:[=0x000A=]for [=0x0022=]123, 123[=0x0022=] assert the left index of regexp [=0x0022=]123[=0x0022=] in [=0x0022=]123[=0x0022=] is 1;[=0x000A=]for [=0x0022=]ca, abecadarium[=0x0022=] assert index of regexp [=0x0022=]ca[=0x0022=] in [=0x0022=]abecadarium[=0x0022=] is 4;[=0x000A=]for [=0x0022=]an, banana[=0x0022=] assert the index of regexp [=0x0022=]na[=0x0022=] in [=0x0022=]banana[=0x0022=] is 3;[=0x000A=]for [=0x0022=]us, publius[=0x0022=] assert the index of regexp [=0x0022=]us[=0x0022=] in [=0x0022=]publius[=0x0022=] is 6;[=0x000A=]for [=0x0022=]empty in whitespace[=0x0022=] assert the index of regexp [=0x0022=][=0x0022=] in [=0x0022=]  [=0x0022=] is 0;[=0x000A=]for [=0x0022=]xyz, banana[=0x0022=] assert the index of regexp [=0x0022=]xyz[=0x0022=] in [=0x0022=]banana[=0x0022=] is 0;[=0x000A=]for [=0x0022=]xyz, xzy[=0x0022=] assert the index of regexp [=0x0022=]xyz[=0x0022=] in [=0x0022=]xzy[=0x0022=] is 0;[=0x000A=]for [=0x0022=]an, banana[=0x0022=] assert the index of regexp [=0x0022=].a[=0x0022=] in [=0x0022=]banana[=0x0022=] is 1;[=0x000A=]for [=0x0022=]an, banana[=0x0022=] assert the index of regexp [=0x0022=].n[=0x0022=] in [=0x0022=]banana[=0x0022=] is 2;[=0x000A=]for [=0x0022=]an, banana[=0x0022=] assert the index of regexp [=0x0022=].na$[=0x0022=] in [=0x0022=]banana[=0x0022=] is 4;[=0x000A=][=0x000A=]Left-index is a unit test. [=0x0022=]Left index[=0x0022=].[=0x000A=][=0x000A=]For testing left-index:[=0x000A=]for [=0x0022=]123, 123[=0x0022=] assert the left index of [=0x0022=]123[=0x0022=] in [=0x0022=]123[=0x0022=] is 1;[=0x000A=]for [=0x0022=]ca, abecadarium[=0x0022=] assert index of [=0x0022=]ca[=0x0022=] in [=0x0022=]abecadarium[=0x0022=] is 4;[=0x000A=]for [=0x0022=]an, banana[=0x0022=] assert the index of [=0x0022=]na[=0x0022=] in [=0x0022=]banana[=0x0022=] is 3;[=0x000A=]for [=0x0022=]us, publius[=0x0022=] assert the index of [=0x0022=]us[=0x0022=] in [=0x0022=]publius[=0x0022=] is 6;[=0x000A=]for [=0x0022=]empty in whitespace[=0x0022=] assert the index of [=0x0022=][=0x0022=] in [=0x0022=]  [=0x0022=] is 0;[=0x000A=]for [=0x0022=]xyz, banana[=0x0022=] assert the index of [=0x0022=]xyz[=0x0022=] in [=0x0022=]banana[=0x0022=] is 0;[=0x000A=]for [=0x0022=]xyz, xzy[=0x0022=] assert the index of [=0x0022=]xyz[=0x0022=] in [=0x0022=]xzy[=0x0022=] is 0;[=0x000A=][=0x000A=]length is a unit test. [=0x0022=]Length.[=0x0022=][=0x000A=][=0x000A=]For testing length:[=0x000A=]for [=0x0022=]empty[=0x0022=] assert length of [=0x0022=][=0x0022=] is 0;[=0x000A=]for [=0x0022=]X[=0x0022=] assert size [=0x0022=]X[=0x0022=] is 1;[=0x000A=]for [=0x0022=]banana[=0x0022=] assert count [=0x0022=]banana[=0x0022=] is 6;[=0x000A=][=0x000A=]say-chars is a unit test. [=0x0022=]Say chars [=0x003C=]m[=0x003E=] to [=0x003C=]n[=0x003E=] of [=0x003C=]text[=0x003E=][=0x0022=].[=0x000A=][=0x000A=]For testing say-chars:[=0x000A=]for [=0x0022=]xyzzy, 1-3[=0x0022=] assert [=0x0022=][chars 1 to 3 of xyzzy][=0x0022=] exactly matches [=0x0022=]xyz[=0x0022=];[=0x000A=]for [=0x0022=]banana, 5-6[=0x0022=] assert [=0x0022=][chars 5 to 6 of banana][=0x0022=] exactly matches [=0x0022=]na[=0x0022=];[=0x000A=]for [=0x0022=]empty, 0-0 error[=0x0022=] assert [=0x0022=][chars 0 to 0 of empty-string][=0x0022=] reports error;[=0x000A=]for [=0x0022=]xyzzy, 1-1[=0x0022=] assert [=0x0022=][chars 1 to 1 of xyzzy][=0x0022=] exactly matches [=0x0022=]x[=0x0022=];[=0x000A=]for [=0x0022=]xyzzy, 5-5[=0x0022=] assert [=0x0022=][chars 5 to 5 of xyzzy][=0x0022=] exactly matches [=0x0022=]y[=0x0022=];[=0x000A=]for [=0x0022=]banana, -3 to -1 error[=0x0022=] assert [=0x0022=][chars -3 to -1 of banana][=0x0022=] reports error;[=0x000A=][=0x000A=]substr is a unit test. [=0x0022=]Substr[=0x0022=].[=0x000A=][=0x000A=]For testing substr:[=0x000A=]for [=0x0022=]xyzzy, 1-3[=0x0022=] assert substr of xyzzy from 1 to 3 exactly matches [=0x0022=]xyz[=0x0022=];[=0x000A=]for [=0x0022=]banana, 5-6[=0x0022=] assert substr of banana from 5 to 6 exactly matches [=0x0022=]na[=0x0022=];[=0x000A=]for [=0x0022=]empty, 0-0[=0x0022=] assert substr of empty-string from 0 to 0 is empty;[=0x000A=]for [=0x0022=]empty, 0-0 error[=0x0022=] assert [=0x0022=][substr of empty-string from 0 to 0][=0x0022=] reports error;[=0x000A=]for [=0x0022=]empty, 1-2[=0x0022=] assert substr of empty-string from 1 to 2 is empty;[=0x000A=]for [=0x0022=]empty, 1-2 error[=0x0022=] assert [=0x0022=][substr of empty-string from 1 to 2][=0x0022=] reports error;[=0x000A=]for [=0x0022=]xyzzy, 1-1[=0x0022=] assert substr of xyzzy from 1 to 1 exactly matches [=0x0022=]x[=0x0022=];[=0x000A=]for [=0x0022=]xyzzy, 5-5[=0x0022=] assert substr of xyzzy from 5 to 5 exactly matches [=0x0022=]y[=0x0022=];[=0x000A=]for [=0x0022=]banana, -3 to -1[=0x0022=] assert substr of banana from -3 to -1 is empty;[=0x000A=]for [=0x0022=]banana, -3 to -1 error[=0x0022=] assert [=0x0022=][substr of banana from -3 to -1][=0x0022=] reports error;[=0x000A=]for [=0x0022=]banana, 0 to 0[=0x0022=] assert substr of banana from 0 to 0 is empty;[=0x000A=]for [=0x0022=]banana, 0 to 0[=0x0022=] assert [=0x0022=][substr of banana from 0 to 0][=0x0022=] reports error;[=0x000A=][=0x000A=]first-chars is a unit test. [=0x0022=]First n characters[=0x0022=].[=0x000A=][=0x000A=]For testing first-chars:[=0x000A=]for [=0x0022=]xyzzy, 0[=0x0022=] assert first 0 chars of xyzzy is empty;[=0x000A=]for [=0x0022=]xyzzy, 1[=0x0022=] assert first 1 char of xyzzy exactly matches [=0x0022=]x[=0x0022=];[=0x000A=]for [=0x0022=]xyzzy, 6[=0x0022=] assert first 6 chars of xyzzy is empty;[=0x000A=]for [=0x0022=]xyzzy, 6 error[=0x0022=] assert [=0x0022=][first 6 chars of xyzzy][=0x0022=] reports error;[=0x000A=][=0x000A=]last-chars is a unit test. [=0x0022=]Last n characters[=0x0022=].[=0x000A=][=0x000A=]For testing last-chars:[=0x000A=]for [=0x0022=]xyzzy, 0[=0x0022=] assert last 0 chars of xyzzy is empty;[=0x000A=]for [=0x0022=]xyzzy, 1[=0x0022=] assert last 1 char of xyzzy exactly matches [=0x0022=]y[=0x0022=];[=0x000A=]for [=0x0022=]xyzzy, 6[=0x0022=] assert last 6 chars of xyzzy is empty;[=0x000A=]for [=0x0022=]xyzzy, 6 error[=0x0022=] assert [=0x0022=][last 6 chars of xyzzy][=0x0022=] reports error;[=0x000A=][=0x000A=]say-replaced is a unit test. [=0x0022=][=0x003C=]t[=0x003E=] with chars [=0x003C=]m[=0x003E=] to [=0x003C=]n[=0x003E=] replaced with [=0x003C=]r[=0x003E=][=0x0022=].[=0x000A=][=0x000A=]For testing say-replaced:[=0x000A=]for [=0x0022=]banana with chars 1 to 2 replaced with xyzzy[=0x0022=] assert [=0x0022=][banana with chars 1 to 2 replaced with xyzzy][=0x0022=] exactly matches [=0x0022=]xyzzynana[=0x0022=];[=0x000A=]for [=0x0022=]banana with chars 2 to 3 replaced with xyzzy[=0x0022=] assert [=0x0022=][banana with chars 2 to 3 replaced with xyzzy][=0x0022=] exactly matches [=0x0022=]bxyzzyana[=0x0022=];[=0x000A=][=0x000A=]say-cut is a unit test. [=0x0022=][=0x003C=]t[=0x003E=] with chars [=0x003C=]m[=0x003E=] to [=0x003C=]n[=0x003E=] cut[=0x0022=].[=0x000A=][=0x000A=]For testing say-cut:[=0x000A=]for [=0x0022=]banana with chars 2 to 3 cut[=0x0022=] assert [=0x0022=][banana with chars 2 to 3 cut][=0x0022=] exactly matches [=0x0022=]bana[=0x0022=].[=0x000A=][=0x000A=]first-replaced-with is a unit test. [=0x0022=][=0x003C=]t[=0x003E=] with first [=0x003C=]u[=0x003E=] replaced with [=0x003C=]v[=0x003E=][=0x0022=].[=0x000A=][=0x000A=]For testing first-replaced-with:[=0x000A=]for [=0x0022=]banana with first [=0x0027=]n[=0x0027=] replaced with [=0x0027=]x[=0x0027=][=0x0022=] assert banana with first [=0x0022=]n[=0x0022=] replaced with [=0x0022=]x[=0x0022=] exactly matches [=0x0022=]baxana[=0x0022=];[=0x000A=][=0x000A=]split is a unit test. [=0x0022=][=0x003C=]text[=0x003E=] split on/by/with [=0x003C=]text[=0x003E=][=0x0022=].[=0x000A=][=0x000A=]For testing split:[=0x000A=]for [=0x0022=]abc / d[=0x0022=] assert [=0x0022=]abc[=0x0022=] split on [=0x0022=]d[=0x0022=] is { [=0x0022=]abc[=0x0022=] };[=0x000A=]for [=0x0022=]abc / b[=0x0022=] assert [=0x0022=]abc[=0x0022=] split on [=0x0022=]b[=0x0022=] is { [=0x0022=]a[=0x0022=], [=0x0022=]c[=0x0022=] };[=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a> &quot;Textile&quot;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Include Textile by Zed Lopez.<br>
+     Include Unit Tests by Zed Lopez.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Use test automatically.<br>
+     Use quit after autotesting.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Lab is a room.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> To say lbrack: say bracket.<br>
+     To say rbrack: say close bracket.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> expansive is a unit test. &quot;Expanded&quot;.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> To say xxx: say &quot;123&quot;.<br>
+     To say zzz: say &quot;123&quot;.<br>
+     To say xyz: say &quot;456&quot;.<br>
+     To say emptiness: say &quot;&quot;.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> xyzzy is always &quot;xyzzy&quot;.<br>
+     banana is always &quot;banana&quot;.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> For testing expansive:<br>
+     for &quot;literal&quot; assert expanded &quot;fubar&quot; exactly matches &quot;fubar&quot;;<br>
+     for &quot;empty&quot; assert expanded &quot;&quot; is blank;<br>
+     for &quot;[lbrack]xxx[rbrack]&quot; assert expanded &quot;[xxx]&quot; exactly matches &quot;123&quot;;<br>
+     for &quot;[lbrack]xxx[rbrack]&quot; assert expanded &quot;[xxx]&quot; is &quot;123&quot;;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Exactly-matches is a unit test. &quot;&lt;text&gt; exactly matches &lt;text&gt;&quot;.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> For testing exactly-matches:<br>
+     for &quot;[lbrack]xxx[rbrack]&quot; assert &quot;[xxx]&quot; exactly matches &quot;123&quot;;<br>
+     for &quot;[lbrack]xxx[rbrack] and [lbrack]zzz[rbrack]&quot; assert &quot;[xxx]&quot; exactly matches &quot;[zzz]&quot;;<br>
+     for &quot;[lbrack]xxx[rbrack]&quot; refute &quot;[xxx]&quot; exactly matches &quot;[xyz]&quot;;<br>
+     for &quot;[lbrack]xxx[rbrack]&quot; refute &quot;[xxx]&quot; exactly matches &quot;1231&quot;;<br>
+     for &quot;123&quot; assert &quot;123&quot; exactly matches &quot;123&quot;;<br>
+     for &quot;123&quot; refute &quot;123&quot; exactly matches &quot;0123&quot;;<br>
+     for &quot;123&quot; refute &quot;123&quot; exactly matches &quot;1234&quot;;<br>
+     for &quot;empty&quot; assert &quot;&quot; is blank;<br>
+     for &quot;empty&quot; refute &quot;&quot; exactly matches &quot; &quot;;<br>
+     for &quot;empty&quot; assert &quot;[emptiness]&quot; is blank;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Does-not-exactly-match is a unit test. &quot;&lt;text&gt; does not exactly match &lt;text&gt;&quot;.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> For testing does-not-exactly-match:<br>
+     for &quot;[lbrack]xxx[rbrack]&quot; refute &quot;[xxx]&quot; does not exactly match &quot;123&quot;;<br>
+     for &quot;[lbrack]xxx[rbrack] and [lbrack]zzz[rbrack]&quot; refute &quot;[xxx]&quot; does not exactly match &quot;[zzz]&quot;;<br>
+     for &quot;[lbrack]xxx[rbrack]&quot; assert &quot;[xxx]&quot; does not exactly match &quot;[xyz]&quot;;<br>
+     for &quot;[lbrack]xxx[rbrack]&quot; assert &quot;[xxx]&quot; does not exactly match &quot;1231&quot;;<br>
+     for &quot;123&quot; refute &quot;123&quot; does not exactly match &quot;123&quot;;<br>
+     for &quot;123&quot; assert &quot;123&quot; does not exactly match &quot;0123&quot;;<br>
+     for &quot;123&quot; assert &quot;123&quot; does not exactly match &quot;1234&quot;;<br>
+     for &quot;empty&quot; refute &quot;&quot; does not exactly match &quot;&quot;;<br>
+     for &quot;empty&quot; assert &quot;&quot; does not exactly match &quot; &quot;;<br>
+     for &quot;empty&quot; refute &quot;[emptiness]&quot; does not exactly match &quot;&quot;;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Text-includes is a unit test. &quot;&lt;text&gt; includes &lt;text&gt;&quot;.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> For testing text-includes:<br>
+     for &quot;1234&quot; assert &quot;1234&quot; includes &quot;23&quot;;<br>
+     for &quot;1234&quot; assert &quot;1234&quot; includes &quot;123&quot;;<br>
+     for &quot;1234&quot; assert &quot;1234&quot; includes &quot;234&quot;;<br>
+     for &quot;1234&quot; assert &quot;1234&quot; includes &quot;1&quot;;<br>
+     for &quot;1234&quot; assert &quot;1234&quot; includes &quot;4&quot;;<br>
+     for &quot;1234&quot; assert &quot;1234&quot; includes &quot;2&quot;;<br>
+     for &quot;1234&quot; refute &quot;1234&quot; includes &quot;0&quot;;<br>
+     for &quot;1234&quot; refute &quot;1234&quot; includes &quot;0234&quot;;<br>
+     for &quot;[lbrack]xxx[rbrack]&quot; assert &quot;[xxx]&quot; includes &quot;3&quot;;<br>
+     for &quot;[lbrack]xxx[rbrack]&quot; refute &quot;[xxx]&quot; includes &quot;5&quot;;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Text-does-not-include is a unit test. &quot;&lt;text&gt; does not include &lt;text&gt;&quot;.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> For testing text-does-not-include:<br>
+     for &quot;1234&quot; refute &quot;1234&quot; does not include &quot;23&quot;;<br>
+     for &quot;1234&quot; refute &quot;1234&quot; does not include &quot;123&quot;;<br>
+     for &quot;1234&quot; refute &quot;1234&quot; does not include &quot;234&quot;;<br>
+     for &quot;1234&quot; refute &quot;1234&quot; does not include &quot;1&quot;;<br>
+     for &quot;1234&quot; refute &quot;1234&quot; does not include &quot;4&quot;;<br>
+     for &quot;1234&quot; refute &quot;1234&quot; does not include &quot;2&quot;;<br>
+     for &quot;1234&quot; assert &quot;1234&quot; does not include &quot;0&quot;;<br>
+     for &quot;1234&quot; assert &quot;1234&quot; does not include &quot;0234&quot;;<br>
+     for &quot;[lbrack]xxx[rbrack]&quot; refute &quot;[xxx]&quot; does not include &quot;3&quot;;<br>
+     for &quot;[lbrack]xxx[rbrack]&quot; assert &quot;[xxx]&quot; does not include &quot;5&quot;;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Occurrent is a unit test. &quot;Occurrent&quot;.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> For testing occurrent:<br>
+     for &quot;x, banana&quot; assert the occurrences of &quot;x&quot; in &quot;banana&quot; is 0;<br>
+     for &quot;a, banana&quot; assert the occurrences of &quot;a&quot; in &quot;banana&quot; is 3;<br>
+     for &quot;n, banana&quot; assert the occurrences of &quot;n&quot; in &quot;banana&quot; is 2;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Trimmed is a unit test. &quot;Trimmed.&quot;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> For testing trimmed:<br>
+     for &quot;  [lbrack]xxx[rbrack]   &quot; assert &quot;  [xxx]   &quot; trimmed is &quot;[xxx]&quot;;<br>
+     for &quot;[lbrack]xxx[rbrack]  &quot; assert &quot;[xxx]  &quot; trimmed is &quot;[xxx]&quot;;<br>
+     for &quot;  [lbrack]xxx[rbrack]&quot; assert &quot;  [xxx]&quot; trimmed is &quot;[xxx]&quot;;<br>
+     for &quot;[lbrack]xxx[rbrack]&quot; assert &quot;[xxx]&quot; trimmed is &quot;[xxx]&quot;;<br>
+     for &quot;  123   &quot; assert &quot;  123   &quot; trimmed is &quot;123&quot;;<br>
+     for &quot;123  &quot; assert &quot;123  &quot; trimmed is &quot;123&quot;;<br>
+     for &quot;  123&quot; assert &quot;  123&quot; trimmed is &quot;123&quot;;<br>
+     for &quot;123&quot; assert &quot;123&quot; trimmed is &quot;123&quot;;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> left-index-regexp is unit test. &quot;left index regexp&quot;.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> For testing left-index-regexp:<br>
+     for &quot;123, 123&quot; assert the left index of regexp &quot;123&quot; in &quot;123&quot; is 1;<br>
+     for &quot;ca, abecadarium&quot; assert index of regexp &quot;ca&quot; in &quot;abecadarium&quot; is 4;<br>
+     for &quot;an, banana&quot; assert the index of regexp &quot;na&quot; in &quot;banana&quot; is 3;<br>
+     for &quot;us, publius&quot; assert the index of regexp &quot;us&quot; in &quot;publius&quot; is 6;<br>
+     for &quot;empty in whitespace&quot; assert the index of regexp &quot;&quot; in &quot;  &quot; is 0;<br>
+     for &quot;xyz, banana&quot; assert the index of regexp &quot;xyz&quot; in &quot;banana&quot; is 0;<br>
+     for &quot;xyz, xzy&quot; assert the index of regexp &quot;xyz&quot; in &quot;xzy&quot; is 0;<br>
+     for &quot;an, banana&quot; assert the index of regexp &quot;.a&quot; in &quot;banana&quot; is 1;<br>
+     for &quot;an, banana&quot; assert the index of regexp &quot;.n&quot; in &quot;banana&quot; is 2;<br>
+     for &quot;an, banana&quot; assert the index of regexp &quot;.na$&quot; in &quot;banana&quot; is 4;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Left-index is a unit test. &quot;Left index&quot;.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> For testing left-index:<br>
+     for &quot;123, 123&quot; assert the left index of &quot;123&quot; in &quot;123&quot; is 1;<br>
+     for &quot;ca, abecadarium&quot; assert index of &quot;ca&quot; in &quot;abecadarium&quot; is 4;<br>
+     for &quot;an, banana&quot; assert the index of &quot;na&quot; in &quot;banana&quot; is 3;<br>
+     for &quot;us, publius&quot; assert the index of &quot;us&quot; in &quot;publius&quot; is 6;<br>
+     for &quot;empty in whitespace&quot; assert the index of &quot;&quot; in &quot;  &quot; is 0;<br>
+     for &quot;xyz, banana&quot; assert the index of &quot;xyz&quot; in &quot;banana&quot; is 0;<br>
+     for &quot;xyz, xzy&quot; assert the index of &quot;xyz&quot; in &quot;xzy&quot; is 0;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> length is a unit test. &quot;Length.&quot;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> For testing length:<br>
+     for &quot;empty&quot; assert length of &quot;&quot; is 0;<br>
+     for &quot;X&quot; assert size &quot;X&quot; is 1;<br>
+     for &quot;banana&quot; assert count &quot;banana&quot; is 6;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> say-chars is a unit test. &quot;Say chars &lt;m&gt; to &lt;n&gt; of &lt;text&gt;&quot;.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> For testing say-chars:<br>
+     for &quot;xyzzy, 1-3&quot; assert &quot;[chars 1 to 3 of xyzzy]&quot; exactly matches &quot;xyz&quot;;<br>
+     for &quot;banana, 5-6&quot; assert &quot;[chars 5 to 6 of banana]&quot; exactly matches &quot;na&quot;;<br>
+     for &quot;empty, 0-0 error&quot; assert &quot;[chars 0 to 0 of empty-string]&quot; reports error;<br>
+     for &quot;xyzzy, 1-1&quot; assert &quot;[chars 1 to 1 of xyzzy]&quot; exactly matches &quot;x&quot;;<br>
+     for &quot;xyzzy, 5-5&quot; assert &quot;[chars 5 to 5 of xyzzy]&quot; exactly matches &quot;y&quot;;<br>
+     for &quot;banana, -3 to -1 error&quot; assert &quot;[chars -3 to -1 of banana]&quot; reports error;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> substr is a unit test. &quot;Substr&quot;.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> For testing substr:<br>
+     for &quot;xyzzy, 1-3&quot; assert substr of xyzzy from 1 to 3 exactly matches &quot;xyz&quot;;<br>
+     for &quot;banana, 5-6&quot; assert substr of banana from 5 to 6 exactly matches &quot;na&quot;;<br>
+     for &quot;empty, 0-0&quot; assert substr of empty-string from 0 to 0 is empty;<br>
+     for &quot;empty, 0-0 error&quot; assert &quot;[substr of empty-string from 0 to 0]&quot; reports error;<br>
+     for &quot;empty, 1-2&quot; assert substr of empty-string from 1 to 2 is empty;<br>
+     for &quot;empty, 1-2 error&quot; assert &quot;[substr of empty-string from 1 to 2]&quot; reports error;<br>
+     for &quot;xyzzy, 1-1&quot; assert substr of xyzzy from 1 to 1 exactly matches &quot;x&quot;;<br>
+     for &quot;xyzzy, 5-5&quot; assert substr of xyzzy from 5 to 5 exactly matches &quot;y&quot;;<br>
+     for &quot;banana, -3 to -1&quot; assert substr of banana from -3 to -1 is empty;<br>
+     for &quot;banana, -3 to -1 error&quot; assert &quot;[substr of banana from -3 to -1]&quot; reports error;<br>
+     for &quot;banana, 0 to 0&quot; assert substr of banana from 0 to 0 is empty;<br>
+     for &quot;banana, 0 to 0&quot; assert &quot;[substr of banana from 0 to 0]&quot; reports error;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> first-chars is a unit test. &quot;First n characters&quot;.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> For testing first-chars:<br>
+     for &quot;xyzzy, 0&quot; assert first 0 chars of xyzzy is empty;<br>
+     for &quot;xyzzy, 1&quot; assert first 1 char of xyzzy exactly matches &quot;x&quot;;<br>
+     for &quot;xyzzy, 6&quot; assert first 6 chars of xyzzy is empty;<br>
+     for &quot;xyzzy, 6 error&quot; assert &quot;[first 6 chars of xyzzy]&quot; reports error;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> last-chars is a unit test. &quot;Last n characters&quot;.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> For testing last-chars:<br>
+     for &quot;xyzzy, 0&quot; assert last 0 chars of xyzzy is empty;<br>
+     for &quot;xyzzy, 1&quot; assert last 1 char of xyzzy exactly matches &quot;y&quot;;<br>
+     for &quot;xyzzy, 6&quot; assert last 6 chars of xyzzy is empty;<br>
+     for &quot;xyzzy, 6 error&quot; assert &quot;[last 6 chars of xyzzy]&quot; reports error;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> say-replaced is a unit test. &quot;&lt;t&gt; with chars &lt;m&gt; to &lt;n&gt; replaced with &lt;r&gt;&quot;.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> For testing say-replaced:<br>
+     for &quot;banana with chars 1 to 2 replaced with xyzzy&quot; assert &quot;[banana with chars 1 to 2 replaced with xyzzy]&quot; exactly matches &quot;xyzzynana&quot;;<br>
+     for &quot;banana with chars 2 to 3 replaced with xyzzy&quot; assert &quot;[banana with chars 2 to 3 replaced with xyzzy]&quot; exactly matches &quot;bxyzzyana&quot;;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> say-cut is a unit test. &quot;&lt;t&gt; with chars &lt;m&gt; to &lt;n&gt; cut&quot;.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> For testing say-cut:<br>
+     for &quot;banana with chars 2 to 3 cut&quot; assert &quot;[banana with chars 2 to 3 cut]&quot; exactly matches &quot;bana&quot;.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> first-replaced-with is a unit test. &quot;&lt;t&gt; with first &lt;u&gt; replaced with &lt;v&gt;&quot;.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> For testing first-replaced-with:<br>
+     for &quot;banana with first 'n' replaced with 'x'&quot; assert banana with first &quot;n&quot; replaced with &quot;x&quot; exactly matches &quot;baxana&quot;;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> split is a unit test. &quot;&lt;text&gt; split on/by/with &lt;text&gt;&quot;.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> For testing split:<br>
+     for &quot;abc / d&quot; assert &quot;abc&quot; split on &quot;d&quot; is { &quot;abc&quot; };<br>
+     for &quot;abc / b&quot; assert &quot;abc&quot; split on &quot;b&quot; is { &quot;a&quot;, &quot;c&quot; };</span></blockquote>
+
+    <p></p>
+
+    <p>
+    <!--CONTENT ENDS-->
+</body>
+</html>

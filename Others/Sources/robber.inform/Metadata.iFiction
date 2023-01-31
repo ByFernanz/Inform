@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ifindex version="1.0" xmlns="http://babel.ifarchive.org/protocol/iFiction/">
+    <story>
+        <identification>
+            <ifid>8AA7291E-9709-4B6E-A228-FECE28AABCD5</ifid>
+            <format>zcode</format>
+        </identification>
+        <bibliographic>
+            <title>Trainstopping</title>
+            <author>Ben Collins-Sussman</author>
+            <headline>A wild west debacle</headline>
+            <genre>Western</genre>
+            <firstpublished>2008</firstpublished>
+            <description>BAM! A mug of ale hits the table, splashing your shoes. Muddy Charlie slumps back in his chair, eyes you carefully, and starts to chuckle.<br/>'You know your problem? You don't think big enough.'<br/>His expression is familiar. Last time you saw that look, it was just before you two decided to rustle the mayor's private herd back in 1866. That didn't work so well.<br/>'What now?' you ask. 'A new idea?'<br/>'Big plans.' He grins widely. 'That new cross-country railroad is almost finished. It's gonna change everything... bigger trains, more people... and prize cargo.'<br/>'A train holdup? Are you kidding?'<br/>'Relax. This time we got [italic type]technology[roman type] on our side.' He leans close and whispers: 'Made in Sweden... or Germany. It's big, dangerous, and nobody knows about it yet.'<br/>'A new weapon?'<br/>'Dynamic, buddy. Dynamic Might.'</description>
+            <language>en</language>
+            <group>Inform</group>
+        </bibliographic>
+        <releases>
+            <attached>
+                <release>
+                    <releasedate>2008-02-29</releasedate>
+                    <version>9</version>
+                    <compiler>Inform 7</compiler>
+                    <compilerversion>5J39</compilerversion>
+                </release>
+            </attached>
+        </releases>
+        <colophon>
+            <generator>Inform 7</generator>
+            <generatorversion>5J39</generatorversion>
+            <originated>2008-02-29</originated>
+        </colophon>
+        <zcode>
+            <serial>080229</serial>
+            <release>9</release>
+            <compiler>Inform 7 build 5J39</compiler>
+        </zcode>
+    </story>
+</ifindex>

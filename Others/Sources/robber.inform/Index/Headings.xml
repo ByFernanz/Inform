@@ -1,0 +1,573 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Application Version</key><string>5J39</string>
+    <key>0</key><dict>
+        <key>Filename</key><string>/Users/sussman/projects/if/robber/robber.inform/Source/story.ni</string>
+        <key>Line</key><integer>1</integer>
+        <key>Title</key><string>--</string>
+        <key>Level</key><integer>0</integer>
+        <key>Indentation</key><integer>0</integer>
+    </dict>
+    <key>1</key><dict>
+        <key>Filename</key><string>/Users/sussman/projects/if/robber/robber.inform/Source/story.ni</string>
+        <key>Line</key><integer>40</integer>
+        <key>Title</key><string>Chapter 0 - World Modifications</string>
+        <key>Level</key><integer>4</integer>
+        <key>Indentation</key><integer>0</integer>
+    </dict>
+    <key>2</key><dict>
+        <key>Filename</key><string>/Users/sussman/projects/if/robber/robber.inform/Source/story.ni</string>
+        <key>Line</key><integer>58</integer>
+        <key>Title</key><string>Section 1 - Player's Inventory</string>
+        <key>Level</key><integer>5</integer>
+        <key>Indentation</key><integer>1</integer>
+    </dict>
+    <key>3</key><dict>
+        <key>Filename</key><string>/Users/sussman/projects/if/robber/robber.inform/Source/story.ni</string>
+        <key>Line</key><integer>103</integer>
+        <key>Title</key><string>Section 2 - Environmental Effects</string>
+        <key>Level</key><integer>5</integer>
+        <key>Indentation</key><integer>1</integer>
+    </dict>
+    <key>4</key><dict>
+        <key>Filename</key><string>/Users/sussman/projects/if/robber/robber.inform/Source/story.ni</string>
+        <key>Line</key><integer>119</integer>
+        <key>Title</key><string>Section 3 - Guns</string>
+        <key>Level</key><integer>5</integer>
+        <key>Indentation</key><integer>1</integer>
+    </dict>
+    <key>5</key><dict>
+        <key>Filename</key><string>/Users/sussman/projects/if/robber/robber.inform/Source/story.ni</string>
+        <key>Line</key><integer>178</integer>
+        <key>Title</key><string>Section 4 - Help System</string>
+        <key>Level</key><integer>5</integer>
+        <key>Indentation</key><integer>1</integer>
+    </dict>
+    <key>6</key><dict>
+        <key>Filename</key><string>/Users/sussman/projects/if/robber/robber.inform/Source/story.ni</string>
+        <key>Line</key><integer>205</integer>
+        <key>Title</key><string>Section 5 - Other Rules</string>
+        <key>Level</key><integer>5</integer>
+        <key>Indentation</key><integer>1</integer>
+    </dict>
+    <key>7</key><dict>
+        <key>Filename</key><string>/Users/sussman/projects/if/robber/robber.inform/Source/story.ni</string>
+        <key>Line</key><integer>262</integer>
+        <key>Title</key><string>Chapter 1 - The Robbery</string>
+        <key>Level</key><integer>4</integer>
+        <key>Indentation</key><integer>0</integer>
+    </dict>
+    <key>8</key><dict>
+        <key>Filename</key><string>/Users/sussman/projects/if/robber/robber.inform/Source/story.ni</string>
+        <key>Line</key><integer>265</integer>
+        <key>Title</key><string>Section 1 - The Train</string>
+        <key>Level</key><integer>5</integer>
+        <key>Indentation</key><integer>1</integer>
+    </dict>
+    <key>9</key><dict>
+        <key>Filename</key><string>/Users/sussman/projects/if/robber/robber.inform/Source/story.ni</string>
+        <key>Line</key><integer>322</integer>
+        <key>Title</key><string>Section 2 - Animals</string>
+        <key>Level</key><integer>5</integer>
+        <key>Indentation</key><integer>1</integer>
+    </dict>
+    <key>10</key><dict>
+        <key>Filename</key><string>/Users/sussman/projects/if/robber/robber.inform/Source/story.ni</string>
+        <key>Line</key><integer>411</integer>
+        <key>Title</key><string>Section 3 - Dynamite</string>
+        <key>Level</key><integer>5</integer>
+        <key>Indentation</key><integer>1</integer>
+    </dict>
+    <key>11</key><dict>
+        <key>Filename</key><string>/Users/sussman/projects/if/robber/robber.inform/Source/story.ni</string>
+        <key>Line</key><integer>485</integer>
+        <key>Title</key><string>Section 4 - Hill Area</string>
+        <key>Level</key><integer>5</integer>
+        <key>Indentation</key><integer>1</integer>
+    </dict>
+    <key>12</key><dict>
+        <key>Filename</key><string>/Applications/Inform.app/Contents/Resources/Inform7/Extensions/graham nelson/standard rules</string>
+        <key>Line</key><integer>1</integer>
+        <key>Title</key><string>--</string>
+        <key>Level</key><integer>0</integer>
+        <key>Indentation</key><integer>0</integer>
+    </dict>
+    <key>13</key><dict>
+        <key>Filename</key><string>/Applications/Inform.app/Contents/Resources/Inform7/Extensions/graham nelson/standard rules</string>
+        <key>Line</key><integer>143</integer>
+        <key>Title</key><string>Part SR1 - Kinds</string>
+        <key>Level</key><integer>3</integer>
+        <key>Indentation</key><integer>-1</integer>
+    </dict>
+    <key>14</key><dict>
+        <key>Filename</key><string>/Applications/Inform.app/Contents/Resources/Inform7/Extensions/graham nelson/standard rules</string>
+        <key>Line</key><integer>146</integer>
+        <key>Title</key><string>Section SR1/1 - Primitive Kinds</string>
+        <key>Level</key><integer>5</integer>
+        <key>Indentation</key><integer>1</integer>
+    </dict>
+    <key>15</key><dict>
+        <key>Filename</key><string>/Applications/Inform.app/Contents/Resources/Inform7/Extensions/graham nelson/standard rules</string>
+        <key>Line</key><integer>164</integer>
+        <key>Title</key><string>Section SR1/2 - Rooms</string>
+        <key>Level</key><integer>5</integer>
+        <key>Indentation</key><integer>1</integer>
+    </dict>
+    <key>16</key><dict>
+        <key>Filename</key><string>/Applications/Inform.app/Contents/Resources/Inform7/Extensions/graham nelson/standard rules</string>
+        <key>Line</key><integer>183</integer>
+        <key>Title</key><string>Section SR1/3 - Things</string>
+        <key>Level</key><integer>5</integer>
+        <key>Indentation</key><integer>1</integer>
+    </dict>
+    <key>17</key><dict>
+        <key>Filename</key><string>/Applications/Inform.app/Contents/Resources/Inform7/Extensions/graham nelson/standard rules</string>
+        <key>Line</key><integer>267</integer>
+        <key>Title</key><string>Section SR1/4 - Doors</string>
+        <key>Level</key><integer>5</integer>
+        <key>Indentation</key><integer>1</integer>
+    </dict>
+    <key>18</key><dict>
+        <key>Filename</key><string>/Applications/Inform.app/Contents/Resources/Inform7/Extensions/graham nelson/standard rules</string>
+        <key>Line</key><integer>289</integer>
+        <key>Title</key><string>Section SR1/5 - Containers and supporters</string>
+        <key>Level</key><integer>5</integer>
+        <key>Indentation</key><integer>1</integer>
+    </dict>
+    <key>19</key><dict>
+        <key>Filename</key><string>/Applications/Inform.app/Contents/Resources/Inform7/Extensions/graham nelson/standard rules</string>
+        <key>Line</key><integer>330</integer>
+        <key>Title</key><string>Section SR1/6 - Devices</string>
+        <key>Level</key><integer>5</integer>
+        <key>Indentation</key><integer>1</integer>
+    </dict>
+    <key>20</key><dict>
+        <key>Filename</key><string>/Applications/Inform.app/Contents/Resources/Inform7/Extensions/graham nelson/standard rules</string>
+        <key>Line</key><integer>339</integer>
+        <key>Title</key><string>Section SR1/7 - Directions</string>
+        <key>Level</key><integer>5</integer>
+        <key>Indentation</key><integer>1</integer>
+    </dict>
+    <key>21</key><dict>
+        <key>Filename</key><string>/Applications/Inform.app/Contents/Resources/Inform7/Extensions/graham nelson/standard rules</string>
+        <key>Line</key><integer>394</integer>
+        <key>Title</key><string>Section SR1/8 - People, men and women</string>
+        <key>Level</key><integer>5</integer>
+        <key>Indentation</key><integer>1</integer>
+    </dict>
+    <key>22</key><dict>
+        <key>Filename</key><string>/Applications/Inform.app/Contents/Resources/Inform7/Extensions/graham nelson/standard rules</string>
+        <key>Line</key><integer>445</integer>
+        <key>Title</key><string>Section SR1/9 - Vehicles</string>
+        <key>Level</key><integer>5</integer>
+        <key>Indentation</key><integer>1</integer>
+    </dict>
+    <key>23</key><dict>
+        <key>Filename</key><string>/Applications/Inform.app/Contents/Resources/Inform7/Extensions/graham nelson/standard rules</string>
+        <key>Line</key><integer>453</integer>
+        <key>Title</key><string>Section SR1/10 - Backdrops</string>
+        <key>Level</key><integer>5</integer>
+        <key>Indentation</key><integer>1</integer>
+    </dict>
+    <key>24</key><dict>
+        <key>Filename</key><string>/Applications/Inform.app/Contents/Resources/Inform7/Extensions/graham nelson/standard rules</string>
+        <key>Line</key><integer>463</integer>
+        <key>Title</key><string>Section SR1/11 - Inform 6 equivalents</string>
+        <key>Level</key><integer>5</integer>
+        <key>Indentation</key><integer>1</integer>
+    </dict>
+    <key>25</key><dict>
+        <key>Filename</key><string>/Applications/Inform.app/Contents/Resources/Inform7/Extensions/graham nelson/standard rules</string>
+        <key>Line</key><integer>509</integer>
+        <key>Title</key><string>Section SR1/12 - Situation</string>
+        <key>Level</key><integer>5</integer>
+        <key>Indentation</key><integer>1</integer>
+    </dict>
+    <key>26</key><dict>
+        <key>Filename</key><string>/Applications/Inform.app/Contents/Resources/Inform7/Extensions/graham nelson/standard rules</string>
+        <key>Line</key><integer>518</integer>
+        <key>Title</key><string>Section SR1/13 - Current action</string>
+        <key>Level</key><integer>5</integer>
+        <key>Indentation</key><integer>1</integer>
+    </dict>
+    <key>27</key><dict>
+        <key>Filename</key><string>/Applications/Inform.app/Contents/Resources/Inform7/Extensions/graham nelson/standard rules</string>
+        <key>Line</key><integer>527</integer>
+        <key>Title</key><string>Section SR1/14 - Used when ruling on accessibility</string>
+        <key>Level</key><integer>5</integer>
+        <key>Indentation</key><integer>1</integer>
+    </dict>
+    <key>28</key><dict>
+        <key>Filename</key><string>/Applications/Inform.app/Contents/Resources/Inform7/Extensions/graham nelson/standard rules</string>
+        <key>Line</key><integer>535</integer>
+        <key>Title</key><string>Section SR1/15 - Used when understanding typed commands</string>
+        <key>Level</key><integer>5</integer>
+        <key>Indentation</key><integer>1</integer>
+    </dict>
+    <key>29</key><dict>
+        <key>Filename</key><string>/Applications/Inform.app/Contents/Resources/Inform7/Extensions/graham nelson/standard rules</string>
+        <key>Line</key><integer>544</integer>
+        <key>Title</key><string>Section SR1/16 - Presentation on screen</string>
+        <key>Level</key><integer>5</integer>
+        <key>Indentation</key><integer>1</integer>
+    </dict>
+    <key>30</key><dict>
+        <key>Filename</key><string>/Applications/Inform.app/Contents/Resources/Inform7/Extensions/graham nelson/standard rules</string>
+        <key>Line</key><integer>551</integer>
+        <key>Title</key><string>Section SR1/17 - Implications</string>
+        <key>Level</key><integer>5</integer>
+        <key>Indentation</key><integer>1</integer>
+    </dict>
+    <key>31</key><dict>
+        <key>Filename</key><string>/Applications/Inform.app/Contents/Resources/Inform7/Extensions/graham nelson/standard rules</string>
+        <key>Line</key><integer>560</integer>
+        <key>Title</key><string>Part SR2 - Rules</string>
+        <key>Level</key><integer>3</integer>
+        <key>Indentation</key><integer>-1</integer>
+    </dict>
+    <key>32</key><dict>
+        <key>Filename</key><string>/Applications/Inform.app/Contents/Resources/Inform7/Extensions/graham nelson/standard rules</string>
+        <key>Line</key><integer>562</integer>
+        <key>Title</key><string>Section SR2/1 - Standard Rulebooks</string>
+        <key>Level</key><integer>5</integer>
+        <key>Indentation</key><integer>1</integer>
+    </dict>
+    <key>33</key><dict>
+        <key>Filename</key><string>/Applications/Inform.app/Contents/Resources/Inform7/Extensions/graham nelson/standard rules</string>
+        <key>Line</key><integer>633</integer>
+        <key>Title</key><string>Section SR2/2 - Advance of time</string>
+        <key>Level</key><integer>5</integer>
+        <key>Indentation</key><integer>1</integer>
+    </dict>
+    <key>34</key><dict>
+        <key>Filename</key><string>/Applications/Inform.app/Contents/Resources/Inform7/Extensions/graham nelson/standard rules</string>
+        <key>Line</key><integer>664</integer>
+        <key>Title</key><string>Section SR2/3 - Accessibility of objects</string>
+        <key>Level</key><integer>5</integer>
+        <key>Indentation</key><integer>1</integer>
+    </dict>
+    <key>35</key><dict>
+        <key>Filename</key><string>/Applications/Inform.app/Contents/Resources/Inform7/Extensions/graham nelson/standard rules</string>
+        <key>Line</key><integer>691</integer>
+        <key>Title</key><string>Section SR2/4 - Action processing</string>
+        <key>Level</key><integer>5</integer>
+        <key>Indentation</key><integer>1</integer>
+    </dict>
+    <key>36</key><dict>
+        <key>Filename</key><string>/Applications/Inform.app/Contents/Resources/Inform7/Extensions/graham nelson/standard rules</string>
+        <key>Line</key><integer>723</integer>
+        <key>Title</key><string>Section SR2/5 - Activity rules</string>
+        <key>Level</key><integer>5</integer>
+        <key>Indentation</key><integer>1</integer>
+    </dict>
+    <key>37</key><dict>
+        <key>Filename</key><string>/Applications/Inform.app/Contents/Resources/Inform7/Extensions/graham nelson/standard rules</string>
+        <key>Line</key><integer>781</integer>
+        <key>Title</key><string>Section SR2/6 - Use options</string>
+        <key>Level</key><integer>5</integer>
+        <key>Indentation</key><integer>1</integer>
+    </dict>
+    <key>38</key><dict>
+        <key>Filename</key><string>/Applications/Inform.app/Contents/Resources/Inform7/Extensions/graham nelson/standard rules</string>
+        <key>Line</key><integer>794</integer>
+        <key>Title</key><string>Part SR3 - Actions</string>
+        <key>Level</key><integer>3</integer>
+        <key>Indentation</key><integer>-1</integer>
+    </dict>
+    <key>39</key><dict>
+        <key>Filename</key><string>/Applications/Inform.app/Contents/Resources/Inform7/Extensions/graham nelson/standard rules</string>
+        <key>Line</key><integer>796</integer>
+        <key>Title</key><string>Section SR3/1 - Generic action patterns</string>
+        <key>Level</key><integer>5</integer>
+        <key>Indentation</key><integer>1</integer>
+    </dict>
+    <key>40</key><dict>
+        <key>Filename</key><string>/Applications/Inform.app/Contents/Resources/Inform7/Extensions/graham nelson/standard rules</string>
+        <key>Line</key><integer>798</integer>
+        <key>Title</key><string>Section SR3/2 - Actions concerning the actor's possessions</string>
+        <key>Level</key><integer>5</integer>
+        <key>Indentation</key><integer>1</integer>
+    </dict>
+    <key>41</key><dict>
+        <key>Filename</key><string>/Applications/Inform.app/Contents/Resources/Inform7/Extensions/graham nelson/standard rules</string>
+        <key>Line</key><integer>1231</integer>
+        <key>Title</key><string>Section SR3/3 - Actions which move the actor</string>
+        <key>Level</key><integer>5</integer>
+        <key>Indentation</key><integer>1</integer>
+    </dict>
+    <key>42</key><dict>
+        <key>Filename</key><string>/Applications/Inform.app/Contents/Resources/Inform7/Extensions/graham nelson/standard rules</string>
+        <key>Line</key><integer>1565</integer>
+        <key>Title</key><string>Section SR3/3 - Actions concerning the actor's vision</string>
+        <key>Level</key><integer>5</integer>
+        <key>Indentation</key><integer>1</integer>
+    </dict>
+    <key>43</key><dict>
+        <key>Filename</key><string>/Applications/Inform.app/Contents/Resources/Inform7/Extensions/graham nelson/standard rules</string>
+        <key>Line</key><integer>1832</integer>
+        <key>Title</key><string>Section SR3/5 - Actions which change the state of things</string>
+        <key>Level</key><integer>5</integer>
+        <key>Indentation</key><integer>1</integer>
+    </dict>
+    <key>44</key><dict>
+        <key>Filename</key><string>/Applications/Inform.app/Contents/Resources/Inform7/Extensions/graham nelson/standard rules</string>
+        <key>Line</key><integer>2178</integer>
+        <key>Title</key><string>Section SR3/6 - Actions concerning other people</string>
+        <key>Level</key><integer>5</integer>
+        <key>Indentation</key><integer>1</integer>
+    </dict>
+    <key>45</key><dict>
+        <key>Filename</key><string>/Applications/Inform.app/Contents/Resources/Inform7/Extensions/graham nelson/standard rules</string>
+        <key>Line</key><integer>2459</integer>
+        <key>Title</key><string>Section SR3/7 - Actions which are checked but then do nothing unless rules intervene</string>
+        <key>Level</key><integer>5</integer>
+        <key>Indentation</key><integer>1</integer>
+    </dict>
+    <key>46</key><dict>
+        <key>Filename</key><string>/Applications/Inform.app/Contents/Resources/Inform7/Extensions/graham nelson/standard rules</string>
+        <key>Line</key><integer>2674</integer>
+        <key>Title</key><string>Section SR3/8 - Actions which always do nothing unless rules intervene</string>
+        <key>Level</key><integer>5</integer>
+        <key>Indentation</key><integer>1</integer>
+    </dict>
+    <key>47</key><dict>
+        <key>Filename</key><string>/Applications/Inform.app/Contents/Resources/Inform7/Extensions/graham nelson/standard rules</string>
+        <key>Line</key><integer>3015</integer>
+        <key>Title</key><string>Section SR3/9 - Actions which happen out of world</string>
+        <key>Level</key><integer>5</integer>
+        <key>Indentation</key><integer>1</integer>
+    </dict>
+    <key>48</key><dict>
+        <key>Filename</key><string>/Applications/Inform.app/Contents/Resources/Inform7/Extensions/graham nelson/standard rules</string>
+        <key>Line</key><integer>3168</integer>
+        <key>Title</key><string>Section SR3/9 - Grammar</string>
+        <key>Level</key><integer>5</integer>
+        <key>Indentation</key><integer>1</integer>
+    </dict>
+    <key>49</key><dict>
+        <key>Filename</key><string>/Applications/Inform.app/Contents/Resources/Inform7/Extensions/graham nelson/standard rules</string>
+        <key>Line</key><integer>3419</integer>
+        <key>Title</key><string>Part SR4 - Phrasebook</string>
+        <key>Level</key><integer>3</integer>
+        <key>Indentation</key><integer>-1</integer>
+    </dict>
+    <key>50</key><dict>
+        <key>Filename</key><string>/Applications/Inform.app/Contents/Resources/Inform7/Extensions/graham nelson/standard rules</string>
+        <key>Line</key><integer>3421</integer>
+        <key>Title</key><string>Section SR4/0 - Saying</string>
+        <key>Level</key><integer>5</integer>
+        <key>Indentation</key><integer>1</integer>
+    </dict>
+    <key>51</key><dict>
+        <key>Filename</key><string>/Applications/Inform.app/Contents/Resources/Inform7/Extensions/graham nelson/standard rules</string>
+        <key>Line</key><integer>3568</integer>
+        <key>Title</key><string>Section SR4/1 - The score and the outcome</string>
+        <key>Level</key><integer>5</integer>
+        <key>Indentation</key><integer>1</integer>
+    </dict>
+    <key>52</key><dict>
+        <key>Filename</key><string>/Applications/Inform.app/Contents/Resources/Inform7/Extensions/graham nelson/standard rules</string>
+        <key>Line</key><integer>3590</integer>
+        <key>Title</key><string>Section SR4/2 - Actions and activities</string>
+        <key>Level</key><integer>5</integer>
+        <key>Indentation</key><integer>1</integer>
+    </dict>
+    <key>53</key><dict>
+        <key>Filename</key><string>/Applications/Inform.app/Contents/Resources/Inform7/Extensions/graham nelson/standard rules</string>
+        <key>Line</key><integer>3646</integer>
+        <key>Title</key><string>Section SR4/3 - Moving and removing things</string>
+        <key>Level</key><integer>5</integer>
+        <key>Indentation</key><integer>1</integer>
+    </dict>
+    <key>54</key><dict>
+        <key>Filename</key><string>/Applications/Inform.app/Contents/Resources/Inform7/Extensions/graham nelson/standard rules</string>
+        <key>Line</key><integer>3710</integer>
+        <key>Title</key><string>Section SR4/4 - Arithmetic</string>
+        <key>Level</key><integer>5</integer>
+        <key>Indentation</key><integer>1</integer>
+    </dict>
+    <key>55</key><dict>
+        <key>Filename</key><string>/Applications/Inform.app/Contents/Resources/Inform7/Extensions/graham nelson/standard rules</string>
+        <key>Line</key><integer>3750</integer>
+        <key>Title</key><string>Section SR4/5 - Time</string>
+        <key>Level</key><integer>5</integer>
+        <key>Indentation</key><integer>1</integer>
+    </dict>
+    <key>56</key><dict>
+        <key>Filename</key><string>/Applications/Inform.app/Contents/Resources/Inform7/Extensions/graham nelson/standard rules</string>
+        <key>Line</key><integer>3810</integer>
+        <key>Title</key><string>Section SR4/6 - Randomness</string>
+        <key>Level</key><integer>5</integer>
+        <key>Indentation</key><integer>1</integer>
+    </dict>
+    <key>57</key><dict>
+        <key>Filename</key><string>/Applications/Inform.app/Contents/Resources/Inform7/Extensions/graham nelson/standard rules</string>
+        <key>Line</key><integer>3827</integer>
+        <key>Title</key><string>Section SR4/7 - Tables</string>
+        <key>Level</key><integer>5</integer>
+        <key>Indentation</key><integer>1</integer>
+    </dict>
+    <key>58</key><dict>
+        <key>Filename</key><string>/Applications/Inform.app/Contents/Resources/Inform7/Extensions/graham nelson/standard rules</string>
+        <key>Line</key><integer>3878</integer>
+        <key>Title</key><string>Section SR4/7 - Searching and sorting tables</string>
+        <key>Level</key><integer>5</integer>
+        <key>Indentation</key><integer>1</integer>
+    </dict>
+    <key>59</key><dict>
+        <key>Filename</key><string>/Applications/Inform.app/Contents/Resources/Inform7/Extensions/graham nelson/standard rules</string>
+        <key>Line</key><integer>3898</integer>
+        <key>Title</key><string>Section SR4/8 - Changing properties and variables</string>
+        <key>Level</key><integer>5</integer>
+        <key>Indentation</key><integer>1</integer>
+    </dict>
+    <key>60</key><dict>
+        <key>Filename</key><string>/Applications/Inform.app/Contents/Resources/Inform7/Extensions/graham nelson/standard rules</string>
+        <key>Line</key><integer>3951</integer>
+        <key>Title</key><string>Section SR4/9 - Listing things in a given place</string>
+        <key>Level</key><integer>5</integer>
+        <key>Indentation</key><integer>1</integer>
+    </dict>
+    <key>61</key><dict>
+        <key>Filename</key><string>/Applications/Inform.app/Contents/Resources/Inform7/Extensions/graham nelson/standard rules</string>
+        <key>Line</key><integer>4040</integer>
+        <key>Title</key><string>Section SR4/9a - The player's command</string>
+        <key>Level</key><integer>5</integer>
+        <key>Indentation</key><integer>1</integer>
+    </dict>
+    <key>62</key><dict>
+        <key>Filename</key><string>/Applications/Inform.app/Contents/Resources/Inform7/Extensions/graham nelson/standard rules</string>
+        <key>Line</key><integer>4063</integer>
+        <key>Title</key><string>Section SR4/10 - Loops and conditionals</string>
+        <key>Level</key><integer>5</integer>
+        <key>Indentation</key><integer>1</integer>
+    </dict>
+    <key>63</key><dict>
+        <key>Filename</key><string>/Applications/Inform.app/Contents/Resources/Inform7/Extensions/graham nelson/standard rules</string>
+        <key>Line</key><integer>4119</integer>
+        <key>Title</key><string>Section SR4/11 - Accessibility</string>
+        <key>Level</key><integer>5</integer>
+        <key>Indentation</key><integer>1</integer>
+    </dict>
+    <key>64</key><dict>
+        <key>Filename</key><string>/Applications/Inform.app/Contents/Resources/Inform7/Extensions/graham nelson/standard rules</string>
+        <key>Line</key><integer>4125</integer>
+        <key>Title</key><string>Section SR4/13 - Fonts and visual effects</string>
+        <key>Level</key><integer>5</integer>
+        <key>Indentation</key><integer>1</integer>
+    </dict>
+    <key>65</key><dict>
+        <key>Filename</key><string>/Applications/Inform.app/Contents/Resources/Inform7/Extensions/graham nelson/standard rules</string>
+        <key>Line</key><integer>4143</integer>
+        <key>Title</key><string>Section SR4/14 - Following rules</string>
+        <key>Level</key><integer>5</integer>
+        <key>Indentation</key><integer>1</integer>
+    </dict>
+    <key>66</key><dict>
+        <key>Filename</key><string>/Applications/Inform.app/Contents/Resources/Inform7/Extensions/graham nelson/standard rules</string>
+        <key>Line</key><integer>4161</integer>
+        <key>Title</key><string>Section SR4/15 - Success and failure of rules</string>
+        <key>Level</key><integer>5</integer>
+        <key>Indentation</key><integer>1</integer>
+    </dict>
+    <key>67</key><dict>
+        <key>Filename</key><string>/Applications/Inform.app/Contents/Resources/Inform7/Extensions/graham nelson/standard rules</string>
+        <key>Line</key><integer>4190</integer>
+        <key>Title</key><string>Section SR4/16 - Procedural manipulation of rules</string>
+        <key>Level</key><integer>5</integer>
+        <key>Indentation</key><integer>1</integer>
+    </dict>
+    <key>68</key><dict>
+        <key>Filename</key><string>/Applications/Inform.app/Contents/Resources/Inform7/Extensions/graham nelson/standard rules</string>
+        <key>Line</key><integer>4210</integer>
+        <key>Title</key><string>Section SR4/17 - Indexed text</string>
+        <key>Level</key><integer>5</integer>
+        <key>Indentation</key><integer>1</integer>
+    </dict>
+    <key>69</key><dict>
+        <key>Filename</key><string>/Applications/Inform.app/Contents/Resources/Inform7/Extensions/graham nelson/standard rules</string>
+        <key>Line</key><integer>4297</integer>
+        <key>Title</key><string>Section SR4/17a - Stored Actions</string>
+        <key>Level</key><integer>5</integer>
+        <key>Indentation</key><integer>1</integer>
+    </dict>
+    <key>70</key><dict>
+        <key>Filename</key><string>/Applications/Inform.app/Contents/Resources/Inform7/Extensions/graham nelson/standard rules</string>
+        <key>Line</key><integer>4316</integer>
+        <key>Title</key><string>Section SR4/17b - Lists</string>
+        <key>Level</key><integer>5</integer>
+        <key>Indentation</key><integer>1</integer>
+    </dict>
+    <key>71</key><dict>
+        <key>Filename</key><string>/Applications/Inform.app/Contents/Resources/Inform7/Extensions/graham nelson/standard rules</string>
+        <key>Line</key><integer>4386</integer>
+        <key>Title</key><string>Section SR4/18 - Unindexed</string>
+        <key>Level</key><integer>5</integer>
+        <key>Indentation</key><integer>1</integer>
+    </dict>
+    <key>72</key><dict>
+        <key>Filename</key><string>/Applications/Inform.app/Contents/Resources/Inform7/Extensions/graham nelson/standard rules</string>
+        <key>Line</key><integer>4545</integer>
+        <key>Title</key><string>Part SR5 - Bibliographic data - unindexed</string>
+        <key>Level</key><integer>3</integer>
+        <key>Indentation</key><integer>-1</integer>
+    </dict>
+    <key>73</key><dict>
+        <key>Filename</key><string>/Applications/Inform.app/Contents/Resources/Inform7/Extensions/emily short/basic screen effects</string>
+        <key>Line</key><integer>1</integer>
+        <key>Title</key><string>--</string>
+        <key>Level</key><integer>0</integer>
+        <key>Indentation</key><integer>0</integer>
+    </dict>
+    <key>74</key><dict>
+        <key>Filename</key><string>/Applications/Inform.app/Contents/Resources/Inform7/Extensions/emily short/basic screen effects</string>
+        <key>Line</key><integer>9</integer>
+        <key>Title</key><string>Section 1 - Spacing and Pausing</string>
+        <key>Level</key><integer>5</integer>
+        <key>Indentation</key><integer>1</integer>
+    </dict>
+    <key>75</key><dict>
+        <key>Filename</key><string>/Applications/Inform.app/Contents/Resources/Inform7/Extensions/emily short/basic screen effects</string>
+        <key>Line</key><integer>194</integer>
+        <key>Title</key><string>Section 2 - Colors (for Z-machine only)</string>
+        <key>Level</key><integer>5</integer>
+        <key>Indentation</key><integer>1</integer>
+    </dict>
+    <key>76</key><dict>
+        <key>Filename</key><string>/Applications/Inform.app/Contents/Resources/Inform7/Extensions/emily short/menus</string>
+        <key>Line</key><integer>1</integer>
+        <key>Title</key><string>--</string>
+        <key>Level</key><integer>0</integer>
+        <key>Indentation</key><integer>0</integer>
+    </dict>
+    <key>77</key><dict>
+        <key>Filename</key><string>/Applications/Inform.app/Contents/Resources/Inform7/Extensions/emily short/menus</string>
+        <key>Line</key><integer>9</integer>
+        <key>Title</key><string>Section 1</string>
+        <key>Level</key><integer>5</integer>
+        <key>Indentation</key><integer>1</integer>
+    </dict>
+    <key>78</key><dict>
+        <key>Filename</key><string>/Applications/Inform.app/Contents/Resources/Inform7/Extensions/emily short/menus</string>
+        <key>Line</key><integer>208</integer>
+        <key>Title</key><string>Section 2 (for Glulx only)</string>
+        <key>Level</key><integer>5</integer>
+        <key>Indentation</key><integer>1</integer>
+    </dict>
+    <key>79</key><dict>
+        <key>Filename</key><string>/Applications/Inform.app/Contents/Resources/Inform7/Extensions/emily short/basic help menu</string>
+        <key>Line</key><integer>1</integer>
+        <key>Title</key><string>--</string>
+        <key>Level</key><integer>0</integer>
+        <key>Indentation</key><integer>0</integer>
+    </dict>
+    <key>80</key><dict>
+        <key>Line</key><integer>1</integer>
+        <key>Title</key><string>--</string>
+        <key>Level</key><integer>0</integer>
+        <key>Indentation</key><integer>0</integer>
+    </dict>
+</dict>
+</plist>

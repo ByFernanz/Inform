@@ -1,0 +1,342 @@
+Part 0 - Library Card, Includes y Uses
+
+[ Datos bibliográficos ]
+The story title is "El regalo de Gorbag".
+The story author is "Grendelkhan".
+The story headline is "'Sobre orcos, chicas, cafés y tardes de lluvia.'".
+The story genre is "Romance".
+The release number is 2.
+The story creation year is 2010.
+The story description is "¡Hoy es el día! ¡Hoy Gorbag va a casarse con una princesa elfa! Vamos... casi seguro, sólo falta que ella acepte, pero con un buen regalo estás seguro de que caerá rendida a tus pies. ¿Qué regalo será el adecuado? Te adentras en el bosque de camino a la morada de tu futura mujer, de momento con las manos vacías pero seguro de encontrar algo capaz de enamorar a una elfa. Ahí está. Ya tienes el argumento, solo hace falta ponerse a programar. Una estúpida aventura de orcos, un divertimento más, una pérdida de tiempo. Pero ahora debes marcharte, y rápido que llegas tarde, porque has quedado con Ariadna.".
+
+Release along with cover art, a file of "Manual de juego" called "LEEME.txt", a file of "Licencia" called "LICENCIA.txt" and the source text and a website.
+
+Include Spanish by Sebastian Arg.
+Include Basic Screen Effects Sp by Emily Short.
+Include Quip-Based Conversation by Michael Martin.
+    
+
+Use full-length room descriptions and no scoring.
+
+Rule for constructing the status line:
+center "[story title]" at row 1;
+rule succeeds.
+
+Rule for deciding whether all includes scenery: it does not. [para que no entren en 'coge todo']
+
+The greeting of yourself is selftalk.
+
+
+[Cuando el jugador pide ayuda]
+
+Asking for help is an action out of world. Understand "instrucciones" or "ayuda" as asking for help.
+
+Carry out asking for help:
+say "Bienvenido al mundo de los relatos interactivos. En éstos juegos interaccionas escribiendo frases como EXAMINA SILLA o ABRE PUERTA (también puedes usar los verbos en infinitivo, si lo prefieres, como en ABRIR PUERTA). El juego responde describiéndote cómo es el mundo que te rodea y el resultado de tus acciones.
+[paragraph break]Hay una serie de comandos comunes a todos los juegos conversacionales. Puedes caminar simplemente indicando el punto cardinal hacia el que quieres ir; por ejemplo NORTE o SUDESTE. Todas las direcciones pueden abreviarse a una o dos letras; en el caso anterior N o SE. También puedes ir ARRIBA o ABAJO o sus sinónimos SUBE y BAJA. En algunos lugares puedes poner también ENTRA o SAL. Además puedes usar 'ENTRA EN' o 'TREPA A' con algunas cosas.[paragraph break]Cada vez que entres en un lugar, el juego te lo describirá con detalle. Sin embargo, para volver a ver la descripción completa en cualquier momento, usa el comando MIRA (abreviatura M).";
+wait for any key;
+say "[paragraph break]Puedes interactuar con tu entorno de varias formas. Puedes COGER objetos (o TOMAR en el dialecto sudamericano) y SOLTAR objetos. Tambíen puedes PONER objetos EN cosas, o SACAR objetos DE otros. Puedes llegar a crear frases complejas, como por ejemplo SACA EL LADRILLO ROJO Y LA PELOTA AZUL DE LA CAJA DE METAL Y DESPUES TIRA EL LADRILLO CONTRA LA VENTANA. El juego comprenderá esta frase, pero normalmente no necesitarás escribir nada tan complejo.
+[paragraph break]Para mirar un objeto más de cerca, EXAMINA el objeto (abreviatura X). Para obtener un listado de todo lo que llevas contigo escribe INVENTARIO (o I). Otros comandos útiles que puedes intentar son EMPUJA, REGISTRA, SACUDE, LANZA, FROTA, PATEA, TREPA, MIRA POR, o LEE.
+[paragraph break]También puedes interaccionar con otros personajes mediante órdenes como PREGUNTA A (personaje) SOBRE (tema). Por ejemplo, PREGUNTA A REY SOBRE CASTILLO.
+[paragraph break]Parte de un juego conversacional consiste en averiguar lo que el juego entiende. Éste relato conoce cientos de palabras, así que intenta todo lo que se te ocurra.[line break]Si finalmente no encuentras la solución puedes acudir a los foros del CAAD en www.caad.es/foro, lugar donde se reúnen los aficionados a los juegos conversacionales.". 
+
+
+Part 1 - Inicializando
+
+[ Redefiniremos algunos de los mensajes estándares de la librería.]
+When play begins: change the command prompt to " - ";
+
+Instead of telling someone about something, try asking the noun about it. Instead of answering the noun that something, try asking the noun about it.
+
+Rule for printing a parser error when parser error is I beg your pardon: say " " instead.
+
+Check requesting the score: say "Creo que estás haciendo puntos." instead.
+
+Check examining a direction (called target):
+    if the target is up then say "Ya estás desviando la mirada otra vez." instead;
+    if the target is down then say "Ya estás desviando la mirada otra vez." instead.
+
+When play begins:
+clear the screen;
+display the boxed quotation
+"El regalo de Gorbag.
+Un pequeño relato sobre orcos, chicas, cafés y tardes de lluvia.
+Escrito y programado por Grendelkhan. Diciembre 2009.";
+show the current quotation;
+say "[paragraph break][italic type]Los coches van de un lado a otro, el ruido de siempre se ve incrementado por el hilo musical navideño. Hace un frío que hiela la sangre y unas tímidas gotas de lluvia empiezan a aparecer entre las luces de la calle. [roman type]";
+wait for any key;
+clear the screen;
+say "[paragraph break]Sólo falta un día para entrar de lleno en una nueva década, ¿los años 10 del siglo XXI? ¿Cómo se llamará la década del año 2000 al 2009? ¿Años cero?
+[paragraph break]En éstas cosas piensas mientras esperas con creciente impaciencia a que aparezca Ariadna, al lado de la boca de metro de Urquinaona.[paragraph break]";
+wait for any key;
+
+
+Part 2 - El jugador y sus cosas
+
+Section 1 - Albert
+
+Albert is a man. Albert is in the Plaça Urquinaona. The description is "Eres razonablemente normal, dentro de la fauna barcelonesa. ¿Te has dado cuenta? Llevas ahí una bolsa.". The player is Albert.
+
+
+Section 2 - Gorbag
+
+Gorbag is a man. Gorbag is in the bosque1. The description is "¡Eres Gorbag! El orco más atractivo de toda la Tierra Media, o al menos eso decía tu madre.".
+
+
+Section 3 - La bolsa y la libreta de apuntes
+
+A bolsa is carried by Albert. The bolsa is female and openable. The bolsa contains a libreta.  It is closed. The description of the bolsa is "[if bolsa is closed]Es una bolsa negra que te compraste en el Pull & Bear, para llevar algún libro y tu libreta de apuntes. Ahora está cerrada.[else]La bolsa está abierta, ciérrala pronto que aquí hay mucho mangui.".
+ 
+Libreta is female. The description of the libreta is "Una libreta llena de apuntes sobre tu próximo juego: El regalo de Gorbag, una aventura sobre un orco enamorado de una princesa elfa que será muy divertida... si la acabas, claro.".
+Instead of examining the libreta for the first time:
+	say "Una libreta llena de apuntes de tu próximo juego, una aventura de orcos. Empieza así: [paragraph break][italic type]¡Hoy es el día! ¡Hoy Gorbag va a casarse con una princesa elfa! Vamos... casi seguro, sólo falta que ella acepte, pero con un buen regalo estás seguro de que caerá rendida a tus pies. ¿Qué regalo será el adecuado? Te adentras en el bosque de camino a la morada de tu futura mujer, de momento con las manos vacías pero seguro de encontrar algo capaz de enamorar a una elfa. [roman type]".
+Instead of examining the libreta for the second time:
+	say "Tras una serie de tachones y un esquema inacabado, la aventura continúa: [paragraph break][italic type]Tu sí que sabes lo que es el amor, el amor verdadero, no como esos perros de Isengard, que ni son orcos ni son nada, además de que no tienen miembro viril, ¿cómo van a amar? O sea, a follar... ¡Ja! Los orcos de Mordor sí que saben culebrear sobre las hembras, se nos da casi tan bien como matar y saquear... ¡ah! es que somos los verdaderos paladines de la devastación, ¿cómo no vamos a serlo, si sentimos continuamente el aliento de Sauron en el cogote? ¡Los engendros de Isengard no saben lo que es el verdadero miedo! Pues... ¿qué va a hacer Saruman? ¿Convertirte en sapo? ¡Diablos, es mejor ser un alegre sapo saltarín que un sádico orco pestilente! ¡Y lo digo yo, que soy un orco![roman type]".
+Instead of examining the libreta for the third time:
+	say "Continúas releyendo lo que llevas escrito:[paragraph break][italic type]¡Ah! Reniego, de mis raíces, quisiera ser humano, incluso quisiera ser un elfo. De acuerdo, los elfos son unas nenazas, pero ¿alguien cree que entre los orcos no nos damos por el culo? Vamos, mira ésa cuadrilla... ¿cuántas orcas ves ahí? ¡Cero! Pues te aseguro que ésta noche no se van a quedar mirando las estrellas, como los elfos, si no que escogerán al menos sucio de ellos y se lo repasarán de arriba a abajo. Eso si no se topan con un hobbit, claro, pero es raro ver hobbits por éstas tierras. El último que vimos llevaba un anillo y armó un jaleo considerable. Desde entonces las cosas no han ido más que a peor. Pero me estoy desviando, ¿verdad?[roman type]".
+Instead of examining the libreta for the fourth time:
+	say "Sigues leyendo, casi ni te acordabas de lo que habías puesto:[paragraph break][italic type]¡Ah, mírala, ahí está... la princesa Arwen! Ahí la tienes, siempre bella y radiante, embutida en un vestido azul que realza sus rotundas formas femeninas... ¡menuda pájara! Su mirada asqueada y horrorizada se posa en tus ojos, sus pequeñas manos se dirigen a la naricita en un grácil gesto, y su boca... ¡ah! su boca es miel, casi puedes sentir sus labios rozándote el prepucio. Pero primero debes darle un regalo, ¿has traído algo, Gorbag?[roman type]".
+
+Understand "tachones", "papeles", "agenda", "hojas", "letras" as the libreta.
+
+
+Part 3 - Ariadna
+
+Section 1 - Conversación en Plaça Urquinaona
+
+Ariadna is a woman and scenery. Ariadna is in the Plaça Urquinaona. The description is "Ahí está Ariadna, esperando bajo la lluvia, paraguas en mano, con esa cara que tiene, que parece que siempre esté enfadada... claro que también es cierto que siempre llegas tarde." The litany of Ariadna is the Table of Ariadna Comments.
+Understand "chica", "cara", "manos", "dedos", "ari" as Ariadna.
+
+Instead of touching Ariadna, say "No te faltan ganas, pero de momento prefieres no arriesgarte a acercarte demasiado a ella.".
+Instead of kissing Ariadna, try touching Ariadna.
+Instead of attacking Ariadna, say "Mejor pégate a tí mismo, ¿no crees?".
+
+Table of Quip Texts (continued)
+  	quip  	quiptext
+  	selftalk  	"¿Otra vez hablando solo? Tienes que transitar. [paragraph break]Transita, fluye, ¿qué quieres decir? ¡El tiempo corre muy deprisa y las palabras no alcanzan!"
+  	saludo  	"Hola, Albert. Llegas tarde."
+  	excusa  	"Vale, vale. ¿A dónde vamos?"
+	adonde	"No sé, tu fuiste el que llamaste para tomar un café, ¿no? Venga, vamos que está empezando a llover fuerte."
+	paseo	"Magnolia. ¿Y tú? [paragraph break]Pues un pupurri de los 80, Soft Cell, A-ha, New Order, Ultravox, cosas así. [line break]¿Todo legal, no? ¡Como pase por aquí Ramoncín nos vamos al cuartel de los mossos![line break]Ya ves... ¡litros de bits, corren por mis redes, Ramón, no tengo problemas de autor, lo que me pasa...[paragraph break]¡Vale, vale ya! Venga, ¿dónde vamos?."
+	bar1	"No ahí no que siempre está lleno y las mesas son pequeñas. Vamos mejor al Starbucks Coffee.[paragraph break]¿Ves? Al final siempre acabamos en el mismo sitio."	
+	bar2	"Hum… siempre acabamos en el mismo sitio. ¿No se te ocurre otro...?"
+
+    Table of Ariadna Comments
+    prompt	response	enabled
+    "Hola, Ariadna."	saludo	1
+    "He estado liado, he salido tarde de trabajar, he intentado llegar antes pero no he podido."	excusa 	0
+    "No sé, dime tú, ¿dónde quieres ir?"	adonde 	0
+    "Vale, vale. ¿Vamos al Caffè di Roma?"	bar1  	0
+    "¿Qué estas escuchando?"	paseo	0
+    "¿Vamos al Starbucks Coffe, no?"	bar2 	0
+
+    After quipping when the current quip is saludo:
+     enable the excusa quip.
+
+    After quipping when the current quip is excusa:
+     enable the adonde quip.
+
+    After quipping when the current quip is adonde:
+     enable the bar2 quip;
+     enable the paseo quip;
+     enable the bar1 quip.
+
+After quipping when the current quip is bar1:
+   wait for any key;
+   terminate the conversation;
+   move the player to Bar;
+
+
+Section 2 - Conversación en el bar
+
+Ariadna2 is a woman and scenery. Ariadna2 is in the Bar. The description is "Ariadna hace gala de su habitual nerviosismo rompiendo las servilletas del servilletero, fumando de forma compulsiva y tamborileando los dedos en la mesa las pocas veces en que sus manos están desocupadas.". The litany of Ariadna2 is the Table of Ariadna2 Comments.
+Understand "ariadna", "cara", "manos", "dedos", "ari" as Ariadna2.
+
+Instead of touching Ariadna2, say "No es un buen momento, la hostia que te puede dar puede ser de antología.".
+Instead of kissing Ariadna2, try touching Ariadna.
+Instead of attacking Ariadna2, try touching Ariadna.
+
+Table of Quip Texts (continued)
+  	quip  	quiptext
+  	como-estas  	"Bien, mejor. Vaya pedal que pillamos el fin de semana pasado, ¿eh? Es la última vez que mezclo vino, ron y orujo."
+  	que-vas  	"Pues me han invitado a casa de unos amigos a cenar, después iremos al centro, por el Rabal, ¿tú que vas a hacer? [paragraph break]Lo más seguro es que me vaya al pueblo a ver a mis padres, supongo que quedaré con la gente de allí para después de las uvas.
+"
+	querias-hablar	"No, eres tú el que me ha llamado para tomar un café, ¿recuerdas? ¿Qué pasa, aún estás enfadado?[paragraph break]¿Enfadado yo?[paragraph break]Oh, ahora no te hagas el despistado. Sabes bien de lo que hablo. ¿Qué pasó el fin de semana?"
+	llamado-tu	"Bueno, da igual quién haya llamado, la cuestión es que tenemos que hablar, ¿no crees? A ver, ¿qué pasó el otro día?"	
+	que-paso	"Bueno, a ver, si quieres te hago memoria pero te marchaste de mala manera y no entiendo porqué. ¿Me lo puedes explicar? ¡Además estuviste muy raro toda la noche![paragraph break]No pasó nada y no estoy enfadado. Déjalo ya.[paragraph break]Joder, estás enfadado. ¿Pero qué pasa? Yo creo que no te he hecho nada, ¿vale? No sé qué pasa pero no las pagues conmigo, ¿vale?"
+	enfadada-tu	"Al menos dame una explicación, ¿por qué te fuiste? ¿te cayó mal mi amigo? ¡Nos lo estábamos pasando bien y tú... vaya, un momento, un momento que me llaman por el móvil, ¿vale? Sí, sí, hola Jaime dime, espera que no te oigo bien, que estoy en un bar. Espera, que salgo... [paragraph break]Tomas un poco de café y esperas a que termine de hablar por el móvil con el tal Jaime. ¡Ah, los móviles! ¡Con qué facilidad interrumpen las palabras y te hacen perder el hilo de la conversación! [paragraph break]Parece ser que una llamada de móvil tiene siempre preeminencia sobre un interlocutor físico. Como la cosa se alarga piensas que la mejor idea será repasar los apuntes de la libreta que llevas siempre en la bolsa."
+
+    Table of Ariadna2 Comments
+    prompt	response	enabled
+    "¿Cómo estás?"	como-estas	1
+    "¿Qué vas a hacer para fin de año?"	que-vas	0
+    "Bueno, ¿de qué querías hablar?"	querias-hablar 	0
+    "¡Pero si me has llamado tú!"	llamado-tu	0
+    "No sé. ¿Qué pasó?"	que-paso 	0
+    "¡La que estás enfadada eres tú! ¿Qué quieres que te diga?"	enfadada-tu 	0
+
+    After quipping when the current quip is como-estas:
+     enable the querias-hablar quip;
+     enable the que-vas quip.
+
+    After quipping when the current quip is querias-hablar:
+     enable the llamado-tu quip.
+
+    After quipping when the current quip is llamado-tu:
+     enable the que-paso quip.
+
+    After quipping when the current quip is que-paso:
+     enable the enfadada-tu quip.
+
+After quipping when the current quip is enfadada-tu:
+   wait for any key;
+   terminate the conversation;
+   move Ariadna3 to Bar;
+   remove Ariadna2 from play.
+
+
+Section 3 - Ariadna habla por el móvil
+
+Ariadna3 is a woman and scenery. Understand "ariadna", "cara", "manos", "dedos", "ari" as Ariadna3.
+
+Instead of examining Ariadna3:
+	say "Está fuera, hablando por el móvil con un tal Jaime. ¿Quién será? ¡Un orco, será un orco! ¿Te importa? ¡No, un elfo, un asqueroso elfo perfecto! ¿Debería importarte? ¡Un humano, es muy capaz de enamorarse de un simple humano! ¿Cuál es tu problema, muchacho? Algo está fallando y todo se va a la mierda, como siempre, no quiero que acabe. ¡No quiero que se acabe aquí! ¡Sólo hace falta un regalo para la princesa! ¡Gorbag! ¿Gorbag? ¡Ayúdame amigo... ¡ayúdame! ¡Ayúdame a encontrar un regalo!";
+wait for any key;
+now the player is Gorbag;
+rule succeeds.
+
+Instead of touching Ariadna3, say "No puedes, está tras el cristal.".
+Instead of kissing Ariadna3, try touching Ariadna.
+Instead of attacking Ariadna3, try touching Ariadna.
+
+
+Section 4 - Conversación final en el bar
+
+Ariadna4 is a woman and scenery. The description is "Ariadna te mira sorprendida al ver cómo eres capaz de quedarte traspuesto en cualquier momento y situación. No parece que la conversación haya sido agradable, de hecho, parece que hoy nada es agradable, a pesar de las luces y los colores navideños.". The litany of Ariadna4 is the Table of Ariadna4 Comments.
+Understand "ariadna", "cara", "manos", "dedos", "ari" as Ariadna4.
+
+Instead of touching Ariadna4, say "Si antes ya era mala idea, ahora sería una idea suicida.".
+Instead of kissing Ariadna4, try touching Ariadna.
+Instead of attacking Ariadna4, try touching Ariadna.
+
+Table of Quip Texts (continued)
+  	quip  	quiptext
+  	bueno-que  	"No pasa nada, ¿es que quieres saberlo todo?"
+  	me-voy  	"Te digo que no pasa nada, por favor, no te pongas melodramático, que ya te conozco."
+	expliques-nada	"Escucha, no tengo que darte explicaciones y menos después de lo del fin de semana. Aún no me has explicado qué pasó.[paragraph break]No creo que hagan falta muchas explicaciones. ¿Sabes? Contigo siempre tengo la impresión de estar siendo continuamente puesto a prueba. No puedo cometer errores, ni enfadarme, ni divertirme demasiado. No quieres darme explicaciones pero a mí me las pides todas."
+	esta-bien	"Pero es que no lo entiendo, ¿por qué estás enfadado? ¡Nos lo estábamos pasando bien y tú vas y te marchas! ¡Y de qué modo!"	
+	sabes-cosa	"¿Sabes una cosa? Estoy haciendo un juego. Un juego de orcos. Va de un orco que se enamora de una princesa elfa y le quiere hacer un regalo para enamorarla. Entonces el orco entra en el bosque y encuentra un precioso anillo.[paragraph break]
+¿Qué me estás contando? ¿A qué viene esto ahora?[paragraph break]
+¡Oh! Sólo es una bonita historia para un juego. El orco entonces le lleva el anillo a la princesa elfa. ¿Y sabes lo que pasa al final?[paragraph break]
+Al final el orco comprende que las historias bonitas no suelen ocurrir tal y como las imaginamos. Ni la elfa quiere anillos ni el orco quedarse a vivir en el bosque, así que cada uno siguió su vida por su lado. Adiós, Ariadna, que pases un buen fin de año, y ya nos veremos."
+
+    Table of Ariadna4 Comments
+    prompt	response	enabled
+    "Bueno, ¿qué pasa?"	bueno-que	1
+    "Sólo he preguntado, si te molesta mejor me voy."	me-voy	0
+    "Vale, vale. No hace falta que me expliques nada."	expliques-nada 	0
+    "Bueno, ya está bien."	esta-bien	0
+    "¿Sabes una cosa? "	sabes-cosa 	0
+
+    After quipping when the current quip is bueno-que:
+     enable the me-voy quip.
+
+    After quipping when the current quip is me-voy:
+     enable the expliques-nada quip.
+
+    After quipping when the current quip is expliques-nada:
+     enable the esta-bien quip.
+
+    After quipping when the current quip is esta-bien:
+     enable the sabes-cosa quip.
+
+After quipping when the current quip is sabes-cosa:
+   wait for any key;
+   terminate the conversation;
+   end the game in death.
+
+
+Part 4 - Mapa del juego
+
+Section 1 - En Plaça Urquinaona
+
+Plaça Urquinaona is a room. The description is "El lugar está abarrotado de gente, como siempre, un montón de jóvenes y no tan jóvenes esperan en la boca del metro, punto de encuentro habitual en la noche barcelonesa. Un grupito de [italic type]teens[roman type] góticas pasan delante de ti sin prisa, calándose hasta los huesos, y un poco más allá, cerca del kiosco, te parece ver la figura menuda de Ariadna.".
+
+Some lolitas are here. They are female, woman and scenery. The description is "Son cuatro chicas de unos dieciocho años, vestidas de negro, con falditas y medias negras,  y que harían a Nabokov correrse en el acto.". Understand "teens", "goticas", "chicas", "faldas", "medias", "jovenes" and "gente" as the lolitas.
+
+Instead of asking the lolitas about something, say "Nah... prefiero no hablar con ellas, además Ariadna está por aquí."
+
+The kiosco is here. The kiosco is scenery. The description is "El kiosco está cerrando debido a la lluvia, por ahí puedes ver a a Ariadna curioseando un ejemplar de Psychologies.". Understand "kiosko", "plaza", "ejemplar", "psychologies", "lluvia", "revistas" and "luces" as the kiosco.  
+
+Instead of going nowhere from Plaça Urquinaona:
+say "¡Eh, que estoy aquí! -grita Ariadna.".
+
+Instead of going outside when Albert is in Plaça Urquinaona, say "¡Eh, que estoy aquí! -grita Ariadna.".
+
+
+Section 2 - En el Starbucks Coffe
+
+Bar is outside from Plaça Urquinaona. The printed name of Bar is "Starbucks Coffe". The description is "El Starbucks Coffe es como todos los demás Starbucks Coffe del mundo, no te vayas a pensar que porque está en Barcelona tiene alguna mínima concesión al país que lo acoge. De igual forma, su pretenciosa modernidad retro, sus colores neutros y su eficacia aséptica no logran enmascarar la macdonalidad de espíritu que posee. [paragraph break][if unvisited]Un par de mesas están libres y Ariadna va rápidamente a ocupar una de ellas.[else if Ariadna3 is in Bar]Puedes ver a Ariadna fuera, hablando por el móvil.[else if Ariadna4 is in Bar]Aquí está Ariadna, mirándote sorprendida.".
+
+Some mesas are here. They are female. They are scenery, container and enterable. The description is "Un par de mesas al lado de los amplios ventanales están esperando clientes, ambas están igual de sucias, con algunos vasitos de cartón típicos del lugar, cucharitas de plástico rotas y un servilletero pegajoso, como en todas las demás mesas.". Understand "asiento", "paredes", "local", "sillas", "mesas", "cucharitas", "servilletero", "vasos", "vasitos", "mesa" and "silla" as the mesas.
+
+Before entering the mesas, say "¡Ahí no! -dice Ariadna- mejor en ésta. [paragraph break]Te sientas a medias en una butaca alta de ésas que son tan incómodas que es mejor estar de pie. Te entretienes mirando por los amplios ventanales, mientras Ariadna pide un par de cafés." instead. 
+
+Some ventanales are here. They are female. They are scenery. The description is "A través de los amplios ventanales la calle rebosa vida y alegría. La Navidad invade todos los rincones del centro, aunque de vez en cuando se puede ver alguna sombra en forma de mendigo. Apartas la vista instintivamente y te concentras en el alumbrado navideño y en los papás Noel que cuelgan de los balcones. [paragraph break]Oyes un rumor de fondo… Ariadna está hablando pero no la escuchas.". Understand "ventanas", "calle", "centro", "alumbrado", "papas", "noel", "mendigo" as the ventanales.
+
+Before going outside when Albert is in Bar, say "¡Eh, que estoy aquí! -grita Ariadna.".
+
+
+Section 3 - En el bosque
+
+bosque1 is south of bosque2. The printed name of bosque1 is "En el bosque de Lothlórien". The description is "El bosque de Lothlórien es una pasada, hace frío y se oyen todo tipo de ruidos de animales al acecho, los árboles se alzan amenazadores y apenas entra la luz del sol por entre ellos, así que desde el punto de vista de un orco es un sitio agradable.".
+
+Some ruidos are here. They are scenery. The description is "No se ven animales, pero extraños ruidos se escuchan de vez en cuando, estresándote de mala manera. Alzas tu vista hacia las copas de los árboles, que son cada vez más altos a medida que te adentras en el bosque de Lothlórien, ocultando la luz del sol.". Understand "arboles", "luz", "animales", "lothlorien", "copas" and "sol" as the ruidos.
+
+bosque2 is east of bosque3. The printed name of bosque2 is "En el bosque de Lothlórien". The description is "Sigues caminando por el bosque de Lothlórien hasta toparte con un alto muro natural, formado por tierra, árboles y plantas. Una suave brisa de deliciosos olores de flores exóticas emana desde el otro lado del muro.".
+
+Some plantas are here. They are scenery. The description is "La exhuberancia del bosque obnubila tus sentidos, inundando tus sentidos de fragancias y texturas jamás antes exploradas. Aquí está todo lo que un elfo pueda soñar, pero a su vez aquí reside todo lo que un orco detesta, y por eso te parece todo tan extraño y agobiante.". Understand "brisa", "flores", "olores", "arboles", "tierra" and "bosque" as the plantas.
+
+The muro is here. The muro is scenery. "Un muro natural que te impide el acceso al reino prohibido de los elfos.". Understand  "barrera" as the muro.
+Instead of climbing the muro, try attacking the muro.
+Instead of attacking the muro:
+	say "Con esfuerzo, logras traspasar la formidable barrera natural, y llegas al otro lado...";
+	wait for any key;
+	move Gorbag to bosque5.
+
+bosque3 is west of bosque2. The printed name of bosque3 is "En el bosque de Lothlórien". The description is "Llegas a uno de los extremos del reino de Lothlórien, más allá de éstas tierras se extiende el Bosque Negro, donde es mejor no adentrarse, aunque no sabes muy bien porqué ya que aquí el peligro eres tú. Apenas hay sonidos de animales por aquí, hasta ellos se acojonan de la fama del bosque.".
+
+Some animales are here. They are scenery. The description is "Aquí no se oye nada de nada, tanta tranquilidad te espanta, aunque bien pudiera ser que no haya nada por estos lares por desidia del programador.". Understand "sonidos", "extremos", "tierras", "bosque", "negro" and "reino" as the animales.
+
+bosque4 is east of bosque2. The printed name of bosque4 is "En el bosque de Lothlórien". The description is "Llegas a uno de los extremos del reino de Lothlórien, más allá de éstas tierras se alzan las Montañas Nubladas. Forzando un poco la vista puedes ver el Monte Gundabad, tu hogar en la infancia, donde recibiste tus primeras palizas a cargo de los orcos mayores. Recuerdas con gran nostalgia aquellos buenos tiempos.".
+
+Some montanas are here. They are female and scenery. The description is "Las montañas están eternamente nubladas, por lo que es normal despeñarse por ellas al no ver un pijo.". Understand "monte", "tierras" and "nubladas" as the montanas.
+
+bosque5 is a room. The printed name of bosque5 is "Caras Galadon". The description is "Lothlórien poseía una gran ciudad-palacio, una ciudad de árboles en la región del Naith. Era un palacio real construido en la cima de una gran colina en la que se encontraban los árboles más altos del bosque y estaba rodeada por un muro al que rodeaban a su vez otros grandes árboles... a ése lugar lo llamaban Caras Galadon. Pero sólo existe en la imaginación de Tolkien y de sus lectores. Nada de esto es real. Ya lo sabes.".
+
+Some arboles are here. They are scenery. The description is "Todo son imaginaciones tuyas, bien lo sabes. La mente puede ofuscar a veces tus anhelos más profundos con una máscara de irrealidad. Pero de vez en cuando viene bien habitar un reino imaginario para poder apreciar más claramente el mundo de lo real.". Understand "arbol", "muro", "colina", "caras", "galadon" and "lothlorien" as the arboles.
+
+The anillo is here. "Un resplandor en la hierba te llama poderosamente la atención." The description of the anillo is "Se trata de un impresionante anillo dorado, en apariencia frágil y delicado, con enigmáticas runas élficas... sin duda sería un estupendo regalo para tu amada princesa elfa.". Understand "runas", "destello", "resplandor" and "hierba" as the anillo.
+Instead of attacking or touching the anillo, try taking the anillo.
+Instead of taking the anillo:
+	say "Justo cuando vas a coger el anillo despiertas de tu sopor. El anillo desaparece de tu vista y de nuevo te encuentras en el bar, apoyada tu cabeza en el ventanal. Ariadna te mira con reprobación, ¿cómo te has quedado dormido? ¡Tampoco he tardado tanto!";
+	wait for any key;
+	remove Ariadna3 from play;
+	move Ariadna4 to Bar;
+	now the player is Albert.
+
+
+Part 5 - Mensaje final del juego
+
+Rule for printing the player's obituary: 
+    say paragraph break; 
+    center "El regalo de Gorbag"; 
+    center "no era un anillo"; 
+    center "ni la elfa lo quiere"; 
+    center "ni Gorbag lo busca."; 
+    center "Una valiente derrota, a tiempo,"; 
+    center "es mejor que una cobarde victoria."; 
+    say paragraph break; 
+    wait for any key; 
+    stop game abruptly; 
+    rule succeeds.

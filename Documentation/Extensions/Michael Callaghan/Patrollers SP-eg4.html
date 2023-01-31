@@ -1,0 +1,1797 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Extension</title>
+    <style type="text/css">
+        <!--
+        /* The default font (family) and size */
+
+        body, p, td {
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.8rem; /* 100/125 */
+        }
+
+        /* For fixed-point material within text, such as the typing on the Library Card index page */
+
+        span.typewritten {
+        	font-family: monospace;
+        	font-size: 0.867rem; /* 13/12 * 100/125 */
+        }
+
+        /* For less important material: the small print */
+
+        span.smaller {
+        	font-size: 80%;
+        }
+
+        /* The "heading panel" is the coloured box, high up on the page. The colours
+        vary depending on the page: for example, the style on a report of a translation
+        with no problems is "headingpanelsucceeded", usually green, but if there were
+        problems then "headingpanelfailed" is used, which is usually red. "headingpanel"
+        itself is a more neutral grey by default. "headingpanelDark" is an alternative
+        look to make the extensions index pages have some visual contrast with the others;
+        by default they are a darker grey. */
+
+        .headingpanel {
+        	background: #eeeeee;
+        }
+        .headingpanelsucceeded {
+        	background: #E6FFE6;
+        }
+        .headingpanelfailed {
+        	background: #f69Ca6;
+        }
+        .headingpanelalt {
+        	background: #808080;
+        }
+
+        /* Heading panels have two lines of text: an upper one in a larger size, and a
+        lower one in a smaller. Again, the alt versions are meant to contrast.
+
+        	Report on Translation: Succeeded                <-- headingpaneltext
+        	Produced by Inform 10.1.0 (build 6U97)          <-- headingpanelrubric
+
+        	Installed Extensions                            <-- headingpaneltextalt
+        	Bundles of extra rules or phrases to...         <-- headingpanelrubricalt
+
+        */
+
+        span.headingpaneltext {
+        	color: #222222;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+        span.headingpaneltextalt {
+        	color: #ffffff;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        span.headingpanelrubric {
+        	color: #222222;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.733rem; /* 11/12 * 100/125 */
+        	font-weight: bold;
+        }
+        span.headingpanelrubricalt {
+        	color: #ffffff;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.733rem; /* 11/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* Horizontal rule styling */
+
+        div.hr {
+        	border: 0;
+        	width: 100%;
+        	color: #707070;
+        	background-color: #707070;
+        	height: 5px;
+        }
+
+        /* This styles the (usually white) text of the example numbers written inside
+        oval blobs in the extension documentation, which mimic the look of the in-app
+        documentation. */
+
+        .oval, .oval td {
+        	background-image:url('inform:/doc_images/ovoid.png');
+        	color:white;
+        }
+
+        /* Styling used in the extension documentation indexes: */
+
+        /* Used for extension names in the extensions pane of the app */
+
+        span.extensioncensusentry {
+        	color: #ffffff;
+        }
+
+        span.extensionindexentry {
+        	color: #404040;
+        }
+
+        span.extensionindexerror {
+        	color: #ff8080;
+        }
+
+        /* This is used in extension documentation, where an example is presented
+        in a slightly tinted box: */
+
+        table.extensionexample {
+        	background-color: #f0f0f0;
+        }
+
+        span.extensionexampleletter {
+        	color: #202020;
+        	font-size: 14px;
+        	font-weight: bold;
+        }
+
+        /* Seen in problem messages: */
+
+        span.problemred {
+        	color: #800000;
+        }
+
+        span.problemgreen {
+        	color: #008000;
+        }
+
+        span.phraseword {
+        	color: #808080;
+        }
+
+        span.phrasetokentext {
+        	color: #e00060;
+        }
+
+        span.phrasetokendesctext {
+        	color: #4040ff;
+        }
+
+        span.phrasetokenvaluetext {
+        	color: #ff4040;
+        }
+
+        /* Now we move on to styling used in the Index pages only: */
+
+        /* The periodic table display has "sidebars", usually grey and taller than they
+        are wide; they contain no text. */
+
+        div.periodictablesidebarcolour {
+        	background: #888;
+        }
+        div.periodictablesidebar:hover {
+        	background: #222;
+        }
+
+        /* The text of the element-abbreviation, such as "Lx" or "Ph", uses: */
+
+        span.elementtext {
+        	color: #ffffff;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* Similarly for the "atomic number" - a single digit - in the top left corner
+        of these boxes: */
+
+        span.elementnumbertext {
+        	color: #ffffff;
+        	font-size: 0.622rem; /* 7/12 * 96/72 * 100/125 */
+        }
+
+        /* For the text of the element title, to the right of the element box: */
+
+        span.elementtitletext {
+        	color: #ffffff;
+        	font-size: 0.6rem; /* 9/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* The banner at the top of each element: */
+
+        table.elementbanner {
+        	background: #eeeeee;
+        }
+
+        /* For the typewriting on the Library Card: */
+
+        span.librarycardtitle {
+        	color: #803030;
+        }
+
+        span.librarycardother {
+        	color: #303030;
+        }
+
+        /* Generically used for "more details" boxes in the index: */
+
+        table.indexmorebox {
+        	background-color: #e0e0e0;
+            border-radius: 8px;
+        }
+
+        /* But not for activity contents: */
+
+        table.indexactivitycontents {
+        	background-color: #e8e0c0;
+            border-radius: 8px;
+        }
+
+        /* For responses in index entries about rules: */
+
+        span.indexresponseletter {
+        	color: #ffffff;
+        	font-family: 'Courier New', Courier, monospace;
+        	background-color: #8080ff;
+        }
+
+        span.indexresponsetext {
+        	color: #000066;
+        }
+
+        /* Used ubiquitously throughout the index and extension documentation: */
+
+        span.indexblack {
+        	color: #000000;
+        }
+
+        span.indexgrey {
+        	color: #808080;
+        }
+
+        span.indexdarkgrey {
+            color: #505050;
+        }
+
+        span.indexdullred {
+        	color: #800000;
+        }
+
+        span.indexdullgreen {
+        	color: #008000;
+        }
+
+        span.indexdullblue {
+        	color: #000080;
+        }
+
+        /* Used for the room squares in the World map in the Index (which is currently
+        a table with one row of one column) */
+
+        table.indexmaproom {
+        	border-color: #000000;
+        }
+
+        /* Used in the numbering of levels of the World map in the Index */
+
+        span.indexmaplevelnumbers {
+        	color: #c0c0c0;
+        }
+
+        /* Used e.g. for title rows in the Chart of basic kinds in the Index */
+
+        tr.headingrow {
+        	background-color: #e0e0e0;
+        }
+
+        /* Standard rows have black text on striped background colours, these being
+        the usual ones seen in Mac OS X applications such as iTunes. */
+
+        tr.stripeone {
+        	background-color: #ffffff;
+        }
+
+        tr.stripetwo {
+        	background-color: #f3f6fa;
+        }
+
+        tr.tintedrow {
+        	background-color: #808080;
+        }
+
+        /* In the Figures index, this is the background colour used behind images
+        (though in fact it will only be visible if the image fails to load, or uses
+        transparency): */
+
+        div.figureindexbox {
+        	background-color: #6495ed;
+        }
+
+        /* To get the book-contents-page style leaders on the Contents element of
+           the index to work, these must use the background colour of the body of
+           the page, whatever that is: */
+
+        ul.leaders li.leaded span:first-child {
+        	background: white;
+        }
+        ul.leaders li.leaded span + span {
+        	background: white;
+        }
+
+        /* On Registry index pages (such as the Public Library), these are used for
+        download buttons and the like: */
+
+        span.registrybuttontext {
+        	font-size: 11px;
+        	border-color: #000000;
+        }
+
+        span.registryminibuttontext {
+        	font-size: 10px;
+        	border-color: #000000;
+        }
+
+        span.registrybuttonuninstalled {
+        	color: #000000;
+        	background: #ffffdd;
+        }
+
+        span.registrybuttoninstalled {
+        	color: #000000;
+        	background: #ffffff;
+        	pointer-events: none;
+        }
+
+        span.registrybuttonbuiltin {
+        	color: #888888;
+        	background: #ffffff;
+        	pointer-events: none;
+        }
+
+        span.registrybuttonupdate {
+        	color: #000000;
+        	background: #aaddff;
+        }
+
+        span.registrybuttonrevert {
+        	color: #000000;
+        	background: #ddaaff;
+        }
+
+        span.registrybuttonrevealer {
+        	color: #ffffff;
+        	background: #444444;
+        }
+
+        /* Registry index section headings: */
+
+        span.registrysectionname {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 16px;
+        	line-height: 18px;
+        }
+        span.registrysubsectionname {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 14px;
+        	line-height: 16px;
+        }
+
+        /* These are for the "mark" for a section, usually a section-symbol and number */
+
+        span.registrysectionmark {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 16px;
+        	line-height: 18px;
+        	color: #666;
+        }
+        span.registrysubsectionmark {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 14px;
+        	line-height: 16px;
+        	color: #666;
+        }
+
+        /* Text of an item listed in a registry: */
+
+        span.registryitemtext {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 12px;
+        	line-height: 16px;
+        }
+
+        /* And how the links in a registry index page behave: */
+
+        a.registrysilentlink {
+        	text-decoration: none;
+        	color: #000;
+        }
+        a.registrybuttonlink {
+        	text-decoration: none;
+        }
+        a.registrycontentslink:link {
+        	text-decoration: none;
+        	color: #202020;
+        }
+        a.registrycontentslink:visited {
+        	text-decoration: none;
+        	color: #202020;
+        }
+        a.registrycontentslink:hover {
+        	text-decoration: none;
+        	color: #D00000;
+        }
+        a.registrycontentslink:active {
+        	text-decoration: none;
+        	color: #D00000;
+        }
+
+        -->
+    </style>
+    <style type="text/css">
+        <!--
+        /* (1) General layout material */
+
+        *, *:before, *:after {
+        	-moz-box-sizing: border-box;
+        	-webkit-box-sizing: border-box;
+        	box-sizing: border-box;
+        }
+        .headingpanellayout {
+        	position: relative;
+        	height: 56px;
+        	padding: 0px;
+        	white-space:nowrap;
+        }
+        .headingpanellayoutdeeper {
+        	position: relative;
+        	height: 117px;
+        	padding: 0px;
+        	white-space:nowrap;
+        }
+        .headingtext {
+        	position: absolute;
+        	top: -4px;
+        	left: -1px;
+        	width: 100%;
+        	padding: 14px 10px 0px 10px;
+        }
+        .headingrubric {
+        	position: absolute;
+        	top: 36px;
+        	width: 100%;
+        	padding: 0px 10px 0px 10px;
+        }
+        h3.tighter {
+        	margin-top: 0px;
+        }
+        p.hang {
+        	padding-left: 25px;
+        	text-indent: -25px;
+        	margin-top: 0px;
+        	margin-bottom: 0px;
+        }
+        p.in1 {
+        	padding-left: 0px;
+        }
+        p.tightin1 {
+        	padding-left: 0px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin1 {
+        	padding-left: 0px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin1 {
+        	padding-left: 50px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in2 {
+        	padding-left: 25px;
+        }
+        p.tightin2 {
+        	padding-left: 25px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin2 {
+        	padding-left: 25px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin2 {
+        	padding-left: 75px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in3 {
+        	padding-left: 50px;
+        }
+        p.tightin3 {
+        	padding-left: 50px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin3 {
+        	padding-left: 50px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin3 {
+        	padding-left: 100px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in4 {
+        	padding-left: 75px;
+        }
+        p.tightin4 {
+        	padding-left: 75px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin4 {
+        	padding-left: 75px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin4 {
+        	padding-left: 125px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in5 {
+        	padding-left: 100px;
+        }
+        p.tightin5 {
+        	padding-left: 100px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin5 {
+        	padding-left: 100px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin5 {
+        	padding-left: 150px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in6 {
+        	padding-left: 125px;
+        }
+        p.tightin6 {
+        	padding-left: 125px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin6 {
+        	padding-left: 125px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin6 {
+        	padding-left: 175px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in7 {
+        	padding-left: 150px;
+        }
+        p.tightin7 {
+        	padding-left: 150px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin7 {
+        	padding-left: 150px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin7 {
+        	padding-left: 200px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in8 {
+        	padding-left: 175px;
+        }
+        p.tightin8 {
+        	padding-left: 175px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin8 {
+        	padding-left: 175px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin8 {
+        	padding-left: 225px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in9 {
+        	padding-left: 200px;
+        }
+        p.tightin9 {
+        	padding-left: 200px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin9 {
+        	padding-left: 200px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin9 {
+        	padding-left: 250px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+
+        /* (2) Index page layout material */
+
+        /* The periodic table display has "sidebars", usually grey and taller than they
+        are wide; they contain no text. */
+
+        div.periodictablesidebar {
+        	height: 56px;
+        	width: 16px;
+        }
+        .periodictablesidebar a:link { text-decoration: none; }
+        .periodictablesidebar a:visited { text-decoration: none; }
+        .periodictablesidebar a:active { text-decoration: none; }
+
+        /* The "element boxes" are the cells appearing in the periodic-table display
+        on the welcome page of the index: */
+
+        .elementbox {
+        	position: relative;
+        	height: 56px;
+        	width: 56px;
+        	padding: 0px;
+        }
+
+        .elementbox a:link { text-decoration: none; }
+        .elementbox a:visited { text-decoration: none; }
+        .elementbox a:active { text-decoration: none; }
+        .elementbox a:hover { text-decoration: none; }
+        .elementbox:hover {
+        	opacity: 0.6;
+        }
+
+        /* The "small element boxes" look like those, but are smaller, and used on
+        the headings of the content which those original boxes link to: */
+
+        .smallelementbox {
+        	position: relative;
+        	height: 40px;
+        	width: 40px;
+        	padding: 0px;
+        }
+
+        .smallelementbox a:link { text-decoration: none; }
+        .smallelementbox a:visited { text-decoration: none; }
+        .smallelementbox a:active { text-decoration: none; }
+        .smallelementbox a:hover { text-decoration: none; }
+        .smallelementbox:hover {
+        	opacity: 0.6;
+        }
+
+        /* This is a class for the links formed by the element boxes: */
+
+        a.elementlink {
+        	position: absolute;
+        	top: -4px;
+        	left: -1px;
+        	width: 100%;
+        	padding: 14px 0px 14px 1px;
+        	text-align: center;
+        }
+
+        /* Similarly for the "atomic number" - a single digit - in the top left corner
+        of these boxes: */
+
+        div.elementnumber {
+        	position: absolute;
+        	top: 1px;
+        	left: 3px;
+        	text-align: left;
+        }
+
+        /* For the text of the element title, to the right of the element box: */
+
+        div.elementtitle {
+        	position: absolute;
+        	top: 35px;
+        	width: 100%;
+        	text-align: center;
+        }
+
+        /* Used for the book-contents-page style leaders on the Contents element of
+           the index: */
+
+        ul.leaders {
+        	padding: 0;
+        	margin-top: 1px;
+        	margin-bottom: 0;
+        	overflow-x: hidden;
+        	list-style: none}
+        ul.leaders li.leaded:before {
+        	float: left;
+        	width: 0;
+        	white-space: nowrap;
+        	content:
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "}
+        ul.leaders li.leaded span:first-child {
+        	padding-right: 0.33em;
+        }
+        ul.leaders li.leaded span + span {
+        	float: right;
+        	padding-left: 0.33em;
+        }
+        li.indent1 span:first-child {
+        	padding-left: 25px;
+        }
+        li.indent2 span:first-child {
+        	padding-left: 50px;
+        }
+        li.indent3 span:first-child {
+        	padding-left: 75px;
+        }
+        li.indent4 span:first-child {
+        	padding-left: 100px;
+        }
+        li.indent5 span:first-child {
+        	padding-left: 125px;
+        }
+        li.indent6 span:first-child {
+        	padding-left: 150px;
+        }
+        li.indent7 span:first-child {
+        	padding-left: 175px;
+        }
+        li.indent8 span:first-child {
+        	padding-left: 200px;
+        }
+        li.indent9 span:first-child {
+        	padding-left: 225px;
+        }
+
+        li.unleaded:before {
+        	content: "";
+        }
+
+        /* On Registry index pages (such as the Public Library), these are used for
+        download buttons and the like: */
+
+        span.registrybuttons {
+        	height: 20px;
+        	padding: 2px 8px 2px 8px;
+        	margin: 2px;
+        	border:1px solid;
+        	border-radius: 5px;
+        }
+
+        span.registryminibuttons {
+        	height: 14px;
+        	padding: 2px 5px 2px 5px;
+        	margin: 2px;
+        	border:1px solid;
+        	border-radius: 4px;
+        }
+
+        /* Used to hide or display sections in the Registry pages: */
+
+        div.registrysectionitemsopen {
+        	display: block;
+        }
+
+        div.registrysectionitemsclosed {
+        	display: none;
+        }
+
+        /* Hanging indentation for Registry item paragraphs: */
+
+        p.registryitem {
+        	padding-left: 80px;
+        	text-indent: -40px;
+        }
+
+        p.registryaddition {
+        	padding-left: 40px;
+        	text-indent: -40px;
+        }
+
+        -->
+    </style>
+    <script type="text/javascript">
+        function project() {
+            return window.Project;
+        }
+        function showExtra(id, imid) {
+        	if (document.getElementById(id).style.display == 'block') {
+        		document.getElementById(id).style.display = 'none';
+        		document.getElementById(imid).src = 'inform:/extra.png';
+        	} else {
+        		document.getElementById(id).style.display = 'block';
+        		document.getElementById(imid).src = 'inform:/extraclose.png';
+        	}
+        }
+        function openExtra(id, imid) {
+        	document.getElementById(id).style.display = 'block';
+        	document.getElementById(imid).src = 'inform:/extraclose.png';
+        }
+        function closeExtra(id, imid) {
+        	document.getElementById(id).style.display = 'none';
+        	document.getElementById(imid).src = 'inform:/extra.png';
+        }
+        function pasteCode(code) {
+            var myProject = project();
+
+            myProject.selectView('source');
+            myProject.pasteCode(code);
+        }
+
+    </script>
+</head>
+<body>
+    <!--CONTENT BEGINS-->
+    <table CELLPADDING=0 CELLSPACING=0 width="100%" bgcolor="#000000"><tr><TD width=38px height=26px align="center" valign="center"><a href="inform://Extensions/Extensions.html" border=0><img border=0 src="inform:/doc_images/Hookindex.png" border=0></a></td><TD width=38px height=26px align="center" valign="center"></td><td halign="left" valign="center" CELLPADDING=0 CELLSPACING=0><font color="#FFFFFF" size=2>Extensions</font></a></td><TD width=56px height=26px align="right" valign="center"><a href="inform:/index.html" border=0><img border=0 src="inform:/doc_images/Hookup.png" border=0></a></td></tr></table>
+
+    <p><a href="javascript:pasteCode('Include Patrollers SP by Michael Callaghan.[=0x000A=][=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a>&nbsp;<b>Patrollers SP<span class="extensionindexentry"> by </span>Michael Callaghan</b></p>
+    <p><span class="smaller">Version 11</span></p>
+    <p>Permite que los personajes no jugadores  se muevan siguiendo rutas definidas por lugares, direcciones, o bien de forma aleatoria o hacia determinados objetivos.</p>
+    <p></p>
+    <hr>
+    <p><span class="indexblack"><b><a style="text-decoration: none" href=#docsec1>Chapter 1: </a></b></span>lo nuevo<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec2>Section 1.1: </a></span>Version 10<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec3>Section 1.2: </a></span>Version 9<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec4>Section 1.3: </a></span>Version 8<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec5>Section 1.4: </a></span>Version 7<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec6>Section 1.5: </a></span>Version 6<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec7>Section 1.6: </a></span>Version 5<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec8>Section 1.7: </a></span>Version 4<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec9>Section 1.8: </a></span>Version 3<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec10>Section 1.9: </a></span>Version 2<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec11>Chapter 2: </a></b></span>Creando un personaje móvil<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec12>Section 2.1: </a></span>Usando la clase Patroller<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec13>Section 2.2: </a></span>Iniciando y deteniendo un personaje móvil<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec14>Section 2.3: </a></span>Especificando la posibilidad de que un personaje móvil se mueva<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec15>Section 2.4: </a></span>Indicando la frecuencia con el que los personajes se mueven<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec16>Chapter 3: </a></b></span>Definiendo la ruta de un personaje móvil<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec17>Section 3.1: </a></span>Introducción<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec18>Section 3.2: </a></span>RoomLed<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec19>Section 3.3: </a></span>DirectionLed<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec20>Section 3.4: </a></span>Aimless<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec21>Section 3.5: </a></span>Following<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec22>Section 3.6: </a></span>Targeted<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec23>Chapter 4: </a></b></span>Definiciendo cuántas veces el personaje recorre la ruta<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec24>Section 4.1: </a></span>Introducción<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec25>Section 4.2: </a></span>OneWay<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec26>Section 4.3: </a></span>TwoWay<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec27>Section 4.4: </a></span>TwoWayRepeated<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec28>Section 4.5: </a></span>Circular<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec29>Chapter 5: </a></b></span>Abrir puertas<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec30>Section 5.1: </a></span>Introducción<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec31>Section 5.2: </a></span>Universal<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec32>Section 5.3: </a></span>WithKey<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec33>Section 5.4: </a></span>UnlockedOnly<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec34>Section 5.5: </a></span>None<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec35>Chapter 6: </a></b></span>Volver a cerrar las puertas<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec36>Section 6.1: </a></span>Introducción<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec37>Section 6.2: </a></span>Leave<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec38>Section 6.3: </a></span>Reinstate<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec39>Chapter 7: </a></b></span>Textos de resultado<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec40>Section 7.1: </a></span>Clases de reportes<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec41>Section 7.2: </a></span>Moviendo el personaje<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec42>Section 7.3: </a></span>Abriendo y cerrando puertas<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec43>Chapter 8: </a></b></span>Limitando los movimientos de un patroller<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec44>Section 8.1: </a></span>Posición por defecto<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec45>Section 8.2: </a></span>Creando tus propias restricciones<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec46>Section 8.3: </a></span>Para impedir que se alcande una determinada habitación<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec47>Section 8.4: </a></span>Restricciones usando reguiones<br>
+    <br>
+    <b>Examples</b><br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href="Patrollers SP-eg1.html#eg1">A &mdash; The Chase</a></span><br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href="Patrollers SP-eg2.html#eg2">B &mdash; The Butler</a></span><br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href="Patrollers SP-eg3.html#eg3">C &mdash; January Sales</a></span><br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href="Patrollers SP-eg4.html#eg4">D &mdash; Border Dispute</a></span><br>
+    </p>
+    <hr>
+    <p></p>
+    </p>
+
+    <p> Patroller es una extensión que permite definir rutas para personajes no jugadores, de forma que las sigan durante el juego.</p>
+
+    <p><p><span class="indexdullred"><b><span id=docsec1>Chapter 1: lo nuevo</span></b></span></p>
+    </p>
+
+    <p><p><span class="indexblack"><b><span id=docsec2>Section 1.1: Version 10</span></b></span></p>
+    </p>
+
+    <p> - los 'statuses' Active y Inactive se han renombrado a On Patrol y Off Patrol ya que la versión 6E59 de Inform 7 usa los otros.</p>
+
+    <p> - Se han retirado los 'phrases' de la extensión que ya no tenían sentido.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec3>Section 1.2: Version 9</span></b></span></p>
+    </p>
+
+    <p> El atributo 'Frequency' se ha cambiado a 'Turn Frequency' para evitar un problema de nombrado con otra extensión.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec4>Section 1.3: Version 8</span></b></span></p>
+    </p>
+
+    <p> - permite el uso de reportes conjuntos para indicar la llegada y la marcha de 'patrollers'.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec5>Section 1.4: Version 7</span></b></span></p>
+    </p>
+
+    <p> - permite indicar localizaciones que estén fuera del alcance de determinados 'patrollers' de forma que no entren en ellas.</p>
+
+    <p> - se cambia el código para usar la nueva sintaxis de bloques de Inform.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec6>Section 1.5: Version 6</span></b></span></p>
+    </p>
+
+    <p> - Resuelve un error que causaba que los 'patrollers' activo que estuviese 'fuera del mundo' o sin salidas provocaban la ruptura del juego.</p>
+
+    <p> - Se adapta para que sea compativle con la versión 5T13.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec7>Section 1.6: Version 5</span></b></span></p>
+    </p>
+
+    <p> Version 5:</p>
+
+    <p> - Mejora la regla 'before rule for aimless patrollers' de forma que habitaciones adyacente mediante una puerta tiene la misma probabilidad de ser escogidas que aquellas con conexión directa.</p>
+
+    <p> - Resuelve un erros que impedía que los personajes en modo 'TwoWayRepeated' reiniciasen sus rutas.</p>
+
+    <p> - Separa las frases que se muestran en reglas separadas.</p>
+
+    <p> - Añade un modo de seguimiento del jugador.</p>
+
+    <p> - Añade el valor de frecuencia para modular la velocidad de movimiento del personaje móvil.</p>
+
+    <p> - Añade comandos de activación y desactivación de los personaje móviles.</p>
+
+    <p> Version 5 requiere la release 5J39 de Inform 7.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec8>Section 1.7: Version 4</span></b></span></p>
+    </p>
+
+    <p> Esta versión resuelve errores que impedian a los personajes cruzar puertas.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec9>Section 1.8: Version 3</span></b></span></p>
+    </p>
+
+    <p> Esta versión resuelve problemas de compatibilidad.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec10>Section 1.9: Version 2</span></b></span></p>
+    </p>
+
+    <p> Se han añadido las siguientes capacidades:</p>
+
+    <p> - Definir la probabilidad de que un personaje se mueva en cualquier turno.</p>
+
+    <p> - Definir si un personaje puede cruzar o no puertas cerradas.</p>
+
+    <p> - Definir si un personaje puede cerrar las puertas tras de sí o no.</p>
+
+    <p> - Rutinas de verificación de errores.</p>
+
+    <p> - Las reglas han sido nombradas.</p>
+
+    <p> - Mejoras en la documentación.</p>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec11>Chapter 2: Creando un personaje móvil</span></b></span></p>
+    </p>
+
+    <p><p><span class="indexblack"><b><span id=docsec12>Section 2.1: Usando la clase Patroller</span></b></span></p>
+    </p>
+
+    <p> Para crear un personaje movil se le define de clase Patroller.</p>
+
+    <p><blockquote><span class="indexdullblue"> The perro is a Patroller in the Dog Kennel.</span></blockquote>
+
+    <p><p><span class="indexblack"><b><span id=docsec13>Section 2.2: Iniciando y deteniendo un personaje móvil</span></b></span></p>
+    </p>
+
+    <p> Un personaje móvil empieza el juego siendo un personaje inactivo. Así que debe ser indicado explícitamente cuando inician su ruta. Para lograr esto usamos la frase 'Activate &lt;personaje&gt;'. Se pude hacer esto por el ejemplo en las reglas de inicio de juego o cualqier otra regla:</p>
+
+    <p><blockquote><span class="indexdullblue"> When play begins:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; activate the Dog.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> After opening the gate:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; activate the Dog.</span></blockquote>
+
+    <p> Podemos de forma similar detener el personaje móvil:</p>
+
+    <p><blockquote><span class="indexdullblue"> After giving the bone to the dog:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; deactivate the dog.</span></blockquote>
+
+    <p><p><span class="indexblack"><b><span id=docsec14>Section 2.3: Especificando la posibilidad de que un personaje móvil se mueva</span></b></span></p>
+    </p>
+
+    <p> Podemos especificar cómo de probable es que un personaje móvil se mueva en cada turno seleccionando un valor para el atributo 'Drive' entre 0 y 100. Un valor de 100 implica que el personaje se mueve siempre. Un ejemplo con un 40% sería:</p>
+
+    <p><blockquote><span class="indexdullblue"> The Drunken Lord is a Patroller in the Bar. The Drunken Lord is Aimless.<br>
+     The Drive of the Drunken Lord is 40.</span></blockquote>
+
+    <p><p><span class="indexblack"><b><span id=docsec15>Section 2.4: Indicando la frecuencia con el que los personajes se mueven</span></b></span></p>
+    </p>
+
+    <p> Se puede fijar si el personaje móvil se mueve cada turno, cada dos turnos, etc... dando un valor al atributo Frequency. Un valor de 1 indica cada turno, 2 cada dos turnos, etc... Por defecto los personajes móviles se mueven cada turno.</p>
+
+    <p><blockquote><span class="indexdullblue"> The Sightseer is a Patroller in the Quadrangle. The Turn Frequency of the Sightseer is 4.</span></blockquote>
+
+    <p> Los personajes se mueven siempre el primer turno cuando son activados (On Patrol).</p>
+
+    <p> Si el valor de Turn Frequency es inferior a 1, se indicará el error.</p>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec16>Chapter 3: Definiendo la ruta de un personaje móvil</span></b></span></p>
+    </p>
+
+    <p><p><span class="indexblack"><b><span id=docsec17>Section 3.1: Introducción</span></b></span></p>
+    </p>
+
+    <p> Se puede especificar el tipo de ruta que el personaje seguirá. Las posibilidades son:</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec18>Section 3.2: RoomLed</span></b></span></p>
+    </p>
+
+    <p> La ruta en este caso estará definida por una lista de localidades que el personaje habrá de visitar. Si usamos este modo hay que definir la propiedad 'RoomTable'. Además la primera habitación de la tabla debe ser necesariamente la localización inicial del personaje móvil.</p>
+
+    <p><blockquote><span class="indexdullblue"> The perro is a Patroller in the Dog Kennel. The perro is RoomLed.<br>
+     The RoomTable of the perro is the Table of Walkies.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Table of Walkies</span><br>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> TargetRoom
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> Dog Kennel
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> Front Yard
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> Main Street
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> Local Butchers</span>
+            </td>
+        </tr>
+    </table>
+    </blockquote>
+
+    <p><p><span class="indexblack"><b><span id=docsec19>Section 3.3: DirectionLed</span></b></span></p>
+    </p>
+
+    <p> La ruta en este caso estará definida por una tabla de direcciones que habrán de seguirse. Si usamos este modo hay que definir la propiedad 'DirectionTable'.</p>
+
+    <p><blockquote><span class="indexdullblue"> The perro is a Patroller in the Dog Kennel. The perro is DirectionLed.<br>
+     The DirectionTable of the perro is the Table of Walkies.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Table of Walkies</span><br>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> TargetDirection
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> North
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> East
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> Southwest
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> Up</span>
+            </td>
+        </tr>
+    </table>
+    </blockquote>
+
+    <p><p><span class="indexblack"><b><span id=docsec20>Section 3.4: Aimless</span></b></span></p>
+    </p>
+
+    <p> El personaje móvil vaga de forma arbitraria.</p>
+
+    <p><blockquote><span class="indexdullblue"> The perro is a Patroller in the Dog Kennel. The perro is Aimless.</span></blockquote>
+
+    <p><p><span class="indexblack"><b><span id=docsec21>Section 3.5: Following</span></b></span></p>
+    </p>
+
+    <p> El personaje móvil persigue al jugador.</p>
+
+    <p><blockquote><span class="indexdullblue"> The sycophant is a Patroller in the Palace. The sycophant is following.</span></blockquote>
+
+    <p><p><span class="indexblack"><b><span id=docsec22>Section 3.6: Targeted</span></b></span></p>
+    </p>
+
+    <p> El personaje móvil se dirije jacia una localización determinada. Esta localización habrá de ser indicada en el atributo 'Destination'. Cuando se alcanza el destino el personaje móvil se torna inactivo.</p>
+
+    <p><blockquote><span class="indexdullblue"> The perro is a Patroller in the Dog Kennel. The perro is Targeted.<br>
+     The Destination of the perro is the Local Butchers.</span></blockquote>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec23>Chapter 4: Definiciendo cuántas veces el personaje recorre la ruta</span></b></span></p>
+    </p>
+
+    <p><p><span class="indexblack"><b><span id=docsec24>Section 4.1: Introducción</span></b></span></p>
+    </p>
+
+    <p> Si la ruta está definida por una tabla de localizaciones o de direcciones podemos además definir cuántas veces recorre ese ruta. Las posibilidades son:</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec25>Section 4.2: OneWay</span></b></span></p>
+    </p>
+
+    <p> Solo realizan esta ruta una vez y se detienen.</p>
+
+    <p><blockquote><span class="indexdullblue"> The dog is a Patroller in the Dog Kennel. The dog is RoomLed. The dog is OneWay.<br>
+     The RoomTable of the dog is the Table of Walkies.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Table of Walkies</span><br>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> TargetRoom
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> Dog Kennel
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> Front Yard
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> Main Street
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> Local Butchers</span>
+            </td>
+        </tr>
+    </table>
+    </blockquote>
+
+    <p><p><span class="indexblack"><b><span id=docsec26>Section 4.3: TwoWay</span></b></span></p>
+    </p>
+
+    <p> Recorren la ruta, regresan y luego se paran.</p>
+
+    <p><blockquote><span class="indexdullblue"> The dog is a Patroller in the Dog Kennel. The dog is RoomLed. The dog is TwoWay.<br>
+     The RoomTable of the dog is the Table of Walkies.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Table of Walkies</span><br>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> TargetRoom
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> Dog Kennel
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> Front Yard
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> Main Street
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> Local Butchers</span>
+            </td>
+        </tr>
+    </table>
+    </blockquote>
+
+    <p><p><span class="indexblack"><b><span id=docsec27>Section 4.4: TwoWayRepeated</span></b></span></p>
+    </p>
+
+    <p> Recorren la ruta y vuelven una y otra vez...</p>
+
+    <p><blockquote><span class="indexdullblue"> The dog is a Patroller in the Dog Kennel. The dog is RoomLed. The dog is TwoWayRepeated.<br>
+     The RoomTable of the dog is the Table of Walkies.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Table of Walkies</span><br>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> TargetRoom
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> Dog Kennel
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> Front Yard
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> Main Street
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> Local Butchers</span>
+            </td>
+        </tr>
+    </table>
+    </blockquote>
+
+    <p><p><span class="indexblack"><b><span id=docsec28>Section 4.5: Circular</span></b></span></p>
+    </p>
+
+    <p> Realizan la ruta una y otra vez, siempre empezando por el principio.</p>
+
+    <p><blockquote><span class="indexdullblue"> The dog is a Patroller in the Dog Kennel. The dog is RoomLed. The dog is Circular.<br>
+     The RoomTable of the dog is the Table of Walkies.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Table of Walkies</span><br>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> TargetRoom
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> Dog Kennel
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> Back Yard
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> Greenhouse
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> Side Passage
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> Front Yard</span>
+            </td>
+        </tr>
+    </table>
+    </blockquote>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec29>Chapter 5: Abrir puertas</span></b></span></p>
+    </p>
+
+    <p><p><span class="indexblack"><b><span id=docsec30>Section 5.1: Introducción</span></b></span></p>
+    </p>
+
+    <p> El personaje puede encontrar puertas entre las localidades. Podemos especificar si el personaje puede o no pasar abriendo las puertas cerradas según lo que configuremos en el atributo 'OpeningCapability'. Las reglas de apertura de puertas están sujetas a las siguientes limitaciones.</p>
+
+    <p> El personaje podrá siempre atravesar puertas abiertas. Si la puerta está cerrada con llave y no puede ser abierta, el personaje no podrá pasar por ella. Si la puerta está cerrada y no es abrible, el personaje no podrá pasar por ella.</p>
+
+    <p> Considerando estas limitaciones, tenemos las opciones de:</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec31>Section 5.2: Universal</span></b></span></p>
+    </p>
+
+    <p> El personaje puede abrir cualquier puerta que sea abrible, incluso si el personaje no lleva las llaves adecuadas.</p>
+
+    <p><blockquote><span class="indexdullblue"> The guard is a patroller in the guard room. The guard is targeted. The destination of the guard is the High Security Unit.<br>
+     The OpeningCapability of the guard is universal.</span></blockquote>
+
+    <p><p><span class="indexblack"><b><span id=docsec32>Section 5.3: WithKey</span></b></span></p>
+    </p>
+
+    <p> El personaje puede abrir las puertas a no ser que no sean abribles, si están cerradas con llave el personaje tendrá que portar la llave correspondiente.</p>
+
+    <p><blockquote><span class="indexdullblue"> The robot is a patroller in the store room. The robot is aimless.<br>
+     The OpeningCapability of the robot is WithKey.</span></blockquote>
+
+    <p><p><span class="indexblack"><b><span id=docsec33>Section 5.4: UnlockedOnly</span></b></span></p>
+    </p>
+
+    <p> El personaje sólo puede abrir y cerrar las puertas que no estén cerradas con llave.</p>
+
+    <p><blockquote><span class="indexdullblue"> The prisoner is a patroller in the exercise yard. The prisoner is targeted. The destination of the prisoner is the Gatehouse.<br>
+     The OpeningCapability of the prisoner is UnlockedOnly.</span></blockquote>
+
+    <p><p><span class="indexblack"><b><span id=docsec34>Section 5.5: None</span></b></span></p>
+    </p>
+
+    <p> El personaje no abre puertas.</p>
+
+    <p><blockquote><span class="indexdullblue"> The black mamba is a patroller in laboratory. The black mamba is aimless.<br>
+     The OpeningCapability of the black mamba is None.</span></blockquote>
+
+    <p> Por defecto se usará la opción 'None'.</p>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec35>Chapter 6: Volver a cerrar las puertas</span></b></span></p>
+    </p>
+
+    <p><p><span class="indexblack"><b><span id=docsec36>Section 6.1: Introducción</span></b></span></p>
+    </p>
+
+    <p> Tras pasar por una puerta el personaje puede dejarla en el estado que se la encontró o no. Las opciones son:</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec37>Section 6.2: Leave</span></b></span></p>
+    </p>
+
+    <p> El personaje no hace ningún intento de cerrar las puertas tras de sí.</p>
+
+    <p><blockquote><span class="indexdullblue"> The naughty girl is a patroller. The naughty girl is aimless.<br>
+     The OpeningCapability of the naughty girl is UnlockedOnly. The ReclosingCapability of the naughty girl is Leave.</span></blockquote>
+
+    <p> Esta es la opción por defecto.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec38>Section 6.3: Reinstate</span></b></span></p>
+    </p>
+
+    <p> El personaje cerrará las puertas que haya abierto. Y si tenían la llave echada las cerrará con llave.</p>
+
+    <p><blockquote><span class="indexdullblue"> The parent is a patroller. The parent is aimless.<br>
+     The OpeningCapability of the parent is UnlockedOnly. The ReclosingCapability of the parent is Reinstate.</span></blockquote>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec39>Chapter 7: Textos de resultado</span></b></span></p>
+    </p>
+
+    <p><p><span class="indexblack"><b><span id=docsec40>Section 7.1: Clases de reportes</span></b></span></p>
+    </p>
+
+    <p> Hay dos formas de reporte incluídos por ls extensión. La opción por defecto es &quot;Individual&quot;. Con esta opción cada llegada o partida de los 'patroller' se informarán de forma separada. Si hay muchos 'patrollers' eso puede llevar a un número excesivo de reportes individuales, si tiene esa clase de problemas fije como modo de reporte &quot;Collective&quot;. Con este modo se indicará una simple línea indicando quiénes aparecen o se van de la localización.</p>
+
+    <p> La forma de seleccionar un tipo de reporte u otro es:</p>
+
+    <p><blockquote><span class="indexdullblue"> Now Reporting is Collective;<br>
+     Now Reporting is Individual.</span></blockquote>
+
+    <p> Véase &quot;January Sales&quot; como ejemplo de ambas clases de reporte..</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec41>Section 7.2: Moviendo el personaje</span></b></span></p>
+    </p>
+
+    <p> La llegada y marcha de los personaje es manejada por cinco frases de reporte. Podemos usar nuestras propias frases para reemplezar las que están incorporadas por defecto.</p>
+
+    <p> To report arrival of (bod - a patroller) up from (place - a room): say &quot;[The bod] llega desde abajo.[line break]&quot;</p>
+
+    <p> To report arrival of (bod - a patroller) down from (place - a room): say &quot;[The bod] llega desde arriba.[line break]&quot;</p>
+
+    <p> To report arrival of (bod - a patroller) coming (way - a direction) from (place - a room): say &quot;[The bod] llega desde [the way].[line break]&quot;</p>
+
+    <p> To report departure of (bod - a patroller) going (way - a direction) to (place - a room): say &quot;[The bod] va hacia [way].[line break]&quot;</p>
+
+    <p> Para cambiar cualquiera de ellas, crearemos nuestro propio &quot;To report...&quot; usando la misma sintaxis mostrada antes. Véase el ejemplo &quot;January Sales&quot; a modo de ejemplo.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec42>Section 7.3: Abriendo y cerrando puertas</span></b></span></p>
+    </p>
+
+    <p> Similarmente hay seis frases que describen las acciones de abrir y cerrar las puertas:</p>
+
+    <p> To report seen opening of (item - a door) by (bod - a patroller): say &quot;[The bod] abre [the item].[line break]&quot;.</p>
+
+    <p> To report seen unlocking and opening of (item - a door) by (bod - a patroller): say &quot;[The bod] abre [the item].[line break]&quot;.</p>
+
+    <p> To report unseen opening of (item - a door): say &quot;Escuchas como alguien abre [the item].[line break]&quot;.</p>
+
+    <p> To report unseen unlocking and opening of (item - a door): say &quot;Escuchas como alguien abre [the item].[line break]&quot;.</p>
+
+    <p> To report closing of (item - a door) by (bod - a patroller): say &quot;[The Bod] cierra [the item].[line break]&quot;.</p>
+
+    <p> To report closing and locking of (item - a door) by (bod - a patroller): say &quot;[The Bod] cierra [the item].[line break]&quot;.</p>
+
+    <p> Para cambiar cualquiera de ellas, crearemos nuestro propio &quot;To report...&quot; usando la misma sintaxis mostrada antes. Véase el ejemplo &quot;The Butler&quot; a modo de ejemplo.</p>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec43>Chapter 8: Limitando los movimientos de un patroller</span></b></span></p>
+    </p>
+
+    <p><p><span class="indexblack"><b><span id=docsec44>Section 8.1: Posición por defecto</span></b></span></p>
+    </p>
+
+    <p> La forma de indicar que un patroller no debe entrar en alguna parte sería:</p>
+
+    <p><blockquote><span class="indexdullblue"> To decide if (R - a Room) is off-limits to (P - a Patroller):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; decide no.</span></blockquote>
+
+    <p><p><span class="indexblack"><b><span id=docsec45>Section 8.2: Creando tus propias restricciones</span></b></span></p>
+    </p>
+
+    <p> Un ejemplo:</p>
+
+    <p><blockquote><span class="indexdullblue"> To decide if (R - a Room) is off-limits to (P - a Patroller):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; conditions to bar or allow access;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; decide yes or no;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; other conditions to bar or allow access;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; decide yes or no;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; any further conditions to bar or allow access;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; decide year or no;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; decide no.</span></blockquote>
+
+    <p> Siempre debería terminar con un &quot;decide no.&quot; para que de esta forma el resto de los lugares estén dentro del ámbito del personaje no jugador.</p>
+
+    <p> Con más de un personaje no jugador se haría:</p>
+
+    <p><blockquote><span class="indexdullblue"> To decide if (R - a Room) is off-limits to (P - a Patroller):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; if P is NPC1:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; conditions to bar or allow access;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; decide yes or no;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; if P is NPC2:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; conditions to bar or allow access;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; decide yes or no;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; decide no.</span></blockquote>
+
+    <p><p><span class="indexblack"><b><span id=docsec46>Section 8.3: Para impedir que se alcande una determinada habitación</span></b></span></p>
+    </p>
+
+    <p><blockquote><span class="indexdullblue"> To decide if (R - a Room) is off-limits to (P - a Patroller):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; if R is the quagmire:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; decide yes;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; decide no.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> To decide if (R - a Room) is off-limits to (P - a Patroller):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; if R is the Dog House and P is the cat:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if the location of the Dog is R:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; decide yes;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; decide no;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; decide no.</span></blockquote>
+
+    <p><p><span class="indexblack"><b><span id=docsec47>Section 8.4: Restricciones usando reguiones</span></b></span></p>
+    </p>
+
+    <p> Restingirlo a una región:</p>
+
+    <p><blockquote><span class="indexdullblue"> To decide if (R - a Room) is off-limits to (P - a Patroller):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; if P is the troubled spirit:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if the map region of R is the Graveyard:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; decide no;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; decide yes;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; decide no.</span></blockquote>
+
+    <p> Impidiendo que entra en una región:</p>
+
+    <p><blockquote><span class="indexdullblue"> To decide if (R - a Room) is off-limits to (P - a Patroller):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; if P is the traunt:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if the map region of R is the School Complex:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; decide yes;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; decide no;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; decide no.</span></blockquote>
+
+    <p> El ejemplo &quot;Border Dispute&quot; muestra algunos ejemplos.</p>
+
+    <p> No se han traducido los ejemplos.</p>
+
+    <p><hr>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td halign="left" valign="top" cellpadding=0 cellspacing=0 width=38px>
+                <span id=eg1><table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="oval">
+                        <td width=38px height=30px align="left" valign="center">
+                            <a href="Patrollers SP-eg1.html#eg1" style="text-decoration: none"><div class="paragraph Body" style="line-height: 1px; margin-bottom: 0px; margin-top: 0px; padding-bottom: 0pt; padding-top: 0px; text-align: center;">
+                                <span class="extensionexampleletter">A</span></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                </span>
+            </td>
+            <td cellpadding=0 cellspacing=0 halign="left" valign="top">
+                <a href="Patrollers SP-eg1.html#eg1" style="text-decoration: none"><img border="0" src='inform:/doc_images/asterisk.png'><b><span class="indexdarkgrey">&nbsp;Example&nbsp;</span><span class="indexblack">The Chase</span></b></a><br>
+                <p>A short example to show the patrolling rules.</p>
+
+            </td>
+        </tr>
+    </table>
+    </p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p><hr>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td halign="left" valign="top" cellpadding=0 cellspacing=0 width=38px>
+                <span id=eg2><table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="oval">
+                        <td width=38px height=30px align="left" valign="center">
+                            <a href="Patrollers SP-eg2.html#eg2" style="text-decoration: none"><div class="paragraph Body" style="line-height: 1px; margin-bottom: 0px; margin-top: 0px; padding-bottom: 0pt; padding-top: 0px; text-align: center;">
+                                <span class="extensionexampleletter">B</span></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                </span>
+            </td>
+            <td cellpadding=0 cellspacing=0 halign="left" valign="top">
+                <a href="Patrollers SP-eg2.html#eg2" style="text-decoration: none"><img border="0" src='inform:/doc_images/asterisk.png'><b><span class="indexdarkgrey">&nbsp;Example&nbsp;</span><span class="indexblack">The Butler</span></b></a><br>
+                <p>A short example to show door opening by a patroller.</p>
+
+            </td>
+        </tr>
+    </table>
+    </p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p><hr>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td halign="left" valign="top" cellpadding=0 cellspacing=0 width=38px>
+                <span id=eg3><table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="oval">
+                        <td width=38px height=30px align="left" valign="center">
+                            <a href="Patrollers SP-eg3.html#eg3" style="text-decoration: none"><div class="paragraph Body" style="line-height: 1px; margin-bottom: 0px; margin-top: 0px; padding-bottom: 0pt; padding-top: 0px; text-align: center;">
+                                <span class="extensionexampleletter">C</span></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                </span>
+            </td>
+            <td cellpadding=0 cellspacing=0 halign="left" valign="top">
+                <a href="Patrollers SP-eg3.html#eg3" style="text-decoration: none"><img border="0" src='inform:/doc_images/asterisk.png'><img border="0" src='inform:/doc_images/asterisk.png'><b><span class="indexdarkgrey">&nbsp;Example&nbsp;</span><span class="indexblack">January Sales</span></b></a><br>
+                <p>A short example to show patrollers moving on different turns.</p>
+
+            </td>
+        </tr>
+    </table>
+    </p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p><hr>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td halign="left" valign="top" cellpadding=0 cellspacing=0 width=38px>
+                <span id=eg4><table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="oval">
+                        <td width=38px height=30px align="left" valign="center">
+                            <a href="Patrollers SP.html#eg4" style="text-decoration: none"><div class="paragraph Body" style="line-height: 1px; margin-bottom: 0px; margin-top: 0px; padding-bottom: 0pt; padding-top: 0px; text-align: center;">
+                                <span class="extensionexampleletter">D</span></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                </span>
+            </td>
+            <td cellpadding=0 cellspacing=0 halign="left" valign="top">
+                <a href="Patrollers SP.html#eg4" style="text-decoration: none"><img border="0" src='inform:/doc_images/asterisk.png'><img border="0" src='inform:/doc_images/asterisk.png'><b><span class="indexdarkgrey">&nbsp;Example&nbsp;</span><span class="indexblack">Border Dispute</span></b></a><br>
+                <p>A short example to show setting regions off-limits to patrollers</p>
+
+            </td>
+        </tr>
+    </table>
+    <table border="0" cellspacing="0" cellpadding="0" class="extensionexample" width=100%>
+        <tr>
+            <td align="left" valign="top">
+                <p></p>
+
+                <p><blockquote><span class="indexdullblue"><a href="javascript:pasteCode('[=0x0022=]Border Dispute[=0x0022=] by Michael Callaghan[=0x000A=][=0x000A=]Include Patrollers by Michael Callaghan.[=0x000A=][=0x000A=]Balonia is a region. Tripea is a region.[=0x000A=][=0x000A=]The Observation Post is a room. [=0x0022=]You have been here for days watching for border disputes between Balonia and Tripea.  Any territorial incursion by the countries[=0x0027=] respective guards could bring about a nasty war.  It is with some trepidation that you watch the guard wander around the border zone.[=0x0022=][=0x000A=][=0x000A=]Hilltop is a room in Balonia.[=0x000A=]Empty meadow is a room in Balonia.[=0x000A=]Control point is a room in Balonia.[=0x000A=]West border crossing is a room in Balonia.[=0x000A=][=0x000A=]Rolling plains is a room in Tripea.[=0x000A=]Rough terrain is a room in Tripea.[=0x000A=]East border crossing is a room in Tripea.[=0x000A=]Commanding Heights is a room in Tripea.[=0x000A=][=0x000A=]Empty meadow is east of Hilltop. Control point is south of Hilltop. West border crossing is southeast of Hilltop.[=0x000A=]Control point is southwest of Empty meadow. Control point is west of West border crossing. West border crossing is south of Empty meadow.[=0x000A=][=0x000A=]Rough terrain is east of Rolling plains. East border crossing is south of Rolling plains. Commanding Heights is southeast of Rolling plains.[=0x000A=]Rough terrain is northeast of East border crossing. Rough terrain is north of Commanding Heights. Commanding Heights is east of East border crossing.[=0x000A=][=0x000A=]Rolling plains is east of Empty meadow. East border crossing is east of West border crossing. East border crossing is southeast of Empty meadow. Rolling plains is northeast of West border crossing.[=0x000A=][=0x000A=]The Balonian Guard is a patroller in Hilltop. The Tripean Guard is a patroller in Rolling plains.[=0x000A=]The Tripean Guard is aimless. The Balonian Guard is aimless.[=0x000A=][=0x000A=]When play begins:[=0x000A=][=0x0009=]activate the Tripean Guard;[=0x000A=][=0x0009=]activate the Balonian Guard.[=0x000A=][=0x000A=]Every turn:[=0x000A=][=0x0009=]say [=0x0022=]You note that the Tripean Guard is in the [the location of the Tripean Guard] in [map region of the location of the Tripean Guard] and the Balonian Guard is in the [the location of the Balonian Guard] in [map region of the location of the Balonian Guard].  [=0x0022=];[=0x000A=][=0x0009=]if the map region of the location of the Balonian Guard is Tripea:[=0x000A=][=0x0009=][=0x0009=]say [=0x0022=]It looks like Balonia has invaded Tripea.  All hell is likely to break loose any time soon.  [=0x0022=];[=0x000A=][=0x0009=]if the map region of the location of the Tripean Guard is Balonia:[=0x000A=][=0x0009=][=0x0009=]say [=0x0022=]It looks like Tripea has invaded Balonia.  Standby for fireworks.  [=0x0022=];[=0x000A=][=0x0009=]if the location of the Balonian Guard is adjacent to the location of the Tripean Guard:[=0x000A=][=0x0009=][=0x0009=]say [=0x0022=]The two guards eyeball each other across the border, but neither is willing to enter the other[=0x0027=]s territory.  You breath a sigh of relief.  [=0x0022=];[=0x000A=][=0x0009=]say [=0x0022=][paragraph break][=0x0022=].[=0x000A=][=0x000A=]To decide if (R - a Room) is off-limits to (P - a Patroller):[=0x000A=][=0x0009=]if P is the Balonian Guard:[=0x000A=][=0x0009=][=0x0009=]if the map region of R is Balonia:[=0x000A=][=0x0009=][=0x0009=][=0x0009=]decide no;[=0x000A=][=0x0009=][=0x0009=]decide yes;[=0x000A=][=0x0009=]if P is the Tripean Guard:[=0x000A=][=0x0009=][=0x0009=]if the map region of R is Tripea:[=0x000A=][=0x0009=][=0x0009=][=0x0009=]decide no;[=0x000A=][=0x0009=][=0x0009=]decide yes;[=0x000A=][=0x0009=]decide no.[=0x000A=][=0x000A=]Test me with [=0x0022=]z /z /z/z/z/z/z/z/z/z/z/z[=0x0022=].[=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a> &quot;Border Dispute&quot; by Michael Callaghan</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Include Patrollers by Michael Callaghan.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Balonia is a region. Tripea is a region.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The Observation Post is a room. &quot;You have been here for days watching for border disputes between Balonia and Tripea.  Any territorial incursion by the countries' respective guards could bring about a nasty war.  It is with some trepidation that you watch the guard wander around the border zone.&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Hilltop is a room in Balonia.<br>
+                 Empty meadow is a room in Balonia.<br>
+                 Control point is a room in Balonia.<br>
+                 West border crossing is a room in Balonia.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Rolling plains is a room in Tripea.<br>
+                 Rough terrain is a room in Tripea.<br>
+                 East border crossing is a room in Tripea.<br>
+                 Commanding Heights is a room in Tripea.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Empty meadow is east of Hilltop. Control point is south of Hilltop. West border crossing is southeast of Hilltop.<br>
+                 Control point is southwest of Empty meadow. Control point is west of West border crossing. West border crossing is south of Empty meadow.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Rough terrain is east of Rolling plains. East border crossing is south of Rolling plains. Commanding Heights is southeast of Rolling plains.<br>
+                 Rough terrain is northeast of East border crossing. Rough terrain is north of Commanding Heights. Commanding Heights is east of East border crossing.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Rolling plains is east of Empty meadow. East border crossing is east of West border crossing. East border crossing is southeast of Empty meadow. Rolling plains is northeast of West border crossing.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The Balonian Guard is a patroller in Hilltop. The Tripean Guard is a patroller in Rolling plains.<br>
+                 The Tripean Guard is aimless. The Balonian Guard is aimless.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> When play begins:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; activate the Tripean Guard;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; activate the Balonian Guard.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Every turn:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; say &quot;You note that the Tripean Guard is in the [the location of the Tripean Guard] in [map region of the location of the Tripean Guard] and the Balonian Guard is in the [the location of the Balonian Guard] in [map region of the location of the Balonian Guard].  &quot;;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; if the map region of the location of the Balonian Guard is Tripea:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say &quot;It looks like Balonia has invaded Tripea.  All hell is likely to break loose any time soon.  &quot;;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; if the map region of the location of the Tripean Guard is Balonia:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say &quot;It looks like Tripea has invaded Balonia.  Standby for fireworks.  &quot;;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; if the location of the Balonian Guard is adjacent to the location of the Tripean Guard:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say &quot;The two guards eyeball each other across the border, but neither is willing to enter the other's territory.  You breath a sigh of relief.  &quot;;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; say &quot;[paragraph break]&quot;.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> To decide if (R - a Room) is off-limits to (P - a Patroller):<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; if P is the Balonian Guard:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if the map region of R is Balonia:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; decide no;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; decide yes;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; if P is the Tripean Guard:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if the map region of R is Tripea:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; decide no;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; decide yes;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; decide no.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Test me with &quot;z /z /z/z/z/z/z/z/z/z/z/z&quot;.</span></blockquote>
+
+                <p></p>
+
+            </td>
+        </tr>
+    </table>
+    </p>
+
+    <p>
+    <!--CONTENT ENDS-->
+</body>
+</html>

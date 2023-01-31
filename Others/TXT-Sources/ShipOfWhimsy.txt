@@ -1,0 +1,311 @@
+"Ship of Whimsy"
+
+[Conceived in one of my darker moments]
+
+Section 1 - Options
+
+Use American dialect.
+Use no scoring.
+The story genre is "Fairy-Tale".
+The story description is "The Ship of Whimsy is almost ready to set sail...".
+
+Section 2 - Directions
+
+[Copied from one of the examples in the manual]
+
+The starboard is a direction. The starboard has opposite port. Understand "s" as starboard when the location is nautical.
+
+The port is a direction. The port has opposite starboard. Understand "p" as port when the location is nautical.
+
+The fore is a direction. The fore has opposite aft. Understand "f" as fore when the location is nautical.
+
+The aft is a direction. The aft has opposite fore. Understand "a" as aft when the location is nautical.
+
+Does the player mean going a nautical direction when the location is nautical: it is very likely.
+
+Index map with fore mapped as north. Index map with aft mapped as south. Index map with port mapped as west. Index map with starboard mapped as east.
+
+[Now, to prevent the player from using NORTH onboard ship, or AFT on land:]
+
+A room can be nautical or earthbound. A room is usually not nautical. A direction can be nautical or earthbound. A direction is usually not nautical. Starboard, port, fore, aft, up, down, the inside and the outside are nautical.
+
+Before going a nautical direction when the location is not nautical, say "Nautical directions can only be used on board ship."
+
+Before going an earthbound direction when the location is nautical, say "Compass directions make no sense on board ship, but you can use [list of nautical directions] instead." instead.
+
+Section 3 - Scenes/Endgame
+
+Working on the Ship is a scene.
+Working on the Ship begins when play begins.
+Working on the Ship ends when the solution state of the faerie queen is at least 1. [cheat? dunno]
+
+When Working on the Ship begins:
+	now the solution state of the faerie queen is 0;
+
+Readying the Ship is a scene.
+Readying the Ship begins when Working on the Ship ends.
+Readying the Ship ends when the mooring line is off-stage.
+
+The Ship Sails is a scene.
+The Ship Sails begins when Readying the Ship ends.
+
+Every turn during The Ship Sails:
+	if the time since The Ship Sails began is 1 minute:
+		say "The Ship begins to sway.";
+	else if the time since The Ship Sails began is 2 minutes:
+		say "The Ship is now noticeably pulling away from land.";
+	else if the time since The Ship Sails began is 3 minutes:
+		say "The Ship is gaining speed. It has cleared the dock.";
+	else if the time since The Ship Sails began is 4 minutes:
+		say "The Ship is accelerating at a startling rate as it whisks over the ocean. It is already difficult to make out details on the dwindling shape.";
+	else if the time since The Ship Sails began is 5 minutes:
+		say "The Ship is barely a dot on the horizon.";
+		end the story saying "The story is complete";
+
+After printing the player's obituary:
+	say "You didn't think [bold type]you[roman type] would get to sail on the Ship, did you?";
+
+Section 4 - Actions
+
+Understand "help" as requesting help. Requesting help is an action out of world applying to nothing.
+Understand "help [text]" or "help about [text]" as requesting help about. Understand the commands "instructions" or "hint" or "hints" or "menu" or "info" or "about" as "help". Requesting help about is an action out of world applying to one topic.
+
+Carry out requesting help about:
+	if the topic understood is a topic listed in the Table of Standard Help:
+		say "[explanation entry][paragraph break]";
+	otherwise:
+		say "Hmmm. We don't seem to have anything of that sort listed in the help section...";
+
+Carry out requesting help:
+	say "The Ship of Whimsy - Help[paragraph break]";
+	say "The Ship of Whimsy is almost ready to sail...[paragraph break]";
+	say "As a ship is a nautical entity, much of the game uses nautical directions. 'Fore' and 'Aft' are opposite, and they are perpendicular to 'Port' and 'Starboard'; these directions may each be abbreviated as their initial letter. Landbound locations will use the standard n/s/e/w directions.[paragraph break]";
+	say "The Ship of Whimsy was created for the 2011 Interactive Fiction Competition.[paragraph break]";
+	say "This is not a complicated game, but for the sake of completeness it includes solutions. For specific information, type HELP followed by one of these topics:[paragraph break]";
+	repeat through the Table of Standard Help:
+		say " [title entry]: [summary entry][line break]";
+
+Table of Standard Help
+topic				title		summary					explanation
+"lookout" or "tengu"	"Lookout"	"A lookout who can do his job"	"The Ship has a lookout, up in the Crow's Nest, but he needs a telescope to do his job. You must also work the sails to visit him."
+"sails" or "sail"		"Sails"	"Moving the sails"			"The Ship's sails may be moved by means of a lever Amidships. It may be switched on or off, pushed or pulled, however you like. Each sail position blocks off one path and opens another."
+"power" or "engine" or "alien" or "gray" or "engines"	"Engines"	"Powering the Engine"	"Belowdecks is the engineer. He(?) needs a power source for the engines. Poke around and find it. Be sure you know how to use the sails."
+"mooring" or "casting off"	"Casting Off"	"Casting off is the last task."	"You may only cast off once everything else has been completed and the faerie queen authorizes it. You'll have to go down the gangplank to the dock. Enjoy the fruits of your labors."
+
+[example 91, Sybil 1, manual 7.6; direct all ask/tell/answer to ask]
+Instead of telling someone about something, try asking the noun about it. Instead of answering the noun that something, try asking the noun about it. 
+
+[action out of world? nah, I guess not]
+Understand "xyzzy" as performing a tired but required in-joke.
+Understand "plugh" as performing a tired but required in-joke.
+Understand "plover" as performing a tired but required in-joke.
+Performing a tired but required in-joke is an action applying to nothing.
+Carry out performing a tired but required in-joke:
+	say "A hollow voice says 'Zero!'.";
+[tarot joke]
+
+Section 45 - Geography
+
+Main Deck is a nautical room. "This is the deck of the Ship of Whimsy. It is spacious, indeed vast, maple timbers firm beneath your feet. To the aft is the aftcastle, and above it (upward from here) is the poop deck. To port, or down, is the gangplank, the only breach in the brass railings lining the deck's edges. On the starboard side you can see several coracles lashed to the hull."
+
+The coracles is scenery in Main Deck. The description of the coracles is "There are several small boats-coracles-lashed to the hull. Each has been formed from half the shell of a walnut, just large enough to seat one boater."
+Understand "coracle" as the coracles.
+[literal giant walnut shells]
+
+The seneschal is a male animal in the Main Deck. "The seneschal oversees things from his post on the main deck." The description of the seneschal is "A tall being, mostly human except for possessing brown feathers in the place of hair, sideburns and mustache. He is dressed in an officer's uniform, red and blue with silver trim, festooned with medals and nicely understated epaulets."
+
+The troll guardian is a male animal in the Main Deck. "A burly troll waits by the gangplank." The description of the troll guardian is "Taller than any human even when hunched over far enough to let its grimy knuckles touch the deck. The troll is wrapped in bronze armor that disguises neither its bulging muscles nor its swampy stench.".
+
+Every turn when the player can see the seneschal:
+	if the time since Entire Game began is at most 0 minutes:
+		say "The seneschal clears his throat. 'The queen is upset,' he intones in a deep voice. 'We are in no condition to set sail.' His gaze moves aft, to the enclosed aftcastle. 'I am at a loss as to what to tell her.'";
+	otherwise:
+		if Readying the Ship is happening:
+			if a random chance of 1 in 3 succeeds:
+				say "The seneschal clears his throat. 'All that is left is to cast off...'";
+		otherwise:
+			if a random chance of 1 in 3 succeeds:
+				say "The seneschal lets out a deep sigh. 'The queen is still most vexed at the state of this vessel.'";
+
+Amidships is a nautical room. "This is amidships, the middle of the main deck. As this is the midpoint of the ship, it extends both to fore and aft. The main mast, a thick, straight oak tree, quite literally has its roots here, firmly anchored in the pine planks. The mast stretches up, far above you, with convenient handholds for climbing. Further toward the bow is the forecastle, [if the lever is switched off]although the sails lay in a heap before you, [end if]and aft is the rest of the ship. Finally, a stairway leads downward."
+Amidships is fore of Main Deck.
+
+The mainmast is a backdrop. It is in Amidships, Mainmast Top and Crow's Nest. The description of the mainmast is "Looking very like an ancient oak, but unnaturally straight and without branch or leaf. [if the lever is switched on]A large batten-reinforced sail hangs from it.[otherwise]The sails have been lowered from the mast.".
+
+The sails is a backdrop. It is in Amidships, Mainmast Top and Crow's Nest. The description of the sails is "Red canvas, almost translucent, reinforced with more than a dozen horizontal battens. [if the lever is switched on]It hangs proudly from the mast, catching the wind.[otherwise]It rests in a heap on the deck amidships.".
+Understand "sail" as the sails.
+
+The lever is a device in Amidships. "An oak lever with ornate brass fittings is attached to the railing here." The description of the lever is "An indicator arrow allows the lever to move between two positions; currently it points to [if switched off]a picture of a bare, leafless tree[otherwise]a diagram of a tree covered in pink blossoms[end if].".
+[off = sails down, can go up to Crow's Nest, cannot go to Forecastle
+on = sails up, cannot go up to Crow's Nest, can go to Forecastle]
+
+Instead of going fore from Amidships when the lever is switched off:
+	say "The sails are heaped in a pile on the deck before you, festooned with rigging. You cannot move past them.";
+
+Instead of going up from Amidships when the lever is switched on:
+	say "The batten-reinforced sails rise grandly above you. However, they also block your way up the mainmast, handhelds or no.";
+
+Instead of pulling the lever:
+	try switching on the lever;
+Instead of pushing the lever:
+	try switching off the lever;
+
+Before switching off the lever:
+	if Readying the Ship is happening:
+		say "Now's not the time to be fooling with the sails.";
+[zero]
+
+After switching on the lever:
+	say "Pulling the lever causes a soft 'click' as it moves to its new position. Nothing else happens.[paragraph break]...Until moments later, when a gnarled goblin rushes up and spies the lever. Squeaking loudly, he calls a number of his fellows together, and they swarm up over the sails. With much creaking and complaining, the goblins pull the sails up, battens clattering.";
+
+After switching off the lever:
+	say "Pushing the lever causes a soft 'click' as it moves to its new position. Nothing else happens.[paragraph break]...Until moments later, when a gnarled goblin rushes up and spies the lever. Squeaking loudly, he calls a number of his fellows together, and they swarm up over the sails. With much creaking and complaining, the goblins pull the sails down, the batten-reinforced canvas clattering down and settling in a heap fore of you.";
+
+Mainmast Top is a nautical room. "This is the mainmast 'top'; despite the name, it's only about halfway up the mast. Much of the rigging is anchored here. There is still more mast above, eventually leading to the crow's nest."
+Mainmast Top is up of Amidships.
+
+The rigging is a backdrop. It is in Amidships, Mainmast Top and Crow's Nest. The description of the rigging is "Knotted ropes and bronze pulleys, helping the sails go where they need to.".
+
+The unobtainium is a thing in Crow's Nest. "A curious rod lies here, glowing slightly." The description of the unobtainium is "A rod, about a handspan's length, glowing bright green-or is it pink? It is cool to the touch.". The unobtainium is lit.
+Understand "curious rod" as the unobtainium.
+Understand "glowing rod" as the unobtainium.
+Understand "rod" as the unobtainium.
+["It's a fiendish thingy!" - George Harrison]
+
+Crow's Nest is a nautical room. "The mainmast ends in a haphazard collection of branches, a few planks secured to it with bronze nails. The final cap to the mast is a winged staff entwined with serpents, formed of shining aluminum. The only exit, for terrestrial visitors, is downward."
+Crow's Nest is up of Mainmast Top.
+[Washington Monument, Hermes]
+
+The tengu is a male animal in the Crow's Nest. "A tengu squats comfortably on one of the branches." The description of the tengu is "A hunched figure with a crow's beak and feathers. It wears a faded brown cotton coat and flowing red pants, with wooden sandals on its clawed feet.".
+[happi, hakama, geta]
+
+Instead of asking the tengu about something:
+	if the brass telescope is off-stage:
+		if a random chance of 1 in 3 succeeds:
+			say "'Much better,' the tengu murmurs, gazing through the telescope at the horizon.";
+		otherwise:
+			say "'Yes, yes,' the tengu mutters, still gazing through his telescope.";
+	otherwise:
+		if a random chance of 1 in 3 succeeds:
+			say "'I don't know much about that,' the tengu squawks. His attention is focused on the horizon; he appears to be squinting. 'I wish I knew where my trusty eagle eye is.'";
+		otherwise:
+			say "'I don't have any time for that,' the tengu grunts-actually more like a squawk. 'I can't see very far without my eagle eye.'";
+[random chance to make it more interesting]
+
+Instead of giving the brass telescope to the tengu:
+	remove the brass telescope from play;
+	say "The tengu's eyes widen and he snatches the instrument from your grasp. Extending it, he sets it to his face and peers about; you catch a glimpse of his eye shown in the far lens, making the carving appear startlingly lifelike. 'Much better!' he crows.";
+
+Belowdecks is a nautical room. "An ocean of night surrounds you. Small lights blink in the sides of this 'room', some of them slowly moving, swishing back and forth. It is difficult to tell the dimensions of this space, but to the aft is a bank of silvery panels and more intense lights. Fortunately, above you is the hatch to the main deck."
+Belowdecks is down from Amidships.
+
+The gray alien is a neuter animal in Belowdecks. "A gray creature rests to the aft, smooth skin gently glowing in the dimness." The description of the gray alien is "Humanoid, in that it has two arms, two legs and a head. It is nude, sexless body covered with smooth gray skin. Its facial features are rudimentary, except for its eyes, which are large and glossy black.".
+[modern-day faerie]
+Understand "creature" as the gray alien.
+Instead of asking the gray alien about something:
+	if the unobtainium is off-stage:
+		say "The gray creature says, 'All is in readiness below decks.'";
+	otherwise:
+		say "The gray creature waves its long fingers languidly. 'The power source for the Ship's systems has been misplaced. We cannot travel without it...'";
+
+Instead of giving the unobtainium to the gray alien:
+	remove the unobtainium from play;
+	say "The gray creature's long fingers pluck the glowing rod from your hand. The pink (green?) object is slipped into a slot in a nearby panel; even more lights are ignited, forming new constellations in the void around you. 'Excellent,' the gray creature murmurs in its high, fluted tones.";
+
+Forecastle is a nautical room. "This is the forecastle; actually you stand on the forecastle, a raised cedar platform near the bow of the Ship. From here you can see the figurehead, a mermaid. The only exit is aft."
+Forecastle is fore of Amidships.
+[running out of woods...]
+
+The figurehead is scenery in Forecastle. The description of the figurehead is "The figurehead has been carved from smooth, polished ebony, set into the mahogany of the Ship's bow. The shape is a nude mermaid, quite feminine, with a great mane of kinky hair flowing back over the bow. A large carven snake coils around her, resting its head between her breasts. The scales of her piscine hindquarters are actually a mosaic of mirrors.".
+[Mami Wata]
+
+Aftcastle is a nautical room. "This is the aftcastle, a dim cabin at the stern of the Ship. The only exit is fore."
+Aftcastle is aft of Main Deck.
+Aftcastle is inside from Main Deck.
+
+The faerie queen is a female animal in the Aftcastle. "The faerie queen is currently reclining on a couch." The description of the faerie queen is "The queen is currently appearing as a rather young woman with black hair in a bob haircut. She wears a forcefully casual flower-print sarong, its color continually shifting".
+
+The faerie queen has a number called solution state.
+
+Instead of asking the faerie queen about something:
+	if the solution state of the faerie queen is 1:
+		say "'It looks as though we are ready to cast off,' she says.";
+	otherwise if the brass telescope is on-stage:
+		say "'We cannot cast off without a lookout who can do his job,' she says.";
+	otherwise if the unobtainium is on-stage:
+		say "'The Ship cannot currently move under its own power,' she says. 'Because there is not, in fact, any power.'";
+	otherwise if the lever is switched off:
+		say "'I do not believe the sails are ready,' she says.";
+	otherwise:
+		say "The faerie queen blinks. 'Are we ready to cast off?'"; [I don't think this branch can come up in play, but just in case]
+
+[yes, they need both engines and sails, because they're faeries and because I said so]
+
+Every turn when the player can see the faerie queen during Working on the Ship:
+	if the solution state of the faerie queen is 0:
+		if the brass telescope is off-stage:
+			if the unobtainium is off-stage:
+				if the lever is switched on:
+					now the solution state of the faerie queen is 1;
+					say "The faerie queen straightens up in her couch, her eyes glittering darkly. 'At last, we are ready to make way! All that remains is to cast off.'";
+				otherwise:
+					say "The faerie queen gazes out the window. 'It seems we are almost ready, but the sails are not prepared...'";
+			otherwise:
+				say "The faerie queen lets out a discontented sigh. 'The engines of the Ship require power to move...'";
+		otherwise:
+			say "The faerie queen yawns. 'If only the Ship had a lookout who could do his job.'";
+	otherwise:
+		say "The faerie queen says, 'All that remains is to cast off!'.";
+[wait, can't be in Working on the Ship if solution state is 1...well, whatever]
+
+Poop Deck is a nautical room. "This is the poop deck. Golden railings fence off this raised platform; you can see most of the Ship from here. An elaborate compass is mounted to the deck. From here you can climb down to return to the main deck."
+Poop Deck is up of Main Deck.
+
+The brass telescope is in Forecastle. "A brass telescope lays on the deck here." The description of the brass telescope is "A brass telescope, the far end intricately carved with feathers; it almost looks like the brow of a bird glaring at you with its glass eye.".
+Understand "scope" as the brass telescope.
+
+The compass is scenery in the Poop Deck. "The compass is a large globe of glass, or perhaps crystal, held in a brass frame. Within the globe is a silver sphere inscribed with letters you cannot read; the sphere floats in a pool of mercury, allowing it to spin freely in any direction."
+[no iron]
+
+Gangplank is a nautical room. "This is the gangplank. Its brass-bound oak planks slant up starboard-ways to the ship, and down-or port-to the dock."
+Gangplank is port of Main Deck.
+Gangplank is down of Main Deck.
+
+Dock is a room. "This is the southern end of the dock, a long walkway of worn, heavy timbers. [if The Ship Sails is happening and the time since The Ship Sails began is at least 3 minutes]There is no ship docked here.[otherwise]The Ship's gangplank is east."
+
+Dock is west of Gangplank.
+Dock is port of Gangplank.
+Dock is down of Gangplank.
+
+Instead of going east from Dock during The Ship Sails:
+	if the time since The Ship Sails began is at most 2 minutes:
+		say "The troll guardian throws you back onto the dock and retracts the gangplank.";
+	otherwise if the time since The Ship Sails began is at most 4 minutes:
+		say "The gangplank has been retracted and the Ship has pulled away from the dock.";
+	otherwise:
+		say "There is only ocean that way.";
+
+Further up the Dock is a room. "At this point the land surrounds you, the logs of the dock set into the ground. Hills surround you, with a few trees here and there, scrub and moss decorating the slopes. South lies the sparkling ocean and the long wooden dock[if the mooring line is not off-stage] leading back to the Ship. The mooring line from the Ship has been secured to a bollard here.[otherwise]. A single weathered bollard sticks up from the side of the dock."
+Further up the Dock is north of Dock.
+Instead of going southwest in Further up the Dock, say "This doesn't seem the time for a swim.".
+Instead of going southeast in Further up the Dock, say "This doesn't seem the time for a swim.".
+Instead of going down in Further up the Dock, say "This doesn't seem the time for a swim.".
+Instead of going nowhere in Further up the Dock, say "All this effort, all this time spent making your way to the Ship of Whimsy-you might even say your entire life has brought you to the moment you are existing in. And you wish to leave?".
+
+The bollard is scenery in Further up the Dock. The description of the bollard is "A weathered iron post, scarred with rust and the tugs of countless mooring ropes.".
+
+The mooring line is in Further up the Dock. "A mooring line has been tied to a bollard here, on the boundary between earth and sea." The description of the mooring line is "A heavy rope, thicker than a human arm, made of twisted lines twisted a second time, then coated with a varnish that gives it a curious rainbow shimmer.".
+
+Instead of taking the mooring line:
+	say "It's large and heavy. Perhaps you might be able to untie it...";
+
+Understand "untie [something]" as opening.
+
+Instead of opening the mooring line during Working on the Ship:
+	say "The Ship isn't ready to sail yet.";
+
+Instead of opening the mooring line during Readying the Ship:
+	remove the mooring line from play;
+	say "You pull at the knot and the heavy rope moves-it almost seems to be untying of its own accord, as if eager to be on its way. Suddenly the knot vanishes and the rope whips from your hands, slapping into the water below. At that moment a jerk rushes through the Ship and it begins to move!";
+
+["But I'm feeling much better now" - John Astin as Buddy Ryan]

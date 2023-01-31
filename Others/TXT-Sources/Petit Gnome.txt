@@ -1,0 +1,420 @@
+"Petit Gnome" by Otto Grimwald. 
+
+
+The story genre is "Comédie".   
+The story creation year is 2006.
+The story headline is "Une aventure dans le jardin".
+The story description is "Un soir d'hiver, dans un coin perdu du monde.
+<br>Il s'agit d'une petite histoire très simple, ayant pour but de présenter et développer la fiction interactive en français avec Inform 7. Si vous voulez développer des points de cette histoire, merci de m'en faire part sur le forum du site http://ifiction.free.fr ".
+
+[Release along with the source text, cover art, solution, a website, the introductory booklet.]
+
+Release along with the source text, cover art, a website, a file of "version z5" called "PetitGnome.z5", a file of "version glulx" called "PetitGnome.blb", a file of "solution" called "solution2.txt",  a file of "solution (autre version)" called "solution.txt", a file of "petitgnomecopie.tgz (pour tests)" called "petitgnomecopie.tgz", the introductory booklet.
+
+Include French by Eric Forgeot. 
+
+Figure of gnome is the file "gnome.png".
+Figure of titre is the file "titre.png".
+
+Use full-length room descriptions. 
+ 
+
+
+Understand "recommencer" as restarting the game.
+
+Understand "effrayer [someone]" as attacking.
+[Understand "faire peur [someone]" as attacking. [ne fonctionne pas : bug ?] ]
+[Understand "faire peur à [someone]" as attacking.
+Understand "faire peur au [someone]" as attacking.]
+
+Understand "aide" as a mistake ("Taper 'test tout' pour voir le déroulement complet de l'histoire.").
+
+[nord means north.
+est means east.
+ouest means west.
+sud means south.
+bas means down.
+haut means up.]
+
+[Instead of going nowhere: 
+    let place be location; 
+    let count of exits be 0; 
+    repeat with way running through directions 
+    begin; 
+        let place be the room way from the location; 
+        if place is a room, increase count of exits by 1; 
+    end repeat; 
+    if the count of exits is 0, say "Vous ne pouvez sortir d'ici." instead; 
+    if the count of exits is 1, say "La sortie est"; 
+    otherwise say "Les directions possibles sont"; 
+    say exit list with a total of count of exits.
+
+To say exit list with a total of (sum - a number): 
+    let place be location; 
+    let index be sum; 
+    repeat with way running through directions 
+    begin; 
+        let place be the room way from the location; 
+        if place is a room 
+        begin; 
+            say " [way]"; 
+            decrease index by 1; 
+        if index is 1 
+            begin; 
+                if sum is 2, say " et"; 
+                otherwise say ", et"; 
+            otherwise; 
+                if index is 0, say "."; 
+                otherwise say ","; 
+            end if; 
+        end if; 
+    end repeat.]
+
+[way back]
+
+The former location is a room that varies.
+
+First carry out going rule: 
+    change the former location to the location.
+
+The carrying capacity of the player is always 4.
+
+Hotte is a player's holdall. The player is wearing hotte. Hotte is female. The printed name of hotte is "la hotte".
+
+
+
+Part 1 - A l'extérieur
+
+
+
+Dehors is a region. SurLeToit, Jardin, Jardin2 and Maison are in Dehors.
+East of Jardin is Jardin2. Above is SurLeToit. 
+
+Dedans is a region. Salon is in dedans.
+
+Arrivee is a scene. Arrivee begins when the player is in SurLeToit for the first turn. Arrivee ends when the player is in Salon for the first turn.
+
+
+[Thinking is being pensif.
+Understand the command "penser [text]" as think.]
+
+
+Instead of thinking during arrivee, say "Vous sentez que vous avez des problèmes avec cette maison."
+
+Instead of thinking in SurLeToit, say "Depuis des siècles et des siècles, en plein coeur de l'hiver, vous devez aller de maison en maison pour délivrer des présents aux enfants."
+
+
+SurLeToit is a room. The printed name of SurLeToit is "Sur le toit". "Après avoir effectué votre travail sur l'ensemble des bâtiments de cette petite ville provinciale, vous vous trouvez enfin sur le toit de la dernière des maisons à visiter."
+
+Before looking in SurLeToit, display the Figure of titre.
+
+After going in SurLeToit:
+	if SurLeToit is visited
+	begin;
+		say "Les montagnes au loin sont déjà auréolées des lueurs de l'aurore, vous êtes impatient de finir ce travail et de rentrer chez vous."; continue the action;
+	Otherwise;
+		 say  ""; continue the action;
+	end if;
+
+
+The cheminée is in SurLeToit. Cheminée is a container. Cheminée is female. Understand "cheminee" as cheminée. The description of cheminée is "Les cheminées, ça vous les connaissez !" 
+
+The traineau is a vehicle in SurLeToit. Understand "traineau/rennes/chariot/cariole" as traineau.
+
+Instead of going to salon when the player is in a vehicle, say "Vous ne pouvez entrer ici avec votre traineau.".
+	
+
+FinDuJeu is a scene. FinDuJeu begins when the player is in a vehicle. FinDuJeu ends when the player is in SurLeToit.
+
+When FinDuJeu begins:
+	if cadeau is in cheminée or cadeau is on chenets
+		begin;
+			say "Vous avez enfin réussi à terminer votre tournée de cette année. Il est temps de rentrer chez vous.";
+			end the game in victory;
+		otherwise;
+			say "Vous ne pouvez vraiment pas partir ainsi en ne terminant pas correctement votre travail.";
+	end if.
+
+
+When play begins:
+	move hotte to player;
+	move cadeau to hotte;
+	move carte to hotte.
+
+The cadeau is a thing. Understand "paquet" or "cadeau" as cadeau.
+
+The carte is a female thing. Understand "carte" or "cartes" as carte. The printed name of carte is "carte de visite". The description of carte is "Un paquet de cartes de visite à votre effigie que vous laissez généralement avec les cadeaux que vous livrez.".
+
+Instead of showing carte to gnome, try giving carte to gnome.
+
+Instead of giving carte to gnome for the first time:
+	say "Il prend la carte, et sursaute aussitôt.";
+	say "Après avoir fait une petite révérence, il se dirige alors vers la maison, et déverrouille la porte.";
+	move gnome to jardin;
+	change the PorteMaison to not locked.
+	
+
+Instead of giving cadeau to gnome, say "Il n'est veut pas. Il vous explique qu'il s'est déjà échappé d'un endroit où il devait en empaqueter des centaines par jour, aussi il n'aime plus ces choses. D'ailleurs en vous regardant il semble un peu vous craindre. ".
+
+Instead of inserting cadeau into cheminée:
+	if chaussons is on chenets
+		begin; 	
+			continue the action;
+			award 2 points;
+			say "Vous entendez le bruit feutré du paquet qui tombe dans les chaussons. Et un heureux de plus !";		
+		otherwise;
+			say "Vous ne pouvez pas, il vous semble qu'il y a un problème pour livrer ce cadeau.";
+			stop the action;		
+	end if;
+	
+
+Jardin is a room. The printed name of Jardin is "Un beau jardin". "Ce petit jardin propret vous fait penser au vôtre. Sans doute qu'il y a là quelques gnomes agiles qui viennent l'entretenir. Il continue à s'étendre, sur votre droite, à l'est. La maison se trouve au sud."
+
+Instead of examining Jardin for the second time, say "Vous êtes dans le jardin, tout près de la maison. Vous pouvez remonter sur le toit depuis ici."
+
+Jardin2 is a room. The printed name of Jardin2 is "Le bout du jardin". "Vous êtes près de la limite de la propriété. Au delà s'étendent les autres jardins du voisinage."
+
+
+After going in Jardin2:
+	if Jardin2 is not visited
+	begin;
+		display the Figure of gnome;
+		say ""; continue the action;
+	Otherwise;
+		 say  "" ; continue the action;
+	end if;
+		
+The gnome is in jardin2.
+the gnome is a man. Understand  "gnome/troll/créature/lutin" or "petit gnome" as Gnome. The description of Gnome is "C'est un lutin à l'air espiègle. Vous vous demandez si ce n'est pas lui qui garde la maison en l'absence de ses propriétaires".
+
+chaussons are a thing. The printed name of chaussons is "deux chaussons".
+
+
+GnomeCle is a thing. The printed name of GnomeCle is "clef". Understand "clé/clef/cle" as gnomecle.
+
+[Instead of asking the Gnome about something, say "Vous parlez le langage gnome, mais celui-ci est resté si longtemps auprès des humains qu'il ne le connaît plus lui-même."]
+
+
+Instead of attacking Gnome:
+	say "Il prend peur et se sauve en courant, laissant derrière lui une clé et une paire de chaussons.";
+	remove gnome from play;
+	move GnomeCle to location of the player;
+	move Chaussons to location of the player;
+
+ The PorteMaison is a door. It is south of Jardin and north of Salon. Salon is inside from Jardin. PorteMaison is female, locked and closed. The matching key of the PorteMaison is the GnomeCle. The printed name of PorteMaison is "porte d'entrée". The description of PorteMaison is "La porte de la maison est en acier qui semble épais." 
+Understand "portail/porte/seuil/entree" as PorteMaison.
+
+[Instead of going to salon when the player is in Jardin:
+	if PorteMaison is closed,
+		say "Vous devez ouvrir la porte avant d'entrer.";
+	Otherwise continue the action.]
+
+Instead of going to salon when the player is in Jardin: 
+	if PorteMaison is not locked
+		begin;
+			try opening PorteMaison;
+			continue the action;
+		Otherwise;
+			say "La porte est verrouillée.";
+	end if.
+
+Instead of pushing or pulling or attacking the PorteMaison for the first time:
+	 say "Vous n'avez pas la force pour le faire, et quand bien même cela serait immoral.".
+
+Every turn when in Jardin:
+	if PorteMaison is closed
+	begin;
+		if a random chance of 15 in 100 succeeds 
+		begin;
+			say "Ne pensez-vous pas que vous devriez essayer d'entrer ?";	
+		otherwise;
+			say "";
+		end if;
+	end if.
+
+
+Instead of pushing or pulling or attacking the door for the second time, say "Voudriez-vous vous reconvertir dans le braquage ? Qu'en penserait votre femme ?"
+
+Instead of pushing or pulling or attacking the door for the third time:
+	say "Vous voyez une voiture de police qui passe par là. Des policiers vous arrêtent et vous mettent directement en prison.";
+	end the game in death.
+
+
+
+
+Part 2 - A l'intérieur
+
+
+
+Salon is a room.
+The description of Salon is "C'est un joli salon. [if Salon is unvisited] Vous voyez la cheminée au fond de la pièce, un feu joyeux y brûle. [end if]"
+
+In salon are chenets.Chenets are a supporter. The description of chenets is "Les chenets de la cheminée". The printed name of chenets is "des chenets". Understand "cheminée/hâtre/chenets" as chenets.
+
+The feu is a switched on device in salon. It is fixed in place. The description of feu is "Ce feu est là pour chauffer la pièce, mais il vous empêche de faire correctement votre travail."
+
+A vase is in salon. The printed name of vase is "vase". Understand "eau/l'eau/de l'eau/vase" as vase.
+
+Instead of switching off feu :
+	if player has vase
+	begin;
+		say "Vous utilisez l'eau du vase pour éteindre le feu.";
+		award 1 point;
+		continue  the action; 
+	Otherwise;
+		say "Avec quoi voulez-vous éteindre ce feu ?";
+		stop the action;
+	end if;
+
+[Understand "éteindre le feu avec le vase" as switching off.]
+	
+Instead of switching on feu, say "Vous ne pouvez pas le rallumer."
+
+Before putting chaussons on chenets :
+	if feu is switched off
+	begin;
+		award 1 point;
+		say "Ils ont dû oublier de le faire. Heureusement que vous êtes consciencieux et que vous le faite à leur place."; 
+	Otherwise; 
+		say "Le feu brûlerait ces chaussons";
+		stop the action;
+	end if;
+
+	
+[Carry out switching off the feu:]
+
+
+Index map with EPS file,
+  room-name-length set to 15, 
+    route-thickness set to 2, 
+    room-outline set to off, 
+    map-outline set to off, 
+    route-colour set to "Chocolate", 
+    room-colour set to "Burly Wood", 
+    title set to "Petit Gnome", 
+    font set to "Baskerville".
+
+
+[nouveaux verbes]
+
+Mendier is an action applying to nothing.
+Understand "mendier" as mendier.
+
+Check mendier:
+	if location is in dehors, say "Vous ne pouvez vous résoudre à faire cela ici." instead.
+Carry out mendier:
+	say "Vous ne voyez pas l'intérêt de faire cela ici."
+
+
+Include (- 
+
+-).
+
+[parler]
+ 
+
+A person has a table-name called conversation. 
+
+The conversation of gnome is the Table of gnome Conversation.
+
+Instead of asking someone about something:
+	let the source be the conversation of the noun;
+	if topic understood is a topic listed in source
+	begin;
+		if there is a cle entry
+		begin;
+			say "";
+		otherwise;
+			say "";
+		end if;
+		if there is a turn_stamp entry
+		begin;
+			say "[The noun] vous a dit que [summary entry]";
+		otherwise;
+			change turn_stamp entry to the turn count;
+			say "[reply entry][paragraph break]";
+		end if;
+	otherwise;
+		say "[The noun] vous regarde sans comprendre. Vous savez parler le langage gnome, mais celui-ci est resté si longtemps auprès des humains qu'il ne le connaît plus bien lui-même. Essayez de le questionner autrement ou sur un autre sujet.";
+	end if. 
+
+
+Understand "parler a [someone]" as chatting.
+Understand "parler au [someone]" as chatting.
+
+Understand "parler avec [someone]" as chatting.
+
+[Understand "parler à [someone]" as a mistake ("Utilisez 'questionner' quelqu'un au sujet de quelque chose.").]
+
+
+Understand "talk to [someone]" as a mistake ("Utilisez 'questionner' quelqu'un au sujet de quelque chose.").
+
+Understand "talk [someone]" as chatting.
+[Understand "parler avec [someone]" as chatting.]
+
+
+[Understand the command "parler" as talk.]
+
+Understand the command "bavarder" as parler avec.
+[Understand the command "questionner" as parler avec.]
+
+
+[Understand the command "parler avec/parler a" as talk.]
+
+
+chatting is an action applying to one thing. 
+
+Carry out chatting:
+	say "Vous ne savez pas quoi dire."
+
+
+
+Table of Gnome Conversation
+libelle	topic	reply	summary	cle	turn_stamp
+"la maison"	"maison/bâtisse"	" 'Aye, je suis le gardien de la maison.' "	"il était le gardien de cette maison."	1	a number
+"pour entrer"	"rentrer/entrer/entrée/entree"	"Il secoue sa tête : 'Nan, personne ne peut rentrer ici, sauf les propriétaires et ceux qu'ils invitent.'"	"il refuse de laisser entrer les étrangers à cette maison."			
+
+
+Instead of chatting Gnome :
+	say "Vous pouvez questionner [the noun] à propos de ces sujets : ";
+	let the source be the conversation of the noun;
+	repeat with N running from 1 to the number of rows in the conversation
+	begin;
+	say " [libelle in row N of the table of Gnome Conversation], ";
+	end repeat;
+	say " et vous ne voyez pas trop quoi d'autre pour le moment.[paragraph break]".
+
+
+Include (- 
+
+
+#IFDEF ForeignLanguage;
+
+		
+Extend 'questionner' first
+		* creature -> ask;
+		
+Extend 'dire' first
+		* creature -> ask;
+		
+Extend 'sortir' last
+		* 'du' noun -> exit;
+		
+Extend 'faire' first
+        * 'peur'  'au' creature -> Attack 
+        * 'peur' creature -> Attack 
+        * 'peur' 'a'/'au' creature -> Attack; 
+
+#IFNOT;
+#ENDIF;
+-).
+
+[Tester]
+
+Test entrer with "descendre / aller à droite / questionner le gnome au sujet de la maison / faire peur au gnome / prendre les chaussons et la clef / aller à l'ouest / ouvrir la porte avec la clef / ouvrir la porte / entrer"
+
+Test finir with "prendre le vase / éteindre le feu / mettre les chaussons sur les chenets /  sortir / monter /prendre le cadeau / mettre le cadeau dans la cheminée / entrer dans le traineau"
+
+Test tout with "test entrer / test finir"
+
+

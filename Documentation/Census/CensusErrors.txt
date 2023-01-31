@@ -1,0 +1,7 @@
+<p class="hangingin2"><b>Figures.i6t by Dannii Willis</b> - title contains a full stop</p>
+<p class="hangingin2"><b>Load-Figures.i6t by Dannii Willis</b> - title contains a full stop</p>
+<p class="hangingin2"><b>Readme.md by Leonardo Boselli</b> - title contains a full stop</p>
+<p class="hangingin2"><b>Readme.md by Massimo Stella</b> - title contains a full stop</p>
+<p class="hangingin2"><b>Nathanael's Extension Style Guide.txt by Nathanael Nerode</b> - title contains a full stop</p>
+<p class="hangingin2"><b>Readme.md by Nathanael Nerode</b> - title contains a full stop</p>
+<p class="hangingin2"><b>Figures\ by Xavid</b> - folder or application in author folder</p>

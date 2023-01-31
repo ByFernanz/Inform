@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Skein rootNode="node-0x028F4398" xmlns="http://www.logicalshift.org.uk/IF/Skein">
+  <generator>Inform 7 for Windows</generator>
+  <activeNode nodeId="node-0x028F4328"/>
+  <item nodeId="node-0x028F4398">
+    <command xml:space="preserve">- start -</command>
+    <result xml:space="preserve"></result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">NO</temporary>
+    <children>
+      <child nodeId="node-0x028F4328"/>
+    </children>
+  </item>
+  <item nodeId="node-0x028F4328">
+    <command xml:space="preserve"> </command>
+    <result xml:space="preserve">Sala oscura (sobre la mecedora)&#x000A;Humilde, en sombras, distingues a ver una mesa cercana. Dos puertas abandonan la habitaci&#x00F3;n, una hacia el norte hasta la cocina y la puerta de madera de salida a la calle, junto a ella una ventana de una sola hoja.&#x000A;&#x000A;Sobre la mesa ves un cenicero (en el que ves unas cenizas), una bolsa de papel (cerrada), un libreto (en el que ves un lamina de papel), una vela apagada y un mechero.&#x000A;&#x000A;Un vaso de agua (al enemigo)&#x000A;Una versi&#x00F3;n por El Cl&#x00E9;rigo Urbatain&#x000A;Release 2 / Serial number 081026 / Inform 7 build 5U92 (I6/v6.31 lib 6/12N) SD&#x000A;&#x000A;Sala oscura (sobre la mecedora)&#x000A;Humilde, en sombras, distingues a ver una mesa cercana. Dos puertas abandonan la habitaci&#x00F3;n, una hacia el norte hasta la cocina y la puerta de madera de salida a la calle, junto a ella una ventana de una sola hoja.&#x000A;&#x000A;Sobre la mesa ves un cenicero (en el que ves unas cenizas), una bolsa de papel (cerrada), un libreto (en el que ves un lamina de papel), una vela apagada y un mechero.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x028F42B8"/>
+      <child nodeId="node-0x02926D20"/>
+      <child nodeId="node-0x02926E00"/>
+      <child nodeId="node-0x02926FC0"/>
+      <child nodeId="node-0x029253E8"/>
+    </children>
+  </item>
+  <item nodeId="node-0x028F42B8">
+    <command xml:space="preserve">abre bolsa</command>
+    <result xml:space="preserve">Debes salir de dentro de la mecedora.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x02926B60"/>
+    </children>
+  </item>
+  <item nodeId="node-0x02926B60">
+    <command xml:space="preserve">patea la bolsa</command>
+    <result xml:space="preserve">La violencia no es la soluci&#x00F3;n.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x02926BD0"/>
+    </children>
+  </item>
+  <item nodeId="node-0x02926BD0">
+    <command xml:space="preserve">i</command>
+    <result xml:space="preserve">Llevas:&#x000A;  un cigarro&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x02926C40"/>
+    </children>
+  </item>
+  <item nodeId="node-0x02926C40">
+    <command xml:space="preserve">examinar cigarro</command>
+    <result xml:space="preserve">Un cigarro liado a medio fumar.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x02926CB0"/>
+    </children>
+  </item>
+  <item nodeId="node-0x02926CB0">
+    <command xml:space="preserve">examinarme</command>
+    <result xml:space="preserve">Eres Jos&#x00E9; Gonz&#x00E1;lez Aled.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+  </item>
+  <item nodeId="node-0x02926D20">
+    <command xml:space="preserve">examina boligrafo</command>
+    <result xml:space="preserve">No veo eso que dices.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x02926D90"/>
+    </children>
+  </item>
+  <item nodeId="node-0x02926D90">
+    <command xml:space="preserve">examina bol&#x00ED;grafo</command>
+    <result xml:space="preserve">No observas nada especial en el bol&#x00ED;grafo.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+  </item>
+  <item nodeId="node-0x02926E00">
+    <command xml:space="preserve">salidas</command>
+    <result xml:space="preserve">No conozco ese verbo.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x02926E70"/>
+    </children>
+  </item>
+  <item nodeId="node-0x02926E70">
+    <command xml:space="preserve">x</command>
+    <result xml:space="preserve">(el cigarro)&#x000A;Un cigarro liado a medio fumar.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x02926EE0"/>
+    </children>
+  </item>
+  <item nodeId="node-0x02926EE0">
+    <command xml:space="preserve">n</command>
+    <result xml:space="preserve">Tienes que bajarte de la mecedora antes.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+  </item>
+  <item nodeId="node-0x02926FC0">
+    <command xml:space="preserve">s</command>
+    <result xml:space="preserve">Tienes que bajarte de la mecedora antes.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x029270A0"/>
+    </children>
+  </item>
+  <item nodeId="node-0x029270A0">
+    <command xml:space="preserve">e</command>
+    <result xml:space="preserve">Tienes que bajarte de la mecedora antes.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x02927180"/>
+    </children>
+  </item>
+  <item nodeId="node-0x02927180">
+    <command xml:space="preserve">examina puerta</command>
+    <result xml:space="preserve">No observas nada especial en la puerta.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x02927260"/>
+    </children>
+  </item>
+  <item nodeId="node-0x02927260">
+    <command xml:space="preserve">sal</command>
+    <result xml:space="preserve">Bajas de la mecedora.&#x000A;&#x000A;Sala oscura&#x000A;Humilde, en sombras, distingues a ver una mesita. Dos puertas abandonan la habitaci&#x00F3;n, una hacia el norte hasta la cocina y la puerta de madera de salida a la calle, junto a ella una ventana de una sola hoja.&#x000A;&#x000A;Puedes ver una puerta y una mesa (sobre la que ves un cenicero (en el que ves unas cenizas), una bolsa de papel (cerrada), una vela y un mechero).&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x02924F88"/>
+    </children>
+  </item>
+  <item nodeId="node-0x02924F88">
+    <command xml:space="preserve">examinar puerta</command>
+    <result xml:space="preserve">No observas nada especial en la puerta.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x02925068"/>
+    </children>
+  </item>
+  <item nodeId="node-0x02925068">
+    <command xml:space="preserve">examina puerta</command>
+    <result xml:space="preserve">No observas nada especial en la puerta.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x02925148"/>
+    </children>
+  </item>
+  <item nodeId="node-0x02925148">
+    <command xml:space="preserve">e</command>
+    <result xml:space="preserve">No puedes pasar a trav&#x00E9;s de la puerta.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x02925228"/>
+    </children>
+  </item>
+  <item nodeId="node-0x02925228">
+    <command xml:space="preserve">s</command>
+    <result xml:space="preserve">No puedes ir por ah&#x00ED;.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x02925298"/>
+    </children>
+  </item>
+  <item nodeId="node-0x02925298">
+    <command xml:space="preserve">e</command>
+    <result xml:space="preserve">No puedes pasar a trav&#x00E9;s de la puerta.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x02925378"/>
+    </children>
+  </item>
+  <item nodeId="node-0x02925378">
+    <command xml:space="preserve">n</command>
+    <result xml:space="preserve">No puedes ir por ah&#x00ED;.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+  </item>
+  <item nodeId="node-0x029253E8">
+    <command xml:space="preserve">i</command>
+    <result xml:space="preserve">Llevas:&#x000A;  un cigarro&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x02925458"/>
+    </children>
+  </item>
+  <item nodeId="node-0x02925458">
+    <command xml:space="preserve">examinar cigarro</command>
+    <result xml:space="preserve">Un cigarro liado a medio fumar.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+  </item>
+</Skein>

@@ -1,0 +1,1151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Extension</title>
+    <style type="text/css">
+        <!--
+        /* The default font (family) and size */
+
+        body, p, td {
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.8rem; /* 100/125 */
+        }
+
+        /* For fixed-point material within text, such as the typing on the Library Card index page */
+
+        span.typewritten {
+        	font-family: monospace;
+        	font-size: 0.867rem; /* 13/12 * 100/125 */
+        }
+
+        /* For less important material: the small print */
+
+        span.smaller {
+        	font-size: 80%;
+        }
+
+        /* The "heading panel" is the coloured box, high up on the page. The colours
+        vary depending on the page: for example, the style on a report of a translation
+        with no problems is "headingpanelsucceeded", usually green, but if there were
+        problems then "headingpanelfailed" is used, which is usually red. "headingpanel"
+        itself is a more neutral grey by default. "headingpanelDark" is an alternative
+        look to make the extensions index pages have some visual contrast with the others;
+        by default they are a darker grey. */
+
+        .headingpanel {
+        	background: #eeeeee;
+        }
+        .headingpanelsucceeded {
+        	background: #E6FFE6;
+        }
+        .headingpanelfailed {
+        	background: #f69Ca6;
+        }
+        .headingpanelalt {
+        	background: #808080;
+        }
+
+        /* Heading panels have two lines of text: an upper one in a larger size, and a
+        lower one in a smaller. Again, the alt versions are meant to contrast.
+
+        	Report on Translation: Succeeded                <-- headingpaneltext
+        	Produced by Inform 10.1.0 (build 6U97)          <-- headingpanelrubric
+
+        	Installed Extensions                            <-- headingpaneltextalt
+        	Bundles of extra rules or phrases to...         <-- headingpanelrubricalt
+
+        */
+
+        span.headingpaneltext {
+        	color: #222222;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+        span.headingpaneltextalt {
+        	color: #ffffff;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        span.headingpanelrubric {
+        	color: #222222;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.733rem; /* 11/12 * 100/125 */
+        	font-weight: bold;
+        }
+        span.headingpanelrubricalt {
+        	color: #ffffff;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.733rem; /* 11/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* Horizontal rule styling */
+
+        div.hr {
+        	border: 0;
+        	width: 100%;
+        	color: #707070;
+        	background-color: #707070;
+        	height: 5px;
+        }
+
+        /* This styles the (usually white) text of the example numbers written inside
+        oval blobs in the extension documentation, which mimic the look of the in-app
+        documentation. */
+
+        .oval, .oval td {
+        	background-image:url('inform:/doc_images/ovoid.png');
+        	color:white;
+        }
+
+        /* Styling used in the extension documentation indexes: */
+
+        /* Used for extension names in the extensions pane of the app */
+
+        span.extensioncensusentry {
+        	color: #ffffff;
+        }
+
+        span.extensionindexentry {
+        	color: #404040;
+        }
+
+        span.extensionindexerror {
+        	color: #ff8080;
+        }
+
+        /* This is used in extension documentation, where an example is presented
+        in a slightly tinted box: */
+
+        table.extensionexample {
+        	background-color: #f0f0f0;
+        }
+
+        span.extensionexampleletter {
+        	color: #202020;
+        	font-size: 14px;
+        	font-weight: bold;
+        }
+
+        /* Seen in problem messages: */
+
+        span.problemred {
+        	color: #800000;
+        }
+
+        span.problemgreen {
+        	color: #008000;
+        }
+
+        span.phraseword {
+        	color: #808080;
+        }
+
+        span.phrasetokentext {
+        	color: #e00060;
+        }
+
+        span.phrasetokendesctext {
+        	color: #4040ff;
+        }
+
+        span.phrasetokenvaluetext {
+        	color: #ff4040;
+        }
+
+        /* Now we move on to styling used in the Index pages only: */
+
+        /* The periodic table display has "sidebars", usually grey and taller than they
+        are wide; they contain no text. */
+
+        div.periodictablesidebarcolour {
+        	background: #888;
+        }
+        div.periodictablesidebar:hover {
+        	background: #222;
+        }
+
+        /* The text of the element-abbreviation, such as "Lx" or "Ph", uses: */
+
+        span.elementtext {
+        	color: #ffffff;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* Similarly for the "atomic number" - a single digit - in the top left corner
+        of these boxes: */
+
+        span.elementnumbertext {
+        	color: #ffffff;
+        	font-size: 0.622rem; /* 7/12 * 96/72 * 100/125 */
+        }
+
+        /* For the text of the element title, to the right of the element box: */
+
+        span.elementtitletext {
+        	color: #ffffff;
+        	font-size: 0.6rem; /* 9/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* The banner at the top of each element: */
+
+        table.elementbanner {
+        	background: #eeeeee;
+        }
+
+        /* For the typewriting on the Library Card: */
+
+        span.librarycardtitle {
+        	color: #803030;
+        }
+
+        span.librarycardother {
+        	color: #303030;
+        }
+
+        /* Generically used for "more details" boxes in the index: */
+
+        table.indexmorebox {
+        	background-color: #e0e0e0;
+            border-radius: 8px;
+        }
+
+        /* But not for activity contents: */
+
+        table.indexactivitycontents {
+        	background-color: #e8e0c0;
+            border-radius: 8px;
+        }
+
+        /* For responses in index entries about rules: */
+
+        span.indexresponseletter {
+        	color: #ffffff;
+        	font-family: 'Courier New', Courier, monospace;
+        	background-color: #8080ff;
+        }
+
+        span.indexresponsetext {
+        	color: #000066;
+        }
+
+        /* Used ubiquitously throughout the index and extension documentation: */
+
+        span.indexblack {
+        	color: #000000;
+        }
+
+        span.indexgrey {
+        	color: #808080;
+        }
+
+        span.indexdarkgrey {
+            color: #505050;
+        }
+
+        span.indexdullred {
+        	color: #800000;
+        }
+
+        span.indexdullgreen {
+        	color: #008000;
+        }
+
+        span.indexdullblue {
+        	color: #000080;
+        }
+
+        /* Used for the room squares in the World map in the Index (which is currently
+        a table with one row of one column) */
+
+        table.indexmaproom {
+        	border-color: #000000;
+        }
+
+        /* Used in the numbering of levels of the World map in the Index */
+
+        span.indexmaplevelnumbers {
+        	color: #c0c0c0;
+        }
+
+        /* Used e.g. for title rows in the Chart of basic kinds in the Index */
+
+        tr.headingrow {
+        	background-color: #e0e0e0;
+        }
+
+        /* Standard rows have black text on striped background colours, these being
+        the usual ones seen in Mac OS X applications such as iTunes. */
+
+        tr.stripeone {
+        	background-color: #ffffff;
+        }
+
+        tr.stripetwo {
+        	background-color: #f3f6fa;
+        }
+
+        tr.tintedrow {
+        	background-color: #808080;
+        }
+
+        /* In the Figures index, this is the background colour used behind images
+        (though in fact it will only be visible if the image fails to load, or uses
+        transparency): */
+
+        div.figureindexbox {
+        	background-color: #6495ed;
+        }
+
+        /* To get the book-contents-page style leaders on the Contents element of
+           the index to work, these must use the background colour of the body of
+           the page, whatever that is: */
+
+        ul.leaders li.leaded span:first-child {
+        	background: white;
+        }
+        ul.leaders li.leaded span + span {
+        	background: white;
+        }
+
+        /* On Registry index pages (such as the Public Library), these are used for
+        download buttons and the like: */
+
+        span.registrybuttontext {
+        	font-size: 11px;
+        	border-color: #000000;
+        }
+
+        span.registryminibuttontext {
+        	font-size: 10px;
+        	border-color: #000000;
+        }
+
+        span.registrybuttonuninstalled {
+        	color: #000000;
+        	background: #ffffdd;
+        }
+
+        span.registrybuttoninstalled {
+        	color: #000000;
+        	background: #ffffff;
+        	pointer-events: none;
+        }
+
+        span.registrybuttonbuiltin {
+        	color: #888888;
+        	background: #ffffff;
+        	pointer-events: none;
+        }
+
+        span.registrybuttonupdate {
+        	color: #000000;
+        	background: #aaddff;
+        }
+
+        span.registrybuttonrevert {
+        	color: #000000;
+        	background: #ddaaff;
+        }
+
+        span.registrybuttonrevealer {
+        	color: #ffffff;
+        	background: #444444;
+        }
+
+        /* Registry index section headings: */
+
+        span.registrysectionname {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 16px;
+        	line-height: 18px;
+        }
+        span.registrysubsectionname {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 14px;
+        	line-height: 16px;
+        }
+
+        /* These are for the "mark" for a section, usually a section-symbol and number */
+
+        span.registrysectionmark {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 16px;
+        	line-height: 18px;
+        	color: #666;
+        }
+        span.registrysubsectionmark {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 14px;
+        	line-height: 16px;
+        	color: #666;
+        }
+
+        /* Text of an item listed in a registry: */
+
+        span.registryitemtext {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 12px;
+        	line-height: 16px;
+        }
+
+        /* And how the links in a registry index page behave: */
+
+        a.registrysilentlink {
+        	text-decoration: none;
+        	color: #000;
+        }
+        a.registrybuttonlink {
+        	text-decoration: none;
+        }
+        a.registrycontentslink:link {
+        	text-decoration: none;
+        	color: #202020;
+        }
+        a.registrycontentslink:visited {
+        	text-decoration: none;
+        	color: #202020;
+        }
+        a.registrycontentslink:hover {
+        	text-decoration: none;
+        	color: #D00000;
+        }
+        a.registrycontentslink:active {
+        	text-decoration: none;
+        	color: #D00000;
+        }
+
+        -->
+    </style>
+    <style type="text/css">
+        <!--
+        /* (1) General layout material */
+
+        *, *:before, *:after {
+        	-moz-box-sizing: border-box;
+        	-webkit-box-sizing: border-box;
+        	box-sizing: border-box;
+        }
+        .headingpanellayout {
+        	position: relative;
+        	height: 56px;
+        	padding: 0px;
+        	white-space:nowrap;
+        }
+        .headingpanellayoutdeeper {
+        	position: relative;
+        	height: 117px;
+        	padding: 0px;
+        	white-space:nowrap;
+        }
+        .headingtext {
+        	position: absolute;
+        	top: -4px;
+        	left: -1px;
+        	width: 100%;
+        	padding: 14px 10px 0px 10px;
+        }
+        .headingrubric {
+        	position: absolute;
+        	top: 36px;
+        	width: 100%;
+        	padding: 0px 10px 0px 10px;
+        }
+        h3.tighter {
+        	margin-top: 0px;
+        }
+        p.hang {
+        	padding-left: 25px;
+        	text-indent: -25px;
+        	margin-top: 0px;
+        	margin-bottom: 0px;
+        }
+        p.in1 {
+        	padding-left: 0px;
+        }
+        p.tightin1 {
+        	padding-left: 0px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin1 {
+        	padding-left: 0px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin1 {
+        	padding-left: 50px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in2 {
+        	padding-left: 25px;
+        }
+        p.tightin2 {
+        	padding-left: 25px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin2 {
+        	padding-left: 25px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin2 {
+        	padding-left: 75px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in3 {
+        	padding-left: 50px;
+        }
+        p.tightin3 {
+        	padding-left: 50px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin3 {
+        	padding-left: 50px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin3 {
+        	padding-left: 100px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in4 {
+        	padding-left: 75px;
+        }
+        p.tightin4 {
+        	padding-left: 75px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin4 {
+        	padding-left: 75px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin4 {
+        	padding-left: 125px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in5 {
+        	padding-left: 100px;
+        }
+        p.tightin5 {
+        	padding-left: 100px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin5 {
+        	padding-left: 100px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin5 {
+        	padding-left: 150px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in6 {
+        	padding-left: 125px;
+        }
+        p.tightin6 {
+        	padding-left: 125px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin6 {
+        	padding-left: 125px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin6 {
+        	padding-left: 175px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in7 {
+        	padding-left: 150px;
+        }
+        p.tightin7 {
+        	padding-left: 150px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin7 {
+        	padding-left: 150px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin7 {
+        	padding-left: 200px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in8 {
+        	padding-left: 175px;
+        }
+        p.tightin8 {
+        	padding-left: 175px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin8 {
+        	padding-left: 175px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin8 {
+        	padding-left: 225px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in9 {
+        	padding-left: 200px;
+        }
+        p.tightin9 {
+        	padding-left: 200px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin9 {
+        	padding-left: 200px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin9 {
+        	padding-left: 250px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+
+        /* (2) Index page layout material */
+
+        /* The periodic table display has "sidebars", usually grey and taller than they
+        are wide; they contain no text. */
+
+        div.periodictablesidebar {
+        	height: 56px;
+        	width: 16px;
+        }
+        .periodictablesidebar a:link { text-decoration: none; }
+        .periodictablesidebar a:visited { text-decoration: none; }
+        .periodictablesidebar a:active { text-decoration: none; }
+
+        /* The "element boxes" are the cells appearing in the periodic-table display
+        on the welcome page of the index: */
+
+        .elementbox {
+        	position: relative;
+        	height: 56px;
+        	width: 56px;
+        	padding: 0px;
+        }
+
+        .elementbox a:link { text-decoration: none; }
+        .elementbox a:visited { text-decoration: none; }
+        .elementbox a:active { text-decoration: none; }
+        .elementbox a:hover { text-decoration: none; }
+        .elementbox:hover {
+        	opacity: 0.6;
+        }
+
+        /* The "small element boxes" look like those, but are smaller, and used on
+        the headings of the content which those original boxes link to: */
+
+        .smallelementbox {
+        	position: relative;
+        	height: 40px;
+        	width: 40px;
+        	padding: 0px;
+        }
+
+        .smallelementbox a:link { text-decoration: none; }
+        .smallelementbox a:visited { text-decoration: none; }
+        .smallelementbox a:active { text-decoration: none; }
+        .smallelementbox a:hover { text-decoration: none; }
+        .smallelementbox:hover {
+        	opacity: 0.6;
+        }
+
+        /* This is a class for the links formed by the element boxes: */
+
+        a.elementlink {
+        	position: absolute;
+        	top: -4px;
+        	left: -1px;
+        	width: 100%;
+        	padding: 14px 0px 14px 1px;
+        	text-align: center;
+        }
+
+        /* Similarly for the "atomic number" - a single digit - in the top left corner
+        of these boxes: */
+
+        div.elementnumber {
+        	position: absolute;
+        	top: 1px;
+        	left: 3px;
+        	text-align: left;
+        }
+
+        /* For the text of the element title, to the right of the element box: */
+
+        div.elementtitle {
+        	position: absolute;
+        	top: 35px;
+        	width: 100%;
+        	text-align: center;
+        }
+
+        /* Used for the book-contents-page style leaders on the Contents element of
+           the index: */
+
+        ul.leaders {
+        	padding: 0;
+        	margin-top: 1px;
+        	margin-bottom: 0;
+        	overflow-x: hidden;
+        	list-style: none}
+        ul.leaders li.leaded:before {
+        	float: left;
+        	width: 0;
+        	white-space: nowrap;
+        	content:
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "}
+        ul.leaders li.leaded span:first-child {
+        	padding-right: 0.33em;
+        }
+        ul.leaders li.leaded span + span {
+        	float: right;
+        	padding-left: 0.33em;
+        }
+        li.indent1 span:first-child {
+        	padding-left: 25px;
+        }
+        li.indent2 span:first-child {
+        	padding-left: 50px;
+        }
+        li.indent3 span:first-child {
+        	padding-left: 75px;
+        }
+        li.indent4 span:first-child {
+        	padding-left: 100px;
+        }
+        li.indent5 span:first-child {
+        	padding-left: 125px;
+        }
+        li.indent6 span:first-child {
+        	padding-left: 150px;
+        }
+        li.indent7 span:first-child {
+        	padding-left: 175px;
+        }
+        li.indent8 span:first-child {
+        	padding-left: 200px;
+        }
+        li.indent9 span:first-child {
+        	padding-left: 225px;
+        }
+
+        li.unleaded:before {
+        	content: "";
+        }
+
+        /* On Registry index pages (such as the Public Library), these are used for
+        download buttons and the like: */
+
+        span.registrybuttons {
+        	height: 20px;
+        	padding: 2px 8px 2px 8px;
+        	margin: 2px;
+        	border:1px solid;
+        	border-radius: 5px;
+        }
+
+        span.registryminibuttons {
+        	height: 14px;
+        	padding: 2px 5px 2px 5px;
+        	margin: 2px;
+        	border:1px solid;
+        	border-radius: 4px;
+        }
+
+        /* Used to hide or display sections in the Registry pages: */
+
+        div.registrysectionitemsopen {
+        	display: block;
+        }
+
+        div.registrysectionitemsclosed {
+        	display: none;
+        }
+
+        /* Hanging indentation for Registry item paragraphs: */
+
+        p.registryitem {
+        	padding-left: 80px;
+        	text-indent: -40px;
+        }
+
+        p.registryaddition {
+        	padding-left: 40px;
+        	text-indent: -40px;
+        }
+
+        -->
+    </style>
+    <script type="text/javascript">
+        function project() {
+            return window.Project;
+        }
+        function showExtra(id, imid) {
+        	if (document.getElementById(id).style.display == 'block') {
+        		document.getElementById(id).style.display = 'none';
+        		document.getElementById(imid).src = 'inform:/extra.png';
+        	} else {
+        		document.getElementById(id).style.display = 'block';
+        		document.getElementById(imid).src = 'inform:/extraclose.png';
+        	}
+        }
+        function openExtra(id, imid) {
+        	document.getElementById(id).style.display = 'block';
+        	document.getElementById(imid).src = 'inform:/extraclose.png';
+        }
+        function closeExtra(id, imid) {
+        	document.getElementById(id).style.display = 'none';
+        	document.getElementById(imid).src = 'inform:/extra.png';
+        }
+        function pasteCode(code) {
+            var myProject = project();
+
+            myProject.selectView('source');
+            myProject.pasteCode(code);
+        }
+
+    </script>
+</head>
+<body>
+    <!--CONTENT BEGINS-->
+    <table CELLPADDING=0 CELLSPACING=0 width="100%" bgcolor="#000000"><tr><TD width=38px height=26px align="center" valign="center"><a href="inform://Extensions/Extensions.html" border=0><img border=0 src="inform:/doc_images/Hookindex.png" border=0></a></td><TD width=38px height=26px align="center" valign="center"></td><td halign="left" valign="center" CELLPADDING=0 CELLSPACING=0><font color="#FFFFFF" size=2>Extensions</font></a></td><TD width=56px height=26px align="right" valign="center"><a href="inform:/index.html" border=0><img border=0 src="inform:/doc_images/Hookup.png" border=0></a></td></tr></table>
+
+    <p><a href="javascript:pasteCode('Include Checkpoints by Peter Orme.[=0x000A=][=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a>&nbsp;<b>Checkpoints<span class="extensionindexentry"> by </span>Peter Orme</b></p>
+    <p><span class="smaller">Version 1.0.150130</span></p>
+    <p>A method of using assertions stored in a table to verify your game works as expected.</p>
+    <p></p>
+    <hr>
+    <p><span class="indexblack"><b><a style="text-decoration: none" href=#docsec1>Chapter 1: </a></b></span>The idea<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec2>Chapter 2: </a></b></span>Using the Table of Checkpoints<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec3>Chapter 3: </a></b></span>running assertions<br>
+    <br>
+    <b>Examples</b><br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href="Checkpoints-eg1.html#eg1">A &mdash; Bring your own ball</a></span><br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href="Checkpoints-eg2.html#eg2">B &mdash; How to Fix an Airlock</a></span><br>
+    </p>
+    <hr>
+    <p></p>
+    </p>
+
+    <p><p><span class="indexdullred"><b><span id=docsec1>Chapter 1: The idea</span></b></span></p>
+    </p>
+
+    <p> One idea is that we want to write a &quot;test me&quot; script for our story, but also have that test script actually perform 'unit testing'-type assertions along the way.</p>
+
+    <p> Another idea is to have known &quot;checkpoints&quot; in our story that you can get to, and you want to test that the state of the world is as you think it is at these points.</p>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec2>Chapter 2: Using the Table of Checkpoints</span></b></span></p>
+    </p>
+
+    <p> To write assertions, you create a table called Table of Checkpoints (continued) which has exactly three columns: &quot;topic&quot;, &quot;assertion&quot; and &quot;message&quot;.</p>
+
+    <p> The first column, &quot;topic&quot;, is a topic column. The easiest thing here is just to type in a single keyword in quotes. Consult section 16.13 in the documentation to read up on more fun you can do with topic columns. You can have the same value in multiple rows of your column, and use these as a way to group test.</p>
+
+    <p> The second columnt, &quot;assertion&quot;, is a little special. It contains a double-quoted string that should be empty for the assertion to succeed. Just typing in an empty string (just two quotes) will work, but it's not really testing anything, is it. So what we typically do is use bracketed expressions like &quot;[if the ball is red]fail[end if]&quot;</p>
+
+    <p> It does not need to say &quot;fail&quot; on failure, it can say anything.</p>
+
+    <p> The third column, &quot;message&quot;, is just any text that will be shown on failure.</p>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec3>Chapter 3: running assertions</span></b></span></p>
+    </p>
+
+    <p> To trigger running all the assertions that match the topic column while playing a game, type in &quot;checkpoint assert xxx&quot; where xxx matches the topic. See example A.</p>
+
+    <p> If we must, we can also make in-world games that trigger assertions using something like this:</p>
+
+    <p> The button is a thing in the football field.</p>
+
+    <p> instead of pushing the button:<blockquote><span class="indexdullblue"> try checkpoint-asserting &quot;baller&quot;.</span></blockquote>
+
+    <p><hr>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td halign="left" valign="top" cellpadding=0 cellspacing=0 width=38px>
+                <span id=eg1><table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="oval">
+                        <td width=38px height=30px align="left" valign="center">
+                            <a href="Checkpoints-eg1.html#eg1" style="text-decoration: none"><div class="paragraph Body" style="line-height: 1px; margin-bottom: 0px; margin-top: 0px; padding-bottom: 0pt; padding-top: 0px; text-align: center;">
+                                <span class="extensionexampleletter">A</span></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                </span>
+            </td>
+            <td cellpadding=0 cellspacing=0 halign="left" valign="top">
+                <a href="Checkpoints-eg1.html#eg1" style="text-decoration: none"><img border="0" src='inform:/doc_images/asterisk.png'><b><span class="indexdarkgrey">&nbsp;Example&nbsp;</span><span class="indexblack">Bring your own ball</span></b></a><br>
+                <p>Using checkpoints assertion in a test script.</p>
+
+            </td>
+        </tr>
+    </table>
+    </p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p><hr>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td halign="left" valign="top" cellpadding=0 cellspacing=0 width=38px>
+                <span id=eg2><table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="oval">
+                        <td width=38px height=30px align="left" valign="center">
+                            <a href="Checkpoints.html#eg2" style="text-decoration: none"><div class="paragraph Body" style="line-height: 1px; margin-bottom: 0px; margin-top: 0px; padding-bottom: 0pt; padding-top: 0px; text-align: center;">
+                                <span class="extensionexampleletter">B</span></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                </span>
+            </td>
+            <td cellpadding=0 cellspacing=0 halign="left" valign="top">
+                <a href="Checkpoints.html#eg2" style="text-decoration: none"><img border="0" src='inform:/doc_images/asterisk.png'><img border="0" src='inform:/doc_images/asterisk.png'><b><span class="indexdarkgrey">&nbsp;Example&nbsp;</span><span class="indexblack">How to Fix an Airlock</span></b></a><br>
+                <p>Using both checkpoint assertions and a checkpoint script</p>
+
+            </td>
+        </tr>
+    </table>
+    <table border="0" cellspacing="0" cellpadding="0" class="extensionexample" width=100%>
+        <tr>
+            <td align="left" valign="top">
+                <p></p>
+
+                <p> In this example we have a very silly puzzle indeed. We have a person in a spacesuit, and he or she needs to get inside an airlock. To get inside, the solution is just to identify the part that's acting up, and hit it. Then we can close the outer door, open the inner door, walk inside, and take off the space suit.</p>
+
+                <p> We can thing of this as a &quot;checkpoint&quot;. While we're developing a game, this etensions let's us do two things: assert that the world state is as it should be, and provide a framework for writing rules that set the game state to some defined state.</p>
+
+                <p> So in this case we make up a &quot;checkpoint&quot; and call it &quot;airlock&quot;. Typing in &quot;checkpoint assert airlock&quot; (or just &quot;cpa airlock&quot; for short will run the assertions in the Table of Checkpoints). If everything is as it should be (the spring is fixed, the door is closed, the player is inside, and the space suit is removed) everything checks out and we get a friendly &quot;Assertions OK&quot; message. If any of these things are wrong, the command will tell us. This is a contrived example, but in a larger game keeping track of the state of affairs is perhaps not so obvious.</p>
+
+                <p> The other thing is that maybe we just want to fast-forward to a good &quot;checkpoint&quot; and continue the game from there. Here we create a rule for this, just out of the blue, just declare it: &quot;this is the checkpoint airlock rule&quot;. Remember to put that into the Table of Checkpoint scripts, and then you can just type in &quot;checkpoint go airlock&quot; (or &quot;cpg airlock&quot; for short) to execute the fast-forward script. Sure you can do this with regular &quot;test&quot; scripts, but then you can only enter a list of player commands, in a rule like this you can do anything you can do from Inform code.</p>
+
+                <p><blockquote><span class="indexdullblue"><a href="javascript:pasteCode('[=0x0022=]How to Fix an Airlock[=0x0022=][=0x000A=][=0x000A=]Include Checkpoints by Peter Orme[=0x000A=][=0x000A=]Chapter - Example airlock[=0x000A=][=0x000A=]Section - World[=0x000A=][=0x000A=]Planetside is a room. [=0x0022=]Nothing but bare rock under a darkening sky.[first time] You[=0x0027=]d better get inside before dark falls. It gets cold on this planet. Colder than your what suit can protect you from.[only][=0x0022=].[=0x000A=][=0x000A=]The player is wearing a space suit. The description of the space suit is [=0x0022=]It[=0x0027=]s just like any other space suit you[=0x0027=]ve worn.[=0x0022=]. Understand [=0x0022=]spacesuit[=0x0022=] as the space suit.[=0x000A=][=0x000A=]check taking off the space suit:[=0x000A=][=0x0009=]unless the air is breathable:[=0x000A=][=0x0009=][=0x0009=]say [=0x0022=]Not until you[=0x0027=]re safely inside.[=0x0022=];[=0x000A=][=0x0009=][=0x0009=]stop the action.[=0x000A=][=0x000A=]To decide whether the air is breathable:[=0x000A=][=0x0009=]if the player is in Planetside, no;[=0x000A=][=0x0009=]if the player is in the Airlock and the outer door is open, no;[=0x000A=][=0x0009=]yes;[=0x000A=][=0x000A=]Airlock is a room.[=0x000A=][=0x000A=]The outer door is a door. It is inside from Planetside and outside from Airlock. The description is [=0x0022=]The outer door is solid and sturdy, made to isolate from cold and wind. You pull the door down to close it. There[=0x0027=]s a large spring that makes sure it opens and closes automatically as it should. The door is currently [if the outer door is open]open[otherwise]closed[end if].[=0x0022=];[=0x000A=][=0x000A=]The spring is a fixed in place thing in the airlock. It is scenery. The spring can be fixed. The description of the spring is [=0x0022=]It[=0x0027=]s a large and slightly rusty spring, clearly not part of the original design of the door, but something somebody added as a quick fix.[if the spring is fixed] It looks straighter now that you gave it a whack.[otherwise] It looks a bit crooked. Nothing a good blow won[=0x0027=]t fix.[end if][=0x0022=];[=0x000A=][=0x000A=]instead of pulling the outer door: try closing the noun.[=0x000A=]instead of pushing the outer door: try opening the noun.[=0x000A=][=0x000A=]instead of attacking the fixed spring:[=0x000A=][=0x0009=]say [=0x0022=]You[=0x0027=]ve already done that.[=0x0022=];[=0x000A=][=0x000A=]instead of attacking the spring:[=0x000A=][=0x0009=]say [=0x0022=]You give the spring a good blow.[=0x0022=];[=0x000A=][=0x0009=]now the spring is fixed.[=0x000A=][=0x000A=]after going inside from Planetside:[=0x000A=][=0x0009=]unless the spring is fixed:[=0x000A=][=0x0009=][=0x0009=]say [=0x0022=]The outer door closes automatically behind you with a hiss. And then it opens again. That[=0x0027=]s not supposed to happen![=0x0022=];[=0x000A=][=0x0009=]otherwise:[=0x000A=][=0x0009=][=0x0009=]say [=0x0022=]The door closes behind you, as it should.[=0x0022=];[=0x000A=][=0x0009=][=0x0009=]now the outer door is closed.[=0x000A=][=0x000A=]The inner door is a door. It is inside from Airlock and outside from Decontamination Zone.[=0x000A=][=0x000A=]check opening the inner door:[=0x000A=][=0x0009=]if the outer door is open:[=0x000A=][=0x0009=][=0x0009=]say [=0x0022=]You can[=0x0027=]t open the inner door while the outer door is open. That[=0x0027=]s how an airlock works, you know.[=0x0022=];[=0x000A=][=0x0009=][=0x0009=]stop the action;[=0x000A=][=0x000A=]after closing the outer door when the spring is not fixed:[=0x000A=][=0x0009=]say [=0x0022=]You pull the door down, but it just hisses and opens again. How annyoing![=0x0022=];[=0x000A=][=0x0009=]now the outer door is open.[=0x000A=][=0x000A=]Section - Checkpoints - Not for release[=0x000A=][=0x000A=]Table of checkpoints (continued)[=0x000A=]topic[=0x0009=]assertion[=0x0009=]message[=0x000A=][=0x0022=]airlock[=0x0022=][=0x0009=][=0x0022=][unless the outer door is closed]fail[end if][=0x0022=][=0x0009=][=0x0022=]The outer door should be closed[=0x0022=][=0x000A=][=0x0022=]airlock[=0x0022=][=0x0009=][=0x0022=][unless the player is in decontamination zone]fail[end if][=0x0022=][=0x0009=][=0x0022=]You should be in the decontamination zone[=0x0022=][=0x000A=][=0x0022=]airlock[=0x0022=][=0x0009=][=0x0022=][if the player is wearing the space suit]fail[end if][=0x0022=][=0x0009=][=0x0022=]You should have taken off the space suit[=0x0022=][=0x000A=][=0x0022=]airlock[=0x0022=][=0x0009=][=0x0022=][unless the spring is fixed]fail[end if][=0x0022=][=0x0009=][=0x0022=]You need to fix the spring[=0x0022=][=0x000A=][=0x000A=]test airlock with [=0x0022=]open outer / in / close outer / in / take off space suit / checkpoint assert airlock[=0x0022=].[=0x000A=][=0x000A=]test solution with [=0x0022=]hit spring / close outer / open inner / in / close inner / remove suit[=0x0022=].[=0x000A=][=0x000A=]test me with [=0x0022=]test airlock[=0x0022=].[=0x000A=][=0x000A=]Table of Checkpoint scripts (continued)[=0x000A=]topic[=0x0009=]name[=0x0009=]rule[=0x000A=][=0x0022=]airlock[=0x0022=][=0x0009=][=0x0022=]airlock[=0x0022=][=0x0009=]checkpoint airlock rule[=0x000A=][=0x000A=]this is the checkpoint airlock rule:[=0x000A=][=0x0009=]now the outer door is closed;[=0x000A=][=0x0009=]now the inner door is closed;[=0x000A=][=0x0009=]now the spring is fixed;[=0x000A=][=0x0009=]now the player is in the Decontamination zone;[=0x000A=][=0x0009=]now the player is carrying the space suit;[=0x000A=][=0x0009=]say [=0x0022=]You figured out that you need to hit the spring to fix the outer door. After that you just needed to close the outer door, open the inner door, walk inside and take off the space suit.[=0x0022=];[=0x000A=][=0x0009=]try checkpoint-asserting [=0x0022=]airlock[=0x0022=];[=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a> &quot;How to Fix an Airlock&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Include Checkpoints by Peter Orme</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Chapter - Example airlock</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Section - World</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Planetside is a room. &quot;Nothing but bare rock under a darkening sky.[first time] You'd better get inside before dark falls. It gets cold on this planet. Colder than your what suit can protect you from.[only]&quot;.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The player is wearing a space suit. The description of the space suit is &quot;It's just like any other space suit you've worn.&quot;. Understand &quot;spacesuit&quot; as the space suit.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> check taking off the space suit:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; unless the air is breathable:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say &quot;Not until you're safely inside.&quot;;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; stop the action.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> To decide whether the air is breathable:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; if the player is in Planetside, no;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; if the player is in the Airlock and the outer door is open, no;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; yes;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Airlock is a room.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The outer door is a door. It is inside from Planetside and outside from Airlock. The description is &quot;The outer door is solid and sturdy, made to isolate from cold and wind. You pull the door down to close it. There's a large spring that makes sure it opens and closes automatically as it should. The door is currently [if the outer door is open]open[otherwise]closed[end if].&quot;;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The spring is a fixed in place thing in the airlock. It is scenery. The spring can be fixed. The description of the spring is &quot;It's a large and slightly rusty spring, clearly not part of the original design of the door, but something somebody added as a quick fix.[if the spring is fixed] It looks straighter now that you gave it a whack.[otherwise] It looks a bit crooked. Nothing a good blow won't fix.[end if]&quot;;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> instead of pulling the outer door: try closing the noun.<br>
+                 instead of pushing the outer door: try opening the noun.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> instead of attacking the fixed spring:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; say &quot;You've already done that.&quot;;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> instead of attacking the spring:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; say &quot;You give the spring a good blow.&quot;;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; now the spring is fixed.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> after going inside from Planetside:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; unless the spring is fixed:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say &quot;The outer door closes automatically behind you with a hiss. And then it opens again. That's not supposed to happen!&quot;;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; otherwise:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say &quot;The door closes behind you, as it should.&quot;;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; now the outer door is closed.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The inner door is a door. It is inside from Airlock and outside from Decontamination Zone.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> check opening the inner door:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; if the outer door is open:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say &quot;You can't open the inner door while the outer door is open. That's how an airlock works, you know.&quot;;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; stop the action;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> after closing the outer door when the spring is not fixed:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; say &quot;You pull the door down, but it just hisses and opens again. How annyoing!&quot;;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; now the outer door is open.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Section - Checkpoints - Not for release</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Table of checkpoints (continued)</span><br>
+                <table border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> topic</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> assertion</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> message
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;airlock&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;[unless the outer door is closed]fail[end if]&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;The outer door should be closed&quot;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;airlock&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;[unless the player is in decontamination zone]fail[end if]&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;You should be in the decontamination zone&quot;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;airlock&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;[if the player is wearing the space suit]fail[end if]&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;You should have taken off the space suit&quot;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;airlock&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;[unless the spring is fixed]fail[end if]&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;You need to fix the spring&quot;</span>
+                        </td>
+                    </tr>
+                </table>
+                </blockquote>
+
+                <p><blockquote><span class="indexdullblue"> test airlock with &quot;open outer / in / close outer / in / take off space suit / checkpoint assert airlock&quot;.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> test solution with &quot;hit spring / close outer / open inner / in / close inner / remove suit&quot;.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> test me with &quot;test airlock&quot;.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Table of Checkpoint scripts (continued)</span><br>
+                <table border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> topic</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> name</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> rule
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;airlock&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;airlock&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> checkpoint airlock rule</span>
+                        </td>
+                    </tr>
+                </table>
+                </blockquote>
+
+                <p><blockquote><span class="indexdullblue"> this is the checkpoint airlock rule:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; now the outer door is closed;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; now the inner door is closed;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; now the spring is fixed;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; now the player is in the Decontamination zone;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; now the player is carrying the space suit;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; say &quot;You figured out that you need to hit the spring to fix the outer door. After that you just needed to close the outer door, open the inner door, walk inside and take off the space suit.&quot;;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; try checkpoint-asserting &quot;airlock&quot;;</span></blockquote>
+
+                <p></p>
+
+            </td>
+        </tr>
+    </table>
+    </p>
+
+    <p>
+    <!--CONTENT ENDS-->
+</body>
+</html>

@@ -1,0 +1,1798 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Extension</title>
+    <style type="text/css">
+        <!--
+        /* The default font (family) and size */
+
+        body, p, td {
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.8rem; /* 100/125 */
+        }
+
+        /* For fixed-point material within text, such as the typing on the Library Card index page */
+
+        span.typewritten {
+        	font-family: monospace;
+        	font-size: 0.867rem; /* 13/12 * 100/125 */
+        }
+
+        /* For less important material: the small print */
+
+        span.smaller {
+        	font-size: 80%;
+        }
+
+        /* The "heading panel" is the coloured box, high up on the page. The colours
+        vary depending on the page: for example, the style on a report of a translation
+        with no problems is "headingpanelsucceeded", usually green, but if there were
+        problems then "headingpanelfailed" is used, which is usually red. "headingpanel"
+        itself is a more neutral grey by default. "headingpanelDark" is an alternative
+        look to make the extensions index pages have some visual contrast with the others;
+        by default they are a darker grey. */
+
+        .headingpanel {
+        	background: #eeeeee;
+        }
+        .headingpanelsucceeded {
+        	background: #E6FFE6;
+        }
+        .headingpanelfailed {
+        	background: #f69Ca6;
+        }
+        .headingpanelalt {
+        	background: #808080;
+        }
+
+        /* Heading panels have two lines of text: an upper one in a larger size, and a
+        lower one in a smaller. Again, the alt versions are meant to contrast.
+
+        	Report on Translation: Succeeded                <-- headingpaneltext
+        	Produced by Inform 10.1.0 (build 6U97)          <-- headingpanelrubric
+
+        	Installed Extensions                            <-- headingpaneltextalt
+        	Bundles of extra rules or phrases to...         <-- headingpanelrubricalt
+
+        */
+
+        span.headingpaneltext {
+        	color: #222222;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+        span.headingpaneltextalt {
+        	color: #ffffff;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        span.headingpanelrubric {
+        	color: #222222;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.733rem; /* 11/12 * 100/125 */
+        	font-weight: bold;
+        }
+        span.headingpanelrubricalt {
+        	color: #ffffff;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.733rem; /* 11/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* Horizontal rule styling */
+
+        div.hr {
+        	border: 0;
+        	width: 100%;
+        	color: #707070;
+        	background-color: #707070;
+        	height: 5px;
+        }
+
+        /* This styles the (usually white) text of the example numbers written inside
+        oval blobs in the extension documentation, which mimic the look of the in-app
+        documentation. */
+
+        .oval, .oval td {
+        	background-image:url('inform:/doc_images/ovoid.png');
+        	color:white;
+        }
+
+        /* Styling used in the extension documentation indexes: */
+
+        /* Used for extension names in the extensions pane of the app */
+
+        span.extensioncensusentry {
+        	color: #ffffff;
+        }
+
+        span.extensionindexentry {
+        	color: #404040;
+        }
+
+        span.extensionindexerror {
+        	color: #ff8080;
+        }
+
+        /* This is used in extension documentation, where an example is presented
+        in a slightly tinted box: */
+
+        table.extensionexample {
+        	background-color: #f0f0f0;
+        }
+
+        span.extensionexampleletter {
+        	color: #202020;
+        	font-size: 14px;
+        	font-weight: bold;
+        }
+
+        /* Seen in problem messages: */
+
+        span.problemred {
+        	color: #800000;
+        }
+
+        span.problemgreen {
+        	color: #008000;
+        }
+
+        span.phraseword {
+        	color: #808080;
+        }
+
+        span.phrasetokentext {
+        	color: #e00060;
+        }
+
+        span.phrasetokendesctext {
+        	color: #4040ff;
+        }
+
+        span.phrasetokenvaluetext {
+        	color: #ff4040;
+        }
+
+        /* Now we move on to styling used in the Index pages only: */
+
+        /* The periodic table display has "sidebars", usually grey and taller than they
+        are wide; they contain no text. */
+
+        div.periodictablesidebarcolour {
+        	background: #888;
+        }
+        div.periodictablesidebar:hover {
+        	background: #222;
+        }
+
+        /* The text of the element-abbreviation, such as "Lx" or "Ph", uses: */
+
+        span.elementtext {
+        	color: #ffffff;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* Similarly for the "atomic number" - a single digit - in the top left corner
+        of these boxes: */
+
+        span.elementnumbertext {
+        	color: #ffffff;
+        	font-size: 0.622rem; /* 7/12 * 96/72 * 100/125 */
+        }
+
+        /* For the text of the element title, to the right of the element box: */
+
+        span.elementtitletext {
+        	color: #ffffff;
+        	font-size: 0.6rem; /* 9/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* The banner at the top of each element: */
+
+        table.elementbanner {
+        	background: #eeeeee;
+        }
+
+        /* For the typewriting on the Library Card: */
+
+        span.librarycardtitle {
+        	color: #803030;
+        }
+
+        span.librarycardother {
+        	color: #303030;
+        }
+
+        /* Generically used for "more details" boxes in the index: */
+
+        table.indexmorebox {
+        	background-color: #e0e0e0;
+            border-radius: 8px;
+        }
+
+        /* But not for activity contents: */
+
+        table.indexactivitycontents {
+        	background-color: #e8e0c0;
+            border-radius: 8px;
+        }
+
+        /* For responses in index entries about rules: */
+
+        span.indexresponseletter {
+        	color: #ffffff;
+        	font-family: 'Courier New', Courier, monospace;
+        	background-color: #8080ff;
+        }
+
+        span.indexresponsetext {
+        	color: #000066;
+        }
+
+        /* Used ubiquitously throughout the index and extension documentation: */
+
+        span.indexblack {
+        	color: #000000;
+        }
+
+        span.indexgrey {
+        	color: #808080;
+        }
+
+        span.indexdarkgrey {
+            color: #505050;
+        }
+
+        span.indexdullred {
+        	color: #800000;
+        }
+
+        span.indexdullgreen {
+        	color: #008000;
+        }
+
+        span.indexdullblue {
+        	color: #000080;
+        }
+
+        /* Used for the room squares in the World map in the Index (which is currently
+        a table with one row of one column) */
+
+        table.indexmaproom {
+        	border-color: #000000;
+        }
+
+        /* Used in the numbering of levels of the World map in the Index */
+
+        span.indexmaplevelnumbers {
+        	color: #c0c0c0;
+        }
+
+        /* Used e.g. for title rows in the Chart of basic kinds in the Index */
+
+        tr.headingrow {
+        	background-color: #e0e0e0;
+        }
+
+        /* Standard rows have black text on striped background colours, these being
+        the usual ones seen in Mac OS X applications such as iTunes. */
+
+        tr.stripeone {
+        	background-color: #ffffff;
+        }
+
+        tr.stripetwo {
+        	background-color: #f3f6fa;
+        }
+
+        tr.tintedrow {
+        	background-color: #808080;
+        }
+
+        /* In the Figures index, this is the background colour used behind images
+        (though in fact it will only be visible if the image fails to load, or uses
+        transparency): */
+
+        div.figureindexbox {
+        	background-color: #6495ed;
+        }
+
+        /* To get the book-contents-page style leaders on the Contents element of
+           the index to work, these must use the background colour of the body of
+           the page, whatever that is: */
+
+        ul.leaders li.leaded span:first-child {
+        	background: white;
+        }
+        ul.leaders li.leaded span + span {
+        	background: white;
+        }
+
+        /* On Registry index pages (such as the Public Library), these are used for
+        download buttons and the like: */
+
+        span.registrybuttontext {
+        	font-size: 11px;
+        	border-color: #000000;
+        }
+
+        span.registryminibuttontext {
+        	font-size: 10px;
+        	border-color: #000000;
+        }
+
+        span.registrybuttonuninstalled {
+        	color: #000000;
+        	background: #ffffdd;
+        }
+
+        span.registrybuttoninstalled {
+        	color: #000000;
+        	background: #ffffff;
+        	pointer-events: none;
+        }
+
+        span.registrybuttonbuiltin {
+        	color: #888888;
+        	background: #ffffff;
+        	pointer-events: none;
+        }
+
+        span.registrybuttonupdate {
+        	color: #000000;
+        	background: #aaddff;
+        }
+
+        span.registrybuttonrevert {
+        	color: #000000;
+        	background: #ddaaff;
+        }
+
+        span.registrybuttonrevealer {
+        	color: #ffffff;
+        	background: #444444;
+        }
+
+        /* Registry index section headings: */
+
+        span.registrysectionname {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 16px;
+        	line-height: 18px;
+        }
+        span.registrysubsectionname {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 14px;
+        	line-height: 16px;
+        }
+
+        /* These are for the "mark" for a section, usually a section-symbol and number */
+
+        span.registrysectionmark {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 16px;
+        	line-height: 18px;
+        	color: #666;
+        }
+        span.registrysubsectionmark {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 14px;
+        	line-height: 16px;
+        	color: #666;
+        }
+
+        /* Text of an item listed in a registry: */
+
+        span.registryitemtext {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 12px;
+        	line-height: 16px;
+        }
+
+        /* And how the links in a registry index page behave: */
+
+        a.registrysilentlink {
+        	text-decoration: none;
+        	color: #000;
+        }
+        a.registrybuttonlink {
+        	text-decoration: none;
+        }
+        a.registrycontentslink:link {
+        	text-decoration: none;
+        	color: #202020;
+        }
+        a.registrycontentslink:visited {
+        	text-decoration: none;
+        	color: #202020;
+        }
+        a.registrycontentslink:hover {
+        	text-decoration: none;
+        	color: #D00000;
+        }
+        a.registrycontentslink:active {
+        	text-decoration: none;
+        	color: #D00000;
+        }
+
+        -->
+    </style>
+    <style type="text/css">
+        <!--
+        /* (1) General layout material */
+
+        *, *:before, *:after {
+        	-moz-box-sizing: border-box;
+        	-webkit-box-sizing: border-box;
+        	box-sizing: border-box;
+        }
+        .headingpanellayout {
+        	position: relative;
+        	height: 56px;
+        	padding: 0px;
+        	white-space:nowrap;
+        }
+        .headingpanellayoutdeeper {
+        	position: relative;
+        	height: 117px;
+        	padding: 0px;
+        	white-space:nowrap;
+        }
+        .headingtext {
+        	position: absolute;
+        	top: -4px;
+        	left: -1px;
+        	width: 100%;
+        	padding: 14px 10px 0px 10px;
+        }
+        .headingrubric {
+        	position: absolute;
+        	top: 36px;
+        	width: 100%;
+        	padding: 0px 10px 0px 10px;
+        }
+        h3.tighter {
+        	margin-top: 0px;
+        }
+        p.hang {
+        	padding-left: 25px;
+        	text-indent: -25px;
+        	margin-top: 0px;
+        	margin-bottom: 0px;
+        }
+        p.in1 {
+        	padding-left: 0px;
+        }
+        p.tightin1 {
+        	padding-left: 0px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin1 {
+        	padding-left: 0px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin1 {
+        	padding-left: 50px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in2 {
+        	padding-left: 25px;
+        }
+        p.tightin2 {
+        	padding-left: 25px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin2 {
+        	padding-left: 25px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin2 {
+        	padding-left: 75px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in3 {
+        	padding-left: 50px;
+        }
+        p.tightin3 {
+        	padding-left: 50px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin3 {
+        	padding-left: 50px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin3 {
+        	padding-left: 100px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in4 {
+        	padding-left: 75px;
+        }
+        p.tightin4 {
+        	padding-left: 75px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin4 {
+        	padding-left: 75px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin4 {
+        	padding-left: 125px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in5 {
+        	padding-left: 100px;
+        }
+        p.tightin5 {
+        	padding-left: 100px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin5 {
+        	padding-left: 100px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin5 {
+        	padding-left: 150px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in6 {
+        	padding-left: 125px;
+        }
+        p.tightin6 {
+        	padding-left: 125px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin6 {
+        	padding-left: 125px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin6 {
+        	padding-left: 175px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in7 {
+        	padding-left: 150px;
+        }
+        p.tightin7 {
+        	padding-left: 150px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin7 {
+        	padding-left: 150px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin7 {
+        	padding-left: 200px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in8 {
+        	padding-left: 175px;
+        }
+        p.tightin8 {
+        	padding-left: 175px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin8 {
+        	padding-left: 175px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin8 {
+        	padding-left: 225px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in9 {
+        	padding-left: 200px;
+        }
+        p.tightin9 {
+        	padding-left: 200px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin9 {
+        	padding-left: 200px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin9 {
+        	padding-left: 250px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+
+        /* (2) Index page layout material */
+
+        /* The periodic table display has "sidebars", usually grey and taller than they
+        are wide; they contain no text. */
+
+        div.periodictablesidebar {
+        	height: 56px;
+        	width: 16px;
+        }
+        .periodictablesidebar a:link { text-decoration: none; }
+        .periodictablesidebar a:visited { text-decoration: none; }
+        .periodictablesidebar a:active { text-decoration: none; }
+
+        /* The "element boxes" are the cells appearing in the periodic-table display
+        on the welcome page of the index: */
+
+        .elementbox {
+        	position: relative;
+        	height: 56px;
+        	width: 56px;
+        	padding: 0px;
+        }
+
+        .elementbox a:link { text-decoration: none; }
+        .elementbox a:visited { text-decoration: none; }
+        .elementbox a:active { text-decoration: none; }
+        .elementbox a:hover { text-decoration: none; }
+        .elementbox:hover {
+        	opacity: 0.6;
+        }
+
+        /* The "small element boxes" look like those, but are smaller, and used on
+        the headings of the content which those original boxes link to: */
+
+        .smallelementbox {
+        	position: relative;
+        	height: 40px;
+        	width: 40px;
+        	padding: 0px;
+        }
+
+        .smallelementbox a:link { text-decoration: none; }
+        .smallelementbox a:visited { text-decoration: none; }
+        .smallelementbox a:active { text-decoration: none; }
+        .smallelementbox a:hover { text-decoration: none; }
+        .smallelementbox:hover {
+        	opacity: 0.6;
+        }
+
+        /* This is a class for the links formed by the element boxes: */
+
+        a.elementlink {
+        	position: absolute;
+        	top: -4px;
+        	left: -1px;
+        	width: 100%;
+        	padding: 14px 0px 14px 1px;
+        	text-align: center;
+        }
+
+        /* Similarly for the "atomic number" - a single digit - in the top left corner
+        of these boxes: */
+
+        div.elementnumber {
+        	position: absolute;
+        	top: 1px;
+        	left: 3px;
+        	text-align: left;
+        }
+
+        /* For the text of the element title, to the right of the element box: */
+
+        div.elementtitle {
+        	position: absolute;
+        	top: 35px;
+        	width: 100%;
+        	text-align: center;
+        }
+
+        /* Used for the book-contents-page style leaders on the Contents element of
+           the index: */
+
+        ul.leaders {
+        	padding: 0;
+        	margin-top: 1px;
+        	margin-bottom: 0;
+        	overflow-x: hidden;
+        	list-style: none}
+        ul.leaders li.leaded:before {
+        	float: left;
+        	width: 0;
+        	white-space: nowrap;
+        	content:
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "}
+        ul.leaders li.leaded span:first-child {
+        	padding-right: 0.33em;
+        }
+        ul.leaders li.leaded span + span {
+        	float: right;
+        	padding-left: 0.33em;
+        }
+        li.indent1 span:first-child {
+        	padding-left: 25px;
+        }
+        li.indent2 span:first-child {
+        	padding-left: 50px;
+        }
+        li.indent3 span:first-child {
+        	padding-left: 75px;
+        }
+        li.indent4 span:first-child {
+        	padding-left: 100px;
+        }
+        li.indent5 span:first-child {
+        	padding-left: 125px;
+        }
+        li.indent6 span:first-child {
+        	padding-left: 150px;
+        }
+        li.indent7 span:first-child {
+        	padding-left: 175px;
+        }
+        li.indent8 span:first-child {
+        	padding-left: 200px;
+        }
+        li.indent9 span:first-child {
+        	padding-left: 225px;
+        }
+
+        li.unleaded:before {
+        	content: "";
+        }
+
+        /* On Registry index pages (such as the Public Library), these are used for
+        download buttons and the like: */
+
+        span.registrybuttons {
+        	height: 20px;
+        	padding: 2px 8px 2px 8px;
+        	margin: 2px;
+        	border:1px solid;
+        	border-radius: 5px;
+        }
+
+        span.registryminibuttons {
+        	height: 14px;
+        	padding: 2px 5px 2px 5px;
+        	margin: 2px;
+        	border:1px solid;
+        	border-radius: 4px;
+        }
+
+        /* Used to hide or display sections in the Registry pages: */
+
+        div.registrysectionitemsopen {
+        	display: block;
+        }
+
+        div.registrysectionitemsclosed {
+        	display: none;
+        }
+
+        /* Hanging indentation for Registry item paragraphs: */
+
+        p.registryitem {
+        	padding-left: 80px;
+        	text-indent: -40px;
+        }
+
+        p.registryaddition {
+        	padding-left: 40px;
+        	text-indent: -40px;
+        }
+
+        -->
+    </style>
+    <script type="text/javascript">
+        function project() {
+            return window.Project;
+        }
+        function showExtra(id, imid) {
+        	if (document.getElementById(id).style.display == 'block') {
+        		document.getElementById(id).style.display = 'none';
+        		document.getElementById(imid).src = 'inform:/extra.png';
+        	} else {
+        		document.getElementById(id).style.display = 'block';
+        		document.getElementById(imid).src = 'inform:/extraclose.png';
+        	}
+        }
+        function openExtra(id, imid) {
+        	document.getElementById(id).style.display = 'block';
+        	document.getElementById(imid).src = 'inform:/extraclose.png';
+        }
+        function closeExtra(id, imid) {
+        	document.getElementById(id).style.display = 'none';
+        	document.getElementById(imid).src = 'inform:/extra.png';
+        }
+        function pasteCode(code) {
+            var myProject = project();
+
+            myProject.selectView('source');
+            myProject.pasteCode(code);
+        }
+
+    </script>
+</head>
+<body>
+    <!--CONTENT BEGINS-->
+    <table CELLPADDING=0 CELLSPACING=0 width="100%" bgcolor="#000000"><tr><TD width=38px height=26px align="center" valign="center"><a href="inform://Extensions/Extensions.html" border=0><img border=0 src="inform:/doc_images/Hookindex.png" border=0></a></td><TD width=38px height=26px align="center" valign="center"></td><td halign="left" valign="center" CELLPADDING=0 CELLSPACING=0><font color="#FFFFFF" size=2>Extensions</font></a></td><TD width=56px height=26px align="right" valign="center"><a href="inform:/index.html" border=0><img border=0 src="inform:/doc_images/Hookup.png" border=0></a></td></tr></table>
+
+    <p><a href="javascript:pasteCode('Include Unified Glulx Input by Andrew Plotkin.[=0x000A=][=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a>&nbsp;<b>Unified Glulx Input<span class="extensionindexentry"> by </span>Andrew Plotkin</b></p>
+    <p><span class="smaller">(For Glulx Only)&nbsp; <img border=0 src=inform:/doc_images/vm_glulx.png>&nbsp;Version 3.0.160213</span></p>
+    <p></p>
+    <hr>
+    <p><span class="indexblack"><b><a style="text-decoration: none" href=#docsec1>Chapter 1: </a></b></span>Basic concepts<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec2>Section 1.1: </a></span>Input-contexts: why are we awaiting input?<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec3>Section 1.2: </a></span>G-events: what kind of input are we awaiting?<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec4>Section 1.3: </a></span>Glk-windows: what window is awaiting input?<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec5>Chapter 2: </a></b></span>High-level tasks<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec6>Section 2.1: </a></span>Yes-no questions<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec7>Section 2.2: </a></span>Waiting for a key<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec8>Chapter 3: </a></b></span>The five rulebooks<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec9>Section 3.1: </a></span>Setting up input rules<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec10>Section 3.2: </a></span>Prompt displaying rules<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec11>Section 3.3: </a></span>Accepting input rules<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec12>Section 3.4: </a></span>Checking undo input rules<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec13>Section 3.5: </a></span>Handling input rules<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec14>Section 3.6: </a></span>Which rulebook again?<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec15>Section 3.7: </a></span>What about the reading a command activity?<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec16>Chapter 4: </a></b></span>The flow of the machinery<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec17>Chapter 5: </a></b></span>Low-level invocations<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec18>Chapter 6: </a></b></span>TEST ME<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec19>Chapter 7: </a></b></span>Under the hood<br>
+    <br>
+    <b>Examples</b><br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href="Unified Glulx Input-eg1.html#eg1">A &mdash; Changing the Prompt</a></span><br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href="Unified Glulx Input-eg2.html#eg2">B &mdash; Tick Tick Tick Button</a></span><br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href="Unified Glulx Input-eg3.html#eg3">C &mdash; Master Blaster</a></span><br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href="Unified Glulx Input-eg4.html#eg4">D &mdash; Maze of Keys</a></span><br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href="Unified Glulx Input-eg5.html#eg5">E &mdash; Maze of Keys 2</a></span><br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href="Unified Glulx Input-eg6.html#eg6">F &mdash; A Study In Memoriam</a></span><br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href="Unified Glulx Input-eg7.html#eg7">G &mdash; Secret Number Request</a></span><br>
+    </p>
+    <hr>
+    <p></p>
+    </p>
+
+    <p> Unified Glulx Input is an attempt to tidy up all the messy I6 APIs that you need to customize your game's input system.</p>
+
+    <p> The Glulx Entry Points extension does this already, but that exposes all the mess -- you have to understand how Glk works to use to correctly. Unified Glulx Input tries to offer you a simple model which handles common cases easily.</p>
+
+    <p> (This extension was written and tested with Inform 7 releases 6L38 and 6M62.)</p>
+
+    <p><p><span class="indexdullred"><b><span id=docsec1>Chapter 1: Basic concepts</span></b></span></p>
+    </p>
+
+    <p><p><span class="indexblack"><b><span id=docsec2>Section 1.1: Input-contexts: why are we awaiting input?</span></b></span></p>
+    </p>
+
+    <p> A game can stop and await input for many reasons. It can be waiting for a command, or for a yes-or-no answer (an &quot;if the player consents...&quot; test). It can be waiting for the player to hit any key to continue.</p>
+
+    <p> In Unified Glulx Input, all of these inputs invoke the same mechanism. The mechanism can be customized to behave in different ways -- printing different prompts, waiting for different sorts of input. But it's always the same mechanism underneath.</p>
+
+    <p> You customize it by writing rules. The extension has five rulebooks which cover various aspects of the problem. The default rules cover the normal input situations of an IF game -- the ones mentioned above. Of course, you can modify these or add more.</p>
+
+    <p> We distinguish these situations with a value called an &quot;input-context&quot;. The rulebooks we mentioned are input-context based rulebooks. The UGI extension comes with seven:</p>
+
+    <p><blockquote><span class="indexdullblue"> primary context, disambiguation context (the command input-contexts)<br>
+     yes-no question context, extended yes-no question context, repeat yes-no question context (the yes-no input-contexts)<br>
+     final question context<br>
+     keystroke-wait context</span></blockquote>
+
+    <p> The first two (primary and disambiguation) are used by the main game loop -- the core cycle of fetching and performing commands. The others are special-purpose, ad-hoc inputs.</p>
+
+    <p> These are more finely divided than you usually need to bother with. For example, the game might be waiting for a normal command (primary context) or for a disambiguation reply (disambiguation context). In most games these will appear the same. So you can handle them together. For example:</p>
+
+    <p><blockquote><span class="indexdullblue"> Prompt displaying rule for a command input-context:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; instead say &quot;&gt;&gt;&gt;&quot;;</span></blockquote>
+
+    <p> This rule changes the command prompt for all main-game-loop inputs (both primary and disambiguation).</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec3>Section 1.2: G-events: what kind of input are we awaiting?</span></b></span></p>
+    </p>
+
+    <p> Most IF input comes as lines of text. But a game can also accept keystroke input, as in a &quot;hit any key&quot; prompt or a menu controlled with arrow keys.</p>
+
+    <p> Glulx currently supports eight types of input, described as &quot;g-event&quot; values:</p>
+
+    <p><blockquote><span class="indexdullblue"> char-event - a keystroke<br>
+     line-event - a line of text<br>
+     hyperlink-event - selection of a hyperlink<br>
+     timer-event - event repeated at fixed intervals<br>
+     mouse-event - a mouse click<br>
+     arrange-event - window sizes have changed<br>
+     redraw-event - graphics windows need redrawing<br>
+     sound-notify-event - sound finished playing</span></blockquote>
+
+    <p><p><span class="indexblack"><b><span id=docsec4>Section 1.3: Glk-windows: what window is awaiting input?</span></b></span></p>
+    </p>
+
+    <p> This version of UGI is only concerned with one window, the &quot;story-window&quot;. You can set various properties of the story-window object to customize its behavior.</p>
+
+    <p> There is also a &quot;status-window&quot; object, but it is not yet functional. Future versions of UGI will support this. Future versions will also integrate with the Multiple Windows extension to support multi-window games.</p>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec5>Chapter 2: High-level tasks</span></b></span></p>
+    </p>
+
+    <p> These phrases can be used with no deeper knowledge of UGI.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec6>Section 2.1: Yes-no questions</span></b></span></p>
+    </p>
+
+    <p><blockquote><span class="indexdullblue"> if the player consents:...</span></blockquote>
+
+    <p> This works just as it always has (WWI 11.5); it waits for the player to type &quot;yes&quot; or &quot;no&quot;. You are expected to print the question first.</p>
+
+    <p><blockquote><span class="indexdullblue"> if the player consents asking (T1 - text):...<br>
+     if the player consents asking (T1 - text) and (T2 - text):...</span></blockquote>
+
+    <p> Similar, except UGI uses your text as the prompt (through the magic of the prompt displaying rulebook). T1 should be the initial question; T2 is a followup if the player fails to answer. If you don't supply T2, it defaults to &quot;Please answer yes or no.&quot;</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec7>Section 2.2: Waiting for a key</span></b></span></p>
+    </p>
+
+    <p> These phrases are copied from the Basic Screen Effects extension; they have been updated here to work with UGI.</p>
+
+    <p><blockquote><span class="indexdullblue"> wait for any key<br>
+     wait for the SPACE key</span></blockquote>
+
+    <p> By default no prompt is printed. You can print your own beforehand, or write a prompt displaying rule:</p>
+
+    <p><blockquote><span class="indexdullblue"> Prompt displaying rule for keystroke-wait context:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; say &quot;&gt;&gt;&gt;&quot;;</span></blockquote>
+
+    <p> If you want to cause a wait and then get the key that was hit:</p>
+
+    <p><blockquote><span class="indexdullblue"> the key waited for -- Unicode character</span></blockquote>
+
+    <p> Include the Unicode Character Names extension for a complete list of characters, or my ASCII Character Names extension for the basic ones. The result may also be a special value representing a control key:</p>
+
+    <p><blockquote><span class="indexdullblue"> special keycode left, special keycode right, special keycode up, special keycode down, special keycode return, special keycode delete, special keycode escape, special keycode tab, special keycode pageup, special keycode pagedown, special keycode home, special keycode end, special keycode func1,... special keycode func12</span></blockquote>
+
+    <p> These are not part of the Unicode spec, but I7 represents them as Unicode character values. (They are outside the official Unicode range of $0 to $10FFFF.) Don't try to print them or insert them into normal texts -- they have no normal printed representation. If you need to print a special character, use this phrase:</p>
+
+    <p><blockquote><span class="indexdullblue"> say extended (C - Unicode character)</span></blockquote>
+
+    <p> This will print special characters as &quot;left&quot;, &quot;right&quot;, and so on. Normal Unicode characters will be printed directly.</p>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec8>Chapter 3: The five rulebooks</span></b></span></p>
+    </p>
+
+    <p> We've talked about the five rulebooks, and now it's time to introduce them:</p>
+
+    <p><blockquote><span class="indexdullblue"> setting up input rules - decide what kinds of input are desired<br>
+     prompt displaying rules - display a prompt, traditionally &quot;&gt;&quot;<br>
+     accepting input rules - accept, reject, or alter individual input events<br>
+     checking undo input rules - check whether an input event is an UNDO command<br>
+     handling input rules - convert an input event into an action</span></blockquote>
+
+    <p> These rulebooks are based on an input-context value. So you might write</p>
+
+    <p><blockquote><span class="indexdullblue"> Prompt displaying rule for yes-or-no context:...<br>
+     Accepting input rule for a command input-context:...</span></blockquote>
+
+    <p><p><span class="indexblack"><b><span id=docsec9>Section 3.1: Setting up input rules</span></b></span></p>
+    </p>
+
+    <p> This rulebook decides what sort of input the game desires for player commands. It also decides whether the command will be an undo step. By default it requests only line input, and says that all line inputs are undo steps.</p>
+
+    <p> This rulebook applies only to the command contexts (primary and disambiguation). Other questions (yes-or-no, keystroke-wait, etc) do their own setup (and are not undo steps).</p>
+
+    <p> To customize this, set the input-request, hyperlink-input-request, and mouse-input-request properties of the story-window object. For example:</p>
+
+    <p><blockquote><span class="indexdullblue"> Setting up input rule:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; now the input-request of the story-window is char-input;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; now the story-window is hyperlink-input-request;</span></blockquote>
+
+    <p> The input-request property can be char-input, line-input, or no-input. (These are mutually exclusive.) You can set hyperlink-input-request and mouse-input-request independently.</p>
+
+    <p> (Note that mouse-input-request does not apply to the story-window -- buffer windows have no fixed coordinates -- so it cannot currently be used. There is a status-window object, but UGI does not yet support input requests for it.)</p>
+
+    <p> To indicate whether this command is an undo step, use one of these phrases:</p>
+
+    <p><blockquote><span class="indexdullblue"> set input undoable<br>
+     set input non-undoable</span></blockquote>
+
+    <p> When you set input undoable, you're telling the parser that the player *can* perform an UNDO command (whether by typing &quot;UNDO&quot; or some other way) and therefore this is a turn that should be added to the undo chain. If you set input non-undoable, you're telling the parser that UNDO is not supported for this command, and future UNDO commands should skip back over it.</p>
+
+    <p> To make this more clear: when the player does an UNDO, they don't want to jump back to the previous *input*; they want to jump back to the previous *turn*. Yes-or-no commands are inputs but never turns. When the setting-up-input rulebook is called, it's *usually* a turn, but you might want to decide otherwise.</p>
+
+    <p> (Note: you can suppress UNDO for your game this way, but it's better to use the &quot;undo prevention&quot; option. That way, UNDO commands will say &quot;The use of 'undo' is forbidden&quot;, rather than just throwing a &quot;not a verb I recognize&quot; error.)</p>
+
+    <p> We'd better mention how to display hyperlinks in your game text. A hyperlink can contain a number or an object reference. (Or, really, any value that can be cast to an I6 integer, which is any value at all. But stick with the easy cases.) (It's best not to mix numbers and objects in the same game. Pick one.)</p>
+
+    <p><blockquote><span class="indexdullblue"> say hyperlink (O - object)<br>
+     say hyperlink (N - number)<br>
+     say /hyperlink</span></blockquote>
+
+    <p> Use these phrases in text as markup:</p>
+
+    <p><blockquote><span class="indexdullblue"> say &quot;You see a [hyperlink sword]ancient elvish sword[/hyperlink].&quot;</span></blockquote>
+
+    <p><p><span class="indexblack"><b><span id=docsec10>Section 3.2: Prompt displaying rules</span></b></span></p>
+    </p>
+
+    <p> This rulebook displays a prompt before input. It applies to all input contexts.</p>
+
+    <p> The default for keystroke input is no prompt. For yes-no input it is &quot;&gt;&quot;, unless you've specified prompts by invoking the &quot;player consents asking...&quot; phrase. For the final question, the prompt is &quot;&gt; [run paragraph on]&quot; (as defined by the old print the final prompt rule).</p>
+
+    <p> For other cases, including all command contexts, the prompt is &quot;&gt;&quot;. You can customize this by changing the old command prompt global variable, or by writing a rule:</p>
+
+    <p><blockquote><span class="indexdullblue"> Prompt displaying rule for a command input-context:...</span></blockquote>
+
+    <p> (See example: &quot;Changing the Prompt&quot;.)</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec11>Section 3.3: Accepting input rules</span></b></span></p>
+    </p>
+
+    <p> This rulebook decides whether to accept or reject an incoming event, or convert the event to a different event. It applies to all input contexts.</p>
+
+    <p> This is the fussiest rulebook in UGI. It's also the one you will use least often! For many games, the default rules are all you need. So don't be overwhelmed by the description here.</p>
+
+    <p> Every time an event arrives, this rulebook is invoked. You can get the event type with this phrase:</p>
+
+    <p><blockquote><span class="indexdullblue"> the current input event type -- g-event</span></blockquote>
+
+    <p> So you can write a rule like:</p>
+
+    <p><blockquote><span class="indexdullblue"> Handling input rule when the current input event type is hyperlink-event:</span></blockquote>
+
+    <p> Or, as a handy shortcut:</p>
+
+    <p><blockquote><span class="indexdullblue"> Handling input rule when handling hyperlink-event:</span></blockquote>
+
+    <p> Depending on the current event type, you can check its contents with one of these phrases:</p>
+
+    <p><blockquote><span class="indexdullblue"> the current input event character -- Unicode character<br>
+     the current input event hyperlink number -- number<br>
+     the current input event hyperlink object -- object<br>
+     the current input event line text -- text<br>
+     the current input event line word count -- number</span></blockquote>
+
+    <p> An important note: in the accepting input rulebook, the &quot;player's command&quot; snippet has not yet been set up. You cannot refer to this or any other snippet variable; you will get errors. Use the &quot;current input event line text&quot; phrase.</p>
+
+    <p> The job of the accepting input rulebook is to reject the event (keep waiting) or accept it (stop waiting and allow event to be processed). These are available as phrases (really just aliases for &quot;rule succeeds&quot; and &quot;rule fails&quot;):</p>
+
+    <p><blockquote><span class="indexdullblue"> accept the input event<br>
+     reject the input event</span></blockquote>
+
+    <p> The default rules accept character, line, and hyperlink events (assuming they were requested by the setting up input rules). Other event types are rejected by default, although a rearrange event will trigger a status-line refresh first.</p>
+
+    <p> You can also convert the event to a different one:</p>
+
+    <p><blockquote><span class="indexdullblue"> replace the current input event with the line (T - text)<br>
+     replace the current input event with the character (C - Unicode character)<br>
+     replace the current input event with the hyperlink object (O - object)<br>
+     replace the current input event with the hyperlink number (N - number)</span></blockquote>
+
+    <p> This is handy for simple cases -- perhaps you want to convert hyperlink clicks into a line of text and run that through the parser in the usual way. (See example: &quot;Maze of Keys&quot;.) However, it's cleaner to handle hyperlinks in the handling input rulebook. See next section.</p>
+
+    <p> Here's the messy part. If you've requested character or line input, and a *different* input event arrives, the character or line input is still in progress. *You may not print text as long as character or line input is in progress. *</p>
+
+    <p> To be clear, this is not a problem when you *receive* a character or line event. That signals that the input is complete and printing is safe. But if you get another event type (say a timer or hyperlink event) while char/line input is in progress, you must either</p>
+
+    <p> (a) take background action that does not print to the story window, or</p>
+
+    <p> (b) accept the event, printing nothing, or</p>
+
+    <p> (c) interrupt text input before printing.</p>
+
+    <p> The standard redraw status line on arrange rule is an example of policy (a). It redraws the status line (and then rejects the event to continue waiting). See example: &quot;Tick Tick Tick Button&quot;.</p>
+
+    <p> Policy (b) is fine if you plan to handle the event in the handling input rulebook. See next section.</p>
+
+    <p> For policy (c), you'll have to call this phrase:</p>
+
+    <p><blockquote><span class="indexdullblue"> interrupt text input for (W - glk-window)</span></blockquote>
+
+    <p> This stops line or character input. If you then reject the event, input will be re-requested automatically.</p>
+
+    <p><blockquote><span class="indexdullblue"> interrupt text input for (W - glk-window), preserving input</span></blockquote>
+
+    <p> This variation stores the player's in-progress input as the preload-input-text property of the story-window. The next time line input starts, the string will be pre-loaded into the input buffer. (See example: &quot;Master Blaster&quot;.)</p>
+
+    <p> The interrupt text input phrase has an additional use: it tells UGI that you're about to print text, so the prompt might have to be redisplayed. This is sometimes helpful if you're rejecting an input event with an error message (rather than silently).</p>
+
+    <p> Finally, I'll say again: this is the least commonly used of the five rulebooks! Forget the mess above and read on.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec12>Section 3.4: Checking undo input rules</span></b></span></p>
+    </p>
+
+    <p> At this point an input event has been accepted. This rulebook decides whether it's an UNDO command.</p>
+
+    <p> (UNDO commands are special; they never reach the handling-input stage, and they never become an &quot;undoing&quot; action. There is no such action, in fact. This is awkward but it's just the way the parser is. So we need this special rulebook to detect them.)</p>
+
+    <p> The default rule in this rulebook checks for line input containing just the word &quot;UNDO&quot;. That's the expected behavior for games that accept line input.</p>
+
+    <p> If your game works by keystroke or hyperlink input, you might still want to support UNDO. You could write an accepting input rule that replaces the current input event with the line &quot;undo&quot;. (See example: &quot;Maze of Keys&quot;.) However, it's cleaner to write a checking undo rule which checks for whatever UNDO input your game wants. (See example: &quot;Maze of Keys 2&quot;.)</p>
+
+    <p> This is important: if you set input undoable at setting-up-input time, you *must* accept at least one input as UNDO at checking-undo-input time! If you don't, you'll break multiple undo for the player. (They won't be able to UNDO back through this command.)</p>
+
+    <p> Contrariwise, if you forget to set input undoable at setting-up-input time, then UNDO will not work for this command. The checking-undo-input rulebook will be skipped.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec13>Section 3.5: Handling input rules</span></b></span></p>
+    </p>
+
+    <p> At this point an input event has been accepted (and it wasn't UNDO). This rulebook decides how to convert it into an action.</p>
+
+    <p> This rulebook applies only to the command contexts (primary and disambiguation). Other questions (yes-or-no, keystroke-wait, etc) do their own setup.</p>
+
+    <p> The phrases mentioned above, for examining the input event, still apply:</p>
+
+    <p><blockquote><span class="indexdullblue"> the current input event type -- g-event<br>
+     if handling (G - g-event):...<br>
+     the current input event character -- Unicode character<br>
+     the current input event hyperlink number -- number<br>
+     the current input event hyperlink object -- object<br>
+     the current input event line text -- text<br>
+     the current input event line word count -- number<br>
+     accept the input event<br>
+     reject the input event</span></blockquote>
+
+    <p> If your rule rejects the event, the command does nothing. The game prompts for another command.</p>
+
+    <p> If your rule accepts the event, it is processed. Line input is parsed in the classic way. Any other input type causes an &quot;I beg your pardon?&quot; error.</p>
+
+    <p> So what do we do with other input types? Usually you'll invoke this phrase:</p>
+
+    <p><blockquote><span class="indexdullblue"> handle the current input event as (act - stored action)</span></blockquote>
+
+    <p> This bypasses the parser entirely. The game will proceed as if the given action had been parsed; the player will carry it out (or try to). For example, if you had a hyperlink labelled &quot;INVENTORY&quot;, you might write:</p>
+
+    <p><blockquote><span class="indexdullblue"> Handling input rule when handling hyperlink-event:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; handle the current input event as the action of taking inventory;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; accept the input event.</span></blockquote>
+
+    <p> (Note that a stored action is always phrased &quot;the action of...&quot;.)</p>
+
+    <p> See example: &quot;A Study In Memoriam&quot;.</p>
+
+    <p> By the way, at the handling-input stage, all inputs have been completed or cancelled. You don't have to worry about manually interrupting text input.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec14>Section 3.6: Which rulebook again?</span></b></span></p>
+    </p>
+
+    <p> The accepting-input and handling-input rulebooks both operate on input events. They both can accept and reject events. When you're building a game, you may find yourself unsure which to use.</p>
+
+    <p> The rules of thumb:</p>
+
+    <p> - If you want to generate an action, use a handling input rule.</p>
+
+    <p> - If you want to convert some event into a line input event, you can use either, but handling input will probably be simpler.</p>
+
+    <p> - If you want to respond to an event without interrupting the player's input, use an accepting input rule.</p>
+
+    <p> - If you want to reject an event without even printing a new prompt, use an accepting input rule.</p>
+
+    <p> - If you want to respond to events in every input context (including yes-or-no, keystroke-wait, etc) use an accepting input rule.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec15>Section 3.7: What about the reading a command activity?</span></b></span></p>
+    </p>
+
+    <p> The old &quot;reading a command&quot; activity still exists under UGI. It's called by the same code that runs the handling input rulebook. It's not the same thing, though; we must be careful of the differences.</p>
+
+    <p> - Reading a command is an activity. You can write before rules and after rules for it. The accepting input and handling input rulebooks run &quot;inside&quot; reading a command -- between the before and after stages of the activity.</p>
+
+    <p> - In an after reading a command rule, you can refer to (or replace) the &quot;player's command&quot; snippet. That's not allowed in a handling input rule; the player's command is not yet set up during that rulebook.</p>
+
+    <p> - In a handling input rule, you can say &quot;handle the current input event as the action of...&quot;. That's not available at after reading a command time.</p>
+
+    <p> - For a disambiguation input, the handling input rule sees what the player typed. In contrast, the player's command (in an after reading a command rule) is the *entire* disambiguated command! An example:</p>
+
+    <p><blockquote><span class="indexdullblue"> &gt;GET<br>
+     (handling input: text=&quot;GET&quot;.)<br>
+     (after reading: player's command=&quot;GET&quot;.)<br>
+     What do you want to get?<br>
+     &gt;RED ROCK<br>
+     (handling input: text=&quot;RED ROCK&quot;.)<br>
+     (after reading: player's command=&quot;GET RED ROCK&quot;.)<br>
+     Taken.</span></blockquote>
+
+    <p> In short, the reading a command activity is the most sensible place to examine or replace text. The handling input rulebook is primarily meant for translating *non-textual* input events into actions.</p>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec16>Chapter 4: The flow of the machinery</span></b></span></p>
+    </p>
+
+    <p> It may be helpful to diagram the whole input machine and describe exactly when each rulebook runs.</p>
+
+    <p><blockquote><span class="indexdullblue"> (top of parser loop:)<br>
+     do before reading a command activity<br>
+     repeat until a command is accepted:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;...<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; (ParserInput function:)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; repeat until an event is accepted:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; follow setting up input rules<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (AwaitInput function:)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; repeat until an event is accepted:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; follow prompt displaying rules<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; redraw the status line<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; make all necessary Glk input requests<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; wait for an input event to arrive<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; follow the accepting input rules<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cancel any remaining Glk input requests<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (end of AwaitInput function)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; reject blank lines (&quot;I beg your pardon&quot;)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if the setting-up rules said that this is an undoable turn:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; follow checking undo input rules<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if the input was an UNDO command:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; perform UNDO<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; save an undo point<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; (end of ParserInput function)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;...<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; follow handling input rules<br>
+     (at this point, the &quot;player's command&quot; is set)<br>
+     do after reading a command activity<br>
+     if no action is recognized, say &quot;I beg your pardon&quot;<br>
+     otherwise, carry out the action</span></blockquote>
+
+    <p> Requests such as &quot;player consents&quot; and &quot;wait for any key&quot; only invoke the AwaitInput function. They bypass ParserInput, and thus ignore the setting up input rules and the handling input rules.</p>
+
+    <p> The inner blank-line rejection is a bit of an anomaly. It happens before the handling input rules (and the after reading a command activity), which may cause problems; you cannot handle blank line input the same way you handle other line input.</p>
+
+    <p> UGI offers a use option to resolve this:</p>
+
+    <p><blockquote><span class="indexdullblue"> Use pass blank input lines.</span></blockquote>
+
+    <p> If you set this, the reject blank lines step is omitted. A blank line will pass through all the same rulebooks as other line input. It will be rejected at the *last* step -- no action is recognized, say &quot;I beg your pardon&quot;. So the player will see the same response, really.</p>
+
+    <p> (One difference: we will have passed through the save-undo step. That is, when this option is set, blank lines count as undoable commands. That's not great, but it's not a big nuisance either. A future version of UGI may address this.)</p>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec17>Chapter 5: Low-level invocations</span></b></span></p>
+    </p>
+
+    <p> UGI offers phrases to stop and wait for a particular input (a keystroke, a yes-or-no question). It's quite easy to write your own such phrase.</p>
+
+    <p> Say we want to stop and wait for one hyperlink click. First we'll want to define a new input-context:</p>
+
+    <p><blockquote><span class="indexdullblue"> Link-wait context is an input-context.</span></blockquote>
+
+    <p> Then we need a rule to accept hyperlink input, storing the link value in a global:</p>
+
+    <p><blockquote><span class="indexdullblue"> The found object is an object that varies.<br>
+     Rule for accepting input for link-wait context when handling hyperlink-event:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; now the found object is the current input event hyperlink object;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; accept the input event.</span></blockquote>
+
+    <p> Now we can write a phrase:</p>
+
+    <p><blockquote><span class="indexdullblue"> To decide what object is the hyperlink waited for:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; now the found object is nothing;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; clear all input requests;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; now the story-window is hyperlink-input-request;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; await input in link-wait context;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; decide on the found object.</span></blockquote>
+
+    <p> The core phrase here is</p>
+
+    <p><blockquote><span class="indexdullblue"> await input in (C - input-context)</span></blockquote>
+
+    <p> Before calling this, we *must* set the desired request properties. (Remember, the setting up input rulebook will not be run) It is best to clear all requests and then set exactly the requests desired.</p>
+
+    <p> If we want line input, we must use one of the alternate forms:</p>
+
+    <p><blockquote><span class="indexdullblue"> await input in (C - input-context) with primary buffer<br>
+     await input in (C - input-context) with secondary buffer</span></blockquote>
+
+    <p> Generally you will want to use the secondary buffer. That will avoid stomping on the player's command (which is always stored in the primary buffer).</p>
+
+    <p> For another case, see example: &quot;Secret Number Request&quot;</p>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec18>Chapter 6: TEST ME</span></b></span></p>
+    </p>
+
+    <p> Inform's standard TEST ME facility has been upgraded to support more kinds of events. You can now say</p>
+
+    <p><blockquote><span class="indexdullblue"> Test me with &quot;$char x / $char 65 / $char escape / $char&quot;.<br>
+     Test me with &quot;$link 123 / $link sword&quot;.<br>
+     Test me with &quot;$timer&quot;.</span></blockquote>
+
+    <p> Any test line beginning with a dollar sign defines a special event. You can escape dollar signs and slashes in line input by writing &quot;[$]&quot; or &quot;[/]&quot;.</p>
+
+    <p> Character (keystroke) events are defined with &quot;$char&quot;; they can be single characters, ASCII codes, or special names such as &quot;escape&quot;, &quot;left&quot;, &quot;right&quot;, &quot;space&quot;, etc. &quot;$char&quot; by itself is taken as a space keystroke.</p>
+
+    <p> (Note that Inform automatically lower-cases test lines. So to define an upper-case keystroke, you must use a numeric ASCII code.)</p>
+
+    <p> Hyperlink events are defined with &quot;$link&quot;; they can be a numeric value or an object name. Note that the object name parsing is extremely simplistic. Only one word is recognized after &quot;$link&quot;, and it must be unconditionally defined for the object (not a property adjective, e.g.). There is no disambiguation; if several objects match the word, the test just picks the first one.</p>
+
+    <p> Timer events are defined with &quot;$timer&quot;. There is no other information to supply.</p>
+
+    <p> If you generate a test event that the game isn't expecting, it will be ignored and the game will move on to the next test.</p>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec19>Chapter 7: Under the hood</span></b></span></p>
+    </p>
+
+    <p> This chapter describes what UGI has changed in the deep reaches of the Parser.i6t template. It is not very interesting.</p>
+
+    <p> The low-level functions VM_ReadKeyboard and VM_KeyDelay are gone. Instead, AwaitInput handles the bottom-level glk_select loop. Where VM_ReadKeyboard took two arguments (buffer and table), AwaitInput takes four (input-context, event, buffer, table).</p>
+
+    <p> Responsibility for redrawing the status line and printing the prompt has been moved into AwaitInput. (In the old model, these had to be done before calling an input function, meaning they were required in a lot of places. Bugs resulted.)</p>
+
+    <p> The old Keyboard routine has been renamed ParserInput. It too now takes input-context, event, buffer, and table arguments. ParserInput is a wrapper around AwaitInput which adds OOPS and UNDO support.</p>
+
+    <p> Blank line rejection is still handled in ParserInput (nee Keyboard), but only for the sake of backwards compatibility. By using the &quot;pass blank input lines&quot; option, the game can omit this check from ParserInput. Blank lines are then handled the same way as all other line input (and rejected by the parser at a later stage).</p>
+
+    <p> TestKeyboardPrimitive (in Tests.i6t) is now named CheckTestInput. It now takes event and buffer arguments. (Not table, as tokenization is now handled by the caller.)</p>
+
+    <p> Responsibility for getting TEST ME input (the CheckTestInput call) has been moved into AwaitInput, right next to the code that gets REPLAY stream input. CheckTestInput returns a flag indicating whether it generated a test event. (This is different from TestKeyboardPrimitive, which was called from the KeyboardPrimitive wrapper, and called through to VM_ReadKeyboard when no test event was available. KeyboardPrimitive is not needed in the new model.)</p>
+
+    <p> The parser itself used to call Keyboard in three places (Parser Letter A and NounDomain). It now calls ParserInput, and understands that it could receive any kind of input event (not just line input).</p>
+
+    <p> The parser invokes the handling input rulebook after each ParserInput call. If that rulebook generates an action, Parser__parse returns immediately (or NounDomain returns REPARSE_CODE, which leads to the same outcome.) Then the parser rejects blank lines and non-text inputs with an &quot;I beg your pardon&quot; error. After that, we know we have non-blank text input, so parsing proceeds in the original path.</p>
+
+    <p><hr>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td halign="left" valign="top" cellpadding=0 cellspacing=0 width=38px>
+                <span id=eg1><table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="oval">
+                        <td width=38px height=30px align="left" valign="center">
+                            <a href="Unified Glulx Input-eg1.html#eg1" style="text-decoration: none"><div class="paragraph Body" style="line-height: 1px; margin-bottom: 0px; margin-top: 0px; padding-bottom: 0pt; padding-top: 0px; text-align: center;">
+                                <span class="extensionexampleletter">A</span></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                </span>
+            </td>
+            <td cellpadding=0 cellspacing=0 halign="left" valign="top">
+                <a href="Unified Glulx Input-eg1.html#eg1" style="text-decoration: none"><img border="0" src='inform:/doc_images/asterisk.png'><b><span class="indexdarkgrey">&nbsp;Example&nbsp;</span><span class="indexblack">Changing the Prompt</span></b></a><br>
+                <p>Changing the command prompt in various contexts.</p>
+
+            </td>
+        </tr>
+    </table>
+    </p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p><hr>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td halign="left" valign="top" cellpadding=0 cellspacing=0 width=38px>
+                <span id=eg2><table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="oval">
+                        <td width=38px height=30px align="left" valign="center">
+                            <a href="Unified Glulx Input-eg2.html#eg2" style="text-decoration: none"><div class="paragraph Body" style="line-height: 1px; margin-bottom: 0px; margin-top: 0px; padding-bottom: 0pt; padding-top: 0px; text-align: center;">
+                                <span class="extensionexampleletter">B</span></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                </span>
+            </td>
+            <td cellpadding=0 cellspacing=0 halign="left" valign="top">
+                <a href="Unified Glulx Input-eg2.html#eg2" style="text-decoration: none"><img border="0" src='inform:/doc_images/asterisk.png'><img border="0" src='inform:/doc_images/asterisk.png'><b><span class="indexdarkgrey">&nbsp;Example&nbsp;</span><span class="indexblack">Tick Tick Tick Button</span></b></a><br>
+                <p>A timer in the status window.</p>
+
+            </td>
+        </tr>
+    </table>
+    </p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p><hr>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td halign="left" valign="top" cellpadding=0 cellspacing=0 width=38px>
+                <span id=eg3><table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="oval">
+                        <td width=38px height=30px align="left" valign="center">
+                            <a href="Unified Glulx Input-eg3.html#eg3" style="text-decoration: none"><div class="paragraph Body" style="line-height: 1px; margin-bottom: 0px; margin-top: 0px; padding-bottom: 0pt; padding-top: 0px; text-align: center;">
+                                <span class="extensionexampleletter">C</span></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                </span>
+            </td>
+            <td cellpadding=0 cellspacing=0 halign="left" valign="top">
+                <a href="Unified Glulx Input-eg3.html#eg3" style="text-decoration: none"><img border="0" src='inform:/doc_images/asterisk.png'><img border="0" src='inform:/doc_images/asterisk.png'><img border="0" src='inform:/doc_images/asterisk.png'><b><span class="indexdarkgrey">&nbsp;Example&nbsp;</span><span class="indexblack">Master Blaster</span></b></a><br>
+                <p>A timer that triggers a game action.</p>
+
+            </td>
+        </tr>
+    </table>
+    </p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p><hr>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td halign="left" valign="top" cellpadding=0 cellspacing=0 width=38px>
+                <span id=eg4><table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="oval">
+                        <td width=38px height=30px align="left" valign="center">
+                            <a href="Unified Glulx Input-eg4.html#eg4" style="text-decoration: none"><div class="paragraph Body" style="line-height: 1px; margin-bottom: 0px; margin-top: 0px; padding-bottom: 0pt; padding-top: 0px; text-align: center;">
+                                <span class="extensionexampleletter">D</span></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                </span>
+            </td>
+            <td cellpadding=0 cellspacing=0 halign="left" valign="top">
+                <a href="Unified Glulx Input-eg4.html#eg4" style="text-decoration: none"><img border="0" src='inform:/doc_images/asterisk.png'><img border="0" src='inform:/doc_images/asterisk.png'><b><span class="indexdarkgrey">&nbsp;Example&nbsp;</span><span class="indexblack">Maze of Keys</span></b></a><br>
+                <p>Controlling the game with single keystrokes.</p>
+
+            </td>
+        </tr>
+    </table>
+    </p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p><hr>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td halign="left" valign="top" cellpadding=0 cellspacing=0 width=38px>
+                <span id=eg5><table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="oval">
+                        <td width=38px height=30px align="left" valign="center">
+                            <a href="Unified Glulx Input-eg5.html#eg5" style="text-decoration: none"><div class="paragraph Body" style="line-height: 1px; margin-bottom: 0px; margin-top: 0px; padding-bottom: 0pt; padding-top: 0px; text-align: center;">
+                                <span class="extensionexampleletter">E</span></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                </span>
+            </td>
+            <td cellpadding=0 cellspacing=0 halign="left" valign="top">
+                <a href="Unified Glulx Input-eg5.html#eg5" style="text-decoration: none"><img border="0" src='inform:/doc_images/asterisk.png'><img border="0" src='inform:/doc_images/asterisk.png'><img border="0" src='inform:/doc_images/asterisk.png'><b><span class="indexdarkgrey">&nbsp;Example&nbsp;</span><span class="indexblack">Maze of Keys 2</span></b></a><br>
+                <p>Controlling the game with single keystrokes.</p>
+
+            </td>
+        </tr>
+    </table>
+    </p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p><hr>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td halign="left" valign="top" cellpadding=0 cellspacing=0 width=38px>
+                <span id=eg6><table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="oval">
+                        <td width=38px height=30px align="left" valign="center">
+                            <a href="Unified Glulx Input.html#eg6" style="text-decoration: none"><div class="paragraph Body" style="line-height: 1px; margin-bottom: 0px; margin-top: 0px; padding-bottom: 0pt; padding-top: 0px; text-align: center;">
+                                <span class="extensionexampleletter">F</span></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                </span>
+            </td>
+            <td cellpadding=0 cellspacing=0 halign="left" valign="top">
+                <a href="Unified Glulx Input.html#eg6" style="text-decoration: none"><img border="0" src='inform:/doc_images/asterisk.png'><img border="0" src='inform:/doc_images/asterisk.png'><b><span class="indexdarkgrey">&nbsp;Example&nbsp;</span><span class="indexblack">A Study In Memoriam</span></b></a><br>
+                <p>A pure-hyperlink game.</p>
+
+            </td>
+        </tr>
+    </table>
+    <table border="0" cellspacing="0" cellpadding="0" class="extensionexample" width=100%>
+        <tr>
+            <td align="left" valign="top">
+                <p></p>
+
+                <p> Here we drop text input entirely. (Dropping the standard parser input line request rule accomplishes this.) Instead we set up input to be hyperlink-based. Hyperlink events are translated into the examining action, which happily works for both on-stage objects and off-stage memories.</p>
+
+                <p><blockquote><span class="indexdullblue"><a href="javascript:pasteCode('[=0x0022=]A Study In Memoriam[=0x0022=][=0x000A=][=0x000A=]Include Unified Glulx Input by Andrew Plotkin.[=0x000A=][=0x000A=]The Study is a room. [=0x0022=]You are in your cluttered study.[=0x0022=][=0x000A=][=0x000A=]The messy desk is a supporter in the Study. The description is [=0x0022=]You found this battered antique in a battered [antique shop] in Chapel Hill. As you recall, it was sitting behind [a microscope].[=0x0022=][=0x000A=][=0x000A=]A fossil is on the desk. The description is [=0x0022=]Some species of [ammonite].[=0x0022=][=0x000A=][=0x000A=]A copper fulgurite is on the desk. The description is [=0x0022=]It[=0x0027=]s a chunk of melted copper that you picked up from the base of a telephone pole. It[=0x0027=]s not really fulgurite, minerallogically speaking. But it [italic type]was[roman type] formed by [lightning]![=0x0022=][=0x000A=][=0x000A=]A memory is a kind of thing.[=0x000A=][=0x000A=]The ammonite is a memory. The description is [=0x0022=]You[=0x0027=]ve dreamed of drifting through antediluvian seas, the master of all you survey... Then the bony fishes come. The damned bony fishes.[=0x0022=][=0x000A=][=0x000A=]The microscope is a memory. The printed name is [=0x0022=]defunct electron microscope[=0x0022=]. The description is [=0x0022=]Yes, you once discovered an electron microsope in [an antique shop]. It was a console device, like a kitchen counter with switches all over the top and vacuum pumps hanging out underneath. You wonder if anyone ever purchased it.[=0x0022=][=0x000A=][=0x000A=]The antique shop is a memory. The description is [=0x0022=]You discovered a mad antique shop on a years-ago trip to North Carolina. The prize of its collection was [a microscope], though you doubt anyone else would think of it that way. You bought [hyperlink desk]an old desk[/hyperlink] instead; the very one in this room.[=0x0022=][=0x000A=][=0x000A=]The lightning is a memory. The description is [=0x0022=]One can never remember lightning properly.[=0x0022=][=0x000A=][=0x000A=]Rule for printing the name of an object (called O):[=0x000A=][=0x0009=]say [=0x0022=][hyperlink O][printed name of O][/hyperlink][=0x0022=];[=0x000A=][=0x000A=]The standard parser input line request rule does nothing.[=0x000A=][=0x000A=]Prompt displaying rule for a command input-context:[=0x000A=][=0x0009=]say [=0x0022=][first time](Touch a link.)[only][=0x0022=];[=0x000A=][=0x0009=]rule succeeds.[=0x000A=][=0x000A=]Setting up input rule:[=0x000A=][=0x0009=]now the story-window is hyperlink-input-request.[=0x000A=][=0x000A=]Handling input rule for a command input-context when handling hyperlink-event:[=0x000A=][=0x0009=]let O be current input event hyperlink object;[=0x000A=][=0x0009=]if O is nothing:[=0x000A=][=0x0009=][=0x0009=]reject the input event;[=0x000A=][=0x0009=]if O is a room:[=0x000A=][=0x0009=][=0x0009=]handle the current input event as the action of looking;[=0x000A=][=0x0009=]else:[=0x000A=][=0x0009=][=0x0009=]handle the current input event as the action of examining O;[=0x000A=][=0x0009=]rule succeeds.[=0x000A=][=0x000A=]Before examining something:[=0x000A=][=0x0009=]say [=0x0022=]--- [The noun] ---[paragraph break][=0x0022=];[=0x000A=][=0x000A=]Section - not for release[=0x000A=][=0x000A=]The test-me is a memory.[=0x000A=][=0x000A=]When play begins:[=0x000A=][=0x0009=]say [=0x0022=](Hit [test-me] to run the tests.)[=0x0022=];[=0x000A=][=0x000A=]Instead of examining test-me:[=0x000A=][=0x0009=]run test-me.[=0x000A=][=0x000A=]To run test-me: (-  special_word = [=0x0027=]me//[=0x0027=]; TestScriptSub(); -) .[=0x000A=][=0x000A=]Test me with [=0x0022=]$link fossil / $link ammonite / $link study[=0x0022=].[=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a> &quot;A Study In Memoriam&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Include Unified Glulx Input by Andrew Plotkin.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The Study is a room. &quot;You are in your cluttered study.&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The messy desk is a supporter in the Study. The description is &quot;You found this battered antique in a battered [antique shop] in Chapel Hill. As you recall, it was sitting behind [a microscope].&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> A fossil is on the desk. The description is &quot;Some species of [ammonite].&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> A copper fulgurite is on the desk. The description is &quot;It's a chunk of melted copper that you picked up from the base of a telephone pole. It's not really fulgurite, minerallogically speaking. But it [italic type]was[roman type] formed by [lightning]!&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> A memory is a kind of thing.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The ammonite is a memory. The description is &quot;You've dreamed of drifting through antediluvian seas, the master of all you survey... Then the bony fishes come. The damned bony fishes.&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The microscope is a memory. The printed name is &quot;defunct electron microscope&quot;. The description is &quot;Yes, you once discovered an electron microsope in [an antique shop]. It was a console device, like a kitchen counter with switches all over the top and vacuum pumps hanging out underneath. You wonder if anyone ever purchased it.&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The antique shop is a memory. The description is &quot;You discovered a mad antique shop on a years-ago trip to North Carolina. The prize of its collection was [a microscope], though you doubt anyone else would think of it that way. You bought [hyperlink desk]an old desk[/hyperlink] instead; the very one in this room.&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The lightning is a memory. The description is &quot;One can never remember lightning properly.&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Rule for printing the name of an object (called O):<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; say &quot;[hyperlink O][printed name of O][/hyperlink]&quot;;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The standard parser input line request rule does nothing.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Prompt displaying rule for a command input-context:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; say &quot;[first time](Touch a link.)[only]&quot;;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; rule succeeds.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Setting up input rule:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; now the story-window is hyperlink-input-request.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Handling input rule for a command input-context when handling hyperlink-event:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; let O be current input event hyperlink object;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; if O is nothing:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; reject the input event;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; if O is a room:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; handle the current input event as the action of looking;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; else:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; handle the current input event as the action of examining O;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; rule succeeds.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Before examining something:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; say &quot;--- [The noun] ---[paragraph break]&quot;;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Section - not for release</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The test-me is a memory.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> When play begins:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; say &quot;(Hit [test-me] to run the tests.)&quot;;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Instead of examining test-me:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; run test-me.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> To run test-me: (-  special_word = 'me//'; TestScriptSub();  -).</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Test me with &quot;$link fossil / $link ammonite / $link study&quot;.</span></blockquote>
+
+                <p></p>
+
+            </td>
+        </tr>
+    </table>
+    <hr>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td halign="left" valign="top" cellpadding=0 cellspacing=0 width=38px>
+                <span id=eg7><table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="oval">
+                        <td width=38px height=30px align="left" valign="center">
+                            <a href="Unified Glulx Input-eg7.html#eg7" style="text-decoration: none"><div class="paragraph Body" style="line-height: 1px; margin-bottom: 0px; margin-top: 0px; padding-bottom: 0pt; padding-top: 0px; text-align: center;">
+                                <span class="extensionexampleletter">G</span></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                </span>
+            </td>
+            <td cellpadding=0 cellspacing=0 halign="left" valign="top">
+                <a href="Unified Glulx Input-eg7.html#eg7" style="text-decoration: none"><img border="0" src='inform:/doc_images/asterisk.png'><img border="0" src='inform:/doc_images/asterisk.png'><img border="0" src='inform:/doc_images/asterisk.png'><img border="0" src='inform:/doc_images/asterisk.png'><b><span class="indexdarkgrey">&nbsp;Example&nbsp;</span><span class="indexblack">Secret Number Request</span></b></a><br>
+                <p>A phrase to query the player for a number.</p>
+
+            </td>
+        </tr>
+    </table>
+    </p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p>
+    <!--CONTENT ENDS-->
+</body>
+</html>

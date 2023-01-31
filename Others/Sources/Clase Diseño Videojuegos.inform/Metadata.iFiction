@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ifindex version="1.0" xmlns="http://babel.ifarchive.org/protocol/iFiction/">
+    <story>
+        <identification>
+            <ifid>6349BF56-FFBA-45C5-A725-16F8EAD45192</ifid>
+            <format>glulx</format>
+        </identification>
+        <bibliographic>
+            <title>Clase de diseño.</title>
+            <author>Ruber Eaglenest</author>
+            <headline>Un relato interactivo</headline>
+            <genre>Ficción</genre>
+            <firstpublished>2020</firstpublished>
+            <language>es</language>
+            <group>Inform</group>
+        </bibliographic>
+        <releases>
+            <attached>
+                <release>
+                    <releasedate>2020-09-13</releasedate>
+                    <version>1</version>
+                    <compiler>Inform 7</compiler>
+                    <compilerversion>6M62</compilerversion>
+                </release>
+            </attached>
+        </releases>
+        <colophon>
+            <generator>Inform 7</generator>
+            <generatorversion>6M62</generatorversion>
+            <originated>2020-09-13</originated>
+        </colophon>
+        <glulx>
+            <serial>200913</serial>
+            <release>1</release>
+            <compiler>Inform 7 build 6M62</compiler>
+        </glulx>
+    </story>
+</ifindex>

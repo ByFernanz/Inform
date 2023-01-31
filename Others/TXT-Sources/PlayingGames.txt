@@ -1,0 +1,1068 @@
+"Playing Games" by Kevin Jackson-Mead
+
+Chapter Setup
+
+[TODO: If there's time, come up with an alternate method for the mazes, other than the "solve" command]
+[TODO: Think about some cover art]
+
+[Release 2 is the post-comp, post-meta release.]
+The release number is 2.
+
+Release along with the source text.
+
+Use American dialect, serial comma, and no scoring.
+
+Include Basic Screen Effects by Emily Short.
+
+Rule for constructing the status line:
+	center "[the player's surroundings]" at row 1;
+	rule succeeds.
+
+The description of the player is "You're pretty average. [if the player is wearing a washed holly wreath]At least, you were the last time you checked. You can't see yourself at all right now[otherwise]Besides your penchant for playing games, there's really nothing remarkable about you[end if]."
+
+[This is so the player can't go back into the clearing with the oak tree after they've already been]
+A person can be enlightened. The player is not enlightened.
+
+[For comments]
+Understand "* [text]" as a mistake ("Noted.").
+
+test mazes with "test w / e / search bushes / d / test small / get stone / d / test medium / get stone / d / test large / get stone";
+
+test small with "x board / w / n / n / e / e / s / w";
+
+test medium with "x board / e / e / e / n / n / w / n / w / s / s / w / n / n / n / n / n / e / e / s / e / n";
+
+test large with "x board / n / n / e / e / e / e / e / e / e / e / n / w / s / s / e / e / e / n / n / e / s / s / e / n / n";
+
+test w with "remove blindfold / test watch";
+
+test i with "remove blindfold / test invis / test watch";
+
+test watch with "n / x glint / get pocketwatch / s / e / press stem / set watch to 12:00 / give watch to man";
+
+test invis with "e / e / get branches / weave branches / w / w / w / wash wreath in brook / wear wreath / e";
+
+Chapter Preamble
+
+When play begins, say "You had started going to the game parlor in town a few months ago. At first, it was simply a way to pass the time, playing penny-a-point card games with odd names such as Whist, Preference, and Boston.  Earlier today (you assume it's the same day), one of the regulars casually asked if you'd like to 'join the real club.'
+
+You weren't sure what he meant, but you agreed. This was a fun place, and getting more out of it didn't sound like a bad idea. He signaled to a few others, and they took you to the basement of the game parlor. There, they blindfolded you and made you swear an oath of loyalty and secrecy. They told you that you were going to have to win some games in order to join their club. Then they handed you a glass.
+
+'The first game is a drinking game,' one of them said.
+
+Prepared for something foul-tasting, you bravely gulped the whole thing down at once. You were pleasantly surprised to find that it was just rum, but then you noticed a very earthy aftertaste, and everything started to fade. You felt yourself slump to the floor. You heard the others laughing, and just before everything faded completely away, one of them said in a deep voice, 'Let the games begin.'"
+
+After printing the banner text, say "[first time][line break]Please type ABOUT for some important information.[paragraph break]You slowly come to. You realize that you are lying on the hard ground. You stand up as you awaken more fully. The sound of the occasional insect tells you that you're outside, but you can't tell much more than that while wearing this blindfold.[only]".
+
+Chapter About and Credits and Walkthrough and Misc Commands
+
+Abouting is an action out of world. Understand "about" and "help" and "credits" and "credit" as abouting.
+
+[TODO: After the comp, put in tester's names. Andrew Plotkin, Michael Hilborn, Doug Orleans, Brendan Desilets, Adri, Jason B. Alonso, Ellen Jackson-Mead]
+
+Carry out abouting:
+	say "[bold type]Playing Games[roman type][line break]by Kevin Jackson-Mead (writing as Pam Comfite) [paragraph break]First, a few bits of important information. If you are using a screen reader to play this game, you should know that the later part of the game will have some puzzles that you will almost certainly not be able to solve. I apologize that I wasn't able to come up with a format for these puzzles that was screen-reader-friendly, but I had this idea I wanted to play with. However, all is not completely lost. When you come to these puzzles, you can simply type the word SOLVE to solve the puzzle (you'll know when you get there, because the output of your screen reader will likely be nonsense). You won't get the full effect, but you will at least be able to finish the game. And to anyone else who is reading this who isn't using a screen reader: please feel free to use that command to skip those puzzles if you would otherwise just quit the game.[paragraph break]In a similar vein, there are a couple of places where sound is used later in the game. The sounds are not strictly needed; they simply make it so that you are less likely to miss a couple of events happening. You can turn the sound off by typing SOUND OFF. You can turn the sound back on by typing SOUND ON. You can check whether the sound is on or off by typing just SOUND. If you are playing this game online, sound likely doesn't work, so don't worry about this.[paragraph break]This is release 2 of a game that was entered into IFComp 2011 (http://ifcomp.org/comp11/). It was part of a meta-puzzle that four of us from the People's Republic of Interactive Fiction (http://pr-if.org) put together. You can read a synopsis, written by Andrew Plotkin, of what this was all about at http://gameshelf.jmac.org/2011/11/cold-iron-my-very-short-if-entry-in-the-comp/. A walkthrough for my game is available by typing WALKTHROUGH. I am not including a walkthrough for the meta-puzzle, but email me if you would like to ask questions about it.";
+	say "[line break]And now the list of thanks. Thanks to Stephen Granade for organizing the IFComp, and thanks to the authors, judges, and people who donated prizes. Thanks to Graham Nelson, Emily Short, and many other people for Inform 7 (http://inform7.com/), and thanks to David Kinder for the Windows front-end to Inform 7. Thanks to my collaborators on the meta-puzzle: Michael Hilborn, Doug Orleans, and Andrew Plotkin. My game would not exist without their help, and they helped test it as well. Thanks to other PR-IF members who helped test this, namely Brendan Desilets, Adri, and Jason B. Alonso. I would also like to thank PR-IF in general, for the support and motivation over the past 2.5 years. And a big thanks to my wife, Ellen Jackson-Mead, for allowing me time to work on this and for additional testing.[paragraph break]If you have any comments on the game, please feel free to send them to me at jacksonmead@gmail.com. If you are planning to send me a transcript, you can include inline comments by typing your comment preceded by an asterisk and a space, as in:[paragraph break][fixed letter spacing]* I have no idea what to do here!!![variable letter spacing][paragraph break]Thank you for trying out the game!";
+
+Walking through is an action out of world. Understand "walkthrough" and "walkthru" as walking through.
+
+Carry out walking through:
+	say "Here is a rather minimal walkthrough of the game. It makes use of the SOLVE command (see the ABOUT text for an explanation).[paragraph break]
+	remove blindfold[line break]
+	n[line break]
+	x stones[line break]
+	x glint[line break]
+	get watch[line break]
+	s[line break]
+	e[line break]
+	give watch to man[line break]
+	press stem[line break]
+	set time to noon[line break]
+	give watch to man[line break]
+	e[line break]
+	search bushes[line break]
+	d[line break]
+	solve[line break]
+	get stone[line break]
+	d[line break]
+	solve[line break]
+	get stone[line break]
+	d[line break]
+	solve[line break]
+	get stone[line break]
+	put malachite stone in emerald indentation[line break]
+	put lapis lazuli stone in sapphire indentation[line break]
+	put moonstone in ivory indentation[line break]
+	put hematite stone in ebony indentation[line break]
+	";
+
+Hinting is an action out of world. Understand "hint" and "hints" as hinting.
+
+Carry out hinting:
+	say "You can type ABOUT for general information, and there is also a WALKTHROUGH command available.";
+
+Xyzzying is an action out of world. Understand "xyzzy" as xyzzying.
+
+Carry out xyzzying:
+	say "No, thank you.";
+
+Dancing is an action applying to nothing. Understand "dance" and "safety dance" as dancing.
+
+Instead of dancing:
+	say "[one of]We can dance if we want to[or]We can leave your friends behind[or][']Cause your friends don't dance and if they don't dance[or]Well they're no friends of mine[or]I say, we can go where we want to[or]A place where they will never find[or]And we can act like we come from out of this world[or]Leave the real one far behind[or]And we can dance[cycling].";
+	
+Instead of singing:
+	say "You try to think of a tune to sing, but nothing comes to mind.";
+	
+Instead of burning something:
+	say "You do not have anything with which to start a fire.";
+	
+Instead of waking up:
+	say "If this is a dream, it is a very convincing one.";
+
+Instead of cutting something:
+	say "You do not have a knife or anything resembling a knife.";
+
+Instead of swearing obscenely:
+	try swearing mildly;
+	
+Understand "ls" as a mistake ("To look around, type LOOK or L. To see what you are carrying, type INVENTORY or I.").
+	
+Chapter The Blindfold
+
+The player wears a blindfold. The description of the blindfold is "[if the player is wearing the blindfold]The blindfold is black. Or maybe that's just because you can't see anything[otherwise]A thin piece of black cloth, about as long as your arm[end if]." Understand "blind" and "fold" as the blindfold.
+
+Rule for printing a refusal to act in the dark when the player wears the blindfold:
+	if we are examining the blindfold, say "[description of the blindfold][line break]" instead;
+	if we are examining something, say "You can't see anything with the blindfold on.[line break]" instead;
+
+Rule for printing the description of a dark room when the player wears the blindfold: say "You can't see anything with the blindfold on."
+	
+Rule for printing the announcement of darkness: say "Now you can't see anything." instead.
+	
+Carry out taking off the blindfold:
+	if the location is outdoors:
+		now the location is lit;
+	
+Carry out wearing the blindfold:
+	now the location is dark;
+
+Instead going down when in darkness and the location is the Small Game Room:
+	say "You don't know what might be down here. You should probably go back up and find a light source.";
+	
+Instead of going when in darkness and the player wears the blindfold: say "You'd rather not bump into anything with this blindfold on."
+
+Instead of going when in darkness and the player wears the blindfold at least twice: say "Maybe you should remove the blindfold before trying to move around."
+
+[Let's redirect taking the worn blindfold to removing it]
+Instead of taking the blindfold when the player wears the blindfold:
+	try taking off the blindfold;
+
+Chapter Pocketwatch
+
+An analog timepiece is a kind of thing. An analog timepiece has a time called the current time. The current time of an analog timepiece is usually 4:50 am.
+
+The pocketwatch is an analog timepiece. Understand "pocket" and "watch" and "case" and "gold" as the pocketwatch. The description is "A fancy gold pocketwatch with a silver stem[if open]. It is showing [time for the pocketwatch][otherwise]. The case is closed[end if]."
+
+The pocketwatch can be open or closed. The pocketwatch can be openable. It is closed and openable. The pocketwatch can be unopened. It is unopened. Understand "face" and "hands" and "time" as the pocketwatch when the pocketwatch is open.
+
+A silver stem is part of the pocketwatch. The description is "A small silver cylinder poking out of the top of the pocketwatch."
+
+Check pushing the silver stem:
+	if the pocketwatch is open:
+		say "You press the silver stem, but nothing happens, as the pocketwatch is already open." instead;
+
+Carry out pushing the silver stem:
+	now the pocketwatch is not unopened;
+	try opening the pocketwatch instead;
+
+[This report rule is needed to stop the default report rule ("Nothing obvious happens.") from firing.]
+Report pushing the silver stem:
+	stop the action;
+
+Report opening the pocketwatch:
+	say "You press the silver stem, and the gold case of the pocketwatch pops open. The face is showing [time for the pocketwatch].";
+	stop the action;
+	
+Report closing the pocketwatch:
+	say "You snap the gold case shut, and it latches with an audible click.";
+	stop the action;
+	
+Instead of opening the unopened pocketwatch:
+	say "You have heard of pocketwatches, of course, but you haven't ever used one. You try to pry at the side of the case, but that doesn't seem to work."
+
+Instead of opening the unopened pocketwatch at least twice:
+	say "You fuss around with the pocketwatch some more, but you can't seem to get it open."
+	
+Instead of opening the unopened pocketwatch at least five times:
+	say "You fumble around some more and accidentally press the stem of the pocketwatch. The case springs open.";
+	now the pocketwatch is not unopened;
+	try silently opening the pocketwatch;
+
+To say time for (clock - an analog timepiece):
+	[say word number 1 in "[current_time of clock]";
+	say ":";
+	say word number 2 in "[current_time of clock]";]
+	[say "[hours part of the current time of clock]:[minutes part of current time of clock]";]
+	say "[the current time of the clock in words]";
+
+Understand "set [analog timepiece] to [time]" and "change [analog timepiece] to [time]" and "move [analog timepiece] to [time]" as setting it by time. Setting it by time is an action applying to one thing and one time.
+
+Understand "set [analog timepiece]" and "change [analog timepiece]" and "move [analog timepiece]" and "set [analog timepiece] to" and "change [analog timepiece] to" and "move [analog timepiece] to" as setting without time. Setting without time is an action applying to one thing.
+
+Instead of setting without time:
+	if the noun is closed:
+		say "You need to open [the noun] before you can set the time.";
+	otherwise:
+		say "You need to specify a time."
+
+Instead of pushing the open pocketwatch:
+	say "You can try setting the time."
+	
+[These first two are in case someone uses an invalid time, in which case the built-in setting it to action will fire instead of the setting it to by time action that I deifned]
+Check setting an analog timepiece to:
+	say "That's not a proper time." instead;
+
+Check setting an analog timepiece to at least twice:
+	say "That's not a proper time. Use a time between 12:00 and 11:59." instead;
+
+Check setting the pocketwatch by time:
+	if the noun is closed:
+		say "You can't set the time of the pocketwatch when the case is closed." instead;
+	
+Carry out setting an analog timepiece by time:
+	now the current time of the noun is the time understood.
+
+Report setting an analog timepiece by time:
+	say "You set [the noun] to [time understood in words]."
+
+Chapter The Man and His Hat
+
+[Let's let players know that there won't be conversation]
+Communicating with is an action applying to one thing. Understand "talk to [something]" and "ask [something]" and "tell [something]" and "ask [something] about" and "tell [something] about" and "talk to [something] about" and "greet [something]" as communicating with.
+
+Instead of communicating with, say "[The noun] does not respond."
+
+Communicating about is an action applying to one thing and one topic. Understand "ask [something] about [text]" and "tell [something] about [text]" and "talk to [something] about [text]" as communicating about.
+
+Instead of communicating about, try the player communicating with the noun.
+
+Greeting is an action applying to nothing. Understand "hello" and "hi" and "bye" and "goodbye" as greeting.
+
+Instead of greeting, say "There is no response."
+
+Instead of attacking the stranger, say "Assaulting strangers while alone in the woods doesn't seem like a good idea."
+
+["Golux" is apparently the name of a man with an indescribable hat in James Thurber's The 13 Clocks. From the Wikipedia entry for the book, I got that all the clocks are stopped at "ten minutes to five", so that's a good time for the pocketwatch]
+The stranger is a man. "A dark man wearing an indescribable hat stands here, poking around the ground as if looking for something." The description of the stranger is "The man is wearing a large cloak, which covers most of his features, giving you simply the impression of darkness. The only thing that stands out about the man is his hat, which is almost completely indescribable." Understand "dark" and "man" and "golux" as the stranger. The printed name of the stranger is "dark man".
+
+The stranger wears an indescribable hat. The description of the indescribable hat is "[one of]The overall impression of the hat is one of...[or]It looks like...[or]It has a kind of...[or]It strongly resembles...[then  at random] No, the hat really is indescribable."
+
+The stranger wears a large cloak. The description of the large cloak is "A large dark cloak wrapped around [the stranger]."
+
+Every turn when the stranger is in the location of the player and the stranger does not enclose the pocketwatch:
+	if a random chance of 1 in 3 succeeds:
+		say "The man mumbles to himself, '[one of]Where is that blasted thing[or]How am I supposed to know what time it is if I can't find it[purely at random]?'";
+
+The glowing moonstone is a thing. It is lit. The description is "A small rounded piece of polished moonstone. It is a clouded white. Incredibly, it appears to be giving off light." Understand "stone" and "white" as the glowing moonstone. The stranger holds the glowing moonstone.
+
+The new block giving rule is listed instead of the block giving rule in the check giving it to rulebook.
+
+This is the new block giving rule:
+	unless the noun is the pocketwatch and the second noun is the stranger:
+		abide by the block giving rule;
+		
+Instead of showing the pocketwatch to the man:
+	if the player is wearing a washed holly wreath:
+		say "[The second noun] does not seem to notice.";
+	otherwise:
+		say "[The second noun] stops poking around the ground for a moment and says, 'Ah, is that mine? I do hope you've found it at the right time.'";
+	
+Check giving the pocketwatch to the man:
+	if the current time of the pocketwatch is not 12:00 am and the current time of the pocketwatch is not 12:00 pm:
+		if player is not wearing a washed holly wreath:
+			say "[The second noun] stops poking around the ground for a moment and says, 'Ah, that looks just like my pocketwatch, except I lost mine at noon.' He goes back to poking around the ground." instead;
+		say "[The second noun] notices that he is suddenly holding [the noun]. He examines it and says, 'Ah, that looks just like my pocketwatch, except I lost mine at noon.' He sets it down and continues poking around the ground.";
+		now the noun is in the location;
+		stop the action;
+		
+Carry out giving the pocketwatch to the man:
+	if the player is wearing a washed holly wreath:
+		now the glowing moonstone is in the location;
+	otherwise:
+		now the player carries the glowing moonstone;
+	now Small Clearing is mapped north of Forest Path;
+	now Forest Path is mapped south of Small Clearing;
+	move the stranger to Small Clearing;
+	move the break to Forest Path;
+
+Report giving the pocketwatch to the man:
+	if the player is wearing a washed holly wreath:
+		say "[The second noun] notices that he is suddenly holding [the noun]. His eyes light up. He inspects it beneath his cape, fiddling with it. He sighs a bit and then, tossing a small glowing stone on the ground, makes his way through a break in the trees to the north, which you had not previously noticed.";
+	otherwise:
+		say "[The second noun]'s eyes light up as he grabs [the noun]. He inspects it beneath his cape, fiddling with it. He looks back at you and sighs. He hands you a small glowing stone and says, 'Well, here, you might as well have this. It's no good to me fogged like that.'[paragraph break]Before you can react, he dashes off to the north, through a small break in the trees you had not previously noticed.";
+	stop the action;
+
+Instead of dropping the pocketwatch when the location is the Forest Path and the location of the stranger is the Forest Path:
+	if the current time of the pocketwatch is 12:00 am or the current time of the pocketwatch is 12:00 pm:
+		try giving the pocketwatch to the stranger instead;
+	now the pocketwatch is in the location;
+	say "[The stranger] pauses for a moment and looks at [the noun] on the ground. 'Funny,' he says. 'That looks just like my pocketwatch, except I lost mine at noon.' He goes back to poking around the ground.";
+
+Chapter Random Stuff with Rooms
+
+A room can be outdoors or indoors. A room is usually outdoors.
+
+Instead of smelling an outdoors room:
+	say "It smells damp and earthy."
+	
+Instead of smelling an indoors room:
+	say "It smells a bit musty."
+	
+Instead of listening to an outdoors room:
+	say "You hear the occasional sound of an insect but not much else."
+	
+Instead of listening to an indoors room:
+	say "You don't hear anything."
+
+The don't go randomly wandering rule is listed instead of the can't go that way rule in the check going rulebook.
+
+Check an actor going (this is the don't go randomly wandering rule):
+	if the room gone to is nothing:
+		if the room gone from is outdoors:
+			say "You do not think it wise to go wandering off randomly in the forest.";
+		otherwise:
+			say "You can't go that way.";
+		stop the action;
+			
+Chapter Forest
+
+Forest Clearing is a room. It is dark. "You are standing in a forest clearing. The wispy fog that surrounds you spreads the light of the full moon, so there is plenty of light to see. Some ruins stand north of here, and something of a path leads east and west."
+
+The path is scenery in Forest Clearing. The description is "The path runs east and west."
+
+The trees are scenery in Forest Clearing. The description is "Trees surround this forest clearing." Understand "tree" and "forest" as the trees.
+
+The moon is a backdrop in Forest Clearing. The description is "[one of]Since the moon is full, that must mean this is still the same night. It[or]The full moon[stopping] illuminates everything around you almost as if it were day."
+
+The fog is a backdrop in Forest Clearing. The description is "Wisps of light fog drift about around you. They don't obscure anything, but they certainly give the forest some atmosphere."
+
+The stone ruins is scenery in Forest Clearing. The description is "Pieces of stone poke up from the ground to the north, none more than knee high. You can't tell much more from this distance." Understand "pieces of stone" and "pieces of stones" and "stone" and "stones" as the ruins.
+
+Ruined Building is north of Forest Clearing. "Pieces of stone poke up from the ground here, none more than knee high. They clearly form the outer walls of some kind of building. A forest clearing lies to the south." The moon is in Ruined Building. The fog is in ruined building.
+
+The stone walls are scenery in Ruined Building. Understand "ruins" and "stones" and "pieces" and "pieces of stone/stones" and "wall" and "walls" and "building" and "weeds" as the stone walls. The description is "Judging by how little is left of the walls, and how worn and weed-covered what's left is, this building must have stood a long time ago. There's no way to discern what its function might have been, but it does seem odd that it would be in the middle of a forest.[if the pocketwatch is off-stage][paragraph break]You notice a glint next to one of the stones.[end if]"
+
+[This is to catch "enter building"]
+Instead of entering the stone walls:
+	say "You are already inside the stone walls of what was once a building."
+	
+A glint is scenery in Ruined Building.
+
+Instead of doing anything to the glint:
+	say "The moonlight reflects off of something nestled next to one of the stones, mostly hidden under some weeds. Upon closer examination, you discover what looks like a gold pocketwatch.";
+	move the pocketwatch to the location;
+
+Road to Town is west of Forest Clearing. "There is a small wooden bridge here. Beyond it to the west, the forest starts to give way to fog-covered farmers[apostrophe] fields, which means this must be the road back to town. Back east lies the forest. A small brook runs under the bridge."
+
+A small wooden bridge is scenery in Road to Town. The description is "This wooden bridge leads back to town. Crossing it means forgetting all about this initiation and getting on with your life."
+
+Instead of looking under small wooden bridge:
+	say "A small brook runs under the bridge.";
+
+[This is to catch "cross bridge"]	
+Instead of entering the small wooden bridge:
+	try going west instead;
+
+Farmers' fields are scenery in Road to Town. The description is "You cannot tell from here what crops are in the fields, and it is not something you have ever bothered to learn before." Understand "farmers" and "field" and "crop" and "crops" as farmers' fields.
+
+The moon is in Road to Town. The fog is in Road to Town.
+
+[Made this blank room so that the player can attempt to go west again.]
+Town is west of Road to Town.
+
+Before going west in Road to Town:
+	say "You consider just heading back to town. It would be easier, but you're not sure you could show your face at the game parlor again. But what if this is all just a prank, and you'd be better off just heading home right now? You consider for a while." instead;
+
+[TODO: Add in some amusing things here, mentioning whatever the player is holding as "at least you have this spiffy blindfold" or whatever (watch, branches, wreath, moonstone, other stones). Maybe make it more wacky if you have any or all of the other stones, since it's unlikely the player would trigger it naturally, and stick it into AMUSING]
+
+Before going west in Road to Town at least twice:
+	say "You decide that you've had enough, and you head back to town. The next time you try to go to the game parlor, you aren't allowed in. They don't say why, but you know. You failed the initiation test, and this is your punishment.";
+	end the story saying "You never play another game for the rest of your life."
+	
+Forest Path is east of Forest Clearing. "To the west is a forest clearing, from which just enough light comes that you can make out the path continuing to the east[if Small Clearing is mapped north of Forest Path].[paragraph break]There is a small break in the trees to the north, through which [the stranger] disappeared[end if]."
+
+The stranger is in the Forest Path.
+
+[This is to implement the "ground" noun that is mentioned when the man is poking about.]
+Ground is scenery in the Forest Path. The description is "There is a path here that runs east and west." Understand "path" and "forest path" as ground.
+
+[Let's implement this bit of scenery that can move to the Forest Path once the man disappears, since the room description mentions it after that.]
+Break is scenery. The description is "A small break in the trees leads north." Understand "small" and "trees"as break.
+
+Small Clearing is a room.
+
+[Let's let the player "look north" in the Forest Path once the man has left. Also "look down" and "look up" the ladders.]
+Carry out examining (this is the alternate examine directions rule):
+	if the noun is a direction:
+		if the location is the Forest Path and the Small Clearing is mapped north of the Forest Path and the noun is north:
+			say "The break in the trees is too narrow to see anything through. You could probably push through it, though.";
+		otherwise if a room is mapped down of the location and the noun is down:
+			if the location is End of Path and the trapdoor is closed:
+				say "You see a trapdoor.";
+			otherwise:
+				say "The ladder descends into darkness.";
+		otherwise if a room is mapped up of the location and the noun is up:
+			say "The ladder ascends through a hole in the ceiling.";
+		otherwise:
+			issue library message examining action number 5 for the noun;
+		now examine text printed is true;
+			
+The alternate examine directions rule is listed instead of the examine directions rule in the carry out examining rulebook.
+
+Before going north in Forest Path:
+	if the stranger is not in the location and the player is not wearing a washed holly wreath:
+		say "As you start to follow [the stranger], he pops back out of the trees and blocks your way. 'I'm sorry,' he says. 'This way is not for you. I don't want to see you trying to follow me.' He disappears back into the forest." instead;
+
+[TODO: Could add this to the AMUSING, since this foreshadows the ending.]
+Before going north in Forest Path two times:
+	if the stranger is not in the location and the player is not wearing a washed holly wreath:
+		say "Despite [the stranger]'s warning, you start to head through the break in the trees again, and again [the stranger] pops out of the trees to block your way. 'I really am sorry,' he says. 'There are mysteries at work here you couldn't understand. Go on with your games. You'll give them a nice little surprise.' He disappears back into the forest." instead;
+
+Before going north in Forest Path at least three times:
+	if the stranger is not in the location and the player is not wearing a washed holly wreath:
+		say "You stubbornly head through the break in the trees, and as expected, [the stranger] shows up to block your path before disappearing back into the forest." instead;
+
+[So, at this point, we've made it past the before rules, so we know the player is wearing a washed holly wreath]
+Instead of going north in Forest Path when the location of the stranger is not the Forest Path:
+	[Don't let the player return once they've already been there.]
+	if the player is enlightened:
+		say "You just cannot bring yourself to go back to that clearing with the sinister oak tree.";
+	otherwise:
+		say "After going a short distance, you come upon a small clearing. [The stranger] is here, standing in front of a young oak tree.[paragraph break]He pulls out a scrap of paper, looks at it as he whispers some word, and knocks three times on a knot in the oak tree.[paragraph break]As if by magic, a hollow opens up in the tree, and [the stranger] places [the pocketwatch] inside it. As [the stranger] strides purposefully away, the hollow closes up. You realize that you have no idea which way [the stranger] went.[paragraph break]This whole business unnerves you, and you decide to head back to the path.";
+		now the player is enlightened;
+
+End of Path is east of Forest Path. "The path apparently ends here, only leading to the west, where it is a bit brighter. At the end of the path is a mass of dense bushes[if Small Game Room is mapped below End of Path], at the base of which is [trapdoor-open][end if]."
+
+Bushes are scenery in End of Path. The description is "This dense mass of prickle-bushes doesn't look too inviting." Understand "dense" and "mass" and "bush" as the bushes.
+
+The trapdoor is scenery. The description is "A wooden trapdoor at the base of the mass of prickle-bushes[if open]. It is currently open, and you can see a ladder heading down[end if]." Understand "wooden" and "wood" and "trap" and "door" as trapdoor. Understand "ladder" as trapdoor when trapdoor is open. The trapdoor can be openable. The trapdoor can be open or closed. The trapdoor is openable and closed.
+
+Instead of entering the trapdoor:
+	try going down;
+	
+To say trapdoor-open:
+	if the trapdoor is open:
+		say "an open trapdoor with a ladder leading down";
+	otherwise:
+		say "a closed trapdoor";
+		
+Instead of searching or looking under or entering bushes:
+	if trapdoor is in End of Path:
+		say "You don't find anything other than the trapdoor.";
+	otherwise:
+		say "Not knowing what else to do, you poke around through the bushes, giving yourself a few scrapes in the process. However, you eventually find a trapdoor at the base of the bushes.";
+		now Small Game Room is mapped below End of Path;
+		now End of Path is mapped above Small Game Room;
+		now the trapdoor is in End of Path;
+	
+Report going down from End of Path:
+	if the trapdoor is closed:
+		say "You open the trapdoor and head down the ladder.";
+		now the trapdoor is open;
+
+The holly branches are a thing. The description is "A handful of branches sporting numerous prick-pointed holly leaves." The holly branches are plural-named. The holly branches can be picked. The holly branches are not picked. Understand "leaves" and "leaf" and "branch" as the holly branches.
+
+Bush_leaves are scenery in End of Path. The description is "Prick-pointed, glossy leaves." Understand "leaves" and "leaf" and "branch" and "branches" as bush_leaves. The printed name of the bush_leaves is "branches".
+
+Instead of taking the bush_leaves:
+	try picking the bush_leaves;
+
+Instead of taking the bushes:
+	try picking the bush_leaves;
+	
+Picking is an action applying to one visible thing. Understand "pick [something]" as picking.
+
+Check picking:
+	if the noun is not the bush_leaves:
+		if the noun is the bushes:
+			try picking the bush_leaves instead;
+		if the noun is the holly branches:
+			say "You've already picked those." instead;
+		say "You can't pick that." instead;
+	if the holly branches are picked:
+		say "You've already grabbed enough branches. You don't want to risk scratching up your hands." instead;
+
+Carry out picking the bush_leaves:
+	say "You pick a few branches from one of the bushes, careful not to prick your hands. As you look more closely at the leaves, you recall that this type of bush is called holly.";
+	now the player holds the holly branches;
+	now the holly branches are picked;
+	
+Does the player mean picking the holly branches: it is very unlikely.
+
+The holly wreath is a wearable thing. The description is "A wreath woven of holly branches. It will not impress anyone, but you can wear it on your head." The holly wreath can be washed. The holly wreath is not washed.
+
+Weaving is an action applying to one thing. Understand "weave [something]" and "weave [something] into wreath" as weaving.
+
+Check weaving:
+	if the noun is not the holly branches:
+		say "You aren't sure how you would weave that." instead;
+	
+Carry out weaving:
+	now the holly branches are off-stage;
+	now the player carries the holly wreath;
+	set pronouns from the wreath;
+	
+Report weaving:
+	say "You carefully weave [the noun] into a wreath, only getting a few scratches on your hands."
+	
+Report wearing the washed holly wreath:
+	say "You put on the holly wreath and vanish[if the location of the stranger is the location]. [The stranger] doesn't seem to notice[end if].";
+	stop the action;
+
+Report taking off the washed holly wreath:
+	say "You remove the holly wreath and reappear[if the location of the stranger is the location]. [The stranger] doesn't seem to notice[end if].";
+	stop the action;
+
+The brook is a scenery container in Road to Town. The description is "A brook that runs under a wooden bridge." Understand "stream" and "river" and "water" as brook.
+
+Instead of entering the brook:
+	say "You consider getting into the brook, but then you decide that you do not really want to get your feet wet in the middle of the night.";
+	
+Instead of drinking the brook:
+	say "You scoop up a handful of water and drink it. It is cool and clean.";
+
+Washing it in is an action applying to two visible things. Understand "wash [something] in [something]" and "dip [something] in [something]" and "dunk [something] in [something]" as washing it in.
+
+Instead of washing something in something:
+	if the second noun is not the brook:
+		say "That would not accomplish much.";
+	otherwise if the noun is the holly branches:
+		say "Why would you want to wash [the noun]?";
+	otherwise if the noun is not the holly wreath:
+		say "[The noun] is clean enough already.";
+	otherwise:
+		say "You [if the holly wreath is worn]remove [the noun], dunk it[otherwise]dunk [the noun][end if] in [the second noun], swirl it around a bit, pull it out, and shake off the excess water. It glistens in the moonlight.";
+		now the noun is washed;
+		now the player carries the noun;
+		
+Instead of inserting something into the brook:
+	try washing the noun in the second noun;
+	
+Chapter Game Rooms
+
+Small Game Room is an indoors room. "This is a small, plain stone room. It smells musty, as if it does not get much use. Pretty much the only item of interest is a small game board affixed to a stone pedestal in the middle of the room.[paragraph break]There is a ladder leading up through a hole in the ceiling[if Medium Game Room is mapped below Small Game Room], and there is a hole in the floor with a ladder leading down[end if]." It is dark. The printed name of the Small Game Room is "Small Stone Room".
+
+SmallLadder is scenery in Small Game Room. The description is "A ladder leads up through a hole in the ceiling[if Medium Game Room is mapped below Small Game Room], and there is a hole in the floor with a ladder leading down[end if]." Understand "ladder" and "ladders" and "hole" and "holes" as SmallLadder. The printed name is "ladder".
+
+Medium Game Room is an indoors room. "This is a small, plain stone room, although not quite as small as the room above. It seems likely that it is slightly larger in order to accommodate the slightly larger game board affixed to a pedestal in the middle of the room.[paragraph break]There is a ladder leading up through a hole in the ceiling[if Large Game Room is mapped below Medium Game Room], and there is a hole in the floor with a ladder leading down[end if]." It is dark. The printed name of the Medium Game Room is "Somewhat Small Stone Room".
+
+MediumLadder is scenery in Medium Game Room. The description is "A ladder leads up through a hole in the ceiling[if Large Game Room is mapped below Medium Game Room], and there is a hole in the floor with a ladder leading down[end if]." Understand "ladder" and "ladders" and "hole" and "holes" as MediumLadder. The printed name is "ladder".
+
+Large Game Room is an indoors room. "Compared to the other two rooms, this room is fairly large. It is still quite plain, though, its only interesting feature the rather large game board affixed to a pedestal in the middle of the room.[paragraph break]There is a ladder leading up through a hole in the ceiling[if location of panel is Large Game Room], and there is a small square panel in the floor[end if]." It is dark. The printed name of the Large Game Room is "Large Stone Room".
+
+LargeLadder is scenery in Large Game Room. The description is "A ladder leads up through a hole in the ceiling." Understand "ladder" and "ladders" and "hole" and "holes" as LargeLadder. The printed name is "ladder".
+
+[Let's make sure the player can't go wandering off into dark rooms without the moonstone]
+Before going down in Game Rooms:
+	if the player does not carry the glowing moonstone:
+		say "It looks like it is dark down there. You should probably grab the glowing moonstone before heading down." instead;
+		
+Before going up in Game Rooms:
+	if the location is not Small Game Room and the player does not carry the glowing moonstone:
+		say "It looks like it is dark up there. You should probably grab the glowing moonstone before heading back up." instead;
+
+
+[Right now, this is just a blank room to allow players to go down from Large Game Room and win the game.]
+Final Room is a room.
+
+The Game Rooms is a region. Small Game Room, Medium Game Room, and Large Game Room are in the Game Rooms.
+
+A game-ball is a kind of thing. A game-ball can be teleported or unteleported. A game-ball is usually unteleported.
+
+A gameboard is a kind of thing. A gameboard is usually scenery. A gameboard has a game-ball called a gameball. A gameboard has a thing called a gamegoal. A gameboard has a list of lists of rooms called a layout. A gameboard can be won or unwon. A gameboard is usually unwon. A gameboard can be examined or unexamined. A gameboard is usually unexamined. Understand "pedestal" as a gameboard.
+
+Instead of putting something held on a gameboard:
+	say "You try to put [the noun] on [the second noun], but it just falls off onto the ground.";
+	silently try dropping the noun;
+	
+A teleporter is a kind of room. A teleporter has a room called the destination. The destination of a teleporter is usually nothing.
+
+[Define the small maze as a set of rooms.]
+SmallMaze1-1 is a room. SmallMaze1-2 is east of SmallMaze1-1.  SmallMaze1-3 is east of SmallMaze1-2. SmallMaze2-3 is south of SmallMaze1-3. SmallMaze2-2 is west of SmallMaze2-3. SmallMaze3-3 is south of SmallMaze2-3. SmallMaze2-1 is south of SmallMaze1-1. SmallMaze3-1 is south of SmallMaze2-1. SmallMaze3-2 is east of SmallMaze3-1.
+
+[Starting position of the ball.]
+A malachite stone is a game-ball in SmallMaze3-2. The description is "A small stone of polished malachite with beautiful green swirls." Understand "green" as malachite stone.
+
+[Position of the goal.]
+SmallGoal is a person in SmallMaze2-2.
+
+A small game board is a gameboard in Small Game Room. The gameball of the small game board is the malachite stone. The description of the small game board is "This is a small game board affixed to a stone pedestal. It is a metal board with grid lines etched in it. It has [if unwon][a gameball of small game board] (O) and [end if]a slot (X) on it." The gamegoal of the small game board is SmallGoal. The layout of the small game board is {{SmallMaze1-1, SmallMaze1-2, SmallMaze1-3}, {SmallMaze2-1, SmallMaze2-2, SmallMaze2-3}, {SmallMaze3-1, SmallMaze3-2, SmallMaze3-3}}.
+
+SmallSlot is a thing. It is part of small game board. The description is "A small slot, just about the right size for [the gameball of small game board]." Understand "slot" as SmallSlot. The printed name is "slot".
+
+Instead of inserting something into the SmallSlot:
+	say "That won't fit.";
+	
+Instead of inserting the malachite stone into the SmallSlot:
+	say "You put [the noun] into the [second noun], and it disappears into the game board. You hear a few clunks from inside the board, and you see [the noun] rolling to a stop on the floor in front of you.";
+	move the noun to the location;
+
+[medium maze]
+MA1-1 is a room. MA1-2 is east of MA1-1. MA1-3 is east of MA1-2. MA2-3 is south of MA1-3. MA2-2 is west of MA2-3. MA2-4 is east of MA2-3. MA1-4 is north of MA2-4. MA2-1 is south of MA1-1. MA3-1 is south of MA2-1. MA3-2 is east of MA3-1. MA3-3 is east of MA3-2. MA3-4 is east of MA3-3. MA4-4 is south of MA3-4. MA4-1 is south of MA3-1. MA5-1 is south of MA4-1. MA6-1 is south of MA5-1. MA6-2 is east of MA6-1. MA5-2 is north of MA6-2. MA4-2 is north of MA5-2. MA4-3 is east of MA4-2. MA5-3 is south of MA4-3. MA5-4 is east of MA5-3. MA6-4 is south of MA5-4. MA6-3 is south of MA5-3 and west of MA6-4. MA7-4 is south of MA6-4. MA7-3 is west of MA7-4. MA7-2 is west of MA7-3. MA7-1 is west of MA7-2.
+
+A lapis lazuli stone is a game-ball in MA7-1. The description is "A small stone of polished lapis lazuli, blue with tiny white speckles." Understand "blue" as lapis lazuli stone.
+
+MediumGoal is a person in MA1-4.
+
+A medium game board is a gameboard in Medium Game Room. The gameball of the medium game board is the lapis lazuli stone. The description of the medium game board is "This is a medium game board affixed to a stone pedestal. It is a metal board with grid lines etched in it. It has [if unwon][a a gameball of medium game board] (O) and [end if]a slot (X) on it." The gamegoal of the medium game board is MediumGoal. The layout of the medium game board is {{MA1-1, MA1-2, MA1-3, MA1-4}, {MA2-1, MA2-2, MA2-3, MA2-4}, {MA3-1, MA3-2, MA3-3, MA3-4}, {MA4-1, MA4-2, MA4-3, MA4-4}, {MA5-1, MA5-2, MA5-3, MA5-4}, {MA6-1, MA6-2, MA6-3, MA6-4}, {MA7-1, MA7-2, MA7-3, MA7-4}}.
+
+MediumSlot is a thing. It is part of medium game board. The description is "A small slot, just about the right size for [the gameball of medium game board]." Understand "slot" as MediumSlot. The printed name is "slot".
+
+Instead of inserting something into the MediumSlot:
+	say "That won't fit.";
+	
+Instead of inserting the lapis lazuli stone into the MediumSlot:
+	say "You put [the noun] into the [second noun], and it disappears into the game board. You hear a few clunks from inside the board, and you see [the noun] rolling to a stop on the floor in front of you.";
+	move the noun to the location;
+
+[set up the teleporters in the large maze]
+ ML7-9 is a teleporter. The destination of ML7-9 is ML2-2. ML3-2 is a teleporter. The destination of ML3-2 is ML3-5.
+ 
+[large maze]
+ML1-1 is a room. ML1-2 is east of ML1-1. ML1-3 is east of ML1-2. ML2-3 is south of ML1-3. ML2-2 is south of ML1-2. ML2-1 is south of ML1-1. ML3-1 is south of ML2-1. ML3-2 is east of ML3-1. ML8-2 is a room. ML8-3 is east of ML8-2. ML9-3 is south of ML8-3. ML9-2 is west of ML9-3. ML9-1 is west of ML9-2. ML8-1 is north of ML9-1. ML7-1 is north of ML8-1. ML7-2 is east of ML7-1. ML7-3 is east of ML7-2. ML7-4 is east of ML7-3. ML7-5 is east of ML7-4. ML7-6 is east of ML7-5. ML7-7 is east of ML7-6. ML7-8 is east of ML7-7. ML7-9 is east of ML7-8. ML8-9 is south of ML7-9. ML9-9 is south of ML8-9. ML9-8 is west of ML9-9. ML8-8 is west of ML8-9 and north of ML9-8. ML9-7 is west of ML9-8. ML8-7 is north of ML9-7 and south of ML7-7. ML6-7 is north of ML7-7. ML5-7 is north of ML6-7. ML4-7 is north of ML5-7. ML6-6 is west of ML6-7 and north of ML7-6. ML6-5 is west of ML6-6 and north of ML7-5. ML6-4 is west of ML6-5. ML6-3 is north of ML7-3. ML5-3 is north of ML6-3. ML5-4 is east of ML5-3. ML5-5 is east of ML5-4. ML5-6 is east of ML5-5. ML4-6 is north of ML5-6. ML4-3 is north of ML5-3. ML3-3 is north of ML4-3. ML3-4 is east of ML3-3. ML4-4 is south of ML3-4. ML4-5 is east of ML4-4. ML3-5 is a room. ML3-6 is east of ML3-5. ML3-7 is east of ML3-6. ML2-7 is north of ML3-7. ML1-7 is north of ML2-7. ML1-8 is east of ML1-7. ML2-8 is south of ML1-8. ML3-8 is south of ML2-8. ML3-9 is east of ML3-8. ML2-9 is north of ML3-9. ML1-9 is north of ML2-9.
+
+[one-way connections in large maze]
+ West of ML3-5 is ML3-4. East of ML3-4 is nowhere. South of ML3-5 is ML4-5. North of ML4-5 is nowhere.
+
+A hematite stone is a game-ball in ML9-1. The description is "A small stone of polished hematite, a very shiny black." Understand "black" as hematite stone.
+
+LargeGoal is a person in ML1-9.
+
+A large game board is a gameboard in Large Game Room. The gameball of the large game board is the hematite stone. The description of the large game board is "This is a large game board affixed to a stone pedestal. It is a metal board with grid lines etched in it. It has [if unwon][a gameball of large game board] (O) and [end if]a slot (X) on it." The gamegoal of the large game board is LargeGoal. The layout of the large game board is {{ML1-1, ML1-2, ML1-3, nothing, nothing, nothing, ML1-7, ML1-8, ML1-9}, {ML2-1, ML2-2, ML2-3, nothing, nothing, nothing, ML2-7, ML2-8, ML2-9}, {ML3-1, ML3-2, ML3-3, ML3-4, ML3-5, ML3-6, ML3-7, ML3-8, ML3-9}, {nothing, nothing, ML4-3, ML4-4, ML4-5, ML4-6, ML4-7, nothing, nothing}, {nothing, nothing, ML5-3, ML5-4, ML5-5, ML5-6, ML5-7, nothing, nothing}, {nothing, nothing, ML6-3, ML6-4, ML6-5, ML6-6, ML6-7, nothing, nothing}, {ML7-1, ML7-2, ML7-3, ML7-4, ML7-5, ML7-6, ML7-7, ML7-8, ML7-9}, {ML8-1, ML8-2, ML8-3, nothing, nothing, nothing, ML8-7, ML8-8, ML8-9}, {ML9-1, ML9-2, ML9-3, nothing, nothing, nothing, ML9-7, ML9-8, ML9-9}}.
+
+LargeSlot is a thing. It is part of large game board. The description is "A small slot, just about the right size for [the gameball of large game board]." Understand "slot" as LargeSlot. The printed name is "slot".
+
+Instead of inserting something into the LargeSlot:
+	say "That won't fit.";
+	
+Instead of inserting the hematite stone into the LargeSlot:
+	say "You put [the noun] into the [second noun], and it disappears into the game board. You hear a few clunks from inside the board, and you see [the noun] rolling to a stop on the floor in front of you.";
+	move the noun to the location;
+
+Instead of examining a gameboard:
+	say "[description of the noun][line break]";
+	describe the noun;
+	now the noun is examined;
+	
+To describe (G - a gameboard):
+	say "[fixed letter spacing]";
+	let L be the layout of G;
+	let LB be the location of the gameball of G;
+	let LG be the location of the gamegoal of G;
+	[first, print the top border]
+	let R1 be entry 1 of L;
+	repeat with R running from 1 to the number of entries in R1:
+		if entry R of R1 is nothing, say "[blank]";
+		otherwise say "[border]";
+	say "[line break]";
+	repeat with RN running from 1 to the number of entries in L:
+		let F be false;
+		let RO be entry RN of L;
+		[print the row]
+		repeat with R running from 1 to the number of entries in RO:
+			let RR be entry R of RO;
+			if RR is nothing and F is false:
+				say "[blank]";
+			otherwise if RR is nothing and F is true:
+				say "[left wall]";
+				now F is false;
+			otherwise:
+				say "| [if LB is RR]O[otherwise if LG is RR]X[otherwise] [end if] ";
+				now F is true;
+		say "[if F is true]|[otherwise][end if][line break]";
+		[print the borders between rows, so don't do it for the last row, since the one outside the loop will do that]
+		unless RN is the number of entries in L:
+			repeat with R running from 1 to the number of entries in RO:
+				[we want room R of this row . . .]
+				let RA be entry R of RO;
+				[. . . and room R of the next row]
+				let RB be entry R of (entry (RN + 1) of L);
+				[if they're both nothing, then print a blank, otherwise we need the border for one or the other (or both)]
+				if (RA is nothing) and (RB is nothing):
+					say "[blank]";
+				otherwise:
+					say "[border]";
+			say "[line break]";
+	[now print the bottom border, same as the top]
+	let RZ be entry (the number of entries in L) of L;
+	repeat with R running from 1 to the number of entries in RZ:
+		if entry R of RZ is nothing, say "[blank]";
+		otherwise say "[border]";
+	say "[line break]";
+	say "[variable letter spacing]";
+		
+To say blank:
+	say "    ";
+	
+To say border:
+	say " ---";
+
+To say left wall:
+	say "|   ";
+	
+[Moving the ball left/west]
+Lefting is an action applying to nothing. Understand "left" and "t" as lefting.
+
+Instead of going west when the location encloses an unwon examined gameboard, try the player lefting;
+
+Before going west when the location encloses a gameboard and in darkness:
+	say "You cannot see a thing down here. Best to head back up and try to find a light." instead;
+	
+[The other cardinal directions are taken care of in their corresponding commands, but let's add the other directions so that the response is the same.]
+Before going northwest when the location encloses a gameboard and in darkness:
+	say "You cannot see a thing down here. Best to head back up and try to find a light." instead;
+	
+Before going northeast when the location encloses a gameboard and in darkness:
+	say "You cannot see a thing down here. Best to head back up and try to find a light." instead;
+	
+Before going southwest when the location encloses a gameboard and in darkness:
+	say "You cannot see a thing down here. Best to head back up and try to find a light." instead;
+
+Before going southeast when the location encloses a gameboard and in darkness:
+	say "You cannot see a thing down here. Best to head back up and try to find a light." instead;
+	
+Before going down when the location encloses a gameboard and in darkness:
+	say "You cannot see a thing down here. Best to head back up and try to find a light." instead;
+
+
+Check lefting when the location does not enclose a gameboard:
+	say "You don't see how you can do that here." instead;
+	
+Check lefting when the location encloses a gameboard:
+	let G be a random gameboard in the location;
+	if G is won: [I think this is no longer reached, but I'll leave it for now]
+		say "[The gameball of G] is no longer on the board." instead;
+	if the room west from location of the gameball of G is nothing:
+		checkplay the sound of dead end;
+		say "You can't seem to move [the gameball of G] that way.";
+		describe G;
+		stop the action;
+		
+Carry out lefting when the location encloses a gameboard:
+	let G be a random gameboard in the location;
+	let B be the gameball of G;
+	let R be the room west of the location of B;
+	if R is a teleporter:
+		now B is in the destination of R;
+		now B is teleported;
+	otherwise:
+		now B is in R;
+	
+Report lefting when the location encloses a gameboard:
+	let G be a random gameboard in the location;
+	let B be the gameball of G;
+	if B is teleported:
+		say "You move [the gameball of G] one square left . . .[line break][line break][bold type]but then it suddenly jumps to a new location![roman type][line break]";
+		checkplay the sound of warping;
+		now B is unteleported;
+	otherwise:
+		say "You move [the gameball of G] one square left.";
+	describe G.
+
+[Moving the ball right/east]
+Righting is an action applying to nothing. Understand "right" and "r" as righting.
+
+Instead of going east when the location encloses an unwon examined gameboard, try the player righting.
+
+Before going east when the location encloses a gameboard and in darkness:
+	say "You cannot see a thing down here. Best to head back up and try to find a light." instead;
+
+Check righting when the location does not enclose a gameboard:
+	say "You don't see how you can do that here." instead;
+	
+Check righting when the location encloses a gameboard:
+	let G be a random gameboard in the location;
+	if G is won:
+		say "The ball is no longer on the board." instead;
+	if the room east from location of the gameball of G is nothing:
+		checkplay the sound of dead end;
+		say "You can't seem to move [the gameball of G] that way.";
+		describe G;
+		stop the action;
+		
+Carry out righting when the location encloses a gameboard:
+	let G be a random gameboard in the location;
+	let B be the gameball of G;
+	let R be the room east of the location of B;
+	if R is a teleporter:
+		now B is in the destination of R;
+		now B is teleported;
+	otherwise:
+		now B is in R;
+	
+Report righting when the location encloses a gameboard:
+	let G be a random gameboard in the location;
+	let B be the gameball of G;
+	if B is teleported:
+		say "You move [the gameball of G] one square right . . .[line break][line break][bold type]but then it suddenly jumps to a new location![roman type][line break]";
+		checkplay the sound of warping;
+		now B is unteleported;
+	otherwise:
+		say "You move [the gameball of G] one square right.";
+	describe G.
+
+[Moving the ball forward/north]
+Forwarding is an action applying to nothing. Understand "forward" and "forwards" and "f" as forwarding.
+
+Instead of going north when the location encloses an unwon examined gameboard, try the player forwarding.
+
+Before going north when the location encloses a gameboard and in darkness:
+	say "You cannot see a thing down here. Best to head back up and try to find a light." instead;
+
+Check forwarding when the location does not enclose a gameboard:
+	say "You don't see how you can do that here." instead;
+	
+Check forwarding when the location encloses a gameboard:
+	let G be a random gameboard in the location;
+	if G is won:
+		say "The ball is no longer on the board." instead;
+	if the room north from location of the gameball of G is nothing:
+		checkplay the sound of dead end;
+		say "You can't seem to move [the gameball of G] that way.";
+		describe G;
+		stop the action;
+		
+Carry out forwarding when the location encloses a gameboard:
+	let G be a random gameboard in the location;
+	let B be the gameball of G;
+	let R be the room north of the location of B;
+	if R is a teleporter:
+		now B is in the destination of R;
+		now B is teleported;
+	otherwise:
+		now B is in R;
+	
+Report forwarding when the location encloses a gameboard:
+	let G be a random gameboard in the location;
+	let B be the gameball of G;
+	if B is teleported:
+		say "You move [the gameball of G] one square forward . . .[line break][line break][bold type]but then it suddenly jumps to a new location![roman type][line break]";
+		checkplay the sound of warping;
+		now B is unteleported;
+	otherwise:
+		say "You move [the gameball of G] one square forward.";
+	describe G.
+
+[Moving the ball backward/south]
+Backwarding is an action applying to nothing. Understand "backward" and "backwards" and "b" and "back" as backwarding.
+
+Instead of going south when the location encloses an unwon examined gameboard, try the player backwarding.
+
+Before going south when the location encloses a gameboard and in darkness:
+	say "You cannot see a thing down here. Best to head back up and try to find a light." instead;
+
+Check backwarding when the location does not enclose a gameboard:
+	say "You don't see how you can do that here." instead;
+	
+Check backwarding when the location encloses a gameboard:
+	let G be a random gameboard in the location;
+	if G is won:
+		say "The ball is no longer on the board." instead;
+	if the room south from location of the gameball of G is nothing:
+		checkplay the sound of dead end;
+		say "You can't seem to move [the gameball of G] that way.";
+		describe G;
+		stop the action;
+		
+Carry out backwarding when the location encloses a gameboard:
+	let G be a random gameboard in the location;
+	let B be the gameball of G;
+	let R be the room south of the location of B;
+	if R is a teleporter:
+		now B is in the destination of R;
+		now B is teleported;
+	otherwise:
+		now B is in R;
+	
+Report backwarding when the location encloses a gameboard:
+	let G be a random gameboard in the location;
+	let B be the gameball of G;
+	if B is teleported:
+		say "You move [the gameball of G] one square backward . . .[line break][line break][bold type]but then it suddenly jumps to a new location![roman type][line break]";
+		checkplay the sound of warping;
+		now B is unteleported;
+	otherwise:
+		say "You move [the gameball of G] one square backward.";
+	describe G.
+
+[Let's let people using screen readers just type "solve" to win each maze"]
+Solving is an action applying to	nothing. Understand "solve" as solving.
+
+Instead of solving:
+	say "Now is not the time for that."
+	
+Instead of solving when the location encloses an unwon gameboard:
+	let G be a random gameboard in the location;
+	move the gameball of G to the location of the gamegoal of G;
+	say "[bracket]Solving the puzzle automatically.[close bracket][line break]";
+
+Instead of solving when the location encloses a won gameboard:
+	say "This game board has already been solved."
+	
+[Solve the maze!]
+Every turn when the location encloses an unwon gameboard:
+	let G be a random gameboard in the location;
+	if the location of the gameball of G is the location of the gamegoal of G:
+		say "[The gameball of G] drops into the slot. After a few clunks from inside the board, you see [the gameball of G] rolling to a stop on the floor in front of you.";
+		now G is won;
+		move the gameball of G to the location of the player;
+		if the location is Large Game Room:
+			say "[line break]Off to the side, a piece of the floor slides away, revealing some kind of panel.";
+			move the panel to the Large Game Room;
+		otherwise if the location is Medium Game Room:
+			say "[line break]Off to the side, a piece of the floor slides away, revealing a ladder down.";
+			now the Large Game Room is mapped below the Medium Game Room;
+			now the Medium Game Room is mapped above the Large Game Room;
+		otherwise if the location is Small Game Room:
+			say "[line break]Off to the side, a piece of the floor slides away, revealing a ladder down.";
+			now the Medium Game Room is mapped below the Small Game Room;
+			now the Small Game Room is mapped above the Medium Game Room;
+
+The panel is scenery. The description is "A small square panel in the floor. It has four small indentations in it, each inlaid with a different material: ivory[if the ivory indentation is full] (containing [a glowing moonstone])[end if], ebony[if the ebony indentation is full] (containing [a hematite stone])[end if], sapphire[if the sapphire indentation is full] (containing [a lapis lazuli stone])[end if], and emerald[if the emerald indentation is full] (containing [a malachite stone])[end if]."
+
+An ivory indentation is a container. It is part of the panel. The description is "A small indentation inlaid with ivory." The ivory indentation can be full. The ivory indentation is not full. Understand "ivory hole" as ivory indentation.
+
+An ebony indentation is a container. It is part of the panel. The description is "A small indentation inlaid with ebony."  The ebony indentation can be full. The ebony indentation is not full. Understand "ebony hole" as ebony indentation.
+
+A sapphire indentation is a container. It is part of the panel. The description is "A small indentation inlaid with sapphire." The sapphire indentation can be full. The sapphire indentation is not full. Understand "sapphire hole" as sapphire indentation.
+
+An emerald indentation is a container. It is part of the panel. The description is "A small indentation inlaid with emerald."  The emerald indentation can be full. The emerald indentation is not full.  Understand "emerald hole" as emerald indentation.
+
+Instead of putting something on the ivory indentation:
+	try inserting the noun into the second noun;
+
+Instead of putting something on the ebony indentation:
+	try inserting the noun into the second noun;
+
+Instead of putting something on the sapphire indentation:
+	try inserting the noun into the second noun;
+
+Instead of putting something on the emerald indentation:
+	try inserting the noun into the second noun;
+	
+Instead of inserting something into the ivory indentation:
+	if the noun is not the glowing moonstone:
+		say "That doesn't quite seem to fit there.";
+	otherwise:
+		say "You put [the noun] carefully into [the second noun], and it fits perfectly.";
+		move the noun to the second noun;
+		now the second noun is full;
+
+Instead of inserting something into the ebony indentation:
+	if the noun is not the hematite stone:
+		say "That doesn't quite seem to fit there.";
+	otherwise:
+		say "You put [the noun] carefully into [the second noun], and it fits perfectly.";
+		move the noun to the second noun;
+		now the second noun is full;
+
+Instead of inserting something into the sapphire indentation:
+	if the noun is not the lapis lazuli stone:
+		say "That doesn't quite seem to fit there.";
+	otherwise:
+		say "You put [the noun] carefully into [the second noun], and it fits perfectly.";
+		move the noun to the second noun;
+		now the second noun is full;
+
+Instead of inserting something into the emerald indentation:
+	if the noun is not the malachite stone:
+		say "That doesn't quite seem to fit there.";
+	otherwise:
+		say "You put [the noun] carefully into [the second noun], and it fits perfectly.";
+		move the noun to the second noun;
+		now the second noun is full;
+
+Carry out taking the glowing moonstone when the ivory indentation encloses the glowing moonstone:
+	now the ivory indentation is not full;
+	
+Carry out taking the hematite stone when the ebony indentation encloses the hematite stone:
+	now the ebony indentation is not full;
+	
+Carry out taking the lapis lazuli stone when the sapphire indentation encloses the lapis lazuli stone:
+	now the sapphire indentation is not full;
+	
+Carry out taking the malachite stone when the emerald indentation encloses the malachite stone:
+	now the emerald indentation is not full;
+	
+[You win!]
+Every turn when the ivory indentation is full and the ebony indentation is full and the sapphire indentation is full and the emerald indentation is full:
+	say "With all the stones in the panel, the panel slides away, revealing yet another ladder down. From below, you see light and hear loud voices. Intrigued, you head down to investigate.[paragraph break]When you reach the bottom of the ladder, you are surprised to find the same game players who started you on this initiation. But you are not half as surprised as they are[if the player is wearing a washed holly wreath] when you remove the holly wreath from your head and suddenly appear[end if]. Their conversation comes to a dead stop, and they stare at you with wide open eyes and even wider open mouths.[paragraph break]Then they all start talking at once.[paragraph break]'How did you get down here?'[paragraph break]'...only left him three stones. Where the devil did he find...'[paragraph break]'...must be a wizard!'[paragraph break]You gather that they had deliberately set you a task at which you could not succeed. And yet you somehow succeeded. They all want to find out where you found the fourth stone (for they had used a different entrance to this hideout), but you decide to keep the mystery of [the stranger] in the indescribable hat to yourself.[paragraph break]You go back to town, and you continue to play at the game parlor, where you have become a kind of celebrity.";
+	end the story finally saying "You sometimes dream of a hat, but you can never describe it upon waking";
+
+[Let players see the gameballs, but trying to do anything else should tell them how to play the game.]		
+After deciding the scope of the player while the location contains an unwon gameboard:
+	let G be a random gameboard in the location;
+	let B be the gameball of G;
+	place B in scope;
+	
+Before doing anything other than examining a game-ball when the location contains an unwon gameboard:
+	let G be a random gameboard in the location;
+	if the noun is the gameball of G:
+		say "[The noun] appears to be stuck to the board. However, it seems like you can move it LEFT (T or W), RIGHT (R or E), FORWARD (F or N), or BACKWARD (B or S)." instead;
+
+Before pushing a game-ball when the location contains an unwon gameboard:
+	let G be a random gameboard in the location;
+	if the noun is the gameball of G:
+		say "Just type LEFT, RIGHT, FORWARD, or BACKWARD. These can be abbreviated T, R, F, or B (or even W, E, N, and S)." instead;
+	
+Before pushing a game-ball to when the location contains an unwon gameboard:
+	let G be a random gameboard in the location;
+	if the noun is the gameball of G:
+		say "Just type LEFT, RIGHT, FORWARD, or BACKWARD. These can be abbreviated T, R, F, or B (or even W, E, N, and S)." instead;
+
+[Let's make left, right, forward, and backward directions, so that "push ball left" returns something sensible.]
+Left is a direction. The opposite of left is right.
+Right is a direction. The opposite of right is left.
+Forward is a direction. The opposite of forward is backward.
+Backward is a direction. The opposite of backward is forward.
+
+[And let's do the same thing for the aliases.]
+t is a direction. The opposite of t is r.
+r is a direction. The opposite of r is t.
+f is a direction. The opposite of f is b.
+b is a direction. The opposite of b is f.
+
+[Sounds]
+Sound of warping is the file "warp.ogg".
+Sound of dead end is the file "deadend.ogg".
+
+[Only play a sound if the sound for the game is on]
+To checkplay (S - a sound name):
+	if sound is true:
+		play S;
+
+[Let's let players turn off the sound]
+Sound is a truth state that varies. Sound is true.
+
+Checking sound is an action out of world. Understand "sound" as checking sound.
+
+Carry out checking sound:
+	say "The sound in the game is currently [if sound is true]on[otherwise]off[end if]. To turn it [if sound is true]off[otherwise]on[end if], type SOUND [if sound is true]OFF[otherwise]ON[end if]'. Note: If you are playing this game online, sound likely doesn't work.";
+	
+Sounding is an action out of world applying to one topic. Understand "sound [text]" as sounding.
+
+Check sounding:
+	unless the topic understood matches "on" or the topic understood matches "off":
+		say "You can type SOUND OFF or SOUND ON.";
+		stop the action;
+	
+Carry out sounding:
+	if the topic understood matches "on":
+		now sound is true;
+		say "Sound is on.";
+	otherwise:
+		now sound is false;
+		say "Sound is off.";
+		
+

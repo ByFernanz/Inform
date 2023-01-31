@@ -1,0 +1,1463 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Extension</title>
+    <style type="text/css">
+        <!--
+        /* The default font (family) and size */
+
+        body, p, td {
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.8rem; /* 100/125 */
+        }
+
+        /* For fixed-point material within text, such as the typing on the Library Card index page */
+
+        span.typewritten {
+        	font-family: monospace;
+        	font-size: 0.867rem; /* 13/12 * 100/125 */
+        }
+
+        /* For less important material: the small print */
+
+        span.smaller {
+        	font-size: 80%;
+        }
+
+        /* The "heading panel" is the coloured box, high up on the page. The colours
+        vary depending on the page: for example, the style on a report of a translation
+        with no problems is "headingpanelsucceeded", usually green, but if there were
+        problems then "headingpanelfailed" is used, which is usually red. "headingpanel"
+        itself is a more neutral grey by default. "headingpanelDark" is an alternative
+        look to make the extensions index pages have some visual contrast with the others;
+        by default they are a darker grey. */
+
+        .headingpanel {
+        	background: #eeeeee;
+        }
+        .headingpanelsucceeded {
+        	background: #E6FFE6;
+        }
+        .headingpanelfailed {
+        	background: #f69Ca6;
+        }
+        .headingpanelalt {
+        	background: #808080;
+        }
+
+        /* Heading panels have two lines of text: an upper one in a larger size, and a
+        lower one in a smaller. Again, the alt versions are meant to contrast.
+
+        	Report on Translation: Succeeded                <-- headingpaneltext
+        	Produced by Inform 10.1.0 (build 6U97)          <-- headingpanelrubric
+
+        	Installed Extensions                            <-- headingpaneltextalt
+        	Bundles of extra rules or phrases to...         <-- headingpanelrubricalt
+
+        */
+
+        span.headingpaneltext {
+        	color: #222222;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+        span.headingpaneltextalt {
+        	color: #ffffff;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        span.headingpanelrubric {
+        	color: #222222;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.733rem; /* 11/12 * 100/125 */
+        	font-weight: bold;
+        }
+        span.headingpanelrubricalt {
+        	color: #ffffff;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.733rem; /* 11/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* Horizontal rule styling */
+
+        div.hr {
+        	border: 0;
+        	width: 100%;
+        	color: #707070;
+        	background-color: #707070;
+        	height: 5px;
+        }
+
+        /* This styles the (usually white) text of the example numbers written inside
+        oval blobs in the extension documentation, which mimic the look of the in-app
+        documentation. */
+
+        .oval, .oval td {
+        	background-image:url('inform:/doc_images/ovoid.png');
+        	color:white;
+        }
+
+        /* Styling used in the extension documentation indexes: */
+
+        /* Used for extension names in the extensions pane of the app */
+
+        span.extensioncensusentry {
+        	color: #ffffff;
+        }
+
+        span.extensionindexentry {
+        	color: #404040;
+        }
+
+        span.extensionindexerror {
+        	color: #ff8080;
+        }
+
+        /* This is used in extension documentation, where an example is presented
+        in a slightly tinted box: */
+
+        table.extensionexample {
+        	background-color: #f0f0f0;
+        }
+
+        span.extensionexampleletter {
+        	color: #202020;
+        	font-size: 14px;
+        	font-weight: bold;
+        }
+
+        /* Seen in problem messages: */
+
+        span.problemred {
+        	color: #800000;
+        }
+
+        span.problemgreen {
+        	color: #008000;
+        }
+
+        span.phraseword {
+        	color: #808080;
+        }
+
+        span.phrasetokentext {
+        	color: #e00060;
+        }
+
+        span.phrasetokendesctext {
+        	color: #4040ff;
+        }
+
+        span.phrasetokenvaluetext {
+        	color: #ff4040;
+        }
+
+        /* Now we move on to styling used in the Index pages only: */
+
+        /* The periodic table display has "sidebars", usually grey and taller than they
+        are wide; they contain no text. */
+
+        div.periodictablesidebarcolour {
+        	background: #888;
+        }
+        div.periodictablesidebar:hover {
+        	background: #222;
+        }
+
+        /* The text of the element-abbreviation, such as "Lx" or "Ph", uses: */
+
+        span.elementtext {
+        	color: #ffffff;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* Similarly for the "atomic number" - a single digit - in the top left corner
+        of these boxes: */
+
+        span.elementnumbertext {
+        	color: #ffffff;
+        	font-size: 0.622rem; /* 7/12 * 96/72 * 100/125 */
+        }
+
+        /* For the text of the element title, to the right of the element box: */
+
+        span.elementtitletext {
+        	color: #ffffff;
+        	font-size: 0.6rem; /* 9/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* The banner at the top of each element: */
+
+        table.elementbanner {
+        	background: #eeeeee;
+        }
+
+        /* For the typewriting on the Library Card: */
+
+        span.librarycardtitle {
+        	color: #803030;
+        }
+
+        span.librarycardother {
+        	color: #303030;
+        }
+
+        /* Generically used for "more details" boxes in the index: */
+
+        table.indexmorebox {
+        	background-color: #e0e0e0;
+            border-radius: 8px;
+        }
+
+        /* But not for activity contents: */
+
+        table.indexactivitycontents {
+        	background-color: #e8e0c0;
+            border-radius: 8px;
+        }
+
+        /* For responses in index entries about rules: */
+
+        span.indexresponseletter {
+        	color: #ffffff;
+        	font-family: 'Courier New', Courier, monospace;
+        	background-color: #8080ff;
+        }
+
+        span.indexresponsetext {
+        	color: #000066;
+        }
+
+        /* Used ubiquitously throughout the index and extension documentation: */
+
+        span.indexblack {
+        	color: #000000;
+        }
+
+        span.indexgrey {
+        	color: #808080;
+        }
+
+        span.indexdarkgrey {
+            color: #505050;
+        }
+
+        span.indexdullred {
+        	color: #800000;
+        }
+
+        span.indexdullgreen {
+        	color: #008000;
+        }
+
+        span.indexdullblue {
+        	color: #000080;
+        }
+
+        /* Used for the room squares in the World map in the Index (which is currently
+        a table with one row of one column) */
+
+        table.indexmaproom {
+        	border-color: #000000;
+        }
+
+        /* Used in the numbering of levels of the World map in the Index */
+
+        span.indexmaplevelnumbers {
+        	color: #c0c0c0;
+        }
+
+        /* Used e.g. for title rows in the Chart of basic kinds in the Index */
+
+        tr.headingrow {
+        	background-color: #e0e0e0;
+        }
+
+        /* Standard rows have black text on striped background colours, these being
+        the usual ones seen in Mac OS X applications such as iTunes. */
+
+        tr.stripeone {
+        	background-color: #ffffff;
+        }
+
+        tr.stripetwo {
+        	background-color: #f3f6fa;
+        }
+
+        tr.tintedrow {
+        	background-color: #808080;
+        }
+
+        /* In the Figures index, this is the background colour used behind images
+        (though in fact it will only be visible if the image fails to load, or uses
+        transparency): */
+
+        div.figureindexbox {
+        	background-color: #6495ed;
+        }
+
+        /* To get the book-contents-page style leaders on the Contents element of
+           the index to work, these must use the background colour of the body of
+           the page, whatever that is: */
+
+        ul.leaders li.leaded span:first-child {
+        	background: white;
+        }
+        ul.leaders li.leaded span + span {
+        	background: white;
+        }
+
+        /* On Registry index pages (such as the Public Library), these are used for
+        download buttons and the like: */
+
+        span.registrybuttontext {
+        	font-size: 11px;
+        	border-color: #000000;
+        }
+
+        span.registryminibuttontext {
+        	font-size: 10px;
+        	border-color: #000000;
+        }
+
+        span.registrybuttonuninstalled {
+        	color: #000000;
+        	background: #ffffdd;
+        }
+
+        span.registrybuttoninstalled {
+        	color: #000000;
+        	background: #ffffff;
+        	pointer-events: none;
+        }
+
+        span.registrybuttonbuiltin {
+        	color: #888888;
+        	background: #ffffff;
+        	pointer-events: none;
+        }
+
+        span.registrybuttonupdate {
+        	color: #000000;
+        	background: #aaddff;
+        }
+
+        span.registrybuttonrevert {
+        	color: #000000;
+        	background: #ddaaff;
+        }
+
+        span.registrybuttonrevealer {
+        	color: #ffffff;
+        	background: #444444;
+        }
+
+        /* Registry index section headings: */
+
+        span.registrysectionname {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 16px;
+        	line-height: 18px;
+        }
+        span.registrysubsectionname {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 14px;
+        	line-height: 16px;
+        }
+
+        /* These are for the "mark" for a section, usually a section-symbol and number */
+
+        span.registrysectionmark {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 16px;
+        	line-height: 18px;
+        	color: #666;
+        }
+        span.registrysubsectionmark {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 14px;
+        	line-height: 16px;
+        	color: #666;
+        }
+
+        /* Text of an item listed in a registry: */
+
+        span.registryitemtext {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 12px;
+        	line-height: 16px;
+        }
+
+        /* And how the links in a registry index page behave: */
+
+        a.registrysilentlink {
+        	text-decoration: none;
+        	color: #000;
+        }
+        a.registrybuttonlink {
+        	text-decoration: none;
+        }
+        a.registrycontentslink:link {
+        	text-decoration: none;
+        	color: #202020;
+        }
+        a.registrycontentslink:visited {
+        	text-decoration: none;
+        	color: #202020;
+        }
+        a.registrycontentslink:hover {
+        	text-decoration: none;
+        	color: #D00000;
+        }
+        a.registrycontentslink:active {
+        	text-decoration: none;
+        	color: #D00000;
+        }
+
+        -->
+    </style>
+    <style type="text/css">
+        <!--
+        /* (1) General layout material */
+
+        *, *:before, *:after {
+        	-moz-box-sizing: border-box;
+        	-webkit-box-sizing: border-box;
+        	box-sizing: border-box;
+        }
+        .headingpanellayout {
+        	position: relative;
+        	height: 56px;
+        	padding: 0px;
+        	white-space:nowrap;
+        }
+        .headingpanellayoutdeeper {
+        	position: relative;
+        	height: 117px;
+        	padding: 0px;
+        	white-space:nowrap;
+        }
+        .headingtext {
+        	position: absolute;
+        	top: -4px;
+        	left: -1px;
+        	width: 100%;
+        	padding: 14px 10px 0px 10px;
+        }
+        .headingrubric {
+        	position: absolute;
+        	top: 36px;
+        	width: 100%;
+        	padding: 0px 10px 0px 10px;
+        }
+        h3.tighter {
+        	margin-top: 0px;
+        }
+        p.hang {
+        	padding-left: 25px;
+        	text-indent: -25px;
+        	margin-top: 0px;
+        	margin-bottom: 0px;
+        }
+        p.in1 {
+        	padding-left: 0px;
+        }
+        p.tightin1 {
+        	padding-left: 0px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin1 {
+        	padding-left: 0px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin1 {
+        	padding-left: 50px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in2 {
+        	padding-left: 25px;
+        }
+        p.tightin2 {
+        	padding-left: 25px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin2 {
+        	padding-left: 25px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin2 {
+        	padding-left: 75px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in3 {
+        	padding-left: 50px;
+        }
+        p.tightin3 {
+        	padding-left: 50px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin3 {
+        	padding-left: 50px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin3 {
+        	padding-left: 100px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in4 {
+        	padding-left: 75px;
+        }
+        p.tightin4 {
+        	padding-left: 75px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin4 {
+        	padding-left: 75px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin4 {
+        	padding-left: 125px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in5 {
+        	padding-left: 100px;
+        }
+        p.tightin5 {
+        	padding-left: 100px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin5 {
+        	padding-left: 100px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin5 {
+        	padding-left: 150px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in6 {
+        	padding-left: 125px;
+        }
+        p.tightin6 {
+        	padding-left: 125px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin6 {
+        	padding-left: 125px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin6 {
+        	padding-left: 175px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in7 {
+        	padding-left: 150px;
+        }
+        p.tightin7 {
+        	padding-left: 150px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin7 {
+        	padding-left: 150px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin7 {
+        	padding-left: 200px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in8 {
+        	padding-left: 175px;
+        }
+        p.tightin8 {
+        	padding-left: 175px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin8 {
+        	padding-left: 175px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin8 {
+        	padding-left: 225px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in9 {
+        	padding-left: 200px;
+        }
+        p.tightin9 {
+        	padding-left: 200px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin9 {
+        	padding-left: 200px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin9 {
+        	padding-left: 250px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+
+        /* (2) Index page layout material */
+
+        /* The periodic table display has "sidebars", usually grey and taller than they
+        are wide; they contain no text. */
+
+        div.periodictablesidebar {
+        	height: 56px;
+        	width: 16px;
+        }
+        .periodictablesidebar a:link { text-decoration: none; }
+        .periodictablesidebar a:visited { text-decoration: none; }
+        .periodictablesidebar a:active { text-decoration: none; }
+
+        /* The "element boxes" are the cells appearing in the periodic-table display
+        on the welcome page of the index: */
+
+        .elementbox {
+        	position: relative;
+        	height: 56px;
+        	width: 56px;
+        	padding: 0px;
+        }
+
+        .elementbox a:link { text-decoration: none; }
+        .elementbox a:visited { text-decoration: none; }
+        .elementbox a:active { text-decoration: none; }
+        .elementbox a:hover { text-decoration: none; }
+        .elementbox:hover {
+        	opacity: 0.6;
+        }
+
+        /* The "small element boxes" look like those, but are smaller, and used on
+        the headings of the content which those original boxes link to: */
+
+        .smallelementbox {
+        	position: relative;
+        	height: 40px;
+        	width: 40px;
+        	padding: 0px;
+        }
+
+        .smallelementbox a:link { text-decoration: none; }
+        .smallelementbox a:visited { text-decoration: none; }
+        .smallelementbox a:active { text-decoration: none; }
+        .smallelementbox a:hover { text-decoration: none; }
+        .smallelementbox:hover {
+        	opacity: 0.6;
+        }
+
+        /* This is a class for the links formed by the element boxes: */
+
+        a.elementlink {
+        	position: absolute;
+        	top: -4px;
+        	left: -1px;
+        	width: 100%;
+        	padding: 14px 0px 14px 1px;
+        	text-align: center;
+        }
+
+        /* Similarly for the "atomic number" - a single digit - in the top left corner
+        of these boxes: */
+
+        div.elementnumber {
+        	position: absolute;
+        	top: 1px;
+        	left: 3px;
+        	text-align: left;
+        }
+
+        /* For the text of the element title, to the right of the element box: */
+
+        div.elementtitle {
+        	position: absolute;
+        	top: 35px;
+        	width: 100%;
+        	text-align: center;
+        }
+
+        /* Used for the book-contents-page style leaders on the Contents element of
+           the index: */
+
+        ul.leaders {
+        	padding: 0;
+        	margin-top: 1px;
+        	margin-bottom: 0;
+        	overflow-x: hidden;
+        	list-style: none}
+        ul.leaders li.leaded:before {
+        	float: left;
+        	width: 0;
+        	white-space: nowrap;
+        	content:
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "}
+        ul.leaders li.leaded span:first-child {
+        	padding-right: 0.33em;
+        }
+        ul.leaders li.leaded span + span {
+        	float: right;
+        	padding-left: 0.33em;
+        }
+        li.indent1 span:first-child {
+        	padding-left: 25px;
+        }
+        li.indent2 span:first-child {
+        	padding-left: 50px;
+        }
+        li.indent3 span:first-child {
+        	padding-left: 75px;
+        }
+        li.indent4 span:first-child {
+        	padding-left: 100px;
+        }
+        li.indent5 span:first-child {
+        	padding-left: 125px;
+        }
+        li.indent6 span:first-child {
+        	padding-left: 150px;
+        }
+        li.indent7 span:first-child {
+        	padding-left: 175px;
+        }
+        li.indent8 span:first-child {
+        	padding-left: 200px;
+        }
+        li.indent9 span:first-child {
+        	padding-left: 225px;
+        }
+
+        li.unleaded:before {
+        	content: "";
+        }
+
+        /* On Registry index pages (such as the Public Library), these are used for
+        download buttons and the like: */
+
+        span.registrybuttons {
+        	height: 20px;
+        	padding: 2px 8px 2px 8px;
+        	margin: 2px;
+        	border:1px solid;
+        	border-radius: 5px;
+        }
+
+        span.registryminibuttons {
+        	height: 14px;
+        	padding: 2px 5px 2px 5px;
+        	margin: 2px;
+        	border:1px solid;
+        	border-radius: 4px;
+        }
+
+        /* Used to hide or display sections in the Registry pages: */
+
+        div.registrysectionitemsopen {
+        	display: block;
+        }
+
+        div.registrysectionitemsclosed {
+        	display: none;
+        }
+
+        /* Hanging indentation for Registry item paragraphs: */
+
+        p.registryitem {
+        	padding-left: 80px;
+        	text-indent: -40px;
+        }
+
+        p.registryaddition {
+        	padding-left: 40px;
+        	text-indent: -40px;
+        }
+
+        -->
+    </style>
+    <script type="text/javascript">
+        function project() {
+            return window.Project;
+        }
+        function showExtra(id, imid) {
+        	if (document.getElementById(id).style.display == 'block') {
+        		document.getElementById(id).style.display = 'none';
+        		document.getElementById(imid).src = 'inform:/extra.png';
+        	} else {
+        		document.getElementById(id).style.display = 'block';
+        		document.getElementById(imid).src = 'inform:/extraclose.png';
+        	}
+        }
+        function openExtra(id, imid) {
+        	document.getElementById(id).style.display = 'block';
+        	document.getElementById(imid).src = 'inform:/extraclose.png';
+        }
+        function closeExtra(id, imid) {
+        	document.getElementById(id).style.display = 'none';
+        	document.getElementById(imid).src = 'inform:/extra.png';
+        }
+        function pasteCode(code) {
+            var myProject = project();
+
+            myProject.selectView('source');
+            myProject.pasteCode(code);
+        }
+
+    </script>
+</head>
+<body>
+    <!--CONTENT BEGINS-->
+    <table CELLPADDING=0 CELLSPACING=0 width="100%" bgcolor="#000000"><tr><TD width=38px height=26px align="center" valign="center"><a href="inform://Extensions/Extensions.html" border=0><img border=0 src="inform:/doc_images/Hookindex.png" border=0></a></td><TD width=38px height=26px align="center" valign="center"></td><td halign="left" valign="center" CELLPADDING=0 CELLSPACING=0><font color="#FFFFFF" size=2>Extensions</font></a></td><TD width=56px height=26px align="right" valign="center"><a href="inform:/index.html" border=0><img border=0 src="inform:/doc_images/Hookup.png" border=0></a></td></tr></table>
+
+    <p><a href="javascript:pasteCode('Include Questions by Michael Callaghan.[=0x000A=][=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a>&nbsp;<b>Questions<span class="extensionindexentry"> by </span>Michael Callaghan</b></p>
+    <p><span class="smaller">(For Glulx Only)&nbsp; <img border=0 src=inform:/doc_images/vm_glulx.png>&nbsp;Version 5.0.150418</span></p>
+    <p>An extension to allow us to suspend normal parser input to receive and respond to answers to questions.</p>
+    <p></p>
+    <hr>
+    <p><span class="indexblack"><b><a style="text-decoration: none" href=#docsec1>Chapter 1: </a></b></span>About questions<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec2>Section 1.1: </a></span>Introduction<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec3>Section 1.2: </a></span>What's new?<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec4>Chapter 2: </a></b></span>Types of questions<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec5>Section 2.1: </a></span>Overview<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec6>Section 2.2: </a></span>Open and closed questions<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec7>Section 2.3: </a></span>Flag for open or closed questions<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec8>Chapter 3: </a></b></span>Asking questions<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec9>Section 3.1: </a></span>Setting the current question<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec10>Section 3.2: </a></span>Setting items for menu questions<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec11>Section 3.3: </a></span>Asking the question in closed question mode<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec12>Section 3.4: </a></span>Asking the question in open question mode<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec13>Chapter 4: </a></b></span>Setting the command prompt for questions<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec14>Section 4.1: </a></span>Overview<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec15>Section 4.2: </a></span>Changing the question prompt<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec16>Section 4.3: </a></span>Combining the question and prompt<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec17>Chapter 5: </a></b></span>Responding to the answers given<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec18>Section 5.1: </a></span>Player input<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec19>Section 5.2: </a></span>Rulebooks<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec20>Section 5.3: </a></span>Rulebook outcomes<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec21>Section 5.4: </a></span>Default rules<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec22>Section 5.5: </a></span>Adding our own rules<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec23>Section 5.6: </a></span>Rules for number questions<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec24>Section 5.7: </a></span>Rules for real number questions<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec25>Section 5.8: </a></span>Rules for menu questions<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec26>Section 5.9: </a></span>Rules for Yes/No questions<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec27>Section 5.10: </a></span>Rules for gender questions<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec28>Section 5.11: </a></span>Rules for text questions<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec29>Chapter 6: </a></b></span>Determining whether or not we are asking a question<br>
+    <br>
+    <b>Examples</b><br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href="Questions-eg1.html#eg1">A &mdash; Open Sesame</a></span><br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href="Questions-eg2.html#eg2">B &mdash; Quiz Night</a></span><br>
+    </p>
+    <hr>
+    <p></p>
+    </p>
+
+    <p> This extension allows us to suspend normal parser input to enable questions to be asked and the answers to be processed.</p>
+
+    <p><p><span class="indexdullred"><b><span id=docsec1>Chapter 1: About questions</span></b></span></p>
+    </p>
+
+    <p><p><span class="indexblack"><b><span id=docsec2>Section 1.1: Introduction</span></b></span></p>
+    </p>
+
+    <p> During the normal course of a game, the parser responds to commands given by the player. If we type look, the parser interprets the command and displays a description of the current room; if we type N, the player heads North (if that exit is available, and so on.</p>
+
+    <p> Occasionally, we may want to ask specific questions and process the answers. Examples may be asking the player's name or age or displaying a menu of options from which the player selects a choice. Answers to these types of questions fall outside the range of the normal parser functions. Therefore we need to intercept the player's answers to these types of questions and respond to them separately.</p>
+
+    <p> This extension provides a framework that can be used to ask different types of questions. The mechanics are hidden behind the scenes to allow us to concentrate on asking and responding to a question without having to implement the framework ourselves.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec3>Section 1.2: What's new?</span></b></span></p>
+    </p>
+
+    <p> Version 1</p>
+
+    <p> The first public release of Questions.</p>
+
+    <p> Version 2</p>
+
+    <p> - Punctuation removal in text questions is now optional.</p>
+
+    <p> - Questions can now be used in conjunction with the Fixed Point Maths extension to allow questions that requires a real number to be asked.</p>
+
+    <p> - To decide phrase added to determine if we are asking a question.</p>
+
+    <p> Many thanks are due to Erik Temple for suggesting the changes implemented in version 2.</p>
+
+    <p> Version 3</p>
+
+    <p> The variable &quot;current menu&quot; has been changed to &quot;current question menu&quot; to avoid a namespace clash with Emily Short's Menu extension.</p>
+
+    <p> Version 4</p>
+
+    <p> Deprecated phases have been removed from the extension and the examples.</p>
+
+    <p> Version 5</p>
+
+    <p> - Updated for version 6L02 and above. - Links to fixed point maths removed. - Real numbers are questions are supported. - Requires Glulx.</p>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec4>Chapter 2: Types of questions</span></b></span></p>
+    </p>
+
+    <p><p><span class="indexblack"><b><span id=docsec5>Section 2.1: Overview</span></b></span></p>
+    </p>
+
+    <p> The extension allow us to ask questions that require different types of answers. The following questions types are allowed:</p>
+
+    <p> - Questions that require a number as an answer.</p>
+
+    <p> - Questions that require a real number as an answer.</p>
+
+    <p> - Questions that require an item from a menu to be chosen.</p>
+
+    <p> - Questions that require a Yes or No answer.</p>
+
+    <p> - Questions that require a gender selection (Male, Female or Neuter).</p>
+
+    <p> - Questions that require a text answer.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec6>Section 2.2: Open and closed questions</span></b></span></p>
+    </p>
+
+    <p> The extension makes a distinction between &quot;open&quot; and &quot;closed&quot; questions. The difference between the two is that closed questions will not allow the game to proceed unless and until we specify that a correct answer has been given to a question. With open questions, if an 'incorrect 'reply is given, the game proceeds and tries to parse the player's command using the normal parser rules. For example, if we ask the question &quot;How old are you?&quot; expecting a number answer, the extension will deal with replies differently depending on whether we ask an open or a closed question.</p>
+
+    <p> Open questions:</p>
+
+    <p> If player answered &quot;inv&quot; to a number question, the extension will exit question mode and proceed to parse the answer normally. In this case, the player's inventory will be displayed. If the player answered 12, we determine whether this is an acceptable answer. If the answer is acceptable, the extension exits question mode and the play resumes. If the answer is unacceptable, for example the player enters 234 when asked his or her age, we can specify whether the question needs to asked again or whether play should proceed without an answer.</p>
+
+    <p> Closed questions:</p>
+
+    <p> If the player answered &quot;inv&quot;, the answer will be rejected and the player will need to answer the question again. If the player answered 12, we determine whether this is an acceptable answer. If the answer is acceptable, the game exits question mode and proceeds as normal. If the answer is unacceptable, for example the player enters 234, the player will need to answer the question again.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec7>Section 2.3: Flag for open or closed questions</span></b></span></p>
+    </p>
+
+    <p> To test if a question is an open or a closed question, we can use the 'closed question mode' flag:</p>
+
+    <p><blockquote><span class="indexdullblue"> if closed question mode is true:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; do this.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> if closed question mode is false:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; do that.</span></blockquote>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec8>Chapter 3: Asking questions</span></b></span></p>
+    </p>
+
+    <p><p><span class="indexblack"><b><span id=docsec9>Section 3.1: Setting the current question</span></b></span></p>
+    </p>
+
+    <p> To ask a question, we first set the text for the question. The form is:</p>
+
+    <p><blockquote><span class="indexdullblue"> now the current question is &quot;How old are you?&quot;</span></blockquote>
+
+    <p><p><span class="indexblack"><b><span id=docsec10>Section 3.2: Setting items for menu questions</span></b></span></p>
+    </p>
+
+    <p> Before we ask a question that requires an answer from a menu of options, we need to set the menu items to be displayed. We do this by setting the variable &quot;current question menu&quot; to the list of options that we require.</p>
+
+    <p><blockquote><span class="indexdullblue"> now current question is &quot;What is your favourite colour? &gt;&quot;;<br>
+     now current question menu is { &quot;Red&quot;, &quot;Blue&quot;, &quot;Green&quot;, &quot;Yellow&quot; };<br>
+     ask a closed question, in menu mode.</span></blockquote>
+
+    <p><p><span class="indexblack"><b><span id=docsec11>Section 3.3: Asking the question in closed question mode</span></b></span></p>
+    </p>
+
+    <p> To ask the question in closed mode, we use the following forms for closed questions:</p>
+
+    <p><blockquote><span class="indexdullblue"> ask a closed question, in number mode;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> ask a closed question, in real number mode;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> ask a closed question, in menu mode;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> ask a closed question, in yes/no mode;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> ask a closed question, in gender mode;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> ask a closed question, in text mode;</span></blockquote>
+
+    <p><p><span class="indexblack"><b><span id=docsec12>Section 3.4: Asking the question in open question mode</span></b></span></p>
+    </p>
+
+    <p> To ask the question in open mode, we use the following forms for open questions:</p>
+
+    <p><blockquote><span class="indexdullblue"> ask an open question, in number mode;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> ask an open question, in real number mode;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> ask an open question, in menu mode;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> ask an open question, in yes/no mode;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> ask an open question, in gender mode;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> ask an open question, in text mode;</span></blockquote>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec13>Chapter 4: Setting the command prompt for questions</span></b></span></p>
+    </p>
+
+    <p><p><span class="indexblack"><b><span id=docsec14>Section 4.1: Overview</span></b></span></p>
+    </p>
+
+    <p> When a question is asked, we can change the command prompt to indicate to the player that a question is being asked. By default, the extension sets a series of default prompts. These are specific to the type of question being asked; they are:</p>
+
+    <p><blockquote><span class="indexdullblue"> Closed number prompt: &quot;Please enter a whole number &gt;&quot;.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Open number prompt: &quot;&gt;&quot;.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Closed real number prompt: &quot;Please enter a number &gt;&quot;.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Open real number prompt: &quot;&gt;&quot;.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Closed menu prompt: &quot;Please select a number between 1 and [number of entries in current question menu] &gt;&quot;.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Open menu prompt is &quot;&gt;&quot;.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Closed yes/no prompt: &quot;Please enter Y or N (Yes or No) &gt;&quot;.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Open yes/no prompt: &quot;&gt;&quot;.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Closed gender prompt: &quot;Please enter M,  F or N (Male or Female or Neuter) &gt;&quot;.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Open gender prompt: &quot;&gt;&quot;.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Closed text prompt: &quot;Please enter your answer &gt;&quot;.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Open text prompt &quot;&gt;&quot;.</span></blockquote>
+
+    <p><p><span class="indexblack"><b><span id=docsec15>Section 4.2: Changing the question prompt</span></b></span></p>
+    </p>
+
+    <p> To change the question prompt, we set the variable &quot;current prompt&quot; to the text that we want:</p>
+
+    <p><blockquote><span class="indexdullblue"> Now current question is &quot;How old are you?&quot;;<br>
+     Now the current prompt is &quot;Enter a number between 5 and 111: &gt;&quot;<br>
+     Ask a closed question, in number mode.</span></blockquote>
+
+    <p> If we set the current prompt to &quot;&quot;, the relevant default prompt outlined above will be used.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec16>Section 4.3: Combining the question and prompt</span></b></span></p>
+    </p>
+
+    <p> We can combine the question and the prompt. To do so, we set the current question to a blank string and the question prompt to the question that we want to ask:</p>
+
+    <p><blockquote><span class="indexdullblue"> now current question is &quot;&quot;;<br>
+     now current prompt is &quot;What is your name? &gt;&quot;;<br>
+     ask a closed question, in text mode.</span></blockquote>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec17>Chapter 5: Responding to the answers given</span></b></span></p>
+    </p>
+
+    <p><p><span class="indexblack"><b><span id=docsec18>Section 5.1: Player input</span></b></span></p>
+    </p>
+
+    <p> The player can answer a question by typing the number, menu number, yes / no response, gender response or text. The player can also answer a question by using the form 'say X' where X is the answer given.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec19>Section 5.2: Rulebooks</span></b></span></p>
+    </p>
+
+    <p> When we answer a question, the answer is processed by a rulebook. By adding our own rules in the game, we can tailor the Questions extension to provide the functionality that we require.</p>
+
+    <p> Each type of question has its own rulebook. These are:</p>
+
+    <p> Number questions: The number question rules.</p>
+
+    <p> Real number questions: The real number question rules.</p>
+
+    <p> Menu questions: The menu question rules.</p>
+
+    <p> Yes/No questions: The yes/no question rules.</p>
+
+    <p> Gender questions: The gender questions rules.</p>
+
+    <p> Text questions: The text question rules.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec20>Section 5.3: Rulebook outcomes</span></b></span></p>
+    </p>
+
+    <p> Each rulebook has three named outcomes that we can use to control how the game proceeds. The outcomes are:</p>
+
+    <p> Exit: The answer to the question is discarded and the game proceeds as normal. Usually, we will have used the answer to set other conditions in the game before we use exit. The exit outcome automatically advances the game by one turn.</p>
+
+    <p> Retry: The answer to the question is discarded but we remain in question mode awaiting another answer. Usually, this will be because the answer to the question is not a valid answer.</p>
+
+    <p> Parse: The answer to the question is not disregarded and the question mode ends leaving the answer to be parsed as normal. Usually, we use this where there is an open question.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec21>Section 5.4: Default rules</span></b></span></p>
+    </p>
+
+    <p> Each rulebook has default rules. If we do not create our own rules, the default rules control how answers are processed. The default rules are set out below.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec22>Section 5.5: Adding our own rules</span></b></span></p>
+    </p>
+
+    <p> We can add our own rules in the game. For example:</p>
+
+    <p><blockquote><span class="indexdullblue"> A number question rule (this is the set age rating rule):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; if the current question is &quot;How old are you?&quot;:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if the number understood is less than 5:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say &quot;It seems unlikely that a person of such tender years would be playing this game.&quot;;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; retry;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if the number understood is greater than 111:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say &quot;I find it hard to believe that this is your real age.  Please be more realistic.&quot;;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; retry;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if the number understood is less than 21:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say &quot;Setting the game mode to mild!&quot;;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; now gamemode is mild;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; otherwise:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say &quot;Setting the game mode to crude!&quot;;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; now gamemode is crude;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; exit.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> A menu question rule (this is the channel rule):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; if the current question is &quot;Which channel would you like to watch on the telly?&quot;:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if the number understood is 1:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say &quot;Raucous music blasts out from the local music TV station.&quot;;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if the number understood is 2:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say &quot;The film that comes on is so raunchy that even a hard-bitten army sergeant would blush with shame&quot;;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if the number understood is 3:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say &quot;The latest trend in reality TV assails you - celebrity navel transplants!&quot;;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if the number understood is 4:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say &quot;You stomach turns with disgust - the collected speeches of George Bush begin to play.&quot;;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; exit.</span></blockquote>
+
+    <p><p><span class="indexblack"><b><span id=docsec23>Section 5.6: Rules for number questions</span></b></span></p>
+    </p>
+
+    <p> We test the answer to a number question using the phrase 'the number understood'.</p>
+
+    <p> There are two default rules for processing answers to number questions.</p>
+
+    <p> The first rule, called 'the invalid number reply rule', operates where the player enters an answer to a number question that is not a number. If the question is a closed number question, the outcome is retry. If the question is an open question, the outcome is parse.</p>
+
+    <p> The last rule, called 'the default number question rule', has the outcome exit.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec24>Section 5.7: Rules for real number questions</span></b></span></p>
+    </p>
+
+    <p> We test the answer to a real number question using the phrase 'the number understood'.</p>
+
+    <p> There are two default rules for processing answers to real number questions.</p>
+
+    <p> The first rule, called 'the invalid real number reply rule', operates where the player enters an answer to a real number question that is not a real number. If the question is a closed number question, the outcome is retry. If the question is an open question, the outcome is parse.</p>
+
+    <p> The last rule, called 'the default real number question rule', has the outcome exit.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec25>Section 5.8: Rules for menu questions</span></b></span></p>
+    </p>
+
+    <p> We test the answer to menu questions using the phrase 'the number understood'. The value should be between 1 and the number of items in the menu.</p>
+
+    <p> There are two default rules for processing answers to menu questions.</p>
+
+    <p> The first rule, called the 'invalid menu reply rule' first tests whether the player has entered a number. If the player has entered an answer that is not a number, the outcome is retry if the question was a closed menu question or parse if the question was an open menu question. If a numbered was entered that falls outside the range 1 to the number of items in the menu, the outcome is retry for both open and closed menu questions.</p>
+
+    <p> The last rule, called the 'default menu rule', has the outcome exit.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec26>Section 5.9: Rules for Yes/No questions</span></b></span></p>
+    </p>
+
+    <p> We test the answer to yes/no questions using the phrase 'the decision understood'. The decision understood takes one of two values, 'Yes' or 'No'. 'Y' and 'N' are understood as Yes and No when the player types their response.</p>
+
+    <p> There are two default rules for processing the answers to yes/no questions.</p>
+
+    <p> The first rule, called the 'invalid yes/no reply rule' tests whether the player has entered Yes or No. If the player has not so responded, the outcome is retry if the question is a closed yes/no question or parse if the question is a closed menu question.</p>
+
+    <p> The last rule, called the 'default yes/no rule', has the outcome exit.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec27>Section 5.10: Rules for gender questions</span></b></span></p>
+    </p>
+
+    <p> The test the answer to gender questions using the phrase 'the gender understood'. The gender understood takes one of three values, 'Masculine', 'Feminine' or 'Neutral'. 'M', 'F' and 'N' are understood as Masculine, Feminine and Neutral when the player types their response. Neutral is used instead of Neuter as Neuter is defined as an adjective in I7.</p>
+
+    <p> There are two default rules for processing the answers to gender questions.</p>
+
+    <p> The first rule, called the 'invalid gender reply rule' tests whether the player has entered a valid gender. If the player has not entered a valid gender, the outcome is retry if the question is a closed gender question or parse if the question is an open gender question.</p>
+
+    <p> The last rule, called the 'default gender rule', has the outcome exit.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec28>Section 5.11: Rules for text questions</span></b></span></p>
+    </p>
+
+    <p> We test the answer to text questions using the variable &quot;current answer&quot;. The current answer is set to the player's answer. If the answer was given in the form &quot;say answer&quot;, the word &quot;say&quot; and the following space is also removed.</p>
+
+    <p> There are two default rules for text questions.</p>
+
+    <p> The first rule, called the 'remove punctuation from text questions rule' determines whether or not punctuation is removed from the player's answer before it is processed. We can control punctuation removal by setting the truth state 'punctuation removal'.</p>
+
+    <p><blockquote><span class="indexdullblue"> now punctuation removal is true;<br>
+     now punctuation removal is false;</span></blockquote>
+
+    <p> The last rule is called the 'default text rule'. If the question was a closed text question, the outcome is retry. If the question was an open text question, the outcome is parse.</p>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec29>Chapter 6: Determining whether or not we are asking a question</span></b></span></p>
+    </p>
+
+    <p> If we need to determine whether or not we are currently asking a question, for example as a test in another rulebook, we can do so by using the phrase 'If we are asking a question'. This will decide Yes if an open or closed question is being asked.</p>
+
+    <p><hr>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td halign="left" valign="top" cellpadding=0 cellspacing=0 width=38px>
+                <span id=eg1><table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="oval">
+                        <td width=38px height=30px align="left" valign="center">
+                            <a href="Questions-eg1.html#eg1" style="text-decoration: none"><div class="paragraph Body" style="line-height: 1px; margin-bottom: 0px; margin-top: 0px; padding-bottom: 0pt; padding-top: 0px; text-align: center;">
+                                <span class="extensionexampleletter">A</span></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                </span>
+            </td>
+            <td cellpadding=0 cellspacing=0 halign="left" valign="top">
+                <a href="Questions-eg1.html#eg1" style="text-decoration: none"><img border="0" src='inform:/doc_images/asterisk.png'><b><span class="indexdarkgrey">&nbsp;Example&nbsp;</span><span class="indexblack">Open Sesame</span></b></a><br>
+                <p>A short example to show the question rules with an initial open text question followed by an interview section to gather information about the player.</p>
+
+            </td>
+        </tr>
+    </table>
+    </p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p><hr>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td halign="left" valign="top" cellpadding=0 cellspacing=0 width=38px>
+                <span id=eg2><table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="oval">
+                        <td width=38px height=30px align="left" valign="center">
+                            <a href="Questions.html#eg2" style="text-decoration: none"><div class="paragraph Body" style="line-height: 1px; margin-bottom: 0px; margin-top: 0px; padding-bottom: 0pt; padding-top: 0px; text-align: center;">
+                                <span class="extensionexampleletter">B</span></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                </span>
+            </td>
+            <td cellpadding=0 cellspacing=0 halign="left" valign="top">
+                <a href="Questions.html#eg2" style="text-decoration: none"><img border="0" src='inform:/doc_images/asterisk.png'><b><span class="indexdarkgrey">&nbsp;Example&nbsp;</span><span class="indexblack">Quiz Night</span></b></a><br>
+                <p>A short example to show creating a multiple choice quiz.</p>
+
+            </td>
+        </tr>
+    </table>
+    <table border="0" cellspacing="0" cellpadding="0" class="extensionexample" width=100%>
+        <tr>
+            <td align="left" valign="top">
+                <p></p>
+
+                <p><blockquote><span class="indexdullblue"><a href="javascript:pasteCode('[=0x0022=]Quiz Night[=0x0022=] by Michael Callaghan[=0x000A=][=0x000A=]Include questions by Michael Callaghan.[=0x000A=][=0x000A=]The pub is a room. [=0x0022=]The pub is crowded for the weekly quiz night.  The barman is ready to call out the questions.  Get one wrong and you will be barred from the pub for life.[=0x0022=][=0x000A=][=0x000A=]After looking for the first time:[=0x000A=][=0x0009=]follow the pub rule.[=0x000A=][=0x000A=]Table of quiz questions[=0x000A=]Qn[=0x0009=]Options[=0x0009=]Correct[=0x000A=][=0x0022=]In which year was the Battle of Hastings[=0x0022=][=0x0009=]{ [=0x0022=]1256[=0x0022=], [=0x0022=]1066[=0x0022=], [=0x0022=]1589[=0x0022=], [=0x0022=]1790[=0x0022=] }[=0x0009=]2[=0x000A=][=0x0022=]What type of animal is Basil Brush[=0x0022=][=0x0009=]{ [=0x0022=]Cat[=0x0022=], [=0x0022=]Dog[=0x0022=], [=0x0022=]Rabbit[=0x0022=], [=0x0022=]Fox[=0x0022=] }[=0x0009=]4[=0x000A=][=0x0022=]What is the square root of 126736?[=0x0022=][=0x0009=]{ [=0x0022=]356[=0x0022=], [=0x0022=]289[=0x0022=], [=0x0022=]421[=0x0022=], [=0x0022=]321[=0x0022=] }[=0x0009=]1[=0x000A=][=0x0022=]How many books are there in the Old Testament[=0x0022=][=0x0009=]{ [=0x0022=]23[=0x0022=], [=0x0022=]39[=0x0022=], [=0x0022=]37[=0x0022=], [=0x0022=]41[=0x0022=] }[=0x0009=]2[=0x000A=][=0x0022=]What is a Cantaloupe?[=0x0022=][=0x0009=]{ [=0x0022=]Animal[=0x0022=], [=0x0022=]Star[=0x0022=], [=0x0022=]Fruit[=0x0022=], [=0x0022=]Vegetable[=0x0022=] }[=0x0009=]3[=0x000A=][=0x000A=]The expected answer is a number that varies.[=0x000A=][=0x000A=]Every turn when the location is the pub (this is the pub rule):[=0x000A=][=0x0009=]choose a random row in the table of quiz questions;[=0x000A=][=0x0009=]now current question is the Qn entry;[=0x000A=][=0x0009=]now current question menu is the Options entry;[=0x000A=][=0x0009=]now expected answer is the correct entry;[=0x000A=][=0x0009=]blank out the whole row;[=0x000A=][=0x0009=]ask a closed question, in menu mode.[=0x000A=][=0x000A=]A menu question rule (this is the pub answer rule):[=0x000A=][=0x0009=]if the number understood is the expected answer:[=0x000A=][=0x0009=][=0x0009=]if the table of quiz questions is not empty:[=0x000A=][=0x0009=][=0x0009=][=0x0009=]say [=0x0022=]Well done.  You have survived to the next round.[=0x0022=];[=0x000A=][=0x0009=][=0x0009=]otherwise:[=0x000A=][=0x0009=][=0x0009=][=0x0009=]end the story finally saying [=0x0022=]Congratulations you have won![=0x0022=];[=0x000A=][=0x0009=]otherwise:[=0x000A=][=0x0009=][=0x0009=]end the story finally saying [=0x0022=]You have been barred from the pub for getting a question wrong.[=0x0022=].[=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a> &quot;Quiz Night&quot; by Michael Callaghan</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Include questions by Michael Callaghan.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The pub is a room. &quot;The pub is crowded for the weekly quiz night.  The barman is ready to call out the questions.  Get one wrong and you will be barred from the pub for life.&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> After looking for the first time:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; follow the pub rule.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Table of quiz questions</span><br>
+                <table border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> Qn</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> Options</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> Correct
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;In which year was the Battle of Hastings&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> { &quot;1256&quot;, &quot;1066&quot;, &quot;1589&quot;, &quot;1790&quot; }</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> 2
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;What type of animal is Basil Brush&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> { &quot;Cat&quot;, &quot;Dog&quot;, &quot;Rabbit&quot;, &quot;Fox&quot; }</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> 4
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;What is the square root of 126736?&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> { &quot;356&quot;, &quot;289&quot;, &quot;421&quot;, &quot;321&quot; }</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> 1
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;How many books are there in the Old Testament&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> { &quot;23&quot;, &quot;39&quot;, &quot;37&quot;, &quot;41&quot; }</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> 2
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;What is a Cantaloupe?&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> { &quot;Animal&quot;, &quot;Star&quot;, &quot;Fruit&quot;, &quot;Vegetable&quot; }</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> 3</span>
+                        </td>
+                    </tr>
+                </table>
+                </blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The expected answer is a number that varies.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Every turn when the location is the pub (this is the pub rule):<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; choose a random row in the table of quiz questions;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; now current question is the Qn entry;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; now current question menu is the Options entry;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; now expected answer is the correct entry;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; blank out the whole row;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; ask a closed question, in menu mode.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> A menu question rule (this is the pub answer rule):<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; if the number understood is the expected answer:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if the table of quiz questions is not empty:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say &quot;Well done.  You have survived to the next round.&quot;;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; otherwise:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; end the story finally saying &quot;Congratulations you have won!&quot;;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; otherwise:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; end the story finally saying &quot;You have been barred from the pub for getting a question wrong.&quot;.</span></blockquote>
+
+                <p></p>
+
+            </td>
+        </tr>
+    </table>
+    </p>
+
+    <p>
+    <!--CONTENT ENDS-->
+</body>
+</html>

@@ -1,0 +1,250 @@
+"El ascenso de Kunelar" by Grendelkhan
+
+The story title is "El ascenso de Kunelar".
+The story author is "Grendelkhan".
+The story headline is "'Una charla intrascendente mientras el alma asciende hacia la gloria.'".
+The story genre is "Fantasy".
+The release number is 1.
+The story creation year is 2008.
+The story description is "Después de la batalla, viene la calma. Para algunos más que para otros, pues el mejor guerrero de Zyrcan ha pasado a mejor vida. 
+
+En la anterior batalla de Cedelar el capitán del ejército zyrcano Kunelar murió a manos de Klyga, una de las miles de mujeres soldado de Vekanor. Para alguien como Kunelar, tan digno él, morir a manos de una fémina es una deshonra. Tal vez incluso peor que morir de viejo. 
+
+Un guerrero debe morir en el campo de batalla, sí, pero a manos de otro guerrero, no a manos de una niñata jugando a ser un héroe. 
+
+En fin, ahora ya es tarde para lamentarse, porque la luz te reclama y tu alma asciende hacia el descanso eterno.".
+
+Release along with cover art, a file of "Manual de juego" called "manual.pdf", a file of "Licencia" called "LICENCIA.txt" and the source text and a website.
+
+
+Include Spanish by Sebastian Arg.
+Include Basic Screen Effects Sp by Emily Short.
+
+Use full-length room descriptions and no scoring.
+
+Rule for constructing the status line:
+center "[story title]" at row 1;
+rule succeeds.
+
+
+Rule for deciding whether all includes scenery: it does not. [para que no entren en 'coge todo']
+
+[Reglas sobre conversaciones]
+
+Instead of telling someone about something, try asking the noun about it. Instead of answering the noun that something, try asking the noun about it.
+
+Instead of showing something to someone, try giving the noun to the second noun. [para que 'mostrar' sea igual a 'dar']
+
+[Cuando el jugador pide ayuda]
+
+Asking for help is an action out of world. Understand "instrucciones" or "ayuda" as asking for help.
+Carry out asking for help:
+say "Este no es un relato interactivo al uso, aquí no podrás hacer nada más que ascender hacia la luz. Es la historia del último viaje de un guerrero muerto tras la batalla, así que no puedes interactuar con el entorno porque estás muerto, sólo eres un ser de luz. Sin embargo, para que tu viaje no resulte tan monótono, los áuleos han tenido a bien proporcionarte un compañero de viaje, otro ser de luz, para que habléis sobre el honor y la gloria.";
+wait for any key;
+say "[paragraph break]Básicamente lo que debes hacer es ASCENDER HACIA LA LUZ, a lo sumo podrás EXAMINAR lo que te rodea, por ejemplo: EXAMINA LUZ.[paragraph break]También puedes interaccionar con tu compañero hablando con él con DI o PREGUNTA (tema). Por ejemplo, PREGUNTA COMO TE LLAMAS.
+[paragraph break]Si finalmente no encuentras la solución puedes acudir a los foros del CAAD en www.caad.es/foro, lugar donde se reúnen los aficionados a los juegos conversacionales.".
+
+[ Redefiniremos algunos de los mensajes estándares de la librería.]
+When play begins: change the command prompt to " - ";
+Rule for printing a parser error when parser error is I beg your pardon: say " " instead.
+Check requesting the score: say "Después de muerto, eso ya no tiene importancia." instead.
+Check examining a direction (called target):
+    if the target is up then say "Observas un punto de luz mas allá del espacio." instead;
+    if the target is down then say "Más abajo sólo hay oscuridad, hace mucho que has dejado atrás el espacio." instead.
+
+When play begins:
+clear the screen;
+display the boxed quotation
+"El ascenso de Kunelar.
+Serie Minúscula (c) 2009.
+por Grendelkhan";
+show the current quotation;
+wait for any key;
+clear the screen;
+say "[paragraph break][italic type]Al final me tenía que tocar. Después de tantas batallas, tantas victorias gloriosas, era lo lógico. La muerte acecha bajo el rostro más insospechado. Estaba claro que me tenía que pasar, morir en batalla entra dentro de los planes de cualquier guerrero. Aunque sea el mejor guerrero de la galaxia. Lo que no podía sospechar es que me matara una mujer. ¡Figúrate! El gran Kunelar -¡oh sí!- murió a manos de Klyga, esa baratija andante de Vekanor. ";
+wait for any key;
+say "[paragraph break]¿Qué gloria me depara más allá? ¿A dónde me conducirá el camino del guerrero vencido? ¿Dónde va ésta, que es mi alma, cuya meta está tan lejos en las alturas?";
+wait for any key;
+say "[paragraph break]Y una duda más...[paragraph break]¿Quién es éste ser de luz que me acompaña en mi ascenso?[paragraph break][roman type]";
+wait for any key.
+
+Part 2 - El juego
+
+Espacio is a kind of room. The printed name of Espacio is "Mas allá del espacio". The description is "Tu alma se eleva sobre la oscuridad del manto espacial, hacia un único punto de luz más allá del cosmos. El lento peregrinaje del guerrero vencido y muerto en batalla hacia un Nuevo Renacer. ¿Qué gloria te depara? ¿Cómo te juzgará la historia? Sólo los áuleos lo saben, allá arriba.".
+
+Espacio1 is a Espacio.
+
+Some estrellas are in Espacio1. They are female and scenery. The description is "Las estrellas y las constelaciones las has dejado hace mucho tiempo atrás, tras la oscuridad. Ahora estás ascendiendo en ése espacio comprendido entre el cosmos y la gloria, que se podría calificar como una gran nada.". Understand "manto", "constelaciones", "oscuridad", "espacio" and "cosmos" as the estrellas.
+
+The luz is in Espacio1. The luz is female and scenery. The description is "Debes ascender hasta alcanzar la poderosa luz blanca que te reclama más allá del espacio.".
+
+nada is scenery in Espacio1. The description is "Ahí es donde estás ahora.".
+
+Some auleos are in Espacio1. They are scenery. The printed name of auleos is "áuleos". The description of the auleos is "No los ves aún, pero seguro que algunos de los áuleos te están esperando allá arriba, en la luz. A saber qué te diran... ¡Qué sabrán ellos de guerras! Si alguna vez has tenido que matar a alguien, lo has hecho porque si no te mataban a tí, así es la triste historia del guerrero, como siempre ha sido y siempre será. ¿No se reduce todo a éso? ¡Morir o matar!". Understand "punto" and "gloria" as the auleos.
+Instead of opening or entering the auleos, say "¡Oh, no te preocupes por eso! No vas a llegar tarde, así que simplemente asciende y déjate llevar poco a poco por la fuerza de la luz.".
+Instead of opening or entering the nada, say "Ya estás en ella.".
+
+Kunelar is a man in Espacio1. The description is "Eres un ser de luz, un alma que vaga por la nada, entre el espacio y la gloria, hacia el descanso eterno. Antes te tenían algo de respeto, eras el gran capitán del ejército de Zyrcan. Ahora vete tú a saber con lo que te encuentras.". The player is Kunelar. 
+
+Kaviedex is a man in Espacio1. The description is "Es un ser de luz, como tú. Un alma de guerrero que está ascendiendo a tu lado hacia ése punto de luz, aún distante, donde te esperan los áuleos, la gloria y todo lo demás, si es que hay algo de verdad de todo lo que cuentan.". The printed name of Kaviedex is "un ser de luz". Understand "guerrero", "ser", "alma", "soldado", "hombre", "ser de luz", and "tipo" as Kaviedex. 
+
+Instead of touching Kaviedex, say "Poco puedes hacer siendo sólo alma... ¡Tal vez si tuvieras cuerpo, en lugar de tanta luz!".
+Instead of kissing Kaviedex, try touching Kaviedex.
+Instead of attacking Kaviedex, try touching Kaviedex. 
+Instead of pushing Kaviedex, try touching Kaviedex. 
+Instead of wearing, try touching Kaviedex.
+Instead of singing, say "¿Cantar? Hace mucho, mucho tiempo que no canto nada... y ahora no tengo ganas. Recuerdo aquellas alegres canciones que cantábamos cuando éramos jóvenes en el cuartel de adiestramiento zyrcano, con mis compañeros de futuras batallas. Espero verlos a todos allá arriba.".
+
+Instead of telling someone about something, try asking the noun about it. Instead of answering the noun that something, try asking the noun about it.
+
+After asking Kaviedex about something for the first time, say "Saludas al ser de luz y le das la mano. Al igual que tú, se trata -se trataba- de un hombre de fuerza descomunal, enérgico, tal vez valiente y osado. Muerto al fin y al cabo.[line break]
+Tras unos minutos sin decir palabra, el ser de luz te hace la pregunta que temías...[paragraph break]
+'¿Y a tí quién te ha matado?'". 
+
+After asking Kaviedex about "mujer" for the first time, say "'¿Cómo, que a tí te mató una mujer? ¡Ah! Vaya, al menos es una suerte, has podido morir gracias a otra persona, una muerte violenta, a sangre fría... ¡Digna! Mujeres.... yo amé a una justo antes de morir... Yo, después de tantas y tantas batallas, tuve que morir por culpa de una brecha en una cápsula espacial. ¡¿Te lo puedes creer?!'". 
+After asking Kaviedex about "mujer" for the second time, say "'¡Ella no se merecía morir! Teníamos que haber sobrevivido los dos. Tal vez con ella me habría retirado, dejar de una vez ésta vida de sangre y cadáveres. Hubiera rechazado seguir portando las llaves, y también mi puesto como áuleo menor.'". 
+After asking Kaviedex about "mujer" for the third time, say "'Habría ido a vivir a su planeta, aunque nada de ésto pude decírselo a ella, pues no hablaba en ningún dialecto espacial básico, lo único que entendí de ella es que se llamaba Klyga.'". 
+After asking Kaviedex about "mujer" for the fourth time, say "'Sonríes de buena gana. De echo, no puedes parar de reír durante un buen rato mientras vas ascendiendo hacia la luz. Así que éste era el vínculo que te une al otro ser de luz, que los dos habéis muerto por culpa de Klyga -aunque en muy diferente situación-, te reconforta pensar que finalmente esa estúpida estirada también ha muerto y quizás ahora mismo esté ascendiendo a su propio punto de luz más allá del cosmos, donde rendir cuentas de las vidas que ha terminado.'". 
+Instead of asking Kaviedex about "klyga", try asking Kaviedex about "mujer". 
+Instead of asking Kaviedex about "guerrera", try asking Kaviedex about "mujer". 
+Instead of asking Kaviedex about "ella", try asking Kaviedex about "mujer". 
+Instead of asking Kaviedex about "una mujer", try asking Kaviedex about "mujer". 
+Instead of asking Kaviedex about "mujeres", try asking Kaviedex about "mujer". 
+Instead of asking Kaviedex about "no lo se", try asking Kaviedex about "mujer". 
+
+After asking Kaviedex about "auleos" for the first  time, say "'Ah, tranquilo. No soy un áuleo al uso. A mí me dieron unas llaves y resultó que no daba la talla, así de simple. Nunca he pasado de ser un áuleo menor, ni siquiera he asistido nunca a un Cónclave, así que no te preocupes. Sé tanto como tú, o sea nada. No sé lo que nos espera allá arriba.'". 
+After asking Kaviedex about "auleos", say "'De verdad que no sé nada, yo también tengo miedo. ¿Habré hecho algo bueno en mi vida? ¿Sabrán los áuleos recompensarme? En verdad que no lo sé.'". 
+Instead of asking Kaviedex about "auleo", try asking Kaviedex about "auleos". 
+
+After asking Kaviedex about "muerte", say "'Es cierto, mi muerte fue, en parte, también por una mujer, pues la cápsula no se habría roto de no ser porque yo arranqué el asiento de cuajo para que cupieramos los dos. Sin querer arranqué una pequeña parte del fuselaje que previamente había arreglado yo mismo. Lo siento mucho por ella.'". 
+After asking Kaviedex about "muerte" for the second time, say "'Viajábamos en una cápsula espacial que.. bueno, es una historia muy larga, pero digamos que me derrotaron en Kuaran y tuve que escapar como pude. Aterrizé en un planeta inóspito y a punto estuve de morir allí, de no ser por ella. Finalmente escapamos los dos, pero la fortuna -la desgracia- quiso que muriéramos en el espacio.'". 
+After asking Kaviedex about "muerte", say "'Ahora ya da igual, tanto da de qué planeta seas, tu posición y tu cargo, tu lugar en el espacio. Sólo eres una mota de polvo en el cosmos, nada más. Las cosas seguirán igual después de nuestra muerte, ahora todo lo importante está en tu cabeza, ¿verdad? Nada hay más puro y cierto que lo que en tu cabeza puedes adivinar.'". 
+Instead of asking Kaviedex about "si", try asking Kaviedex about "muerte". 
+Instead of asking Kaviedex about "batallas", try asking Kaviedex about "muerte". 
+Instead of asking Kaviedex about "no", try asking Kaviedex about "muerte". 
+Instead of asking Kaviedex about "capsula", try asking Kaviedex about "muerte". 
+Instead of asking Kaviedex about "planeta", try asking Kaviedex about "muerte". 
+Instead of asking Kaviedex about "espacio", try asking Kaviedex about "muerte". 
+Instead of asking Kaviedex about "cosmos", try asking Kaviedex about "muerte". 
+
+After asking Kaviedex about "cual es tu nombre", say "'Me llamo... me llamaba Kaviedex, soy... era el capitán del poderoso ejército de Vulcano, además era el Portador de las llaves del Universo. Visto lo visto creo que confiaban demasiado en mí, pues mi ejército fue derrotado y las llaves las perdí.'". 
+Instead of asking Kaviedex about "como te llamas", try asking Kaviedex about "cual es tu nombre". 
+Instead of asking Kaviedex about "quien eres", try asking Kaviedex about "cual es tu nombre". 
+Instead of asking Kaviedex about "tu nombre", try asking Kaviedex about "cual es tu nombre". 
+Instead of asking Kaviedex about "vulcano", try asking Kaviedex about "cual es tu nombre". 
+
+After asking Kaviedex about "hola" for the first time, say "'Hola, amigo. Parece que a tí tampoco te ha ido muy bien, ¿no es así? Al parecer nos han puesto juntos ascendiendo hacia la luz.'". 
+After asking Kaviedex about "hola", say "'¿Qué pasa, tienes miedo? ¿Qué miedo tienes? ¿Acaso te arrepientes de algo? No te preocupes... ¡Vamos! Simplemente asciende conmigo hacia la luz.'". 
+Instead of asking Kaviedex about "amigo", try asking Kaviedex about "hola". 
+Instead of asking Kaviedex about "donde estamos", try asking Kaviedex about "hola". 
+Instead of asking Kaviedex about "que es este lugar", try asking Kaviedex about "hola". 
+
+After asking Kaviedex about "gloria" for the first time, say "'¡Ahí está la gloria! Físicamente... o espiritualmente, de algún modo, ésa luz de ahí es nuestra gloria. Por ella hemos luchado todos estos años hasta el inevitable fin. Vamos hacia la gloria, por nuestra fuerza y honor.'". 
+After asking Kaviedex about "gloria", say "'¿Qué pasa, tienes miedo? ¿Acaso no has sido un hombre de honor? ¿Acaso no has sido un hombre fuerte y valeroso? No te preocupes... ¡Vamos! Simplemente asciende conmigo hacia la gloria.'". 
+Instead of asking Kaviedex about "honor", try asking Kaviedex about "gloria". 
+Instead of asking Kaviedex about "rango", try asking Kaviedex about "gloria". 
+Instead of asking Kaviedex about "fuerza", try asking Kaviedex about "gloria". 
+
+After asking Kaviedex about "luz", say "'Hacia ella debemos ascender... ¡vamos! Tengo ganas de llegar cuanto antes, espero ver allí a grandes amigos mios, bravos guerreros y sabios consejeros de Vulcano. Tal vez alguna mujer a la que amé... ¿habrá mujeres allá arriba? Seguro que sí... una luz tan bella debe contener cosas igualmente bellas... ¡Vamos, asciende hacia la luz!'". 
+
+After asking Kaviedex about "llaves", say "'¡Ah! Es por las llaves del universo... es una complicada historia, amigo. Sólo puedo decir que han caido en manos del rey Konix de Kuaran, y que ahora él puede modificar las realidades a su antojo, creando, mezclando y eliminando mundos a placer. Incluso podría modificar el lugar a donde vamos ahora, aunque espero que no haya aprendido tan rápido a utilizar su poder.'". 
+Instead of asking Kaviedex about "konix", try asking Kaviedex about "llaves". 
+Instead of asking Kaviedex about "realidades", try asking Kaviedex about "llaves".
+Instead of asking Kaviedex about "kuaran", try asking Kaviedex about "llaves".  
+
+After asking Kaviedex about something, say "El ser de luz parece ignorarte, o bien no te entiende.". 
+
+Instead of thinking, say "¿Cómo he llegado hasta aquí? Fue esa soldado del ejército de Vekanor, la estúpida Klyga... ¡Ni en sus mejores sueños hubiera imaginado jamás en vencerme! Pero así es la vida, me pilló por detrás, la muy cobarde. Así no se debería morir, pero no negaré que yo mismo lo he hecho alguna vez en algún momento de apuro en una batalla. Bueno, ahora ya está, no debería pensar tanto.".
+
+Espacio2 is a Espacio. The description of Espacio2 is "Tu alma -porque al final resultó que sí, que tenías una- sigue subiendo entre la nada hacia la luz. Te parece ver tímidas formas en la nada, como reflejos de una realidad que ya no existe... ¡Es tan raro morir! Era mucho más fácil matar, uno no sabe al morir si está dando la talla.".
+formas is scenery in Espacio2. The description is "Son como pequeños dibujos que se van formando rápidamente, como a carboncillo entre una nada grisácea, formando rostros que algun día amé, otros que quizás maté, algunos a los que ignoré, que van pasando alrededor, ascendiendo conmigo.". Understand "reflejos", "forma", "rostros", "carboncillo" as formas.
+Espacio3 is a Espacio. The description of Espacio3 is "Tu alma -suponiendo que toda esta luz que te rodea lo sea- empieza a vibrar por la cercanía de la gran luz final. ¿Cuándo acabará éste largo ascenso? ¿Para qué servirá la espera? Podría uno morir y punto, irse directo a la luz y ver cuánta gloria se le ofrece en la subasta de los héroes. Podría ser así, pero de momento sigues aquí, ascendiendo.".
+Espacio4 is a Espacio. The description of Espacio4 is "Estás ya tan cerca.. pero ahora asciendes más lentamente, como si el motor de tu alma estuviera fallando en los metros finales. ¡Trata de ascender, por Zyrcan! La gloria -porque será gloria lo que te den allá arriba- está ya muy cerca. Pronto tu nombre se escribirá con broches de oro en los anales de la historia cósmica. Seguro.".
+Espacio5 is a Espacio. The description of Espacio5 is "Ya estás rozando la intensa luz, la cegadora luz. La luz purificadora. Tan sólo un poco más y entrarás de lleno en el olimpo de los grandes guerreros -al menos eso dicen- y tendrás tanta gloria que te saldrá a chorros por las orejas, tanto honor y tanto prestigio obtendrás que nadie te podrá acusar de ningún mal, por nímio que sea, pues serás honorable, justo y glorioso. Bueno, esperas realmente que así sea.".
+Instead of going nowhere, say "No tienes que ir a ninguna parte, tan sólo asciende tu alma y déjate llevar por la luz." 
+
+[Verbos nuevos]
+
+Understand "aparta [something]", or "acercate a [something]", or "aproximate a [something]", or "remove [something]", or "remueve [something]", or "levanta [something]" as pushing.
+
+Understand "baila" or "danza" as singing.
+
+Understand "vestir [something]", "viste [something]", "poner [something]" as wearing.
+
+Attacking it with is an action applying to two things.
+Understand "ataca [someone] con [something]", or "mata [someone] con [something]", or "ataca a [someone] con [something]", or "mata a [someone] con [something]" as attacking it with.
+
+Descendering is an action applying to nothing.
+Understand "desciende" or "baja" or "alejate de la luz" or "alejarse de la luz" or "ir hacia la oscuridad" as descendering.
+Report descendering for the first time: say "[paragraph break]No puedes hacerlo, la luz te llama poderosamente...[paragraph break]";
+
+Ascendering is an action applying to nothing.
+Understand "levita" or "asciende" or "ascender" or "emerge" or "ir hacia la luz" or "ir hacia luz" or "ir luz" or "ascender alma" or "asciende alma" or "asciende tu alma" or "asciende hacia la luz" or "ascender hacia la luz" as ascendering.
+Report ascendering for the first time: say "[paragraph break]Te aproximas cada vez más hacia la luz...[paragraph break]";
+wait for any key;
+move luz to Espacio2;
+move estrellas to Espacio2;
+move nada to Espacio2;
+move auleos to Espacio2;
+move Kaviedex to Espacio2;
+move Kunelar to Espacio2;
+rule succeeds. 
+Report ascendering for the second time: say "[paragraph break]Te aproximas cada vez más hacia la luz...[paragraph break]";
+wait for any key;
+move luz to Espacio3;
+move estrellas to Espacio3;
+move nada to Espacio3;
+move auleos to Espacio3;
+move formas to Espacio3;
+move Kaviedex to Espacio3;
+move Kunelar to Espacio3;
+rule succeeds.
+Report ascendering for the third time: say "[paragraph break]Te aproximas cada vez más hacia la luz...[paragraph break]";
+wait for any key;
+move luz to Espacio4;
+move estrellas to Espacio4;
+move nada to Espacio4;
+move auleos to Espacio4;
+move formas to Espacio4;
+move Kaviedex to Espacio4;
+move Kunelar to Espacio4;
+rule succeeds.  
+Report ascendering for the fourth time: say "[paragraph break]Te aproximas cada vez más hacia la luz...[paragraph break]";
+wait for any key;
+move luz to Espacio5;
+move estrellas to Espacio5;
+move nada to Espacio5;
+move auleos to Espacio5;
+move formas to Espacio5;
+move Kaviedex to Espacio5;
+move Kunelar to Espacio5;
+rule succeeds.  
+Report ascendering for the fifth time: say "[paragraph break]Sin darte cuenta, el otro ser de luz ha desaparecido, ya no está ascendiendo contigo. En su lugar, una gran luz te empieza a rodear, envolviéndote en un cálido manto...";
+wait for any key;
+end the game in death;
+rule succeeds.  
+
+Rule for printing a parser error when parser error is not a verb I recognise: 
+    say "Tranquilo, eso no pasará. Asciende y déjate guiar por la luz que te llama." instead. 
+
+Rule for printing the player's obituary: 
+    say paragraph break;
+    center "Finalmente has llegado a tu destino";
+    center "y comienzas a escuchar las primeras risas...";
+    center "...los primeros reproches";
+    say paragraph break; 
+    center "¿Qué gloria puede tener alguien";
+    center "que ha dedicado su vida a la muerte?";
+    center "¿Qué descanso puede tener un alma";
+    center "que ha matado a tantos?";
+    center "No hay vírgenes en el cielo";
+    center "ni ángeles entre las nubes,";
+    center "tal vez diablos arrepentidos.";
+    say paragraph break; 
+    center "El ascenso de Kunelar es el capítulo 6 de la Serie Minúscula"; 
+    center "Escrito en abril de 2009 por Xavi Carrascosa"; 
+    center "...CONTINUARÁ"; 
+    say paragraph break; 
+    wait for any key; 
+    stop game abruptly; 
+    rule succeeds.

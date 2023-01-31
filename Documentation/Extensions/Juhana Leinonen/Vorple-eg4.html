@@ -1,0 +1,1338 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Extension</title>
+    <style type="text/css">
+        <!--
+        /* The default font (family) and size */
+
+        body, p, td {
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.8rem; /* 100/125 */
+        }
+
+        /* For fixed-point material within text, such as the typing on the Library Card index page */
+
+        span.typewritten {
+        	font-family: monospace;
+        	font-size: 0.867rem; /* 13/12 * 100/125 */
+        }
+
+        /* For less important material: the small print */
+
+        span.smaller {
+        	font-size: 80%;
+        }
+
+        /* The "heading panel" is the coloured box, high up on the page. The colours
+        vary depending on the page: for example, the style on a report of a translation
+        with no problems is "headingpanelsucceeded", usually green, but if there were
+        problems then "headingpanelfailed" is used, which is usually red. "headingpanel"
+        itself is a more neutral grey by default. "headingpanelDark" is an alternative
+        look to make the extensions index pages have some visual contrast with the others;
+        by default they are a darker grey. */
+
+        .headingpanel {
+        	background: #eeeeee;
+        }
+        .headingpanelsucceeded {
+        	background: #E6FFE6;
+        }
+        .headingpanelfailed {
+        	background: #f69Ca6;
+        }
+        .headingpanelalt {
+        	background: #808080;
+        }
+
+        /* Heading panels have two lines of text: an upper one in a larger size, and a
+        lower one in a smaller. Again, the alt versions are meant to contrast.
+
+        	Report on Translation: Succeeded                <-- headingpaneltext
+        	Produced by Inform 10.1.0 (build 6U97)          <-- headingpanelrubric
+
+        	Installed Extensions                            <-- headingpaneltextalt
+        	Bundles of extra rules or phrases to...         <-- headingpanelrubricalt
+
+        */
+
+        span.headingpaneltext {
+        	color: #222222;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+        span.headingpaneltextalt {
+        	color: #ffffff;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        span.headingpanelrubric {
+        	color: #222222;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.733rem; /* 11/12 * 100/125 */
+        	font-weight: bold;
+        }
+        span.headingpanelrubricalt {
+        	color: #ffffff;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.733rem; /* 11/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* Horizontal rule styling */
+
+        div.hr {
+        	border: 0;
+        	width: 100%;
+        	color: #707070;
+        	background-color: #707070;
+        	height: 5px;
+        }
+
+        /* This styles the (usually white) text of the example numbers written inside
+        oval blobs in the extension documentation, which mimic the look of the in-app
+        documentation. */
+
+        .oval, .oval td {
+        	background-image:url('inform:/doc_images/ovoid.png');
+        	color:white;
+        }
+
+        /* Styling used in the extension documentation indexes: */
+
+        /* Used for extension names in the extensions pane of the app */
+
+        span.extensioncensusentry {
+        	color: #ffffff;
+        }
+
+        span.extensionindexentry {
+        	color: #404040;
+        }
+
+        span.extensionindexerror {
+        	color: #ff8080;
+        }
+
+        /* This is used in extension documentation, where an example is presented
+        in a slightly tinted box: */
+
+        table.extensionexample {
+        	background-color: #f0f0f0;
+        }
+
+        span.extensionexampleletter {
+        	color: #202020;
+        	font-size: 14px;
+        	font-weight: bold;
+        }
+
+        /* Seen in problem messages: */
+
+        span.problemred {
+        	color: #800000;
+        }
+
+        span.problemgreen {
+        	color: #008000;
+        }
+
+        span.phraseword {
+        	color: #808080;
+        }
+
+        span.phrasetokentext {
+        	color: #e00060;
+        }
+
+        span.phrasetokendesctext {
+        	color: #4040ff;
+        }
+
+        span.phrasetokenvaluetext {
+        	color: #ff4040;
+        }
+
+        /* Now we move on to styling used in the Index pages only: */
+
+        /* The periodic table display has "sidebars", usually grey and taller than they
+        are wide; they contain no text. */
+
+        div.periodictablesidebarcolour {
+        	background: #888;
+        }
+        div.periodictablesidebar:hover {
+        	background: #222;
+        }
+
+        /* The text of the element-abbreviation, such as "Lx" or "Ph", uses: */
+
+        span.elementtext {
+        	color: #ffffff;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* Similarly for the "atomic number" - a single digit - in the top left corner
+        of these boxes: */
+
+        span.elementnumbertext {
+        	color: #ffffff;
+        	font-size: 0.622rem; /* 7/12 * 96/72 * 100/125 */
+        }
+
+        /* For the text of the element title, to the right of the element box: */
+
+        span.elementtitletext {
+        	color: #ffffff;
+        	font-size: 0.6rem; /* 9/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* The banner at the top of each element: */
+
+        table.elementbanner {
+        	background: #eeeeee;
+        }
+
+        /* For the typewriting on the Library Card: */
+
+        span.librarycardtitle {
+        	color: #803030;
+        }
+
+        span.librarycardother {
+        	color: #303030;
+        }
+
+        /* Generically used for "more details" boxes in the index: */
+
+        table.indexmorebox {
+        	background-color: #e0e0e0;
+            border-radius: 8px;
+        }
+
+        /* But not for activity contents: */
+
+        table.indexactivitycontents {
+        	background-color: #e8e0c0;
+            border-radius: 8px;
+        }
+
+        /* For responses in index entries about rules: */
+
+        span.indexresponseletter {
+        	color: #ffffff;
+        	font-family: 'Courier New', Courier, monospace;
+        	background-color: #8080ff;
+        }
+
+        span.indexresponsetext {
+        	color: #000066;
+        }
+
+        /* Used ubiquitously throughout the index and extension documentation: */
+
+        span.indexblack {
+        	color: #000000;
+        }
+
+        span.indexgrey {
+        	color: #808080;
+        }
+
+        span.indexdarkgrey {
+            color: #505050;
+        }
+
+        span.indexdullred {
+        	color: #800000;
+        }
+
+        span.indexdullgreen {
+        	color: #008000;
+        }
+
+        span.indexdullblue {
+        	color: #000080;
+        }
+
+        /* Used for the room squares in the World map in the Index (which is currently
+        a table with one row of one column) */
+
+        table.indexmaproom {
+        	border-color: #000000;
+        }
+
+        /* Used in the numbering of levels of the World map in the Index */
+
+        span.indexmaplevelnumbers {
+        	color: #c0c0c0;
+        }
+
+        /* Used e.g. for title rows in the Chart of basic kinds in the Index */
+
+        tr.headingrow {
+        	background-color: #e0e0e0;
+        }
+
+        /* Standard rows have black text on striped background colours, these being
+        the usual ones seen in Mac OS X applications such as iTunes. */
+
+        tr.stripeone {
+        	background-color: #ffffff;
+        }
+
+        tr.stripetwo {
+        	background-color: #f3f6fa;
+        }
+
+        tr.tintedrow {
+        	background-color: #808080;
+        }
+
+        /* In the Figures index, this is the background colour used behind images
+        (though in fact it will only be visible if the image fails to load, or uses
+        transparency): */
+
+        div.figureindexbox {
+        	background-color: #6495ed;
+        }
+
+        /* To get the book-contents-page style leaders on the Contents element of
+           the index to work, these must use the background colour of the body of
+           the page, whatever that is: */
+
+        ul.leaders li.leaded span:first-child {
+        	background: white;
+        }
+        ul.leaders li.leaded span + span {
+        	background: white;
+        }
+
+        /* On Registry index pages (such as the Public Library), these are used for
+        download buttons and the like: */
+
+        span.registrybuttontext {
+        	font-size: 11px;
+        	border-color: #000000;
+        }
+
+        span.registryminibuttontext {
+        	font-size: 10px;
+        	border-color: #000000;
+        }
+
+        span.registrybuttonuninstalled {
+        	color: #000000;
+        	background: #ffffdd;
+        }
+
+        span.registrybuttoninstalled {
+        	color: #000000;
+        	background: #ffffff;
+        	pointer-events: none;
+        }
+
+        span.registrybuttonbuiltin {
+        	color: #888888;
+        	background: #ffffff;
+        	pointer-events: none;
+        }
+
+        span.registrybuttonupdate {
+        	color: #000000;
+        	background: #aaddff;
+        }
+
+        span.registrybuttonrevert {
+        	color: #000000;
+        	background: #ddaaff;
+        }
+
+        span.registrybuttonrevealer {
+        	color: #ffffff;
+        	background: #444444;
+        }
+
+        /* Registry index section headings: */
+
+        span.registrysectionname {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 16px;
+        	line-height: 18px;
+        }
+        span.registrysubsectionname {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 14px;
+        	line-height: 16px;
+        }
+
+        /* These are for the "mark" for a section, usually a section-symbol and number */
+
+        span.registrysectionmark {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 16px;
+        	line-height: 18px;
+        	color: #666;
+        }
+        span.registrysubsectionmark {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 14px;
+        	line-height: 16px;
+        	color: #666;
+        }
+
+        /* Text of an item listed in a registry: */
+
+        span.registryitemtext {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 12px;
+        	line-height: 16px;
+        }
+
+        /* And how the links in a registry index page behave: */
+
+        a.registrysilentlink {
+        	text-decoration: none;
+        	color: #000;
+        }
+        a.registrybuttonlink {
+        	text-decoration: none;
+        }
+        a.registrycontentslink:link {
+        	text-decoration: none;
+        	color: #202020;
+        }
+        a.registrycontentslink:visited {
+        	text-decoration: none;
+        	color: #202020;
+        }
+        a.registrycontentslink:hover {
+        	text-decoration: none;
+        	color: #D00000;
+        }
+        a.registrycontentslink:active {
+        	text-decoration: none;
+        	color: #D00000;
+        }
+
+        -->
+    </style>
+    <style type="text/css">
+        <!--
+        /* (1) General layout material */
+
+        *, *:before, *:after {
+        	-moz-box-sizing: border-box;
+        	-webkit-box-sizing: border-box;
+        	box-sizing: border-box;
+        }
+        .headingpanellayout {
+        	position: relative;
+        	height: 56px;
+        	padding: 0px;
+        	white-space:nowrap;
+        }
+        .headingpanellayoutdeeper {
+        	position: relative;
+        	height: 117px;
+        	padding: 0px;
+        	white-space:nowrap;
+        }
+        .headingtext {
+        	position: absolute;
+        	top: -4px;
+        	left: -1px;
+        	width: 100%;
+        	padding: 14px 10px 0px 10px;
+        }
+        .headingrubric {
+        	position: absolute;
+        	top: 36px;
+        	width: 100%;
+        	padding: 0px 10px 0px 10px;
+        }
+        h3.tighter {
+        	margin-top: 0px;
+        }
+        p.hang {
+        	padding-left: 25px;
+        	text-indent: -25px;
+        	margin-top: 0px;
+        	margin-bottom: 0px;
+        }
+        p.in1 {
+        	padding-left: 0px;
+        }
+        p.tightin1 {
+        	padding-left: 0px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin1 {
+        	padding-left: 0px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin1 {
+        	padding-left: 50px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in2 {
+        	padding-left: 25px;
+        }
+        p.tightin2 {
+        	padding-left: 25px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin2 {
+        	padding-left: 25px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin2 {
+        	padding-left: 75px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in3 {
+        	padding-left: 50px;
+        }
+        p.tightin3 {
+        	padding-left: 50px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin3 {
+        	padding-left: 50px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin3 {
+        	padding-left: 100px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in4 {
+        	padding-left: 75px;
+        }
+        p.tightin4 {
+        	padding-left: 75px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin4 {
+        	padding-left: 75px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin4 {
+        	padding-left: 125px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in5 {
+        	padding-left: 100px;
+        }
+        p.tightin5 {
+        	padding-left: 100px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin5 {
+        	padding-left: 100px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin5 {
+        	padding-left: 150px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in6 {
+        	padding-left: 125px;
+        }
+        p.tightin6 {
+        	padding-left: 125px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin6 {
+        	padding-left: 125px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin6 {
+        	padding-left: 175px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in7 {
+        	padding-left: 150px;
+        }
+        p.tightin7 {
+        	padding-left: 150px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin7 {
+        	padding-left: 150px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin7 {
+        	padding-left: 200px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in8 {
+        	padding-left: 175px;
+        }
+        p.tightin8 {
+        	padding-left: 175px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin8 {
+        	padding-left: 175px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin8 {
+        	padding-left: 225px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in9 {
+        	padding-left: 200px;
+        }
+        p.tightin9 {
+        	padding-left: 200px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin9 {
+        	padding-left: 200px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin9 {
+        	padding-left: 250px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+
+        /* (2) Index page layout material */
+
+        /* The periodic table display has "sidebars", usually grey and taller than they
+        are wide; they contain no text. */
+
+        div.periodictablesidebar {
+        	height: 56px;
+        	width: 16px;
+        }
+        .periodictablesidebar a:link { text-decoration: none; }
+        .periodictablesidebar a:visited { text-decoration: none; }
+        .periodictablesidebar a:active { text-decoration: none; }
+
+        /* The "element boxes" are the cells appearing in the periodic-table display
+        on the welcome page of the index: */
+
+        .elementbox {
+        	position: relative;
+        	height: 56px;
+        	width: 56px;
+        	padding: 0px;
+        }
+
+        .elementbox a:link { text-decoration: none; }
+        .elementbox a:visited { text-decoration: none; }
+        .elementbox a:active { text-decoration: none; }
+        .elementbox a:hover { text-decoration: none; }
+        .elementbox:hover {
+        	opacity: 0.6;
+        }
+
+        /* The "small element boxes" look like those, but are smaller, and used on
+        the headings of the content which those original boxes link to: */
+
+        .smallelementbox {
+        	position: relative;
+        	height: 40px;
+        	width: 40px;
+        	padding: 0px;
+        }
+
+        .smallelementbox a:link { text-decoration: none; }
+        .smallelementbox a:visited { text-decoration: none; }
+        .smallelementbox a:active { text-decoration: none; }
+        .smallelementbox a:hover { text-decoration: none; }
+        .smallelementbox:hover {
+        	opacity: 0.6;
+        }
+
+        /* This is a class for the links formed by the element boxes: */
+
+        a.elementlink {
+        	position: absolute;
+        	top: -4px;
+        	left: -1px;
+        	width: 100%;
+        	padding: 14px 0px 14px 1px;
+        	text-align: center;
+        }
+
+        /* Similarly for the "atomic number" - a single digit - in the top left corner
+        of these boxes: */
+
+        div.elementnumber {
+        	position: absolute;
+        	top: 1px;
+        	left: 3px;
+        	text-align: left;
+        }
+
+        /* For the text of the element title, to the right of the element box: */
+
+        div.elementtitle {
+        	position: absolute;
+        	top: 35px;
+        	width: 100%;
+        	text-align: center;
+        }
+
+        /* Used for the book-contents-page style leaders on the Contents element of
+           the index: */
+
+        ul.leaders {
+        	padding: 0;
+        	margin-top: 1px;
+        	margin-bottom: 0;
+        	overflow-x: hidden;
+        	list-style: none}
+        ul.leaders li.leaded:before {
+        	float: left;
+        	width: 0;
+        	white-space: nowrap;
+        	content:
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "}
+        ul.leaders li.leaded span:first-child {
+        	padding-right: 0.33em;
+        }
+        ul.leaders li.leaded span + span {
+        	float: right;
+        	padding-left: 0.33em;
+        }
+        li.indent1 span:first-child {
+        	padding-left: 25px;
+        }
+        li.indent2 span:first-child {
+        	padding-left: 50px;
+        }
+        li.indent3 span:first-child {
+        	padding-left: 75px;
+        }
+        li.indent4 span:first-child {
+        	padding-left: 100px;
+        }
+        li.indent5 span:first-child {
+        	padding-left: 125px;
+        }
+        li.indent6 span:first-child {
+        	padding-left: 150px;
+        }
+        li.indent7 span:first-child {
+        	padding-left: 175px;
+        }
+        li.indent8 span:first-child {
+        	padding-left: 200px;
+        }
+        li.indent9 span:first-child {
+        	padding-left: 225px;
+        }
+
+        li.unleaded:before {
+        	content: "";
+        }
+
+        /* On Registry index pages (such as the Public Library), these are used for
+        download buttons and the like: */
+
+        span.registrybuttons {
+        	height: 20px;
+        	padding: 2px 8px 2px 8px;
+        	margin: 2px;
+        	border:1px solid;
+        	border-radius: 5px;
+        }
+
+        span.registryminibuttons {
+        	height: 14px;
+        	padding: 2px 5px 2px 5px;
+        	margin: 2px;
+        	border:1px solid;
+        	border-radius: 4px;
+        }
+
+        /* Used to hide or display sections in the Registry pages: */
+
+        div.registrysectionitemsopen {
+        	display: block;
+        }
+
+        div.registrysectionitemsclosed {
+        	display: none;
+        }
+
+        /* Hanging indentation for Registry item paragraphs: */
+
+        p.registryitem {
+        	padding-left: 80px;
+        	text-indent: -40px;
+        }
+
+        p.registryaddition {
+        	padding-left: 40px;
+        	text-indent: -40px;
+        }
+
+        -->
+    </style>
+    <script type="text/javascript">
+        function project() {
+            return window.Project;
+        }
+        function showExtra(id, imid) {
+        	if (document.getElementById(id).style.display == 'block') {
+        		document.getElementById(id).style.display = 'none';
+        		document.getElementById(imid).src = 'inform:/extra.png';
+        	} else {
+        		document.getElementById(id).style.display = 'block';
+        		document.getElementById(imid).src = 'inform:/extraclose.png';
+        	}
+        }
+        function openExtra(id, imid) {
+        	document.getElementById(id).style.display = 'block';
+        	document.getElementById(imid).src = 'inform:/extraclose.png';
+        }
+        function closeExtra(id, imid) {
+        	document.getElementById(id).style.display = 'none';
+        	document.getElementById(imid).src = 'inform:/extra.png';
+        }
+        function pasteCode(code) {
+            var myProject = project();
+
+            myProject.selectView('source');
+            myProject.pasteCode(code);
+        }
+
+    </script>
+</head>
+<body>
+    <!--CONTENT BEGINS-->
+    <table CELLPADDING=0 CELLSPACING=0 width="100%" bgcolor="#000000"><tr><TD width=38px height=26px align="center" valign="center"><a href="inform://Extensions/Extensions.html" border=0><img border=0 src="inform:/doc_images/Hookindex.png" border=0></a></td><TD width=38px height=26px align="center" valign="center"></td><td halign="left" valign="center" CELLPADDING=0 CELLSPACING=0><font color="#FFFFFF" size=2>Extensions</font></a></td><TD width=56px height=26px align="right" valign="center"><a href="inform:/index.html" border=0><img border=0 src="inform:/doc_images/Hookup.png" border=0></a></td></tr></table>
+
+    <p><a href="javascript:pasteCode('Include Vorple by Juhana Leinonen.[=0x000A=][=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a>&nbsp;<b>Vorple<span class="extensionindexentry"> by </span>Juhana Leinonen</b></p>
+    <p><span class="smaller">(For Glulx Only)&nbsp; <img border=0 src=inform:/doc_images/vm_glulx.png>&nbsp;Version 3.0.220217</span></p>
+    <p>Core functionality of Vorple, including JavaScript evaluation and adding HTML elements.</p>
+    <p></p>
+    <hr>
+    <p><span class="indexblack"><b><a style="text-decoration: none" href=#docsec1>Chapter 1: </a></b></span>Vorple setup<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec2>Chapter 2: </a></b></span>Compatibility with offline interpreters<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec3>Chapter 3: </a></b></span>The command prompt<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec4>Chapter 4: </a></b></span>Embedding HTML elements<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec5>Chapter 5: </a></b></span>Scrolling to elements<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec6>Chapter 6: </a></b></span>Executing JavaScript code<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec7>Chapter 7: </a></b></span>Escaping strings<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec8>Chapter 8: </a></b></span>User interface setup and updates<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec9>Chapter 9: </a></b></span>Blocking the user interface<br>
+    <br>
+    <b>Examples</b><br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href="Vorple-eg1.html#eg1">A &mdash; Convenience Store</a></span><br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href="Vorple-eg2.html#eg2">B &mdash; Scrambled Eggs</a></span><br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href="Vorple-eg3.html#eg3">C &mdash; The Grandfather Clock</a></span><br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href="Vorple-eg4.html#eg4">D &mdash; The Sum of Human Knowledge</a></span><br>
+    </p>
+    <hr>
+    <p></p>
+    </p>
+
+    <p> The Vorple core extension defines the basic structure that's needed for the story file to communicate with the web browser, as well as other low-level rules and phrases that other extensions use to add more features to Vorple.</p>
+
+    <p> Authors who are not familiar with JavaScript or who wish to just use the basic Vorple features can read only the first three chapters (Vorple setup, compatibility with offline interpreters and the brief note about the command prompt). The rest of this documentation handles more advanced usage. For more practical usage of Vorple, see other Vorple extensions that implement specific features like multimedia support and hyperlinks.</p>
+
+    <p><p><span class="indexdullred"><b><span id=docsec1>Chapter 1: Vorple setup</span></b></span></p>
+    </p>
+
+    <p> Every Vorple story must include at least one Vorple extension and the custom web interpreter.</p>
+
+    <p><blockquote><span class="indexdullblue"><a href="javascript:pasteCode('Include Vorple by Juhana Leinonen.[=0x000A=]Release along with the [=0x0022=]Vorple[=0x0022=] interpreter.[=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a> Include Vorple by Juhana Leinonen.<br>
+     Release along with the &quot;Vorple&quot; interpreter.</span></blockquote>
+
+    <p> All standard Vorple extensions already have the &quot;Include Vorple&quot; line, so it's not necessary to add it to the story project if at least one of the other extensions are used.</p>
+
+    <p> In contrast to previous versions that were only for Z-Machine, version 3 of Vorple is for Glulx only. The project's story file format must be set to Glulx in Inform's Settings pane.</p>
+
+    <p> At the time of release of the current, third version of Vorple, the latest Inform release 6M62 includes the older version 2 of Vorple which is not compatible with the new extensions. The latest Vorple interpreter template is in the same package as these extensions.</p>
+
+    <p> Also note that old Vorple extensions are not compatible with the current version of Vorple. If you get en error message about an extension being for Z-Machine only, the project is trying to include an old extension.</p>
+
+    <p> For more detailed instructions on how to get started see the documentation at the vorple-if.com website.</p>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec2>Chapter 2: Compatibility with offline interpreters</span></b></span></p>
+    </p>
+
+    <p> Even though Vorple can accomplish many things that are plain impossible to do with traditional interpreters, it's always a good idea to make the story playable text-only as well if at all possible. There are many players to whom a web interpreter or Vorple's features aren't accessible, and it's the Right Thing To Do to not exclude people if it's possible to include them.</p>
+
+    <p> A story file can detect if it's being run on an interpreter that supports Vorple. The same story file can therefore be run on both the Vorple web interpreter and other interpreters that have text-only features and display substitute content if necessary. We can test for Vorple's presence with &quot;if Vorple is supported&quot;:</p>
+
+    <p><blockquote><span class="indexdullblue"> Instead of going north:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; if Vorple is supported:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; play sound file &quot;marching_band.mp3&quot;;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; otherwise:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say &quot;A marching band crossing the street blocks your way.&quot;</span></blockquote>
+
+    <p> (The above example uses the Vorple Multimedia extension.)</p>
+
+    <p> The say phrase in the above example is called a &quot;fallback&quot; and it's displayed only in normal non-Vorple interpreters.</p>
+
+    <p> All Vorple features do nothing by default if they're not supported by the interpreter, unless otherwise stated in the extension's documentation. If substitute content is not necessary, we don't need to specifically check for Vorple compatibility:</p>
+
+    <p><blockquote><span class="indexdullblue"> Instead of going north:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; play sound file &quot;marching_band.mp3&quot;.</span></blockquote>
+
+    <p> Many Vorple features can be replicated at least to some extent on standard Glulx interpreters, but in general Vorple extensions don't try to use those Glulx features as a default fallback, but opt to printing plain text where applicable or doing nothing at all. Authors can use their choice of Glulx extensions and the above mentioned &quot;if Vorple is supported&quot; checks to make fallbacks that are most suitable for their story.</p>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec3>Chapter 3: The command prompt</span></b></span></p>
+    </p>
+
+    <p> To gain more control over the command prompt, Vorple replaces the built-in prompt with its own. The process should be completely automated: changing the &quot;command prompt&quot; variable should change the Vorple prompt as well, apart from some fringe cases where the source text or an extension does something exotic with the Glulx prompt. The prompt and the player's command are printed on the screen with custom techniques so they will not be included in the usual story output flow. It means that Glulx extensions that capture output text will not be able to read them.</p>
+
+    <p> The extension Vorple Command Prompt Control offers features to manipulate the command prompt and the interpreter's line input in general.</p>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec4>Chapter 4: Embedding HTML elements</span></b></span></p>
+    </p>
+
+    <p> We can embed simple HTML elements into story text with some helper phrases.</p>
+
+    <p><blockquote><span class="indexdullblue"> place an &quot;article&quot; element;<br>
+     place a &quot;h1&quot; element called &quot;title&quot;;<br>
+     place a block level element called &quot;inventory&quot;;<br>
+     place an inline element called &quot;name&quot;;</span></blockquote>
+
+    <p> The previous example generates elements equivalent to this HTML markup:</p>
+
+    <p><blockquote><span class="indexdullblue"> &lt;article&gt;&lt;/article&gt;<br>
+     &lt;h1 class=&quot;title&quot;&gt;&lt;/h1&gt;<br>
+     &lt;div class=&quot;inventory&quot;&gt;&lt;/div&gt;<br>
+     &lt;span class=&quot;name&quot;&gt;&lt;/span&gt;</span></blockquote>
+
+    <p> The element's name should be one word only and a valid CSS class name. It's safest to only use letters, numbers, underscores and dashes.</p>
+
+    <p> Text content can be added on creation:</p>
+
+    <p><blockquote><span class="indexdullblue"> place a &quot;h1&quot; element called &quot;title&quot; reading &quot;An exciting story&quot;;<br>
+     place a &quot;h2&quot; element reading &quot;Story so far:&quot;;</span></blockquote>
+
+    <p>... or after the elements have been created:</p>
+
+    <p><blockquote><span class="indexdullblue"> say &quot;You shall be known as &quot;;<br>
+     place an inline element called &quot;name&quot;;<br>
+     display text &quot;Anonymous Adventurer&quot; in the element called &quot;name&quot;;</span></blockquote>
+
+    <p> This technique can be used to modify the story output later (see example &quot;Scrambled Eggs&quot;).</p>
+
+    <p> If the text is included at the same time when creating the element, the default behavior in non-Vorple interpreters is to print the text normally. Text added later will not do anything. In other words, 'place a &quot;h1&quot; element called &quot;title&quot; reading &quot;An exciting story&quot; ' will print &quot;An exciting story&quot; in all interpreters, but 'display text &quot;Anonymous Adventurer&quot; in the element called &quot;name&quot; ' will not print anything in anywhere other than the Vorple interpreter.</p>
+
+    <p> In the above examples element contents should be plain text only. Trying to add nested tags or text styles will lead to erratic behavior. For longer and more complex contents the tags can be opened and closed manually:</p>
+
+    <p><blockquote><span class="indexdullblue"> Report reading the letter:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; open HTML tag &quot;div&quot; called &quot;letter&quot;;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; place &quot;h2&quot; element reading &quot;Dear Esther,&quot;;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; say &quot;I'm writing to tell you...&quot;;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; close HTML tag.</span></blockquote>
+
+    <p> When there are multiple elements with the same name, only the last element will be updated. This is to accommodate repeat actions and specifically UNDO which can easily generate duplicate content. To modify all elements, use the following phrase:</p>
+
+    <p><blockquote><span class="indexdullblue"> display &quot;Hello World!&quot; in all elements called &quot;greeting&quot;;</span></blockquote>
+
+    <p> We can also test whether an element exists or not, or count the number of elements:</p>
+
+    <p><blockquote><span class="indexdullblue"> let n be the number of elements called &quot;greeting&quot;;<br>
+     if an element called &quot;greeting&quot; exists:...<br>
+     if an element called &quot;greeting&quot; doesn't exist:...</span></blockquote>
+
+    <p> The extension Vorple Element Manipulation contains more tools for working with the HTML document.</p>
+
+    <p> Finally, the Vorple interpreter uses a concept called &quot;output focus&quot; to decide where it should print the story text. Any HTML element* can have the output focus, and any text coming from the story will be appended to the end of that element. For example we can have a separate element where the player's inventory is printed:</p>
+
+    <p> (* The element that has output focus must be able contain child elements, so void elements, for example &lt;img&gt; or &lt;hr&gt;, can receive output focus but any output is ignored.)</p>
+
+    <p><blockquote><span class="indexdullblue"> Before taking inventory:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; set output focus to the element called &quot;inventory&quot;.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> After taking inventory:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; set output focus to the main window;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; continue the action.</span></blockquote>
+
+    <p> &quot;Set output focus to the main window&quot; returns the focus back to the default location.</p>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec5>Chapter 5: Scrolling to elements</span></b></span></p>
+    </p>
+
+    <p> The page can be scrolled to bring a named element into view:</p>
+
+    <p><blockquote><span class="indexdullblue"> scroll to the element called &quot;target&quot;;</span></blockquote>
+
+    <p> The page then scrolls so that the target element's top is near the browser window's top. If the element is already fully visible on the page and its top position is on the top half of the window, the phrase does nothing.</p>
+
+    <p> A similar phrase can be used to scroll to the bottom of the page:</p>
+
+    <p><blockquote><span class="indexdullblue"> scroll to the end of the page;</span></blockquote>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec6>Chapter 6: Executing JavaScript code</span></b></span></p>
+    </p>
+
+    <p> Vorple breaks out of the Glulx sandbox by letting the story file send JavaScript code for the web browser to evaluate. An &quot;execute JavaScript command&quot; phrase is provided to do just this:</p>
+
+    <p><blockquote><span class="indexdullblue"> execute JavaScript command &quot;alert('Hello World!')&quot;;</span></blockquote>
+
+    <p> There are no safeguards against invalid or potentially malicious JavaScript. If an illegal JavaScript expression is evaluated, the browser will show an error message in the console and the interpreter will halt. (Although this might sound ominous, there's no real danger unless you're doing some very complex things that involve evaluating JavaScript from unknown or untrusted sources, and the web browser itself has its own safeguards. Using any of the official Vorple extensions is safe.)</p>
+
+    <p> Any value the JavaScript code returns can be retrieved with &quot;the value returned by the JavaScript command&quot; which gives the return value as text. If we know the type of the return value, we can use specific phrases to retrieve values of those types:</p>
+
+    <p><blockquote><span class="indexdullblue"> the text returned by the JavaScript command<br>
+     the number returned by the JavaScript command</span></blockquote>
+
+    <p> There's also a shorthand phrase for testing for boolean return values:</p>
+
+    <p><blockquote><span class="indexdullblue"> if the JavaScript command returned true:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; say &quot;Yup.&quot;</span></blockquote>
+
+    <p> The type of the return value can be retrieved with &quot;the type of the value returned by the JavaScript command&quot;. The list of all possible return value types is in the technical documentation (link below).</p>
+
+    <p> The return value gets overwritten by the next JavaScript command's return value (or &quot;undefined&quot; if it doesn't return anything), so it's best to save the value immediately to a variable after executing the command. Otherwise another JavaScript between executing the command and reading the value might cause a hard to detect bug. The other code call might not be obvious, for example changing the font style with the Vorple Screen Effects extension involves a JavaScript call.</p>
+
+    <p><blockquote><span class="indexdullblue"> execute JavaScript command &quot;return [bracket]'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'[close bracket][bracket]new Date().getDay()[close bracket]&quot;;<br>
+     let weekday be the text returned by the JavaScript command;<br>
+     say &quot;It's [weekday]!&quot;;</span></blockquote>
+
+    <p> Note: Since version 3.1, the command must explicitly return a value with the &quot;return&quot; keyword for the expression's value to be readable in Inform. If the command returns nothing or undefined, the value of the last command that explicitly returned a value is still what you get when you query it with a &quot;...returned by the JavaScript command&quot; phrase. In other words:</p>
+
+    <p><blockquote><span class="indexdullblue"> execute JavaScript command &quot;return 'foo'&quot;;<br>
+     execute JavaScript command &quot;'bar'&quot;;<br>
+     say the text returned by the JavaScript command;</span></blockquote>
+
+    <p> The above code will print &quot;foo&quot;, because the second line doesn't explicitly return anything. In versions 3.0 and before the same code would have printed &quot;bar&quot;.</p>
+
+    <p> See the documentation at https://vorple-if.com for more details about JavaScript evaluation.</p>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec7>Chapter 7: Escaping strings</span></b></span></p>
+    </p>
+
+    <p> When evaluating JavaScript expressions, quotation marks must often be exactly right. Inform formats quotes according to literary standards which doesn't necessarily work together with JavaScript. Consider the following example:</p>
+
+    <p><blockquote><span class="indexdullblue"> To greet (name - text):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; execute JavaScript command &quot;alert( 'Hello [name]!' )&quot;.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> When play begins:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; greet &quot;William 'Bill' O'Malley&quot;.</span></blockquote>
+
+    <p> This leads to a JavaScript error because all single quotes (except the one in &quot;O'Malley&quot;) are converted to double quotes, which in turn leads to a JavaScript syntax error. Changing the string delimiters to single quotes wouldn't help because there's an unescaped single quote as well inside the string.</p>
+
+    <p> To escape text we can prefix it with &quot;escaped&quot;, which adds backslashes before characters that might cause problems inside strings:</p>
+
+    <p><blockquote><span class="indexdullblue"> To greet (name - text):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; execute JavaScript command &quot;alert( 'Hello [escaped name]!' )&quot;.</span></blockquote>
+
+    <p> Now the string can be safely used in the JavaScript expression.</p>
+
+    <p> By default escaping removes newlines. If we want to turn them into, for example, HTML line breaks, or just preserve them:</p>
+
+    <p><blockquote><span class="indexdullblue"> To greet (name - text):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; let safe name be escaped name using &quot;\n&quot; as line breaks;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; execute JavaScript command &quot;alert( 'Hello [safe name]!' )&quot;.</span></blockquote>
+
+    <p> Remember to use &quot;[bracket]&quot; and &quot;[close bracket]&quot; for square brackets in JavaScript code.</p>
+
+    <p><blockquote><span class="indexdullblue"> execute JavaScript command &quot;var myArray = [bracket]1, 2, 3[close bracket]&quot;;</span></blockquote>
+
+    <p> Escaping also turns Unicode characters (basically any characters that aren't letters a-z, numbers or common punctuation) into \uXXXX format so that they can be passed to the browser intact. We'll have to escape any strings that contain e.g. accented characters:</p>
+
+    <p><blockquote><span class="indexdullblue"> let destination be &quot;Mêlée Island&quot;;<br>
+     execute JavaScript command &quot;var destination = '[escaped destination]'&quot;;</span></blockquote>
+
+    <p> Non-escaped Unicode characters show up in the output as question marks or empty squares.</p>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec8>Chapter 8: User interface setup and updates</span></b></span></p>
+    </p>
+
+    <p> Vorple provides a separate rulebook called Vorple interface setup rules for setting up the user interface on the browser side. It runs during startup before the when play begins rules. The rulebook is meant for rules that build or initialize the user interface that has to be ready before the story does anything else.</p>
+
+    <p> The following example sets up a click handler that adds a custom CSS class to the command prompt. Depending on the CSS rule it might flash the prompt to draw attention to it.</p>
+
+    <p><blockquote><span class="indexdullblue"> Vorple interface setup rule:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; execute JavaScript command &quot;$(document).on('click', function() { $('#lineinput').addClass('highlight') })&quot;.</span></blockquote>
+
+    <p> When building any user interface elements we need to remember that through save/restore the player can continue the story potentially from any point or rewind actions with undo or restart, unless the story has disabled those commands. We can't rely on JavaScript code that has been run during previous commands because the player might have skipped them by restoring a later save, and we can't assume that turns happen only once because the player might undo and replay a turn. Therefore it's best to initialize the user interface at story start instead of along the way as the story progresses.</p>
+
+    <p> There's a mechanism in place that prevents the interface setup rules from running more than once during one session, even if the player restarts the story. In other words the interface setup rules run only when the web page loads. This guarantees that we can't add duplicate event handlers by mistake or otherwise run things twice that should only be run once.</p>
+
+    <p> For keeping the web interface up to date there's a rulebook called Vorple interface update rules that's run at the end of every turn and after undoing a turn, restoring a save and restarting the game.</p>
+
+    <p><blockquote><span class="indexdullblue"> Vorple interface update rule:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; execute JavaScript command &quot;document.title = '[escaped printed name of the player][']s adventures'&quot;.</span></blockquote>
+
+    <p> Refer to the documentation at vorple-if.com for more information.</p>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec9>Chapter 9: Blocking the user interface</span></b></span></p>
+    </p>
+
+    <p> If at some point we need to wait for a network request or some other asynchronous operation to finish before continuing with the story, we can prevent the player from doing anything in the meanwhile by blocking the user interface. When the user interface is blocked the player can't type or click on anything, but they can still scroll the page normally. The phrases to block and unblock the user interface are:</p>
+
+    <p><blockquote><span class="indexdullblue"> block the user interface;<br>
+     unblock the user interface;</span></blockquote>
+
+    <p> Usually it's the JavaScript code that will unblock the user interface when it's ready by running a &quot;vorple.layout.unblock()&quot; call, but the Inform 7 phrase is provided for cases where the script executes a parser command that causes the story to continue normally.</p>
+
+    <p> Note that manually blocking the user interface is necessary only in asynchronous operations, most notably network requests via Ajax. Normal synchronous code already blocks the user interface so the turn can't end before all code has been executed.</p>
+
+    <p> The example &quot;The Sum of Human Knowledge&quot; shows one use case where we might want to block the user interface: it takes some time for the request to Wikipedia to finish and we don't want the player to continue before the response has been shown on the screen.</p>
+
+    <p> Even though typing is disabled while the user interface is blocked, the command prompt is still visible by default (if the story is waiting for line input). In the extension Vorple Command Prompt Control there are phrases to hide the command prompt which can be used together with or instead of blocking the user interface.</p>
+
+    <p><hr>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td halign="left" valign="top" cellpadding=0 cellspacing=0 width=38px>
+                <span id=eg1><table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="oval">
+                        <td width=38px height=30px align="left" valign="center">
+                            <a href="Vorple-eg1.html#eg1" style="text-decoration: none"><div class="paragraph Body" style="line-height: 1px; margin-bottom: 0px; margin-top: 0px; padding-bottom: 0pt; padding-top: 0px; text-align: center;">
+                                <span class="extensionexampleletter">A</span></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                </span>
+            </td>
+            <td cellpadding=0 cellspacing=0 halign="left" valign="top">
+                <a href="Vorple-eg1.html#eg1" style="text-decoration: none"><img border="0" src='inform:/doc_images/asterisk.png'><img border="0" src='inform:/doc_images/asterisk.png'><b><span class="indexdarkgrey">&nbsp;Example&nbsp;</span><span class="indexblack">Convenience Store</span></b></a><br>
+                <p>Displaying the inventory styled as a HTML list</p>
+
+            </td>
+        </tr>
+    </table>
+    </p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p><hr>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td halign="left" valign="top" cellpadding=0 cellspacing=0 width=38px>
+                <span id=eg2><table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="oval">
+                        <td width=38px height=30px align="left" valign="center">
+                            <a href="Vorple-eg2.html#eg2" style="text-decoration: none"><div class="paragraph Body" style="line-height: 1px; margin-bottom: 0px; margin-top: 0px; padding-bottom: 0pt; padding-top: 0px; text-align: center;">
+                                <span class="extensionexampleletter">B</span></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                </span>
+            </td>
+            <td cellpadding=0 cellspacing=0 halign="left" valign="top">
+                <a href="Vorple-eg2.html#eg2" style="text-decoration: none"><img border="0" src='inform:/doc_images/asterisk.png'><img border="0" src='inform:/doc_images/asterisk.png'><b><span class="indexdarkgrey">&nbsp;Example&nbsp;</span><span class="indexblack">Scrambled Eggs</span></b></a><br>
+                <p>Hints that are initially shown obscured and revealed on request</p>
+
+            </td>
+        </tr>
+    </table>
+    </p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p><hr>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td halign="left" valign="top" cellpadding=0 cellspacing=0 width=38px>
+                <span id=eg3><table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="oval">
+                        <td width=38px height=30px align="left" valign="center">
+                            <a href="Vorple-eg3.html#eg3" style="text-decoration: none"><div class="paragraph Body" style="line-height: 1px; margin-bottom: 0px; margin-top: 0px; padding-bottom: 0pt; padding-top: 0px; text-align: center;">
+                                <span class="extensionexampleletter">C</span></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                </span>
+            </td>
+            <td cellpadding=0 cellspacing=0 halign="left" valign="top">
+                <a href="Vorple-eg3.html#eg3" style="text-decoration: none"><img border="0" src='inform:/doc_images/asterisk.png'><img border="0" src='inform:/doc_images/asterisk.png'><img border="0" src='inform:/doc_images/asterisk.png'><b><span class="indexdarkgrey">&nbsp;Example&nbsp;</span><span class="indexblack">The Grandfather Clock</span></b></a><br>
+                <p>Setting the story time to match the real-world time</p>
+
+            </td>
+        </tr>
+    </table>
+    </p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p><hr>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td halign="left" valign="top" cellpadding=0 cellspacing=0 width=38px>
+                <span id=eg4><table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="oval">
+                        <td width=38px height=30px align="left" valign="center">
+                            <a href="Vorple.html#eg4" style="text-decoration: none"><div class="paragraph Body" style="line-height: 1px; margin-bottom: 0px; margin-top: 0px; padding-bottom: 0pt; padding-top: 0px; text-align: center;">
+                                <span class="extensionexampleletter">D</span></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                </span>
+            </td>
+            <td cellpadding=0 cellspacing=0 halign="left" valign="top">
+                <a href="Vorple.html#eg4" style="text-decoration: none"><img border="0" src='inform:/doc_images/asterisk.png'><img border="0" src='inform:/doc_images/asterisk.png'><img border="0" src='inform:/doc_images/asterisk.png'><img border="0" src='inform:/doc_images/asterisk.png'><b><span class="indexdarkgrey">&nbsp;Example&nbsp;</span><span class="indexblack">The Sum of Human Knowledge</span></b></a><br>
+                <p>Retrieving and displaying data from a third party service</p>
+
+            </td>
+        </tr>
+    </table>
+    <table border="0" cellspacing="0" cellpadding="0" class="extensionexample" width=100%>
+        <tr>
+            <td align="left" valign="top">
+                <p></p>
+
+                <p> Here we set up an encyclopedia that can be used to query articles from Wikipedia. The actual querying code is a bit longer so it's placed in an external encyclopedia.js file, which can be downloaded from https://vorple-if.com/resources.zip. Put the file in the project's Resources folder to include it with the release.</p>
+
+                <p> Note that the pause between issuing the lookup command and the encyclopedia text appearing on the screen is caused by the time it takes to send a request to and receive a response from Wikipedia.</p>
+
+                <p><blockquote><span class="indexdullblue"><a href="javascript:pasteCode('[=0x0022=]The Sum of Human Knowledge[=0x0022=][=0x000A=][=0x000A=]Include Vorple by Juhana Leinonen.[=0x000A=]Release along with the [=0x0022=]Vorple[=0x0022=] interpreter.[=0x000A=]Release along with JavaScript [=0x0022=]encyclopedia.js[=0x0022=].[=0x000A=][=0x000A=]Library is a room. [=0x0022=]The shelves are filled with volumes of an encyclopedia. You can look up any topic you want.[=0x0022=][=0x000A=][=0x000A=]Looking up is an action applying to one topic.[=0x000A=]Understand [=0x0022=]look up [text][=0x0022=] as looking up.[=0x000A=][=0x000A=]Carry out looking up when Vorple is supported:[=0x000A=][=0x0009=]place a block level element called [=0x0022=]dictionary-entry[=0x0022=];[=0x000A=][=0x0009=]execute JavaScript command [=0x0022=]wikipedia_query([=0x0027=][escaped topic understood][=0x0027=])[=0x0022=];[=0x000A=][=0x000A=]Report looking up when Vorple is not supported:[=0x000A=][=0x0009=]say [=0x0022=]You find the correct volume and learn about [topic understood].[=0x0022=].[=0x000A=][=0x000A=]Test me with [=0x0022=]look up ducks / look up mars / look up interactive fiction[=0x0022=].[=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a> &quot;The Sum of Human Knowledge&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Include Vorple by Juhana Leinonen.<br>
+                 Release along with the &quot;Vorple&quot; interpreter.<br>
+                 Release along with JavaScript &quot;encyclopedia.js&quot;.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Library is a room. &quot;The shelves are filled with volumes of an encyclopedia. You can look up any topic you want.&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Looking up is an action applying to one topic.<br>
+                 Understand &quot;look up [text]&quot; as looking up.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Carry out looking up when Vorple is supported:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; place a block level element called &quot;dictionary-entry&quot;;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; execute JavaScript command &quot;wikipedia_query('[escaped topic understood]')&quot;;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Report looking up when Vorple is not supported:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; say &quot;You find the correct volume and learn about [topic understood].&quot;.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Test me with &quot;look up ducks / look up mars / look up interactive fiction&quot;.</span></blockquote>
+
+                <p></p>
+
+            </td>
+        </tr>
+    </table>
+    </p>
+
+    <p>
+    <!--CONTENT ENDS-->
+</body>
+</html>

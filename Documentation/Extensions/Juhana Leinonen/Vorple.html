@@ -1,0 +1,339 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>Extension</title><script type="text/javascript">	function showExtra(id, imid) {		if (document.getElementById(id).style.display == 'block') {			document.getElementById(id).style.display = 'none';			document.getElementById(imid).src = 'inform:/extra.png';		} else {			document.getElementById(id).style.display = 'block';			document.getElementById(imid).src = 'inform:/extraclose.png';		}	}    function openExtra(id, imid) {    	document.getElementById(id).style.display = 'block';    	document.getElementById(imid).src = 'inform:/extraclose.png';    }    function closeExtra(id, imid) {    	document.getElementById(id).style.display = 'none';    	document.getElementById(imid).src = 'inform:/extra.png';    }</script></head><STYLE TYPE="text/css"><!--.oval, .oval TD{background-image:url('inform:/doc_images/ovoid.png');color:white;}--></STYLE><body><script language="JavaScript">function project() {   return external.Project;}function pasteCode(code) {    var myProject = external.Project;    myProject.selectView('source');    myProject.pasteCode(code);}</script><font size=2><table CELLPADDING=0 CELLSPACING=0 width="100%" bgcolor="#000000"><tr><TD width=38px height=26px align="center" valign="center"><a href="inform://Extensions/Extensions.html" border=0><img border=0 src="inform:/doc_images/Hookindex.png" border=0></a></td><TD width=38px height=26px align="center" valign="center"></td><td halign="left" valign="center" CELLPADDING=0 CELLSPACING=0><font color="#FFFFFF" size=2>Extensions</font></a></td><TD width=56px height=26px align="right" valign="center"><a href="inform:/index.html" border=0><img border=0 src="inform:/doc_images/Hookup.png" border=0></a></td></tr></table><p><script language="JavaScript">
+function pasteCode1002(code) {
+    var myProject = project();
+
+    myProject.selectView('source');
+    myProject.pasteCode('Include Vorple by Juhana Leinonen.[=0x000A=][=0x000A=][=0x000A=]');
+}
+</script>
+<a href="javascript:pasteCode1002()"><img border=0 src=inform:/doc_images/paste.png></a>&nbsp;<b>Vorple<font color="#404040"> by </font>Juhana Leinonen</b><p><small>for Glulx only&nbsp;<p>Version 3/220217</small><p>Core functionality of Vorple, including JavaScript evaluation and adding HTML elements.<p>Values that vary: <b>Vorple support</b>, <b>Vorple prompt</b><p>Values: <b>file of Vorple Handshake</b>, <b>file of JavaScript Evaluation Input</b>, <b>file of JavaScript Return Value</b>, <b>file of JavaScript Return Value Type</b><p><p><hr><p>
+<p>
+ The Vorple core extension defines the basic structure that's needed for the story file to communicate with the web browser, as well as other low-level rules and phrases that other extensions use to add more features to Vorple.
+<p>
+ Authors who are not familiar with JavaScript or who wish to just use the basic Vorple features can read only the first three chapters (Vorple setup, compatibility with offline interpreters and the brief note about the command prompt). The rest of this documentation handles more advanced usage. For more practical usage of Vorple, see other Vorple extensions that implement specific features like multimedia support and hyperlinks.
+<p>
+ Chapter: Vorple setup
+<p>
+ Every Vorple story must include at least one Vorple extension and the custom web interpreter.
+<p>
+<blockquote><font color="#000080"><script language="JavaScript">
+function pasteCode1003(code) {
+    var myProject = project();
+
+    myProject.selectView('source');
+    myProject.pasteCode('Include Vorple by Juhana Leinonen.[=0x000A=]Release along with the [=0x0022=]Vorple[=0x0022=] interpreter.[=0x000A=][=0x000A=]');
+}
+</script>
+<a href="javascript:pasteCode1003()"><img border=0 src=inform:/doc_images/paste.png></a> Include Vorple by Juhana Leinonen.<br> Release along with the &quot;Vorple&quot; interpreter.</font></blockquote>
+<p>
+ All standard Vorple extensions already have the &quot;Include Vorple&quot; line, so it's not necessary to add it to the story project if at least one of the other extensions are used.
+<p>
+ In contrast to previous versions that were only for Z-Machine, version 3 of Vorple is for Glulx only. The project's story file format must be set to Glulx in Inform's Settings pane.
+<p>
+ At the time of release of the current, third version of Vorple, the latest Inform release 6M62 includes the older version 2 of Vorple which is not compatible with the new extensions. The latest Vorple interpreter template is in the same package as these extensions.
+<p>
+ Also note that old Vorple extensions are not compatible with the current version of Vorple. If you get en error message about an extension being for Z-Machine only, the project is trying to include an old extension.
+<p>
+ For more detailed instructions on how to get started see the documentation at the vorple-if.com website.
+<p>
+ Chapter: Compatibility with offline interpreters
+<p>
+ Even though Vorple can accomplish many things that are plain impossible to do with traditional interpreters, it's always a good idea to make the story playable text-only as well if at all possible. There are many players to whom a web interpreter or Vorple's features aren't accessible, and it's the Right Thing To Do to not exclude people if it's possible to include them.
+<p>
+ A story file can detect if it's being run on an interpreter that supports Vorple. The same story file can therefore be run on both the Vorple web interpreter and other interpreters that have text-only features and display substitute content if necessary. We can test for Vorple's presence with &quot;if Vorple is supported&quot;:
+<p>
+<blockquote><font color="#000080"> Instead of going north:<br>&nbsp;&nbsp;&nbsp;&nbsp; if Vorple is supported:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; play sound file &quot;marching_band.mp3&quot;;<br>&nbsp;&nbsp;&nbsp;&nbsp; otherwise:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say &quot;A marching band crossing the street blocks your way.&quot;</font></blockquote>
+<p>
+ (The above example uses the Vorple Multimedia extension.)
+<p>
+ The say phrase in the above example is called a &quot;fallback&quot; and it's displayed only in normal non-Vorple interpreters.
+<p>
+ All Vorple features do nothing by default if they're not supported by the interpreter, unless otherwise stated in the extension's documentation. If substitute content is not necessary, we don't need to specifically check for Vorple compatibility:
+<p>
+<blockquote><font color="#000080"> Instead of going north:<br>&nbsp;&nbsp;&nbsp;&nbsp; play sound file &quot;marching_band.mp3&quot;.</font></blockquote>
+<p>
+ Many Vorple features can be replicated at least to some extent on standard Glulx interpreters, but in general Vorple extensions don't try to use those Glulx features as a default fallback, but opt to printing plain text where applicable or doing nothing at all. Authors can use their choice of Glulx extensions and the above mentioned &quot;if Vorple is supported&quot; checks to make fallbacks that are most suitable for their story.
+<p>
+ Chapter: The command prompt
+<p>
+ To gain more control over the command prompt, Vorple replaces the built-in prompt with its own. The process should be completely automated: changing the &quot;command prompt&quot; variable should change the Vorple prompt as well, apart from some fringe cases where the source text or an extension does something exotic with the Glulx prompt. The prompt and the player's command are printed on the screen with custom techniques so they will not be included in the usual story output flow. It means that Glulx extensions that capture output text will not be able to read them.
+<p>
+ The extension Vorple Command Prompt Control offers features to manipulate the command prompt and the interpreter's line input in general.
+<p>
+ Chapter: Embedding HTML elements
+<p>
+ We can embed simple HTML elements into story text with some helper phrases.
+<p>
+<blockquote><font color="#000080"> place an &quot;article&quot; element;<br> place a &quot;h1&quot; element called &quot;title&quot;;<br> place a block level element called &quot;inventory&quot;;<br> place an inline element called &quot;name&quot;;</font></blockquote>
+<p>
+ The previous example generates elements equivalent to this HTML markup:
+<p>
+<blockquote><font color="#000080"> &lt;article&gt;&lt;/article&gt;<br> &lt;h1 class=&quot;title&quot;&gt;&lt;/h1&gt;<br> &lt;div class=&quot;inventory&quot;&gt;&lt;/div&gt;<br> &lt;span class=&quot;name&quot;&gt;&lt;/span&gt;</font></blockquote>
+<p>
+ The element's name should be one word only and a valid CSS class name. It's safest to only use letters, numbers, underscores and dashes.
+<p>
+ Text content can be added on creation:
+<p>
+<blockquote><font color="#000080"> place a &quot;h1&quot; element called &quot;title&quot; reading &quot;An exciting story&quot;;<br> place a &quot;h2&quot; element reading &quot;Story so far:&quot;;</font></blockquote>
+<p>
+... or after the elements have been created:
+<p>
+<blockquote><font color="#000080"> say &quot;You shall be known as &quot;;<br> place an inline element called &quot;name&quot;;<br> display text &quot;Anonymous Adventurer&quot; in the element called &quot;name&quot;;</font></blockquote>
+<p>
+ This technique can be used to modify the story output later (see example &quot;Scrambled Eggs&quot;).
+<p>
+ If the text is included at the same time when creating the element, the default behavior in non-Vorple interpreters is to print the text normally. Text added later will not do anything. In other words, 'place a &quot;h1&quot; element called &quot;title&quot; reading &quot;An exciting story&quot; ' will print &quot;An exciting story&quot; in all interpreters, but 'display text &quot;Anonymous Adventurer&quot; in the element called &quot;name&quot; ' will not print anything in anywhere other than the Vorple interpreter.
+<p>
+ In the above examples element contents should be plain text only. Trying to add nested tags or text styles will lead to erratic behavior. For longer and more complex contents the tags can be opened and closed manually:
+<p>
+<blockquote><font color="#000080"> Report reading the letter:<br>&nbsp;&nbsp;&nbsp;&nbsp; open HTML tag &quot;div&quot; called &quot;letter&quot;;<br>&nbsp;&nbsp;&nbsp;&nbsp; place &quot;h2&quot; element reading &quot;Dear Esther,&quot;;<br>&nbsp;&nbsp;&nbsp;&nbsp; say &quot;I'm writing to tell you...&quot;;<br>&nbsp;&nbsp;&nbsp;&nbsp; close HTML tag.</font></blockquote>
+<p>
+ When there are multiple elements with the same name, only the last element will be updated. This is to accommodate repeat actions and specifically UNDO which can easily generate duplicate content. To modify all elements, use the following phrase:
+<p>
+<blockquote><font color="#000080"> display &quot;Hello World!&quot; in all elements called &quot;greeting&quot;;</font></blockquote>
+<p>
+ We can also test whether an element exists or not, or count the number of elements:
+<p>
+<blockquote><font color="#000080"> let n be the number of elements called &quot;greeting&quot;;<br> if an element called &quot;greeting&quot; exists:...<br> if an element called &quot;greeting&quot; doesn't exist:...</font></blockquote>
+<p>
+ The extension Vorple Element Manipulation contains more tools for working with the HTML document.
+<p>
+ Finally, the Vorple interpreter uses a concept called &quot;output focus&quot; to decide where it should print the story text. Any HTML element* can have the output focus, and any text coming from the story will be appended to the end of that element. For example we can have a separate element where the player's inventory is printed:
+<p>
+ (* The element that has output focus must be able contain child elements, so void elements, for example &lt;img&gt; or &lt;hr&gt;, can receive output focus but any output is ignored.)
+<p>
+<blockquote><font color="#000080"> Before taking inventory:<br>&nbsp;&nbsp;&nbsp;&nbsp; set output focus to the element called &quot;inventory&quot;.</font></blockquote>
+<p>
+<blockquote><font color="#000080"> After taking inventory:<br>&nbsp;&nbsp;&nbsp;&nbsp; set output focus to the main window;<br>&nbsp;&nbsp;&nbsp;&nbsp; continue the action.</font></blockquote>
+<p>
+ &quot;Set output focus to the main window&quot; returns the focus back to the default location.
+<p>
+ Chapter: Scrolling to elements
+<p>
+ The page can be scrolled to bring a named element into view:
+<p>
+<blockquote><font color="#000080"> scroll to the element called &quot;target&quot;;</font></blockquote>
+<p>
+ The page then scrolls so that the target element's top is near the browser window's top. If the element is already fully visible on the page and its top position is on the top half of the window, the phrase does nothing.
+<p>
+ A similar phrase can be used to scroll to the bottom of the page:
+<p>
+<blockquote><font color="#000080"> scroll to the end of the page;</font></blockquote>
+<p>
+ Chapter: Executing JavaScript code
+<p>
+ Vorple breaks out of the Glulx sandbox by letting the story file send JavaScript code for the web browser to evaluate. An &quot;execute JavaScript command&quot; phrase is provided to do just this:
+<p>
+<blockquote><font color="#000080"> execute JavaScript command &quot;alert('Hello World!')&quot;;</font></blockquote>
+<p>
+ There are no safeguards against invalid or potentially malicious JavaScript. If an illegal JavaScript expression is evaluated, the browser will show an error message in the console and the interpreter will halt. (Although this might sound ominous, there's no real danger unless you're doing some very complex things that involve evaluating JavaScript from unknown or untrusted sources, and the web browser itself has its own safeguards. Using any of the official Vorple extensions is safe.)
+<p>
+ Any value the JavaScript code returns can be retrieved with &quot;the value returned by the JavaScript command&quot; which gives the return value as text. If we know the type of the return value, we can use specific phrases to retrieve values of those types:
+<p>
+<blockquote><font color="#000080"> the text returned by the JavaScript command<br> the number returned by the JavaScript command</font></blockquote>
+<p>
+ There's also a shorthand phrase for testing for boolean return values:
+<p>
+<blockquote><font color="#000080"> if the JavaScript command returned true:<br>&nbsp;&nbsp;&nbsp;&nbsp; say &quot;Yup.&quot;</font></blockquote>
+<p>
+ The type of the return value can be retrieved with &quot;the type of the value returned by the JavaScript command&quot;. The list of all possible return value types is in the technical documentation (link below).
+<p>
+ The return value gets overwritten by the next JavaScript command's return value (or &quot;undefined&quot; if it doesn't return anything), so it's best to save the value immediately to a variable after executing the command. Otherwise another JavaScript between executing the command and reading the value might cause a hard to detect bug. The other code call might not be obvious, for example changing the font style with the Vorple Screen Effects extension involves a JavaScript call.
+<p>
+<blockquote><font color="#000080"> execute JavaScript command &quot;return [bracket]'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'[close bracket][bracket]new Date().getDay()[close bracket]&quot;;<br> let weekday be the text returned by the JavaScript command;<br> say &quot;It's [weekday]!&quot;;</font></blockquote>
+<p>
+ Note: Since version 3.1, the command must explicitly return a value with the &quot;return&quot; keyword for the expression's value to be readable in Inform. If the command returns nothing or undefined, the value of the last command that explicitly returned a value is still what you get when you query it with a &quot;...returned by the JavaScript command&quot; phrase. In other words:
+<p>
+<blockquote><font color="#000080"> execute JavaScript command &quot;return 'foo'&quot;;<br> execute JavaScript command &quot;'bar'&quot;;<br> say the text returned by the JavaScript command;</font></blockquote>
+<p>
+ The above code will print &quot;foo&quot;, because the second line doesn't explicitly return anything. In versions 3.0 and before the same code would have printed &quot;bar&quot;.
+<p>
+ See the documentation at https://vorple-if.com for more details about JavaScript evaluation.
+<p>
+ Chapter: Escaping strings
+<p>
+ When evaluating JavaScript expressions, quotation marks must often be exactly right. Inform formats quotes according to literary standards which doesn't necessarily work together with JavaScript. Consider the following example:
+<p>
+<blockquote><font color="#000080"> To greet (name - text):<br>&nbsp;&nbsp;&nbsp;&nbsp; execute JavaScript command &quot;alert( 'Hello [name]!' )&quot;.</font></blockquote>
+<p>
+<blockquote><font color="#000080"> When play begins:<br>&nbsp;&nbsp;&nbsp;&nbsp; greet &quot;William 'Bill' O'Malley&quot;.</font></blockquote>
+<p>
+ This leads to a JavaScript error because all single quotes (except the one in &quot;O'Malley&quot;) are converted to double quotes, which in turn leads to a JavaScript syntax error. Changing the string delimiters to single quotes wouldn't help because there's an unescaped single quote as well inside the string.
+<p>
+ To escape text we can prefix it with &quot;escaped&quot;, which adds backslashes before characters that might cause problems inside strings:
+<p>
+<blockquote><font color="#000080"> To greet (name - text):<br>&nbsp;&nbsp;&nbsp;&nbsp; execute JavaScript command &quot;alert( 'Hello [escaped name]!' )&quot;.</font></blockquote>
+<p>
+ Now the string can be safely used in the JavaScript expression.
+<p>
+ By default escaping removes newlines. If we want to turn them into, for example, HTML line breaks, or just preserve them:
+<p>
+<blockquote><font color="#000080"> To greet (name - text):<br>&nbsp;&nbsp;&nbsp;&nbsp; let safe name be escaped name using &quot;\n&quot; as line breaks;<br>&nbsp;&nbsp;&nbsp;&nbsp; execute JavaScript command &quot;alert( 'Hello [safe name]!' )&quot;.</font></blockquote>
+<p>
+ Remember to use &quot;[bracket]&quot; and &quot;[close bracket]&quot; for square brackets in JavaScript code.
+<p>
+<blockquote><font color="#000080"> execute JavaScript command &quot;var myArray = [bracket]1, 2, 3[close bracket]&quot;;</font></blockquote>
+<p>
+ Escaping also turns Unicode characters (basically any characters that aren't letters a-z, numbers or common punctuation) into \uXXXX format so that they can be passed to the browser intact. We'll have to escape any strings that contain e.g. accented characters:
+<p>
+<blockquote><font color="#000080"> let destination be &quot;Mêlée Island&quot;;<br> execute JavaScript command &quot;var destination = '[escaped destination]'&quot;;</font></blockquote>
+<p>
+ Non-escaped Unicode characters show up in the output as question marks or empty squares.
+<p>
+ Chapter: User interface setup and updates
+<p>
+ Vorple provides a separate rulebook called Vorple interface setup rules for setting up the user interface on the browser side. It runs during startup before the when play begins rules. The rulebook is meant for rules that build or initialize the user interface that has to be ready before the story does anything else.
+<p>
+ The following example sets up a click handler that adds a custom CSS class to the command prompt. Depending on the CSS rule it might flash the prompt to draw attention to it.
+<p>
+<blockquote><font color="#000080"> Vorple interface setup rule:<br>&nbsp;&nbsp;&nbsp;&nbsp; execute JavaScript command &quot;$(document).on('click', function() { $('#lineinput').addClass('highlight') })&quot;.</font></blockquote>
+<p>
+ When building any user interface elements we need to remember that through save/restore the player can continue the story potentially from any point or rewind actions with undo or restart, unless the story has disabled those commands. We can't rely on JavaScript code that has been run during previous commands because the player might have skipped them by restoring a later save, and we can't assume that turns happen only once because the player might undo and replay a turn. Therefore it's best to initialize the user interface at story start instead of along the way as the story progresses.
+<p>
+ There's a mechanism in place that prevents the interface setup rules from running more than once during one session, even if the player restarts the story. In other words the interface setup rules run only when the web page loads. This guarantees that we can't add duplicate event handlers by mistake or otherwise run things twice that should only be run once.
+<p>
+ For keeping the web interface up to date there's a rulebook called Vorple interface update rules that's run at the end of every turn and after undoing a turn, restoring a save and restarting the game.
+<p>
+<blockquote><font color="#000080"> Vorple interface update rule:<br>&nbsp;&nbsp;&nbsp;&nbsp; execute JavaScript command &quot;document.title = '[escaped printed name of the player][']s adventures'&quot;.</font></blockquote>
+<p>
+ Refer to the documentation at vorple-if.com for more information.
+<p>
+ Chapter: Blocking the user interface
+<p>
+ If at some point we need to wait for a network request or some other asynchronous operation to finish before continuing with the story, we can prevent the player from doing anything in the meanwhile by blocking the user interface. When the user interface is blocked the player can't type or click on anything, but they can still scroll the page normally. The phrases to block and unblock the user interface are:
+<p>
+<blockquote><font color="#000080"> block the user interface;<br> unblock the user interface;</font></blockquote>
+<p>
+ Usually it's the JavaScript code that will unblock the user interface when it's ready by running a &quot;vorple.layout.unblock()&quot; call, but the Inform 7 phrase is provided for cases where the script executes a parser command that causes the story to continue normally.
+<p>
+ Note that manually blocking the user interface is necessary only in asynchronous operations, most notably network requests via Ajax. Normal synchronous code already blocks the user interface so the turn can't end before all code has been executed.
+<p>
+ The example &quot;The Sum of Human Knowledge&quot; shows one use case where we might want to block the user interface: it takes some time for the request to Wikipedia to finish and we don't want the player to continue before the response has been shown on the screen.
+<p>
+ Even though typing is disabled while the user interface is blocked, the command prompt is still visible by default (if the story is waiting for line input). In the extension Vorple Command Prompt Control there are phrases to hide the command prompt which can be used together with or instead of blocking the user interface.
+<p>
+ Example: ** Convenience Store - Displaying the inventory styled as a HTML list
+<p>
+ We'll display the inventory listing using HTML unordered lists (&quot;ul&quot;). It might not be immediately obvious why one would want to do this, but if the items are displayed in a proper HTML structure it's possible to use CSS to style them further.
+<p>
+<blockquote><font color="#000080"><script language="JavaScript">
+function pasteCode1004(code) {
+    var myProject = project();
+
+    myProject.selectView('source');
+    myProject.pasteCode('[=0x0022=]Convenience Store[=0x0022=][=0x000A=][=0x000A=]Include Vorple by Juhana Leinonen.[=0x000A=]Release along with the [=0x0022=]Vorple[=0x0022=] interpreter.[=0x000A=][=0x000A=]Carry out taking inventory (this is the print inventory using HTML lists rule):[=0x000A=][=0x0009=]if Vorple is supported:[=0x000A=][=0x0009=][=0x0009=]say [=0x0022=][We] [are] carrying:[line break][=0x0022=] (A);[=0x000A=][=0x0009=][=0x0009=]open HTML tag [=0x0022=]ul[=0x0022=];[=0x000A=][=0x0009=][=0x0009=]repeat with item running through things carried by the player:[=0x000A=][=0x0009=][=0x0009=][=0x0009=]place [=0x0022=]li[=0x0022=] element reading [=0x0022=][item][=0x0022=];[=0x000A=][=0x0009=][=0x0009=][=0x0009=]if the item contains something:[=0x000A=][=0x0009=][=0x0009=][=0x0009=][=0x0009=]open HTML tag [=0x0022=]ul[=0x0022=];[=0x000A=][=0x0009=][=0x0009=][=0x0009=][=0x0009=]repeat with content running through things contained by the item:[=0x000A=][=0x0009=][=0x0009=][=0x0009=][=0x0009=][=0x0009=]place [=0x0022=]li[=0x0022=] element reading [=0x0022=][content][=0x0022=];[=0x000A=][=0x0009=][=0x0009=][=0x0009=][=0x0009=]close HTML tag;[=0x000A=][=0x0009=][=0x0009=]close HTML tag;[=0x000A=][=0x0009=]otherwise:[=0x000A=][=0x0009=][=0x0009=]follow the print standard inventory rule.[=0x000A=][=0x000A=]The print inventory using HTML lists rule is listed instead of the print standard inventory rule in the carry out taking inventory rules.[=0x000A=][=0x000A=]The Convenience store is a room. The eggs, the milk, the jar of pickles, the magazine, and the can opener are in the Convenience store. The paper bag is an open container in the Convenience store.[=0x000A=][=0x000A=]Test me with [=0x0022=]take all / i / put all in paper bag / i[=0x0022=].[=0x000A=][=0x000A=]');
+}
+</script>
+<a href="javascript:pasteCode1004()"><img border=0 src=inform:/doc_images/paste.png></a> &quot;Convenience Store&quot;</font></blockquote>
+<p>
+<blockquote><font color="#000080"> Include Vorple by Juhana Leinonen.<br> Release along with the &quot;Vorple&quot; interpreter.</font></blockquote>
+<p>
+<blockquote><font color="#000080"> Carry out taking inventory (this is the print inventory using HTML lists rule):<br>&nbsp;&nbsp;&nbsp;&nbsp; if Vorple is supported:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say &quot;[We] [are] carrying:[line break]&quot; (A);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; open HTML tag &quot;ul&quot;;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; repeat with item running through things carried by the player:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; place &quot;li&quot; element reading &quot;[item]&quot;;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if the item contains something:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; open HTML tag &quot;ul&quot;;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; repeat with content running through things contained by the item:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; place &quot;li&quot; element reading &quot;[content]&quot;;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; close HTML tag;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; close HTML tag;<br>&nbsp;&nbsp;&nbsp;&nbsp; otherwise:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; follow the print standard inventory rule.</font></blockquote>
+<p>
+<blockquote><font color="#000080"> The print inventory using HTML lists rule is listed instead of the print standard inventory rule in the carry out taking inventory rules.</font></blockquote>
+<p>
+<blockquote><font color="#000080"> The Convenience store is a room. The eggs, the milk, the jar of pickles, the magazine, and the can opener are in the Convenience store. The paper bag is an open container in the Convenience store.</font></blockquote>
+<p>
+<blockquote><font color="#000080"> Test me with &quot;take all / i / put all in paper bag / i&quot;.</font></blockquote>
+<p>
+ Example: ** Scrambled Eggs - Hints that are initially shown obscured and revealed on request
+<p>
+ The hint system works by wrapping scrambled hints in named elements. Their contents can then be later replaced with unscrambled text.
+<p>
+<blockquote><font color="#000080"><script language="JavaScript">
+function pasteCode1005(code) {
+    var myProject = project();
+
+    myProject.selectView('source');
+    myProject.pasteCode('[=0x0022=]Scrambled Eggs[=0x0022=][=0x000A=][=0x000A=]Include Vorple by Juhana Leinonen.[=0x000A=]Release along with the [=0x0022=]Vorple[=0x0022=] interpreter.[=0x000A=][=0x000A=]Chapter 1 - World[=0x000A=][=0x000A=]Kitchen is a room. [=0x0022=]Your task is to find a frying pan![=0x0022=][=0x000A=]The table is a fixed in place supporter in the kitchen.[=0x000A=]The frying pan is on the table.[=0x000A=][=0x000A=]After taking the frying pan:[=0x000A=][=0x0009=]end the story finally saying [=0x0022=]You found the pan![=0x0022=][=0x000A=][=0x000A=]After looking for the first time:[=0x000A=][=0x0009=]say [=0x0022=](Type HINTS to get help.)[=0x0022=].[=0x000A=][=0x000A=]Chapter 2 - Hints[=0x000A=][=0x000A=]Table of Hints[=0x000A=]hint[=0x0009=]revealed (truth state)[=0x000A=][=0x0022=]The table is relevant.[=0x0022=][=0x0009=]false[=0x000A=][=0x0022=]Have you looked on the table?[=0x0022=][=0x0009=]false[=0x000A=][=0x0022=]The pan is on the table.[=0x0022=][=0x0009=]false[=0x000A=][=0x000A=]Requesting hints is an action out of world.[=0x000A=]Understand [=0x0022=]hint[=0x0022=] and [=0x0022=]hints[=0x0022=] as requesting hints.[=0x000A=][=0x000A=]Carry out requesting hints (this is the scramble hints rule):[=0x000A=][=0x0009=]let the alphabet be { [=0x0022=]a[=0x0022=], [=0x0022=]b[=0x0022=], [=0x0022=]c[=0x0022=], [=0x0022=]d[=0x0022=], [=0x0022=]e[=0x0022=], [=0x0022=]f[=0x0022=], [=0x0022=]g[=0x0022=], [=0x0022=]h[=0x0022=], [=0x0022=]i[=0x0022=], [=0x0022=]j[=0x0022=], [=0x0022=]k[=0x0022=], [=0x0022=]l[=0x0022=], [=0x0022=]m[=0x0022=], [=0x0022=]n[=0x0022=], [=0x0022=]o[=0x0022=], [=0x0022=]p[=0x0022=], [=0x0022=]q[=0x0022=], [=0x0022=]r[=0x0022=], [=0x0022=]s[=0x0022=], [=0x0022=]t[=0x0022=], [=0x0022=]u[=0x0022=], [=0x0022=]v[=0x0022=], [=0x0022=]w[=0x0022=], [=0x0022=]x[=0x0022=], [=0x0022=]y[=0x0022=], [=0x0022=]z[=0x0022=] };[=0x000A=][=0x0009=]let row number be 1;[=0x000A=][=0x0009=]repeat through table of hints:[=0x000A=][=0x0009=][=0x0009=]let scrambled hint be [=0x0022=][=0x0022=];[=0x000A=][=0x0009=][=0x0009=]say [=0x0022=][row number]) [=0x0022=];[=0x000A=][=0x0009=][=0x0009=]if revealed entry is true:[=0x000A=][=0x0009=][=0x0009=][=0x0009=]now scrambled hint is hint entry;[=0x000A=][=0x0009=][=0x0009=]otherwise:[=0x000A=][=0x0009=][=0x0009=][=0x0009=]repeat with index running from 1 to the number of characters in hint entry:[=0x000A=][=0x0009=][=0x0009=][=0x0009=][=0x0009=]if character number index in hint entry is [=0x0022=] [=0x0022=]:[=0x000A=][=0x0009=][=0x0009=][=0x0009=][=0x0009=][=0x0009=]now scrambled hint is [=0x0022=][scrambled hint] [=0x0022=];[=0x000A=][=0x0009=][=0x0009=][=0x0009=][=0x0009=]otherwise:[=0x000A=][=0x0009=][=0x0009=][=0x0009=][=0x0009=][=0x0009=]let rnd be a random number between 1 and the number of entries in the alphabet;[=0x000A=][=0x0009=][=0x0009=][=0x0009=][=0x0009=][=0x0009=]now scrambled hint is [=0x0022=][scrambled hint][entry rnd in the alphabet][=0x0022=];[=0x000A=][=0x0009=][=0x0009=]place an element called [=0x0022=]hint-[row number][=0x0022=] reading [=0x0022=][scrambled hint][=0x0022=];[=0x000A=][=0x0009=][=0x0009=]say line break;[=0x000A=][=0x0009=][=0x0009=]increment row number;[=0x000A=][=0x0009=]say [=0x0022=][line break](Type REVEAL # where # is the number of the hint you want to unscramble.)[=0x0022=].[=0x000A=][=0x000A=]Revealing hint is an action out of world applying to one number.[=0x000A=]Understand [=0x0022=]reveal [number][=0x0022=] as revealing hint.[=0x000A=][=0x000A=]Check revealing hint (this is the check boundaries rule):[=0x000A=][=0x0009=]if the number understood is less than 1 or the number understood is greater than the number of rows in the table of hints:[=0x000A=][=0x0009=][=0x0009=]say [=0x0022=]Please choose a number between 1 and [number of rows in table of hints].[=0x0022=] instead.[=0x000A=][=0x000A=]Carry out revealing hint when Vorple is not supported (this is the unscrambling fallback rule):[=0x000A=][=0x0009=]choose row number understood in the table of hints;[=0x000A=][=0x0009=]say [=0x0022=][hint entry][line break][=0x0022=].[=0x000A=][=0x000A=]Carry out revealing hint (this is the change past transcript rule):[=0x000A=][=0x0009=]choose row number understood in the table of hints;[=0x000A=][=0x0009=]display text hint entry in the element called [=0x0022=]hint-[number understood][=0x0022=].[=0x000A=][=0x000A=]Test me with [=0x0022=]hints / reveal 1 / reveal 2 / reveal 3[=0x0022=].[=0x000A=][=0x000A=]');
+}
+</script>
+<a href="javascript:pasteCode1005()"><img border=0 src=inform:/doc_images/paste.png></a> &quot;Scrambled Eggs&quot;</font></blockquote>
+<p>
+<blockquote><font color="#000080"> Include Vorple by Juhana Leinonen.<br> Release along with the &quot;Vorple&quot; interpreter.</font></blockquote>
+<p>
+<blockquote><font color="#000080"> Chapter 1 - World</font></blockquote>
+<p>
+<blockquote><font color="#000080"> Kitchen is a room. &quot;Your task is to find a frying pan!&quot;<br> The table is a fixed in place supporter in the kitchen.<br> The frying pan is on the table.</font></blockquote>
+<p>
+<blockquote><font color="#000080"> After taking the frying pan:<br>&nbsp;&nbsp;&nbsp;&nbsp; end the story finally saying &quot;You found the pan!&quot;</font></blockquote>
+<p>
+<blockquote><font color="#000080"> After looking for the first time:<br>&nbsp;&nbsp;&nbsp;&nbsp; say &quot;(Type HINTS to get help.)&quot;.</font></blockquote>
+<p>
+<blockquote><font color="#000080"> Chapter 2 - Hints</font></blockquote>
+<p>
+<blockquote><font color="#000080"> Table of Hints</font><br><table border="0" cellspacing="0" cellpadding="0"><tr><td align="left" valign="top"><font size=2><font color="#000080"> hint</font>&nbsp;&nbsp;&nbsp;&nbsp;</font></td><td align="left" valign="top"><font size=2><font color="#000080"> revealed (truth state)</font></td></tr><tr><td align="left" valign="top"><font size=2><font color="#000080"> &quot;The table is relevant.&quot;</font>&nbsp;&nbsp;&nbsp;&nbsp;</font></td><td align="left" valign="top"><font size=2><font color="#000080"> false</font></td></tr><tr><td align="left" valign="top"><font size=2><font color="#000080"> &quot;Have you looked on the table?&quot;</font>&nbsp;&nbsp;&nbsp;&nbsp;</font></td><td align="left" valign="top"><font size=2><font color="#000080"> false</font></td></tr><tr><td align="left" valign="top"><font size=2><font color="#000080"> &quot;The pan is on the table.&quot;</font>&nbsp;&nbsp;&nbsp;&nbsp;</font></td><td align="left" valign="top"><font size=2><font color="#000080"> false</font></font></td></tr></table></blockquote>
+<p>
+<blockquote><font color="#000080"> Requesting hints is an action out of world.<br> Understand &quot;hint&quot; and &quot;hints&quot; as requesting hints.</font></blockquote>
+<p>
+<blockquote><font color="#000080"> Carry out requesting hints (this is the scramble hints rule):<br>&nbsp;&nbsp;&nbsp;&nbsp; let the alphabet be { &quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;e&quot;, &quot;f&quot;, &quot;g&quot;, &quot;h&quot;, &quot;i&quot;, &quot;j&quot;, &quot;k&quot;, &quot;l&quot;, &quot;m&quot;, &quot;n&quot;, &quot;o&quot;, &quot;p&quot;, &quot;q&quot;, &quot;r&quot;, &quot;s&quot;, &quot;t&quot;, &quot;u&quot;, &quot;v&quot;, &quot;w&quot;, &quot;x&quot;, &quot;y&quot;, &quot;z&quot; };<br>&nbsp;&nbsp;&nbsp;&nbsp; let row number be 1;<br>&nbsp;&nbsp;&nbsp;&nbsp; repeat through table of hints:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; let scrambled hint be &quot;&quot;;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say &quot;[row number]) &quot;;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if revealed entry is true:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; now scrambled hint is hint entry;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; otherwise:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; repeat with index running from 1 to the number of characters in hint entry:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if character number index in hint entry is &quot; &quot;:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; now scrambled hint is &quot;[scrambled hint] &quot;;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; otherwise:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; let rnd be a random number between 1 and the number of entries in the alphabet;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; now scrambled hint is &quot;[scrambled hint][entry rnd in the alphabet]&quot;;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; place an element called &quot;hint-[row number]&quot; reading &quot;[scrambled hint]&quot;;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say line break;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; increment row number;<br>&nbsp;&nbsp;&nbsp;&nbsp; say &quot;[line break](Type REVEAL # where # is the number of the hint you want to unscramble.)&quot;.</font></blockquote>
+<p>
+<blockquote><font color="#000080"> Revealing hint is an action out of world applying to one number.<br> Understand &quot;reveal [number]&quot; as revealing hint.</font></blockquote>
+<p>
+<blockquote><font color="#000080"> Check revealing hint (this is the check boundaries rule):<br>&nbsp;&nbsp;&nbsp;&nbsp; if the number understood is less than 1 or the number understood is greater than the number of rows in the table of hints:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say &quot;Please choose a number between 1 and [number of rows in table of hints].&quot; instead.</font></blockquote>
+<p>
+<blockquote><font color="#000080"> Carry out revealing hint when Vorple is not supported (this is the unscrambling fallback rule):<br>&nbsp;&nbsp;&nbsp;&nbsp; choose row number understood in the table of hints;<br>&nbsp;&nbsp;&nbsp;&nbsp; say &quot;[hint entry][line break]&quot;.</font></blockquote>
+<p>
+<blockquote><font color="#000080"> Carry out revealing hint (this is the change past transcript rule):<br>&nbsp;&nbsp;&nbsp;&nbsp; choose row number understood in the table of hints;<br>&nbsp;&nbsp;&nbsp;&nbsp; display text hint entry in the element called &quot;hint-[number understood]&quot;.</font></blockquote>
+<p>
+<blockquote><font color="#000080"> Test me with &quot;hints / reveal 1 / reveal 2 / reveal 3&quot;.</font></blockquote>
+<p>
+ Example: *** The Grandfather Clock - Setting the story time to match the real-world time
+<p>
+ In the &quot;synchronize clocks&quot; phrase the system time is retrieved by JavaScript and the story's internal &quot;time of day&quot; variable is changed to match the system time.
+<p>
+<blockquote><font color="#000080"><script language="JavaScript">
+function pasteCode1006(code) {
+    var myProject = project();
+
+    myProject.selectView('source');
+    myProject.pasteCode('[=0x0022=]The Grandfather Clock[=0x0022=][=0x000A=][=0x000A=]Include Vorple by Juhana Leinonen.[=0x000A=]Release along with the [=0x0022=]Vorple[=0x0022=] interpreter.[=0x000A=][=0x000A=]The Library is a room.[=0x000A=][=0x000A=]The grandfather clock is in the Library. [=0x0022=]A grandfather clock shows that the current time is [synchronized time].[=0x0022=] The description is [=0x0022=]The clock shows the time [synchronized time].[=0x0022=] The grandfather clock is fixed in place.[=0x000A=][=0x000A=]The calendar is in the Library. [=0x0022=]There[=0x0027=]s a calendar on the wall.[=0x0022=] The description is [=0x0022=]Today[=0x0027=]s date has been circled: [today[=0x0027=]s date].[=0x0022=][=0x000A=][=0x000A=]To say today[=0x0027=]s date:[=0x000A=][=0x0009=]if Vorple is supported:[=0x000A=][=0x0009=][=0x0009=]execute JavaScript command [=0x0022=]var today=new Date(); return [bracket][=0x0027=]January[=0x0027=], [=0x0027=]February[=0x0027=], [=0x0027=]March[=0x0027=], [=0x0027=]April[=0x0027=], [=0x0027=]May[=0x0027=], [=0x0027=]June[=0x0027=], [=0x0027=]July[=0x0027=], [=0x0027=]August[=0x0027=], [=0x0027=]September[=0x0027=], [=0x0027=]October[=0x0027=], [=0x0027=]November[=0x0027=], [=0x0027=]December[=0x0027=][close bracket][bracket]today.getMonth()[close bracket]+[=0x0027=] [=0x0027=]+today.getDate()+[=0x0027=], [=0x0027=]+today.getFullYear()[=0x0022=];[=0x000A=][=0x0009=][=0x0009=]say the text returned by the JavaScript command;[=0x000A=][=0x0009=]otherwise:[=0x000A=][=0x0009=][=0x0009=]say [=0x0022=]March 9, 2017[=0x0022=][=0x000A=][=0x000A=]To synchronize clocks:[=0x000A=][=0x0009=]if Vorple is supported:[=0x000A=][=0x0009=][=0x0009=]execute JavaScript command [=0x0022=]var now=new Date(); return now.getHours()*60+now.getMinutes()[=0x0022=];[=0x000A=][=0x0009=][=0x0009=]let real time be the number returned by the JavaScript command;[=0x000A=][=0x0009=][=0x0009=]let story time be ((the hours part of the time of day) * 60) + the minutes part of the time of day;[=0x000A=][=0x0009=][=0x0009=]let time difference be real time - story time;[=0x000A=][=0x0009=][=0x0009=]increase the time of day by time difference minutes.[=0x000A=][=0x000A=]To say synchronized time:[=0x000A=][=0x0009=]synchronize clocks;[=0x000A=][=0x0009=]say the time of day.[=0x000A=][=0x000A=]');
+}
+</script>
+<a href="javascript:pasteCode1006()"><img border=0 src=inform:/doc_images/paste.png></a> &quot;The Grandfather Clock&quot;</font></blockquote>
+<p>
+<blockquote><font color="#000080"> Include Vorple by Juhana Leinonen.<br> Release along with the &quot;Vorple&quot; interpreter.</font></blockquote>
+<p>
+<blockquote><font color="#000080"> The Library is a room.</font></blockquote>
+<p>
+<blockquote><font color="#000080"> The grandfather clock is in the Library. &quot;A grandfather clock shows that the current time is [synchronized time].&quot; The description is &quot;The clock shows the time [synchronized time].&quot; The grandfather clock is fixed in place.</font></blockquote>
+<p>
+<blockquote><font color="#000080"> The calendar is in the Library. &quot;There's a calendar on the wall.&quot; The description is &quot;Today's date has been circled: [today's date].&quot;</font></blockquote>
+<p>
+<blockquote><font color="#000080"> To say today's date:<br>&nbsp;&nbsp;&nbsp;&nbsp; if Vorple is supported:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; execute JavaScript command &quot;var today=new Date(); return [bracket]'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'[close bracket][bracket]today.getMonth()[close bracket]+' '+today.getDate()+', '+today.getFullYear()&quot;;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say the text returned by the JavaScript command;<br>&nbsp;&nbsp;&nbsp;&nbsp; otherwise:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say &quot;March 9, 2017&quot;</font></blockquote>
+<p>
+<blockquote><font color="#000080"> To synchronize clocks:<br>&nbsp;&nbsp;&nbsp;&nbsp; if Vorple is supported:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; execute JavaScript command &quot;var now=new Date(); return now.getHours()*60+now.getMinutes()&quot;;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; let real time be the number returned by the JavaScript command;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; let story time be ((the hours part of the time of day) * 60) + the minutes part of the time of day;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; let time difference be real time - story time;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; increase the time of day by time difference minutes.</font></blockquote>
+<p>
+<blockquote><font color="#000080"> To say synchronized time:<br>&nbsp;&nbsp;&nbsp;&nbsp; synchronize clocks;<br>&nbsp;&nbsp;&nbsp;&nbsp; say the time of day.</font></blockquote>
+<p>
+ Example: **** The Sum of Human Knowledge - Retrieving and displaying data from a third party service
+<p>
+ Here we set up an encyclopedia that can be used to query articles from Wikipedia. The actual querying code is a bit longer so it's placed in an external encyclopedia.js file, which can be downloaded from https://vorple-if.com/resources.zip. Put the file in the project's Resources folder to include it with the release.
+<p>
+ Note that the pause between issuing the lookup command and the encyclopedia text appearing on the screen is caused by the time it takes to send a request to and receive a response from Wikipedia.
+<p>
+<blockquote><font color="#000080"><script language="JavaScript">
+function pasteCode1007(code) {
+    var myProject = project();
+
+    myProject.selectView('source');
+    myProject.pasteCode('[=0x0022=]The Sum of Human Knowledge[=0x0022=][=0x000A=][=0x000A=]Include Vorple by Juhana Leinonen.[=0x000A=]Release along with the [=0x0022=]Vorple[=0x0022=] interpreter.[=0x000A=]Release along with JavaScript [=0x0022=]encyclopedia.js[=0x0022=].[=0x000A=][=0x000A=]Library is a room. [=0x0022=]The shelves are filled with volumes of an encyclopedia. You can look up any topic you want.[=0x0022=][=0x000A=][=0x000A=]Looking up is an action applying to one topic.[=0x000A=]Understand [=0x0022=]look up [text][=0x0022=] as looking up.[=0x000A=][=0x000A=]Carry out looking up when Vorple is supported:[=0x000A=][=0x0009=]place a block level element called [=0x0022=]dictionary-entry[=0x0022=];[=0x000A=][=0x0009=]execute JavaScript command [=0x0022=]wikipedia_query([=0x0027=][escaped topic understood][=0x0027=])[=0x0022=];[=0x000A=][=0x000A=]Report looking up when Vorple is not supported:[=0x000A=][=0x0009=]say [=0x0022=]You find the correct volume and learn about [topic understood].[=0x0022=].[=0x000A=][=0x000A=]Test me with [=0x0022=]look up ducks / look up mars / look up interactive fiction[=0x0022=].[=0x000A=][=0x000A=]');
+}
+</script>
+<a href="javascript:pasteCode1007()"><img border=0 src=inform:/doc_images/paste.png></a> &quot;The Sum of Human Knowledge&quot;</font></blockquote>
+<p>
+<blockquote><font color="#000080"> Include Vorple by Juhana Leinonen.<br> Release along with the &quot;Vorple&quot; interpreter.<br> Release along with JavaScript &quot;encyclopedia.js&quot;.</font></blockquote>
+<p>
+<blockquote><font color="#000080"> Library is a room. &quot;The shelves are filled with volumes of an encyclopedia. You can look up any topic you want.&quot;</font></blockquote>
+<p>
+<blockquote><font color="#000080"> Looking up is an action applying to one topic.<br> Understand &quot;look up [text]&quot; as looking up.</font></blockquote>
+<p>
+<blockquote><font color="#000080"> Carry out looking up when Vorple is supported:<br>&nbsp;&nbsp;&nbsp;&nbsp; place a block level element called &quot;dictionary-entry&quot;;<br>&nbsp;&nbsp;&nbsp;&nbsp; execute JavaScript command &quot;wikipedia_query('[escaped topic understood]')&quot;;</font></blockquote>
+<p>
+<blockquote><font color="#000080"> Report looking up when Vorple is not supported:<br>&nbsp;&nbsp;&nbsp;&nbsp; say &quot;You find the correct volume and learn about [topic understood].&quot;.</font></blockquote>
+<p>
+<blockquote><font color="#000080"> Test me with &quot;look up ducks / look up mars / look up interactive fiction&quot;.</font></blockquote>
+<p>
+
+<p>
+<p></body></html>

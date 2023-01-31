@@ -1,0 +1,2684 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Extension</title>
+    <style type="text/css">
+        <!--
+        /* The default font (family) and size */
+
+        body, p, td {
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.8rem; /* 100/125 */
+        }
+
+        /* For fixed-point material within text, such as the typing on the Library Card index page */
+
+        span.typewritten {
+        	font-family: monospace;
+        	font-size: 0.867rem; /* 13/12 * 100/125 */
+        }
+
+        /* For less important material: the small print */
+
+        span.smaller {
+        	font-size: 80%;
+        }
+
+        /* The "heading panel" is the coloured box, high up on the page. The colours
+        vary depending on the page: for example, the style on a report of a translation
+        with no problems is "headingpanelsucceeded", usually green, but if there were
+        problems then "headingpanelfailed" is used, which is usually red. "headingpanel"
+        itself is a more neutral grey by default. "headingpanelDark" is an alternative
+        look to make the extensions index pages have some visual contrast with the others;
+        by default they are a darker grey. */
+
+        .headingpanel {
+        	background: #eeeeee;
+        }
+        .headingpanelsucceeded {
+        	background: #E6FFE6;
+        }
+        .headingpanelfailed {
+        	background: #f69Ca6;
+        }
+        .headingpanelalt {
+        	background: #808080;
+        }
+
+        /* Heading panels have two lines of text: an upper one in a larger size, and a
+        lower one in a smaller. Again, the alt versions are meant to contrast.
+
+        	Report on Translation: Succeeded                <-- headingpaneltext
+        	Produced by Inform 10.1.0 (build 6U97)          <-- headingpanelrubric
+
+        	Installed Extensions                            <-- headingpaneltextalt
+        	Bundles of extra rules or phrases to...         <-- headingpanelrubricalt
+
+        */
+
+        span.headingpaneltext {
+        	color: #222222;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+        span.headingpaneltextalt {
+        	color: #ffffff;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        span.headingpanelrubric {
+        	color: #222222;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.733rem; /* 11/12 * 100/125 */
+        	font-weight: bold;
+        }
+        span.headingpanelrubricalt {
+        	color: #ffffff;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.733rem; /* 11/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* Horizontal rule styling */
+
+        div.hr {
+        	border: 0;
+        	width: 100%;
+        	color: #707070;
+        	background-color: #707070;
+        	height: 5px;
+        }
+
+        /* This styles the (usually white) text of the example numbers written inside
+        oval blobs in the extension documentation, which mimic the look of the in-app
+        documentation. */
+
+        .oval, .oval td {
+        	background-image:url('inform:/doc_images/ovoid.png');
+        	color:white;
+        }
+
+        /* Styling used in the extension documentation indexes: */
+
+        /* Used for extension names in the extensions pane of the app */
+
+        span.extensioncensusentry {
+        	color: #ffffff;
+        }
+
+        span.extensionindexentry {
+        	color: #404040;
+        }
+
+        span.extensionindexerror {
+        	color: #ff8080;
+        }
+
+        /* This is used in extension documentation, where an example is presented
+        in a slightly tinted box: */
+
+        table.extensionexample {
+        	background-color: #f0f0f0;
+        }
+
+        span.extensionexampleletter {
+        	color: #202020;
+        	font-size: 14px;
+        	font-weight: bold;
+        }
+
+        /* Seen in problem messages: */
+
+        span.problemred {
+        	color: #800000;
+        }
+
+        span.problemgreen {
+        	color: #008000;
+        }
+
+        span.phraseword {
+        	color: #808080;
+        }
+
+        span.phrasetokentext {
+        	color: #e00060;
+        }
+
+        span.phrasetokendesctext {
+        	color: #4040ff;
+        }
+
+        span.phrasetokenvaluetext {
+        	color: #ff4040;
+        }
+
+        /* Now we move on to styling used in the Index pages only: */
+
+        /* The periodic table display has "sidebars", usually grey and taller than they
+        are wide; they contain no text. */
+
+        div.periodictablesidebarcolour {
+        	background: #888;
+        }
+        div.periodictablesidebar:hover {
+        	background: #222;
+        }
+
+        /* The text of the element-abbreviation, such as "Lx" or "Ph", uses: */
+
+        span.elementtext {
+        	color: #ffffff;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* Similarly for the "atomic number" - a single digit - in the top left corner
+        of these boxes: */
+
+        span.elementnumbertext {
+        	color: #ffffff;
+        	font-size: 0.622rem; /* 7/12 * 96/72 * 100/125 */
+        }
+
+        /* For the text of the element title, to the right of the element box: */
+
+        span.elementtitletext {
+        	color: #ffffff;
+        	font-size: 0.6rem; /* 9/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* The banner at the top of each element: */
+
+        table.elementbanner {
+        	background: #eeeeee;
+        }
+
+        /* For the typewriting on the Library Card: */
+
+        span.librarycardtitle {
+        	color: #803030;
+        }
+
+        span.librarycardother {
+        	color: #303030;
+        }
+
+        /* Generically used for "more details" boxes in the index: */
+
+        table.indexmorebox {
+        	background-color: #e0e0e0;
+            border-radius: 8px;
+        }
+
+        /* But not for activity contents: */
+
+        table.indexactivitycontents {
+        	background-color: #e8e0c0;
+            border-radius: 8px;
+        }
+
+        /* For responses in index entries about rules: */
+
+        span.indexresponseletter {
+        	color: #ffffff;
+        	font-family: 'Courier New', Courier, monospace;
+        	background-color: #8080ff;
+        }
+
+        span.indexresponsetext {
+        	color: #000066;
+        }
+
+        /* Used ubiquitously throughout the index and extension documentation: */
+
+        span.indexblack {
+        	color: #000000;
+        }
+
+        span.indexgrey {
+        	color: #808080;
+        }
+
+        span.indexdarkgrey {
+            color: #505050;
+        }
+
+        span.indexdullred {
+        	color: #800000;
+        }
+
+        span.indexdullgreen {
+        	color: #008000;
+        }
+
+        span.indexdullblue {
+        	color: #000080;
+        }
+
+        /* Used for the room squares in the World map in the Index (which is currently
+        a table with one row of one column) */
+
+        table.indexmaproom {
+        	border-color: #000000;
+        }
+
+        /* Used in the numbering of levels of the World map in the Index */
+
+        span.indexmaplevelnumbers {
+        	color: #c0c0c0;
+        }
+
+        /* Used e.g. for title rows in the Chart of basic kinds in the Index */
+
+        tr.headingrow {
+        	background-color: #e0e0e0;
+        }
+
+        /* Standard rows have black text on striped background colours, these being
+        the usual ones seen in Mac OS X applications such as iTunes. */
+
+        tr.stripeone {
+        	background-color: #ffffff;
+        }
+
+        tr.stripetwo {
+        	background-color: #f3f6fa;
+        }
+
+        tr.tintedrow {
+        	background-color: #808080;
+        }
+
+        /* In the Figures index, this is the background colour used behind images
+        (though in fact it will only be visible if the image fails to load, or uses
+        transparency): */
+
+        div.figureindexbox {
+        	background-color: #6495ed;
+        }
+
+        /* To get the book-contents-page style leaders on the Contents element of
+           the index to work, these must use the background colour of the body of
+           the page, whatever that is: */
+
+        ul.leaders li.leaded span:first-child {
+        	background: white;
+        }
+        ul.leaders li.leaded span + span {
+        	background: white;
+        }
+
+        /* On Registry index pages (such as the Public Library), these are used for
+        download buttons and the like: */
+
+        span.registrybuttontext {
+        	font-size: 11px;
+        	border-color: #000000;
+        }
+
+        span.registryminibuttontext {
+        	font-size: 10px;
+        	border-color: #000000;
+        }
+
+        span.registrybuttonuninstalled {
+        	color: #000000;
+        	background: #ffffdd;
+        }
+
+        span.registrybuttoninstalled {
+        	color: #000000;
+        	background: #ffffff;
+        	pointer-events: none;
+        }
+
+        span.registrybuttonbuiltin {
+        	color: #888888;
+        	background: #ffffff;
+        	pointer-events: none;
+        }
+
+        span.registrybuttonupdate {
+        	color: #000000;
+        	background: #aaddff;
+        }
+
+        span.registrybuttonrevert {
+        	color: #000000;
+        	background: #ddaaff;
+        }
+
+        span.registrybuttonrevealer {
+        	color: #ffffff;
+        	background: #444444;
+        }
+
+        /* Registry index section headings: */
+
+        span.registrysectionname {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 16px;
+        	line-height: 18px;
+        }
+        span.registrysubsectionname {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 14px;
+        	line-height: 16px;
+        }
+
+        /* These are for the "mark" for a section, usually a section-symbol and number */
+
+        span.registrysectionmark {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 16px;
+        	line-height: 18px;
+        	color: #666;
+        }
+        span.registrysubsectionmark {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 14px;
+        	line-height: 16px;
+        	color: #666;
+        }
+
+        /* Text of an item listed in a registry: */
+
+        span.registryitemtext {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 12px;
+        	line-height: 16px;
+        }
+
+        /* And how the links in a registry index page behave: */
+
+        a.registrysilentlink {
+        	text-decoration: none;
+        	color: #000;
+        }
+        a.registrybuttonlink {
+        	text-decoration: none;
+        }
+        a.registrycontentslink:link {
+        	text-decoration: none;
+        	color: #202020;
+        }
+        a.registrycontentslink:visited {
+        	text-decoration: none;
+        	color: #202020;
+        }
+        a.registrycontentslink:hover {
+        	text-decoration: none;
+        	color: #D00000;
+        }
+        a.registrycontentslink:active {
+        	text-decoration: none;
+        	color: #D00000;
+        }
+
+        -->
+    </style>
+    <style type="text/css">
+        <!--
+        /* (1) General layout material */
+
+        *, *:before, *:after {
+        	-moz-box-sizing: border-box;
+        	-webkit-box-sizing: border-box;
+        	box-sizing: border-box;
+        }
+        .headingpanellayout {
+        	position: relative;
+        	height: 56px;
+        	padding: 0px;
+        	white-space:nowrap;
+        }
+        .headingpanellayoutdeeper {
+        	position: relative;
+        	height: 117px;
+        	padding: 0px;
+        	white-space:nowrap;
+        }
+        .headingtext {
+        	position: absolute;
+        	top: -4px;
+        	left: -1px;
+        	width: 100%;
+        	padding: 14px 10px 0px 10px;
+        }
+        .headingrubric {
+        	position: absolute;
+        	top: 36px;
+        	width: 100%;
+        	padding: 0px 10px 0px 10px;
+        }
+        h3.tighter {
+        	margin-top: 0px;
+        }
+        p.hang {
+        	padding-left: 25px;
+        	text-indent: -25px;
+        	margin-top: 0px;
+        	margin-bottom: 0px;
+        }
+        p.in1 {
+        	padding-left: 0px;
+        }
+        p.tightin1 {
+        	padding-left: 0px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin1 {
+        	padding-left: 0px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin1 {
+        	padding-left: 50px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in2 {
+        	padding-left: 25px;
+        }
+        p.tightin2 {
+        	padding-left: 25px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin2 {
+        	padding-left: 25px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin2 {
+        	padding-left: 75px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in3 {
+        	padding-left: 50px;
+        }
+        p.tightin3 {
+        	padding-left: 50px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin3 {
+        	padding-left: 50px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin3 {
+        	padding-left: 100px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in4 {
+        	padding-left: 75px;
+        }
+        p.tightin4 {
+        	padding-left: 75px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin4 {
+        	padding-left: 75px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin4 {
+        	padding-left: 125px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in5 {
+        	padding-left: 100px;
+        }
+        p.tightin5 {
+        	padding-left: 100px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin5 {
+        	padding-left: 100px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin5 {
+        	padding-left: 150px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in6 {
+        	padding-left: 125px;
+        }
+        p.tightin6 {
+        	padding-left: 125px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin6 {
+        	padding-left: 125px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin6 {
+        	padding-left: 175px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in7 {
+        	padding-left: 150px;
+        }
+        p.tightin7 {
+        	padding-left: 150px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin7 {
+        	padding-left: 150px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin7 {
+        	padding-left: 200px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in8 {
+        	padding-left: 175px;
+        }
+        p.tightin8 {
+        	padding-left: 175px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin8 {
+        	padding-left: 175px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin8 {
+        	padding-left: 225px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in9 {
+        	padding-left: 200px;
+        }
+        p.tightin9 {
+        	padding-left: 200px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin9 {
+        	padding-left: 200px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin9 {
+        	padding-left: 250px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+
+        /* (2) Index page layout material */
+
+        /* The periodic table display has "sidebars", usually grey and taller than they
+        are wide; they contain no text. */
+
+        div.periodictablesidebar {
+        	height: 56px;
+        	width: 16px;
+        }
+        .periodictablesidebar a:link { text-decoration: none; }
+        .periodictablesidebar a:visited { text-decoration: none; }
+        .periodictablesidebar a:active { text-decoration: none; }
+
+        /* The "element boxes" are the cells appearing in the periodic-table display
+        on the welcome page of the index: */
+
+        .elementbox {
+        	position: relative;
+        	height: 56px;
+        	width: 56px;
+        	padding: 0px;
+        }
+
+        .elementbox a:link { text-decoration: none; }
+        .elementbox a:visited { text-decoration: none; }
+        .elementbox a:active { text-decoration: none; }
+        .elementbox a:hover { text-decoration: none; }
+        .elementbox:hover {
+        	opacity: 0.6;
+        }
+
+        /* The "small element boxes" look like those, but are smaller, and used on
+        the headings of the content which those original boxes link to: */
+
+        .smallelementbox {
+        	position: relative;
+        	height: 40px;
+        	width: 40px;
+        	padding: 0px;
+        }
+
+        .smallelementbox a:link { text-decoration: none; }
+        .smallelementbox a:visited { text-decoration: none; }
+        .smallelementbox a:active { text-decoration: none; }
+        .smallelementbox a:hover { text-decoration: none; }
+        .smallelementbox:hover {
+        	opacity: 0.6;
+        }
+
+        /* This is a class for the links formed by the element boxes: */
+
+        a.elementlink {
+        	position: absolute;
+        	top: -4px;
+        	left: -1px;
+        	width: 100%;
+        	padding: 14px 0px 14px 1px;
+        	text-align: center;
+        }
+
+        /* Similarly for the "atomic number" - a single digit - in the top left corner
+        of these boxes: */
+
+        div.elementnumber {
+        	position: absolute;
+        	top: 1px;
+        	left: 3px;
+        	text-align: left;
+        }
+
+        /* For the text of the element title, to the right of the element box: */
+
+        div.elementtitle {
+        	position: absolute;
+        	top: 35px;
+        	width: 100%;
+        	text-align: center;
+        }
+
+        /* Used for the book-contents-page style leaders on the Contents element of
+           the index: */
+
+        ul.leaders {
+        	padding: 0;
+        	margin-top: 1px;
+        	margin-bottom: 0;
+        	overflow-x: hidden;
+        	list-style: none}
+        ul.leaders li.leaded:before {
+        	float: left;
+        	width: 0;
+        	white-space: nowrap;
+        	content:
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "}
+        ul.leaders li.leaded span:first-child {
+        	padding-right: 0.33em;
+        }
+        ul.leaders li.leaded span + span {
+        	float: right;
+        	padding-left: 0.33em;
+        }
+        li.indent1 span:first-child {
+        	padding-left: 25px;
+        }
+        li.indent2 span:first-child {
+        	padding-left: 50px;
+        }
+        li.indent3 span:first-child {
+        	padding-left: 75px;
+        }
+        li.indent4 span:first-child {
+        	padding-left: 100px;
+        }
+        li.indent5 span:first-child {
+        	padding-left: 125px;
+        }
+        li.indent6 span:first-child {
+        	padding-left: 150px;
+        }
+        li.indent7 span:first-child {
+        	padding-left: 175px;
+        }
+        li.indent8 span:first-child {
+        	padding-left: 200px;
+        }
+        li.indent9 span:first-child {
+        	padding-left: 225px;
+        }
+
+        li.unleaded:before {
+        	content: "";
+        }
+
+        /* On Registry index pages (such as the Public Library), these are used for
+        download buttons and the like: */
+
+        span.registrybuttons {
+        	height: 20px;
+        	padding: 2px 8px 2px 8px;
+        	margin: 2px;
+        	border:1px solid;
+        	border-radius: 5px;
+        }
+
+        span.registryminibuttons {
+        	height: 14px;
+        	padding: 2px 5px 2px 5px;
+        	margin: 2px;
+        	border:1px solid;
+        	border-radius: 4px;
+        }
+
+        /* Used to hide or display sections in the Registry pages: */
+
+        div.registrysectionitemsopen {
+        	display: block;
+        }
+
+        div.registrysectionitemsclosed {
+        	display: none;
+        }
+
+        /* Hanging indentation for Registry item paragraphs: */
+
+        p.registryitem {
+        	padding-left: 80px;
+        	text-indent: -40px;
+        }
+
+        p.registryaddition {
+        	padding-left: 40px;
+        	text-indent: -40px;
+        }
+
+        -->
+    </style>
+    <script type="text/javascript">
+        function project() {
+            return window.Project;
+        }
+        function showExtra(id, imid) {
+        	if (document.getElementById(id).style.display == 'block') {
+        		document.getElementById(id).style.display = 'none';
+        		document.getElementById(imid).src = 'inform:/extra.png';
+        	} else {
+        		document.getElementById(id).style.display = 'block';
+        		document.getElementById(imid).src = 'inform:/extraclose.png';
+        	}
+        }
+        function openExtra(id, imid) {
+        	document.getElementById(id).style.display = 'block';
+        	document.getElementById(imid).src = 'inform:/extraclose.png';
+        }
+        function closeExtra(id, imid) {
+        	document.getElementById(id).style.display = 'none';
+        	document.getElementById(imid).src = 'inform:/extra.png';
+        }
+        function pasteCode(code) {
+            var myProject = project();
+
+            myProject.selectView('source');
+            myProject.pasteCode(code);
+        }
+
+    </script>
+</head>
+<body>
+    <!--CONTENT BEGINS-->
+    <table CELLPADDING=0 CELLSPACING=0 width="100%" bgcolor="#000000"><tr><TD width=38px height=26px align="center" valign="center"><a href="inform://Extensions/Extensions.html" border=0><img border=0 src="inform:/doc_images/Hookindex.png" border=0></a></td><TD width=38px height=26px align="center" valign="center"></td><td halign="left" valign="center" CELLPADDING=0 CELLSPACING=0><font color="#FFFFFF" size=2>Extensions</font></a></td><TD width=56px height=26px align="right" valign="center"><a href="inform:/index.html" border=0><img border=0 src="inform:/doc_images/Hookup.png" border=0></a></td></tr></table>
+
+    <p><a href="javascript:pasteCode('Include Glimmr Canvas Animation by Erik Temple.[=0x000A=][=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a>&nbsp;<b>Glimmr Canvas Animation<span class="extensionindexentry"> by </span>Erik Temple</b></p>
+    <p><span class="smaller">(For Glulx Only)&nbsp; <img border=0 src=inform:/doc_images/vm_glulx.png>&nbsp;Version 2.0.160627</span></p>
+    <p>Provides a 'track'-based system for independent animation of graphic elements, canvases, and windows. Features animation presets, automated easing/tweening, and a detailed debugging log.</p>
+    <p></p>
+    <hr>
+    <p><span class="indexblack"><a style="text-decoration: none" href=#docsec1>Section 1: </a></span>The state of animation in Glulx<br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec2>Chapter 1: </a></b></span>Including Glimmr Canvas Animation in a project<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec3>Section 1.1: </a></span>A note on compatibility<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec4>Chapter 2: </a></b></span>Getting started with Glimmr Canvas Animation<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec5>Chapter 3: </a></b></span>Animation and the timer<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec6>Section 3.1: </a></span>Implementation details<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec7>Section 3.2: </a></span>Undo, Save, Restore<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec8>Chapter 4: </a></b></span>Animation tracks<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec9>Section 4.1: </a></span>Basics of animation tracks<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec10>Section 4.2: </a></span>Animation callbacks<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec11>Section 4.3: </a></span>Delaying input until animations finish<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec12>Section 4.4: </a></span>Manually activating and deactivating tracks<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec13>Section 4.5: </a></span>Changing track modalities<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec14>Chapter 5: </a></b></span>Animation track presets<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec15>Section 5.1: </a></span>Track options<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec16>Section 5.2: </a></span>Frames, cycles, and duration<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec17>Chapter 6: </a></b></span>Standard track presets<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec18>Section 6.1: </a></span>Reel animation tracks<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec19>Section 6.2: </a></span>Motion animation tracks<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec20>Section 6.3: </a></span>Zooming animation tracks<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec21>Section 6.4: </a></span>Flicker animation tracks<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec22>Section 6.5: </a></span>Fade animation tracks<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec23>Section 6.6: </a></span>Temporalizing animation tracks<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec24>Chapter 7: </a></b></span>Parameterized animation tracks<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec25>Section 7.1: </a></span>Parameterized reel animation tracks<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec26>Section 7.2: </a></span>Parameterized motion animation tracks<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec27>Section 7.3: </a></span>Parameterized zooming animation tracks<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec28>Chapter 8: </a></b></span>Custom animations<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec29>Section 8.1: </a></span>Usage examples<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec30>Section 8.2: </a></span>Important note about animations that print text<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec31>Section 8.3: </a></span>Adding easing to a custom animation<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec32>Chapter 9: </a></b></span>Easing (Tweening)<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec33>Section 9.1: </a></span>Types of easing<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec34>Section 9.2: </a></span>Assigning easing to animation tracks<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec35>Section 9.3: </a></span>Implementation details<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec36>Section 9.4: </a></span>Adding custom easing equations<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec37>Chapter 10: </a></b></span>Debugging<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec38>Chapter 11: </a></b></span>Performance Tips<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec39>Chapter 12: </a></b></span>Contact info<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec40>Chapter 13: </a></b></span>Change Log<br>
+    <br>
+    <b>Examples</b><br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href="Glimmr Canvas Animation-eg1.html#eg1">A &mdash; Animation Rule Variations</a></span><br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href="Glimmr Canvas Animation-eg2.html#eg2">B &mdash; Maps of Murder</a></span><br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href="Glimmr Canvas Animation-eg3.html#eg3">C &mdash; Eased Movements</a></span><br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href="Glimmr Canvas Animation-eg4.html#eg4">D &mdash; Scourge of the Vampyr</a></span><br>
+    </p>
+    <hr>
+    <p></p>
+    </p>
+
+    <p> Glimmr Canvas Animation (GCA) extends Glimmr Canvas-Based Drawing, allowing for graphic elements of any type to be animated. GCA includes a number of presets that make even complex animations a matter of just a few lines of code, including motion, flipbook-style, zooming, flickering, and more. There is also support for &quot;tweening&quot;, using a number of different easing equations (authors can also add their own). Authors can also create completely custom animation routines that do whatever they like.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec1>Section 1: The state of animation in Glulx</span></b></span></p>
+    </p>
+
+    <p> Glulx has no built-in animation support. Instead, animation is achieved through what is essentially a hack: we start a repeating timer, and every time that timer &quot;ticks&quot;, we update the display. Unlike true game animation engines, which skip frames to maintain the timing when the processor is unable to realize the requested framerate, Glulx simply skips timer ticks: every frame of the animation will be shown, and the animation will simply unfold more slowly than intended if the processor can't keep time.</p>
+
+    <p> Moreover, the Glulx timer is explicitly not intended to be perfectly reliable. Some interpreters have better timer implementations than others, and combined with performance variability in graphics drawing and other operations, this means that the precise performance of a given animation is not guaranteed to be the same on different Glulx virtual machines.</p>
+
+    <p> Finally, many standard graphical effects are not provided in Glulx. Glulx does allow for images to be scaled, but we cannot dynamically rotate a sprite, for example, nor can we affect the opacity of an image. There are labor-intensive ways to at least partially get around these (basically, create multiple versions of each sprite, at different opacities or rotations), but they are limiting.</p>
+
+    <p> Despite all this, animation in Glulx can still work pretty well, as long as we keep things simple and don't expect *too* much from the system. We will also want to test our game on a few different interpreters and systems before releasing it to the world-if it works better in some 'terps than others, we want to be able to communicate that to players.</p>
+
+    <p> The timer approach to animation makes simple animations fairly easy to write, especially when combined with the object-oriented approach taken by Glimmr Canvas-Based Drawing. For example, even without this Canvas Animation extension, we would be able to animate &quot;zooming in&quot; on an image with just a few lines. GCA, however, leverages Glimmr Canvas-Based Drawing to provide a number of different animation presets, so that something like this can be invoked with just a single line of code. GCA also provides the ability to use &quot;easing&quot; equations to influence the time-curve of animated movement. GCA's concept of the &quot;animation track&quot; allows you to write your own animation rules, and even to animate text or game events rather than graphics.</p>
+
+    <p><p><span class="indexdullred"><b><span id=docsec2>Chapter 1: Including Glimmr Canvas Animation in a project</span></b></span></p>
+    </p>
+
+    <p> Inform remains fairly unsophisticated in its mechanisms for organizing included extensions. When we are dealing with a complex system of modular extensions such as Glimmr, it is very easy to trip it up, and the result is usually a list of unhelpful errors. For this reason, each Glimmr extension includes a section-such as this one-about how to include it, particularly in relation to other extensions.</p>
+
+    <p> Glimmr Canvas Animation automatically includes Glimmr Canvas-Based Drawing, Glimmr Drawing Commands, Flexible Windows, and their dependencies. You do not need to include any of these extensions explicitly in your story file; GCA will include them automatically (provided they are installed with your copy of Inform, of course).</p>
+
+    <p> If you are using Glimmr Graphic Hyperlinks you MUST include it before Glimmr Canvas Animation. Conversely, you must include any Glimmr font, tileset, or fader extensions after GCA. For example:</p>
+
+    <p><blockquote><span class="indexdullblue"><a href="javascript:pasteCode('Include Glimmr Graphic Hyperlinks by Erik Temple.[=0x000A=]Include Glimmr Canvas Animation by Erik Temple.[=0x000A=]Include Glimmr Image Font by Erik Temple.[=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a> Include Glimmr Graphic Hyperlinks by Erik Temple.<br>
+     Include Glimmr Canvas Animation by Erik Temple.<br>
+     Include Glimmr Image Font by Erik Temple.</span></blockquote>
+
+    <p><p><span class="indexblack"><b><span id=docsec3>Section 1.1: A note on compatibility</span></b></span></p>
+    </p>
+
+    <p> Glimmr Canvas Animation uses a rudimentary system of &quot;virtual timers&quot; to enable animations to run at different speeds despite the fact that Glulx has only a single timer. This means that GCA is probably incompatible with any other real-time extension, at least if we are hoping to track real-time and animation events at the same time.</p>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec4>Chapter 2: Getting started with Glimmr Canvas Animation</span></b></span></p>
+    </p>
+
+    <p> Before you can do any work with Glimmr Canvas Animation, you will need to set up at least one graphics window in your project. Please refer to the documentation for Jon Ingold's Flexible Windows extension for more information. You can also copy the window-related code from the examples in GCA if you just want to get started quickly.</p>
+
+    <p> Once you have a graphics window, you will also need to set up a Glimmr canvas and add some graphics elements-that way you'll have something to animate! See the Glimmr Canvas-Based Drawing extension for instructions and a number of examples. Of course, you can also just plunder the examples in GCA if you just want to get a feel for how things work.</p>
+
+    <p> Next, you will create one or more &quot;animation tracks&quot;. Each track controls a single animation effect acting on a single graphics object (either a single sprite, a canvas, or an entire window's display). Multiple tracks can run at the same time; for example, one track might move an image across the screen, while the other makes it smaller and smaller until it disappears. Creating a track is as simple as:</p>
+
+    <p><blockquote><span class="indexdullblue"> The movement track is an animation track.</span></blockquote>
+
+    <p> To actually make that track do something, apply an animation preset to it via a phrase like this, placed in the rule that you want to trigger the animation:</p>
+
+    <p><blockquote><span class="indexdullblue"> animate the movement track as a motion animation targeting My Sprite and ending at { 500, 100 } at 250 milliseconds per frame with a duration of 12 frames</span></blockquote>
+
+    <p> That is all that is required to create a 12-frame animation that moves the sprite from its current position to coordinate (500, 100). The extension will automatically update the graphics window or windows involved, and will stop the timer when all animations have finished.</p>
+
+    <p> Some animations will require a bit more setup. For example, a reel animation requires you to predefine a list of the images to be shown:</p>
+
+    <p><blockquote><span class="indexdullblue"> The image-reel of the flipbook track is { Figure 1, Figure 2, Figure 3, Figure 5, Figure 4 }.</span></blockquote>
+
+    <p> Many types of GCA animation also allow you to specify &quot;easing&quot; to adjust the speed, timing, or even path of motion (see http://glimmr.wordpress.com/2011/06/11/animation-demo-series-2/ for an introduction to easing). This is completely optional, and is again accomplished with a single line, e.g.:</p>
+
+    <p><blockquote><span class="indexdullblue"> The easing of the movement track is the cubic easing out rule.</span></blockquote>
+
+    <p> See the appropriate sections below for more information on animation tracks, the animation presets available and how to invoke them, easing (also known as tweening), and other topics. There are also a number of in-depth examples at the end of this documentation. More discussion of some of the examples can also be found at glimmr.wordpress.com:</p>
+
+    <p><blockquote><span class="indexdullblue"> http://glimmr.wordpress.com/2011/06/05/glimmr-animation-series-1/<br>
+     http://glimmr.wordpress.com/2011/06/11/animation-demo-series-2/<br>
+     http://glimmr.wordpress.com/2011/06/23/animation-demo-series-3/</span></blockquote>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec5>Chapter 3: Animation and the timer</span></b></span></p>
+    </p>
+
+    <p> Animations are controlled by the Glulx virtual machine's timer functionality. The Glulx timer is global-there is only one &quot;ticker&quot; -but GCA uses &quot;virtual timers&quot; to allow simultaneous animations to run at different speeds.</p>
+
+    <p> When only one animation is running, or when all running animations are running at the same rate, then each tick of the global timer represents one &quot;frame&quot; of animation. When we specify multiple rates of animation, however, GCA works out how to subdivide the timer interval so that each animation fires at the requested rate. For example, if we trigger Animation A at 80 milliseconds per frame, and Animation B at 160 milliseconds per frame, then the timer will fire at 80 milliseconds per frame, with Animation A firing every frame, and Animation B every 2 frames.</p>
+
+    <p> Users of Glimmr Canvas Animation's animation tracks will rarely if ever need to deal with the timer directly, as the commands for invoking animation tracks automate the process. If needed, though, we can find out what the current interval between ticks of the global timer is by referring to the &quot;global timer interval&quot; global variable (the timer for any given animation track can be got at by checking the &quot;timer interval&quot; property of the track):</p>
+
+    <p><blockquote><span class="indexdullblue"> say &quot;The interval between ticks is [global timer interval] milliseconds.&quot;</span></blockquote>
+
+    <p> The &quot;global timer interval&quot; variable is dynamic: it only contains a value when there is a timer running, and resets to zero when the timer stops. Note that we should *never change* the variable directly; doing so will not change the interval. If we want to set a new interval, we simply need to invoke an animation track, or change the timer directly, like so:</p>
+
+    <p><blockquote><span class="indexdullblue"> start a Glulx timer of 200 milliseconds</span></blockquote>
+
+    <p> Any time we start a new timer, GCA will look at any animations that may be running and adjust the rate we've requested to maintain their rates. It is probably best never to set the timer directly when animations are involved-just use the &quot;animate...&quot; phrases, detailed below, to trigger animations.</p>
+
+    <p> The timer can, of course, run independently of animations. If we want to use the timer for some other purpose in our game, we are welcome to simply start the timer using the same phrase, without using an animation preset. Animations are not activated unless we specifically start them with an animation phrase. It is not a good idea to try to use timed events for other purposes while animations are running-when animations are running, the virtual timer system is invoked, which may cause unpredictability in timed behaviors that don't take that system into account. You can study the source code to see how you might take the system into account, but the easiest way to deal with the situation is to use custom animation tracks-see the chapter on custom animation below-to control all of your non-graphical timed events. This will allow them to use the virtual timer system.</p>
+
+    <p> To stop *all* running timers, use:</p>
+
+    <p><blockquote><span class="indexdullblue"> pause the Glulx timer</span></blockquote>
+
+    <p> Warning: This will stop the timer, but any animations that are running will still be marked as active. If you start another timer, they will begin again, and they will also be factored into the virtual timer system.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec6>Section 3.1: Implementation details</span></b></span></p>
+    </p>
+
+    <p> At each tick of the timer, Inform calls the &quot;glulx timed activity&quot; rulebook (provided by Emily Short's Glulx Entry Points extension). If one or more of our animation tracks is active, the &quot;animation dispatch rule&quot;, one of the timed activity rules, will fire. This rule iterates through all of the active animation tracks, processing each in turn. This processing occurs in the &quot;animation&quot; rulebook. Most users will not need to add rules to the animation rulebook, but it is necessary to do so to create custom animations (see below), and it can sometimes be useful if we wish to trigger other events from within preset animations, rather than via callbacks at the end. See the &quot;Animation Rule Variations&quot; example below for some illustrations.</p>
+
+    <p> Note that the rules in the animation rulebook are intended for making changing to the properties of targeted objects/elements, not for actually drawing to the screen. Once all of the tracks have been processed, the &quot;updating graphics windows for animation&quot; activity is called. There is only one rule in this activity, the &quot;animation window-updating rule&quot;, which updates the graphics in each of the open graphics windows. If we have a number of static graphics windows alongside one with animation, we can improve performance by preempting this rule with one of our own that updates only the window with animations. (Otherwise, we are needlessly redrawing all windows every tick of the timer.)</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec7>Section 3.2: Undo, Save, Restore</span></b></span></p>
+    </p>
+
+    <p> GCA handles undo and restore transparently:</p>
+
+    <p><blockquote><span class="indexdullblue"> UNDO - The Inform library saves the state of the game just before getting input, at the beginning of a new turn. When the player types UNDO, the game will resume where it was when the state was saved, with any animations picking up exactly where they were.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> SAVE - Inform saves the game at the moment that the player confirms the intention to save the game. Again, when the game is restored, GCA will pick up exactly where it left off.</span></blockquote>
+
+    <p> Implementation note:</p>
+
+    <p> The Glulx virtual machine does not store the state of the timer when saving the state of the game. That means that we need to do that ourselves in order to properly restore the game or undo a previous turn. GCA takes care of this for us by storing the timer interval in a global variable, and then either triggering the timer at the appropriate speed or turning it off as appropriate immediatedly after restoring or undoing. If we are making changing to save/restore, the after restoring the game rules, or undo code, we should be sure that we don't break this functionality.</p>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec8>Chapter 4: Animation tracks</span></b></span></p>
+    </p>
+
+    <p> GCA simplifies the specification of animations through the concept of the &quot;animation track&quot;. An animation track handles one and only one kind of animation effect for one and only one graphic element. However, tracks are &quot;stackable&quot; -you can run multiple tracks simultaneously-so you can build up very complex animations. To display a person walking, for example, you might have two tracks running simultaneously, one responsible for the motion of the sprite from point A to B, and the other for cycling the image used to represent the sprite.</p>
+
+    <p> Animation tracks can also do such things as increase or decrease the scaling factor of an element (&quot;zooming&quot; it), fade an element or the entire canvas out to a background color, or simply mark time.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec9>Section 4.1: Basics of animation tracks</span></b></span></p>
+    </p>
+
+    <p> In programming terms, an animation track is an Inform 7 object, not too different from the &quot;things&quot; that authors use to build their storyworlds. However, they are not intended to be physical game objects; they are simply convenient containers for storing and organizing information, usually in the form of properties. (Users of Glimmr Canvas-Based Drawing will recognize the same concept in the use of g-elements, which are also objects in the same sense.) Defining an animation track is quite simple. Here we do two at a stroke:</p>
+
+    <p><blockquote><span class="indexdullblue"> The movement track and the walking track are animation tracks.</span></blockquote>
+
+    <p> Rather than requiring us to set each of the relevant properties individually, GCA allows us to use an abbreviated, single-phrase command to set up and trigger each animation track, by using animation presets. The code for the walking animation mentioned above might look like this, for example:</p>
+
+    <p><blockquote><span class="indexdullblue"> animate the movement track as a motion animation targeting the Walker and ending at { 300, 100 } at 12 fps with duration of 24 frames;<br>
+     animate the walking track as a reel animation targeting the Walker at 12 fps with duration of 24 frames, cycling.</span></blockquote>
+
+    <p> Note the reference to &quot;motion&quot; and &quot;reel&quot; -these are two of the types of animation preset provided by GCA. Motion tracks animate the movement of an element across the canvas/window, while reel tracks change the image used to display the element. See the sections that detail the different presets below.</p>
+
+    <p> Some circumstances will require us to manually set properties of the track in addition to the command. For example, all reel tracks require us to specify the list of images that make up the &quot;reel&quot; that will be displayed. Here is the full code required to set up a reel animation:</p>
+
+    <p><blockquote><span class="indexdullblue"> The waving track is an animation track. The image-reel of the waving track is { Figure of Hand Left, Figure of Hand Right }.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Instead of waving hands:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; animate the waving track as a reel animation targeting the player avatar at 4 fps with duration of 6 frames.</span></blockquote>
+
+    <p> This will animate the reel for 6 frames at a rate of 4 frames per second; that is, with a timer tick every 250 milliseconds. Each frame, the image used to display the sprite element we have called &quot;player avatar&quot; will change according to the image-reel list we have defined. Note that since the reel has only two images in it, the track will select the first figure for 1 frame, and the second figure for 5 frames. If we want to repeat the reel after reaching the end, we add the &quot;cycling&quot; option:</p>
+
+    <p><blockquote><span class="indexdullblue"> animate the waving track as a reel animation targeting the player avatar at 4 fps with duration of 6 frames, cycling.</span></blockquote>
+
+    <p> This will repeat through the reel for each pair of frames, producing a smooth alternation of the figures: Figure of Hand Left, Figure of Hand Right, Figure of Hand Left, Figure of Hand Right, Figure of Hand Left, Figure of Hand Right. More information on the cycling option is given below.</p>
+
+    <p> Note that the timer is started *immediately* after an animate phrase is invoked. The animation will begin after one interval has passed. In other words, the first frame of the animation will be displayed after one tick of the timer; if we have specified an interval of 4 frames per second, the first frame will be displayed 250 milliseconds after Inform processes the animation phrase.</p>
+
+    <p> To summarize, the basic steps for defining an animation are:</p>
+
+    <p><blockquote><span class="indexdullblue"> 1) Declare the track object: &quot;X is an animation track&quot;<br>
+     2) Set up any auxiliary properties that need setting up, e.g. &quot;The image-reel of X is {....}&quot;<br>
+     3) Invoke the track using the encapsulated command: &quot;animate X as a...&quot;</span></blockquote>
+
+    <p> Tracks are fully recyclable, meaning that once a track is done running, we can invoke it again with a totally different set of parameters. We can even change the type of the animation if we wish, e.g.:</p>
+
+    <p><blockquote><span class="indexdullblue"> animate the default track as a motion animation...<br>
+     (later...)<br>
+     animate the default track as a reel animation...</span></blockquote>
+
+    <p> Unless we are obsessed with efficiency, though, it probably isn't the best idea to reuse a track for a totally different purpose in this way. It won't be quite as easy to read the code later. Study the &quot;Scourge of the Vampyr&quot; example to see how multiple tracks can be used alone and together to both organize and control animations.</p>
+
+    <p> GCA includes one pre-declared animation track, called the &quot;default track&quot;. We can make use of this track or not in our own game as we like.</p>
+
+    <p> See below for the different types of animation preset, the commands used to invoke them, and brief usage examples.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec10>Section 4.2: Animation callbacks</span></b></span></p>
+    </p>
+
+    <p> A callback is a function that fires once the animation has finished. Callbacks can in principle do anything: start or start another animation track, play a sound, print some text, etc. An animation track can have one or more associated callback routines associated.</p>
+
+    <p> At first glance, the implementation of callbacks in GCA may seem a bit odd, and in fact it is something of an experiment. Rather than assign a rule to be fired, we use a text, stored in the track's &quot;animation-callback&quot; property. At its simplest, this just means that we print a text when the animation completes, e.g.:</p>
+
+    <p><blockquote><span class="indexdullblue"> The animation-callback of the default track is &quot;Whew!&quot;</span></blockquote>
+
+    <p> But thanks to a little trick from John Clemens (http://www.math.psu.edu/clemens/IF/I7tricks.html), we can actually invoke standard Inform phrase functions, like so:</p>
+
+    <p><blockquote><span class="indexdullblue"> The animation-callback of the default track is &quot;[@ animate the default track as a reel animation targeting the player-avatar at 6 frames per second]&quot;.</span></blockquote>
+
+    <p> The &quot;@&quot; indicates that Inform should read the text substitution that follows as a phrase to be executed. We can chain all this stuff together, e.g.:</p>
+
+    <p><blockquote><span class="indexdullblue"> The animation-callback of the default track is &quot;The wheel reverses direction[@ now the image-reel of the Wheel is the reverse-reel][@ animate the default track as a reel animation targeting the Wheel at 8 frames per second].&quot;</span></blockquote>
+
+    <p> The ability to combine straight printing, &quot;to say&quot; phrases, and standard function phrases in a single statement makes for a compact and flexible approach to callback functions.</p>
+
+    <p> Note that we are bound by the usual restrictions on the content of text substitutions. In particular, they cannot contain commas or brackets of any type, which means that we will need to define intermediary phrases in order to refer to Glimmr coordinates or to provide phrase options, which are separated from their phrase by a comma.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec11>Section 4.3: Delaying input until animations finish</span></b></span></p>
+    </p>
+
+    <p> By default, animations will continue to run while other game functions are operating-the player will be free to continue typing commands and so on while animation in underway. Sometimes, though, we may want to pause the textual part of our game while an animation plays out. We can do this with one of two different commands:</p>
+
+    <p><blockquote><span class="indexdullblue"> delay input until all animations are complete<br>
+     delay input until &lt;track&gt; is complete</span></blockquote>
+
+    <p> These phrases prevent the game from asking for commands from the player until either *all* animations have completed (the first phrase), or until a specific animation has completed (the second phrase).</p>
+
+    <p> The best place to place a delay instruction is usually immediately after the &quot;animate&quot; lines it is associated with. For example:</p>
+
+    <p><blockquote><span class="indexdullblue"> animate the walking track as a reel animation targeting the player-sprite at 8 fps, cycling;<br>
+     animate the waypoint movement track as a motion animation targeting the player-sprite and ending at { 421, 242 } at 8 fps with velocity of 10;<br>
+     delay input until all animations are complete;<br>
+     say &quot;Done!&quot;.</span></blockquote>
+
+    <p> The game will pause immediately, and only code that fires due to animation, or to other timer events, will be run. The say phrase at the end of the block of code above will not print until the animation has completed.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec12>Section 4.4: Manually activating and deactivating tracks</span></b></span></p>
+    </p>
+
+    <p> An animation track can be turned on or off manually using the following phrases. The most likely use for this functionality is to pause and restart one track while other animations are running.</p>
+
+    <p><blockquote><span class="indexdullblue"> activate &lt;track&gt;<br>
+     deactivate &lt;track&gt;</span></blockquote>
+
+    <p> Note that the timer must *also* be running for a track so activated to actually run. We can find out whether any of our animation tracks is flagged as active by using:</p>
+
+    <p><blockquote><span class="indexdullblue"> if animation is queued...</span></blockquote>
+
+    <p> We can test whether a *given track* is currently active by looking at its &quot;animation-flag&quot; property, which can be either &quot;g-active&quot; or &quot;g-inactive&quot;:</p>
+
+    <p><blockquote><span class="indexdullblue"> if the animation-flag of the default track is g-active...</span></blockquote>
+
+    <p> If we need to, we can ask whether there are any *currently running* animations, using this phrase:</p>
+
+    <p><blockquote><span class="indexdullblue"> if animation is underway...</span></blockquote>
+
+    <p> This will return true only if an animation is flagged as active *and* the timer is running.</p>
+
+    <p> We can change the speed of an animation once it is already underway:</p>
+
+    <p><blockquote><span class="indexdullblue"> time &lt;track&gt; at &lt;interval&gt; milliseconds</span></blockquote>
+
+    <p> This should *only* be done when the animation is already running. It will adjust the global timer to utilize the newly selected speed.</p>
+
+    <p> Another useful phrase is &quot;cease animating &lt;track&gt;&quot;, which like &quot;deactivate &lt;track&gt;&quot;, will immediately stop the indicated track. However, the latter merely stops the track, while the former also fires the callback of the track that was stopped. For example, if Track A moves an object to a given point while Track B cycles through a short sequence, we could use either phrase to as a callback on Track A to stop Track B. However, only the &quot;cease animating&quot; phrase will also fire Track B's callback:</p>
+
+    <p><blockquote><span class="indexdullblue"> Track A is an animation track. The animation-callback is &quot;[@ cease animating Track B]&quot;.<br>
+     Track B is an animation track. The animation-callback is &quot;All done.&quot;</span></blockquote>
+
+    <p><p><span class="indexblack"><b><span id=docsec13>Section 4.5: Changing track modalities</span></b></span></p>
+    </p>
+
+    <p> We can force a track into cycling or randomizing-or stop either of those modalities-once the animation is already running. Most often, we will do this via a callback routine, though we could also do it in response to player input. For example, we could cycle one animation until another animation completes. The second animation would then send a callback to the first to tell it to stop cycling.</p>
+
+    <p> The phrases required are straightforward:</p>
+
+    <p><blockquote><span class="indexdullblue"> cycle &lt;track&gt;<br>
+     stop cycling &lt;track&gt;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> randomize &lt;track&gt;<br>
+     remove randomization from &lt;track&gt;</span></blockquote>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec14>Chapter 5: Animation track presets</span></b></span></p>
+    </p>
+
+    <p> Each animation track will trigger a different rule from the &quot;animation&quot; rulebook, depending on the preset that is associated with it. For example, the &quot;zooming&quot; preset triggers the &quot;default zooming animation rule&quot;, which will, for each frame of the animation, set the scaling factor of the target element to an appropriate value.</p>
+
+    <p> The specific parameters available for each track preset are laid out in the sections below, but the basic form for the invocation of an animation track is this:</p>
+
+    <p><blockquote><span class="indexdullblue"> animate &lt;animation track&gt; as a &lt;preset&gt; animation targeting the &lt;target&gt;... at &lt;interval&gt; with a duration of &lt;length&gt; frames, &lt;options&gt;</span></blockquote>
+
+    <p> The items in angle brackets are present in nearly all of the commands; here are quick explanations for each of them:</p>
+
+    <p><blockquote><span class="indexdullblue"> preset - this is the type of the animation, e.g. motion, reel, zooming, etc.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> target - this is the object that will be affected by the animation. Usually, this will be a graphic element, but it might also be the canvas itself, or the window framing the canvas (see the individual presets below for more information).</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> interval - this is the time between frames. It can be expressed either by specifying it directly, e.g. &quot;200 milliseconds per frame&quot;, or by providing the frames per second we desire, e.g. &quot;12 frames per second&quot; or just &quot;12 fps&quot;.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> length - the number of frames in the animation. Note that this term is optional for some types of preset. If we don't specify a length for these presets, the animation will be automatically set to the most likely.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> options - we can add one or more options, depending on the type of preset; see the next section.</span></blockquote>
+
+    <p> As you read the following sections, you may also want to refer to the documentation for Glimmr Canvas-Based Drawing for a refresher on graphic element types and their properties.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec15>Section 5.1: Track options</span></b></span></p>
+    </p>
+
+    <p> There are two track options that we can select by adding a comma and the option or options after the body of the command phrase, like so:</p>
+
+    <p><blockquote><span class="indexdullblue"> animate..., cycling and randomized</span></blockquote>
+
+    <p> These options are defined as follows:</p>
+
+    <p><blockquote><span class="indexdullblue"> cycling - an animation track that has been designated as cycling will not stop when it reaches the end; instead, it will begin again at the beginning.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> randomized - a randomized track will select the state of any given frame at random from the available options.</span></blockquote>
+
+    <p> Note that any animation track can be cycling, but tracks that involve smooth movement (such as motion or zooming tracks) cannot be randomized.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec16>Section 5.2: Frames, cycles, and duration</span></b></span></p>
+    </p>
+
+    <p> Animation tracks keep an accounting of their own states. We will rarely need to access this information, but should we need to, we can refer to these properties of any given track:</p>
+
+    <p><blockquote><span class="indexdullblue"> current-frame - a number that indicates how many frames, in total, an animation has passed through.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> animation-length - the duration (in frames) that the track will run before finishing.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> cycle-length - the number of frames in a single cycle of the animation. If the animation is not cycling, this will be the total duration specified for the animation.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> cycles completed - the number of cycles of the animation that have been completed.</span></blockquote>
+
+    <p> GCA does not store the frame of the current cycle, but it can be calculated as follows:</p>
+
+    <p><blockquote><span class="indexdullblue"> let cyclic-frame be the current-frame of the track - (cycle-length of the track * cycles completed of the track)</span></blockquote>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec17>Chapter 6: Standard track presets</span></b></span></p>
+    </p>
+
+    <p> Detailed descriptions of the track presets are given below, including the types of objects that they can act on, their effects, the phrases used to create/invoke them, and examples of usage.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec18>Section 6.1: Reel animation tracks</span></b></span></p>
+    </p>
+
+    <p> &quot;Reel&quot; tracks show a succession of images in a way similar to that of traditional animation on film, or the animated GIFs familiar from the web. The sequence of images to be shown is specified using a list of figure names assigned to the track's &quot;image-reel&quot; property. Reel tracks can function only with entities that display a single image at a time, and thus we are limited to targeting:</p>
+
+    <p><blockquote><span class="indexdullblue"> sprites (g-element)<br>
+     g-canvas (affecting the background image of the canvas)</span></blockquote>
+
+    <p> (But see the &quot;parameterized reel&quot; preset below, which lets us define a reel for any display property of any kind of g-element, canvas, or g-window.)</p>
+
+    <p> The reel must be defined in advance of triggering the animation track; this is done by setting the &quot;image-reel&quot; property of the animation track object to a list of figure names. (We can repeat figure names in the list to show the figure a second time; this can be used to provide pacing.)</p>
+
+    <p> To invoke a reel preset we use the following phrase:</p>
+
+    <p><blockquote><span class="indexdullblue"> animate &lt;track&gt; as a reel animation targeting &lt;target&gt; at &lt;interval&gt; with a duration of &lt;length&gt; frames, &lt;cycling&gt;&lt;randomized&gt;</span></blockquote>
+
+    <p> If we wish, we may omit the duration, resulting in this variant phrasing:</p>
+
+    <p><blockquote><span class="indexdullblue"> animate &lt;track&gt; as a reel animation targeting &lt;target&gt; at &lt;interval&gt;, &lt;cycling&gt;&lt;randomized&gt;</span></blockquote>
+
+    <p> If we do this, the duration will be set automatically to the number of entries in the image-reel. Moreover, if we also set the &quot;cycling&quot; option when no duration has been set, the track will continue to repeat ad infinitum, or until stopped by another event (such as a callback from another track; see the section on callbacks below).</p>
+
+    <p> The images in the image-reel list will be shown in order, unless we set the &quot;randomized&quot; option for a reel track, in which case an image will be chosen at random from the reel for each frame. (We can of course include multiple mentions of the same figure to influence percentages; if Figure 1 is listed twice in the reel while Figure 2 is listed just once, then the chance that Figure 1 will be displayed is twice as great as the chance that Figure 2 will be.)</p>
+
+    <p> Here are some examples of usage (code snippets, not complete games):</p>
+
+    <p> Targeting a sprite, showing each frame in the reel just once:<blockquote><span class="indexdullblue"><a href="javascript:pasteCode('The leaping track is an animation track.[=0x000A=][=0x000A=]The image-reel of the leaping track is { Figure of Leap 01, Figure of Leap 02, Figure of Leap 03, Figure of Leap 04 }.[=0x000A=][=0x000A=]The Frog is a sprite. The image-ID is Figure of Frog Sitting.[=0x000A=][=0x000A=]Instead of jumping:[=0x000A=][=0x0009=]animate the leaping track as a reel animation targeting the Frog at 200 milliseconds per frame with a duration of 4 frames.[=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a> The leaping track is an animation track.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> The image-reel of the leaping track is { Figure of Leap 01, Figure of Leap 02, Figure of Leap 03, Figure of Leap 04 }.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> The Frog is a sprite. The image-ID is Figure of Frog Sitting.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Instead of jumping:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; animate the leaping track as a reel animation targeting the Frog at 200 milliseconds per frame with a duration of 4 frames.</span></blockquote>
+
+    <p> Targeting a canvas and using the shorter form. Note that because the &quot;cycling&quot; option is set and there is no duration specified, this track will repeat endlessly:<blockquote><span class="indexdullblue"><a href="javascript:pasteCode('The swirling track is an animation track.[=0x000A=][=0x000A=]The image-reel of the swirling track is { Figure of Swirl 01, Figure of Swirl 02, Figure of Swirl 03, Figure of Swirl 04, Figure of Swirl 05 }.[=0x000A=][=0x000A=]The background image of the graphics-canvas is Figure of Still Water.[=0x000A=][=0x000A=]When play begins:[=0x000A=][=0x0009=]animate the swirling track as a reel animation targeting the graphics-canvas at 12 frames per second, cycling.[=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a> The swirling track is an animation track.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> The image-reel of the swirling track is { Figure of Swirl 01, Figure of Swirl 02, Figure of Swirl 03, Figure of Swirl 04, Figure of Swirl 05 }.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> The background image of the graphics-canvas is Figure of Still Water.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> When play begins:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; animate the swirling track as a reel animation targeting the graphics-canvas at 12 frames per second, cycling.</span></blockquote>
+
+    <p> Reel tracks normally are not affected by setting the easing equations. However, if AFTER using the animate phrase we reset the length of the animation cycle so that it is not equal to the number of entries in the image-reel, easing will be used to reconcile the two. Effectively, the easing equation will describe how time will be &quot;stretched&quot; to fit the reel. The animation rule will use the easing of the track to extend or contract the length of the animation using the frames in the original reel. For example, if our original image reel was specified as a list with four entries, and we then fit the sequence to 12 frames using the linear easing rule, each of the four images in the original would be displayed for approximately 3 frames. If we are using a rapid in, slow out easing equation, however, then the first entry in the reel list might be displayed for only one frame, while the last might be held for four frames. Note that, due to rounding errors, this will not always work perfectly, particularly when the original reel sequence specified is short. We achieve this effect by using the &quot;fit... sequence to ... frames&quot; phrase:</p>
+
+    <p><blockquote><span class="indexdullblue"> fit &lt;track&gt; sequence into/to &lt;length&gt; frame/frames</span></blockquote>
+
+    <p> Extending the example above:</p>
+
+    <p><blockquote><span class="indexdullblue"><a href="javascript:pasteCode('The swirling track is an animation track. The easing of the swirling track is the quadratic easing out rule.[=0x000A=][=0x000A=]The image-reel of the swirling track is { Figure of Swirl 01, Figure of Swirl 02, Figure of Swirl 03, Figure of Swirl 04, Figure of Swirl 05 }.[=0x000A=][=0x000A=]The background image of the graphics-canvas is Figure of Still Water.[=0x000A=][=0x000A=]When play begins:[=0x000A=][=0x0009=]animate the swirling track as a reel animation targeting the graphics-canvas at 8 frames per second, cycling;[=0x000A=][=0x0009=]fit the swirling track sequence to 12 frames.[=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a> The swirling track is an animation track. The easing of the swirling track is the quadratic easing out rule.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> The image-reel of the swirling track is { Figure of Swirl 01, Figure of Swirl 02, Figure of Swirl 03, Figure of Swirl 04, Figure of Swirl 05 }.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> The background image of the graphics-canvas is Figure of Still Water.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> When play begins:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; animate the swirling track as a reel animation targeting the graphics-canvas at 8 frames per second, cycling;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; fit the swirling track sequence to 12 frames.</span></blockquote>
+
+    <p> The &quot;fit... sequence to ... frames&quot; phrase works *only* with reel and parameterized reel tracks. It will have unanticipated effects if used with other types of animation track preset.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec19>Section 6.2: Motion animation tracks</span></b></span></p>
+    </p>
+
+    <p> &quot;Motion&quot; tracks change the origin coordinate of the target object. If we attempt to target an object that doesn't have the origin property, Inform with throw a run-time error (error P10). The standard Glimmr objects that will support motion animations, then, are:</p>
+
+    <p><blockquote><span class="indexdullblue"> any g-element<br>
+     graphics g-window</span></blockquote>
+
+    <p> (We can, of course, create our own kind of object, and as long as it has the &quot;origin&quot; property, we will be able to animate it with a motion animation track.)</p>
+
+    <p> When a g-element that has an endpoint (boxes, rectangles, lines) is animated using the motion animation phrase, the endpoint will be changed along with the origin, so that the shape will move as a unit. If we want to do more complex effects-such as moving the endpoint without moving the origin, or vice versa-then we should use the &quot;parameterized motion&quot; preset (see below).</p>
+
+    <p> When a graphics g-window is targeted by the motion animation phrase, then the framing of the canvas in the window is changed. See Glimmr Canvas-Based Drawing for an explanation of the origin coordinate of windows vis-a-vis their canvases.</p>
+
+    <p> A motion animation always moves the object from its current position to the ending position we specify; the starting position of the object is not directly provided in the animation phrase. To invoke a motion preset animation we can use one of the following two phrases:</p>
+
+    <p><blockquote><span class="indexdullblue"> animate &lt;track&gt; as a motion animation targeting &lt;target&gt; and ending at &lt;final position&gt; at &lt;interval&gt; with a duration of &lt;length&gt; frames, &lt;cycling&gt;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> animate &lt;track&gt; as a motion animation targeting &lt;target&gt; and ending at &lt;final position&gt; at &lt;interval&gt; with a velocity of &lt;velocity&gt; units, &lt;cycling&gt;</span></blockquote>
+
+    <p> The second phrase allows us to specify the velocity (in canvas units per frame; see Canvas-Based Drawing for the concept of canvas units/pixels); the number of frames required to move to the ending position at the given velocity will be calculated automatically.</p>
+
+    <p> If we set the &quot;cycling&quot; option, the animation will start again from the beginning upon completion, ad infinitum or until stopped by another event (such as a callback from another track; see the section on callbacks below).</p>
+
+    <p> Some examples of usage:</p>
+
+    <p> Targeting a sprite element, and specifying the length of the animation rather than the speed:<blockquote><span class="indexdullblue"><a href="javascript:pasteCode('The run-movement track is an animation track.[=0x000A=][=0x000A=]Lola is a sprite. The origin is { 0, 100 }.[=0x000A=][=0x000A=]Instead of running:[=0x000A=][=0x0009=]animate the run-movement track as a motion animation targeting Lola and ending at { 400, 100 } at 8 fps with a duration of 24 frames.[=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a> The run-movement track is an animation track.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Lola is a sprite. The origin is { 0, 100 }.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Instead of running:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; animate the run-movement track as a motion animation targeting Lola and ending at { 400, 100 } at 8 fps with a duration of 24 frames.</span></blockquote>
+
+    <p> Targeting a rendered string element, specifying the velocity rather than the duration of the animation. The text will move in from off the canvas, while an easing equation adds visual interest to the path of movement.<blockquote><span class="indexdullblue"><a href="javascript:pasteCode('The title bounce track is an animation track. The easing is bounce easing out.[=0x000A=][=0x000A=]The Title Text is an image-rendered string. The text-string is [=0x0022=]Your Title Here[=0x0022=]. The origin is { 300, -100 }.[=0x000A=][=0x000A=]When play begins:[=0x000A=][=0x0009=]animate the title bounce track as a motion animation targeting the Title Text and ending at { 300, 300 } at 20 frames per second with a velocity of 10.[=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a> The title bounce track is an animation track. The easing is bounce easing out.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> The Title Text is an image-rendered string. The text-string is &quot;Your Title Here&quot;. The origin is { 300, -100 }.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> When play begins:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; animate the title bounce track as a motion animation targeting the Title Text and ending at { 300, 300 } at 20 frames per second with a velocity of 10.</span></blockquote>
+
+    <p> Targeting a rectangle primitive, and cycling endlessly. We are depicting a 1980s style videogame bullet (i.e. a square) shot repeatedly from a gun turret.<blockquote><span class="indexdullblue"><a href="javascript:pasteCode('The gatling shot is an animation track.[=0x000A=][=0x000A=]The Bullet is a rectangle primitive. The origin is { 100, 150 }. The endpoint is { 104, 154 }. The tint is g-White.[=0x000A=][=0x000A=]To activate the turret:[=0x000A=][=0x0009=]animate the gatling shot as a motion animation targeting the Bullet and ending at { 600, 150 } at 10 fps with a velocity of 8, cycling.[=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a> The gatling shot is an animation track.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> The Bullet is a rectangle primitive. The origin is { 100, 150 }. The endpoint is { 104, 154 }. The tint is g-White.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> To activate the turret:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; animate the gatling shot as a motion animation targeting the Bullet and ending at { 600, 150 } at 10 fps with a velocity of 8, cycling.</span></blockquote>
+
+    <p> Motion animations, as well as parameterized motion animations (see below), can use easing equations to influence the timing and path of movement. Because motion animations can move on two axes (i.e., the x and y axes), we can also use different easing equations simultaneously on the two axes. If we specify only the &quot;easing&quot; for the track, then the same easing equation will be applied to both axes. If we also supply the &quot;secondary easing&quot; for the track, then the easing will apply to the x axis, while the secondary easing applies to the y axis. To reset a track to the defaults after using secondary easing, we specify the &quot;null easing rule&quot; for the secondary track, e.g.</p>
+
+    <p><blockquote><span class="indexdullblue"> now the easing of the default track is the linear easing rule;<br>
+     now the secondary easing of the default track is the null easing rule.</span></blockquote>
+
+    <p> See the &quot;Eased Movements&quot; example to explore the effect of easing, including differential axis easing, on animated movement.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec20>Section 6.3: Zooming animation tracks</span></b></span></p>
+    </p>
+
+    <p> &quot;Zooming&quot; tracks affect the scaling of an object, allowing us to &quot;zoom&quot; graphics in or out. Zooming tracks can be function with:</p>
+
+    <p><blockquote><span class="indexdullblue"> g-elements<br>
+     graphics g-windows</span></blockquote>
+
+    <p> When targeting a g-element, a zooming animation affects the &quot;scaling factor&quot; property of the element. The effect this has depends on the type of g-element; only the line-weight of primitives is affected by the scaling factor, and the scaling factor of bitmaps is much more coarsely realized than that of images. See the docs for Glimmr Canvas-Based Drawing for more information. (Note that if you are using asymmetrically scaling, the zooming track will nevertheless scale symmetrically. Use the &quot;parameterized zooming&quot; preset-see below-to scale axes independently.)</p>
+
+    <p> When targeting a graphics window, the property affected is the &quot;arbitrary scaling factor&quot; of the window. This forces manual scaling of the window (see Glimmr Canvas-Based Drawing), so if we wish to return to automatic scaling after completing the animation, we will need to reset the arbitrary scaling factor and trigger a redraw, e.g.:</p>
+
+    <p><blockquote><span class="indexdullblue"><a href="javascript:pasteCode('now the arbitrary scaling factor of the graphics-window is 0.0000;[=0x000A=]refresh windows.[=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a> now the arbitrary scaling factor of the graphics-window is 0.0000;<br>
+     refresh windows.</span></blockquote>
+
+    <p> If we attempt to target a canvas, we will instead affect *all* windows that currently display the canvas. This is only advisable if all of these windows are set to the same scaling factor/arbitrary scaling factor, because the scaling factor of the last window to be created will be used for all windows during the animation.</p>
+
+    <p> Note that, to avoid aesthetic abomination, Glimmr normally does not allow the canvas to be scaled at larger than actual size. This can be changed, however, on a window-by-window basis, like so. For example:</p>
+
+    <p><blockquote><span class="indexdullblue"><a href="javascript:pasteCode('Oversize scaling of the graphics-window is true.[=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a> Oversize scaling of the graphics-window is true.</span></blockquote>
+
+    <p> Also note that whether we are targeting a graphic element or a window, content that is automatically centered may show some &quot;jiggle&quot; due to rounding errors. To avoid this problem when zooming an individual element (such as a sprite), we can make sure that the element is &quot;left-aligned&quot; or &quot;right-aligned&quot; rather than &quot;center-aligned&quot; (see Glimmr Canvas-Based Drawing).</p>
+
+    <p> To invoke a zooming preset, we use the following phrase:</p>
+
+    <p><blockquote><span class="indexdullblue"> animate &lt;track&gt; as a zooming animation targeting &lt;target&gt; and ending at &lt;final scaling factor&gt; at &lt;interval&gt; with a duration of &lt;length&gt; frames, &lt;cycling&gt;</span></blockquote>
+
+    <p> If we set the &quot;cycling&quot; option, the animation will start again from the beginning upon completion, ad infinitum or until stopped by another event (such as a callback from another track; see the section on callbacks below).</p>
+
+    <p> Usage examples:</p>
+
+    <p> Targeting an image-rendered string element, zooming it from nearly invisible to full-size. An easing equation makes the zoom more dynamic.</p>
+
+    <p><blockquote><span class="indexdullblue"><a href="javascript:pasteCode('The title zoom track is an animation track. The easing of the title zoom track is cubic easing in.[=0x000A=][=0x000A=]The Title Text is an image-rendered string. The text-string is [=0x0022=]Your Title Here[=0x0022=]. The scaling factor is 0.0001.[=0x000A=][=0x000A=]When play begins:[=0x000A=][=0x0009=]animate the title zoom track as a zooming animation targeting the Title Text and ending at 1.0000 at 20 frames per second with a duration of 12 frames.[=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a> The title zoom track is an animation track. The easing of the title zoom track is cubic easing in.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> The Title Text is an image-rendered string. The text-string is &quot;Your Title Here&quot;. The scaling factor is 0.0001.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> When play begins:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; animate the title zoom track as a zooming animation targeting the Title Text and ending at 1.0000 at 20 frames per second with a duration of 12 frames.</span></blockquote>
+
+    <p> Targeting a box primitive. Because a primitive's size is determined by its endpoint, we can only zoom the weight of the line used to draw the box. This animation, which cycles endlessly, will thus produce a box whose line-weight pulsates:</p>
+
+    <p><blockquote><span class="indexdullblue"><a href="javascript:pasteCode('The line-pulsation track is an animation track.[=0x000A=][=0x000A=]The Frame is a box primitive. The origin is { 10, 10 }. The endpoint is { 100, 100 }. The line-weight is 1.[=0x000A=][=0x000A=]To start pulsation:[=0x000A=][=0x0009=]animate the line-pulsation track as a zooming animation targeting the Frame and ending at 4.0000 at 8 frames per second with a duration of 8 frames, cycling.[=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a> The line-pulsation track is an animation track.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> The Frame is a box primitive. The origin is { 10, 10 }. The endpoint is { 100, 100 }. The line-weight is 1.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> To start pulsation:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; animate the line-pulsation track as a zooming animation targeting the Frame and ending at 4.0000 at 8 frames per second with a duration of 8 frames, cycling.</span></blockquote>
+
+    <p><p><span class="indexblack"><b><span id=docsec21>Section 6.4: Flicker animation tracks</span></b></span></p>
+    </p>
+
+    <p> A &quot;flicker&quot; track blinks the targeted object on and off. A flicker can target either of the following:</p>
+
+    <p><blockquote><span class="indexdullblue"> g-element<br>
+     g-canvas<br>
+     graphics g-window</span></blockquote>
+
+    <p> Basically, each frame, the targeted object will be toggled on or off. Targeting a canvas, of course, toggles the entire canvas and all of the elements displayed on it; moreover, if the canvas is currently displayed in more than one window, it will flicker in all windows where it is showing. If we target a window, then whatever canvas is shown in that window will be blinked on and off.</p>
+
+    <p> When targeting a window, we should be sure that there is currently a canvas associated with the window. If no canvas is currently associated with a window, we can bind one to it by setting the window's &quot;associated canvas&quot; property immediately before invoking the animation, e.g.:</p>
+
+    <p><blockquote><span class="indexdullblue"> now the associated canvas of the graphics-window is the alternate-canvas;<br>
+     animate...</span></blockquote>
+
+    <p> Canvases are toggled by changing the &quot;associated canvas&quot; property of the window to the &quot;g-null-canvas&quot; (empty, at least by default) and back again. The canvas is stored in the &quot;target-canvas&quot; property of the track.</p>
+
+    <p> To invoke a flicker animation, we have two options:</p>
+
+    <p><blockquote><span class="indexdullblue"> animate &lt;track&gt; as a flicker animation targeting &lt;target&gt; at &lt;interval&gt; with a duration of &lt;length&gt; frames, &lt;cycling&gt;&lt;randomized&gt;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> animate &lt;track&gt; as a flicker animation targeting &lt;target&gt; at &lt;interval&gt;, &lt;randomized&gt;</span></blockquote>
+
+    <p> If we set the &quot;cycling&quot; option, the flicker will continue ad infinitum until we stop it (perhaps using a callback on another animation; see the section on callbacks below). For the second option, which specifies no duration, the animation is automatically set to cycle.</p>
+
+    <p> If we set the &quot;randomized&quot; option, then the pattern of flickering will be randomized. Each frame, there is a 50% chance that the object will be toggled.</p>
+
+    <p> Usage examples:</p>
+
+    <p> Targeting a sprite, and cycling endessly:<blockquote><span class="indexdullblue"><a href="javascript:pasteCode('The neon track is an animation track.[=0x000A=][=0x000A=]The Neon Sign is a sprite. The display status is g-inactive.[=0x000A=][=0x000A=]When play begins:[=0x000A=][=0x0009=]animate the neon track as a flicker animation targeting the Neon Sign at 8 fps.[=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a> The neon track is an animation track.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> The Neon Sign is a sprite. The display status is g-inactive.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> When play begins:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; animate the neon track as a flicker animation targeting the Neon Sign at 8 fps.</span></blockquote>
+
+    <p> Targeting a window with a randomized flicker. Since the flicker is randomized, there is no way to ensure that the animation will end with the canvas visible. We can ensure that it will by specifying an animation callback for the track:<blockquote><span class="indexdullblue"><a href="javascript:pasteCode('The static track is an animation track. The animation-callback is [=0x0022=][@ now the associated canvas of the graphics-window is the target-canvas of the static track][=0x0022=].[=0x000A=][=0x000A=]The TV canvas is a g-canvas. The background image is Figure of Color Bars. The associated canvas of the graphics-window is the TV canvas.[=0x000A=][=0x000A=]To display static on the television:[=0x000A=][=0x0009=]animate the static track as a flicker animation targeting the graphics-window at 8 fps with a duration of 24 frames, randomized.[=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a> The static track is an animation track. The animation-callback is &quot;[@ now the associated canvas of the graphics-window is the target-canvas of the static track]&quot;.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> The TV canvas is a g-canvas. The background image is Figure of Color Bars. The associated canvas of the graphics-window is the TV canvas.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> To display static on the television:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; animate the static track as a flicker animation targeting the graphics-window at 8 fps with a duration of 24 frames, randomized.</span></blockquote>
+
+    <p> Note that easing equations have no effect on flicker tracks!</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec22>Section 6.5: Fade animation tracks</span></b></span></p>
+    </p>
+
+    <p> &quot;Fade&quot; animations fade in or out from a background color. Glulx does not provide the ability to change opacity dynamically, so this is accomplished by means of a rather terrible hack. Rather than change a property of the target object as other animation presets do, fade tracks actually draw a transparent PNG image on top of the target. By stepping through a series of PNGs with different opacities, we imitate fading in/out.</p>
+
+    <p> Fade animations require a special kind of Inform object called a &quot;fader&quot;. Like fonts and tilesets, faders are packaged as extensions plus the set of opacity-scaled images. Glimmr includes one sample fader called Glimmr Animation Fader - Black.</p>
+
+    <p> Fades can be invoked targeting any of these types of object:</p>
+
+    <p><blockquote><span class="indexdullblue"> g-element<br>
+     g-canvas<br>
+     graphics g-window</span></blockquote>
+
+    <p> When a g-element is targeted, the PNG image will be sized so that the entire element is covered by the fader overlay. If the target is a canvas, then the canvas dimensions will be faded; if a graphics window, then the entire window will be covered by the overlay. Selecting a canvas that is shown in multiple windows will fade the canvas in all windows simultaneously.</p>
+
+    <p> By default, all fader overlays will be placed on display-layer 9999. This should be sufficient for nearly all purposes, but can be changed if need be by writing, e.g. &quot;The display-layer of the black-fader is 30000.&quot; (The display layer is the z-level on which a given element is drawn; higher display layers are drawn later. See the documentation for Glimmr Canvas-Based Drawing.)</p>
+
+    <p> To invoke a fade preset:</p>
+
+    <p><blockquote><span class="indexdullblue"> animate &lt;track&gt; as a fade animation targeting &lt;target&gt; and using &lt;fader&gt; from &lt;starting percentage&gt; percent to &lt;ending percentage&gt; percent at &lt;interval&gt; with a duration of &lt;length&gt; frames, &lt;cycling&gt;</span></blockquote>
+
+    <p> We must specify both the starting and the ending percentage for the fader overlay. 100 percent is solid color, while 0 percent is fully transparent. Percentages are specified as integers, and the word percent can be abbreviated using the % sign, e.g.: 90 % (note the space before the symbol: it is required).</p>
+
+    <p> It is important to remember to manage the before and after states of the animation, since the fader overlay is drawn *only* during the animation. An element that is invisible will be made visible once the animation starts. See the usage examples for pointers.</p>
+
+    <p> The rate of change of opacities can be controlled via easing equations. This will work best when there are 20 steps or so (as in the black sample overlay).</p>
+
+    <p> Usage examples:</p>
+
+    <p> Targeting a sprite, fading in from a black background. We start with the sprite inactive so that it will not be visible until after the animation starts (starting the animation will automatically reveal it).<blockquote><span class="indexdullblue"><a href="javascript:pasteCode('The fade-in track is an animation track.[=0x000A=][=0x000A=]The Cover Image is a sprite. The display status is g-inactive.[=0x000A=][=0x000A=]To reveal the cover:[=0x000A=][=0x0009=]animate the fade-in track as a fade animation targeting the Cover Image and using the Black-fader from 100 percent to 0 percent at 8 fps with a duration of 12 frames.[=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a> The fade-in track is an animation track.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> The Cover Image is a sprite. The display status is g-inactive.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> To reveal the cover:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; animate the fade-in track as a fade animation targeting the Cover Image and using the Black-fader from 100 percent to 0 percent at 8 fps with a duration of 12 frames.</span></blockquote>
+
+    <p> Targeting a canvas, fading out to a black background. When the animation completes, the animation callback will swap the canvas for an empty canvas (the default &quot;g-null-canvas&quot;).<blockquote><span class="indexdullblue"><a href="javascript:pasteCode('The fade-out track is an animation track. The animation-callback is [=0x0022=][@ now the associated canvas of the graphics-window is the g-null-canvas][=0x0022=].[=0x000A=][=0x000A=]The graphics-canvas is a g-canvas. The background image is Figure of Cover. The associated canvas of the graphics-window is the graphics-canvas.[=0x000A=][=0x000A=]To conceal the cover:[=0x000A=][=0x0009=]animate the fade-out track as a fade animation targeting the graphics-canvas and using the Black-fader from 0 % to 100 % at 8 fps with a duration of 12 frames.[=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a> The fade-out track is an animation track. The animation-callback is &quot;[@ now the associated canvas of the graphics-window is the g-null-canvas]&quot;.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> The graphics-canvas is a g-canvas. The background image is Figure of Cover. The associated canvas of the graphics-window is the graphics-canvas.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> To conceal the cover:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; animate the fade-out track as a fade animation targeting the graphics-canvas and using the Black-fader from 0 % to 100 % at 8 fps with a duration of 12 frames.</span></blockquote>
+
+    <p> The rate of change in opacities can be controlled by easing equations.</p>
+
+    <p> By default, fader overlays block mouse input to the graphic elements beneath them. Once you start a fade animation over a button, for example, the player will no longer be able to click on the button. To prevent this, you can add this line of code to your source text:</p>
+
+    <p><blockquote><span class="indexdullblue"><a href="javascript:pasteCode('The graphlink status of a fader overlay is g-inactive.[=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a> The graphlink status of a fader overlay is g-inactive.</span></blockquote>
+
+    <p><p><span class="indexblack"><b><span id=docsec23>Section 6.6: Temporalizing animation tracks</span></b></span></p>
+    </p>
+
+    <p> A &quot;temporalizing&quot; track does nothing at all except count off frames at a given rate. It is intended primarily to be used for delays between animations, and is frequently employed in conjunction with animation callbacks.</p>
+
+    <p> To invoke a temporalizing preset animation, we can either specify a length or not:</p>
+
+    <p><blockquote><span class="indexdullblue"> animate &lt;track&gt; as a temporalizing animation at &lt;interval&gt; with a duration of &lt;length&gt; frames, &lt;cycling&gt;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> animate &lt;track&gt; as a temporalizing animation at &lt;interval&gt;, &lt;cycling&gt;</span></blockquote>
+
+    <p> Note that temporalizing animations have no target object-since they don't produce any visual effect, they don't need one. When the &quot;cycling&quot; option is set, a temporalizing animation will continue to cycle until stopped by some outside event, e.g. a callback.</p>
+
+    <p> Usage example:</p>
+
+    <p> A sprite moves right, then pauses a bit, then moves back to the left. The temporalizing animation is begun at the same time as the rightward movement, but continues for 6 frames beyond it and then fires a callback to begin the leftward movement:<blockquote><span class="indexdullblue"><a href="javascript:pasteCode('The patrol track is an animation track.[=0x000A=]The pause track is an animation track. The animation-callback of the pause track is [=0x0022=][@ complete the patrol][=0x0022=].[=0x000A=][=0x000A=]The Patroller is a sprite. The origin is { 0, 100 }.[=0x000A=][=0x000A=]To begin the patrol:[=0x000A=][=0x0009=]animate the patrol track as a motion animation targeting the Patroller and ending at { 300, 100 } at 8 fps with a duration of 24 frames;[=0x000A=][=0x0009=]animate the pause track as a temporalizing animation at 8 fps with a duration of 30 frames.[=0x000A=][=0x000A=]To complete the patrol:[=0x000A=][=0x0009=]animate the patrol track as a motion animation targeting the Patroller and ending at { 0, 100 } at 8 fps with a duration of 24 frames.[=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a> The patrol track is an animation track.<br>
+     The pause track is an animation track. The animation-callback of the pause track is &quot;[@ complete the patrol]&quot;.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> The Patroller is a sprite. The origin is { 0, 100 }.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> To begin the patrol:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; animate the patrol track as a motion animation targeting the Patroller and ending at { 300, 100 } at 8 fps with a duration of 24 frames;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; animate the pause track as a temporalizing animation at 8 fps with a duration of 30 frames.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> To complete the patrol:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; animate the patrol track as a motion animation targeting the Patroller and ending at { 0, 100 } at 8 fps with a duration of 24 frames.</span></blockquote>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec24>Chapter 7: Parameterized animation tracks</span></b></span></p>
+    </p>
+
+    <p> A &quot;parameterized&quot; track is one to which the author must supply the parameter on which the track will act-generally a property of the targeted g-element, canvas, or window. Whereas a reel animation track, for example, works only on the image-ID of a sprite or the background image of a canvas, a parameterized reel track can affect pretty much any visually significant property.</p>
+
+    <p> A parameterized track can work on only one property of one object at a time.</p>
+
+    <p> If you are not using any parameterized tracks in your game, you can include the following code in your game to stop the code that supports them from being compiled into the game; this will save a bit on memory.</p>
+
+    <p><blockquote><span class="indexdullblue"><a href="javascript:pasteCode('Part - Delete parameterized animations (in place of Part - Parameterized animations in Glimmr Canvas Animation by Erik Temple)[=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a> Part - Delete parameterized animations (in place of Part - Parameterized animations in Glimmr Canvas Animation by Erik Temple)</span></blockquote>
+
+    <p><p><span class="indexblack"><b><span id=docsec25>Section 7.1: Parameterized reel animation tracks</span></b></span></p>
+    </p>
+
+    <p> A parameterized reel animation loops through a list of values and assigns those in turn to the chosen parameter. The types of values that can be passed as a parameters are given below; these include more or less all of the visually significant properties provided by Glimmr extensions.</p>
+
+    <p><blockquote><span class="indexdullblue"> figure names<br>
+     lists of numbers<br>
+     numbers<br>
+     indexed texts<br>
+     lists of lists of numbers<br>
+     lists of lists of figure names<br>
+     objects<br>
+     real numbers</span></blockquote>
+
+    <p> To set up a parameterized reel, we must supply a list of values (the &quot;reel&quot;) of the same type as the chosen parameter. For example, a reel of figure names targeting the image-ID property of a sprite will produce a result nearly identical to that of using a standard reel animation-a flipbook-like sequence of images. Our reel must be one of the predefined list properties of our track. Here are the names of those list properties, followed by the type of value associated with each.</p>
+
+    <p><blockquote><span class="indexdullblue"> image-reel - figure names<br>
+     color-reel - texts<br>
+     coordinates-reel - lists of numbers<br>
+     numerical-reel - numbers<br>
+     indexed-text-reel - indexed texts<br>
+     numerical-array-reel - list of lists of numbers<br>
+     image-array-reel - list of lists of figure names<br>
+     associated-objects-reel - objects<br>
+     scaling-reel - real numbers</span></blockquote>
+
+    <p> To invoke a parameterized reel animation:</p>
+
+    <p><blockquote><span class="indexdullblue"> animate &lt;track&gt; as a parameterized reel animation targeting &lt;chosen parameter/property&gt; of &lt;target&gt; at &lt;interval&gt; with a duration of &lt;length&gt; frames, &lt;cycling&gt;&lt;randomized&gt;</span></blockquote>
+
+    <p> If we wish, we may omit the duration, resulting in this variant phrasing:</p>
+
+    <p><blockquote><span class="indexdullblue"> animate &lt;track&gt; as a parameterized reel animation targeting &lt;chosen parameter/property&gt; of &lt;target&gt; at &lt;interval&gt;, &lt;cycling&gt;&lt;randomized&gt;</span></blockquote>
+
+    <p> If we do this, the duration will be set automatically to the number of entries in the reel that corresponds to the type of the property we've chosen. And if we set the &quot;cycling&quot; option when no duration has been set, the track will continue to repeat ad infinitum, or until stopped by another event (such as a callback from another track; see the section on callbacks).</p>
+
+    <p> The entries in the reel list will be shown in order, unless we've set the &quot;randomized&quot; option, in which case an entry will be chosen at random from the reel for each frame. (We can of course include multiple mentions of the same entity to influence percentages; if value A is listed twice in the reel while value B is listed just once, then the chance that value A will be displayed is twice as great as the chance that value B will be.)</p>
+
+    <p> Examples of usage:</p>
+
+    <p> The position of the cursor in a bitmap-rendered string:<blockquote><span class="indexdullblue"><a href="javascript:pasteCode('The wandering cursor track is an animation track. The numerical-reel is { 26, 25, 24, 24, 24, 25, 26, 27 }.[=0x000A=][=0x000A=]Well-Considered Phrase is a bitmap-rendered string. The text-string is [=0x0022=]It was a dark and stormy...[=0x0022=]. The cursor is 27.[=0x000A=][=0x000A=]To move cursor aimlessly:[=0x000A=][=0x0009=]animate the wandering cursor track as a parameterized reel animation targeting the cursor of the Well-Considered Phrase at 6 fps, cycling.[=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a> The wandering cursor track is an animation track. The numerical-reel is { 26, 25, 24, 24, 24, 25, 26, 27 }.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Well-Considered Phrase is a bitmap-rendered string. The text-string is &quot;It was a dark and stormy...&quot;. The cursor is 27.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> To move cursor aimlessly:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; animate the wandering cursor track as a parameterized reel animation targeting the cursor of the Well-Considered Phrase at 6 fps, cycling.</span></blockquote>
+
+    <p> The position of a sprite, &quot;teleporting&quot; from location to location on the canvas:<blockquote><span class="indexdullblue"><a href="javascript:pasteCode('The teleporting track is an animation track. The coordinates-reel is { { 10, 10 }, { 152, 45 }, { 345, 12 }, { 72, 72 }, { 0, 400 } }.[=0x000A=][=0x000A=]Bamff is a sprite. The origin is { 330, 330 }.[=0x000A=][=0x000A=]To teleport:[=0x000A=][=0x0009=]animate the teleporting track as a parameterized reel animation targeting the origin of Bamff at 2 fps.[=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a> The teleporting track is an animation track. The coordinates-reel is { { 10, 10 }, { 152, 45 }, { 345, 12 }, { 72, 72 }, { 0, 400 } }.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Bamff is a sprite. The origin is { 330, 330 }.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> To teleport:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; animate the teleporting track as a parameterized reel animation targeting the origin of Bamff at 2 fps.</span></blockquote>
+
+    <p> Showing different text strings randomly:<blockquote><span class="indexdullblue"><a href="javascript:pasteCode('The flashcard track is an animation track. The indexed-text-reel is { [=0x0022=]Eat only meats![=0x0022=], [=0x0022=]Capitalize on murder![=0x0022=], [=0x0022=]Fleece your neighbor![=0x0022=], [=0x0022=]Wear plaid![=0x0022=], [=0x0022=]Treacle trickles![=0x0022=] }.[=0x000A=][=0x000A=]The card is an image-rendered string. The text-string is [=0x0022=][=0x0022=]. The background tint is g-white.[=0x000A=][=0x000A=]When play begins:[=0x000A=][=0x0009=]animate the flashcard track as a parameterized reel animation targeting the text-string of the Card at 900 milliseconds per frame, randomized and cycling.[=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a> The flashcard track is an animation track. The indexed-text-reel is { &quot;Eat only meats!&quot;, &quot;Capitalize on murder!&quot;, &quot;Fleece your neighbor!&quot;, &quot;Wear plaid!&quot;, &quot;Treacle trickles!&quot; }.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> The card is an image-rendered string. The text-string is &quot;&quot;. The background tint is g-white.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> When play begins:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; animate the flashcard track as a parameterized reel animation targeting the text-string of the Card at 900 milliseconds per frame, randomized and cycling.</span></blockquote>
+
+    <p> Easing equations normally have no effect on parameterized reel tracks. However, see the section on standard reel tracks above for the use of easing to extend or contract the apparent timing of reel transitions.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec26>Section 7.2: Parameterized motion animation tracks</span></b></span></p>
+    </p>
+
+    <p> Parameterized motion tracks are like standard motion tracks (see above), except that they can target any number or coordinate property. Practically, what this means is that we can use a motion track to act on the following properties:</p>
+
+    <p><blockquote><span class="indexdullblue"> origin (coordinate)<br>
+     endpoint (coordinate)<br>
+     cursor (number)<br>
+     line-weight (number)<br>
+     bit-size (number)</span></blockquote>
+
+    <p> Clearly, parameterized motion tracks can be used on a much narrower range of properties than parameterized reel tracks; they work only on those numerical properties for which continuous motion is possible.</p>
+
+    <p> A parameterized motion animation on the origin coordinate is almost exactly equivalent to the basic motion track preset, with the important exception that, for g-elements that have an endpoint property (i.e., primitives), the endpoint is *not* moved along with the origin, as does happen with the motion preset. This allows us to use a parameterized motion animation targeting the origin to move the upper left corner (origin) of a primitive independently of its lower right (endpoint). And of course, targeting the endpoint will move it independently of the origin.</p>
+
+    <p> To invoke a parameterized motion track:</p>
+
+    <p><blockquote><span class="indexdullblue"> animate &lt;track&gt; as a parameterized motion animation targeting &lt;chosen parameter/property&gt; of &lt;target&gt; and ending at &lt;end point&gt; at &lt;interval&gt; with a duration of &lt;length&gt; frames, &lt;cycling&gt;</span></blockquote>
+
+    <p> Or, specifying the average velocity of movement rather than the length of the animation:</p>
+
+    <p><blockquote><span class="indexdullblue"> animate &lt;track&gt; as a parameterized motion animation targeting &lt;chosen parameter/property&gt; of &lt;target&gt; and ending at &lt;end point&gt; at &lt;interval&gt; with a velocity of &lt;velocity&gt; units, &lt;cycling&gt;</span></blockquote>
+
+    <p> The &lt;end point&gt; token can be either a coordinate (list of two numbers) or a number (single digit), or a variable containing one of these.</p>
+
+    <p> Usage examples:</p>
+
+    <p> Animating the endpoint coordinate of a line, so that it sweeps back and forth across the screen:<blockquote><span class="indexdullblue"><a href="javascript:pasteCode('The sweeping track is an animation track.[=0x000A=][=0x000A=]The Scanline is a line primitive. The origin is { 200, 100 }. The endpoint of the Scanline is { 0, 0 }.[=0x000A=][=0x000A=]When play begins:[=0x000A=][=0x0009=]animate the sweeping track as a parameterized motion animation targeting the endpoint of the Scanline and ending at { 400, 0 } at 10 fps with a velocity of 10 units.[=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a> The sweeping track is an animation track.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> The Scanline is a line primitive. The origin is { 200, 100 }. The endpoint of the Scanline is { 0, 0 }.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> When play begins:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; animate the sweeping track as a parameterized motion animation targeting the endpoint of the Scanline and ending at { 400, 0 } at 10 fps with a velocity of 10 units.</span></blockquote>
+
+    <p> Animating by a simple number rather than by a coordinate. Here we move a cursor from the end of a short text back to the beginning, but with bounce easing set to move it back and forth, a bit aimlessly, along the way:<blockquote><span class="indexdullblue"><a href="javascript:pasteCode('The wandering cursor track is an animation track. The easing is the bounce easing out rule.[=0x000A=][=0x000A=]Well-Considered Phrase is a bitmap-rendered string. The text-string is [=0x0022=]It was a dark and stormy...[=0x0022=]. The cursor is 27.[=0x000A=][=0x000A=]When play begins:[=0x000A=][=0x0009=]animate the wandering cursor track as a parameterized motion animation targeting the cursor of the Well-Considered Phrase and ending at 0 at 6 fps with a velocity of 1 unit.[=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a> The wandering cursor track is an animation track. The easing is the bounce easing out rule.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Well-Considered Phrase is a bitmap-rendered string. The text-string is &quot;It was a dark and stormy...&quot;. The cursor is 27.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> When play begins:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; animate the wandering cursor track as a parameterized motion animation targeting the cursor of the Well-Considered Phrase and ending at 0 at 6 fps with a velocity of 1 unit.</span></blockquote>
+
+    <p> Parameterized motion animations can use easing equations to influence the timing and path of movement. Because coordinate-based parameterized motion animations can move on two axes (i.e., the x and y axes), we can use different easing equations simultaneously on the two axes. If we specify only the &quot;easing&quot; for the track, then the same easing equation will be applied to both axes. If we also supply the &quot;secondary easing&quot; for the track, then the easing will apply to the x axis, while the secondary easing applies to the y axis. To reset a track to the defaults after using secondary easing, we specify the &quot;null easing rule&quot; for the secondary track, e.g.</p>
+
+    <p><blockquote><span class="indexdullblue"> now the easing of the default track is the linear easing rule;<br>
+     now the secondary easing of the default track is the null easing rule.</span></blockquote>
+
+    <p> See the &quot;Eased Movements&quot; example to explore the effect of easing, including differential-axis easing, on animated movement.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec27>Section 7.3: Parameterized zooming animation tracks</span></b></span></p>
+    </p>
+
+    <p> A parameterized zooming track is, as might be guessed, very similar to the standard zooming track. It can operate on any of the following four properties:</p>
+
+    <p><blockquote><span class="indexdullblue"> scaling factor (of a g-element)<br>
+     x-scaling factor (of a g-element)<br>
+     y-scaling factor (of a g-element)<br>
+     arbitrary scaling factor (of a window)</span></blockquote>
+
+    <p> For most purposes, we should just use the standard zooming track. The main use for the parameterized zooming preset is to allow us to set the x-scaling and y-scaling factors of a g-element separately; this works only when the &quot;asymmetrical scaling&quot; use option is set (see docs for Glimmr Canvas-Based Drawing).</p>
+
+    <p> To invoke a parameterized zooming track:</p>
+
+    <p><blockquote><span class="indexdullblue"> animate &lt;track&gt; as a parameterized zooming animation targeting &lt;chosen parameter/property&gt; of &lt;target&gt; and ending at &lt;final scaling factor&gt; at &lt;interval&gt; with a duration of &lt;length&gt; frames, &lt;cycling&gt;</span></blockquote>
+
+    <p> Usage example:</p>
+
+    <p> Animating the scaling of only the y-axis to &quot;compress&quot; a sprite visually. Making the sprite right-aligned causes it to be anchored at the bottom:<blockquote><span class="indexdullblue"><a href="javascript:pasteCode('Use asymmetrical scaling.[=0x000A=][=0x000A=]The squishy track is an animation track.[=0x000A=][=0x000A=]The Ball is a sprite. It is right-aligned. The image-ID is Figure of Ball.[=0x000A=][=0x000A=]To squish the blob:[=0x000A=][=0x0009=]animate the squishy track as a parameterized zooming animation targeting the y-scaling factor of the Blob and ending at 0.1000 at 24 fps with a duration of 4 frames.[=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a> Use asymmetrical scaling.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> The squishy track is an animation track.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> The Ball is a sprite. It is right-aligned. The image-ID is Figure of Ball.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> To squish the blob:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; animate the squishy track as a parameterized zooming animation targeting the y-scaling factor of the Blob and ending at 0.1000 at 24 fps with a duration of 4 frames.</span></blockquote>
+
+    <p> Easing equations can be applied to a parameterized zooming track just as they can a standard zooming track.</p>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec28>Chapter 8: Custom animations</span></b></span></p>
+    </p>
+
+    <p> It is also possible to create entirely custom animations, using the &quot;custom&quot; preset. The built-in phrase for custom presets addresses only the interval, duration, and modality (i.e., cycling or randomized) of the track. It does not allow for the specification of a target object, largely because there is no assumption that the &quot;animation&quot; produced will be graphical in nature. Custom tracks can be used for any effect that can be thought of in terms of recurring frames, and in fact it is assumed that custom tracks will most likely be used for real-time events that don't involve graphical displays.</p>
+
+    <p> To invoke a custom animation, we can use this phrase:</p>
+
+    <p><blockquote><span class="indexdullblue"> animate &lt;track&gt; as a custom animation at &lt;interval&gt; with a duration of &lt;length&gt; frames, &lt;randomized&gt;&lt;cycling&gt;</span></blockquote>
+
+    <p> Or, without specifying a duration:</p>
+
+    <p><blockquote><span class="indexdullblue"> animate &lt;track&gt; as a custom animation at &lt;interval&gt;, &lt;randomized&gt;&lt;cycling&gt;</span></blockquote>
+
+    <p> Note that the latter will have a duration of 1 frame by default unless we specify it some other way.</p>
+
+    <p> On its own, our &quot;animate...&quot; phrase will do nothing. We also need to write an animation rule to implement the animation itself. Note that while cycling behavior will be implemented automatically, we would need to write our own randomization logic into our animation rule for the &quot;randomized&quot; option to have any effect (in the vast majority of cases, we will just ignore that option).</p>
+
+    <p> The animation rule belongs to the &quot;animation&quot; rulebook, and is parameterized on the animation track to be animated. In other words, if we have defined a custom animation track called &quot;my anim-track&quot;, then we would write our animation rule's preamble like this:</p>
+
+    <p><blockquote><span class="indexdullblue"> Animation rule for my anim-track:</span></blockquote>
+
+    <p> (As with any other rule, of course, we can also attach conditions to the preamble, e.g. &quot;An animation rule for my anim-track when the player carries the gun&quot;, or specify &quot;first animation rule...&quot; or &quot;last animation rule...&quot; to influence the rulebook ordering.)</p>
+
+    <p> GCA provides only one rule intended for custom tracks: the &quot;minimal custom animation rule&quot;, which serves only to print a simple message to the debugging log. We can delist it if we want to provide our own debugging log print statements (see the extension's source code for examples).</p>
+
+    <p> We can use the phrase &quot;cease animating &lt;track&gt;&quot; to stop our custom track or any other. This will halt the animation immediately and fire its animation-callback, and is useful both for cycling animations and for those which we need to end early for some reason. A quick usage example:</p>
+
+    <p><blockquote><span class="indexdullblue"> Animation rule for my anim-track:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; if the player wears the girdle:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cease animating my anim-track.</span></blockquote>
+
+    <p><p><span class="indexblack"><b><span id=docsec29>Section 8.1: Usage examples</span></b></span></p>
+    </p>
+
+    <p> Here are a couple of examples of custom animation rules, and the code needed to set them up.</p>
+
+    <p> This code produces a timer that counts the seconds in the status bar.</p>
+
+    <p><blockquote><span class="indexdullblue"><a href="javascript:pasteCode('The timer display is an animation track.[=0x000A=][=0x000A=]Seconds elapsed is a number variable.[=0x000A=][=0x000A=]When play begins:[=0x000A=][=0x0009=]now the right hand status line is [=0x0022=]s: [seconds elapsed][=0x0022=];[=0x000A=][=0x0009=]animate the timer display as a custom animation at 1 frame per second, cycling.[=0x000A=][=0x000A=]Animation rule for the timer display:[=0x000A=][=0x0009=]increase the seconds elapsed by 1;[=0x000A=][=0x0009=]now the right hand status line is [=0x0022=]s: [seconds elapsed][=0x0022=];[=0x000A=][=0x0009=]update the status line;[=0x000A=][=0x0009=]advance the timer display.[=0x000A=][=0x000A=]To update the/-- status line:[=0x000A=][=0x0009=](-  if (gg_statuswin) DrawStatusLine(); -) [=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a> The timer display is an animation track.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Seconds elapsed is a number variable.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> When play begins:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; now the right hand status line is &quot;s: [seconds elapsed]&quot;;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; animate the timer display as a custom animation at 1 frame per second, cycling.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Animation rule for the timer display:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; increase the seconds elapsed by 1;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; now the right hand status line is &quot;s: [seconds elapsed]&quot;;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; update the status line;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; advance the timer display.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> To update the/-- status line:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; (-  if (gg_statuswin) DrawStatusLine();  -)</span></blockquote>
+
+    <p> This code simply counts down (silently) to a desired real-time event.</p>
+
+    <p><blockquote><span class="indexdullblue"><a href="javascript:pasteCode('The countdown is an animation track.[=0x000A=]The animation-callback of the countdown is [=0x0022=]Kablooie![=0x0022=].[=0x000A=][=0x000A=]When play begins:[=0x000A=][=0x0009=]say [=0x0022=]The bomb will go off in 180 seconds.[=0x0022=];[=0x000A=][=0x0009=]animate the countdown as a custom animation at 1 frame per second with a duration of 180 frames.[=0x000A=][=0x000A=]Animation rule for the countdown:[=0x000A=][=0x0009=]advance countdown.[=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a> The countdown is an animation track.<br>
+     The animation-callback of the countdown is &quot;Kablooie!&quot;.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> When play begins:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; say &quot;The bomb will go off in 180 seconds.&quot;;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; animate the countdown as a custom animation at 1 frame per second with a duration of 180 frames.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Animation rule for the countdown:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; advance countdown.</span></blockquote>
+
+    <p><p><span class="indexblack"><b><span id=docsec30>Section 8.2: Important note about animations that print text</span></b></span></p>
+    </p>
+
+    <p> It is illegal to print text to a window if that window is awaiting input from the player, though some interpreters will allow it. In the vast majority of games, this means that we should not use an animation rule to print text to the main window unless we invoke the &quot;delay input until all animations are complete&quot; phrase. Other text windows, including the status line, will not cause any problem unless we are also requesting input in those windows.</p>
+
+    <p> (Note that the animation debugging provided by this extension is subject to the same rules. If we are not using the Glimmr Debugging Console extension or another alternate stream for the output from the debugger, it will only print in some interpreters. Conveniently, both the OS X and Windows IDEs allow such illegally printed text; Gargoyle, however, does not. See the section on Debugging below for more on redirecting the debugging log to alternate streams.)</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec31>Section 8.3: Adding easing to a custom animation</span></b></span></p>
+    </p>
+
+    <p> If we want to add easing (see section on Easing below) to a custom animation rule, we must pass the appropriate parameters into the track's easing equation using this construction:</p>
+
+    <p><blockquote><span class="indexdullblue"> the easing of &lt;track&gt; applied to the &lt;current frame&gt; and &lt;duration&gt; and &lt;starting value&gt; and &lt;difference between starting and ending value&gt;</span></blockquote>
+
+    <p> For example, to calculate the current position on a scale of 1 to 100 in a cycling animation according to some easing equation, we would do something this:</p>
+
+    <p><blockquote><span class="indexdullblue"> let cyclic-frame be current-frame of my anim-track - (cycles completed of my anim-track * cycle-length of my anim-track);<br>
+     let x be the easing of my anim-track applied to the cyclic-frame and the cycle-length of my anim-track and 1 and 99;</span></blockquote>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec32>Chapter 9: Easing (Tweening)</span></b></span></p>
+    </p>
+
+    <p> The term &quot;easing&quot; refers to motions in which the acceleration changes over time. The term may seem strange, but think of it in terms of easing into a chair-your body moves more slowly as you approach the cushion. Easing equations can imitate this sort of gradual slowing as the motion reaches the endpoint, and they can also do much more, such as imitate the bouncing of a ball, or overshoot the endpoint and snap back.</p>
+
+    <p> Easing is closely related to the concept of &quot;tweening&quot;. Briefly, tweening is short for &quot;in-betweening&quot;. In traditional animation, animations were organized around key frames--the critical points in any sequence. These keyframes were drawn first, and then the &quot;betweens&quot; were filled in to connect those key moments smoothly; because they were less critical, they were often filled in by the lower ranks of the animation team. In computer animation, keyframes are defined by the user, and the tweening is done automatically by the software.</p>
+
+    <p> Glimmr Canvas Animation (GCA) is no different, though it doesn't really use the concept of the keyframe. Where programs like Flash have a master timeline punctuated by user-defined keyframes, each GCA animation track can be thought of as a self-contained timeline separating two keyframes-the starting and ending points of that particular motion or effect. GCA builds sophisticated and customizable tweening into nearly all of the preset animation types via the use of &quot;easing&quot; equations that interpolate movement between the starting and ending points.</p>
+
+    <p> The most common use of easing is in moving objects across the screen, but easing equations can be used on any continuous field of values, not just coordinates in space. For example, when used on a zooming track: instead of proceeding from 50% of actual size to 100% by equal intervals, the zoom might be &quot;eased&quot; using a cubic ease-out equation so that the size change starts out rapid, increases slightly in speed for the first 1/2 or so of the duration, and then slows comparatively quickly. (For just such an effect, see the Maps of Murder example included with this extension.)</p>
+
+    <p> The best way to start exploring the effects that easing can have on your animations is probably to try out the &quot;Eased Movements&quot; example included with this extension. You might also want to check out these online resources:</p>
+
+    <p><blockquote><span class="indexdullblue"> http://glimmr.wordpress.com/2011/06/11/animation-demo-series-2/<br>
+     http://en.wikipedia.org/wiki/Tweening<br>
+     http://www.actionscript.org/forums/showthread.php3? t=5312<br>
+     http://www.gizma.com/easing/<br>
+     http://timotheegroleau.com/Flash/experiments/easing_function_generator.htm<br>
+     http://snippets.dzone.com/posts/show/4005<br>
+     http://jqueryui.com/demos/effect/easing.html</span></blockquote>
+
+    <p><p><span class="indexblack"><b><span id=docsec33>Section 9.1: Types of easing</span></b></span></p>
+    </p>
+
+    <p> GCA has 16 easing equations built in, from purely linear to a quadratic curve to a parabolic bounce. If these don't meet your needs, you can also add your own equations (see below for a few notes on rolling your own).</p>
+
+    <p> Most of the included equations are available in three flavors each. &quot;Easing out&quot; describes a sequence in which motion starts out moving rapidly and then slows, more or less gradually, to a stop. &quot;Easing in&quot; is the opposite--slow to fast. &quot;Easing in-out&quot; combines the two effects. Different functions are used to qualify these three basic categories, resulting in the full names of the easing equations: &quot;quadratic easing in&quot; for example, or &quot;circular easing out&quot;.</p>
+
+    <p> Here are the names of the built-in equations:</p>
+
+    <p><blockquote><span class="indexdullblue"> linear easing (constant speed-the default, not really &quot;eased&quot; at all)</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> quadratic easing in<br>
+     quadratic easing out<br>
+     quadratic easing in-out</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> cubic easing in<br>
+     cubic easing out<br>
+     cubic easing in-out</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> circular easing in<br>
+     circular easing out<br>
+     circular easing in-out</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> cubic back easing in<br>
+     cubic back easing out<br>
+     cubic back easing in-out</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> bounce easing in<br>
+     bounce easing out<br>
+     bounce easing in-out</span></blockquote>
+
+    <p> Again, see the &quot;Eased Movements&quot; example included with the extension to preview each of these effects.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec34>Section 9.2: Assigning easing to animation tracks</span></b></span></p>
+    </p>
+
+    <p> Assigning an easing equation to an animation track is simple. An animation track has a property called the &quot;easing&quot;, and we simply assign the appropriate easing function to this property, e.g.:</p>
+
+    <p><blockquote><span class="indexdullblue"> the easing of the default track is the bounce easing in rule</span></blockquote>
+
+    <p> If we don't specify an easing, then the default &quot;linear easing&quot; rule will be used. This rule does not involve any speed variations; it provides a simple linear interpolation of values.</p>
+
+    <p> Note that motion and parameterized motion tracks (but no others) can also utilize a &quot;secondary easing&quot;. If a secondary easing function is applied, then this function will apply only to the y-axis, while the primary easing function will be used for the x-axis:</p>
+
+    <p><blockquote><span class="indexdullblue"> The easing of the complex movement track is the cubic easing in rule.<br>
+     The secondary easing of the complex movement track is the circular easing out rule.</span></blockquote>
+
+    <p> If we want to reset the secondary easing, we can do that by specifying &quot;null easing&quot;. These phrases would return our track to its initial state:</p>
+
+    <p><blockquote><span class="indexdullblue"> now the easing of the complex movement track is the linear easing rule;<br>
+     now the secondary easing of the complex movement track is the null easing rule.</span></blockquote>
+
+    <p><p><span class="indexblack"><b><span id=docsec35>Section 9.3: Implementation details</span></b></span></p>
+    </p>
+
+    <p> Every easing equation utilizes four parameters, conventionally known as &quot;t&quot;, &quot;d&quot;, &quot;b&quot;, and &quot;c&quot;:</p>
+
+    <p><blockquote><span class="indexdullblue"> t - time, the current frame of the animation.<br>
+     d - duration, the length in frames of the animation.<br>
+     b - initial value of the property being animated; that is, the value at a &quot;t&quot; of 0.<br>
+     c - change, the difference between the ending value of the property being animated and the initial value (i.e., &quot;b&quot;).</span></blockquote>
+
+    <p> The values for &quot;t&quot; and &quot;d&quot; are calculated as needed (generally equivalent to the current-frame and the animation-length properties of the track), but the &quot;b&quot; and &quot;c&quot; are are initialized when the &quot;animate...&quot; phrase is invoked, and are stored in the following properties of the animation track itself:</p>
+
+    <p><blockquote><span class="indexdullblue"> start-x (&quot;b&quot;) - The initial value or x-coordinate of the object being animated. In the case of a zooming animation, this number is an integer representation of the scaling factor (the latter multiplied by 10,000).<br>
+     start-y (&quot;b&quot;) - In the case of a motion animation or a zooming animation when we are scaling on both axes independently, we may also store the initial value or y-coordinate of the object being animated, for use in the secondary easing equation.<br>
+     delta-x (&quot;c&quot;) - The difference between the ending value that we provide in the &quot;animate&quot; phrase and the starting value stored in start-x (i.e., the &quot;b&quot; parameter).<br>
+     delta-y (&quot;c&quot;) - If we are using a secondary easing equation, the difference between the ending value that we provide in the &quot;animate&quot; phrase and the starting value stored in start-y (i.e., the &quot;b&quot; parameter).</span></blockquote>
+
+    <p><p><span class="indexblack"><b><span id=docsec36>Section 9.4: Adding custom easing equations</span></b></span></p>
+    </p>
+
+    <p> Adding new easing equations is both easy and difficult. It is easy in that there's not much to the mechanics of the process. We simply define a &quot;to decide&quot; phrase using a certain rigid form for the preamble. Here is the preamble for one of the phrases included with GCA. We would copy this preamble exactly, replacing the capitalized phrase with the name of our equation:</p>
+
+    <p><blockquote><span class="indexdullblue"><a href="javascript:pasteCode('To decide what number is QUADRATIC EASING IN for time (t - a number) duration (d - a number) beginning (b - a number) change (c - a number) (this is the QUADRATIC EASING IN rule):[=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a> To decide what number is QUADRATIC EASING IN for time (t - a number) duration (d - a number) beginning (b - a number) change (c - a number) (this is the QUADRATIC EASING IN rule):</span></blockquote>
+
+    <p> Now on to what's hard about writing new equations. First, coming up with them in the first place. GCA borrows equations from various places around the web (see the resources listed above and in the comments to the extension's source code). There are certainly other equations out there, and the easiest thing will be to borrow those.</p>
+
+    <p> The next difficult thing is dealing with Inform's limited math capabilities. Inform does not follow the standard rules for precedence in mathematical operations, so we need to be very liberal in using parentheses to spell out for Inform which operations should be grouped together.</p>
+
+    <p> Here's an example of a relatively simple equation from those included with GCA:</p>
+
+    <p><blockquote><span class="indexdullblue"> To decide what number is QUADRATIC EASING IN for time (t - a number) duration (d - a number) beginning (b - a number) change (c - a number) (this is the QUADRATIC EASING IN rule):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; let t1 be (t plus 0.0) / d;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; decide on (c * t1 * t1) + b to the nearest whole number.</span></blockquote>
+
+    <p> Once we've completed our equation, we can refer to it just as if it were one of the built-in equations; no additional steps are needed:</p>
+
+    <p><blockquote><span class="indexdullblue"> My anim-track is an animation track. The easing is the polysyllabic easing out rule.</span></blockquote>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec37>Chapter 10: Debugging</span></b></span></p>
+    </p>
+
+    <p> Because the standard Glimmr debugging log already generates a lot of debugging output, Glimmr Canvas Animation uses a separate debugging option. To enable the log messages from GCA, enable this use option:</p>
+
+    <p><blockquote><span class="indexdullblue"> Use animation debugging.</span></blockquote>
+
+    <p> This can be used alongside standard Glimmr debugging (&quot;Use Glimmr debugging&quot;), though the output will likely be overwhelming.</p>
+
+    <p> By default, the animation log is written to the main window. However, unless we are using the &quot;delay input until all animations are complete&quot;, we may not see the output in the main window, particularly the per-frame animation debugging messages. This is because in Glk/Glulx, it is illegal to print text to a window if that window is awaiting input from the player. Some interpreters, including those in the Mac and Windows IDEs, will allow this illegal printing. Others, such as Gargoyle, do not. To be sure that we are seeing debugging log output, we may want to do one of the following:</p>
+
+    <p><blockquote><span class="indexdullblue"> 1) Include the Glimmr Debugging Console extension, to segregate Glimmr logging output into its own window.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> 2) We can set up our own alternate text-buffer window and direct log output there by setting the &quot;console output window&quot; variable, e.g.:</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> The console output window is my-text-window.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> 3) We can also send console log output to the transcript, while not printing it anywhere else. To do this, we include this code in our story file:</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> To say &gt;console:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say echo stream of main-window.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> To say &lt;:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say stream of main-window;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say run paragraph on.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> This will only work when a transcript is actually being written. To ensure that we do not forget to initiate one, we can include this:</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> When play begins:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; try switching the story transcript on.</span></blockquote>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec38>Chapter 11: Performance Tips</span></b></span></p>
+    </p>
+
+    <p><blockquote><span class="indexdullblue"> 1. Test outside of the IDE. Games played within the Inform IDE will be slower than games played in an external interpreter. The Mac IDE may sometimes show minor scaling artifacts that are not seen with external interpreters. Try pressing the Release button to produce a blorb file, and play that file in the latest version of a fast, modern interpreter.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> 2. Bes sure to test in all of the interpreters that you expect your players to use.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> 3. Be sure that your images are not too large. Images should be sized no larger than you want them to appear onscreen.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> 4. Interpreters will vary in their ability to scale large images rapidly. Zoom handles this scaling quite well, but most other interpreters are not very good. While Gargoyle is actually faster than Zoom at most graphics operations, its performance at scaling large images is middling; it is the best alternative to Zoom, but is nowhere near as fast.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> 5. If you have multiple graphics windows, only some of which have animations, change or preempt the &quot;animation window-updating rule&quot; to be more selective. This rule redraws *all* of the open graphics windows for each frame of an animation; we should rewrite it to update only the windows that we are animating.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> 6. If you have multiple animations running at once, see whether you get better performance by running them at the same rate. If you have animations running at different rates, make one a (preferably low) multiple of the other, e.g. 100 ms per frame and 200 ms per frame. This will mean fewer timer ticks where nothing meaningful takes place.</span></blockquote>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec39>Chapter 12: Contact info</span></b></span></p>
+    </p>
+
+    <p> This extension is released under the Creative Commons Attribution licence. Bug reports, feature requests or questions should be made at &lt;https:/github.com/i7/extensions/issues&gt;.</p>
+
+    <p> For questions about Glimmr, please consider posting to either the rec.arts.int-fiction newsgroup or at the intfiction forum (http://www.intfiction.org/forum/). This allows questions to be public, where the answers can also benefit others.</p>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec40>Chapter 13: Change Log</span></b></span></p>
+    </p>
+
+    <p> Version 2: Updated for 6M62 by Dannii Willis</p>
+
+    <p> Version 1: Initial release.</p>
+
+    <p><hr>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td halign="left" valign="top" cellpadding=0 cellspacing=0 width=38px>
+                <span id=eg1><table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="oval">
+                        <td width=38px height=30px align="left" valign="center">
+                            <a href="Glimmr Canvas Animation-eg1.html#eg1" style="text-decoration: none"><div class="paragraph Body" style="line-height: 1px; margin-bottom: 0px; margin-top: 0px; padding-bottom: 0pt; padding-top: 0px; text-align: center;">
+                                <span class="extensionexampleletter">A</span></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                </span>
+            </td>
+            <td cellpadding=0 cellspacing=0 halign="left" valign="top">
+                <a href="Glimmr Canvas Animation-eg1.html#eg1" style="text-decoration: none"><img border="0" src='inform:/doc_images/asterisk.png'><b><span class="indexdarkgrey">&nbsp;Example&nbsp;</span><span class="indexblack">Animation Rule Variations</span></b></a><br>
+                <p>This simple example shows how we can vary preset animations by adding rules to the animation rulebook. We'll have four variations on a simple horizontal motion animation. The &quot;player&quot; can choose from among these variation via a keypress menu. The chosen animation will play immediately, and once it finishes s/he will have a chance to choose another.</p>
+
+            </td>
+        </tr>
+    </table>
+    </p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p><hr>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td halign="left" valign="top" cellpadding=0 cellspacing=0 width=38px>
+                <span id=eg2><table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="oval">
+                        <td width=38px height=30px align="left" valign="center">
+                            <a href="Glimmr Canvas Animation-eg2.html#eg2" style="text-decoration: none"><div class="paragraph Body" style="line-height: 1px; margin-bottom: 0px; margin-top: 0px; padding-bottom: 0pt; padding-top: 0px; text-align: center;">
+                                <span class="extensionexampleletter">B</span></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                </span>
+            </td>
+            <td cellpadding=0 cellspacing=0 halign="left" valign="top">
+                <a href="Glimmr Canvas Animation-eg2.html#eg2" style="text-decoration: none"><img border="0" src='inform:/doc_images/asterisk.png'><b><span class="indexdarkgrey">&nbsp;Example&nbsp;</span><span class="indexblack">Maps of Murder</span></b></a><br>
+                <p>The user interface is an ideal place to experiment with animation effects. Here, we sketch a kind of image browser for an IF game. Four thumbnail versions (the map illustrations from Dell Map-Back murder mysteries) are displayed in a grid. We can click on any one of them to maximize it; we use two animation tracks to animate the maximization, scaling the image to full size while moving it to the center of the window. Click on the cover again to return it to the original thumbnail size and location.</p>
+
+            </td>
+        </tr>
+    </table>
+    </p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p><hr>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td halign="left" valign="top" cellpadding=0 cellspacing=0 width=38px>
+                <span id=eg3><table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="oval">
+                        <td width=38px height=30px align="left" valign="center">
+                            <a href="Glimmr Canvas Animation.html#eg3" style="text-decoration: none"><div class="paragraph Body" style="line-height: 1px; margin-bottom: 0px; margin-top: 0px; padding-bottom: 0pt; padding-top: 0px; text-align: center;">
+                                <span class="extensionexampleletter">C</span></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                </span>
+            </td>
+            <td cellpadding=0 cellspacing=0 halign="left" valign="top">
+                <a href="Glimmr Canvas Animation.html#eg3" style="text-decoration: none"><img border="0" src='inform:/doc_images/asterisk.png'><b><span class="indexdarkgrey">&nbsp;Example&nbsp;</span><span class="indexblack">Eased Movements</span></b></a><br>
+                <p>This example is primarily a demo of the available easing equations. The animation itself is handled in only a single line, whereas most of the code is devoted to user input, particularly the selection of primary and secondary easing via hyperlinks. The example does however illustrate the use of a number of features that are rarely demoed and which may be of interest to those interested in animation, including mouse input and hyperlink input.</p>
+
+            </td>
+        </tr>
+    </table>
+    <table border="0" cellspacing="0" cellpadding="0" class="extensionexample" width=100%>
+        <tr>
+            <td align="left" valign="top">
+                <p></p>
+
+                <p> There is only a single animation track, the movement track. We initialize both its primary and secondary easing to &quot;linear easing&quot; (i.e., default movement, no real easing to speak of).</p>
+
+                <p><blockquote><span class="indexdullblue"><a href="javascript:pasteCode('[=0x0022=]Eased Movements[=0x0022=][=0x000A=][=0x000A=]Include Glimmr Graphic Hyperlinks by Erik Temple.[=0x000A=]Include Glimmr Canvas Animation by Erik Temple.[=0x000A=][=0x000A=]Use no status line.[=0x000A=][=0x000A=]The graphics-window is a graphics g-window spawned by the main-window. The position of the graphics-window is g-placeright. The measurement of the graphics-window is 80. The back-colour of the graphics-window is g-black. The graphics-window is g-graphlinked.[=0x000A=][=0x000A=]The graphics-canvas is a g-canvas. The canvas-width is 200. The canvas-height is 200. The associated canvas of the graphics-window is the graphics-canvas.[=0x000A=][=0x000A=]The secondary-window is a text-buffer g-window spawned by the graphics-window. The measurement is 25. The position is g-placeright. The back-colour is g-white. The back-colour of the main-window is g-white.[=0x000A=][=0x000A=]The movement track is an animation track. The secondary easing is the linear easing rule.[=0x000A=][=0x000A=]When play begins:[=0x000A=][=0x0009=]try requesting the story file version;[=0x000A=][=0x0009=]say run paragraph on;[=0x000A=][=0x0009=]say [=0x0022=][i]The equation illustrations are borrowed from http://jqueryui.com/demos/effect/easing.html[/i][line break][=0x0022=];[=0x000A=][=0x0009=]say [=0x0022=][paragraph break][instruction text][=0x0022=];[=0x000A=][=0x0009=]wait for any key in the main-window;[=0x000A=][=0x0009=]open up the graphics-window;[=0x000A=][=0x0009=]open up the secondary-window;[=0x000A=][=0x0009=]now the column-break is the number of rows in the Table of Glulx Hyperlink Replacement Commands;[=0x000A=][=0x0009=]say [=0x0022=]Break: [column-break].[=0x0022=];[=0x000A=][=0x0009=]now selected secondary easing is (column-break + 1);[=0x000A=][=0x0009=]follow the hyperlink listing rule;[=0x000A=][=0x0009=]while 1 is 1:[=0x000A=][=0x0009=][=0x0009=]wait for any key in the main-window.[=0x000A=][=0x000A=]Figure of Ball is the file [=0x0022=]Ball.png[=0x0022=].[=0x000A=][=0x000A=]Figure of BackEaseIn is the file [=0x0022=]BackEaseIn.png[=0x0022=].[=0x000A=]Figure of BackEaseInOut is the file [=0x0022=]BackEaseInOut.png[=0x0022=].[=0x000A=]Figure of BackEaseOut is the file [=0x0022=]BackEaseOut.png[=0x0022=].[=0x000A=]Figure of BounceEaseIn is the file [=0x0022=]BounceEaseIn.png[=0x0022=].[=0x000A=]Figure of BounceEaseInOut is the file [=0x0022=]BounceEaseInOut.png[=0x0022=].[=0x000A=]Figure of BounceEaseOut is the file [=0x0022=]BounceEaseOut.png[=0x0022=].[=0x000A=]Figure of CircularEaseIn is the file [=0x0022=]CircularEaseIn.png[=0x0022=].[=0x000A=]Figure of CircularEaseInOut is the file [=0x0022=]CircularEaseInOut.png[=0x0022=].[=0x000A=]Figure of CircularEaseOut is the file [=0x0022=]CircularEaseOut.png[=0x0022=].[=0x000A=]Figure of CubicEaseIn is the file [=0x0022=]CubicEaseIn.png[=0x0022=].[=0x000A=]Figure of CubicEaseInOut is the file [=0x0022=]CubicEaseInOut.png[=0x0022=].[=0x000A=]Figure of CubicEaseOut is the file [=0x0022=]CubicEaseOut.png[=0x0022=].[=0x000A=]Figure of LinearEasing is the file [=0x0022=]LinearEasing.png[=0x0022=].[=0x000A=]Figure of QuadEaseIn is the file [=0x0022=]QuadEaseIn.png[=0x0022=].[=0x000A=]Figure of QuadEaseOut is the file [=0x0022=]QuadEaseInOut.png[=0x0022=].[=0x000A=]Figure of QuadEaseInOut is the file [=0x0022=]QuadEaseOut.png[=0x0022=].[=0x000A=][=0x000A=]The associated canvas of a g-element is usually the graphics-canvas.[=0x000A=][=0x000A=]The Ball is a sprite. It is center-aligned. The image-ID is Figure of Ball. The origin is { 100, 100 }.[=0x000A=][=0x000A=]The column-break is a number variable.[=0x000A=]Selected easing is a number variable. Selected easing is 1.[=0x000A=]Selected secondary easing is a number variable.[=0x000A=][=0x000A=]This is the hyperlink listing rule:[=0x000A=][=0x0009=]clear main-window;[=0x000A=][=0x0009=]say [=0x0022=][italic type]Easing (x-axis)[roman type][paragraph break][=0x0022=];[=0x000A=][=0x0009=]repeat with x running from 1 to 32:[=0x000A=][=0x0009=][=0x0009=]if x is (column-break + 1):[=0x000A=][=0x0009=][=0x0009=][=0x0009=]move focus to secondary-window, clearing the window;[=0x000A=][=0x0009=][=0x0009=][=0x0009=]say [=0x0022=][italic type]Secondary easing (y-axis)[roman type][paragraph break][=0x0022=];[=0x000A=][=0x0009=][=0x0009=]if x [=0x003C=] (column-break + 1):[=0x000A=][=0x0009=][=0x0009=][=0x0009=]if x is selected easing or x is selected secondary easing:[=0x000A=][=0x0009=][=0x0009=][=0x0009=][=0x0009=]say [=0x0022=][bold type][replacement corresponding to a link ID of x in the Table of Glulx Hyperlink Replacement Commands][roman type][line break][=0x0022=];[=0x000A=][=0x0009=][=0x0009=][=0x0009=]otherwise:[=0x000A=][=0x0009=][=0x0009=][=0x0009=][=0x0009=]say [=0x0022=][link x][replacement corresponding to a link ID of x in the Table of Glulx Hyperlink Replacement Commands][end link] [line break][=0x0022=];[=0x000A=][=0x0009=][=0x0009=]if x [=0x003E=] column-break:[=0x000A=][=0x0009=][=0x0009=][=0x0009=]if x is selected easing or x is selected secondary easing:[=0x000A=][=0x0009=][=0x0009=][=0x0009=][=0x0009=]say [=0x0022=][bold type][replacement corresponding to a link ID of (x - column-break) in the Table of Glulx Hyperlink Replacement Commands][roman type][line break][=0x0022=];[=0x000A=][=0x0009=][=0x0009=][=0x0009=]otherwise:[=0x000A=][=0x0009=][=0x0009=][=0x0009=][=0x0009=]say [=0x0022=][link x][replacement corresponding to a link ID of (x - column-break) in the Table of Glulx Hyperlink Replacement Commands][end link] [line break][=0x0022=];[=0x000A=][=0x0009=][=0x0009=]if x is column-break:[=0x000A=][=0x0009=][=0x0009=][=0x0009=]display the image corresponding to a link ID of selected easing in the Table of Glulx Hyperlink Replacement Commands;[=0x000A=][=0x0009=]display (the image corresponding to a link ID of (selected secondary easing - column-break) in the Table of Glulx Hyperlink Replacement Commands) in the secondary-window;[=0x000A=][=0x0009=]return to main screen.[=0x000A=][=0x000A=]There is a room.[=0x000A=][=0x000A=]The story headline is [=0x0022=]An interactive demonstration[=0x0022=][=0x000A=][=0x000A=]To say instruction text:[=0x000A=][=0x0009=]say [=0x0022=]On the next screen, you will be able to assign easing equations to the movement of a ball.[line break]Click on one of the links in the left column to assign the easing for the x-axis of movement, and on the right to assign the easing for the y-axis.[line break]Then just click somewhere in the black part of the screen to move the ball to that point.[paragraph break]Depending on the way in which you have paired the easing equations, different effects will be generated:[paragraph break][b]1. [/b]If the easing of the two axes is the same, the ball will move in a straight line, but its acceleration will change to reflect the non-linear easing used.[line break][b]2. [/b]If linear easing on one axis is paired with nonlinear easing on the other, then requesting the ball to move diagonally will produce a motion similar to the graph shown for the nonlinear easing.[line break][b]3. [/b]If you have nonlinear easing on both axes, there will be plenty of potential for unpredictable movement, especially on the diagonal.[paragraph break]Typically, you will see more variation in the path of the ball if you request a destination diagonal from the ball[=0x0027=]s current position. Horizontally or vertically, most of the variation will tend to be in ball[=0x0027=]s acceleration patterns.[paragraph break]Maximize your window now, then [b]press any key to start experimenting![/b][paragraph break][=0x0022=][=0x000A=][=0x000A=]To display (F - a figure name) in (win - a g-window), one time only:[=0x000A=][=0x0009=](-   DisplayFigureWin({win}, ResourceIDsOfFigures-[=0x003E=]{F}); -) .[=0x000A=][=0x000A=]Include (-   [=0x0009=][=0x000A=][=0x0009=][=0x0009=][ DisplayFigureWin win resource_ID one_time;[=0x000A=][=0x0009=][=0x0009=][=0x0009=]if ((one_time) [=0x0026=][=0x0026=] (ResourceUsageFlags-[=0x003E=]resource_ID)) return;[=0x000A=][=0x0009=][=0x0009=][=0x0009=]ResourceUsageFlags-[=0x003E=]resource_ID = true; print [=0x0022=]^[=0x0022=]; glk_image_draw(win.ref_number, resource_ID, imagealign_InlineCenter, 0); print [=0x0022=]^[=0x0022=];[=0x000A=][=0x0009=][=0x0009=]];[=0x000A=][=0x0009=][=0x0009=]-) .[=0x000A=][=0x000A=]Section - Hyperlink control (in place of Section - Selecting the replacement command in Flexible Windows by Jon Ingold)[=0x000A=][=0x000A=]Table of Glulx Hyperlink Replacement Commands[=0x000A=]link ID[=0x0009=]easement[=0x0009=]replacement[=0x0009=]image[=0x000A=]1[=0x0009=]linear easing rule[=0x0009=][=0x0022=]linear easing[=0x0022=][=0x0009=]Figure of LinearEasing[=0x000A=]2[=0x0009=]quadratic easing in rule[=0x0009=][=0x0022=]quadratic easing in[=0x0022=][=0x0009=]Figure of QuadEaseIn[=0x000A=]3[=0x0009=]quadratic easing out rule[=0x0009=][=0x0022=]quadratic easing out[=0x0022=][=0x0009=]Figure of QuadEaseOut[=0x000A=]4[=0x0009=]quadratic easing in-out rule[=0x0009=][=0x0022=]quadratic easing in-out[=0x0022=][=0x0009=]Figure of QuadEaseInOut[=0x000A=]5[=0x0009=]cubic easing in rule[=0x0009=][=0x0022=]cubic easing in[=0x0022=][=0x0009=]Figure of CubicEaseIn[=0x000A=]6[=0x0009=]cubic easing out rule[=0x0009=][=0x0022=]cubic easing out[=0x0022=][=0x0009=]Figure of CubicEaseOut[=0x000A=]7[=0x0009=]cubic easing in-out rule[=0x0009=][=0x0022=]cubic easing in-out[=0x0022=][=0x0009=]Figure of CubicEaseInOut[=0x000A=]8[=0x0009=]circular easing in rule[=0x0009=][=0x0022=]circular easing in[=0x0022=][=0x0009=]Figure of CircularEaseIn[=0x000A=]9[=0x0009=]circular easing out rule[=0x0009=][=0x0022=]circular easing out[=0x0022=][=0x0009=]Figure of CircularEaseOut[=0x000A=]10[=0x0009=]circular easing in-out rule[=0x0009=][=0x0022=]circular easing in-out[=0x0022=][=0x0009=]Figure of CircularEaseInOut[=0x000A=]11[=0x0009=]cubic back easing in rule[=0x0009=][=0x0022=]back easing in[=0x0022=][=0x0009=]Figure of BackEaseIn[=0x000A=]12[=0x0009=]cubic back easing out rule[=0x0009=][=0x0022=]back easing out[=0x0022=][=0x0009=]Figure of BackEaseOut[=0x000A=]13[=0x0009=]cubic back easing in-out rule[=0x0009=][=0x0022=]back easing in-out[=0x0022=][=0x0009=]Figure of BackEaseInOut[=0x000A=]14[=0x0009=]bounce easing in rule[=0x0009=][=0x0022=]bounce easing in[=0x0022=][=0x0009=]Figure of BounceEaseIn[=0x000A=]15[=0x0009=]bounce easing out rule[=0x0009=][=0x0022=]bounce easing out[=0x0022=][=0x0009=]Figure of BounceEaseOut[=0x000A=]16[=0x0009=]bounce easing in-out rule[=0x0009=][=0x0022=]bounce easing in-out[=0x0022=][=0x0009=]Figure of BounceEaseInOut[=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a> &quot;Eased Movements&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Include Glimmr Graphic Hyperlinks by Erik Temple.<br>
+                 Include Glimmr Canvas Animation by Erik Temple.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Use no status line.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The graphics-window is a graphics g-window spawned by the main-window. The position of the graphics-window is g-placeright. The measurement of the graphics-window is 80. The back-colour of the graphics-window is g-black. The graphics-window is g-graphlinked.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The graphics-canvas is a g-canvas. The canvas-width is 200. The canvas-height is 200. The associated canvas of the graphics-window is the graphics-canvas.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The secondary-window is a text-buffer g-window spawned by the graphics-window. The measurement is 25. The position is g-placeright. The back-colour is g-white. The back-colour of the main-window is g-white.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The movement track is an animation track. The secondary easing is the linear easing rule.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> When play begins:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; try requesting the story file version;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; say run paragraph on;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; say &quot;[i]The equation illustrations are borrowed from http://jqueryui.com/demos/effect/easing.html[/i][line break]&quot;;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; say &quot;[paragraph break][instruction text]&quot;;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; wait for any key in the main-window;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; open up the graphics-window;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; open up the secondary-window;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; now the column-break is the number of rows in the Table of Glulx Hyperlink Replacement Commands;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; say &quot;Break: [column-break].&quot;;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; now selected secondary easing is (column-break + 1);<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; follow the hyperlink listing rule;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; while 1 is 1:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; wait for any key in the main-window.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Figure of Ball is the file &quot;Ball.png&quot;.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Figure of BackEaseIn is the file &quot;BackEaseIn.png&quot;.<br>
+                 Figure of BackEaseInOut is the file &quot;BackEaseInOut.png&quot;.<br>
+                 Figure of BackEaseOut is the file &quot;BackEaseOut.png&quot;.<br>
+                 Figure of BounceEaseIn is the file &quot;BounceEaseIn.png&quot;.<br>
+                 Figure of BounceEaseInOut is the file &quot;BounceEaseInOut.png&quot;.<br>
+                 Figure of BounceEaseOut is the file &quot;BounceEaseOut.png&quot;.<br>
+                 Figure of CircularEaseIn is the file &quot;CircularEaseIn.png&quot;.<br>
+                 Figure of CircularEaseInOut is the file &quot;CircularEaseInOut.png&quot;.<br>
+                 Figure of CircularEaseOut is the file &quot;CircularEaseOut.png&quot;.<br>
+                 Figure of CubicEaseIn is the file &quot;CubicEaseIn.png&quot;.<br>
+                 Figure of CubicEaseInOut is the file &quot;CubicEaseInOut.png&quot;.<br>
+                 Figure of CubicEaseOut is the file &quot;CubicEaseOut.png&quot;.<br>
+                 Figure of LinearEasing is the file &quot;LinearEasing.png&quot;.<br>
+                 Figure of QuadEaseIn is the file &quot;QuadEaseIn.png&quot;.<br>
+                 Figure of QuadEaseOut is the file &quot;QuadEaseInOut.png&quot;.<br>
+                 Figure of QuadEaseInOut is the file &quot;QuadEaseOut.png&quot;.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The associated canvas of a g-element is usually the graphics-canvas.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The Ball is a sprite. It is center-aligned. The image-ID is Figure of Ball. The origin is { 100, 100 }.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The column-break is a number variable.<br>
+                 Selected easing is a number variable. Selected easing is 1.<br>
+                 Selected secondary easing is a number variable.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> This is the hyperlink listing rule:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; clear main-window;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; say &quot;[italic type]Easing (x-axis)[roman type][paragraph break]&quot;;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; repeat with x running from 1 to 32:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if x is (column-break + 1):<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; move focus to secondary-window, clearing the window;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say &quot;[italic type]Secondary easing (y-axis)[roman type][paragraph break]&quot;;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if x &lt; (column-break + 1):<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if x is selected easing or x is selected secondary easing:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say &quot;[bold type][replacement corresponding to a link ID of x in the Table of Glulx Hyperlink Replacement Commands][roman type][line break]&quot;;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; otherwise:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say &quot;[link x][replacement corresponding to a link ID of x in the Table of Glulx Hyperlink Replacement Commands][end link] [line break]&quot;;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if x &gt; column-break:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if x is selected easing or x is selected secondary easing:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say &quot;[bold type][replacement corresponding to a link ID of (x - column-break) in the Table of Glulx Hyperlink Replacement Commands][roman type][line break]&quot;;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; otherwise:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say &quot;[link x][replacement corresponding to a link ID of (x - column-break) in the Table of Glulx Hyperlink Replacement Commands][end link] [line break]&quot;;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if x is column-break:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; display the image corresponding to a link ID of selected easing in the Table of Glulx Hyperlink Replacement Commands;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; display (the image corresponding to a link ID of (selected secondary easing - column-break) in the Table of Glulx Hyperlink Replacement Commands) in the secondary-window;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; return to main screen.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> There is a room.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The story headline is &quot;An interactive demonstration&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> To say instruction text:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; say &quot;On the next screen, you will be able to assign easing equations to the movement of a ball.[line break]Click on one of the links in the left column to assign the easing for the x-axis of movement, and on the right to assign the easing for the y-axis.[line break]Then just click somewhere in the black part of the screen to move the ball to that point.[paragraph break]Depending on the way in which you have paired the easing equations, different effects will be generated:[paragraph break][b]1. [/b]If the easing of the two axes is the same, the ball will move in a straight line, but its acceleration will change to reflect the non-linear easing used.[line break][b]2. [/b]If linear easing on one axis is paired with nonlinear easing on the other, then requesting the ball to move diagonally will produce a motion similar to the graph shown for the nonlinear easing.[line break][b]3. [/b]If you have nonlinear easing on both axes, there will be plenty of potential for unpredictable movement, especially on the diagonal.[paragraph break]Typically, you will see more variation in the path of the ball if you request a destination diagonal from the ball's current position. Horizontally or vertically, most of the variation will tend to be in ball's acceleration patterns.[paragraph break]Maximize your window now, then [b]press any key to start experimenting![/b][paragraph break]&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> To display (F - a figure name) in (win - a g-window), one time only:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; (-   DisplayFigureWin({win}, ResourceIDsOfFigures-&gt;{F});  -).</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Include (-   	
+                		[ DisplayFigureWin win resource_ID one_time;
+                			if ((one_time) &amp;&amp; (ResourceUsageFlags-&gt;resource_ID)) return;
+                			ResourceUsageFlags-&gt;resource_ID = true; print &quot;^&quot;; glk_image_draw(win.ref_number, resource_ID, imagealign_InlineCenter, 0); print &quot;^&quot;;
+                		];
+                		 -).</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Section - Hyperlink control (in place of Section - Selecting the replacement command in Flexible Windows by Jon Ingold)</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Table of Glulx Hyperlink Replacement Commands</span><br>
+                <table border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> link ID</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> easement</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> replacement</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> image
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> 1</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> linear easing rule</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;linear easing&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> Figure of LinearEasing
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> 2</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> quadratic easing in rule</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;quadratic easing in&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> Figure of QuadEaseIn
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> 3</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> quadratic easing out rule</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;quadratic easing out&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> Figure of QuadEaseOut
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> 4</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> quadratic easing in-out rule</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;quadratic easing in-out&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> Figure of QuadEaseInOut
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> 5</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> cubic easing in rule</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;cubic easing in&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> Figure of CubicEaseIn
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> 6</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> cubic easing out rule</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;cubic easing out&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> Figure of CubicEaseOut
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> 7</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> cubic easing in-out rule</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;cubic easing in-out&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> Figure of CubicEaseInOut
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> 8</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> circular easing in rule</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;circular easing in&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> Figure of CircularEaseIn
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> 9</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> circular easing out rule</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;circular easing out&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> Figure of CircularEaseOut
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> 10</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> circular easing in-out rule</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;circular easing in-out&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> Figure of CircularEaseInOut
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> 11</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> cubic back easing in rule</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;back easing in&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> Figure of BackEaseIn
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> 12</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> cubic back easing out rule</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;back easing out&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> Figure of BackEaseOut
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> 13</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> cubic back easing in-out rule</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;back easing in-out&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> Figure of BackEaseInOut
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> 14</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> bounce easing in rule</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;bounce easing in&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> Figure of BounceEaseIn
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> 15</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> bounce easing out rule</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;bounce easing out&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> Figure of BounceEaseOut
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> 16</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> bounce easing in-out rule</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;bounce easing in-out&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> Figure of BounceEaseInOut</span>
+                        </td>
+                    </tr>
+                </table>
+                </blockquote>
+
+                <p> The following are the routines that actually implement animation. We first define some values that we can pass into the animation phrase: the initial target for the animation, the desired frame-rate, and the velocity of the ball. This isn't strictly necessary, but it can be good for flexibility.</p>
+
+                <p> Next is a hyperlink processing rule, which reads any click to the text hyperlinks, translating the player's selection to an easing equation and assigning that equation as either the easing or secondary easing of the movement track.</p>
+
+                <p> Finally, the &quot;clicking graphlink&quot; rule fires when the player clicks on the graphics window. It grabs the coordinates clicked and converts them to canvas coordinates; these coordinates then become the ending point for the motion animation. The motion animation itself is invoked simply by plugging this end point into the &quot;animate&quot; phrase along with the global variables describing frame rate and velocity.</p>
+
+                <p><blockquote><span class="indexdullblue"><a href="javascript:pasteCode('The motion target is a list of numbers variable. The motion target is { 100, 100 }.[=0x000A=]Frame-rate is a number variable. Frame-rate is 24.[=0x000A=]Ball-speed is a number variable. Ball-speed is 20.[=0x000A=][=0x000A=]Hyperlink processing rule:[=0x000A=][=0x0009=]let selection be the linear easing rule;[=0x000A=][=0x0009=]if the current hyperlink ID is a link ID listed in the Table of Glulx Hyperlink Replacement Commands:[=0x000A=][=0x0009=][=0x0009=]let selection be easement entry;[=0x000A=][=0x0009=]otherwise if (the current hyperlink ID - column-break) is a link ID listed in the Table of Glulx Hyperlink Replacement Commands:[=0x000A=][=0x0009=][=0x0009=]let selection be easement entry;[=0x000A=][=0x0009=]if the current hyperlink ID [=0x003C=] (column-break + 1):[=0x000A=][=0x0009=][=0x0009=]now the easing of the movement track is the selection;[=0x000A=][=0x0009=][=0x0009=]now the selected easing is current hyperlink ID;[=0x000A=][=0x0009=]otherwise:[=0x000A=][=0x0009=][=0x0009=]now the secondary easing of the movement track is the selection;[=0x000A=][=0x0009=][=0x0009=]now the selected secondary easing is current hyperlink ID;[=0x000A=][=0x0009=]follow the hyperlink listing rule;[=0x000A=][=0x0009=]say run paragraph on;[=0x000A=][=0x0009=]rule succeeds.[=0x000A=][=0x000A=]First clicking graphlink rule:[=0x000A=][=0x0009=]let graph-x be current graphlink x plus 0.0;[=0x000A=][=0x0009=]let graph-y be current graphlink y plus 0.0;[=0x000A=][=0x0009=]now entry 1 of the motion target is ((graph-x real minus the x-offset of the current graphlink window) real divided by the scaling factor of the current graphlink window) to the nearest whole number;[=0x000A=][=0x0009=]now entry 2 of the motion target is ((graph-y real minus the y-offset of the current graphlink window) real divided by the scaling factor of the current graphlink window) to the nearest whole number;[=0x000A=][=0x0009=]animate the movement track as a motion animation targeting the Ball and ending at the motion target at frame-rate fps with velocity of ball-speed;[=0x000A=][=0x0009=]rule succeeds.[=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a> The motion target is a list of numbers variable. The motion target is { 100, 100 }.<br>
+                 Frame-rate is a number variable. Frame-rate is 24.<br>
+                 Ball-speed is a number variable. Ball-speed is 20.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Hyperlink processing rule:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; let selection be the linear easing rule;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; if the current hyperlink ID is a link ID listed in the Table of Glulx Hyperlink Replacement Commands:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; let selection be easement entry;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; otherwise if (the current hyperlink ID - column-break) is a link ID listed in the Table of Glulx Hyperlink Replacement Commands:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; let selection be easement entry;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; if the current hyperlink ID &lt; (column-break + 1):<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; now the easing of the movement track is the selection;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; now the selected easing is current hyperlink ID;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; otherwise:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; now the secondary easing of the movement track is the selection;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; now the selected secondary easing is current hyperlink ID;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; follow the hyperlink listing rule;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; say run paragraph on;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; rule succeeds.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> First clicking graphlink rule:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; let graph-x be current graphlink x plus 0.0;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; let graph-y be current graphlink y plus 0.0;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; now entry 1 of the motion target is ((graph-x real minus the x-offset of the current graphlink window) real divided by the scaling factor of the current graphlink window) to the nearest whole number;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; now entry 2 of the motion target is ((graph-y real minus the y-offset of the current graphlink window) real divided by the scaling factor of the current graphlink window) to the nearest whole number;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; animate the movement track as a motion animation targeting the Ball and ending at the motion target at frame-rate fps with velocity of ball-speed;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; rule succeeds.</span></blockquote>
+
+                <p></p>
+
+            </td>
+        </tr>
+    </table>
+    <hr>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td halign="left" valign="top" cellpadding=0 cellspacing=0 width=38px>
+                <span id=eg4><table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="oval">
+                        <td width=38px height=30px align="left" valign="center">
+                            <a href="Glimmr Canvas Animation-eg4.html#eg4" style="text-decoration: none"><div class="paragraph Body" style="line-height: 1px; margin-bottom: 0px; margin-top: 0px; padding-bottom: 0pt; padding-top: 0px; text-align: center;">
+                                <span class="extensionexampleletter">D</span></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                </span>
+            </td>
+            <td cellpadding=0 cellspacing=0 halign="left" valign="top">
+                <a href="Glimmr Canvas Animation-eg4.html#eg4" style="text-decoration: none"><img border="0" src='inform:/doc_images/asterisk.png'><img border="0" src='inform:/doc_images/asterisk.png'><b><span class="indexdarkgrey">&nbsp;Example&nbsp;</span><span class="indexblack">Scourge of the Vampyr</span></b></a><br>
+                <p>This example combines a number of different animation presets to create walking (reel + motion) and torchlight (flicker + fade) animations. Fade and zooming effects are also employed to animate the player character's entrance into and exit from the crypt. The example also exploits Glimmr's ability to move the framing of the window on the canvas to keep the player's avatar at the center of the window, so that the rest of the room seems to move around little Pelón.</p>
+
+            </td>
+        </tr>
+    </table>
+    </p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p>
+    <!--CONTENT ENDS-->
+</body>
+</html>

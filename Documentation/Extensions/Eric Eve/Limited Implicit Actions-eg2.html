@@ -1,0 +1,1264 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Extension</title>
+    <style type="text/css">
+        <!--
+        /* The default font (family) and size */
+
+        body, p, td {
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.8rem; /* 100/125 */
+        }
+
+        /* For fixed-point material within text, such as the typing on the Library Card index page */
+
+        span.typewritten {
+        	font-family: monospace;
+        	font-size: 0.867rem; /* 13/12 * 100/125 */
+        }
+
+        /* For less important material: the small print */
+
+        span.smaller {
+        	font-size: 80%;
+        }
+
+        /* The "heading panel" is the coloured box, high up on the page. The colours
+        vary depending on the page: for example, the style on a report of a translation
+        with no problems is "headingpanelsucceeded", usually green, but if there were
+        problems then "headingpanelfailed" is used, which is usually red. "headingpanel"
+        itself is a more neutral grey by default. "headingpanelDark" is an alternative
+        look to make the extensions index pages have some visual contrast with the others;
+        by default they are a darker grey. */
+
+        .headingpanel {
+        	background: #eeeeee;
+        }
+        .headingpanelsucceeded {
+        	background: #E6FFE6;
+        }
+        .headingpanelfailed {
+        	background: #f69Ca6;
+        }
+        .headingpanelalt {
+        	background: #808080;
+        }
+
+        /* Heading panels have two lines of text: an upper one in a larger size, and a
+        lower one in a smaller. Again, the alt versions are meant to contrast.
+
+        	Report on Translation: Succeeded                <-- headingpaneltext
+        	Produced by Inform 10.1.0 (build 6U97)          <-- headingpanelrubric
+
+        	Installed Extensions                            <-- headingpaneltextalt
+        	Bundles of extra rules or phrases to...         <-- headingpanelrubricalt
+
+        */
+
+        span.headingpaneltext {
+        	color: #222222;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+        span.headingpaneltextalt {
+        	color: #ffffff;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        span.headingpanelrubric {
+        	color: #222222;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.733rem; /* 11/12 * 100/125 */
+        	font-weight: bold;
+        }
+        span.headingpanelrubricalt {
+        	color: #ffffff;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.733rem; /* 11/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* Horizontal rule styling */
+
+        div.hr {
+        	border: 0;
+        	width: 100%;
+        	color: #707070;
+        	background-color: #707070;
+        	height: 5px;
+        }
+
+        /* This styles the (usually white) text of the example numbers written inside
+        oval blobs in the extension documentation, which mimic the look of the in-app
+        documentation. */
+
+        .oval, .oval td {
+        	background-image:url('inform:/doc_images/ovoid.png');
+        	color:white;
+        }
+
+        /* Styling used in the extension documentation indexes: */
+
+        /* Used for extension names in the extensions pane of the app */
+
+        span.extensioncensusentry {
+        	color: #ffffff;
+        }
+
+        span.extensionindexentry {
+        	color: #404040;
+        }
+
+        span.extensionindexerror {
+        	color: #ff8080;
+        }
+
+        /* This is used in extension documentation, where an example is presented
+        in a slightly tinted box: */
+
+        table.extensionexample {
+        	background-color: #f0f0f0;
+        }
+
+        span.extensionexampleletter {
+        	color: #202020;
+        	font-size: 14px;
+        	font-weight: bold;
+        }
+
+        /* Seen in problem messages: */
+
+        span.problemred {
+        	color: #800000;
+        }
+
+        span.problemgreen {
+        	color: #008000;
+        }
+
+        span.phraseword {
+        	color: #808080;
+        }
+
+        span.phrasetokentext {
+        	color: #e00060;
+        }
+
+        span.phrasetokendesctext {
+        	color: #4040ff;
+        }
+
+        span.phrasetokenvaluetext {
+        	color: #ff4040;
+        }
+
+        /* Now we move on to styling used in the Index pages only: */
+
+        /* The periodic table display has "sidebars", usually grey and taller than they
+        are wide; they contain no text. */
+
+        div.periodictablesidebarcolour {
+        	background: #888;
+        }
+        div.periodictablesidebar:hover {
+        	background: #222;
+        }
+
+        /* The text of the element-abbreviation, such as "Lx" or "Ph", uses: */
+
+        span.elementtext {
+        	color: #ffffff;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* Similarly for the "atomic number" - a single digit - in the top left corner
+        of these boxes: */
+
+        span.elementnumbertext {
+        	color: #ffffff;
+        	font-size: 0.622rem; /* 7/12 * 96/72 * 100/125 */
+        }
+
+        /* For the text of the element title, to the right of the element box: */
+
+        span.elementtitletext {
+        	color: #ffffff;
+        	font-size: 0.6rem; /* 9/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* The banner at the top of each element: */
+
+        table.elementbanner {
+        	background: #eeeeee;
+        }
+
+        /* For the typewriting on the Library Card: */
+
+        span.librarycardtitle {
+        	color: #803030;
+        }
+
+        span.librarycardother {
+        	color: #303030;
+        }
+
+        /* Generically used for "more details" boxes in the index: */
+
+        table.indexmorebox {
+        	background-color: #e0e0e0;
+            border-radius: 8px;
+        }
+
+        /* But not for activity contents: */
+
+        table.indexactivitycontents {
+        	background-color: #e8e0c0;
+            border-radius: 8px;
+        }
+
+        /* For responses in index entries about rules: */
+
+        span.indexresponseletter {
+        	color: #ffffff;
+        	font-family: 'Courier New', Courier, monospace;
+        	background-color: #8080ff;
+        }
+
+        span.indexresponsetext {
+        	color: #000066;
+        }
+
+        /* Used ubiquitously throughout the index and extension documentation: */
+
+        span.indexblack {
+        	color: #000000;
+        }
+
+        span.indexgrey {
+        	color: #808080;
+        }
+
+        span.indexdarkgrey {
+            color: #505050;
+        }
+
+        span.indexdullred {
+        	color: #800000;
+        }
+
+        span.indexdullgreen {
+        	color: #008000;
+        }
+
+        span.indexdullblue {
+        	color: #000080;
+        }
+
+        /* Used for the room squares in the World map in the Index (which is currently
+        a table with one row of one column) */
+
+        table.indexmaproom {
+        	border-color: #000000;
+        }
+
+        /* Used in the numbering of levels of the World map in the Index */
+
+        span.indexmaplevelnumbers {
+        	color: #c0c0c0;
+        }
+
+        /* Used e.g. for title rows in the Chart of basic kinds in the Index */
+
+        tr.headingrow {
+        	background-color: #e0e0e0;
+        }
+
+        /* Standard rows have black text on striped background colours, these being
+        the usual ones seen in Mac OS X applications such as iTunes. */
+
+        tr.stripeone {
+        	background-color: #ffffff;
+        }
+
+        tr.stripetwo {
+        	background-color: #f3f6fa;
+        }
+
+        tr.tintedrow {
+        	background-color: #808080;
+        }
+
+        /* In the Figures index, this is the background colour used behind images
+        (though in fact it will only be visible if the image fails to load, or uses
+        transparency): */
+
+        div.figureindexbox {
+        	background-color: #6495ed;
+        }
+
+        /* To get the book-contents-page style leaders on the Contents element of
+           the index to work, these must use the background colour of the body of
+           the page, whatever that is: */
+
+        ul.leaders li.leaded span:first-child {
+        	background: white;
+        }
+        ul.leaders li.leaded span + span {
+        	background: white;
+        }
+
+        /* On Registry index pages (such as the Public Library), these are used for
+        download buttons and the like: */
+
+        span.registrybuttontext {
+        	font-size: 11px;
+        	border-color: #000000;
+        }
+
+        span.registryminibuttontext {
+        	font-size: 10px;
+        	border-color: #000000;
+        }
+
+        span.registrybuttonuninstalled {
+        	color: #000000;
+        	background: #ffffdd;
+        }
+
+        span.registrybuttoninstalled {
+        	color: #000000;
+        	background: #ffffff;
+        	pointer-events: none;
+        }
+
+        span.registrybuttonbuiltin {
+        	color: #888888;
+        	background: #ffffff;
+        	pointer-events: none;
+        }
+
+        span.registrybuttonupdate {
+        	color: #000000;
+        	background: #aaddff;
+        }
+
+        span.registrybuttonrevert {
+        	color: #000000;
+        	background: #ddaaff;
+        }
+
+        span.registrybuttonrevealer {
+        	color: #ffffff;
+        	background: #444444;
+        }
+
+        /* Registry index section headings: */
+
+        span.registrysectionname {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 16px;
+        	line-height: 18px;
+        }
+        span.registrysubsectionname {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 14px;
+        	line-height: 16px;
+        }
+
+        /* These are for the "mark" for a section, usually a section-symbol and number */
+
+        span.registrysectionmark {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 16px;
+        	line-height: 18px;
+        	color: #666;
+        }
+        span.registrysubsectionmark {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 14px;
+        	line-height: 16px;
+        	color: #666;
+        }
+
+        /* Text of an item listed in a registry: */
+
+        span.registryitemtext {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 12px;
+        	line-height: 16px;
+        }
+
+        /* And how the links in a registry index page behave: */
+
+        a.registrysilentlink {
+        	text-decoration: none;
+        	color: #000;
+        }
+        a.registrybuttonlink {
+        	text-decoration: none;
+        }
+        a.registrycontentslink:link {
+        	text-decoration: none;
+        	color: #202020;
+        }
+        a.registrycontentslink:visited {
+        	text-decoration: none;
+        	color: #202020;
+        }
+        a.registrycontentslink:hover {
+        	text-decoration: none;
+        	color: #D00000;
+        }
+        a.registrycontentslink:active {
+        	text-decoration: none;
+        	color: #D00000;
+        }
+
+        -->
+    </style>
+    <style type="text/css">
+        <!--
+        /* (1) General layout material */
+
+        *, *:before, *:after {
+        	-moz-box-sizing: border-box;
+        	-webkit-box-sizing: border-box;
+        	box-sizing: border-box;
+        }
+        .headingpanellayout {
+        	position: relative;
+        	height: 56px;
+        	padding: 0px;
+        	white-space:nowrap;
+        }
+        .headingpanellayoutdeeper {
+        	position: relative;
+        	height: 117px;
+        	padding: 0px;
+        	white-space:nowrap;
+        }
+        .headingtext {
+        	position: absolute;
+        	top: -4px;
+        	left: -1px;
+        	width: 100%;
+        	padding: 14px 10px 0px 10px;
+        }
+        .headingrubric {
+        	position: absolute;
+        	top: 36px;
+        	width: 100%;
+        	padding: 0px 10px 0px 10px;
+        }
+        h3.tighter {
+        	margin-top: 0px;
+        }
+        p.hang {
+        	padding-left: 25px;
+        	text-indent: -25px;
+        	margin-top: 0px;
+        	margin-bottom: 0px;
+        }
+        p.in1 {
+        	padding-left: 0px;
+        }
+        p.tightin1 {
+        	padding-left: 0px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin1 {
+        	padding-left: 0px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin1 {
+        	padding-left: 50px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in2 {
+        	padding-left: 25px;
+        }
+        p.tightin2 {
+        	padding-left: 25px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin2 {
+        	padding-left: 25px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin2 {
+        	padding-left: 75px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in3 {
+        	padding-left: 50px;
+        }
+        p.tightin3 {
+        	padding-left: 50px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin3 {
+        	padding-left: 50px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin3 {
+        	padding-left: 100px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in4 {
+        	padding-left: 75px;
+        }
+        p.tightin4 {
+        	padding-left: 75px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin4 {
+        	padding-left: 75px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin4 {
+        	padding-left: 125px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in5 {
+        	padding-left: 100px;
+        }
+        p.tightin5 {
+        	padding-left: 100px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin5 {
+        	padding-left: 100px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin5 {
+        	padding-left: 150px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in6 {
+        	padding-left: 125px;
+        }
+        p.tightin6 {
+        	padding-left: 125px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin6 {
+        	padding-left: 125px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin6 {
+        	padding-left: 175px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in7 {
+        	padding-left: 150px;
+        }
+        p.tightin7 {
+        	padding-left: 150px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin7 {
+        	padding-left: 150px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin7 {
+        	padding-left: 200px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in8 {
+        	padding-left: 175px;
+        }
+        p.tightin8 {
+        	padding-left: 175px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin8 {
+        	padding-left: 175px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin8 {
+        	padding-left: 225px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in9 {
+        	padding-left: 200px;
+        }
+        p.tightin9 {
+        	padding-left: 200px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin9 {
+        	padding-left: 200px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin9 {
+        	padding-left: 250px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+
+        /* (2) Index page layout material */
+
+        /* The periodic table display has "sidebars", usually grey and taller than they
+        are wide; they contain no text. */
+
+        div.periodictablesidebar {
+        	height: 56px;
+        	width: 16px;
+        }
+        .periodictablesidebar a:link { text-decoration: none; }
+        .periodictablesidebar a:visited { text-decoration: none; }
+        .periodictablesidebar a:active { text-decoration: none; }
+
+        /* The "element boxes" are the cells appearing in the periodic-table display
+        on the welcome page of the index: */
+
+        .elementbox {
+        	position: relative;
+        	height: 56px;
+        	width: 56px;
+        	padding: 0px;
+        }
+
+        .elementbox a:link { text-decoration: none; }
+        .elementbox a:visited { text-decoration: none; }
+        .elementbox a:active { text-decoration: none; }
+        .elementbox a:hover { text-decoration: none; }
+        .elementbox:hover {
+        	opacity: 0.6;
+        }
+
+        /* The "small element boxes" look like those, but are smaller, and used on
+        the headings of the content which those original boxes link to: */
+
+        .smallelementbox {
+        	position: relative;
+        	height: 40px;
+        	width: 40px;
+        	padding: 0px;
+        }
+
+        .smallelementbox a:link { text-decoration: none; }
+        .smallelementbox a:visited { text-decoration: none; }
+        .smallelementbox a:active { text-decoration: none; }
+        .smallelementbox a:hover { text-decoration: none; }
+        .smallelementbox:hover {
+        	opacity: 0.6;
+        }
+
+        /* This is a class for the links formed by the element boxes: */
+
+        a.elementlink {
+        	position: absolute;
+        	top: -4px;
+        	left: -1px;
+        	width: 100%;
+        	padding: 14px 0px 14px 1px;
+        	text-align: center;
+        }
+
+        /* Similarly for the "atomic number" - a single digit - in the top left corner
+        of these boxes: */
+
+        div.elementnumber {
+        	position: absolute;
+        	top: 1px;
+        	left: 3px;
+        	text-align: left;
+        }
+
+        /* For the text of the element title, to the right of the element box: */
+
+        div.elementtitle {
+        	position: absolute;
+        	top: 35px;
+        	width: 100%;
+        	text-align: center;
+        }
+
+        /* Used for the book-contents-page style leaders on the Contents element of
+           the index: */
+
+        ul.leaders {
+        	padding: 0;
+        	margin-top: 1px;
+        	margin-bottom: 0;
+        	overflow-x: hidden;
+        	list-style: none}
+        ul.leaders li.leaded:before {
+        	float: left;
+        	width: 0;
+        	white-space: nowrap;
+        	content:
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "}
+        ul.leaders li.leaded span:first-child {
+        	padding-right: 0.33em;
+        }
+        ul.leaders li.leaded span + span {
+        	float: right;
+        	padding-left: 0.33em;
+        }
+        li.indent1 span:first-child {
+        	padding-left: 25px;
+        }
+        li.indent2 span:first-child {
+        	padding-left: 50px;
+        }
+        li.indent3 span:first-child {
+        	padding-left: 75px;
+        }
+        li.indent4 span:first-child {
+        	padding-left: 100px;
+        }
+        li.indent5 span:first-child {
+        	padding-left: 125px;
+        }
+        li.indent6 span:first-child {
+        	padding-left: 150px;
+        }
+        li.indent7 span:first-child {
+        	padding-left: 175px;
+        }
+        li.indent8 span:first-child {
+        	padding-left: 200px;
+        }
+        li.indent9 span:first-child {
+        	padding-left: 225px;
+        }
+
+        li.unleaded:before {
+        	content: "";
+        }
+
+        /* On Registry index pages (such as the Public Library), these are used for
+        download buttons and the like: */
+
+        span.registrybuttons {
+        	height: 20px;
+        	padding: 2px 8px 2px 8px;
+        	margin: 2px;
+        	border:1px solid;
+        	border-radius: 5px;
+        }
+
+        span.registryminibuttons {
+        	height: 14px;
+        	padding: 2px 5px 2px 5px;
+        	margin: 2px;
+        	border:1px solid;
+        	border-radius: 4px;
+        }
+
+        /* Used to hide or display sections in the Registry pages: */
+
+        div.registrysectionitemsopen {
+        	display: block;
+        }
+
+        div.registrysectionitemsclosed {
+        	display: none;
+        }
+
+        /* Hanging indentation for Registry item paragraphs: */
+
+        p.registryitem {
+        	padding-left: 80px;
+        	text-indent: -40px;
+        }
+
+        p.registryaddition {
+        	padding-left: 40px;
+        	text-indent: -40px;
+        }
+
+        -->
+    </style>
+    <script type="text/javascript">
+        function project() {
+            return window.Project;
+        }
+        function showExtra(id, imid) {
+        	if (document.getElementById(id).style.display == 'block') {
+        		document.getElementById(id).style.display = 'none';
+        		document.getElementById(imid).src = 'inform:/extra.png';
+        	} else {
+        		document.getElementById(id).style.display = 'block';
+        		document.getElementById(imid).src = 'inform:/extraclose.png';
+        	}
+        }
+        function openExtra(id, imid) {
+        	document.getElementById(id).style.display = 'block';
+        	document.getElementById(imid).src = 'inform:/extraclose.png';
+        }
+        function closeExtra(id, imid) {
+        	document.getElementById(id).style.display = 'none';
+        	document.getElementById(imid).src = 'inform:/extra.png';
+        }
+        function pasteCode(code) {
+            var myProject = project();
+
+            myProject.selectView('source');
+            myProject.pasteCode(code);
+        }
+
+    </script>
+</head>
+<body>
+    <!--CONTENT BEGINS-->
+    <table CELLPADDING=0 CELLSPACING=0 width="100%" bgcolor="#000000"><tr><TD width=38px height=26px align="center" valign="center"><a href="inform://Extensions/Extensions.html" border=0><img border=0 src="inform:/doc_images/Hookindex.png" border=0></a></td><TD width=38px height=26px align="center" valign="center"></td><td halign="left" valign="center" CELLPADDING=0 CELLSPACING=0><font color="#FFFFFF" size=2>Extensions</font></a></td><TD width=56px height=26px align="right" valign="center"><a href="inform:/index.html" border=0><img border=0 src="inform:/doc_images/Hookup.png" border=0></a></td></tr></table>
+
+    <p><a href="javascript:pasteCode('Include Limited Implicit Actions by Eric Eve.[=0x000A=][=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a>&nbsp;<b>Limited Implicit Actions<span class="extensionindexentry"> by </span>Eric Eve</b></p>
+    <p><span class="smaller">Version 3</span></p>
+    <p>A cut-down version of Implicit Actions for use where code size may be restricted and the full functionality of Implicit Actions is not needed. Requires Plurality by Emily Short and is compatible with Locksmith by Emily Short.</p>
+    <p></p>
+    <hr>
+    <p><span class="indexblack"><b><a style="text-decoration: none" href=#docsec1>Chapter 1: </a></b></span>The Basics<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec2>Section 1.1: </a></span>What Limited Implicit Actions Is For<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec3>Section 1.2: </a></span>How Limited Implicit Actions Works<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec4>Chapter 2: </a></b></span>Extending Limited Implicit Actions<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec5>Section 2.1: </a></span>General Notes<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec6>Section 2.2: </a></span>Auto-Opening Doors<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec7>Section 2.3: </a></span>Auto-Unlocking<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec8>Section 2.4: </a></span>Smarter Auto-Unlocking<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec9>Section 2.5: </a></span>Smarter Key Selection<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec10>Section 2.6: </a></span>Implicit Closing<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec11>Section 2.7: </a></span>Conclusion - Implicit Actions and Limited Implicit Actions<br>
+    <br>
+    <b>Examples</b><br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href="Limited Implicit Actions-eg1.html#eg1">A &mdash; Balancing Act</a></span><br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href="Limited Implicit Actions-eg2.html#eg2">B &mdash; The Eye of Balinor</a></span><br>
+    </p>
+    <hr>
+    <p></p>
+    </p>
+
+    <p><p><span class="indexdullred"><b><span id=docsec1>Chapter 1: The Basics</span></b></span></p>
+    </p>
+
+    <p><p><span class="indexblack"><b><span id=docsec2>Section 1.1: What Limited Implicit Actions Is For</span></b></span></p>
+    </p>
+
+    <p> Limited Implicit Actions is a cut-down version of the Implicit Actions extension that may prove useful in either or both of the following circumstances:</p>
+
+    <p> (a) We're writing a Z-Code game that's running short of space, and we want something less resource-hungry than the full Implicit Actions extension.</p>
+
+    <p> (b) We want some implicit actions, but we also want to use Emily Short's Locksmith extension.</p>
+
+    <p> If neither of these conditions hold, then we may well do better to use the full Implicit Actions extension.</p>
+
+    <p> Note that some of the functionality of Limited Implicit Actions is now provided by the Standard Rules as from Inform release 6E59. Limited Implicit Actions does, however, handle a few more cases than the Standard Rules, as well as providing an extensible framework for simple implicit actions and slightly better reporting of implicit actions that fail.</p>
+
+    <p> Limited Implicit Actions uses less resources than the full Implicit Actions extensions because:</p>
+
+    <p> (a) It makes no use of indexed texts or the Text Capture extension. (b) It does not supply implicit actions for doors and locks (though these can be added if required, see below). (c) It does not attempt to group implcit action announcements, e.g. &quot;(first taking the brass key, then unlocking the oak door with the brass key, then opening the brass door)&quot;.</p>
+
+    <p> What Limited Implicit Actions (LIA) does do is:</p>
+
+    <p> (a) Perform an implicit take if needed for PUT X IN Y or PUT X ON Y. (b) Perform an implicit open if needed for SEARCH X, PUT X IN Y (when Y is a closed container) or TAKE X (when X is in a closed transparent container). (c) Perform impliciit exiting if the player tries to go somewhere while on an enterable supporter or in an enterable container.</p>
+
+    <p> Addtionally, LIA tries to guess whether the implicit action will succeed or fail, and announce it accordingly, e.g. &quot;(first taking the ball)&quot; for a success and &quot;(first trying to take the ball)&quot; for a failure. These guesses are likely to be right most of the time so long as our game doesn't do anything out of the ordinary. The guesses will be wrong, however, when, for example, we use an Instead or Before rule to prevent an action that would otherwise have succeeded. This limitation is one of the prices we have to pay for using Limited Implicit Actions instead of the full Implicit Actions extensions, but it may be a limitation worth living with.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec3>Section 1.2: How Limited Implicit Actions Works</span></b></span></p>
+    </p>
+
+    <p> To use Limited Implicit Actions we simply have to include it in our game. The appropriate implicit actions described above will then be performed for us automatically. We only need to know how it works in any more detail if we want to extend or customize its behaviour.</p>
+
+    <p> Limited Implicit Actions follows the same basic structure as the full Implicit Actions extensions. That is, it defines a new rulebook, the Precondition Rules, which operates between Before and Instead. It also defines a number of activities which actually carry out the preconditions specified for the precondition rules. For example, in order to put Object A on Object B we first need to be holding Object A, so Limited Implicit Actions defines the precondition rule:</p>
+
+    <p><blockquote><span class="indexdullblue"> Precondition for putting something on something when the noun is not carried (this is the take object before putting it on rule):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; if the noun is on the second noun then<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; say &quot;[The noun] [are] already on [the second noun].&quot; instead;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; carry out the implicitly taking activity with the noun;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; if the noun is not carried then stop the action.</span></blockquote>
+
+    <p> Limited Implicit Actions then defines the corresponding activity. Although there's already an implicitly taking activity in the Standard Rules, LIA defines its own version:</p>
+
+    <p><blockquote><span class="indexdullblue"> Rule for implicitly taking something (called the object desired) (this is the implicit taking rule):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; let actdesc be &quot;trying to take&quot;;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; if the object desired is portable and the object desired is touchable, let actdesc be &quot;taking&quot;;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; say &quot;(first [actdesc] [the object desired])[command clarification break]&quot;;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; silently try taking the object desired.</span></blockquote>
+
+    <p> The precondition is similar to the corresponding precondition in the full Implicit Actions extension. The corresponding activity is rather simpler. The example above illustrates how LIA guesses whether an implicit action is likely to suceed or fail (and thus choose the &quot;first taking&quot; or &quot;first trying to take&quot; form of the implicit action announcement). In the case of implicit taking, it assumes the implicit action will only fail if the object to be taken isn't portable or if it can't be touched. The implicitly opening action likewise assumes that it will fail if the object to be opened is locked (or unopenable or not touchable). This guessing is necessary because the implicit action announcement is displayed before the action is attempted (unlike the full Implicit Actions extensions, which constructs the implicit action announcement in the light of what actually happens).</p>
+
+    <p> We can also extend Limited Implicit Actions. The next chapter gives some examples that can be pasted into game code if required, or else adapted to create other types of implicit action. A game that requires anything much more sophisticated than Limited Implicit Actions can provide may, however, be better off using the full Implicit Actions extension.</p>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec4>Chapter 2: Extending Limited Implicit Actions</span></b></span></p>
+    </p>
+
+    <p><p><span class="indexblack"><b><span id=docsec5>Section 2.1: General Notes</span></b></span></p>
+    </p>
+
+    <p> We can extend Limited Implicit Actions by adding new precondition rules and defining new implicit action activities for them to trigger. A precondition rule defines what implicit action may be required under particular circumstances (e.g. unlocking a locked door before trying to open it); the activity then defines how that implicit action is reported and carried out. Hopefully this will become clearer from the examples given below, all of which concern doors, locks and openable containers. If we're using Emily Short's Locksmith extension, we probably won't need much of this, but if we're not and we want auto-opening and auto-unlocking doors (without the full Implicit Actions extension), the following examples may be useful. Each section of code is provided with a paste button so it can easily be added to your own project.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec6>Section 2.2: Auto-Opening Doors</span></b></span></p>
+    </p>
+
+    <p> To make a closed door automatically open when the player tries to go through it, we can add the following to our game code:</p>
+
+    <p><blockquote><span class="indexdullblue"><a href="javascript:pasteCode('Precondition for going through a closed openable door (called the obstructor):[=0x000A=][=0x0009=]carry out the implicitly opening activity with the obstructor;[=0x000A=][=0x0009=]if the obstructor is closed, stop the action.[=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a> Precondition for going through a closed openable door (called the obstructor):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; carry out the implicitly opening activity with the obstructor;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; if the obstructor is closed, stop the action.</span></blockquote>
+
+    <p> The implicitly opening activity is already defined in Limited Implicit Actions, so that's all we need to do.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec7>Section 2.3: Auto-Unlocking</span></b></span></p>
+    </p>
+
+    <p> If we're not using Emily Short's Locksmith extension, and we want Limited Implicit Actions to handle the implicit unlocking of doors (and containers), then we need to do a little more work. We'll assume that anything lockable needs a key to lock and unlock it. We'll also assume that implicit unlocking shouldn't occur until the player knows which key to use for a given door or container, and that the player only finds this out by successfully locking or unlocking something with the correct key. When this happens, the door or container that's just been locked or unlocked will be given the key-tested property. We can then add automatic unlocking of key-tested doors and containers to our game with the following code:</p>
+
+    <p><blockquote><span class="indexdullblue"><a href="javascript:pasteCode('A door can be key-tested. A door is usually not key-tested.[=0x000A=]A container can be key-tested. A container is usually not key-tested.[=0x000A=][=0x000A=]Carry out unlocking something with something:[=0x000A=][=0x0009=]now the noun is key-tested.[=0x000A=][=0x000A=]Carry out locking something with something:[=0x000A=][=0x0009=]now the noun is key-tested.[=0x000A=][=0x000A=]Precondition for opening a closed locked key-tested thing when the matching key of the noun is touchable:[=0x000A=][=0x0009=]carry out the implicitly unlocking activity with the noun;[=0x000A=][=0x0009=]if the noun is locked, stop the action.[=0x000A=][=0x000A=]implicitly unlocking something is an activity.[=0x000A=][=0x000A=]Rule for implicitly unlocking something (called the obstructor):[=0x000A=][=0x0009=]let my-key be the matching key of the obstructor;[=0x000A=][=0x0009=]say [=0x0022=](first unlocking [the obstructor] with [the my-key])[command clarification break][=0x0022=] (A);[=0x000A=][=0x0009=]silently try unlocking the obstructor with my-key.[=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a> A door can be key-tested. A door is usually not key-tested.<br>
+     A container can be key-tested. A container is usually not key-tested.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Carry out unlocking something with something:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; now the noun is key-tested.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Carry out locking something with something:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; now the noun is key-tested.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Precondition for opening a closed locked key-tested thing when the matching key of the noun is touchable:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; carry out the implicitly unlocking activity with the noun;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; if the noun is locked, stop the action.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> implicitly unlocking something is an activity.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Rule for implicitly unlocking something (called the obstructor):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; let my-key be the matching key of the obstructor;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; say &quot;(first unlocking [the obstructor] with [the my-key])[command clarification break]&quot; (A);<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; silently try unlocking the obstructor with my-key.</span></blockquote>
+
+    <p> Note that if we want the player to start out knowing which key unlocks a particular door or container (e.g. because it's the front door to his/her own house), we can just define that door or container as being key-tested from the outset, for example:</p>
+
+    <p><blockquote><span class="indexdullblue"> The front door is a key-tested scenery door. The matching key is the large iron key.</span></blockquote>
+
+    <p><p><span class="indexblack"><b><span id=docsec8>Section 2.4: Smarter Auto-Unlocking</span></b></span></p>
+    </p>
+
+    <p> The foregoing code does the job, but its output can be slightly untidy, since it can typically produce output like:</p>
+
+    <p><blockquote><span class="indexdullblue"> &gt;e<br>
+     (first trying to open the oak door)<br>
+     (first unlocking the oak door with the brass key)</span></blockquote>
+
+    <p> Since implicitly unlocking followed by implicitly opening is such a common case, we can improve this output by adding the following rule:</p>
+
+    <p><blockquote><span class="indexdullblue"><a href="javascript:pasteCode('Rule for implicitly opening a closed locked openable key-tested thing (called the obstructor):[=0x000A=][=0x0009=]let my-key be the matching key of the obstructor;[=0x000A=][=0x0009=]if my-key is not carried, continue the activity;[=0x000A=][=0x0009=]say [=0x0022=](first unlocking [the obstructor] with [the my-key], then opening [it-them of the obstructor])[command clarification break][=0x0022=] (A);[=0x000A=][=0x0009=]silently try unlocking the obstructor with my-key;[=0x000A=][=0x0009=]silently try opening the obstructor.[=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a> Rule for implicitly opening a closed locked openable key-tested thing (called the obstructor):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; let my-key be the matching key of the obstructor;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; if my-key is not carried, continue the activity;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; say &quot;(first unlocking [the obstructor] with [the my-key], then opening [it-them of the obstructor])[command clarification break]&quot; (A);<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; silently try unlocking the obstructor with my-key;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; silently try opening the obstructor.</span></blockquote>
+
+    <p> Which will change the output in this case to the rather neater:</p>
+
+    <p><blockquote><span class="indexdullblue"> &gt;e<br>
+     (first unlocking the oak door with the brass key, then opening it)</span></blockquote>
+
+    <p><p><span class="indexblack"><b><span id=docsec9>Section 2.5: Smarter Key Selection</span></b></span></p>
+    </p>
+
+    <p> Once the player knows which key is needed to lock or unlock something, it would be good if our game would automatically select the right key for the job in response to LOCK WHATEVER or UNLOCK WHATEVER. We can achieve this very simply by pasting the following code into our game;</p>
+
+    <p><blockquote><span class="indexdullblue"><a href="javascript:pasteCode('Does the player mean locking a key-tested thing with the matching key of the noun: it is very likely.[=0x000A=][=0x000A=]Does the player mean unlocking a key-tested thing with the matching key of the noun: it is very likely.[=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a> Does the player mean locking a key-tested thing with the matching key of the noun: it is very likely.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Does the player mean unlocking a key-tested thing with the matching key of the noun: it is very likely.</span></blockquote>
+
+    <p><p><span class="indexblack"><b><span id=docsec10>Section 2.6: Implicit Closing</span></b></span></p>
+    </p>
+
+    <p> Finally, it might be neat to have doors and containers implicitly closed when the player tries to close them. We can define the precondition so that it applies only when implicit closing would be sensible, and then the definition of the associated activity becomes very simple:</p>
+
+    <p><blockquote><span class="indexdullblue"><a href="javascript:pasteCode('Precondition for locking an open openable lockable thing with something:[=0x000A=][=0x0009=]carry out the implicitly closing activity with the noun;[=0x000A=][=0x0009=]if the noun is open, stop the action.[=0x000A=][=0x000A=]Implicitly closing something is an activity.[=0x000A=][=0x000A=]The last for implicitly closing something (called the open-thing):[=0x000A=][=0x0009=]say [=0x0022=](first closing [the open-thing])[=0x0022=] (A);[=0x000A=][=0x0009=]silently try closing the open-thing.[=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a> Precondition for locking an open openable lockable thing with something:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; carry out the implicitly closing activity with the noun;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; if the noun is open, stop the action.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Implicitly closing something is an activity.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> The last for implicitly closing something (called the open-thing):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; say &quot;(first closing [the open-thing])&quot; (A);<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; silently try closing the open-thing.</span></blockquote>
+
+    <p> In this case defining a separate implicitly closing activity may be overkill, however. If we're only ever going to want implicit closing to operate with locking, we can remove the overhead of another activity by compressing our implementation to this:</p>
+
+    <p><blockquote><span class="indexdullblue"><a href="javascript:pasteCode('Precondition for locking an open openable lockable thing with something:[=0x000A=][=0x0009=]say [=0x0022=](first closing [the noun])[=0x0022=] (A);[=0x000A=][=0x0009=]silently try closing the noun;[=0x000A=][=0x0009=]if the noun is open, stop the action.[=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a> Precondition for locking an open openable lockable thing with something:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; say &quot;(first closing [the noun])&quot; (A);<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; silently try closing the noun;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; if the noun is open, stop the action.</span></blockquote>
+
+    <p> This may be a better pattern to follow for similar cases.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec11>Section 2.7: Conclusion - Implicit Actions and Limited Implicit Actions</span></b></span></p>
+    </p>
+
+    <p> It's relatively straightforward to extend Limited Implicit Actions to cover more situations. The examples shown above can be pasted straight into your code it your game has doors and locks but you're not using Emily Short's Locksmith. On the other hand, Limited Implicit Actions is meant to be limited (to keep it small); if you find yourself trying to reinvent too many wheels to get it to do what you want, you may be better off using the full Implicit Actions extensions.</p>
+
+    <p> Note that Implicit Actions and Limited Implicit Actions should never be both included in the same game. There should never be any reason for including both, and your game won't compile if you try. It should, however, be relatively easy to switch between them. If you find yourself running out of space in a Z-Code game, you can try including Limited Implicit Actions instead of Implicit Actions. Conversely, if you find that Limited Implicit Actions isn't giving you enough functionaliy, you can switch to Implicit Actions instead. If you've defined any Preconditions or implicit activities of your own, you'll need to make some adjustments to them. If you change from Limited Implicit Actions to Implicit Actions you'll need to strip out any of the above door and lock examples you've added to your code, since equivalent functionality is already supplied in Implicit Actions.</p>
+
+    <p><hr>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td halign="left" valign="top" cellpadding=0 cellspacing=0 width=38px>
+                <span id=eg1><table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="oval">
+                        <td width=38px height=30px align="left" valign="center">
+                            <a href="Limited Implicit Actions-eg1.html#eg1" style="text-decoration: none"><div class="paragraph Body" style="line-height: 1px; margin-bottom: 0px; margin-top: 0px; padding-bottom: 0pt; padding-top: 0px; text-align: center;">
+                                <span class="extensionexampleletter">A</span></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                </span>
+            </td>
+            <td cellpadding=0 cellspacing=0 halign="left" valign="top">
+                <a href="Limited Implicit Actions-eg1.html#eg1" style="text-decoration: none"><img border="0" src='inform:/doc_images/asterisk.png'><b><span class="indexdarkgrey">&nbsp;Example&nbsp;</span><span class="indexblack">Balancing Act</span></b></a><br>
+                <p>Putting Limited Implicit Actions through its basic places.</p>
+
+            </td>
+        </tr>
+    </table>
+    </p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p><hr>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td halign="left" valign="top" cellpadding=0 cellspacing=0 width=38px>
+                <span id=eg2><table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="oval">
+                        <td width=38px height=30px align="left" valign="center">
+                            <a href="Limited Implicit Actions.html#eg2" style="text-decoration: none"><div class="paragraph Body" style="line-height: 1px; margin-bottom: 0px; margin-top: 0px; padding-bottom: 0pt; padding-top: 0px; text-align: center;">
+                                <span class="extensionexampleletter">B</span></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                </span>
+            </td>
+            <td cellpadding=0 cellspacing=0 halign="left" valign="top">
+                <a href="Limited Implicit Actions.html#eg2" style="text-decoration: none"><img border="0" src='inform:/doc_images/asterisk.png'><img border="0" src='inform:/doc_images/asterisk.png'><b><span class="indexdarkgrey">&nbsp;Example&nbsp;</span><span class="indexblack">The Eye of Balinor</span></b></a><br>
+                <p>A Jewel Theft with plenty of locks and keys</p>
+
+            </td>
+        </tr>
+    </table>
+    <table border="0" cellspacing="0" cellpadding="0" class="extensionexample" width=100%>
+        <tr>
+            <td align="left" valign="top">
+                <p></p>
+
+                <p> This example incorporates all the various example code snippets for doors and keys, and demonstrates how they work in action.</p>
+
+                <p><blockquote><span class="indexdullblue"><a href="javascript:pasteCode('[=0x0022=]The Eye of Balinor[=0x0022=] by Eric Eve.[=0x000A=][=0x000A=]Include Limited Implicit Actions by Eric Eve.[=0x000A=][=0x000A=]The story headline is [=0x0022=]A daring jewel theft[=0x0022=][=0x000A=][=0x000A=]Use scoring.[=0x000A=][=0x000A=]Book 1 - World Model[=0x000A=][=0x000A=]A door is usually scenery.[=0x000A=][=0x000A=]Precondition for going through a closed openable door (called the obstructor):[=0x000A=][=0x0009=]carry out the implicitly opening activity with the obstructor;[=0x000A=][=0x0009=]if the obstructor is closed, stop the action.[=0x000A=][=0x000A=]A door can be key-tested. A door is usually not key-tested.[=0x000A=][=0x000A=]A container can be key-tested. A container is usually not key-tested.[=0x000A=][=0x000A=]Carry out unlocking something with something:[=0x000A=][=0x0009=][=0x0009=]now the noun is key-tested.[=0x000A=][=0x000A=]Carry out locking something with something:[=0x000A=][=0x0009=][=0x0009=]now the noun is key-tested.[=0x000A=][=0x000A=]Precondition for opening a closed locked key-tested thing when the matching key of the noun is touchable:[=0x000A=][=0x0009=]carry out the implicitly unlocking activity with the noun;[=0x000A=][=0x0009=]if the noun is locked, stop the action.[=0x000A=][=0x000A=]implicitly unlocking something is an activity.[=0x000A=][=0x000A=]Rule for implicitly unlocking something (called the obstructor):[=0x000A=][=0x0009=]let my-key be the matching key of the obstructor;[=0x000A=][=0x0009=]say [=0x0022=](first unlocking [the obstructor] with [the my-key])[command clarification break][=0x0022=];[=0x000A=][=0x0009=]silently try unlocking the obstructor with my-key.[=0x000A=][=0x000A=]Rule for implicitly opening a closed locked openable key-tested thing (called the obstructor):[=0x000A=][=0x0009=]let my-key be the matching key of the obstructor;[=0x000A=][=0x0009=]if my-key is not carried, continue the activity;[=0x000A=][=0x0009=]say [=0x0022=](first unlocking [the obstructor] with [the my-key], then opening [regarding the obstructor][them])[=0x000A=][command clarification break][=0x0022=];[=0x000A=][=0x0009=]silently try unlocking the obstructor with my-key;[=0x000A=][=0x0009=]silently try opening the obstructor.[=0x000A=][=0x000A=]Does the player mean locking a key-tested thing with the matching key of the noun: it is very likely.[=0x000A=][=0x000A=]Does the player mean unlocking a key-tested thing with the matching key of the noun: it is very likely.[=0x000A=][=0x000A=]Precondition for locking an open openable lockable thing with something:[=0x000A=][=0x0009=]say [=0x0022=](first closing [the noun])[=0x0022=];[=0x000A=][=0x0009=]silently try closing the noun;[=0x000A=][=0x0009=]if the noun is open, stop the action.[=0x000A=][=0x000A=]Book 2 - Scenario[=0x000A=][=0x000A=]Part 1 - The Drive[=0x000A=][=0x000A=]The Drive is a room.[=0x000A=][=0x0022=]The front door of the house you have come to burgle stands immediately to the south.[=0x0022=][=0x000A=][=0x000A=]The doormat is an enterable supporter in the Drive.[=0x000A=][=0x0022=]A doormat rests on the ground just by the front door.[=0x0022=][=0x000A=][=0x000A=]Understand [=0x0022=]mat[=0x0022=] as the doormat.[=0x000A=][=0x000A=]Instead of looking under the doormat when the brass key is off-stage:[=0x000A=]move the brass key to the player;[=0x000A=]say [=0x0022=]Under the mat you find a brass key, which you take.[=0x0022=][=0x000A=][=0x000A=]The brass key is a thing.[=0x000A=][=0x000A=]After locking the front door with the brass key in the Drive when the huge diamond is carried:[=0x000A=]increase the score by 10000;[=0x000A=]say [=0x0022=]You relock the front door and slip the brass key under the mat, and then turn to saunter triumphantly down the drive, the Eye of Balinor in the pocket of your dinner jacket.[=0x0022=];[=0x000A=]end the story finally saying [=0x0022=]You have won[=0x0022=].[=0x000A=][=0x000A=]The front door is a closed lockable locked openable door.[=0x000A=]It is north of the Hall and south of the Drive.[=0x000A=][=0x000A=]When play begins:[=0x000A=]say [=0x0022=]The Eye of Balinor is reputed to be the largest diamond ever found; if you can steal it you[=0x0027=]ll be the greatest jewel thief ever! But you must be careful to leave everything just as you found it -- apart from the diamond of course![=0x0022=][=0x000A=][=0x000A=]The maximum score is 10000.[=0x000A=][=0x000A=]Part 2 - The Hall[=0x000A=][=0x000A=]The brass key unlocks the front door.[=0x000A=][=0x000A=]The Hall is a room.[=0x000A=][=0x0022=]Many old paintings adorn the walls, but you scarcely afford them a glance. It[=0x0027=]s not paintings you have come to steal, after all. Doors lead off in various directions from here but the only ones that concern you are the study door (to the east) and the front door (to the north).[=0x0022=][=0x000A=][=0x000A=]The study#door is a closed openable door.[=0x000A=]It is east of the Hall and west of the Study.[=0x000A=]The printed name is [=0x0022=]study door[=0x0022=].[=0x000A=]Understand [=0x0022=]study[=0x0022=] or [=0x0022=]door[=0x0022=] as the study#door.[=0x000A=][=0x000A=]After locking the front door with the brass key for the first time:[=0x000A=]say [=0x0022=]You lock the front door just to make sure you[=0x0027=]re not interrupted.[=0x0022=][=0x000A=][=0x000A=]Part 3 - The Study[=0x000A=][=0x000A=]The Study is a room.[=0x000A=][=0x0022=]You ignore the paintings, bookcases and fine old furniture that adorn this fine, oak-paneled study, and focus on the only things that matter to you right now: the safe next to the wall, the oak desk in the middle of the room, and the door out to the west.[=0x0022=][=0x000A=][=0x000A=]The oak desk is a scenery supporter in the Study.[=0x000A=]The description is [=0x0022=]It[=0x0027=]s a fine old desk, with a single drawer.[=0x0022=][=0x000A=][=0x000A=]The drawer is a closed openable lockable locked container. It is part of the oak desk.[=0x000A=]The matching key is the small dull key.[=0x000A=][=0x000A=]The large silver key is in the drawer.[=0x000A=][=0x000A=]The pencil case is a closed openable container on the desk.[=0x000A=][=0x000A=]The small dull key is in the pencil case.[=0x000A=][=0x000A=]The safe is a closed openable locked lockable scenery container in the Study.[=0x000A=]The description is [=0x0022=]You recognize the make: it[=0x0027=]s a Securimax Ultra, a kind of safe that[=0x0027=]s unlocked with a large silver key.[=0x0022=][=0x000A=]The matching key is the large silver key.[=0x000A=][=0x000A=]Understand [=0x0022=]securimax[=0x0022=] or [=0x0022=]ultra[=0x0022=] as the safe.[=0x000A=][=0x000A=]The huge diamond is in the safe.[=0x000A=]The description is [=0x0022=]A gem this large can only be the famed Eye of Balinor, said to be worth more than the GDP of a small country![=0x0022=][=0x000A=][=0x000A=]understand [=0x0022=]gem[=0x0022=], [=0x0022=]jewel[=0x0022=], [=0x0022=]eye[=0x0022=], [=0x0022=]of[=0x0022=] or [=0x0022=]balinor[=0x0022=] as the huge diamond.[=0x000A=][=0x000A=]Book 3 - Testing[=0x000A=][=0x000A=]Test me with [=0x0022=]look under mat/unlock front door with key/s/lock front door/e/x safe/x desk/look in pencil case/unlock drawer with small key/look in drawer/unlock safe with silver key/look in safe/x diamond/take eye/lock safe/put silver in drawer/lock drawer/put small key in case/close case/w/n/lock door[=0x0022=][=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a> &quot;The Eye of Balinor&quot; by Eric Eve.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Include Limited Implicit Actions by Eric Eve.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The story headline is &quot;A daring jewel theft&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Use scoring.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Book 1 - World Model</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> A door is usually scenery.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Precondition for going through a closed openable door (called the obstructor):<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; carry out the implicitly opening activity with the obstructor;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; if the obstructor is closed, stop the action.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> A door can be key-tested. A door is usually not key-tested.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> A container can be key-tested. A container is usually not key-tested.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Carry out unlocking something with something:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; now the noun is key-tested.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Carry out locking something with something:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; now the noun is key-tested.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Precondition for opening a closed locked key-tested thing when the matching key of the noun is touchable:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; carry out the implicitly unlocking activity with the noun;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; if the noun is locked, stop the action.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> implicitly unlocking something is an activity.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Rule for implicitly unlocking something (called the obstructor):<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; let my-key be the matching key of the obstructor;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; say &quot;(first unlocking [the obstructor] with [the my-key])[command clarification break]&quot;;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; silently try unlocking the obstructor with my-key.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Rule for implicitly opening a closed locked openable key-tested thing (called the obstructor):<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; let my-key be the matching key of the obstructor;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; if my-key is not carried, continue the activity;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; say &quot;(first unlocking [the obstructor] with [the my-key], then opening [regarding the obstructor][them])
+                [command clarification break]&quot;;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; silently try unlocking the obstructor with my-key;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; silently try opening the obstructor.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Does the player mean locking a key-tested thing with the matching key of the noun: it is very likely.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Does the player mean unlocking a key-tested thing with the matching key of the noun: it is very likely.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Precondition for locking an open openable lockable thing with something:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; say &quot;(first closing [the noun])&quot;;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; silently try closing the noun;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; if the noun is open, stop the action.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Book 2 - Scenario</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Part 1 - The Drive</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The Drive is a room.<br>
+                 &quot;The front door of the house you have come to burgle stands immediately to the south.&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The doormat is an enterable supporter in the Drive.<br>
+                 &quot;A doormat rests on the ground just by the front door.&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Understand &quot;mat&quot; as the doormat.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Instead of looking under the doormat when the brass key is off-stage:<br>
+                 move the brass key to the player;<br>
+                 say &quot;Under the mat you find a brass key, which you take.&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The brass key is a thing.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> After locking the front door with the brass key in the Drive when the huge diamond is carried:<br>
+                 increase the score by 10000;<br>
+                 say &quot;You relock the front door and slip the brass key under the mat, and then turn to saunter triumphantly down the drive, the Eye of Balinor in the pocket of your dinner jacket.&quot;;<br>
+                 end the story finally saying &quot;You have won&quot;.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The front door is a closed lockable locked openable door.<br>
+                 It is north of the Hall and south of the Drive.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> When play begins:<br>
+                 say &quot;The Eye of Balinor is reputed to be the largest diamond ever found; if you can steal it you'll be the greatest jewel thief ever! But you must be careful to leave everything just as you found it -- apart from the diamond of course!&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The maximum score is 10000.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Part 2 - The Hall</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The brass key unlocks the front door.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The Hall is a room.<br>
+                 &quot;Many old paintings adorn the walls, but you scarcely afford them a glance. It's not paintings you have come to steal, after all. Doors lead off in various directions from here but the only ones that concern you are the study door (to the east) and the front door (to the north).&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The study#door is a closed openable door.<br>
+                 It is east of the Hall and west of the Study.<br>
+                 The printed name is &quot;study door&quot;.<br>
+                 Understand &quot;study&quot; or &quot;door&quot; as the study#door.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> After locking the front door with the brass key for the first time:<br>
+                 say &quot;You lock the front door just to make sure you're not interrupted.&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Part 3 - The Study</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The Study is a room.<br>
+                 &quot;You ignore the paintings, bookcases and fine old furniture that adorn this fine, oak-paneled study, and focus on the only things that matter to you right now: the safe next to the wall, the oak desk in the middle of the room, and the door out to the west.&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The oak desk is a scenery supporter in the Study.<br>
+                 The description is &quot;It's a fine old desk, with a single drawer.&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The drawer is a closed openable lockable locked container. It is part of the oak desk.<br>
+                 The matching key is the small dull key.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The large silver key is in the drawer.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The pencil case is a closed openable container on the desk.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The small dull key is in the pencil case.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The safe is a closed openable locked lockable scenery container in the Study.<br>
+                 The description is &quot;You recognize the make: it's a Securimax Ultra, a kind of safe that's unlocked with a large silver key.&quot;<br>
+                 The matching key is the large silver key.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Understand &quot;securimax&quot; or &quot;ultra&quot; as the safe.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The huge diamond is in the safe.<br>
+                 The description is &quot;A gem this large can only be the famed Eye of Balinor, said to be worth more than the GDP of a small country!&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> understand &quot;gem&quot;, &quot;jewel&quot;, &quot;eye&quot;, &quot;of&quot; or &quot;balinor&quot; as the huge diamond.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Book 3 - Testing</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Test me with &quot;look under mat/unlock front door with key/s/lock front door/e/x safe/x desk/look in pencil case/unlock drawer with small key/look in drawer/unlock safe with silver key/look in safe/x diamond/take eye/lock safe/put silver in drawer/lock drawer/put small key in case/close case/w/n/lock door&quot;</span></blockquote>
+
+                <p></p>
+
+            </td>
+        </tr>
+    </table>
+    </p>
+
+    <p>
+    <!--CONTENT ENDS-->
+</body>
+</html>

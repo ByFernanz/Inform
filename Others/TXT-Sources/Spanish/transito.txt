@@ -1,0 +1,975 @@
+[ Licencia: CC BY-SA 4.0 - https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES ]
+
+"Tránsito" by n-n (in Spanish)
+
+Include Basic Screen Effects by Emily Short.
+
+The release number is 2.
+The story creation year is 2021.
+The story genre is "Horror".
+The story headline is "Una Ficción Interactiva Liminar".
+
+Release along with cover art ("Airport terminal."), the private source text and the "Parchment" interpreter.
+
+Part 1 - Basics
+
+After printing the banner text:
+	say "[line break][bracket]Puedes teclear AYUDA o CREDITOS para más información[close bracket][paragraph break]".
+
+The standard report switching on rule response (A) is "Enciendes [the noun].".
+The standard report switching off rule response (A) is "Apagas [the noun].".
+The block thinking rule response (A) is "No estás en tu mejor momento para pensar con [one of]claridad[or]lucidez[purely at random].".
+The report jumping rule response (A) is "Prefieres no llamar la atención.".
+The can't take yourself rule response (A) is "No puedes hacer algo así.".
+The can't take component parts rule response (A) is "No te puedes llevar eso.".
+The report listening rule response (A) is "El silencio es absoluto[one of], parece que el aire pesa como un manto sólido[or][at random].".
+The can't drop body parts rule response (A) is "[if la mano is severed]Ya está hecho[else]No se va a desprender sin más[end if].".
+
+Understand "recordar" or "recuerda" as thinking.
+
+Section 1 - Kinds (in place of "Section 2.2.5.1 - In the Standard Rules" in Spanish Language by Sebastian Arg)
+
+A room translates into Spanish as una habitación.
+A thing translates into Spanish as un objeto.
+A door translates into Spanish as una puerta.
+[A container translates into Spanish as un contenedor.]
+A vehicle translates into Spanish as un vehículo.
+A player's holdall translates into Spanish as una bolsa.
+A supporter translates into Spanish as un soporte.
+A backdrop translates into Spanish as un decorado.
+A person translates into Spanish as una persona.
+A man translates into Spanish as un hombre.
+A woman translates into Spanish as una mujer.
+A animal translates into Spanish as un animal.
+A device translates into Spanish as un dispositivo.
+A direction translates into Spanish as una dirección.
+A region translates into Spanish as una región.
+
+A number translates into Spanish as un número.
+
+Part 2 - Map and scenery
+
+Chapter 1 - Intro
+
+El Aseo is a room. "El aseo de la zona de llegadas de esta terminal se encuentra en un estado general de abandono, que contrasta con un olor fuerte a desinfectante. El lado norte está ocupado por un espejo y varios lavabos. En el extremo opuesto están los cubículos de los retretes. Al este está la salida.".
+
+IntroReg is a region.  El Aseo is in IntroReg;
+
+El espejo is a backdrop. It is in el Aseo. "El espejo tiene un golpe y está agrietado. Refleja tu imagen multiplicada.". Understand "golpe" or "grieta" or "grietas" as el espejo;
+
+Los lavabos are a backdrop. It is in el Aseo. "Una fila de lavabos. Parecen no haber sido usados en mucho tiempo. No tienen agua.". Understand "lavabo" or "pila" or "pica" as los lavabos.
+
+Los cubículos are a backdrop. They are in el aseo. The description is "Todos los cubículos excepto uno tienen las puertas bloqueadas.". Understand "cubiculos" or "retretes" as los cubículos.
+
+El cubículo is a thing. It is scenery. The cubículo is an open openable container. "El único cubículo que no está deshabilitado. [if open]Tiene puerta y dentro hay un retrete de aura amenazante.[else]Has escondido el cuerpo dentro y lo has cerrado.[end if]". It is in el Aseo. Understand "cubiculo" or "toilet" or "closet" or "puerta" as el cubículo.
+
+El retrete is scenery. It is in el cubículo. The description is "Ni te planteas utilizarlo.".
+
+La pared is scenery. It is in el aseo. "La pared tiene un soporte para el extintor.". Understand "soporte" or "gancho" as la pared.
+
+
+Chapter 2 - Mid-section
+
+El Pasillo de Conexión is east from Aseo. "Un pasillo de conexión del aeropuerto. Está en penumbra y totalmente desierto. Al sur está la zona de llegadas, desde donde has venido tras aterrizar tu anterior vuelo. Según está indicado, al norte se encuentra la zona de salidas. Al oeste hay un aseo[first time] (que conoces ya demasiado bien)[only].". El Pasillo de Conexión is outside from Aseo. Llegadas is south from el pasillo de conexión.
+
+El Pasillo de Salidas is north from Pasillo de Conexión. "El pasillo continúa su curso hacia la zona de salidas, de sur a norte. No parece haber corriente eléctrica en este área, no funcionan las luces ni los suelos móviles. Todo está en silencio.".
+
+Las luces are a backdrop in Pasillo de Salidas. "Ni las luces ni los suelos deslizantes funcionan. Estos pasillos tienen un aspecto fantasmagórico.". Understand "suelos" as las luces.
+
+Salidas Sur is north from Pasillo de Salidas. "Estás al sur de la zona de salidas. La terminal es enorme, con el techo abovedado y las paredes exteriores de vidrio. En el lado oeste hay locales comerciales cerrados, y al este hay una zona de espera. Más adelante, al norte, está el control de seguridad.”.
+
+El techo is a backdrop in Salidas Sur. "El tejado está hecho de paneles de metal. Es más alto en el centro y su altura desciende hacia los dos lados.". Understand "tejado" or "paneles" as el techo.
+
+Las paredes are a backdrop in Salidas Sur. "Hay ventanales en los lados de la terminal, por donde entra la escasa luz natural. Están en los extremos este y oeste.". Understand "ventanales" as las paredes.
+
+Los locales are a backdrop in Salidas Sur. "Los locales parecen llevar largo tiempo abandonados. Puedes acercarte a ellos hacia el oeste.". Understand "tiendas" as los locales.
+
+La espera are a backdrop in Salidas Sur. "Hacia el este se ven algunas filas de sillas.". Understand "sillas" or "zona de espera" or "zona" or "espera" as la espera.
+
+Zona Comercial is west from Salidas Sur. "Te adentras en la antigua zona comercial de la terminal. Está ocupada por una formación en cuadrícula de tiendas de mercancías variadas (prensa, ropa, alimentación). Todas están tapiadas o vacías. Hacia el este puedes volver a la entrada de la terminal. En el extremo oeste, detrás de las tiendas, llegas a ver un contenedor de mercancías.".
+
+El contenedor is a backdrop in Zona Comercial. "Está al oeste, tendrás que acercarte para verlo de cerca.".
+
+Las tiendas are scenery. They are in Zona Comercial. The description is "Los anuncios y logotipos de las tiendas te resultan ya distantes, como la escritura de una civilización perdida.". Understand "anuncios" or "logotipos" or "logos" as las tiendas.
+
+Salidas Suroeste is west from Zona Comercial. "Tras el área comercial llegas a la esquina suroeste de la terminal. Toda la estructura es de acero y vidrio, y los ventanales te permiten ver el exterior. Puedes volver al área comercial hacia el este, y hacia el norte está el control de seguridad.".
+
+ExteriorReg is a region. Salidas Suroeste is in ExteriorReg.
+
+Los Ventanales Suroeste are a backdrop. They are in Salidas Suroeste. "En la distancia, bajo un cielo naranja oscuro puedes ver un paisaje urbano en el que no se distingue luz alguna. En primer plano puedes ver las pistas del aeropuerto, desiertas salvo por un par de aviones.". Understand "exterior" or "ventana" or "ventanas" or "ventanal" as los Ventanales Suroeste.
+
+After examining los Ventanales Suroeste:
+	if a random chance of 1 in 3 succeeds, say "Ves a lo lejos la forma solitaria de un infectado que vaga a través del erial.".
+
+Los Aviones are a backdrop. They are in Salidas Suroeste. "Los pocos aparatos que siguen volando son en su mayoría viejos modelos militares reutilizados. Más básicos y fáciles de mantener, aunque con pocas comodidades.". Understand "avión" or "avion" or "aparato" or "aparatos" as los aviones.
+
+Interior del contenedor is inside from Salidas Suroeste. "El interior del contenedor es un habitáculo metálico de forma rectangular, de apenas seis metros de largo por dos de ancho. Está iluminado por una pequeña luz auxiliar activada por el movimiento. El aire está refrigerado a una temperatura extremadamente baja.".
+
+La puerta interior is in Interior del contenedor. It is scenery. "Examinas el lado interior de la puerta del contenedor y compruebas que parece poder abrirse manualmente desde dentro.".
+
+Zona de Espera is east from Salidas Sur. "Una zona de espera para los viajeros que hacen escala. Hay varias filas de sillas, y desde aquí puedes ver también un televisor encendido. No hay nadie. Hacia el oeste está la entrada a esta zona y también puedes al este, hasta el extremo de la terminal.".
+
+Las sillas are scenery in Zona de Espera. The description is "Están llenas de polvo. Nadie se ha sentado en bastante tiempo.".
+
+El televisor is a backdrop in Zona de Espera. "El televisor está montado en una pared, con un buen ángulo de visión para los viajeros ya casi inexistentes. Está sintonizado en un canal de noticias internacional, que parece emitir cortes de información en bucle.[paragraph break]Ahora mismo [one of]muestra[or]puedes ver[at random] [one of]imágenes[or]metraje[at random][one of] de baja calidad[or] con interferencias[or] de archivo[or][at random] de [one of]inundaciones[or]campos de refugiados climáticos[or]maniobras militares[or]fosas comunes de infectados[or]soldados ejecutando personas infectadas[or]un terremoto[or]un desastre nuclear[or]disturbios[or]un intento de golpe de estado[at random] en [one of]uno de los antiguos Estados Unidos[or]Rusia[or]una república ex-soviética[or]China[or]Centroamérica[or]algún lugar de Europa Occidental[or]África central[or]Oriente Medio[or]India[or]Brasil[at random].". Understand "tele" or "tv" or "pantalla" as el televisor.
+
+Salidas Sureste is east from Zona de Espera. "Has llegado a la esquina de la terminal. Puedes ver el exterior del aeropuerto a través de los ventanales.".
+
+Salidas Sureste is in ExteriorReg.
+
+El cielo is a backdrop in ExteriorReg. The description is "La luz solar tiñe toda la vista de naranja oscuro al atravesar la pesada atmósfera. Te preguntas qué ocurre con el aire aquí. ¿Fuego, radiación?".
+
+Ventanales Sureste are a backdrop in Salidas Sureste. The description is "Observas el panorama exterior. Por este lado las pistas están llenas de escombros y chatarra. Hacia la izquierda puedes ver que un ala entera de la terminal está en ruinas. Quizá por un accidente o un ataque. El cielo tiene un color naranja intenso.".
+
+Control Sur is north from Salidas Sur. “Un control de seguridad marca la frontera con la zona de salidas. A un lado está situada una máquina de rayos X con cinta transportadora para los equipajes. En el centro hay un arco detector de metales, por donde se procede hacia el lado norte de la terminal.”.
+
+La mujer vigilante is a woman. The printed name is "mujer vigilante". La Mujer Vigilante is in Control Sur. "Una mujer vigilante con mascarilla espera de pie junto al arco, sosteniendo un termómetro de proximidad.". The description is "Lleva un uniforme parapolicial y el pelo recogido en una coleta. Su cara está tapada por la mascarilla, sólo puedes ver una mirada fría.".
+
+El termómetro is part of la mujer vigilante. The description is "El termómetro tiene una empuñadura de pistola, y funciona a distancia. Uno de los síntomas de la fase inicial de la infección es la fiebre imposiblemente alta.". Understand "termometro" as el termómetro.
+
+El guardia del control is a man. He is in Control Sur. "Un guardia armado observa a unos metros de distancia.". The description is "El guardia está equipado con una armadura de combate completa de color negro, sin insignias ni distintivos. Su rostro está oculto por un casco con visor y filtros de aire. Lleva un rifle de asalto.".
+
+El rifle is part of el guardia del control. The description is "Un arma de guerra, con cañón largo y mira telescópica.". Understand "fusil" or "rifle" or "arma" as el rifle.
+
+Control Sur is northeast from Zona Comercial. Control Sur is northwest from Zona de Espera. Control Sur is north from Zona Comercial. Control Sur is north from Zona de Espera. Control Sur is northeast from Salidas Suroeste. Control Sur is north from Salidas Suroeste. Control Sur is northwest from Salidas Sureste. Control Sur is north from Salidas Sureste.
+
+
+Chapter 3 - Endgame
+
+Control Norte is north from Control Sur. "Estás en el lado norte del control de seguridad. El lado posterior de la máquina de Rayos X devuelve las piezas de equipaje por la cinta transportadora, y al sur está el arco que por el que has pasado. Más hacia el norte están las puertas de embarque.".
+
+Salidas Norte is north from Control Norte. "Estás en el lado norte de la terminal, más allá del control de seguridad. Dos pasillos llevan a las puertas de embarque, hacia el oeste (A) y al este (B). En bifurcación puedes ver la entrada a un cuarto de mantenimiento, al norte.".
+
+La entrada is scenery. It is in Salidas Norte. The description is "La puerta tiene una señal de prohibido el paso.". Understand "cuarto" or "puerta" as la entrada.
+
+Cuarto de mantenimiento is north from Salidas Norte.  "Un pequeño cuarto para uso de los empleados del aeropuerto. A un lado hay una mesa y al otro una taquilla. La única salida es hacia el sur.".
+
+Cuarto de mantenimiento is inside from Salidas Norte.
+
+Corredor A is west from Salidas Norte. "Un inmenso corredor con puertas de embarque a los dos lados. Algunos viajeros solitarios caminan por la decadente estructura, y hay guardias armados patrullando la zona. El centro de la zona de salidas queda al este.".
+
+Las puertas de embarque are a backdrop in Corredor A. The description is "Las puertas de embarque están distruibuidas a ambos lados del corredor. La mayoría están vacías.[first time][paragraph break][bracket]Para acceder a una puerta determinada escribe IR A PUERTA <número>[close bracket][only]". Understand "puerta" as las puertas de embarque.
+
+Los viajeros are a backdrop in Corredor A. The description is "Figuras sombrías que se mueven esquivamente por el corredor, solas o en pequeños grupos. La actitud de alguno de ellos te da a entender que pueden ir armados y te disuade de intentar ningún contacto.". Understand "pasajeros" or "pasajero" or "gente" or "viajeros" or "viajero" or "turista" or "turistas" as los viajeros.
+
+Instead of talking to los viajeros, say "Prefieres no acercarte[one of] a nadie[or][at random].".
+Instead of talking to los guardias, say "Prefieres no acercarte[one of] a ellos[or][at random].".
+
+Los guardias are a backdrop in Corredor A. The description is "Una patrulla de guardias deambula por el corredor. Equipados con armaduras paramilitares y fuertemente armados.". Understand "soldados" or "policias" or "policías" as los guardias.
+
+Corredor B is east from Salidas Norte. "El corredor de las puertas de embarque de este lado ha quedado completamente destruido después de algunos metros. Un enrejado impide el acceso a la zona en ruinas, en la que el techo está derrumbado. Aunque no parece que haya ningún trabajo de reparación en marcha, más allá de la reja, hacia el este, puedes ver material de obra.".
+
+Material de obra is a backdrop in Corredor B. The description is "Parece que hay herramientas, no las ves bien desde aquí.".
+
+La reja is scenery in Corredor B. It is fixed in place. La reja can be open. La reja can be locked. It is locked. The description is "Una reja de acero cruza el corredor protegiendo la zona en ruinas. Uno de los tramos de la reja tiene una cerradura.". Understand "enrejado" as la reja.
+
+La cerradura de la reja is scenery. It is part of la reja. The description is "Una cerradura industrial. Se abre con una llave.".
+
+Obras is east from Corredor B. "Te encuentras en el extremo derrumbado de lo que antes era el corredor B de puertas de embarque. El camino hacia el este está bloqueado por los escombros.".
+
+Las herramientas de obra are a thing. They are in Obras. They are fixed in place. "Hay algunas herramientas de obra, aunque los trabajos parecen estar abandonados.". The description is "Entre otros instrumentos identificas un soldador y una sierra radial.". Understand "obra" as las herramientas.
+
+Puerta de Embarque is a room. "Has llegado a tu puerta de embarque. Una entrada conduce hasta el avión. Junto a ella está instalado un mostrador de control donde mostrar la documentación. Hacia el este puedes volver al corredor principal.".
+
+La entrada del embarque is a backdrop in Puerta de Embarque. "La entrada de acceso para el vuelo. Está abierta.". Understand "puerta" as la entrada del embarque.
+
+El avión is a backdrop in Puerta de Embarque. "El avión está al otro lado de la puerta. No lo llegas a ver desde aquí.". Understand "avion" or "vuelo" as el avión.
+
+Corredor A is east from Puerta de Embarque. West of Corredor A is nowhere.
+
+El mostrador is scenery in Puerta de Embarque. "Es un atril detrás del cual está el auxiliar que revisa los documentos de viaje.".
+
+El auxiliar is a man in Puerta de Embarque. "En el mostrador, un auxiliar de tierra con traje protector está preparado para revisar los documentos de viaje.". The description is "Va vestido con un traje EPP de cuerpo entero, completo con casco y guantes.".
+
+El guardia del embarque is a man in Puerta de Embarque. "Un guardia fuertemente armado vigila la puerta y el mostrador.". The description is "Está equipado de forma similar al guardia del control que viste antes. Armadura negra completa, casco con visor y filtros, y arma pesada. Controla la puerta y el mostrador, a unos pasos de distancia.".
+
+Endgame is inside from Puerta de Embarque.
+
+
+Part 3 - Items
+
+Chapter 1 - Intro
+
+El cuerpo inerte is a thing. "Un cuerpo inerte yace en medio de la estancia.". The description is "[if Intro is happening]Se abalanzó sobre ti cuando entraste al aseo. Después de un forcejeo conseguiste neutralizarlo golpeando su cabeza con el extintor de incendios. Como todo el mundo sabe, destruir el centro del sistema nervioso es la única forma de detener a las víctimas de la infección.[paragraph break][end if]Observas que lleva lo que parece un uniforme de mantenimiento. Probablemente es (era) un trabajador del aeropuerto.". It is in El Aseo. Understand "cadáver" or "cadaver" or "empleado" or "muerto" or "bulto" or "infectado" as el cuerpo inerte.
+
+El uniforme is part of el cuerpo inerte. The description is "Un mono de trabajo con bolsillos.". Understand "mono" as el uniforme.
+
+Los bolsillos are part of el uniforme. Understand "bolsillo" as los bolsillos.
+
+El cuerpo escondido is a backdrop. It is nowhere. The description is "No tienes acceso al cuerpo, está escondido dentro del cubículo.". Understand "cadáver" or "cadaver" or "empleado" or "muerto" as el cuerpo escondido.
+
+El extintor is a thing. "El extintor está descolgado y tirado en el suelo.". The description is "Un extintor de incendios. [if el extintor is not hanged]Lo descolgaste de la pared para defenderte del ataque. [end if]Es pesado y tiene una base plana que te ha permitido usarlo como arma contundente.". El Extintor can be hanged. It is in El Aseo. Understand "base" as el extintor.
+
+El pase de seguridad is a thing. It is nowhere. The description is "Una tarjeta magnética. Tratas de hacerte a la idea de que la persona representada por la fotografía y el nombre que están impresos en ella ya no existe.".
+
+La maleta is a closed openable container. "Aquí está tu maleta.". It is in el Aseo. The description is "Tiene ruedas y las dimensiones apropiadas para los compartimento de cabina. No es que importe mucho, dadas las condiciones en que se realizan los viajes.". La maleta can be heavy. La maleta is heavy. Understand "equipaje" as la maleta.
+
+La carpeta de documentación is in la maleta. The description is "Una carpeta de cartón con el logotipo de la compañía. Contiene varios documentos.". Understand "documentacion" or "docs" as la carpeta.
+
+Los documentos are part of la carpeta. The description is "Están escritos a mano, pero no eres capaz de interpretar su contenido. Algunos están en idiomas que no entiendes, como el mandarín o el ruso, y otros están codificados como series de números.[paragraph break]Es material muy valioso para la compañía que tienes que llevar contigo.". Understand "documento" or "documentación" as los documentos.
+
+La ropa usada is in la maleta. The description is "Ropa que has estado usando los días pasados, durante el viaje.". Understand "ropas" as la ropa usada.
+
+La tarjeta de embarque is carried. It has a text called número de vuelo. It has a text called destino. The description is "Un resguardo de papel donde viene escrito tu número de vuelo: [número de vuelo] con destino [destino].".
+
+El pasaporte is carried. The description is "Se parece a los antiguos pasaportes emitidos por los estados-nación, pero este está expedido por la compañía para la que trabajas.".
+
+Chapter 2 - Mid-game
+
+La mano izquierda is part of the player. The description is "En el canto tiene la huella de un mordisco. La herida tiene un color morado oscuro y el tejido de alrededor muestra la degradación característica de la infección.[first time][paragraph break]Tardas un rato en asimilar que... esa cosa te ha mordido.[only]". La mano can be ocluded. La mano can be severed. La mano can be burned. La mano can be cauterized. Understand "brazo" or "muñón" or "muñon" or "herida" or "hemorragia" or "antebrazo" as la mano;
+
+El contenedor de mercancías is a thing. It is fixed in place. It is in Salidas Suroeste. "La esquina está ocupada por un contenedor de mercancías.". The description is "Una caja de acero corrugado de 6x2x2 metros, de color blanco. Tienes acceso a dos lados, en el ancho puedes ver un logotipo y el estrecho está ocupado por una puerta doble.". Understand "container" as el contenedor.
+
+El logotipo is scenery. It is part of el contenedor de mercancías. The description is "Una estrella de siete puntas y la marca, 'Maersk'.". Understand "logo" as el logotipo.
+
+La puerta del contenedor is scenery. La puerta del contenedor can be open. La puerta del contenedor can be locked. It is locked. It is part of el contenedor de mercancías. The description is "Un lado del contenedor está ocupado por una puerta doble. En uno de los lados hay un sensor.". Understand "puertas" as la puerta.
+
+El sensor is scenery. It is part of la puerta del contenedor. The description is "El sensor es un rectángulo de plástico negro fijado en la puerta. Tiene una pequeña luz de color [if puerta del contenedor is locked]rojo[else]verde[end if] encendida.". Understand "cerradura" or "cerrojo" or "rectangulo" or "placa" or "detector" as el sensor.
+
+Los cuerpos are a thing. They are fixed in place. They are in Interior del contenedor. "Hay varios cuerpos amontonados en el suelo.". The description is "Están cubiertos de escarcha. La mayoría de las personas tienen heridas de bala en la cabeza y casi todas tienen rasgos de haber sido infectadas. Las que no fueron infectadas podrían haber sido ejecutadas extrajudicialmente.". Understand "monton" or "montón" or "cadáveres" or "cadaveres" or "muertos" as los cuerpos.
+
+La luz del contenedor is scenery. It is fixed in place. It is in Interior del Contenedor. The description is "Una luz de obra con sensor de movimiento. Está fijada al techo del contenedor, en una esquina.". Understand "lámpara" or "lampara" or "sensor" or "techo" or "esquina" as la luz del contenedor.
+
+El botiquín is a closed openable container. The printed name is "botiquín". It is fixed in place. It is in Salidas Sureste. "En una pared hay instalado un botiquín.". The description is "Un pequeño armario para material de primeros auxilios. Es de color blanco y tiene una cruz roja pintada en la puerta.". Understand "botiquin" or "armario" as el botiquín.
+
+El material sanitario is in el botiquín. The printed name is "material sanitario". The description is "Material de primeros auxilios: gasa, mascarillas...[first time] Parece que lleva aquí bastante tiempo. Te llama la atención especialmente una venda en rollo.[only]". Understand "gasa" or "mascarillas" as el material.
+
+La venda is nowhere. The printed name is "venda en rollo". The description is "Venda de gasa enrollada. Parece que aún le quedan unas cuantas vueltas.". Understand "venda" or "vendaje" or "rollo" as la venda;
+
+La máquina is scenery. It is in Control Sur. It is a supporter. The description is "Consiste en una cinta transportadora que pasa piezas de equipaje a través de un túnel de inspección con rayos X. Detrás de ella, un operador comprueba en una consola el contenido de los objetos. Para pasar objetos por la máquina simplemente tienes que ponerlos en la cinta.". Understand "maquina" or "cinta" or "detector" or "rayos" as la máquina.
+
+El operador is a person. It is part of la máquina. "Está al otro lado de la máquina, concentrado sobre la consola. Su uniforme es parecido al de la mujer vigilante.". Understand "operario" as el operador.
+
+Chapter 3 - Endgame
+
+La salida de la máquina is in Control Norte. It is scenery. The description is "Es la parte posterior de la máquina de rayos X, por donde sale el equipaje. No se puede hacer nada desde aquí.". Understand "maquina" or "cinta" as la salida de la máquina.
+
+El panel is in Control Norte. It is fixed in place. "Un panel anuncia las salidas de los próximos vuelos.". The description is "Antes hubiera sido un display electrónico. Ahora es una simple pizarra.". Understand "pantalla" or "pizarra" or "vuelos" or "salidas" as el panel.
+
+After examining el panel:
+	say "[fixed letter spacing]Destino       Número    Puerta[variable letter spacing][paragraph break]";
+	repeat through Table of Current Flights:
+		let the current number be the number entry;
+		choose the row with number of the current number in Table of Flights;
+		say "[fixed letter spacing][padded destination entry]  [number entry]  [gate entry][variable letter spacing][line break]";
+
+La mesa is scenery. It is a supporter. It is fixed in place. It is in Cuarto de mantenimiento. The description is "Una mesa de trabajo de madera.".
+
+La taquilla is scenery. It is a closed container. It is fixed in place. It is in Cuarto de mantenimiento. La taquilla can be locked. It is locked. The description is "La taquilla es un armario de metal alto y estrecho. Tiene una cerradura electrónica con un sensor.[if closed] Está cerrada.[end if]".
+
+La llave is in la taquilla. The description is "Una llave grande, de cerradura industrial.".
+
+La cerradura del armario is scenery. It is part of la taquilla. "La puerta tiene un sensor, un rectángulo liso de color negro con una pequeña luz [if taquilla is locked]roja[else]verde[end if].". Understand "sensor" or "cerradura" or "puerta" as la cerradura del armario.
+
+Instead of taking a thing that is heavy when the player carries a thing that is heavy:
+	let t be the list of heavy things carried by the player;
+	say "No puedes cargar con [the noun] a la vez que con [(t) with indefinite articles].";
+
+A botella is a kind of thing. A botella can be heavy. A botella is heavy. The plural of botella is botellas.
+
+La botella roja is a botella. It is nowhere. The description is "Una botella de metal para gas a presión, de color rojo. Tiene escrito 'C2H2'.".
+
+La botella negra is a botella. It is in el carro. The description is "Una botella de metal para gas a presión, de color negro. Tiene escrito 'O2'.".
+
+Before inserting a botella into la maleta, say "[The noun] no cabe en la maleta." instead.
+Before inserting something into la maleta, say "Prefieres no meter más cosas en la maleta." instead.
+
+El soldador is a device. It is part of las herramientas. The description is "Un equipo de soldadura. Tiene un carro para botellas de gas, dos mangueras y un soplete para aplicar la llama.". Understand "lanza" or "vara" or "varilla" or "soplete" as el soldador.
+
+El carro is a container. It is part of el soldador. The description is "Una estructura metálica donde se ponen las botellas de gas. Tiene capacidad para dos botellas de 5 litros.".
+
+Las mangueras are part of el soldador. The description is "Las mangueras sirven para conectar los cilindros de gas al soldador.".
+
+La sierra is a device. It is part of las herramientas. The description is "Una sierra con cuchilla circular, montada con una bisagra sobre un banco de trabajo.". Understand "radial" or "cuchilla" or "banco" or "bisagra" as la sierra.
+
+La sangre is fixed in place. It is nowhere. "Tu mano amputada yace en el suelo, que está lleno de sangre.". The description is "La sangre que has perdido forma charcos de color rojo oscuro en el suelo.". Understand "suelo" as la sangre when the location is Obras.
+
+Los escombros are scenery in Obras. The description is "Toda la estructura del edificio se ha venido abajo. Fragmentos amontonados de hormigón y acero te impiden el paso hacia el este.". Understand "hormigón" or "hormigon" or "acero" as los escombros.
+
+Part 4 - Verbs, mechanics
+
+
+Chapter 1 - Intro
+
+Instead of examining los bolsillos, try searching el cuerpo inerte.
+Instead of searching los bolsillos, try searching el cuerpo inerte.
+Instead of searching el uniforme, try searching el cuerpo inerte.
+
+Colgar is an action applying to a thing. Understand "cuelga [something]" or "colgar [something]" as colgar.
+
+Carry out colgar:
+	say "No puedes colgar eso.".
+
+Instead of putting el extintor on la pared, try colgar extintor.
+Understand "colgar [thing] en [thing]" as putting it on.
+
+Carry out colgar el extintor:
+	say "Colocas de nuevo el extintor de incendios en la pared.";
+	now el Extintor is hanged;
+	now the initial appearance of el Extintor is "El extintor cuelga de nuevo en la pared.";
+	now el extintor is in the Aseo;
+	stop the action.
+
+Instead of inserting el extintor into el cubículo, say "Recuerdas que [the noun] no estaba ahí. Lo descolgaste de la pared.".
+
+Instead of putting extintor on el retrete, try inserting el extintor into el cubículo.
+
+Instead of taking el extintor when el extintor is hanged, say "Ya no necesitas [the noun].".
+
+Instead of colgar el cuerpo inerte:
+	say "Deberías quitarlo de en medio, pero no vas a poder hacerlo así.".
+
+Instead of taking el cuerpo inerte:
+	say "Es demasiado grande como para sacarlo de aquí..".
+
+Before going a direction from Aseo when Intro is happening:
+	if el extintor is not hanged or el cuerpo inerte is not in el cubículo, say "Antes de salir tienes que disimular un poco más lo que ha pasado aquí." instead.
+
+Carry out going a direction from Aseo when Intro is happening:
+	say "Revisas la estancia una vez más para asegurarte de que no se nota lo que ha pasado y sales del aseo.".
+
+Instead of inserting el cuerpo inerte into el cubículo:
+	say "Trasladas el cuerpo al interior del cubículo, apoyándolo en la puerta desde dentro para que no se vea.";
+	now el cuerpo inerte is in el cubículo;
+	now el cuerpo escondido is in IntroReg;
+	now el cubículo is closed;
+
+Instead of inserting el cuerpo inerte into los cubículos, try inserting the noun into el cubículo.
+Instead of putting el cuerpo inerte on los cubículos, try inserting the noun into el cubículo.
+
+Instead of closing el cubículo when el cubículo is open:
+	say "No va a cambiar nada cerrarlo, estando vacío.";
+
+Instead of searching los cubículos, try examining los cubículos.
+Instead of searching el cubículo, try examining el cubículo.
+Instead of taking el uniforme, say "No vas a quitárselo.".
+
+After opening el cubículo:
+	if el cuerpo inerte is in el cubículo:
+		say "Al abrir la puerta el cuerpo vuelve a caer sobre el suelo del aseo.";
+		now el cuerpo inerte is in el aseo;
+		now el cuerpo escondido is nowhere;
+
+instead of doing something other than examining with el cuerpo escondido:
+	try examining el cuerpo escondido.
+
+Instead of searching el cuerpo inerte:
+	if el pase de seguridad is nowhere:
+		say "Revisando los bolsillos del uniforme encuentras algo que parece un pase de seguridad.";
+		now the player is carrying el pase de seguridad;
+	else:
+		say "No encuentras nada.";
+
+Carry out examining la mano izquierda for the first time:
+	say "Observas tu mano izquierda.".
+
+Instead of taking la carpeta, say "Crees que la carpeta irá más segura dentro de la maleta.".
+Instead of opening la carpeta, try examining los documentos.
+Instead of taking los documentos, say "Están más seguros dentro de la carpeta.".
+Instead of taking la ropa usada, say "No hay razón para sacarla de la maleta.".
+
+Instead of rubbing yourself, say "Te lavarías, pero [if the player is in Aseo]no parece haber agua[else]aquí no tienes con qué[end if].".
+
+Instead of smelling el Aseo, say "El olor a producto industrial de limpieza no consigue ocultar del todo los olores a sudor y carne infectada.".
+
+Chapter 2 - Mid-game
+
+Before going south from Pasillo de Conexión, say "Has venido de allí, no necesitas volver." instead.
+
+Carry out examining el material sanitario for the first time:
+	now la venda is in el botiquín.
+
+Instead of taking el material sanitario, say "No te lo vas a llevar todo.".
+
+Instead of putting la venda on la mano:
+	say "Empleas toda la venda de que dispones alrededor de tu mano izquierda. Al hacerlo compruebas que no tienes ninguna sensibilidad en ella. Además notas un olor desagradable. La necrosis avanza deprisa.";
+	now la venda is nowhere;
+	now la mano is ocluded;
+	now the description of la mano is "Te has puesto una venda en la mano. Por debajo, no obstante, la infección sigue avanzando.";
+
+Understand "vendar [something] con [la venda]" or "venda [something] con [la venda]" or "vendarse [something] con [la venda]" or "vendarme [something] con [la venda]" or "vendame [something] con [la venda]" or "véndame [something] con [la venda]" or "vendarte [something] con [la venda]" or "vendate [something] con [la venda]" or "véndate [something] con [la venda]" or "cura [something] con [la venda]" or "curar [something] con [la venda]" or "tapa [something] con [la venda]" or "tapar [something] con [la venda]" or "taparse [something] con [la venda]" or "taparme [something] con [la venda]" or "tapame [something] con [la venda]" or "tápame [something] con [la venda]" or "ocultar [something] con [la venda]" or "oculta [something] con [la venda]" as putting it on (with nouns reversed).
+
+Bandaging is an action applying to one thing. Understand "vendar [something]" or "venda [something]" or "vendarse [something]" or "vendarme [something]" or "vendarte [something]" or "vendate [something]" or "véndate [something]" or "véndame [something]" or "curar [something]" or "cura [something]" or "curarse [something]" or "curarme [something]" or "curarte [something]" or "cúrate [something]" or "cúrame [something]" as bandaging.
+
+Instead of wearing la venda, try putting la venda on la mano.
+
+Instead of bandaging when la venda is not visible, say "No ves con qué hacerlo.".
+
+Carry out bandaging:
+	try putting la venda on the noun;
+
+Instead of going inside from Salidas Suroeste when la puerta del contenedor is closed, say "La puerta del contenedor está cerrada.".
+
+Instead of entering el contenedor de mercancías, try going inside.
+
+Carry out going inside in Salidas Suroeste:
+	say "Al entrar al contenedor activas un detector de movimiento y se enciende la luz del interior.[paragraph break]La puerta se cierra detrás de ti.";
+	now la puerta del contenedor is closed;
+	now la puerta del contenedor is locked;
+
+Instead of opening la puerta del contenedor:
+	if la puerta del contenedor is locked:
+		say "La puerta no se abre.";
+	else:
+		say "[if la puerta del contenedor is closed]Abres las puertas[otherwise]Las puertas están ya abiertas[end if]. El interior está a oscuras y emana frío.";
+		now la puerta del contenedor is open.
+
+Instead of closing la puerta del contenedor:
+	if la puerta del contenedor is open:
+		say "Cierras las puertas. La luz del sensor vuelve al color rojo.";
+		now la puerta del contenedor is closed;
+		now la puerta del contenedor is locked;
+	else:
+		say "Las puertas del contenedor están cerradas.";
+
+Instead of opening el contenedor de mercancías, try opening la puerta del contenedor.
+
+Understand "pasar [something] por [thing]" or "pasa [something] por [thing]" as putting it on.
+
+Instead of putting el pase de seguridad on el sensor when la puerta del contenedor is not open:
+	say "Suena un golpe y la luz del sensor se vuelve de color verde.";
+	now la puerta del contenedor is not locked;
+
+Instead of putting el pase de seguridad on el sensor when la puerta del contenedor is open:
+	say "La puerta del contenedor ya está abierta.";
+
+Carry out going outside from Interior del contenedor:
+	say "Empujas la puerta y sales del contenedor. La puerta se bloquea automáticamente.";
+	if el cuerpo inerte is in Interior del contenedor:
+		say "[first time][line break]Parece que la zona está despejada.[only]".
+
+Instead of opening la puerta interior, try going outside.
+
+Instead of going outside from Interior del contenedor when Intrusion is happening:
+	say "Empujas la puerta y sales del contenedor.[paragraph break]";
+	wait for any key;
+	say "Al salir te encuentras de cara con dos soldados que se estaban acercando. El que va primero grita al verte aparecer[if intrusion is happening for less than 4 turns], y ves que el de más atrás suelta algo que venía arrastrando[end if]. Retroceden unos pasos blandiendo sus armas y te disparan en la cabeza.";
+	end the story;
+
+Laying is an action applying to nothing. Understand "tumbarse" or "tumbarme" or "tumbar" or "tumbate" or "túmbate" or "tumbame" or "echarme" or "echarse" or "echarte" or "échate" or "acostar" or "acostarse" or "acostarme" or "acuéstate" as laying.
+
+Carry out laying when the player is not in Interior del contenedor:
+	if Intro is not happening and la mano is not severed:
+		say "No resistes más y te tiendes. Tu cuerpo se relaja y tu consciencia se desvanece.[paragraph break]";
+		wait for any key;
+		say "Cuando te vuelves a levantar ya no eres tú.";
+		wait for any key;
+		end the story;
+	else:
+		say "No es momento de descansar.".
+
+Yourself can be laid.
+
+Carry out laying when the player is in interior del contenedor:
+	if the player is not laid, say "Te tumbas en el suelo. La luz se apaga.";
+	now the player is laid;
+	now Interior del contenedor is dark;
+
+Rule for printing the announcement of darkness when the player is in Interior del contenedor: 
+	say "El contenedor está a oscuras." instead.
+
+Carry out examining el cuerpo inerte in Interior del contenedor for the first time:
+	say "Encontraron el cuerpo escondido y lo han traído hasta aquí.".
+
+Instead of searching los cuerpos, say "No encuentras nada. Parece que ya [one of]han sido registrados[or]los han registrado[purely at random] antes.".
+
+Instead of exiting when the player is in interior del contenedor and the player is laid:
+	say "Te pones de pie, activando automáticamente la luz.";
+	now interior del contenedor is lighted;
+	now the player is not laid;
+
+Understand "levantarme" as exiting when the player is laid.
+
+Before putting something on la máquina:
+	if la mujer does not know la tarjeta de embarque, say "Al ver cómo te acercas a la máquina, la mujer vigilante te da el alto. '[one of]Tarjeta[or]Su tarjeta[or]La tarjeta[at random] de embarque[one of], por favor[or][at random]', te dice." instead;
+
+After putting something on la máquina:
+	say "Pones [the noun] sobre la cinta transportadora. Avanza pasando a través de la máquina y sale en el otro lado del control.";
+	now the noun is in Control Norte;
+
+Before going north from Control Sur:
+	if the location of la carpeta is not Control Norte, say "Antes de cruzar el control tienes que pasar el equipaje que traes." instead;
+
+Check going north from Control Sur:
+	say "Avanzas hacia el arco detector de metales y te detienes debajo. La mujer se acerca y apunta a tu frente con el termómetro.";
+	wait for any key;
+	if the player is cold:
+		say "[line break]No sucede nada. La mujer te indica que puedes proceder y sales por el otro lado.";
+		wait for any key;
+	else:
+		say "[line break]El termómetro emite un pitido agudo. La mujer da unos pasos atrás mientras hace una seña al guardia.";
+		wait for any key;
+		say "[line break]El guardia adopta inmediatamente posición de combate, apunta el rifle a tu cabeza y dispara antes de que puedas reaccionar.";
+		wait for any key;
+		end the story;
+
+Talking to is an action applying to a thing. Understand "habla [thing]" or "habla con [thing]" or "hablar [thing]" or "hablar con [thing]" or "habla a [thing]" or "hablar a [thing]" or "saludar [thing]" or "saluda [thing]" as talking to.
+
+Carry out talking to:
+	if the noun is not a person:
+		say "No se puede hablar con [the noun].";
+	else:
+		say "No te hace caso.";
+
+After examining la mujer vigilante when la mujer vigilante knows la tarjeta de embarque:
+	say "Al hacer contacto visual, ";
+	if the player carries la maleta:
+		say "señala la máquina de inspección de equipajes.";
+	else:
+		say "te indica con un gesto que puedes avanzar hacia el norte.".
+
+Knowing relates one person to various things.
+The verb to know means the knowing relation.
+
+Instead of giving something to someone:
+	try showing the noun to the second noun;
+
+Instead of showing la tarjeta de embarque to la mujer vigilante when Hand Spotted is not happening:
+	if la mujer vigilante does not know la tarjeta de embarque:
+		say "Enseñas la tarjeta de embarque a la mujer. Sin acercarse, la observa y asiente. ";
+		now la mujer vigilante knows la tarjeta de embarque;
+	if the player carries la maleta:
+		say  "'[one of]Ahora puede pasar[or]Puede pasar[or]Ahora pase[at random] el equipaje', dice señalando la cinta transportadora.";
+	else:
+		say "Con un gesto, te indica que puedes avanzar hacia el norte a través del arco.";
+	say "[line break]Aunque el visor del casco [one of]oculta[or]no te permite ver[purely at random] su cara, notas que el guardia te sigue con la [one of]vista[or]mirada[purely at random][one of] en todo momento[or][purely at random].".
+
+Instead of talking to la mujer vigilante when la mujer vigilante does not know la tarjeta de embarque:
+	say "'[one of]Tarjeta[or]Su tarjeta[or]La tarjeta[at random] de embarque, por favor', te dice en un inglés con fuerte acento.";
+
+Instead of talking to la mujer vigilante when la mujer vigilante knows la tarjeta de embarque:
+	try showing la tarjeta de embarque to la mujer vigilante;
+
+Carry out going a direction from Control Sur:
+	now la mujer vigilante does not know la tarjeta de embarque;
+
+The block attacking rule is not listed in any rulebook.
+
+Instead of taking a person, try attacking the noun.
+
+Understand "morder [something]" or "muerde [something]" or "devorar [something]" or "devora [something]" or "infectar [something]" or "infecta [something]" or "contagiar [something]" or "contagia [something]" as attacking.
+
+Instead of attacking something that is not a person, say "No sientes agresividad hacia [the noun].".
+
+Carry out attacking someone when la mano is not severed:
+	say "Notas como pierdes el control y te domina el instinto expansivo de tu invasor interior.[paragraph break]";
+	wait for any key;
+	if the noun is not yourself:
+		say "Una sed de sangre ciega te impulsa al ataque, y te lanzas.[paragraph break]";
+		wait for any key;
+	else:
+		say "Con gran esfuerzo, no obstante, consigues controlarte y no devorar tu propio cuerpo.";
+
+Before attacking someone when la mano is severed, say "El hambre ha desaparecido, solo quieres llegar a casa." instead.
+
+After attacking la mujer:
+	say "Al ver que te lanzas contra ella la mujer se pone en posición de defensa. Te repele con una patada al plexo solar que te hace caer al suelo.[paragraph break]";
+	wait for any key;
+	say "El guardia, mientras tanto, apunta el rifle a tu cabeza y dispara.";
+	wait for any key;
+	end the story;
+
+After attacking el guardia del control:
+	say "Aunque no puedes ver ni un centímetro de carne expuesta te abalanzas sobre el guardia.[paragraph break]";
+	wait for any key;
+	say "El primer disparo a quemarropa te hace retroceder y caer al suelo.[paragraph break]";
+	wait for any key;
+	say "Mientras te levantas para volver a la carga, tu cabeza ya está en la mira del rifle. Un segundo disparo, preciso, termina contigo.";
+	wait for any key;
+	end the story;
+
+After attacking el operador:
+	say "Saltas por encima de la máquina y caes sobre el operador, que estaba concentrado en la máquina y no tiene tiempo de defenderse.[paragraph break]";
+	wait for any key;
+	say "Muerdes y desgarras su cuello. El hombre grita de pánico en cuanto comprende lo que pasa, e intenta huir.[paragraph break]";
+	wait for any key;
+	say "Detrás de ti, el guardia busca línea de tiro. Primero te apunta a la cabeza y dispara. Después, aunque no lo llegas a ver, camina hacia el operador herido. Lo remata de un disparo en la frente.";
+	wait for any key;
+	end the story;
+
+
+Chapter 3 - Endgame
+
+Instead of going south from Control Norte, say "Una vez cruzado el control de seguridad no se puede salir.".
+
+Carry out going to Cuarto de mantenimiento:
+	say "Ignorando la señal de prohibición, entras en el cuarto de mantenimiento.";
+	wait for any key.
+
+Instead of looking under la mesa when la botella roja is nowhere:
+	say "Debajo de la mesa descubres una botella de gas de color rojo.";
+	now la botella roja is in Cuarto de mantenimiento;
+
+Instead of searching la mesa, try looking under la mesa.
+
+After examining la mesa when la botella roja is nowhere for the third time:
+	try looking under la mesa.
+
+Instead of putting el pase de seguridad on la cerradura del armario:
+	say "La luz de la cerradura cambia al color verde. La taquilla se abre.";
+	now la taquilla is not locked;
+	now la taquilla is open;
+
+Instead of closing la taquilla when la taquilla is open:
+	now la taquilla is closed;
+	now la taquilla is locked;
+	say "Cierras la taquilla. La luz de la cerradura cambia a color rojo.";
+
+Instead of unlocking la reja with la llave:
+	say "Abres la cerradura de la reja con la llave.";
+	now la reja is not locked;
+
+Instead of locking la reja with la llave:
+	say "Vuelves a cerrar la reja.";
+	now la reja is locked;
+	now la reja is closed;
+
+Instead of opening la reja when la reja is locked and la llave is visible:
+	try unlocking la reja with la llave;
+	now la reja is open;
+
+Instead of opening la reja when la reja is not locked:
+	say "Abres la reja.";
+	now la reja is open;
+
+Instead of closing la reja:
+	if la llave is visible:
+		try locking la reja with la llave;
+	else:
+		say "Cierras la reja.";
+		now la reja is closed;
+
+Instead of opening la cerradura de la reja, try opening la reja.
+Instead of closing la cerradura de la reja, try closing la reja.
+Instead of locking la cerradura de la reja with something, try locking la reja with the second noun.
+Instead of unlocking la cerradura de la reja with something, try unlocking la reja with the second noun.
+
+Before going east in Corredor B when la reja is locked:
+	say "No puedes acceder a la zona de obra. La reja está cerrada." instead;
+
+Instead of putting la sierra on la mano, try putting la mano on la sierra;
+
+Instead of putting la mano on la sierra when la mano is not severed and la sierra is switched off, say "La sierra está apagada.".
+
+Instead of putting la mano on la sierra when la sierra is switched on for the first time:
+	say "Tomas aire. Pones la mano izquierda debajo de la cuchilla y empujas con fuerza la sierra hacia abajo. La cuchilla te secciona limpiamente la mano a la altura del antebrazo y la mano sale despedida al suelo por la fuerza de la rotación.[paragraph break]Has sentido un extraño desapego al hacer esto. Sales del trance al ver que tu brazo sangra a borbotones.";
+	now la mano is severed;
+	now the description of la mano is "Te acabas de cortar la mano. La sangre mana a borbotones del muñón.";
+	now la sangre is in Obras;
+
+Understand "serrar [something]" or "sierra [something]" or "cortarme [something]" or "serrarme [something]" or "sierrame [something]" as cutting when la sierra is visible.
+
+Instead of cutting la mano:
+	if la sierra is visible:
+		try putting la mano on la sierra;
+	else:
+		try dropping la mano;
+
+After examining la mano in Obras when la mano is severed, say "La mano amputada está en el suelo. Ves que los tejidos de la mano están podridos[one of]. Durante un instante te parece que la mano se mueve con un espasmo[or][at random].".
+
+Instead of taking la mano when la mano is severed and the location is Obras, say "Prefieres no tocar la mano amputada.".
+
+Instead of putting la mano on la sierra when la mano is severed, say "Ya está hecho.".
+
+Instead of touching la mano when la mano is not severed, say "La mano está entumecida, ha perdido la sensibilidad.".
+
+Instead of rubbing la mano, try touching la mano.
+
+instead of putting something on soldador, try inserting the noun into carro.
+Instead of inserting something into soldador, try inserting the noun into carro.
+
+Before inserting something that is not a botella into carro:
+	say "El carro del equipo de soldadura es solamente para botellas de gas." instead;
+
+After inserting a botella into carro:
+	say "Pones [the noun] en el carro del equipo de soldadura, y conectas la manguera correspondiente.";
+
+Instead of pushing el carro, say "El carro del soldador no se mueve, parece atascado.".
+Instead of pushing el soldador, try pushing el carro.
+
+Carry out taking a botella when the noun is in carro and el soldador is switched on:
+	say "Apagas primero el soldador.";
+	now el soldador is switched off;
+
+Before switching on el soldador when botella roja is not in carro or botella negra is not in carro:
+	say "El soldador no se enciende. Parece que le falta alguna botella de gas." instead.
+
+Instead of putting el soldador on la mano, try putting la mano on el soldador.
+
+Instead of putting la mano on el soldador when el soldador is switched off, say "El soldador está apagado.".
+
+Instead of burning la mano in Obras, try putting la mano on el soldador.
+Understand "cauteriza [thing]" or "cauteriza [thing]" as burning.
+
+Instead of putting la mano on el soldador when el soldador is switched on:
+	if la mano is not severed:
+		say "Acercas la llama a la mano. Ves que la carne se quema pero no sientes dolor. El tejido está muerto. Quemar la mano de esta forma no va a funcionar..";
+		now la mano is burned;
+	else:
+		say "Aplicas la llama del soplete sobre la herida. La sangre primero hierve y después va formando una costra negra. Insistes hasta que la herida queda cauterizada.";
+		now la mano is cauterized;
+		now the description of la mano is "En el lugar de la mano izquierda tienes un muñón quemado."
+
+Instead of putting la mano on el soldador when la mano is cauterized, say "La herida ya está cauterizada, no es necesario quemarla más.".
+
+After examining la mano when la mano is not severed and la mano is burned:
+	say "Parte de la mano está quemada.".
+
+Buscar puerta is an action applying to one topic. Understand "ir a puerta [text]" or "ir puerta [text]" or "ir a la puerta [text]" or "ir a salida [text]" or "ir a la salida [text]" or "ir salida [text]" or "ve a puerta [text]" or "ve puerta [text]" or "ve a la puerta [text]" or "ve a salida [text]" or "ve a la salida [text]" or "ve salida[text]" as buscar puerta.
+
+Carry out buscar puerta when the player is in Corredor A:
+	let my gate be the gate corresponding to a number of el número de vuelo of la tarjeta de embarque in Table of Flights;
+	if the topic understood exactly matches the text my gate in lower case:
+		say "Te diriges a la puerta [the topic understood in upper case].";
+		move the player to Puerta de Embarque;
+	else:
+		if the topic understood matches the regular expression "^a\d\d$":
+			say "Merodeas por la puerta [the topic understood in upper case]. No hay rastro de tu vuelo.";
+		else:
+			say "Eso no es una puerta de embarque.";
+
+Instead of talking to el auxiliar when el auxiliar does not know el pasaporte and el auxiliar does not know la tarjeta de embarque, say "'[one of]Pasaporte y tarjeta de embarque[or]Tarjeta de embarque y pasaporte[at random][one of], por favor[or][at random]'.".
+
+Instead of talking to el auxiliar when el auxiliar knows el pasaporte and el auxiliar does not know la tarjeta de embarque, say "'[one of]La tarjeta[or]Tarjeta[at random] de embarque[one of], por favor[or][at random]'.".
+
+Instead of talking to el auxiliar when el auxiliar does not know el pasaporte and el auxiliar knows la tarjeta de embarque, say "'[one of]El pasaporte[or]Pasaporte[at random][one of], por favor[or][at random]'.".
+
+Instead of talking to el auxiliar when el auxiliar knows el pasaporte and el auxiliar knows la tarjeta de embarque, say "El auxiliar señala la entrada. '[one of]Adelante[or]Pase[or]Puede pasar[at random]', dice.".
+
+Carry out going a direction from Puerta de Embarque:
+	now el auxiliar does not know el pasaporte;
+	now el auxiliar does not know la tarjeta de embarque;
+
+Instead of showing something to el auxiliar:
+	if the noun is not el pasaporte and the noun is not la tarjeta de embarque:
+		say "No está interesado en eso.";
+	else:
+		say "Muestras [the noun] al auxiliar. Mira [one of]con atención[or]cuidadosamente[at random] y [one of]después [or][at random]asiente.";
+		now el auxiliar knows the noun;
+		try talking to el auxiliar;
+
+After attacking someone in Puerta de Embarque:
+	say "Te mueves rápido pero el guardia está preparado. Te hace caer con un solo disparo en la cabeza.";
+	wait for any key;
+	end the story;	
+
+Instead of going inside from Puerta de Embarque when el auxiliar does not know pasaporte or el auxiliar does not know tarjeta de embarque for the first time:
+	say "Avanzas hacia la puerta. El auxiliar te da el alto. El guardia se interpone y te apunta con su arma. 'Atrás', dice.[paragraph break]";
+	wait for any key;
+	say "Obedeces y todo el mundo vuelve a sus puestos.".
+
+Instead of going inside from Puerta de Embarque when el auxiliar does not know pasaporte or el auxiliar does not know tarjeta de embarque for the second time:
+	say "Ignorando el aviso intentas colarte por la puerta. El guardia te dispara en la cabeza y te desplomas sin vida.";
+	wait for any key;
+	end the story;
+
+Carry out going to Endgame when la mano is severed:
+	say "Cruzas la entrada de la puerta de embarque, procurando disimular el estado de tu mano izquierda para no despertar sospechas.[paragraph break]";
+	if the player carries la maleta:
+		say "El material que custodias sigue contigo, por lo que has terminado con éxito la misión. Si sobrevives al vuelo los servicios médicos de la compañía se encargarán de ti, de forma que en el futuro puedas reanudar tu actividad. Los tiempos son duros pero seguirás en pie.";
+		end the story finally;
+	else:
+		say "Has perdido la maleta, y con ella el material que tenías que custodiar. Tienes la certeza de que este fracaso va a suponer que pierdas el empleo y, con él, la seguridad para tu familia. Aunque sobrevivas a este viaje se avecina tormenta.";
+		end the story;
+
+Carry out going to Endgame when la mano is not severed:
+	say "Cruzas la entrada de la puerta de embarque. Mientras caminas hacia el avión notas como la infección se hace más y más fuerte dentro de ti. Los restos de tu personalidad se desvanecen y el hambre se hace insoportable. Nadie en el avión va a sobrevivir a este vuelo.";
+	end the story;
+
+
+Part 5 - Scenes
+
+Chapter 1 - Intro
+
+When play begins:
+	choose a random row in table of flights;
+	now the número de vuelo of la tarjeta de embarque is "[number entry]";
+	now the destino of la tarjeta de embarque is "[destination entry]";
+	now the number in row 1 of the table of current flights is the número de vuelo of la tarjeta de embarque;
+	repeat with flightnumber running from 2 to the number of rows in Table of Current Flights:
+		while there is no number in row flightnumber of the Table of Current Flights:
+			choose a random row in table of flights;
+			let the current number be the number entry;
+			if the current number is not a number listed in the Table of Current Flights:
+				now the number in row flightnumber of the Table of Current Flights is the current number;
+	sort Table of Current Flights in random order;
+	say "Las sienes te palpitan con fuerza. Hiperventilas. Te apoyas en un lavabo, cierras los ojos unos segundos e intentas respirar hondo.";
+	wait for any key;
+
+The description of yourself is "Tu apariencia, traje oscuro y mascarilla, es todo lo discreta y profesional que permiten las circunstancias.[first time][paragraph break]Aunque tu puesto de trabajo tenía otro nombre, te dedicas a hacer recados internacionales para una corporación multinacional. Es de las pocas instituciones que parecen estar sobreviviendo a los múltiples procesos solapados de colapso planetario.[only]".
+
+After examining yourself when la mano is severed, say "Intentas disimular que te falta una mano.".
+
+Intro is a scene. Intro begins when play begins. Intro ends when location of player is not Aseo.
+
+After examining la maleta for the first time, say "Repasas mentalmente la situación: vuelves a casa de un viaje de trabajo, transportando una documentación importante. Y el único itinerario que la corporación ha podido contratar tiene su última escala en este sitio.".
+
+After examining la tarjeta de embarque for the first time, say "Puedes recordar cuando este lugar donde estás haciendo escala era simplemente un 'estado no alineado'. Después de todas las crisis es más bien tierra de nadie, donde las viejas leyes internacionales no significan nada. Este aeropuerto es uno de los pocos que mantienen la escuálida red de tráfico aéreo en estos días. Solo este vuelo te separa de casa.".
+
+After examining los documentos for the first time, say "En otro tiempo este material se habría podido transmitir por las redes digitales. Pero sin las cadenas de suministro, ni energía estable, la infraestructura informática simplemente desapareció como los dibujos en la arena. Tu trabajo no es muy distinto al del correo de postas en la Antigüedad.".
+
+After examining el pasaporte for the first time, say "Casi todo depende ahora de los sectores privados. Tienes tus dudas sobre este empleo, pero te permite disponer de una vivienda segura y de tratamiento médico para tu hijo.".
+
+
+Chapter 2 - Mid-game
+
+Yourself can be cold.
+
+Fiebre is a scene. "Sientes un acceso de fiebre y un aguijonazo de dolor en la mano izquierda.". Fiebre begins when Intro ends.
+
+Every turn during Fiebre:
+	if the player is in Salidas Sur for the first time and the player has been in Salidas Sur for exactly 0 turns, say "[bracket]Si no lo estás haciendo aún, es recomendable GUARDAR el estado con frecuencia.[close bracket][paragraph break]";
+	if the player is not in Interior del contenedor and the player is not cold and a random chance of 1 in 4 succeeds, say "[one of]Notas una palpitación en las sienes.[or]Un escalofrío te recorre la espalda.[or]Estás tiritando [one of]por la[or]de[at random] fiebre.[or]Te duele la cabeza como si fuese a estallar.[or]Un mareo casi te hace perder la consciencia.[or]Estás sudando abundantemente.[or]Te castañetean los dientes.[at random]";
+
+Autocierre is a recurring scene. Autocierre begins when la puerta del contenedor is closed and la puerta del contenedor is not locked. Autocierre ends fully when the time since Autocierre began is 3 minutes. Autocierre ends when la puerta del contenedor is open.
+
+When Autocierre ends fully:
+	say "La puerta del contenedor se bloquea de nuevo.";
+	now la puerta del contenedor is locked;
+
+Carry out going a direction (called way) in Salidas Suroeste when la puerta del contenedor is open:
+	if way is not inside:
+		try closing la puerta del contenedor;
+
+Intrusion is a scene. Intrusion begins when the player has been in Interior del contenedor for 3 turns. "Oyes pasos que se acercan en el exterior.". Intrusion ends when Intrusion is happening for 5 turns.
+
+Every turn during Intrusion:
+	If intrusion is happening for 1 turn, say "Los pasos se acercan más y más.";
+	If intrusion is happening for 2 turns, say "Oyes el desbloqueo de las puertas.";
+	if Intrusion is happening for 3 turns:
+		say "Las puertas se abren. Llegas a ver soldados en el exterior. Al menos son dos.";
+		wait for any key;
+		if the player is laid:
+			say "[line break]Lanzan un bulto grande dentro del contenedor, que notas caer cerca de ti.";
+			now el cuerpo inerte is in Interior del contenedor;
+			now el cuerpo escondido is nowhere;
+			now el cubículo is open;
+			now the initial appearance of el cuerpo inerte is "El cuerpo que escondiste en el aseo está aquí tirado.";
+		else:
+			say "[line break]Al ver la luz encendida y encontrarte de pie dentro del contenedor, los soldados dan una voz de alerta y abren inmediatamente fuego contra ti. Caes en el sitio.";
+			end the story;
+	if Intrusion is happening for 4 turns:
+		if the player is not laid:
+			say "Al ver cómo te levantas del suelo, los dos soldados blanden sus rifles y te disparan al mismo tiempo en la cabeza.";
+			end the story;
+		else:
+			say "Las puertas se cierran de nuevo y los pasos se alejan.";
+
+Enfriamiento is a recurring scene. Enfriamiento begins when the player has been in Interior del contenedor for 2 turns. "El frío que hace aquí dentro parece aliviar poco a poco tu malestar.". Enfriamiento ends when the player is not in Interior del contenedor.
+
+Carry out waiting in Interior del contenedor when Enfriamiento is happening and Intrusion has ended:
+	say "Dejas actuar el frío y parece que consigue calmar la fiebre.";
+	now the player is cold;
+
+Hand spotted is a scene. Hand spotted begins when the player has been in Control Sur for two turns and la mano is not ocluded. "Observas que la mujer se queda mirando tu mano.".
+
+Before going a direction when Hand spotted is happening for exactly 1 turn:
+	say "La mujer habla por un walkie-talkie, con la vista fija en tu mano. El guardia empieza a caminar detrás de ti, levantando su arma.";
+
+Instead of going north when Hand spotted is happening, say "La mujer te corta el paso hacia el arco.".
+
+Before going a direction when Hand spotted is happening for exactly 2 turns:
+	say "El guardia te sigue, apuntándote a la cabeza.";
+
+Every turn during Hand spotted:
+	if Hand spotted is happening for 1 turns and the player is in Control Sur:
+		say "Fijándose en tu mano, la mujer dice unas palabras por un walkie-talkie. Ves que el guardia del control levanta su rifle hacia ti y da unos pasos laterales, buscando posición de tiro.";
+	if Hand spotted is happening for 2 turns:
+		say "Una bala entra en tu cabeza y termina con tu vida inmediatamente.";
+		end the story.
+
+Chapter  3 - Endgame
+
+Más fiebre is a scene. Más fiebre begins when the player is in Control Norte. Fiebre ends when Más fiebre begins. "Notas que la fiebre te vuelve a subir. Tu consciencia empieza a disolverse.". Más fiebre ends when la mano is severed.
+
+Every turn during Más fiebre:
+	if a random chance of 1 in 3 succeeds, say "[one of]Tu vista se nubla por momentos[or]Sientes cómo el huésped que invade tu organismo intenta tomar el control[or]Durante un momento sientes una despersonalización, como si tus pensamientos ya no te pertenecieran[or]Tienes alucinaciones visuales[or]Una oleada de dolor se te extiende desde la mano por todo el cuerpo[at random].";
+
+Hemorragia is a scene. Hemorragia begins when la mano is severed. Hemorragia ends when la mano is cauterized;
+
+Every turn during Hemorragia:
+	if Hemorragia has happened for 2 turns:
+		say "Has perdido demasiada sangre. Tu vista se nubla y caes al suelo. En tus últimos instantes de consciencia te reconforta creer que tu cuerpo no se va a volver a levantar.";
+		end the story;
+	else:
+		say "Pierdes sangre muy rápidamente.";
+
+Healing is a scene. Healing begins when Hemorragia ends. "Contemplas con incredulidad lo que acabas de hacer. Te duele tanto que estás a punto de desvanecerte.". Healing ends when Boarding begins.
+
+Every turn during Healing:
+	if Healing has happened for 2 turns, say "Notas un hormigueo en la mano ausente.";
+	if Healing has happened for 3 turns, say "La presencia interior que luchaba por dominarte parece remitir.";
+	if Healing has happened for 4 turns, say "A pesar del intenso dolor, tienes la sensación de recuperar tu cuerpo poco a poco.";
+
+Boarding is a scene. Boarding begins when the player is in Puerta de Embarque. "Un grupo de pasajeros enseñan los pasaportes y las tarjetas de embarque al auxiliar, y desaparecen seguidamente por la entrada al vuelo.".
+
+WestReg is a region.
+MiddleReg is a region.
+EastReg is a region.
+Stolen at is a room that varies. Stolen at is initially Llegadas.
+
+Corredor A is in WestReg. Puerta de Embarque is in WestReg.
+Control Norte is in MiddleReg. Salidas Norte is in MiddleReg. Cuarto de mantenimiento is in MiddleReg.
+Corredor B is in EastReg. Obras is in EastReg.
+
+Definition: a thing is safe:
+	if la maleta is visible, decide yes;
+	if la maleta is in la taquilla and la taquilla is closed,  decide yes;
+	decide no;
+
+Carry out going from Salidas Norte to a room which is in WestReg:
+	if la maleta is not in WestReg and la maleta is not safe and stolen at is Llegadas:
+		now stolen at is the location of la maleta;
+		now la maleta is nowhere;
+
+Carry out going from Salidas Norte to a room which is in EastReg:
+	if la maleta is not in EastReg and la maleta is not safe and stolen at is Llegadas:
+		now stolen at is the location of la maleta;
+		now la maleta is nowhere;
+
+Robo is a scene. Robo begins when stolen at is not Llegadas. "De repente eres consciente de que ya no llevas la maleta contigo.".
+
+Every turn during Robo:
+	if the player is in stolen at for 1 turn, say "Recuerdas haber dejado la maleta [one of]por [or][at random]aquí. [one of]Ha desaparecido[or]Ya no está[or]No la ves por ninguna parte[at random].".
+
+Part 6 - Tables
+
+Table of Flights
+padded destination	destination	number	gate
+"Denver      "	"Denver"	"EAG-7914"	"A13"
+"La Paz      "	"La Paz"	"OLT-4313"	"A59"
+"Lhasa       "	"Lhasa"	"QSZ-4981"	"A36"
+"Dubai       "	"Dubai"	"CDI-8521"	"A17"
+"Mahe        "	"Mahe"	"SHQ-9784"	"A39"
+"Klaksvík    "	"Klaksvik"	"AIA-2149"	"A21"
+"Berlin      "	"Berlin"	"HBL-4981"	"A43"
+"Antananarivo"	"Antananarivo"	"DMO-7914"	"A23"
+"San Salvador"	"San Salvador"	"GSP-1595"	"A10"
+"Singapur    "	"Singapur"	"RBX-3458"	"A54"
+"Bangkok     " 	"Bangkok"	"XTS-2538"	"A46"
+"Gibraltar   "	"Gibraltar"	"RAZ-2667"	"A27"
+
+Table of Current Flights
+number
+--
+--
+--
+
+
+Part 7 - Help, credits, tests
+
+Understand "ayuda" as a mistake ("Como es habitual en la ficción interactiva, el control del relato se realiza tecleando órdenes sencillas (por ejemplo, ABRE PUERTA o SALIR), finalizando cada una con la tecla <Enter>.[paragraph break]Algunas órdenes importantes son:[paragraph break]  AYUDA [bracket]muestra este mensaje[close bracket][line break]  MIRAR [bracket]o M, describe la escena donde estás[close bracket][line break]  EXAMINAR objeto [bracket]se puede abreviar con EX o X[close bracket][line break]  INVENTARIO [bracket]o I, lista los objetos que llevas[close bracket][line break]  ESPERAR [bracket]o Z, deja pasar un turno sin hacer nada[close bracket][line break]  PONER objeto1 EN objeto2 [bracket]interaccionar dos objetos[close bracket][line break]  HABLAR persona [bracket]conversar con un personaje[close bracket][line break]  MOSTRAR objeto A persona [bracket]enseña un objeto a un personaje[close bracket][paragraph break]  DESHACER [bracket]o UNDO, anula el efecto de la orden inmediatamente anterior[close bracket][line break]  GUARDAR [bracket]almacena el estado de la historia para continuarla más tarde[close bracket][line break]  RECUPERAR [bracket]continúa una historia guardada previamente[close bracket][line break]  REINICIAR [bracket]devuelve la historia al punto de partida[close bracket]").
+
+Understand "creditos" or "créditos" or "about" as a mistake ("Escrito por n-n para la categoría Le Grand Guignol de la Ectocomp 2021.[paragraph break]Testing: Comely.[paragraph break]Agradecimientos a: dddddd, edlobez, Meri Palas, Jade, paravaariar, forta, MathBrush y Ruber Eaglenest.[paragraph break]Dirección de contacto: no2nsense@gmail.com[paragraph break]Esta obra esta sujeta a la Licencia Reconocimiento-CompartirIgual 4.0 Internacional de Creative Commons. Para ver una copia de esta licencia, visite http://creativecommons.org/licenses/by-sa/4.0/ o envíe una carta Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.").
+
+test intro with "e / x cubiculo / x cuerpo / x extintor / colgar extintor / l / e / x extintor / poner cuerpo en cubiculo / l / x cuerpo / x cubiculo / abrir cubiculo / registrar cuerpo / poner cuerpo en cubiculo / coger maleta / e ".
+
+test cont with "test intro / n / n / o / o / poner pase en sensor / abrir puerta".
+
+test mid with "test cont / entrar / tumbarse / z / z / z / z / z / z / levantarse / salir / e / e / e/ e / abrir botiquin / x material / coger venda / o / o ".
+
+test end with "colgar extintor / registrar cuerpo / poner cuerpo en cubiculo / coger maleta / e / n / n / o / o / poner pase en sensor / abrir puerta / entrar / z / z / tumbarse / z / z / z / z / levantarse / salir / e / e/ e / e / abrir botiquin / x material / poner venda en mano / n / mostrar tarjeta a mujer / poner maleta en maquina / n / coger maleta / x panel / n / n / x mesa / x mesa / x mesa / poner pase en cerradura / coger llave / poner maleta en taquilla / cerrar taquilla / coger botella / s / e / e / abrir cerradura con llave / e / poner botellas en soldador / encender soldador / encender sierra".
+
+test me with "test end / poner mano en sierra / poner mano en soldador / o / o / n / poner pase en cerradura / coger maleta / s / o / ir puerta a21 / mostrar pasaporte a auxiliar / mostrar tarjeta a auxiliar".
+
+test steal with " e / dejar maleta / e / e / o / o / ir puerta a21 / mostrar pasaporte a auxiliar / mostrar tarjeta a auxiliar".

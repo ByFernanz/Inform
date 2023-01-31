@@ -1,0 +1,1063 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Extension</title>
+    <style type="text/css">
+        <!--
+        /* The default font (family) and size */
+
+        body, p, td {
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.8rem; /* 100/125 */
+        }
+
+        /* For fixed-point material within text, such as the typing on the Library Card index page */
+
+        span.typewritten {
+        	font-family: monospace;
+        	font-size: 0.867rem; /* 13/12 * 100/125 */
+        }
+
+        /* For less important material: the small print */
+
+        span.smaller {
+        	font-size: 80%;
+        }
+
+        /* The "heading panel" is the coloured box, high up on the page. The colours
+        vary depending on the page: for example, the style on a report of a translation
+        with no problems is "headingpanelsucceeded", usually green, but if there were
+        problems then "headingpanelfailed" is used, which is usually red. "headingpanel"
+        itself is a more neutral grey by default. "headingpanelDark" is an alternative
+        look to make the extensions index pages have some visual contrast with the others;
+        by default they are a darker grey. */
+
+        .headingpanel {
+        	background: #eeeeee;
+        }
+        .headingpanelsucceeded {
+        	background: #E6FFE6;
+        }
+        .headingpanelfailed {
+        	background: #f69Ca6;
+        }
+        .headingpanelalt {
+        	background: #808080;
+        }
+
+        /* Heading panels have two lines of text: an upper one in a larger size, and a
+        lower one in a smaller. Again, the alt versions are meant to contrast.
+
+        	Report on Translation: Succeeded                <-- headingpaneltext
+        	Produced by Inform 10.1.0 (build 6U97)          <-- headingpanelrubric
+
+        	Installed Extensions                            <-- headingpaneltextalt
+        	Bundles of extra rules or phrases to...         <-- headingpanelrubricalt
+
+        */
+
+        span.headingpaneltext {
+        	color: #222222;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+        span.headingpaneltextalt {
+        	color: #ffffff;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        span.headingpanelrubric {
+        	color: #222222;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.733rem; /* 11/12 * 100/125 */
+        	font-weight: bold;
+        }
+        span.headingpanelrubricalt {
+        	color: #ffffff;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.733rem; /* 11/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* Horizontal rule styling */
+
+        div.hr {
+        	border: 0;
+        	width: 100%;
+        	color: #707070;
+        	background-color: #707070;
+        	height: 5px;
+        }
+
+        /* This styles the (usually white) text of the example numbers written inside
+        oval blobs in the extension documentation, which mimic the look of the in-app
+        documentation. */
+
+        .oval, .oval td {
+        	background-image:url('inform:/doc_images/ovoid.png');
+        	color:white;
+        }
+
+        /* Styling used in the extension documentation indexes: */
+
+        /* Used for extension names in the extensions pane of the app */
+
+        span.extensioncensusentry {
+        	color: #ffffff;
+        }
+
+        span.extensionindexentry {
+        	color: #404040;
+        }
+
+        span.extensionindexerror {
+        	color: #ff8080;
+        }
+
+        /* This is used in extension documentation, where an example is presented
+        in a slightly tinted box: */
+
+        table.extensionexample {
+        	background-color: #f0f0f0;
+        }
+
+        span.extensionexampleletter {
+        	color: #202020;
+        	font-size: 14px;
+        	font-weight: bold;
+        }
+
+        /* Seen in problem messages: */
+
+        span.problemred {
+        	color: #800000;
+        }
+
+        span.problemgreen {
+        	color: #008000;
+        }
+
+        span.phraseword {
+        	color: #808080;
+        }
+
+        span.phrasetokentext {
+        	color: #e00060;
+        }
+
+        span.phrasetokendesctext {
+        	color: #4040ff;
+        }
+
+        span.phrasetokenvaluetext {
+        	color: #ff4040;
+        }
+
+        /* Now we move on to styling used in the Index pages only: */
+
+        /* The periodic table display has "sidebars", usually grey and taller than they
+        are wide; they contain no text. */
+
+        div.periodictablesidebarcolour {
+        	background: #888;
+        }
+        div.periodictablesidebar:hover {
+        	background: #222;
+        }
+
+        /* The text of the element-abbreviation, such as "Lx" or "Ph", uses: */
+
+        span.elementtext {
+        	color: #ffffff;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* Similarly for the "atomic number" - a single digit - in the top left corner
+        of these boxes: */
+
+        span.elementnumbertext {
+        	color: #ffffff;
+        	font-size: 0.622rem; /* 7/12 * 96/72 * 100/125 */
+        }
+
+        /* For the text of the element title, to the right of the element box: */
+
+        span.elementtitletext {
+        	color: #ffffff;
+        	font-size: 0.6rem; /* 9/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* The banner at the top of each element: */
+
+        table.elementbanner {
+        	background: #eeeeee;
+        }
+
+        /* For the typewriting on the Library Card: */
+
+        span.librarycardtitle {
+        	color: #803030;
+        }
+
+        span.librarycardother {
+        	color: #303030;
+        }
+
+        /* Generically used for "more details" boxes in the index: */
+
+        table.indexmorebox {
+        	background-color: #e0e0e0;
+            border-radius: 8px;
+        }
+
+        /* But not for activity contents: */
+
+        table.indexactivitycontents {
+        	background-color: #e8e0c0;
+            border-radius: 8px;
+        }
+
+        /* For responses in index entries about rules: */
+
+        span.indexresponseletter {
+        	color: #ffffff;
+        	font-family: 'Courier New', Courier, monospace;
+        	background-color: #8080ff;
+        }
+
+        span.indexresponsetext {
+        	color: #000066;
+        }
+
+        /* Used ubiquitously throughout the index and extension documentation: */
+
+        span.indexblack {
+        	color: #000000;
+        }
+
+        span.indexgrey {
+        	color: #808080;
+        }
+
+        span.indexdarkgrey {
+            color: #505050;
+        }
+
+        span.indexdullred {
+        	color: #800000;
+        }
+
+        span.indexdullgreen {
+        	color: #008000;
+        }
+
+        span.indexdullblue {
+        	color: #000080;
+        }
+
+        /* Used for the room squares in the World map in the Index (which is currently
+        a table with one row of one column) */
+
+        table.indexmaproom {
+        	border-color: #000000;
+        }
+
+        /* Used in the numbering of levels of the World map in the Index */
+
+        span.indexmaplevelnumbers {
+        	color: #c0c0c0;
+        }
+
+        /* Used e.g. for title rows in the Chart of basic kinds in the Index */
+
+        tr.headingrow {
+        	background-color: #e0e0e0;
+        }
+
+        /* Standard rows have black text on striped background colours, these being
+        the usual ones seen in Mac OS X applications such as iTunes. */
+
+        tr.stripeone {
+        	background-color: #ffffff;
+        }
+
+        tr.stripetwo {
+        	background-color: #f3f6fa;
+        }
+
+        tr.tintedrow {
+        	background-color: #808080;
+        }
+
+        /* In the Figures index, this is the background colour used behind images
+        (though in fact it will only be visible if the image fails to load, or uses
+        transparency): */
+
+        div.figureindexbox {
+        	background-color: #6495ed;
+        }
+
+        /* To get the book-contents-page style leaders on the Contents element of
+           the index to work, these must use the background colour of the body of
+           the page, whatever that is: */
+
+        ul.leaders li.leaded span:first-child {
+        	background: white;
+        }
+        ul.leaders li.leaded span + span {
+        	background: white;
+        }
+
+        /* On Registry index pages (such as the Public Library), these are used for
+        download buttons and the like: */
+
+        span.registrybuttontext {
+        	font-size: 11px;
+        	border-color: #000000;
+        }
+
+        span.registryminibuttontext {
+        	font-size: 10px;
+        	border-color: #000000;
+        }
+
+        span.registrybuttonuninstalled {
+        	color: #000000;
+        	background: #ffffdd;
+        }
+
+        span.registrybuttoninstalled {
+        	color: #000000;
+        	background: #ffffff;
+        	pointer-events: none;
+        }
+
+        span.registrybuttonbuiltin {
+        	color: #888888;
+        	background: #ffffff;
+        	pointer-events: none;
+        }
+
+        span.registrybuttonupdate {
+        	color: #000000;
+        	background: #aaddff;
+        }
+
+        span.registrybuttonrevert {
+        	color: #000000;
+        	background: #ddaaff;
+        }
+
+        span.registrybuttonrevealer {
+        	color: #ffffff;
+        	background: #444444;
+        }
+
+        /* Registry index section headings: */
+
+        span.registrysectionname {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 16px;
+        	line-height: 18px;
+        }
+        span.registrysubsectionname {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 14px;
+        	line-height: 16px;
+        }
+
+        /* These are for the "mark" for a section, usually a section-symbol and number */
+
+        span.registrysectionmark {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 16px;
+        	line-height: 18px;
+        	color: #666;
+        }
+        span.registrysubsectionmark {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 14px;
+        	line-height: 16px;
+        	color: #666;
+        }
+
+        /* Text of an item listed in a registry: */
+
+        span.registryitemtext {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 12px;
+        	line-height: 16px;
+        }
+
+        /* And how the links in a registry index page behave: */
+
+        a.registrysilentlink {
+        	text-decoration: none;
+        	color: #000;
+        }
+        a.registrybuttonlink {
+        	text-decoration: none;
+        }
+        a.registrycontentslink:link {
+        	text-decoration: none;
+        	color: #202020;
+        }
+        a.registrycontentslink:visited {
+        	text-decoration: none;
+        	color: #202020;
+        }
+        a.registrycontentslink:hover {
+        	text-decoration: none;
+        	color: #D00000;
+        }
+        a.registrycontentslink:active {
+        	text-decoration: none;
+        	color: #D00000;
+        }
+
+        -->
+    </style>
+    <style type="text/css">
+        <!--
+        /* (1) General layout material */
+
+        *, *:before, *:after {
+        	-moz-box-sizing: border-box;
+        	-webkit-box-sizing: border-box;
+        	box-sizing: border-box;
+        }
+        .headingpanellayout {
+        	position: relative;
+        	height: 56px;
+        	padding: 0px;
+        	white-space:nowrap;
+        }
+        .headingpanellayoutdeeper {
+        	position: relative;
+        	height: 117px;
+        	padding: 0px;
+        	white-space:nowrap;
+        }
+        .headingtext {
+        	position: absolute;
+        	top: -4px;
+        	left: -1px;
+        	width: 100%;
+        	padding: 14px 10px 0px 10px;
+        }
+        .headingrubric {
+        	position: absolute;
+        	top: 36px;
+        	width: 100%;
+        	padding: 0px 10px 0px 10px;
+        }
+        h3.tighter {
+        	margin-top: 0px;
+        }
+        p.hang {
+        	padding-left: 25px;
+        	text-indent: -25px;
+        	margin-top: 0px;
+        	margin-bottom: 0px;
+        }
+        p.in1 {
+        	padding-left: 0px;
+        }
+        p.tightin1 {
+        	padding-left: 0px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin1 {
+        	padding-left: 0px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin1 {
+        	padding-left: 50px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in2 {
+        	padding-left: 25px;
+        }
+        p.tightin2 {
+        	padding-left: 25px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin2 {
+        	padding-left: 25px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin2 {
+        	padding-left: 75px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in3 {
+        	padding-left: 50px;
+        }
+        p.tightin3 {
+        	padding-left: 50px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin3 {
+        	padding-left: 50px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin3 {
+        	padding-left: 100px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in4 {
+        	padding-left: 75px;
+        }
+        p.tightin4 {
+        	padding-left: 75px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin4 {
+        	padding-left: 75px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin4 {
+        	padding-left: 125px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in5 {
+        	padding-left: 100px;
+        }
+        p.tightin5 {
+        	padding-left: 100px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin5 {
+        	padding-left: 100px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin5 {
+        	padding-left: 150px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in6 {
+        	padding-left: 125px;
+        }
+        p.tightin6 {
+        	padding-left: 125px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin6 {
+        	padding-left: 125px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin6 {
+        	padding-left: 175px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in7 {
+        	padding-left: 150px;
+        }
+        p.tightin7 {
+        	padding-left: 150px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin7 {
+        	padding-left: 150px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin7 {
+        	padding-left: 200px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in8 {
+        	padding-left: 175px;
+        }
+        p.tightin8 {
+        	padding-left: 175px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin8 {
+        	padding-left: 175px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin8 {
+        	padding-left: 225px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in9 {
+        	padding-left: 200px;
+        }
+        p.tightin9 {
+        	padding-left: 200px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin9 {
+        	padding-left: 200px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin9 {
+        	padding-left: 250px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+
+        /* (2) Index page layout material */
+
+        /* The periodic table display has "sidebars", usually grey and taller than they
+        are wide; they contain no text. */
+
+        div.periodictablesidebar {
+        	height: 56px;
+        	width: 16px;
+        }
+        .periodictablesidebar a:link { text-decoration: none; }
+        .periodictablesidebar a:visited { text-decoration: none; }
+        .periodictablesidebar a:active { text-decoration: none; }
+
+        /* The "element boxes" are the cells appearing in the periodic-table display
+        on the welcome page of the index: */
+
+        .elementbox {
+        	position: relative;
+        	height: 56px;
+        	width: 56px;
+        	padding: 0px;
+        }
+
+        .elementbox a:link { text-decoration: none; }
+        .elementbox a:visited { text-decoration: none; }
+        .elementbox a:active { text-decoration: none; }
+        .elementbox a:hover { text-decoration: none; }
+        .elementbox:hover {
+        	opacity: 0.6;
+        }
+
+        /* The "small element boxes" look like those, but are smaller, and used on
+        the headings of the content which those original boxes link to: */
+
+        .smallelementbox {
+        	position: relative;
+        	height: 40px;
+        	width: 40px;
+        	padding: 0px;
+        }
+
+        .smallelementbox a:link { text-decoration: none; }
+        .smallelementbox a:visited { text-decoration: none; }
+        .smallelementbox a:active { text-decoration: none; }
+        .smallelementbox a:hover { text-decoration: none; }
+        .smallelementbox:hover {
+        	opacity: 0.6;
+        }
+
+        /* This is a class for the links formed by the element boxes: */
+
+        a.elementlink {
+        	position: absolute;
+        	top: -4px;
+        	left: -1px;
+        	width: 100%;
+        	padding: 14px 0px 14px 1px;
+        	text-align: center;
+        }
+
+        /* Similarly for the "atomic number" - a single digit - in the top left corner
+        of these boxes: */
+
+        div.elementnumber {
+        	position: absolute;
+        	top: 1px;
+        	left: 3px;
+        	text-align: left;
+        }
+
+        /* For the text of the element title, to the right of the element box: */
+
+        div.elementtitle {
+        	position: absolute;
+        	top: 35px;
+        	width: 100%;
+        	text-align: center;
+        }
+
+        /* Used for the book-contents-page style leaders on the Contents element of
+           the index: */
+
+        ul.leaders {
+        	padding: 0;
+        	margin-top: 1px;
+        	margin-bottom: 0;
+        	overflow-x: hidden;
+        	list-style: none}
+        ul.leaders li.leaded:before {
+        	float: left;
+        	width: 0;
+        	white-space: nowrap;
+        	content:
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "}
+        ul.leaders li.leaded span:first-child {
+        	padding-right: 0.33em;
+        }
+        ul.leaders li.leaded span + span {
+        	float: right;
+        	padding-left: 0.33em;
+        }
+        li.indent1 span:first-child {
+        	padding-left: 25px;
+        }
+        li.indent2 span:first-child {
+        	padding-left: 50px;
+        }
+        li.indent3 span:first-child {
+        	padding-left: 75px;
+        }
+        li.indent4 span:first-child {
+        	padding-left: 100px;
+        }
+        li.indent5 span:first-child {
+        	padding-left: 125px;
+        }
+        li.indent6 span:first-child {
+        	padding-left: 150px;
+        }
+        li.indent7 span:first-child {
+        	padding-left: 175px;
+        }
+        li.indent8 span:first-child {
+        	padding-left: 200px;
+        }
+        li.indent9 span:first-child {
+        	padding-left: 225px;
+        }
+
+        li.unleaded:before {
+        	content: "";
+        }
+
+        /* On Registry index pages (such as the Public Library), these are used for
+        download buttons and the like: */
+
+        span.registrybuttons {
+        	height: 20px;
+        	padding: 2px 8px 2px 8px;
+        	margin: 2px;
+        	border:1px solid;
+        	border-radius: 5px;
+        }
+
+        span.registryminibuttons {
+        	height: 14px;
+        	padding: 2px 5px 2px 5px;
+        	margin: 2px;
+        	border:1px solid;
+        	border-radius: 4px;
+        }
+
+        /* Used to hide or display sections in the Registry pages: */
+
+        div.registrysectionitemsopen {
+        	display: block;
+        }
+
+        div.registrysectionitemsclosed {
+        	display: none;
+        }
+
+        /* Hanging indentation for Registry item paragraphs: */
+
+        p.registryitem {
+        	padding-left: 80px;
+        	text-indent: -40px;
+        }
+
+        p.registryaddition {
+        	padding-left: 40px;
+        	text-indent: -40px;
+        }
+
+        -->
+    </style>
+    <script type="text/javascript">
+        function project() {
+            return window.Project;
+        }
+        function showExtra(id, imid) {
+        	if (document.getElementById(id).style.display == 'block') {
+        		document.getElementById(id).style.display = 'none';
+        		document.getElementById(imid).src = 'inform:/extra.png';
+        	} else {
+        		document.getElementById(id).style.display = 'block';
+        		document.getElementById(imid).src = 'inform:/extraclose.png';
+        	}
+        }
+        function openExtra(id, imid) {
+        	document.getElementById(id).style.display = 'block';
+        	document.getElementById(imid).src = 'inform:/extraclose.png';
+        }
+        function closeExtra(id, imid) {
+        	document.getElementById(id).style.display = 'none';
+        	document.getElementById(imid).src = 'inform:/extra.png';
+        }
+        function pasteCode(code) {
+            var myProject = project();
+
+            myProject.selectView('source');
+            myProject.pasteCode(code);
+        }
+
+    </script>
+</head>
+<body>
+    <!--CONTENT BEGINS-->
+    <table CELLPADDING=0 CELLSPACING=0 width="100%" bgcolor="#000000"><tr><TD width=38px height=26px align="center" valign="center"><a href="inform://Extensions/Extensions.html" border=0><img border=0 src="inform:/doc_images/Hookindex.png" border=0></a></td><TD width=38px height=26px align="center" valign="center"></td><td halign="left" valign="center" CELLPADDING=0 CELLSPACING=0><font color="#FFFFFF" size=2>Extensions</font></a></td><TD width=56px height=26px align="right" valign="center"><a href="inform:/index.html" border=0><img border=0 src="inform:/doc_images/Hookup.png" border=0></a></td></tr></table>
+
+    <p><a href="javascript:pasteCode('Include Hyperlinks by Gavin Lambert.[=0x000A=][=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a>&nbsp;<b>Hyperlinks<span class="extensionindexentry"> by </span>Gavin Lambert</b></p>
+    <p><span class="smaller">(For Glulx Only)&nbsp; <img border=0 src=inform:/doc_images/vm_glulx.png>&nbsp;Version 1.0.200807</span></p>
+    <p>Provides a core processing loop for hyperlinks.  This is a basic interface intended to be used by other extensions rather than directly in stories.</p>
+    <p></p>
+    <hr>
+    <p><span class="indexblack"><a style="text-decoration: none" href=#docsec1>Section 1: </a></span>Compatibility with Flexible Windows<br>
+    </p>
+    <hr>
+    <p></p>
+    </p>
+
+    <p> This is primarily a utility extension intended for other extensions to use, rather than for direct use in stories.</p>
+
+    <p> A hyperlink can be created with an arbitrary ID in the output text by saying &quot;[set link 1]displayed text[clear link]&quot;.</p>
+
+    <p> To handle processing when that link is clicked, you can declare a rule:</p>
+
+    <p><blockquote><span class="indexdullblue"> Hyperlink id processing rule for 1:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; (do something interesting);<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; rule succeeds with result &quot;go north&quot;.</span></blockquote>
+
+    <p> Where a rule provides command input as above, this will be entered as the full player command if the story is currently waiting for line input, or only the first character will be input if the story is currently waiting for char input. If the story isn't currently waiting for either kind of input then the command is ignored.</p>
+
+    <p> If you don't want to input any commands but do still want to consider this rule a success (and not process any other hyperlink rules), then you can simply do one of these:</p>
+
+    <p><blockquote><span class="indexdullblue"> rule succeeds with result &quot;&quot;.<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; stop the action.</span></blockquote>
+
+    <p> If you don't want to make any decision but continue to run other rules, simply:</p>
+
+    <p><blockquote><span class="indexdullblue"> continue the action.</span></blockquote>
+
+    <p> (Or don't say anything at all, as this is the default.)</p>
+
+    <p> If you want to handle a range of link IDs from a single rule, you can do this by turning it into a parameter:</p>
+
+    <p><blockquote><span class="indexdullblue"> Hyperlink id processing rule for number (called id):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; if id &gt;= 20 and id &lt; 100:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (do a thing).</span></blockquote>
+
+    <p> Note that this extension does not define any mechanism for &quot;reserving&quot; IDs or otherwise ensuring that different usages don't clash with each other; for that, it is strongly recommended to use the &quot;Inline Hyperlinks by Gavin Lambert&quot; extension instead, which builds on this.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec1>Section 1: Compatibility with Flexible Windows</span></b></span></p>
+    </p>
+
+    <p> This extension can be used with or without Flexible Windows, but if you are using it then it's recommended that you include that before including this. Without any further changes, this will enable hyperlinks to be accepted in any window. (By default, only hyperlinks in the main window and status windows are recognised.)</p>
+
+    <p> Example: * Lab Session</p>
+
+    <p><blockquote><span class="indexdullblue"><a href="javascript:pasteCode('[=0x0022=]Lab Session[=0x0022=][=0x000A=][=0x000A=]Include Hyperlinks by Gavin Lambert.[=0x000A=][=0x000A=]Laboratory is a room. [=0x0022=]A curious assortment of odds and ends line the [set link 1]workbench[clear link].[=0x0022=][=0x000A=]A workbench is a scenery supporter in Laboratory. The description is [=0x0022=]The workbench itself is made of plain unpainted wood, with a lacquered coating to make it immune to most chemical spills -- apart from one corner, after an encounter with an especially frisky acid.[=0x0022=][=0x000A=]The describe what[=0x0027=]s on scenery supporters in room descriptions rule does nothing when the item described is the workbench.[=0x000A=][=0x000A=]A beaker is on workbench. The printed name is [=0x0022=][set link 2]beaker[clear link][=0x0022=]. The description is [=0x0022=]A fragile glass beaker, currently empty.  One part of the rim is slightly chipped.[=0x0022=][=0x000A=]A bunsen burner is on workbench. The printed name is [=0x0022=][set link 3]bunsen burner[clear link][=0x0022=]. The description is [=0x0022=]A small, lightly charred, Bunsen burner.[=0x0022=][=0x000A=]A horrifying monstrosity is on workbench. The printed name is [=0x0022=][set link 4]horrifying monstrosity[clear link][=0x0022=]. The description is [=0x0022=]Best not described.  Even though this is apparently the subject your professor wants you to dissect later today.[=0x0022=][=0x000A=][=0x000A=]Hyperlink id processing rule for 1: rule succeeds with result [=0x0022=]x workbench[=0x0022=].[=0x000A=]Hyperlink id processing rule for 2: rule succeeds with result [=0x0022=]x beaker[=0x0022=].[=0x000A=]Hyperlink id processing rule for 3: rule succeeds with result [=0x0022=]x burner[=0x0022=].[=0x000A=]Hyperlink id processing rule for 4: rule succeeds with result [=0x0022=]x monstrosity[=0x0022=].[=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a> &quot;Lab Session&quot;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Include Hyperlinks by Gavin Lambert.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Laboratory is a room. &quot;A curious assortment of odds and ends line the [set link 1]workbench[clear link].&quot;<br>
+     A workbench is a scenery supporter in Laboratory. The description is &quot;The workbench itself is made of plain unpainted wood, with a lacquered coating to make it immune to most chemical spills -- apart from one corner, after an encounter with an especially frisky acid.&quot;<br>
+     The describe what's on scenery supporters in room descriptions rule does nothing when the item described is the workbench.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> A beaker is on workbench. The printed name is &quot;[set link 2]beaker[clear link]&quot;. The description is &quot;A fragile glass beaker, currently empty.  One part of the rim is slightly chipped.&quot;<br>
+     A bunsen burner is on workbench. The printed name is &quot;[set link 3]bunsen burner[clear link]&quot;. The description is &quot;A small, lightly charred, Bunsen burner.&quot;<br>
+     A horrifying monstrosity is on workbench. The printed name is &quot;[set link 4]horrifying monstrosity[clear link]&quot;. The description is &quot;Best not described.  Even though this is apparently the subject your professor wants you to dissect later today.&quot;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Hyperlink id processing rule for 1: rule succeeds with result &quot;x workbench&quot;.<br>
+     Hyperlink id processing rule for 2: rule succeeds with result &quot;x beaker&quot;.<br>
+     Hyperlink id processing rule for 3: rule succeeds with result &quot;x burner&quot;.<br>
+     Hyperlink id processing rule for 4: rule succeeds with result &quot;x monstrosity&quot;.</span></blockquote>
+
+    <p> Example: * Window Management</p>
+
+    <p><blockquote><span class="indexdullblue"><a href="javascript:pasteCode('[=0x0022=]Window Management[=0x0022=][=0x000A=][=0x000A=]Include Flexible Windows by Jon Ingold.[=0x000A=]Include Hyperlinks by Gavin Lambert.[=0x000A=][=0x000A=]Office is a room. [=0x0022=]Finally, a corner office all to yourself.  This is the good life.  Or at least it would be, if the air conditioner were working.  Currently it[=0x0027=]s more of a muggy life.[=0x0022=][=0x000A=][=0x000A=]A large window is fixed in place in Office. The printed name is [=0x0022=][set link 1]large window[clear link][=0x0022=]. [=0x0022=][A window] is set into one wall.[=0x0022=][=0x000A=]The description is [=0x0022=]On one wall a large window [if open]is slowly breathing life back into the office[otherwise]might just be your ticket to getting things bearable -- except that it[=0x0027=]s [set link 2]closed[clear link][end if].[=0x0022=][=0x000A=]The window can be openable. The window can be open. The window can be lockable. The window can be locked. The window is openable, lockable, locked.[=0x000A=][=0x000A=]Instead of opening the locked window: say [=0x0022=]You strain at the window for a few minutes, but it won[=0x0027=]t budge.  It seems [set link 3]security[clear link] electronically sealed all the windows at some point.[=0x0022=][=0x000A=][=0x000A=]After opening the unlocked window for the first time, say [=0x0022=]After more straining, the window eventually cracks open a smidgen, then finally enough to allow a cool [set link 1]breeze[clear link] into the office.[=0x0022=][=0x000A=][=0x000A=]Calling security about is an action applying to one topic. Understand [=0x0022=]call security about [text][=0x0022=] as calling security about.[=0x000A=][=0x000A=]Carry out calling security about [=0x0022=]window[=0x0022=]:[=0x000A=][=0x0009=]start a call;[=0x000A=][=0x0009=]focus the main window;[=0x000A=][=0x0009=]stop the action.[=0x000A=][=0x000A=]Carry out calling security about [=0x0022=]past events[=0x0022=]:[=0x000A=][=0x0009=]start a call;[=0x000A=][=0x0009=]say [=0x0022=]You spend a few minutes in meandering conversation, but you don[=0x0027=]t think it[=0x0027=]s getting you anywhere.[paragraph break][=0x0022=];[=0x000A=][=0x0009=]focus the main window;[=0x000A=][=0x0009=]stop the action.[=0x000A=][=0x000A=]Carry out calling security about [=0x0022=]weather[=0x0022=]:[=0x000A=][=0x0009=]start a call;[=0x000A=][=0x0009=]say [=0x0022=]You explain about the hot and muggy weather, and that the air conditioning isn[=0x0027=]t working properly.[paragraph break][=0x0022=];[=0x000A=][=0x0009=]say [=0x0022=][=0x0027=]I feel for ya, mate, I really do, but the policy clearly states that all the windows have to remain sealed.[=0x0027=][paragraph break][=0x0022=];[=0x000A=][=0x0009=]say [=0x0022=]After a few moments, he adds, [=0x0027=]Don[=0x0027=]t worry, there[=0x0027=]s a repair ticket in for the A/C.  Shouldn[=0x0027=]t be more[=0x0027=]n a few days.  Week, tops.[=0x0027=][paragraph break][=0x0022=];[=0x000A=][=0x0009=]say [=0x0022=]You quail internally.[paragraph break][=0x0022=];[=0x000A=][=0x0009=]focus the main window;[=0x000A=][=0x0009=]stop the action.[=0x000A=][=0x000A=]Carry out calling security about [=0x0022=]sealed[=0x0022=]:[=0x000A=][=0x0009=]start a call;[=0x000A=][=0x0009=]say [=0x0022=]You ask why the window was sealed in the first place.[paragraph break][=0x0022=];[=0x000A=][=0x0009=]say [=0x0022=]There[=0x0027=]s a moment of pause at the other end of the line, and then the worker responds, [=0x0027=]Well... let[=0x0027=]s just say that the former owner of your office... he... he had a [italic type]really[roman type] bad week.[=0x0027=][paragraph break][=0x0022=];[=0x000A=][=0x0009=]focus the main window;[=0x000A=][=0x0009=]stop the action.[=0x000A=][=0x000A=]Carry out calling security about [=0x0022=]escalate[=0x0022=]:[=0x000A=][=0x0009=]start a call;[=0x000A=][=0x0009=]say [=0x0022=]You threaten to bring this up with his manager on your next lunch break.[paragraph break][=0x0022=];[=0x000A=][=0x0009=]if the window is locked:[=0x000A=][=0x0009=][=0x0009=]say [=0x0022=]In a slightly darker tone of voice, he responds, [=0x0027=]Now, now, there[=0x0027=]s no need for any of that, [italic type]Karen[roman type].[=0x0027=][paragraph break][=0x0022=];[=0x000A=][=0x0009=][=0x0009=]say [=0x0022=]Sighing, [=0x0027=]Fine, fine, it[=0x0027=]s only policy after all, who am I to argue with [italic type]management[roman type].[=0x0027=][paragraph break][=0x0022=];[=0x000A=][=0x0009=][=0x0009=]focus the main window;[=0x000A=][=0x0009=][=0x0009=]say [=0x0022=]You hear a quiet buzzing and clicking noise coming from [the window].[=0x0022=];[=0x000A=][=0x0009=][=0x0009=]now the window is unlocked;[=0x000A=][=0x0009=]otherwise:[=0x000A=][=0x0009=][=0x0009=]say [=0x0022=]Somewhat defensively, he replies, [=0x0027=]Come on, that Karen thing was just a joke, you know I didn[=0x0027=]t really mean that.  I unlocked the window, didn[=0x0027=]t I?[=0x0027=][=0x0022=];[=0x000A=][=0x0009=][=0x0009=]focus the main window;[=0x000A=][=0x0009=]stop the action.[=0x000A=][=0x000A=]Carry out calling security about:[=0x000A=][=0x0009=]start a call;[=0x000A=][=0x0009=]say [=0x0022=]You try asking the security worker about [topic understood], but he doesn[=0x0027=]t seem interested.[=0x0022=];[=0x000A=][=0x0009=]focus the main window.[=0x000A=][=0x000A=]The phone window is a text buffer g-window spawned by the main window.[=0x000A=]The background color of the phone window is [=0x0022=]#FFFFE0[=0x0022=].[=0x000A=]The position of the phone window is g-placebelow.[=0x000A=]The measurement of the phone window is 40.[=0x000A=][=0x000A=]To start a call:[=0x000A=][=0x0009=]open the phone window;[=0x000A=][=0x0009=]clear the phone window;[=0x000A=][=0x0009=]focus the phone window;[=0x000A=][=0x0009=]say [=0x0022=]You reach for the phone on your desk and call security.[paragraph break][=0x0022=];[=0x000A=][=0x0009=]say [=0x0022=]Eventually a grumpy voice responds.[paragraph break][=0x0022=];[=0x000A=][=0x0009=]say [=0x0022=]You ask about unsealing the window.[paragraph break][=0x0022=];[=0x000A=][=0x0009=]say [=0x0022=]The voice laughs dismissively, and you spend the next several minutes arguing about [set link 4]past events[clear link], the [set link 5]weather[clear link], why the window was [set link 6]sealed[clear link] in the first place, that you[=0x0027=]ll [set link 7]escalate[clear link] it to his manager, and so forth.[paragraph break][=0x0022=];[=0x000A=][=0x000A=]Before doing anything except calling security about when the phone window is g-present:[=0x000A=][=0x0009=]close the phone window;[=0x000A=][=0x0009=]say [=0x0022=]Sensing your distraction, the security worker hangs up on you.[=0x0022=][=0x000A=][=0x000A=]Hyperlink id processing rule for 1: rule succeeds with result [=0x0022=]x window[=0x0022=].[=0x000A=]Hyperlink id processing rule for 2: rule succeeds with result [=0x0022=]open window[=0x0022=].[=0x000A=]Hyperlink id processing rule for 3: rule succeeds with result [=0x0022=]call security about window[=0x0022=].[=0x000A=]Hyperlink id processing rule for 4: rule succeeds with result [=0x0022=]call security about past events[=0x0022=].[=0x000A=]Hyperlink id processing rule for 5: rule succeeds with result [=0x0022=]call security about weather[=0x0022=].[=0x000A=]Hyperlink id processing rule for 6: rule succeeds with result [=0x0022=]call security about sealed[=0x0022=].[=0x000A=]Hyperlink id processing rule for 7: rule succeeds with result [=0x0022=]call security about escalate[=0x0022=].[=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a> &quot;Window Management&quot;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Include Flexible Windows by Jon Ingold.<br>
+     Include Hyperlinks by Gavin Lambert.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Office is a room. &quot;Finally, a corner office all to yourself.  This is the good life.  Or at least it would be, if the air conditioner were working.  Currently it's more of a muggy life.&quot;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> A large window is fixed in place in Office. The printed name is &quot;[set link 1]large window[clear link]&quot;. &quot;[A window] is set into one wall.&quot;<br>
+     The description is &quot;On one wall a large window [if open]is slowly breathing life back into the office[otherwise]might just be your ticket to getting things bearable -- except that it's [set link 2]closed[clear link][end if].&quot;<br>
+     The window can be openable. The window can be open. The window can be lockable. The window can be locked. The window is openable, lockable, locked.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Instead of opening the locked window: say &quot;You strain at the window for a few minutes, but it won't budge.  It seems [set link 3]security[clear link] electronically sealed all the windows at some point.&quot;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> After opening the unlocked window for the first time, say &quot;After more straining, the window eventually cracks open a smidgen, then finally enough to allow a cool [set link 1]breeze[clear link] into the office.&quot;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Calling security about is an action applying to one topic. Understand &quot;call security about [text]&quot; as calling security about.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Carry out calling security about &quot;window&quot;:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; start a call;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; focus the main window;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; stop the action.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Carry out calling security about &quot;past events&quot;:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; start a call;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; say &quot;You spend a few minutes in meandering conversation, but you don't think it's getting you anywhere.[paragraph break]&quot;;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; focus the main window;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; stop the action.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Carry out calling security about &quot;weather&quot;:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; start a call;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; say &quot;You explain about the hot and muggy weather, and that the air conditioning isn't working properly.[paragraph break]&quot;;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; say &quot;'I feel for ya, mate, I really do, but the policy clearly states that all the windows have to remain sealed.'[paragraph break]&quot;;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; say &quot;After a few moments, he adds, 'Don't worry, there's a repair ticket in for the A/C.  Shouldn't be more'n a few days.  Week, tops.'[paragraph break]&quot;;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; say &quot;You quail internally.[paragraph break]&quot;;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; focus the main window;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; stop the action.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Carry out calling security about &quot;sealed&quot;:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; start a call;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; say &quot;You ask why the window was sealed in the first place.[paragraph break]&quot;;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; say &quot;There's a moment of pause at the other end of the line, and then the worker responds, 'Well... let's just say that the former owner of your office... he... he had a [italic type]really[roman type] bad week.'[paragraph break]&quot;;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; focus the main window;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; stop the action.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Carry out calling security about &quot;escalate&quot;:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; start a call;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; say &quot;You threaten to bring this up with his manager on your next lunch break.[paragraph break]&quot;;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; if the window is locked:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say &quot;In a slightly darker tone of voice, he responds, 'Now, now, there's no need for any of that, [italic type]Karen[roman type].'[paragraph break]&quot;;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say &quot;Sighing, 'Fine, fine, it's only policy after all, who am I to argue with [italic type]management[roman type].'[paragraph break]&quot;;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; focus the main window;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say &quot;You hear a quiet buzzing and clicking noise coming from [the window].&quot;;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; now the window is unlocked;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; otherwise:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say &quot;Somewhat defensively, he replies, 'Come on, that Karen thing was just a joke, you know I didn't really mean that.  I unlocked the window, didn't I?'&quot;;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; focus the main window;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; stop the action.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Carry out calling security about:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; start a call;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; say &quot;You try asking the security worker about [topic understood], but he doesn't seem interested.&quot;;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; focus the main window.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> The phone window is a text buffer g-window spawned by the main window.<br>
+     The background color of the phone window is &quot;#FFFFE0&quot;.<br>
+     The position of the phone window is g-placebelow.<br>
+     The measurement of the phone window is 40.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> To start a call:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; open the phone window;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; clear the phone window;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; focus the phone window;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; say &quot;You reach for the phone on your desk and call security.[paragraph break]&quot;;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; say &quot;Eventually a grumpy voice responds.[paragraph break]&quot;;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; say &quot;You ask about unsealing the window.[paragraph break]&quot;;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; say &quot;The voice laughs dismissively, and you spend the next several minutes arguing about [set link 4]past events[clear link], the [set link 5]weather[clear link], why the window was [set link 6]sealed[clear link] in the first place, that you'll [set link 7]escalate[clear link] it to his manager, and so forth.[paragraph break]&quot;;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Before doing anything except calling security about when the phone window is g-present:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; close the phone window;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; say &quot;Sensing your distraction, the security worker hangs up on you.&quot;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Hyperlink id processing rule for 1: rule succeeds with result &quot;x window&quot;.<br>
+     Hyperlink id processing rule for 2: rule succeeds with result &quot;open window&quot;.<br>
+     Hyperlink id processing rule for 3: rule succeeds with result &quot;call security about window&quot;.<br>
+     Hyperlink id processing rule for 4: rule succeeds with result &quot;call security about past events&quot;.<br>
+     Hyperlink id processing rule for 5: rule succeeds with result &quot;call security about weather&quot;.<br>
+     Hyperlink id processing rule for 6: rule succeeds with result &quot;call security about sealed&quot;.<br>
+     Hyperlink id processing rule for 7: rule succeeds with result &quot;call security about escalate&quot;.</span></blockquote>
+
+    <p> Example: ** I'll have a Side of Inventory, Please</p>
+
+    <p> In this example, we present the inventory as a sidebar (using the same example as given in Flexible Windows), but we assign each object a unique id that's used as a link to examine the object when shown in the sidebar.</p>
+
+    <p><blockquote><span class="indexdullblue"><a href="javascript:pasteCode('[=0x0022=]I[=0x0027=]ll have a Side of Inventory, Please[=0x0022=][=0x000A=][=0x000A=]Include Flexible Windows by Jon Ingold.[=0x000A=]Include Hyperlinks by Gavin Lambert.[=0x000A=][=0x000A=]A thing has a number called link number.[=0x000A=]For printing the name of something (called item) when the current focus window is the side window:[=0x000A=][=0x0009=]let id be the link number of item;[=0x000A=][=0x0009=]if id is zero, continue the action;[=0x000A=][=0x0009=]say [=0x0022=][set link id][printed name of item][clear link][=0x0022=].[=0x000A=][=0x000A=]Hyperlink id processing rule for number (called id):[=0x000A=][=0x0009=]repeat with item running through things:[=0x000A=][=0x0009=][=0x0009=]if id is the link number of item, rule succeeds with result [=0x0022=]x [item][=0x0022=].[=0x000A=][=0x000A=]The side window is a text buffer g-window spawned by the main window.[=0x000A=]The position of the side window is g-placeright.[=0x000A=]The measurement of the side window is 30.[=0x000A=][=0x000A=]Rule for refreshing the side window:[=0x000A=][=0x0009=]try taking inventory.[=0x000A=][=0x000A=]When play begins:[=0x000A=][=0x0009=]open the side window.[=0x000A=][=0x000A=]Every turn:[=0x000A=][=0x0009=]refresh the side window;[=0x000A=][=0x0009=]focus the main window.[=0x000A=][=0x000A=]The Study is a room. In the study is an old oak desk. On the desk is a Parker pen, a letter, an envelope and twenty dollars.[=0x000A=]The description of pen is [=0x0022=]Metallic, with a stainless tip and other trimmings, but otherwise the body is all matte black.  [if carried]You feel fancier just holding it.[=0x0022=][=0x000A=]The description of letter is [=0x0022=]You[=0x0027=]ve read this letter so many times that you can[=0x0027=]t stand to read it again.  And yet, you know you will, eventually.[=0x0022=][=0x000A=]The description of envelope is [=0x0022=]This is the envelope that the letter came in, on that fateful night just a few days ago.[=0x0022=][=0x000A=]The description of twenty dollars is [=0x0022=]A creased twenty dollar bill.  It was in the envelope along with the letter.[=0x0022=][=0x000A=]The link number of pen is 1.[=0x000A=]The link number of letter is 2.[=0x000A=]The link number of envelope is 3.[=0x000A=]The link number of twenty dollars is 4.[=0x000A=][=0x000A=]Test me with [=0x0022=]take pen/take letter/i/take all[=0x0022=].[=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a> &quot;I'll have a Side of Inventory, Please&quot;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Include Flexible Windows by Jon Ingold.<br>
+     Include Hyperlinks by Gavin Lambert.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> A thing has a number called link number.<br>
+     For printing the name of something (called item) when the current focus window is the side window:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; let id be the link number of item;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; if id is zero, continue the action;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; say &quot;[set link id][printed name of item][clear link]&quot;.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Hyperlink id processing rule for number (called id):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; repeat with item running through things:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if id is the link number of item, rule succeeds with result &quot;x [item]&quot;.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> The side window is a text buffer g-window spawned by the main window.<br>
+     The position of the side window is g-placeright.<br>
+     The measurement of the side window is 30.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Rule for refreshing the side window:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; try taking inventory.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> When play begins:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; open the side window.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Every turn:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; refresh the side window;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; focus the main window.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> The Study is a room. In the study is an old oak desk. On the desk is a Parker pen, a letter, an envelope and twenty dollars.<br>
+     The description of pen is &quot;Metallic, with a stainless tip and other trimmings, but otherwise the body is all matte black.  [if carried]You feel fancier just holding it.&quot;<br>
+     The description of letter is &quot;You've read this letter so many times that you can't stand to read it again.  And yet, you know you will, eventually.&quot;<br>
+     The description of envelope is &quot;This is the envelope that the letter came in, on that fateful night just a few days ago.&quot;<br>
+     The description of twenty dollars is &quot;A creased twenty dollar bill.  It was in the envelope along with the letter.&quot;<br>
+     The link number of pen is 1.<br>
+     The link number of letter is 2.<br>
+     The link number of envelope is 3.<br>
+     The link number of twenty dollars is 4.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Test me with &quot;take pen/take letter/i/take all&quot;.</span></blockquote>
+
+    <p></p>
+
+    <p>
+    <!--CONTENT ENDS-->
+</body>
+</html>

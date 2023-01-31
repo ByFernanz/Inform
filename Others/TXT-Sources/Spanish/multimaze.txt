@@ -1,0 +1,449 @@
+"MultiMaze" by Sarganar
+
+[todo:
+
+Subsuelo. El laberinto parece extenderse en se repite mucho
+
+]
+
+Include Spanish by Sebastian Arg.
+Include Laberinto by Sebastian Arg.
+Include Multi P by Sarganar.
+
+Release along with cover art, the source text, a website.[ and a file of "Rebot Server" called "rebot-server.rar".]
+
+ [ Datos bibliográficos ]
+ The story headline is "(c) 1998 Jaume Alcanzo Castellarnau adaptada a Inform 7 por
+ Sarganar".
+ The story genre is "Maze".
+ The release number is 7.
+ The story creation year is 2009.
+ The story description is "Este es un ejemplo de aventura multiplayer genérica. No hay personajes específicos. Los jugadores que van entrando toman el control de un objeto PC del PC-Corral y comienzan su periplo en el Patio Golly, la primera habitacion del juego. Parte del codigo fue tomado del juego Reliquias de Tolti Aph, sección laberinto."
+
+Chapter 1 - Some special rooms
+
+Section A - Two initial rooms
+
+
+The Patio Golly is a labyrinth room with shape L0/0-0-1-1-1-0. The Patio Golly has map legend "<G>". "El Patio Golly es más bien pequeño, no por eso no deja de ser extraño. Por el norte, el este y por el sur se ven las posibles entradas al Laberinto Aleatorio. La misión: encontrar el último número del SPAC. ¡La aventura no puede esperar![paragraph break]Tip al jugador: [line break] Coge lapiz y papel para mapear tus pasos, ¿o acaso tienes un gps en tu cabeza?[line break] Si te mareas, escribe AYUDA."
+
+
+The Recinto en Obras is a labyrinth room with shape L0/1-0-1-1-1-0. The Recinto en Obras has map legend "<R>". "Aqui está todo desordenado, veremos si logran terminarlo antes de la inauguración."
+
+
+Section B - The two important rooms of the inner labyrinth
+
+LR0 has shape L0/0-0-1-1-1-0. LR1 has shape L0/0-0-1-1-1-0.[* There are several obviously special labyrinth rooms, with exotic names and behaviour. These two rooms are less obviously special. They are T-junctions pointing into the maze, which will be placed just north and just south of the Hedge Archway respectively, and their purpose is to maximize the initial connectedness of the maze - they guarantee the explorer initial access to five possible rooms rather than the three which the Hedge Archway alone would lead into, and this decreases the chances of a boringly quick game in which the maze is fully blocked off in a couple of rooms.]
+
+
+To locate rooms:
+	position the Patio Golly at <1,1,12>;
+	position the Recinto en Obras at <2,3,16>;
+	position LR0 at <1,1,11>; change the printed name of LR0 to "Cruce Norte-Este-Sur";
+	position LR1 at <1,1,13>; change the printed name of LR1 to "Cruce Norte-Este-Sur".
+
+
+Chapter 2 - Artefacts and other funny things
+
+
+Section 1 - Las cartas de encuentro
+
+[ Aqui poblamos el laberinto. Cuando el jugador entra en una nueva habitación que tiene un espacio abierto, "cartas" son sacadas de la "baraja de encuentros" para ver qué se va ha encontrar allí. Las cartas son en realidad las cosas (monstruos, etc) en si mismas y la baraja es un contenedor - el cual, al igual que las habitaciones Roca Sólida y Terra Incognita, existen en algún tipo de forma metafísica y realmente no se encuentran en el mundo del jugador.
+
+Organizamos estas "cartas" en una baraja porque los monstruos muertos, los artefactos usados y los peligros jugados necesitan ser retornados al fondo de la baraja. No se podría sencillamente sacar cartas de ninguna parte: porque entonces habría la posibilidad de sacar la Flauta Mágica, por ejemplo, justo al siguiente turno de haberla usado.
+
+Aunque poco código de Inform usa o se da cuenta de esto, los contenidos de una habitación o un contenedor están, de hecho, organizados como una lista, así que nosotros usamos esto furtivamente para ordenar la baraja. Nota que "return X to the pack" (retornar X a la baraja), definido más abajo, pone X al fondo eliminando todas las cartas, poniendo dentro X, y luego poniendo todas las cartas de vuelta a la baraja - lo cual suena lento, pero que es un ejercicio trivial para una computadora, y en cualquier caso ocurre relativamente con poca frecuencia en el juego.]
+
+The encounters pack is a container.
+
+Definition: a thing is out-of-the-pack if it is in Terra Incognita.
+
+When play begins:
+	let the pack size be the number of out-of-the-pack things;
+	let the total shuffled be 0;
+	while the total shuffled is less than the pack size
+	begin;
+		let the next card be a random out-of-the-pack thing;
+		move the next card to the encounters pack;
+		let the total shuffled be the total shuffled plus 1;
+	end while.
+
+To return (this card - a thing) to the pack:
+	move this card to Terra Incognita;
+	now all things in the encounters pack are in Terra Incognita;
+	now all things in Terra Incognita are in the encounters pack.
+
+The previous location is a room that varies. Before going, change the previous location to the location.
+
+After going to an unvisited labyrinth room (called the locale): draw cards for the locale; continue the action.
+
+To draw cards for (locale - a room):
+	if the open space part of the shape of the locale is 0, stop;
+	let the draw count be the open space part of the shape of the locale plus the maze level part of the grid position of the locale;
+	let the preferred artefact be the Mapa Encantado;
+[	if the current maze task is the hoja malva, let the preferred artefact be the Flauta Encantada;]
+	if the current maze level is 1 and the preferred artefact is in the encounters pack[* Trucamos la baraja para estar seguros de que la primera cosa que encuentre el jugador es un artefacto útil: habitualmente el Mapa, pero en "el rescate de Eurídice" es la Flauta Encantada, ya que dibujamos al jugador como Orfeo.]
+	begin;
+		move the preferred artefact to the locale;
+		stop;
+	end if;
+	[if the current maze task is the hoja verde guisante and the Ojo de Dios is in the encounters pack and the number of unvisited labyrinth rooms is less than 10[* En la misión de traer de vuelta el Ojo de Dios, podría ser un poco injusto para el Ojo permanecer en el fondo de la baraja durante todo el juego: así que una vez que cuatro quintos del laberinto han sido jugados, el Ojo de Dios se coloca para aparecer el siguiente.]
+	begin;
+		move the Ojo de Dios to the locale;
+		decrease the draw count by 1;
+	end if;]
+	while the draw count is greater than 1 and something (called the top card) is in the encounters pack
+	begin;
+		move the top card to the locale;
+		if the current maze level is 1[* El jardín laberíntico no sufre de trampas, terremotos, o la funesta presencia de los no-muertos.]
+		begin;
+			if the top card is a hazard, return the top card to the pack;
+			[if the top card is a monster and the defensive charm of the top card is exorcizar no-muertos, return the top card to the pack;]
+		end if;
+		[if the locale is the Bóveda de los Huesos Blancos and the top card is a hazard, return the top card to the pack;][* La Boveda de los Huesos es una caverna inmensa y muy propensa ha sacar muchas cartas, lo cual significa que hay muchas probabilidades de que salga una Trampa o un Terremoto: cuando de hecho ocurría en la fase de testeo, el efecto era poco satisfactorio en primera instancia, injusto en segunda. Así que he hecho que la Boveda de los Huesos esté libre de peligros.]
+		if the top card is an artefact and the current maze level is less than the minimum level of the top card, return the top card to the pack;[* Por ejemplo, no encontrarás el Anillo dando vueltas por el laberinto jardín.]
+		[if the top card is a monster, now the top card is surprised;]
+		decrease the draw count by 1;
+	end while.
+
+Section 2 - Initials and Mapa
+
+[The artefacts are not unlike those found in "Sorcerer's Cave", though all of the details are different. The Eye of God was differently cursed in the original: here it is dangerous to carry around, but one of the maze quests is exactly to carry it for a long way. Our version of the Ring is immensely powerful, but there is a catch: although the wearer becomes almost immortal on lower levels, he is likely to emerge back up to higher levels with dangerously low STR, so there is some danger of surviving a tussle with demons far below only to be knocked on the head by a gnome on level 1.
+
+No equivalent to the Divining Rod and the Enchanted Map exist in the original board game: nor could they, really, since the players could always see the entire labyrinth laid out on the floor.]
+
+An artefact is a kind of thing. An artefact has a number called minimum level. The minimum level of an artefact is usually 1.
+
+
+
+The Mapa encantado is an artefact in Terra Incognita. "El Mapa Encantado, uno de los artefactos del Laberinto, yace aqui para que lo tomes."
+
+[The Mapa encantado is in LR0.]
+
+To plot line (N - a number) of room (R - a room):
+	if R is Solid Rock begin; say "     "; stop; end if;
+	if R is unvisited begin; say "     "[say ":::::"]; stop; end if;
+	if R is Earthquake-damaged begin; say "#####"; stop; end if;
+[	if R is the Island in the Deep Pool
+	begin;
+		if N is 1, say "~~~~~";
+		if N is 2, say "~~O~~";
+		if N is 3, say "~~~~~";
+		stop;
+	end if;]
+	if N is 1
+	begin;
+		if R exits north, say "  |"; otherwise say "   ";
+		if R is ascending, say "/ "; otherwise say "  ";
+	end if;
+	if N is 2
+	begin;
+		if R exits west, say "-"; otherwise say " ";
+		if a PC is in R, say "(@)";
+		otherwise say the map legend of R;
+		if R exits east, say "-"; otherwise say " ";
+	end if;
+	if N is 3
+	begin;
+		if R is descending, say " /"; otherwise say "  ";
+		if R exits south, say "|  "; otherwise say "   ";
+	end if.
+
+Instead of examining the Mapa encantado:
+	let grid ref be the grid position of the location of the player;
+	if grid ref is <0,0,0>, stop;
+	let L be the maze level part of the grid ref;
+	if L is 1, let the design be "=-=-=";
+	if L is 2, let the design be "-=-=-";
+	if L is 3, let the design be "=+=+=";
+	if L is 4, let the design be "=====";
+	if L is 5, let the design be "=+o+=";
+	if L is greater than 5, let the design be "#####";
+	say "[fixed letter spacing]Nivel [L] - [location][line break]+[design][design][design][design][design]+[line break]";
+	repeat with dN running from -1 to 1
+	begin;
+		repeat with stripe running from 1 to 3
+		begin;
+			say "#";
+			repeat with dE running from -2 to 2
+			begin;
+				let E be the easting part of the grid ref;
+				let N be the northing part of the grid ref;
+				let L be the maze level part of the grid ref;
+				let E be E plus dE;
+				let N be N minus dN;
+				let the offset ref be the spatial coordinate with maze level part L easting part E northing part N;
+				let the offset room be the room at the offset ref;
+				plot line stripe of room offset room;
+			end repeat;
+			say "#[line break]";
+		end repeat;
+	end repeat;
+	say "+[design][design][design][design][design]+[line break][variable letter spacing][line break]".
+
+GPSing is an action applying to nothing.
+Instead of GPSing: try examining the mapa.
+Understand "mapa" or "map" as GPSing.
+
+A GPS is a kind of artefact.
+Three GPS are in Terra Incongnita.
+Understand "gps" as GPSing.
+Instead of examining the gps:
+	if the gps is carried by the actor,try examining the mapa;
+	otherwise say "Un bonito GPS primermundista."
+
+
+Section 3 - Spac Cinco
+
+The Spac Cinco is an artefact in Terra Incognita. "Vaya! el SPAC número cinco yace aquí tirado!!!"
+The description is "El último número del SPAC. Recién salido de la imprenta del Averno." The minimum level of spac is 3.
+Understand "fanzine" as spac.
+
+Last Report an actor taking the Spac:
+	announce "[The actor] ha encontrado el SPAC. ¡Gracias por participar!";
+	process award for "[the actor]".
+
+Instead an actor dropping the Spac:
+	say "Dejado.[line break]Sus hojas brillan levemente...y desaparece.";
+	announce "El SPAC recobró su libertad. ¡La búsqueda comienza de nuevo!";
+	return the Spac to the pack.
+
+
+Section 4 - Comm Gadgets
+
+A handy is a kind of artefact. The description is "Es un viejo handy parduzco. Para hablar escribe 'handy tu_mensaje'."
+
+Four handy are in Terra Incognita.
+
+Handying is an action applying to one topic.
+Understand "handy [text]" as handying.
+
+Check handying (this is the can't speak if you dont carry rule):
+	if the player carries the handy begin; continue the action;
+	otherwise if the handy is in the location; say "Debes tener el handy primero.";
+	end if;
+	stop the action.
+
+Report handying (this is the standard report handying rule):
+	say "El handy chirrea un poco.";
+	repeat with X running through connected PCs who can see the handy begin;
+		if X is not the player, tell "(handy): [topic understood]." to X;
+	end repeat.
+
+
+
+
+Section 5 - La pizarra del Club
+
+The pizarra tactil is in Patio Golly. It is female and fixed in place. The hint text is "Uso: escribe en pizarra Esto no me gusta nada."
+The pizarra has an external-file called the text file.
+A thing can be fresh or used. A thing is usually fresh.
+
+To erase (pad - a thing): 
+    write " " to the text file of the pizarra;
+    now the pad is fresh. 
+
+To write in (pad - a thing): 
+    append "[player]: [topic understood][line break]" to the text file of the pad;
+    mark the text file of the pad as ready to read; 
+    now the pad is used. 
+
+To read (pad - a thing): 
+    say "Lees: [line break][text of the text file of the pad]". 
+
+Understand "escribe [text] en [something visible]" as writing it in.
+Understand "escribe en [something visible] [text]" as writing it in (with nouns reversed).
+Include (- VerboIrregular "escribir" with imperativo 'escribe'; -)
+
+Writing it in is an action applying to a topic and one thing.
+
+Check writing it in: 
+    if the second noun is not the pizarra, say "Mmm, no traigo un lápiz conmigo. Sólo podría escribir en -digamos- una pizarra tactil." instead.
+
+Carry out writing it in: 
+    write in the second noun. 
+
+Report an actor writing:
+	if the actor is the player, say "Extiendes tu mano hacia [the second noun], y con el dedo escribes '[the topic understood]'.";
+	otherwise say "[The actor] extiende su mano hacia [the second noun] y escribe algo."
+
+Understand "borra [something visible]" as erasing. Erasing is an action applying to one thing. 
+
+Check erasing: 
+    if the noun is not the pizarra, say "No me imagino cómo." instead. 
+
+Carry out erasing: 
+    erase the noun. 
+
+Report erasing: 
+    say "Deslizas tu mano sobre [the noun], sin tocarla. La escritura se desvanece ante tus ojos y un breve subtono hace vibrar el ambiente." 
+
+Report someone erasing:
+	say "Parece que [the actor] borra [the second noun]."
+
+Instead of examining a used pizarra: 
+    read the pizarra. 
+
+Instead of examining a fresh pizarra: 
+    say "Rectangular, algo roída por la humedad; pero supongo que aún puede escribirse en ella."
+
+The file of Player's Observations is called "pizarra". The text file of the pizarra is the file of Player's Observations.
+
+
+A thing has a text called hint text. The hint text is usually "No hay ayuda disponible."
+
+Hinting is an action out of world applying to one thing.
+
+Understand "hint [something]" as Hinting.
+
+Report Hinting something:
+	say "[hint text of the noun]".
+
+To say other helpies:
+	say " - datos y usos de un objeto: hint objeto."
+
+
+
+Section T - Trampas y terremotos
+
+[ El original "Sorcerer's Cave" de Donnelly tenía cuatro peligros, siendo los otros Medusa y Motín, pero ninguno funciona bien para un juego jugado por un sólo personaje en vez de un "equipo" de exploradores. Trampa y Terremoto están en esencia sin cambiar desde el original.]
+
+A hazard is a kind of thing. A hazard is scenery. Earthquake and Trap are kinds of hazard. [In Terra Incognita are two Earthquakes and two Traps.]
+
+Hazard-playing is an action out of world applying to one thing.
+
+Every turn:
+	let the locale be the location;
+	repeat with hazard card running through hazards in the locale
+	begin;
+		try hazard-playing the hazard card;
+	end repeat.
+
+To make the player fall to (destination - room):
+	if the destination is unvisited, draw cards for the destination;
+	move the player to the destination.
+
+Carry out hazard-playing a Trap:
+	return the noun to the pack;
+	let the position below be the vector sum of the grid position of the location and the vector of down;
+	if the position below is <0,0,0>, continue the action;
+	if the location is descending, continue the action;
+	let the place below be the room at the position below;
+	if the place below is not Solid Rock
+	begin;
+		say "Caes a través de una trampa oculta en el suelo, emergiendo en...";
+		change the down exit of the location to the place below;
+		make the player fall to the place below;
+		stop;
+	end if;
+	if a labyrinth room (called the place below) is unplaced
+	begin;
+		say "¡Caes en una trampa oculta en el suelo!";
+		position the place below at the position below;
+		change the down exit of the location to the place below;
+		if the place below is not ascending,
+			change the up exit of the place below to Solid Rock;
+		make the player fall to the place below;
+	end if.
+
+A room can be Earthquake-damaged or Earthquake-undamaged. A room is usually not Earthquake-damaged. Instead of going to an Earthquake-damaged room, say "Toda esa cueva se ha colapsado por un terremoto y es ahora impasable."
+
+Carry out hazard-playing an Earthquake:
+	return the noun to the pack;
+	if the previous location is not a labyrinth room, continue the action;
+	if the previous maze level is 1, continue the action;[* Un Terremoto causa que rocas caigan para bloquear la habitación que acabamos de abandonar: lo cual no tiene mucho sentido en el laberinto ajardinado del nivel 1.]
+	if the player is in the previous location, continue the action;
+	say "¡Un violento terremoto causa el derrumbe de grandes rocas en la cueva detrás tuyo!";
+	now the previous location is Earthquake-damaged.
+
+
+Chapter T - Tabla de Ganadores
+
+File of Leaderboard is called "leaderboard". 
+
+
+When play begins: 
+	if the File of Leaderboard exists: 
+		read File of Leaderboard into the Table of Leaders; 
+		sort the Table of Leaders in reverse scored amount order. 
+
+
+To process award for (lucky - indexed text):
+	if there is a name of lucky in the Table of Leaders:
+		choose row with a name of lucky in the Table of Leaders;
+		let score temp be scored amount entry;
+		change score temp to score temp + 1;
+		change scored amount entry to score temp;
+	otherwise:
+		choose row 10 in the Table of Leaders;
+		change name entry to the lucky; 
+		change the scored amount entry to 1; 
+	show leaderboard; 
+	write the File of Leaderboard from the Table of Leaders. 
+
+
+To show leaderboard: 
+	sort the Table of Leaders in reverse scored amount order; 
+	announce "Lista de la fama:[paragraph break]"; 
+[	say fixed letter spacing; ]
+	repeat through Table of Leaders: 
+		if scored amount entry is greater than 0:
+			[announce " [name entry]"; 
+			let N be 25 minus the number of characters in name entry; [here we want to space out the scores so they make a neat column] 
+			if N is less than 1, change N to 1; 
+			say N spaces; ]
+			announce "[name entry]  [scored amount entry][line break]".
+[		say variable letter spacing. ]
+
+
+To say (N - a number) spaces: 
+	repeat with index running from 1 to N: 
+		announce " ". 
+
+
+Table of Leaders 
+scored amount(number)	name (indexed text)
+0	"Smithee"
+0	"Smithee"
+0	"Smithee"
+0	"Smithee"
+0	"Smithee"
+0	"Smithee"
+0	"Smithee"
+0	"Smithee"
+0	"Smithee"
+0	"Smithee"
+
+Chapter M - Mensajes Decorativos
+
+Every turn when a random chance of 1 in 7 succeeds:
+	let target be a random connected PC;
+	choose a random row in the Table of Msg Deco; 
+	tell "[msg entry][line break]" to the target.
+
+
+Table of Msg Deco
+msg
+"¿Perdido en el laberinto? Prueba con un lapiz y un papel."
+"Tip: Con el mapa encantado lograrás ubicarte más rápido."
+"Recuerda tu objetivo: encontrar el SPAC"
+"Tip: Los handies te ayudarán a completar la misión como un trabajo de equipo."
+"¿Cansado de vagar sin rumbo?"
+""
+""
+""
+"" 
+
+
+Chapter 3 - Game stuffs
+
+The Initial Room is Patio Golly.
+
+
+Before printing the name of a room: [una linea de separacion que 'acomoda' visualmente un poco la cosa]
+    say "-------------------------------------------------[line break]". 
+
+
+Chapter the Last - Not for release
+
+Understand "play [any hazard]" as hazard-playing.[* For testing the Earthquake and Trap hazards in the Maze, which took quite a lot of getting right.]

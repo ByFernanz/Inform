@@ -1,0 +1,1237 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Extension</title>
+    <style type="text/css">
+        <!--
+        /* The default font (family) and size */
+
+        body, p, td {
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.8rem; /* 100/125 */
+        }
+
+        /* For fixed-point material within text, such as the typing on the Library Card index page */
+
+        span.typewritten {
+        	font-family: monospace;
+        	font-size: 0.867rem; /* 13/12 * 100/125 */
+        }
+
+        /* For less important material: the small print */
+
+        span.smaller {
+        	font-size: 80%;
+        }
+
+        /* The "heading panel" is the coloured box, high up on the page. The colours
+        vary depending on the page: for example, the style on a report of a translation
+        with no problems is "headingpanelsucceeded", usually green, but if there were
+        problems then "headingpanelfailed" is used, which is usually red. "headingpanel"
+        itself is a more neutral grey by default. "headingpanelDark" is an alternative
+        look to make the extensions index pages have some visual contrast with the others;
+        by default they are a darker grey. */
+
+        .headingpanel {
+        	background: #eeeeee;
+        }
+        .headingpanelsucceeded {
+        	background: #E6FFE6;
+        }
+        .headingpanelfailed {
+        	background: #f69Ca6;
+        }
+        .headingpanelalt {
+        	background: #808080;
+        }
+
+        /* Heading panels have two lines of text: an upper one in a larger size, and a
+        lower one in a smaller. Again, the alt versions are meant to contrast.
+
+        	Report on Translation: Succeeded                <-- headingpaneltext
+        	Produced by Inform 10.1.0 (build 6U97)          <-- headingpanelrubric
+
+        	Installed Extensions                            <-- headingpaneltextalt
+        	Bundles of extra rules or phrases to...         <-- headingpanelrubricalt
+
+        */
+
+        span.headingpaneltext {
+        	color: #222222;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+        span.headingpaneltextalt {
+        	color: #ffffff;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        span.headingpanelrubric {
+        	color: #222222;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.733rem; /* 11/12 * 100/125 */
+        	font-weight: bold;
+        }
+        span.headingpanelrubricalt {
+        	color: #ffffff;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.733rem; /* 11/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* Horizontal rule styling */
+
+        div.hr {
+        	border: 0;
+        	width: 100%;
+        	color: #707070;
+        	background-color: #707070;
+        	height: 5px;
+        }
+
+        /* This styles the (usually white) text of the example numbers written inside
+        oval blobs in the extension documentation, which mimic the look of the in-app
+        documentation. */
+
+        .oval, .oval td {
+        	background-image:url('inform:/doc_images/ovoid.png');
+        	color:white;
+        }
+
+        /* Styling used in the extension documentation indexes: */
+
+        /* Used for extension names in the extensions pane of the app */
+
+        span.extensioncensusentry {
+        	color: #ffffff;
+        }
+
+        span.extensionindexentry {
+        	color: #404040;
+        }
+
+        span.extensionindexerror {
+        	color: #ff8080;
+        }
+
+        /* This is used in extension documentation, where an example is presented
+        in a slightly tinted box: */
+
+        table.extensionexample {
+        	background-color: #f0f0f0;
+        }
+
+        span.extensionexampleletter {
+        	color: #202020;
+        	font-size: 14px;
+        	font-weight: bold;
+        }
+
+        /* Seen in problem messages: */
+
+        span.problemred {
+        	color: #800000;
+        }
+
+        span.problemgreen {
+        	color: #008000;
+        }
+
+        span.phraseword {
+        	color: #808080;
+        }
+
+        span.phrasetokentext {
+        	color: #e00060;
+        }
+
+        span.phrasetokendesctext {
+        	color: #4040ff;
+        }
+
+        span.phrasetokenvaluetext {
+        	color: #ff4040;
+        }
+
+        /* Now we move on to styling used in the Index pages only: */
+
+        /* The periodic table display has "sidebars", usually grey and taller than they
+        are wide; they contain no text. */
+
+        div.periodictablesidebarcolour {
+        	background: #888;
+        }
+        div.periodictablesidebar:hover {
+        	background: #222;
+        }
+
+        /* The text of the element-abbreviation, such as "Lx" or "Ph", uses: */
+
+        span.elementtext {
+        	color: #ffffff;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* Similarly for the "atomic number" - a single digit - in the top left corner
+        of these boxes: */
+
+        span.elementnumbertext {
+        	color: #ffffff;
+        	font-size: 0.622rem; /* 7/12 * 96/72 * 100/125 */
+        }
+
+        /* For the text of the element title, to the right of the element box: */
+
+        span.elementtitletext {
+        	color: #ffffff;
+        	font-size: 0.6rem; /* 9/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* The banner at the top of each element: */
+
+        table.elementbanner {
+        	background: #eeeeee;
+        }
+
+        /* For the typewriting on the Library Card: */
+
+        span.librarycardtitle {
+        	color: #803030;
+        }
+
+        span.librarycardother {
+        	color: #303030;
+        }
+
+        /* Generically used for "more details" boxes in the index: */
+
+        table.indexmorebox {
+        	background-color: #e0e0e0;
+            border-radius: 8px;
+        }
+
+        /* But not for activity contents: */
+
+        table.indexactivitycontents {
+        	background-color: #e8e0c0;
+            border-radius: 8px;
+        }
+
+        /* For responses in index entries about rules: */
+
+        span.indexresponseletter {
+        	color: #ffffff;
+        	font-family: 'Courier New', Courier, monospace;
+        	background-color: #8080ff;
+        }
+
+        span.indexresponsetext {
+        	color: #000066;
+        }
+
+        /* Used ubiquitously throughout the index and extension documentation: */
+
+        span.indexblack {
+        	color: #000000;
+        }
+
+        span.indexgrey {
+        	color: #808080;
+        }
+
+        span.indexdarkgrey {
+            color: #505050;
+        }
+
+        span.indexdullred {
+        	color: #800000;
+        }
+
+        span.indexdullgreen {
+        	color: #008000;
+        }
+
+        span.indexdullblue {
+        	color: #000080;
+        }
+
+        /* Used for the room squares in the World map in the Index (which is currently
+        a table with one row of one column) */
+
+        table.indexmaproom {
+        	border-color: #000000;
+        }
+
+        /* Used in the numbering of levels of the World map in the Index */
+
+        span.indexmaplevelnumbers {
+        	color: #c0c0c0;
+        }
+
+        /* Used e.g. for title rows in the Chart of basic kinds in the Index */
+
+        tr.headingrow {
+        	background-color: #e0e0e0;
+        }
+
+        /* Standard rows have black text on striped background colours, these being
+        the usual ones seen in Mac OS X applications such as iTunes. */
+
+        tr.stripeone {
+        	background-color: #ffffff;
+        }
+
+        tr.stripetwo {
+        	background-color: #f3f6fa;
+        }
+
+        tr.tintedrow {
+        	background-color: #808080;
+        }
+
+        /* In the Figures index, this is the background colour used behind images
+        (though in fact it will only be visible if the image fails to load, or uses
+        transparency): */
+
+        div.figureindexbox {
+        	background-color: #6495ed;
+        }
+
+        /* To get the book-contents-page style leaders on the Contents element of
+           the index to work, these must use the background colour of the body of
+           the page, whatever that is: */
+
+        ul.leaders li.leaded span:first-child {
+        	background: white;
+        }
+        ul.leaders li.leaded span + span {
+        	background: white;
+        }
+
+        /* On Registry index pages (such as the Public Library), these are used for
+        download buttons and the like: */
+
+        span.registrybuttontext {
+        	font-size: 11px;
+        	border-color: #000000;
+        }
+
+        span.registryminibuttontext {
+        	font-size: 10px;
+        	border-color: #000000;
+        }
+
+        span.registrybuttonuninstalled {
+        	color: #000000;
+        	background: #ffffdd;
+        }
+
+        span.registrybuttoninstalled {
+        	color: #000000;
+        	background: #ffffff;
+        	pointer-events: none;
+        }
+
+        span.registrybuttonbuiltin {
+        	color: #888888;
+        	background: #ffffff;
+        	pointer-events: none;
+        }
+
+        span.registrybuttonupdate {
+        	color: #000000;
+        	background: #aaddff;
+        }
+
+        span.registrybuttonrevert {
+        	color: #000000;
+        	background: #ddaaff;
+        }
+
+        span.registrybuttonrevealer {
+        	color: #ffffff;
+        	background: #444444;
+        }
+
+        /* Registry index section headings: */
+
+        span.registrysectionname {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 16px;
+        	line-height: 18px;
+        }
+        span.registrysubsectionname {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 14px;
+        	line-height: 16px;
+        }
+
+        /* These are for the "mark" for a section, usually a section-symbol and number */
+
+        span.registrysectionmark {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 16px;
+        	line-height: 18px;
+        	color: #666;
+        }
+        span.registrysubsectionmark {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 14px;
+        	line-height: 16px;
+        	color: #666;
+        }
+
+        /* Text of an item listed in a registry: */
+
+        span.registryitemtext {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 12px;
+        	line-height: 16px;
+        }
+
+        /* And how the links in a registry index page behave: */
+
+        a.registrysilentlink {
+        	text-decoration: none;
+        	color: #000;
+        }
+        a.registrybuttonlink {
+        	text-decoration: none;
+        }
+        a.registrycontentslink:link {
+        	text-decoration: none;
+        	color: #202020;
+        }
+        a.registrycontentslink:visited {
+        	text-decoration: none;
+        	color: #202020;
+        }
+        a.registrycontentslink:hover {
+        	text-decoration: none;
+        	color: #D00000;
+        }
+        a.registrycontentslink:active {
+        	text-decoration: none;
+        	color: #D00000;
+        }
+
+        -->
+    </style>
+    <style type="text/css">
+        <!--
+        /* (1) General layout material */
+
+        *, *:before, *:after {
+        	-moz-box-sizing: border-box;
+        	-webkit-box-sizing: border-box;
+        	box-sizing: border-box;
+        }
+        .headingpanellayout {
+        	position: relative;
+        	height: 56px;
+        	padding: 0px;
+        	white-space:nowrap;
+        }
+        .headingpanellayoutdeeper {
+        	position: relative;
+        	height: 117px;
+        	padding: 0px;
+        	white-space:nowrap;
+        }
+        .headingtext {
+        	position: absolute;
+        	top: -4px;
+        	left: -1px;
+        	width: 100%;
+        	padding: 14px 10px 0px 10px;
+        }
+        .headingrubric {
+        	position: absolute;
+        	top: 36px;
+        	width: 100%;
+        	padding: 0px 10px 0px 10px;
+        }
+        h3.tighter {
+        	margin-top: 0px;
+        }
+        p.hang {
+        	padding-left: 25px;
+        	text-indent: -25px;
+        	margin-top: 0px;
+        	margin-bottom: 0px;
+        }
+        p.in1 {
+        	padding-left: 0px;
+        }
+        p.tightin1 {
+        	padding-left: 0px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin1 {
+        	padding-left: 0px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin1 {
+        	padding-left: 50px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in2 {
+        	padding-left: 25px;
+        }
+        p.tightin2 {
+        	padding-left: 25px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin2 {
+        	padding-left: 25px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin2 {
+        	padding-left: 75px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in3 {
+        	padding-left: 50px;
+        }
+        p.tightin3 {
+        	padding-left: 50px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin3 {
+        	padding-left: 50px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin3 {
+        	padding-left: 100px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in4 {
+        	padding-left: 75px;
+        }
+        p.tightin4 {
+        	padding-left: 75px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin4 {
+        	padding-left: 75px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin4 {
+        	padding-left: 125px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in5 {
+        	padding-left: 100px;
+        }
+        p.tightin5 {
+        	padding-left: 100px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin5 {
+        	padding-left: 100px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin5 {
+        	padding-left: 150px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in6 {
+        	padding-left: 125px;
+        }
+        p.tightin6 {
+        	padding-left: 125px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin6 {
+        	padding-left: 125px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin6 {
+        	padding-left: 175px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in7 {
+        	padding-left: 150px;
+        }
+        p.tightin7 {
+        	padding-left: 150px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin7 {
+        	padding-left: 150px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin7 {
+        	padding-left: 200px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in8 {
+        	padding-left: 175px;
+        }
+        p.tightin8 {
+        	padding-left: 175px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin8 {
+        	padding-left: 175px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin8 {
+        	padding-left: 225px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in9 {
+        	padding-left: 200px;
+        }
+        p.tightin9 {
+        	padding-left: 200px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin9 {
+        	padding-left: 200px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin9 {
+        	padding-left: 250px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+
+        /* (2) Index page layout material */
+
+        /* The periodic table display has "sidebars", usually grey and taller than they
+        are wide; they contain no text. */
+
+        div.periodictablesidebar {
+        	height: 56px;
+        	width: 16px;
+        }
+        .periodictablesidebar a:link { text-decoration: none; }
+        .periodictablesidebar a:visited { text-decoration: none; }
+        .periodictablesidebar a:active { text-decoration: none; }
+
+        /* The "element boxes" are the cells appearing in the periodic-table display
+        on the welcome page of the index: */
+
+        .elementbox {
+        	position: relative;
+        	height: 56px;
+        	width: 56px;
+        	padding: 0px;
+        }
+
+        .elementbox a:link { text-decoration: none; }
+        .elementbox a:visited { text-decoration: none; }
+        .elementbox a:active { text-decoration: none; }
+        .elementbox a:hover { text-decoration: none; }
+        .elementbox:hover {
+        	opacity: 0.6;
+        }
+
+        /* The "small element boxes" look like those, but are smaller, and used on
+        the headings of the content which those original boxes link to: */
+
+        .smallelementbox {
+        	position: relative;
+        	height: 40px;
+        	width: 40px;
+        	padding: 0px;
+        }
+
+        .smallelementbox a:link { text-decoration: none; }
+        .smallelementbox a:visited { text-decoration: none; }
+        .smallelementbox a:active { text-decoration: none; }
+        .smallelementbox a:hover { text-decoration: none; }
+        .smallelementbox:hover {
+        	opacity: 0.6;
+        }
+
+        /* This is a class for the links formed by the element boxes: */
+
+        a.elementlink {
+        	position: absolute;
+        	top: -4px;
+        	left: -1px;
+        	width: 100%;
+        	padding: 14px 0px 14px 1px;
+        	text-align: center;
+        }
+
+        /* Similarly for the "atomic number" - a single digit - in the top left corner
+        of these boxes: */
+
+        div.elementnumber {
+        	position: absolute;
+        	top: 1px;
+        	left: 3px;
+        	text-align: left;
+        }
+
+        /* For the text of the element title, to the right of the element box: */
+
+        div.elementtitle {
+        	position: absolute;
+        	top: 35px;
+        	width: 100%;
+        	text-align: center;
+        }
+
+        /* Used for the book-contents-page style leaders on the Contents element of
+           the index: */
+
+        ul.leaders {
+        	padding: 0;
+        	margin-top: 1px;
+        	margin-bottom: 0;
+        	overflow-x: hidden;
+        	list-style: none}
+        ul.leaders li.leaded:before {
+        	float: left;
+        	width: 0;
+        	white-space: nowrap;
+        	content:
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "}
+        ul.leaders li.leaded span:first-child {
+        	padding-right: 0.33em;
+        }
+        ul.leaders li.leaded span + span {
+        	float: right;
+        	padding-left: 0.33em;
+        }
+        li.indent1 span:first-child {
+        	padding-left: 25px;
+        }
+        li.indent2 span:first-child {
+        	padding-left: 50px;
+        }
+        li.indent3 span:first-child {
+        	padding-left: 75px;
+        }
+        li.indent4 span:first-child {
+        	padding-left: 100px;
+        }
+        li.indent5 span:first-child {
+        	padding-left: 125px;
+        }
+        li.indent6 span:first-child {
+        	padding-left: 150px;
+        }
+        li.indent7 span:first-child {
+        	padding-left: 175px;
+        }
+        li.indent8 span:first-child {
+        	padding-left: 200px;
+        }
+        li.indent9 span:first-child {
+        	padding-left: 225px;
+        }
+
+        li.unleaded:before {
+        	content: "";
+        }
+
+        /* On Registry index pages (such as the Public Library), these are used for
+        download buttons and the like: */
+
+        span.registrybuttons {
+        	height: 20px;
+        	padding: 2px 8px 2px 8px;
+        	margin: 2px;
+        	border:1px solid;
+        	border-radius: 5px;
+        }
+
+        span.registryminibuttons {
+        	height: 14px;
+        	padding: 2px 5px 2px 5px;
+        	margin: 2px;
+        	border:1px solid;
+        	border-radius: 4px;
+        }
+
+        /* Used to hide or display sections in the Registry pages: */
+
+        div.registrysectionitemsopen {
+        	display: block;
+        }
+
+        div.registrysectionitemsclosed {
+        	display: none;
+        }
+
+        /* Hanging indentation for Registry item paragraphs: */
+
+        p.registryitem {
+        	padding-left: 80px;
+        	text-indent: -40px;
+        }
+
+        p.registryaddition {
+        	padding-left: 40px;
+        	text-indent: -40px;
+        }
+
+        -->
+    </style>
+    <script type="text/javascript">
+        function project() {
+            return window.Project;
+        }
+        function showExtra(id, imid) {
+        	if (document.getElementById(id).style.display == 'block') {
+        		document.getElementById(id).style.display = 'none';
+        		document.getElementById(imid).src = 'inform:/extra.png';
+        	} else {
+        		document.getElementById(id).style.display = 'block';
+        		document.getElementById(imid).src = 'inform:/extraclose.png';
+        	}
+        }
+        function openExtra(id, imid) {
+        	document.getElementById(id).style.display = 'block';
+        	document.getElementById(imid).src = 'inform:/extraclose.png';
+        }
+        function closeExtra(id, imid) {
+        	document.getElementById(id).style.display = 'none';
+        	document.getElementById(imid).src = 'inform:/extra.png';
+        }
+        function pasteCode(code) {
+            var myProject = project();
+
+            myProject.selectView('source');
+            myProject.pasteCode(code);
+        }
+
+    </script>
+</head>
+<body>
+    <!--CONTENT BEGINS-->
+    <table CELLPADDING=0 CELLSPACING=0 width="100%" bgcolor="#000000"><tr><TD width=38px height=26px align="center" valign="center"><a href="inform://Extensions/Extensions.html" border=0><img border=0 src="inform:/doc_images/Hookindex.png" border=0></a></td><TD width=38px height=26px align="center" valign="center"></td><td halign="left" valign="center" CELLPADDING=0 CELLSPACING=0><font color="#FFFFFF" size=2>Extensions</font></a></td><TD width=56px height=26px align="right" valign="center"><a href="inform:/index.html" border=0><img border=0 src="inform:/doc_images/Hookup.png" border=0></a></td></tr></table>
+
+    <p><a href="javascript:pasteCode('Include Neutral Standard Responses by Nathanael Nerode.[=0x000A=][=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a>&nbsp;<b>Neutral Standard Responses<span class="extensionindexentry"> by </span>Nathanael Nerode</b></p>
+    <p><span class="smaller">Version 4.0.210908</span></p>
+    <p>Replaces misleading, vague, and narratively-voiced parser messages with instructive, clarifying, and neutral versions, respectively.  For Inform 6M62.</p>
+    <p></p>
+    <hr>
+    <p><span class="indexblack"><a style="text-decoration: none" href=#docsec1>Section 1: </a></span>Rationale<br>
+    <span class="indexblack"><a style="text-decoration: none" href=#docsec2>Section 2: </a></span>Noncommittal responses<br>
+    <span class="indexblack"><a style="text-decoration: none" href=#docsec3>Section 3: </a></span>Parser Style versus Story Style<br>
+    <span class="indexblack"><a style="text-decoration: none" href=#docsec4>Section 4: </a></span>Overriding Responses<br>
+    <span class="indexblack"><a style="text-decoration: none" href=#docsec5>Section 5: </a></span>Use Different Line Breaking in Multiple Object Lists<br>
+    <span class="indexblack"><a style="text-decoration: none" href=#docsec6>Section 6: </a></span>You can't see any such thing<br>
+    <span class="indexblack"><a style="text-decoration: none" href=#docsec7>Section 7: </a></span>Further ideas for 'You can't see any such thing'<br>
+    <span class="indexblack"><a style="text-decoration: none" href=#docsec8>Section 8: </a></span>Compatibility with Other Extensions<br>
+    <span class="indexblack"><a style="text-decoration: none" href=#docsec9>Section 9: </a></span>Extension History<br>
+    <span class="indexblack"><a style="text-decoration: none" href=#docsec10>Section 10: </a></span>Changelogs<br>
+    <br>
+    <b>Examples</b><br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href="Neutral Standard Responses-eg1.html#eg1">A &mdash; The Ringer</a></span><br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href="Neutral Standard Responses-eg2.html#eg2">B &mdash; Ignorance is Bliss</a></span><br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href="Neutral Standard Responses-eg3.html#eg3">C &mdash; Oops</a></span><br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href="Neutral Standard Responses-eg4.html#eg4">D &mdash; Scenery</a></span><br>
+    </p>
+    <hr>
+    <p></p>
+    </p>
+
+    <p> Every Inform project contains dozens of sentences of text not written by the project's author, which explain the results of actions or refuse to carry out commands that aren't understood or that contradict the world model. The default set of these library messages, which have accumulated like barnacles on the interactive fiction community since its maiden voyages in the 1970s, contains many misleading, distracting, or unhelpful texts that experienced players see past but newcomers stumble over. This extension replaces the worst offenders with more neutral or helpful variations.</p>
+
+    <p> Simply including the extension is all that is necessary. Read on only if you're interested in the gory details.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec1>Section 1: Rationale</span></b></span></p>
+    </p>
+
+    <p> The main complaints levied against the standard reponses are:</p>
+
+    <p> They sometimes imply a certain tone of wry amusement which descends from the Infocom/text adventure era, and which is not always appropriate to modern works of IF.</p>
+
+    <p> There is not a clear distinction between messages narrating story world events and those giving parser refusals, leading to a muddying of the difference between the author's voice and the default system messages.</p>
+
+    <p> Error messages often do not contain information instructing players how to better restate their command.</p>
+
+    <p> They can sometimes contradict the story world, as in the assumption &quot;That's plainly inedible,&quot; or mislead the player about a course of action, as in &quot;This dangerous act would achieve little.&quot;</p>
+
+    <p> Inconsistencies in style, such as whether command examples are given in CAPS or 'quotes', or which messages are wrapped in square brackets and what that signifies.</p>
+
+    <p> The extension attempts to address all of these concerns as much as possible. Jokes or insults have been replaced by more neutral responses. Many error messages have been rephrased to more clearly state what confused the parser or instruct the player towards a better command to try. Messages that make assumptions about the player's intentions or the world model have been softened so as not to appear incongruous with the story. All command examples are now given in 'quote' format. And by default, all parser / out-of-world messages are wrapped in brackets and put in italics.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec2>Section 2: Noncommittal responses</span></b></span></p>
+    </p>
+
+    <p> Many of the replacement responses in this extension are deliberately noncommittal, in order to be appropriate no matter what the story author is doing. This is in order to deal with commands like &quot;pick up Fred&quot;, where the player may be using it in a metaphorical way and the story author may want the player to go through the steps of seducing Fred. Or &quot;attack box&quot;, where the story author may want the player to be more specific about how to attack the box. These responses in this extension often use the following two phrases:<blockquote><span class="indexdullblue"> To say or that's not the way: say &quot;, or [regarding nothing]that [aren't] the way to do so&quot;.<br>
+     To say or it's the wrong time: say &quot; in these circumstances&quot;.</span></blockquote>
+
+    <p> If you want to be more definite about telling the player that she is unable to do things, you can blank these out:<blockquote><span class="indexdullblue"> To say or that's not the way: do nothing.<br>
+     To say or it's the wrong time: do nothing.</span></blockquote>
+
+    <p><p><span class="indexblack"><b><span id=docsec3>Section 3: Parser Style versus Story Style</span></b></span></p>
+    </p>
+
+    <p> Whether a message comes from the parser or the story narrator is something of an existential or aesthetic question in some cases: is &quot;But you aren't on the sofa at the moment&quot; a parser objection or a narrator observation?</p>
+
+    <p> The rule in this extension is that only out-of-world, metatextual responses are &quot;parser messages&quot;. This consists of responses which break the fourth wall by talking about the command line, saving, restoring, undoing, or talking about what is permitted in the story. So &quot;You hear nothing unexpected&quot; and &quot;You aren't holding the apple&quot; are both story messages, while &quot;You don't need to use the word 'xxx' in this story&quot; is a parser message.</p>
+
+    <p> Parser messages are styled using a pair of phrases, which must always be used as a pair:<blockquote><span class="indexdullblue"> &quot;[as the parser]I didn't understand that command.[as normal]&quot;</span></blockquote>
+
+    <p> These are the default definitions:<blockquote><span class="indexdullblue"> To say as the parser -- beginning say_as_the_parser: say &quot;[italic type][bracket]&quot;.<br>
+     To say as normal -- ending say_as_the_parser: say &quot;[close bracket][roman type]&quot;.</span></blockquote>
+
+    <p> To override this, use code like the following:</p>
+
+    <p><blockquote><span class="indexdullblue"> To say as the parser -- beginning say_as_the_parser: say &quot;[bold type]The parser says: '&quot;.<br>
+     To say as normal -- ending say_as_the_parser: say &quot;'[roman type]&quot;.</span></blockquote>
+
+    <p> These say statements may be used in your own text to style parser messages. With a bracket following a period at the end of a sentence, Inform's line breaking algorithm gets confused, so it's often necessary to write:<blockquote><span class="indexdullblue"> say &quot;[as the parser]Hi, I'm the parser.[no line break][as normal][line break]&quot;.</span></blockquote>
+
+    <p> Or if you're running the paragraph on:<blockquote><span class="indexdullblue"> say &quot;[as the parser]Hi, I'm the parser.[no line break][as normal]&quot;.</span></blockquote>
+
+    <p> One final subtlety: if you're responding to an action like &quot;take&quot; which has a paragraph break after &quot;take one thing&quot; but not after each line in &quot;take all&quot;, you'll want to use an additional phrase &quot;single action conditional paragraph break&quot; (see the section on line breaking):<blockquote><span class="indexdullblue"> say &quot;[as the parser]You shouldn't try to take that in this story.[as normal][single action conditional paragraph break]&quot;;</span></blockquote>
+
+    <p><p><span class="indexblack"><b><span id=docsec4>Section 4: Overriding Responses</span></b></span></p>
+    </p>
+
+    <p> If you don't want parser messages to be styled differently from other library messages:<blockquote><span class="indexdullblue"> To say as the parser -- beginning say_as_the_parser: do nothing.<br>
+     To say as normal -- ending say_as_the_parser: do nothing.</span></blockquote>
+
+    <p> Of course, all responses can be individually overridden using the usual responses system.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec5>Section 5: Use Different Line Breaking in Multiple Object Lists</span></b></span></p>
+    </p>
+
+    <p> This extension provides several utility phrases to allow you to make the same text line-break correctly both for multiple action reports like:<blockquote><span class="indexdullblue"> the box: (putting the toy in the holdall to make room) Taken.<br>
+     the cat: You can't take the cat.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> &gt;</span></blockquote>
+
+    <p> And on single action reports like:<blockquote><span class="indexdullblue"> (putting the toy in the holdall to make room)<br>
+     Taken.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> &gt;</span></blockquote>
+
+    <p> The say phrases available are:</p>
+
+    <p><blockquote><span class="indexdullblue"> single action line break</span></blockquote>
+
+    <p> This is a line break if doing a single action, and no line break if doing multiple actions. I haven't actually found a use for this:</p>
+
+    <p><blockquote><span class="indexdullblue"> single action conditional paragraph break</span></blockquote>
+
+    <p> This is a conditional paragraph break only if there is a single action. This corrects the report for:<blockquote><span class="indexdullblue"> the box: You can't boil the box.<br>
+     the cat: Boiled.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> single action paragraph break</span></blockquote>
+
+    <p> This is a paragraph break only if there is a single action. I haven't actually found a use for this, as the single action conditional paragraph break is more useful.</p>
+
+    <p><blockquote><span class="indexdullblue"> multiple action run paragraph on</span></blockquote>
+
+    <p> This could be used where Inform really wants to break the paragraph. For multiple actions, it runs the paragraph on; for single actions, it doesn't. I haven't found a use for this either.</p>
+
+    <p><blockquote><span class="indexdullblue"> single action command clarification break</span></blockquote>
+
+    <p> This is one space if doing multiple actions, and otherwise a command clarification break. The purpose of this is specifically to avoid a line break in the following:<blockquote><span class="indexdullblue"> the box: (Putting the toy in the holdall to take room) Taken.</span></blockquote>
+
+    <p> It should generally be used only for such situations.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec6>Section 6: You can't see any such thing</span></b></span></p>
+    </p>
+
+    <p> The message &quot;You can't see any such thing.&quot; is traditionally printed in many circumstances. Part of the difficulty is the wide variety of circumstances it can appear under. From the player's perspective, this message appears when she tries to use a verb with<blockquote><span class="indexdullblue"> a) something neither mentioned nor implemented (like the sky)<br>
+     b) something mentioned in descriptive text but not implemented<br>
+     c) something implemented but not given the specific word used as a synonym<br>
+     d) a misspelled word<br>
+     e) a word mistakenly understood as part of the direct object, rather than part of the grammar line, as in &gt;TAKE INVENTORY NOW which is matched as { take | inventory now }.<br>
+     f) something that exists but has never been seen and is not in scope<br>
+     g) something previously seen but no longer in scope, perhaps without the player realizing it's no longer available</span></blockquote>
+
+    <p> In nearly all of these cases, the player believes the object they're referring to should exist, meaning the message is often frustrating.</p>
+
+    <p> Distinguishing between these subtle cases can be difficult. For instance, short of capturing all text output and analyzing it, there is no way to distinguish A from B. Perhaps the easiest distinction to make is between commands containing dictionary words and those that don't, which separates A-D from E-G.</p>
+
+    <p> This extension, by default, explicitly tells the player if a word they typed is not in the story's dictionary. The classic argument against this, that sneaky players can use it to figure out the existence of yet-unseen objects, seems less relevant today than it did when puzzles comprised most IF content (not to mention having something of a nanny-state quality, like a novelist hovering around ensuring readers don't flip ahead and see IMPORTANT NOUNS they aren't supposed to know about yet). Perhaps a more relevant objection is that messages of this sort can make the parser seem primitive (&quot;I don't know the word 'love.'&quot;) I believe the benefit to players of knowing that a command didn't work because a certain word isn't important (rather than wondering if it's just not in scope, or they misspelled it, or they typed it in the wrong spot in the grammar line) outweighs these concerns, and I've attempted to make the message prescriptive rather than expository: &quot;You don't need to use the word 'love' in this story.&quot; However, if you'd like to restore the traditional behavior, you can do so with 'Use traditional can't see any such thing'.</p>
+
+    <p> If the parser fails because it doesn't recognize a word, this extension will give an informative error message like:<blockquote><span class="indexdullblue"> &quot;[You don't need to use the word 'kludge' in this story.]&quot;</span></blockquote>
+
+    <p> You can change this to, for instance, the traditional Infocom-style message as follows:<blockquote><span class="indexdullblue"> The command includes word not in dictionary rule response (A) is &quot;I don't know the word '[word at position N]'&quot;.</span></blockquote>
+
+    <p> In the response's context, &quot;word at position N&quot; is the first non-dictionary word. This helps out players who know not to try the word again.</p>
+
+    <p> If the word is recognized but out of scope, the parser will instead say:<blockquote><span class="indexdullblue"> &quot;You can't see anything called 'kludge' right now.  [Or I misunderstood you.]&quot;</span></blockquote>
+
+    <p> You can change this as follows:<blockquote><span class="indexdullblue"> The command includes word not in scope rule response (A) is &quot;Naughty player, referring to things you can't see such as [the misunderstood word].&quot;</span></blockquote>
+
+    <p> In the response's context, &quot;the misunderstood word&quot; is the first word not understood by the parser; it's the word which will be replaced by &quot;oops&quot;. In certain responses, this isn't valid; use &quot;the extraneous word&quot; instead in those responses.</p>
+
+    <p> If you want to conceal from the player which words are understood, you can restore the default Inform 7 message:<blockquote><span class="indexdullblue"> You can't see any such thing.</span></blockquote>
+
+    <p> by using the option<blockquote><span class="indexdullblue"> Use traditional can't see any such thing.</span></blockquote>
+
+    <p> In addition, the Standard Rules have a bug in the 'remove thing from container' implementation which results in &quot;You can't see any such thing&quot; being printed for items which are visible but not inside the container. This extension fixes this bug and gives the proper responses for that case. This is fixed whether or not you &quot;Use traditional can't see any such thing&quot;.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec7>Section 7: Further ideas for 'You can't see any such thing'</span></b></span></p>
+    </p>
+
+    <p> Several additional extensions can help break things down further. &quot;Remembering&quot; carves off G from E-F, while &quot;Poor Man's Mistype&quot; can sometimes address D. &quot;Smarter Parser&quot; can sometimes offer helpful messages for certain types of A command related to body parts and common environmental features like the sky. Eric Eve's Text Capture could be a tool in distinguishing A from B.</p>
+
+    <p> &quot;The word 'sky' doesn't refer to anything right now&quot; is used by TADS3.</p>
+
+    <p> Another option is &quot;Here are some things you can see: [the list of visible things which are not the player].&quot;</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec8>Section 8: Compatibility with Other Extensions</span></b></span></p>
+    </p>
+
+    <p> This incorporates, and updates, the entirety of Neutral Library Messages by Aaron Reed, Unknown Word Error by Mike Ciel, Unknown Word Error by Neil Cerutti, and Dunno by Neil Cerutti. It is incompatible with all of these extensions; do not include them.</p>
+
+    <p> Some of the response replacements, particularly those where multiple responses were used to build a single sentence, were significantly more difficult to implement than others and involved hacking into I6 code. These are in separate volumes and chapters; these can be individually replaced if they are causing trouble. The &quot;Standard Responses&quot; volume should be safe in any case.</p>
+
+    <p> I strongly recommend the &quot;Tab Removal&quot; extension. This replaces tabs with spaces in commands typed by the player. Without it, error messages for commands containing tabs are quite cryptic.</p>
+
+    <p> The &quot;Compliant Characters&quot; extension depends on Neutral Standard Messages. It enhances error messages for commands given to other characters. With Compliant Characters, if the persuasion rules succeed a command like<blockquote><span class="indexdullblue"> Jane, take blox</span></blockquote>
+
+    <p> will give a response like</p>
+
+    <p> or<blockquote><span class="indexdullblue"> Jane already has that.</span></blockquote>
+
+    <p> or<blockquote><span class="indexdullblue"> Jane can't take that because that seems to belong to you.</span></blockquote>
+
+    <p> instead of the unhelpful default:<blockquote><span class="indexdullblue"> Jane is unable to do that.</span></blockquote>
+
+    <p> Compliant Characters is a separate extension because it is intended for stories where you want the *story* to give responses to mistyped or illogical commands, while some games may prefer that the *character* give responses in character (which is the Inform 7 default assumption).</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec9>Section 9: Extension History</span></b></span></p>
+    </p>
+
+    <p> This extension is based on Neutral Library Messages by Aaron Reed. Aaron wrote many of the changed responses. Aaron also wrote most of the documentation (athough I have made some substantial edits). However, Neutral Library Messages stopped working when Inform 7 created the &quot;responses&quot; system. Adapting to the responses system required a nearly complete rewrite.</p>
+
+    <p> I (Nathanael Nerode) took the opportunity of the rewrite to do a complete reorganization. The response replacements are now in the source code in the order produced by the &quot;responses 1&quot; command, for ease of updating with future versions of Inform. Additional messages were fixed and some of Aaron's neutral messages were made even more neutral.</p>
+
+    <p> I also made one philosophical design change. Messages are styled &quot;as the parser&quot; if they are metatextual. Discussing save, restore, undo, or command errors is metatextual: these are things which explicitly talk to the player and not to the player character. Telling the player that the player does not need to do something in this story is also metatextual -- giving the player meta-information. Messages are not styled as the parser if they reflect logical errors which the player character might make which are within the world model (such as trying to put a box inside itself), which they were in Aaron's version.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec10>Section 10: Changelogs</span></b></span></p>
+    </p>
+
+    <p> Neutral Standard Responses:<blockquote><span class="indexdullblue"> Version 4/210908: in several rule responses, changed &quot;here&quot; to &quot;[here]&quot; (which will only ever matter outside of present tense) -- ZL<br>
+     Version 4/171007:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; Add line break helper phrases and documentation. Fix several tricky line break errors correctly (including some from the Standard Rules).<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; New and much better I6 method for determining the misunderstood word and for determining whether it is a dictionary word.<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; Major fixes to &quot;You can't see that&quot; responses. Fix error on &quot;take all but (item not in play)&quot;.<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; Repair bug in the Standard Rules implementation of Remove (which gave misleading error messages).<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; Set oops target on additional errors which didn't set it.<br>
+     Version 3/171002: Line break fix.<br>
+     Version 3/171001: Remove parser voicing from attack, throw, and kiss. Name the unrecognized verb in the error message. Redirect bogus message triggered only on 'get 100 items'.<br>
+     Version 3/170927: Fixes to two bugs reported by Daniel Stelzer.<br>
+     Version 3/170926: Incorporated remaining &quot;difficult&quot; features of Neutral Library Messages.<br>
+     Version 2: Unreleased: complete code rewrite to improve maintainability, included all straightforward message replacements.<br>
+     Version 1: Unreleased: adapted Neutral Library Messages to responses system.</span></blockquote>
+
+    <p> Neutral Library Messages:<blockquote><span class="indexdullblue"> Version 3: Modified NPC action rejections to use the same verb the player typed in cases where this could be confusing (hug mapping to kiss).<br>
+     Version 2: Fixed bug in misc message 72 to use &quot;the person asked&quot; instead of &quot;the noun&quot;; clarified documentation.</span></blockquote>
+
+    <p> Unknown Word Error:<blockquote><span class="indexdullblue"> Version 2 by Mike Ciul corrected a problem with the &quot;undo from&quot; referent.<br>
+     Version 1 by Neil Cerutti was a wrapper of Dunno.</span></blockquote>
+
+    <p> Dunno - A Library Extension by Neil Cerutti (cerutti@together.net) for Inform 6<blockquote><span class="indexdullblue"> Version 1.1 - 2 Apr 2001: Modified by Andrew Plotkin for Glulx compatibility.<br>
+     Version 1.0 - 25 Jun 1999: Initial release.</span></blockquote>
+
+    <p><hr>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td halign="left" valign="top" cellpadding=0 cellspacing=0 width=38px>
+                <span id=eg1><table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="oval">
+                        <td width=38px height=30px align="left" valign="center">
+                            <a href="Neutral Standard Responses-eg1.html#eg1" style="text-decoration: none"><div class="paragraph Body" style="line-height: 1px; margin-bottom: 0px; margin-top: 0px; padding-bottom: 0pt; padding-top: 0px; text-align: center;">
+                                <span class="extensionexampleletter">A</span></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                </span>
+            </td>
+            <td cellpadding=0 cellspacing=0 halign="left" valign="top">
+                <a href="Neutral Standard Responses-eg1.html#eg1" style="text-decoration: none"><img border="0" src='inform:/doc_images/asterisk.png'><b><span class="indexdarkgrey">&nbsp;Example&nbsp;</span><span class="indexblack">The Ringer</span></b></a><br>
+                <p>An array of different types of messages, both from the parser and the narrator. (From Neutral Library Messages)</p>
+
+            </td>
+        </tr>
+    </table>
+    </p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p><hr>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td halign="left" valign="top" cellpadding=0 cellspacing=0 width=38px>
+                <span id=eg2><table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="oval">
+                        <td width=38px height=30px align="left" valign="center">
+                            <a href="Neutral Standard Responses-eg2.html#eg2" style="text-decoration: none"><div class="paragraph Body" style="line-height: 1px; margin-bottom: 0px; margin-top: 0px; padding-bottom: 0pt; padding-top: 0px; text-align: center;">
+                                <span class="extensionexampleletter">B</span></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                </span>
+            </td>
+            <td cellpadding=0 cellspacing=0 halign="left" valign="top">
+                <a href="Neutral Standard Responses-eg2.html#eg2" style="text-decoration: none"><img border="0" src='inform:/doc_images/asterisk.png'><b><span class="indexdarkgrey">&nbsp;Example&nbsp;</span><span class="indexblack">Ignorance is Bliss</span></b></a><br>
+                <p>Test for don't know that word rule (from Unknown Word Error)</p>
+
+            </td>
+        </tr>
+    </table>
+    </p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p><hr>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td halign="left" valign="top" cellpadding=0 cellspacing=0 width=38px>
+                <span id=eg3><table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="oval">
+                        <td width=38px height=30px align="left" valign="center">
+                            <a href="Neutral Standard Responses-eg3.html#eg3" style="text-decoration: none"><div class="paragraph Body" style="line-height: 1px; margin-bottom: 0px; margin-top: 0px; padding-bottom: 0pt; padding-top: 0px; text-align: center;">
+                                <span class="extensionexampleletter">C</span></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                </span>
+            </td>
+            <td cellpadding=0 cellspacing=0 halign="left" valign="top">
+                <a href="Neutral Standard Responses-eg3.html#eg3" style="text-decoration: none"><img border="0" src='inform:/doc_images/asterisk.png'><img border="0" src='inform:/doc_images/asterisk.png'><b><span class="indexdarkgrey">&nbsp;Example&nbsp;</span><span class="indexblack">Oops</span></b></a><br>
+                <p>Regression test for interaction between don't know that word rule and parser oops (from Unknown Word Error)</p>
+
+            </td>
+        </tr>
+    </table>
+    </p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p><hr>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td halign="left" valign="top" cellpadding=0 cellspacing=0 width=38px>
+                <span id=eg4><table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="oval">
+                        <td width=38px height=30px align="left" valign="center">
+                            <a href="Neutral Standard Responses.html#eg4" style="text-decoration: none"><div class="paragraph Body" style="line-height: 1px; margin-bottom: 0px; margin-top: 0px; padding-bottom: 0pt; padding-top: 0px; text-align: center;">
+                                <span class="extensionexampleletter">D</span></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                </span>
+            </td>
+            <td cellpadding=0 cellspacing=0 halign="left" valign="top">
+                <a href="Neutral Standard Responses.html#eg4" style="text-decoration: none"><img border="0" src='inform:/doc_images/asterisk.png'><img border="0" src='inform:/doc_images/asterisk.png'><img border="0" src='inform:/doc_images/asterisk.png'><b><span class="indexdarkgrey">&nbsp;Example&nbsp;</span><span class="indexblack">Scenery</span></b></a><br>
+                <p>Regression test for line break issues with scenery responses</p>
+
+            </td>
+        </tr>
+    </table>
+    <table border="0" cellspacing="0" cellpadding="0" class="extensionexample" width=100%>
+        <tr>
+            <td align="left" valign="top">
+                <p></p>
+
+                <p><blockquote><span class="indexdullblue"><a href="javascript:pasteCode('[=0x0022=]Scenery[=0x0022=][=0x000A=][=0x000A=]Include Neutral Standard Responses by Nathanael Nerode.[=0x000A=][=0x000A=]The House is a room. [=0x0022=]It[=0x0027=]s the house.[=0x0022=][=0x000A=][=0x000A=]The banana is a thing.[=0x000A=][=0x000A=]The furniture is a plural-named scenery thing in the house. The description of the furniture is [=0x0022=]The furniture is not meant to be used.[=0x0022=][=0x000A=][=0x000A=]The decorations is a plural-named scenery thing in the house. The description of the decorations is [=0x0022=]Decorative.[=0x0022=][=0x000A=][=0x000A=]test scenery with [=0x0022=]take furniture/take furniture and decorations[=0x0022=].[=0x000A=]test cantsee with [=0x0022=]take banana/take sdfh/take banana and furniture[=0x0022=].[=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a> &quot;Scenery&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Include Neutral Standard Responses by Nathanael Nerode.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The House is a room. &quot;It's the house.&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The banana is a thing.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The furniture is a plural-named scenery thing in the house. The description of the furniture is &quot;The furniture is not meant to be used.&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The decorations is a plural-named scenery thing in the house. The description of the decorations is &quot;Decorative.&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> test scenery with &quot;take furniture/take furniture and decorations&quot;.<br>
+                 test cantsee with &quot;take banana/take sdfh/take banana and furniture&quot;.</span></blockquote>
+
+                <p></p>
+
+            </td>
+        </tr>
+    </table>
+    </p>
+
+    <p>
+    <!--CONTENT ENDS-->
+</body>
+</html>

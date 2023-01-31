@@ -1,0 +1,1172 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Extension</title>
+    <style type="text/css">
+        <!--
+        /* The default font (family) and size */
+
+        body, p, td {
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.8rem; /* 100/125 */
+        }
+
+        /* For fixed-point material within text, such as the typing on the Library Card index page */
+
+        span.typewritten {
+        	font-family: monospace;
+        	font-size: 0.867rem; /* 13/12 * 100/125 */
+        }
+
+        /* For less important material: the small print */
+
+        span.smaller {
+        	font-size: 80%;
+        }
+
+        /* The "heading panel" is the coloured box, high up on the page. The colours
+        vary depending on the page: for example, the style on a report of a translation
+        with no problems is "headingpanelsucceeded", usually green, but if there were
+        problems then "headingpanelfailed" is used, which is usually red. "headingpanel"
+        itself is a more neutral grey by default. "headingpanelDark" is an alternative
+        look to make the extensions index pages have some visual contrast with the others;
+        by default they are a darker grey. */
+
+        .headingpanel {
+        	background: #eeeeee;
+        }
+        .headingpanelsucceeded {
+        	background: #E6FFE6;
+        }
+        .headingpanelfailed {
+        	background: #f69Ca6;
+        }
+        .headingpanelalt {
+        	background: #808080;
+        }
+
+        /* Heading panels have two lines of text: an upper one in a larger size, and a
+        lower one in a smaller. Again, the alt versions are meant to contrast.
+
+        	Report on Translation: Succeeded                <-- headingpaneltext
+        	Produced by Inform 10.1.0 (build 6U97)          <-- headingpanelrubric
+
+        	Installed Extensions                            <-- headingpaneltextalt
+        	Bundles of extra rules or phrases to...         <-- headingpanelrubricalt
+
+        */
+
+        span.headingpaneltext {
+        	color: #222222;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+        span.headingpaneltextalt {
+        	color: #ffffff;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        span.headingpanelrubric {
+        	color: #222222;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.733rem; /* 11/12 * 100/125 */
+        	font-weight: bold;
+        }
+        span.headingpanelrubricalt {
+        	color: #ffffff;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.733rem; /* 11/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* Horizontal rule styling */
+
+        div.hr {
+        	border: 0;
+        	width: 100%;
+        	color: #707070;
+        	background-color: #707070;
+        	height: 5px;
+        }
+
+        /* This styles the (usually white) text of the example numbers written inside
+        oval blobs in the extension documentation, which mimic the look of the in-app
+        documentation. */
+
+        .oval, .oval td {
+        	background-image:url('inform:/doc_images/ovoid.png');
+        	color:white;
+        }
+
+        /* Styling used in the extension documentation indexes: */
+
+        /* Used for extension names in the extensions pane of the app */
+
+        span.extensioncensusentry {
+        	color: #ffffff;
+        }
+
+        span.extensionindexentry {
+        	color: #404040;
+        }
+
+        span.extensionindexerror {
+        	color: #ff8080;
+        }
+
+        /* This is used in extension documentation, where an example is presented
+        in a slightly tinted box: */
+
+        table.extensionexample {
+        	background-color: #f0f0f0;
+        }
+
+        span.extensionexampleletter {
+        	color: #202020;
+        	font-size: 14px;
+        	font-weight: bold;
+        }
+
+        /* Seen in problem messages: */
+
+        span.problemred {
+        	color: #800000;
+        }
+
+        span.problemgreen {
+        	color: #008000;
+        }
+
+        span.phraseword {
+        	color: #808080;
+        }
+
+        span.phrasetokentext {
+        	color: #e00060;
+        }
+
+        span.phrasetokendesctext {
+        	color: #4040ff;
+        }
+
+        span.phrasetokenvaluetext {
+        	color: #ff4040;
+        }
+
+        /* Now we move on to styling used in the Index pages only: */
+
+        /* The periodic table display has "sidebars", usually grey and taller than they
+        are wide; they contain no text. */
+
+        div.periodictablesidebarcolour {
+        	background: #888;
+        }
+        div.periodictablesidebar:hover {
+        	background: #222;
+        }
+
+        /* The text of the element-abbreviation, such as "Lx" or "Ph", uses: */
+
+        span.elementtext {
+        	color: #ffffff;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* Similarly for the "atomic number" - a single digit - in the top left corner
+        of these boxes: */
+
+        span.elementnumbertext {
+        	color: #ffffff;
+        	font-size: 0.622rem; /* 7/12 * 96/72 * 100/125 */
+        }
+
+        /* For the text of the element title, to the right of the element box: */
+
+        span.elementtitletext {
+        	color: #ffffff;
+        	font-size: 0.6rem; /* 9/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* The banner at the top of each element: */
+
+        table.elementbanner {
+        	background: #eeeeee;
+        }
+
+        /* For the typewriting on the Library Card: */
+
+        span.librarycardtitle {
+        	color: #803030;
+        }
+
+        span.librarycardother {
+        	color: #303030;
+        }
+
+        /* Generically used for "more details" boxes in the index: */
+
+        table.indexmorebox {
+        	background-color: #e0e0e0;
+            border-radius: 8px;
+        }
+
+        /* But not for activity contents: */
+
+        table.indexactivitycontents {
+        	background-color: #e8e0c0;
+            border-radius: 8px;
+        }
+
+        /* For responses in index entries about rules: */
+
+        span.indexresponseletter {
+        	color: #ffffff;
+        	font-family: 'Courier New', Courier, monospace;
+        	background-color: #8080ff;
+        }
+
+        span.indexresponsetext {
+        	color: #000066;
+        }
+
+        /* Used ubiquitously throughout the index and extension documentation: */
+
+        span.indexblack {
+        	color: #000000;
+        }
+
+        span.indexgrey {
+        	color: #808080;
+        }
+
+        span.indexdarkgrey {
+            color: #505050;
+        }
+
+        span.indexdullred {
+        	color: #800000;
+        }
+
+        span.indexdullgreen {
+        	color: #008000;
+        }
+
+        span.indexdullblue {
+        	color: #000080;
+        }
+
+        /* Used for the room squares in the World map in the Index (which is currently
+        a table with one row of one column) */
+
+        table.indexmaproom {
+        	border-color: #000000;
+        }
+
+        /* Used in the numbering of levels of the World map in the Index */
+
+        span.indexmaplevelnumbers {
+        	color: #c0c0c0;
+        }
+
+        /* Used e.g. for title rows in the Chart of basic kinds in the Index */
+
+        tr.headingrow {
+        	background-color: #e0e0e0;
+        }
+
+        /* Standard rows have black text on striped background colours, these being
+        the usual ones seen in Mac OS X applications such as iTunes. */
+
+        tr.stripeone {
+        	background-color: #ffffff;
+        }
+
+        tr.stripetwo {
+        	background-color: #f3f6fa;
+        }
+
+        tr.tintedrow {
+        	background-color: #808080;
+        }
+
+        /* In the Figures index, this is the background colour used behind images
+        (though in fact it will only be visible if the image fails to load, or uses
+        transparency): */
+
+        div.figureindexbox {
+        	background-color: #6495ed;
+        }
+
+        /* To get the book-contents-page style leaders on the Contents element of
+           the index to work, these must use the background colour of the body of
+           the page, whatever that is: */
+
+        ul.leaders li.leaded span:first-child {
+        	background: white;
+        }
+        ul.leaders li.leaded span + span {
+        	background: white;
+        }
+
+        /* On Registry index pages (such as the Public Library), these are used for
+        download buttons and the like: */
+
+        span.registrybuttontext {
+        	font-size: 11px;
+        	border-color: #000000;
+        }
+
+        span.registryminibuttontext {
+        	font-size: 10px;
+        	border-color: #000000;
+        }
+
+        span.registrybuttonuninstalled {
+        	color: #000000;
+        	background: #ffffdd;
+        }
+
+        span.registrybuttoninstalled {
+        	color: #000000;
+        	background: #ffffff;
+        	pointer-events: none;
+        }
+
+        span.registrybuttonbuiltin {
+        	color: #888888;
+        	background: #ffffff;
+        	pointer-events: none;
+        }
+
+        span.registrybuttonupdate {
+        	color: #000000;
+        	background: #aaddff;
+        }
+
+        span.registrybuttonrevert {
+        	color: #000000;
+        	background: #ddaaff;
+        }
+
+        span.registrybuttonrevealer {
+        	color: #ffffff;
+        	background: #444444;
+        }
+
+        /* Registry index section headings: */
+
+        span.registrysectionname {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 16px;
+        	line-height: 18px;
+        }
+        span.registrysubsectionname {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 14px;
+        	line-height: 16px;
+        }
+
+        /* These are for the "mark" for a section, usually a section-symbol and number */
+
+        span.registrysectionmark {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 16px;
+        	line-height: 18px;
+        	color: #666;
+        }
+        span.registrysubsectionmark {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 14px;
+        	line-height: 16px;
+        	color: #666;
+        }
+
+        /* Text of an item listed in a registry: */
+
+        span.registryitemtext {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 12px;
+        	line-height: 16px;
+        }
+
+        /* And how the links in a registry index page behave: */
+
+        a.registrysilentlink {
+        	text-decoration: none;
+        	color: #000;
+        }
+        a.registrybuttonlink {
+        	text-decoration: none;
+        }
+        a.registrycontentslink:link {
+        	text-decoration: none;
+        	color: #202020;
+        }
+        a.registrycontentslink:visited {
+        	text-decoration: none;
+        	color: #202020;
+        }
+        a.registrycontentslink:hover {
+        	text-decoration: none;
+        	color: #D00000;
+        }
+        a.registrycontentslink:active {
+        	text-decoration: none;
+        	color: #D00000;
+        }
+
+        -->
+    </style>
+    <style type="text/css">
+        <!--
+        /* (1) General layout material */
+
+        *, *:before, *:after {
+        	-moz-box-sizing: border-box;
+        	-webkit-box-sizing: border-box;
+        	box-sizing: border-box;
+        }
+        .headingpanellayout {
+        	position: relative;
+        	height: 56px;
+        	padding: 0px;
+        	white-space:nowrap;
+        }
+        .headingpanellayoutdeeper {
+        	position: relative;
+        	height: 117px;
+        	padding: 0px;
+        	white-space:nowrap;
+        }
+        .headingtext {
+        	position: absolute;
+        	top: -4px;
+        	left: -1px;
+        	width: 100%;
+        	padding: 14px 10px 0px 10px;
+        }
+        .headingrubric {
+        	position: absolute;
+        	top: 36px;
+        	width: 100%;
+        	padding: 0px 10px 0px 10px;
+        }
+        h3.tighter {
+        	margin-top: 0px;
+        }
+        p.hang {
+        	padding-left: 25px;
+        	text-indent: -25px;
+        	margin-top: 0px;
+        	margin-bottom: 0px;
+        }
+        p.in1 {
+        	padding-left: 0px;
+        }
+        p.tightin1 {
+        	padding-left: 0px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin1 {
+        	padding-left: 0px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin1 {
+        	padding-left: 50px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in2 {
+        	padding-left: 25px;
+        }
+        p.tightin2 {
+        	padding-left: 25px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin2 {
+        	padding-left: 25px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin2 {
+        	padding-left: 75px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in3 {
+        	padding-left: 50px;
+        }
+        p.tightin3 {
+        	padding-left: 50px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin3 {
+        	padding-left: 50px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin3 {
+        	padding-left: 100px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in4 {
+        	padding-left: 75px;
+        }
+        p.tightin4 {
+        	padding-left: 75px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin4 {
+        	padding-left: 75px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin4 {
+        	padding-left: 125px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in5 {
+        	padding-left: 100px;
+        }
+        p.tightin5 {
+        	padding-left: 100px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin5 {
+        	padding-left: 100px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin5 {
+        	padding-left: 150px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in6 {
+        	padding-left: 125px;
+        }
+        p.tightin6 {
+        	padding-left: 125px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin6 {
+        	padding-left: 125px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin6 {
+        	padding-left: 175px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in7 {
+        	padding-left: 150px;
+        }
+        p.tightin7 {
+        	padding-left: 150px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin7 {
+        	padding-left: 150px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin7 {
+        	padding-left: 200px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in8 {
+        	padding-left: 175px;
+        }
+        p.tightin8 {
+        	padding-left: 175px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin8 {
+        	padding-left: 175px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin8 {
+        	padding-left: 225px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in9 {
+        	padding-left: 200px;
+        }
+        p.tightin9 {
+        	padding-left: 200px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin9 {
+        	padding-left: 200px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin9 {
+        	padding-left: 250px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+
+        /* (2) Index page layout material */
+
+        /* The periodic table display has "sidebars", usually grey and taller than they
+        are wide; they contain no text. */
+
+        div.periodictablesidebar {
+        	height: 56px;
+        	width: 16px;
+        }
+        .periodictablesidebar a:link { text-decoration: none; }
+        .periodictablesidebar a:visited { text-decoration: none; }
+        .periodictablesidebar a:active { text-decoration: none; }
+
+        /* The "element boxes" are the cells appearing in the periodic-table display
+        on the welcome page of the index: */
+
+        .elementbox {
+        	position: relative;
+        	height: 56px;
+        	width: 56px;
+        	padding: 0px;
+        }
+
+        .elementbox a:link { text-decoration: none; }
+        .elementbox a:visited { text-decoration: none; }
+        .elementbox a:active { text-decoration: none; }
+        .elementbox a:hover { text-decoration: none; }
+        .elementbox:hover {
+        	opacity: 0.6;
+        }
+
+        /* The "small element boxes" look like those, but are smaller, and used on
+        the headings of the content which those original boxes link to: */
+
+        .smallelementbox {
+        	position: relative;
+        	height: 40px;
+        	width: 40px;
+        	padding: 0px;
+        }
+
+        .smallelementbox a:link { text-decoration: none; }
+        .smallelementbox a:visited { text-decoration: none; }
+        .smallelementbox a:active { text-decoration: none; }
+        .smallelementbox a:hover { text-decoration: none; }
+        .smallelementbox:hover {
+        	opacity: 0.6;
+        }
+
+        /* This is a class for the links formed by the element boxes: */
+
+        a.elementlink {
+        	position: absolute;
+        	top: -4px;
+        	left: -1px;
+        	width: 100%;
+        	padding: 14px 0px 14px 1px;
+        	text-align: center;
+        }
+
+        /* Similarly for the "atomic number" - a single digit - in the top left corner
+        of these boxes: */
+
+        div.elementnumber {
+        	position: absolute;
+        	top: 1px;
+        	left: 3px;
+        	text-align: left;
+        }
+
+        /* For the text of the element title, to the right of the element box: */
+
+        div.elementtitle {
+        	position: absolute;
+        	top: 35px;
+        	width: 100%;
+        	text-align: center;
+        }
+
+        /* Used for the book-contents-page style leaders on the Contents element of
+           the index: */
+
+        ul.leaders {
+        	padding: 0;
+        	margin-top: 1px;
+        	margin-bottom: 0;
+        	overflow-x: hidden;
+        	list-style: none}
+        ul.leaders li.leaded:before {
+        	float: left;
+        	width: 0;
+        	white-space: nowrap;
+        	content:
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "}
+        ul.leaders li.leaded span:first-child {
+        	padding-right: 0.33em;
+        }
+        ul.leaders li.leaded span + span {
+        	float: right;
+        	padding-left: 0.33em;
+        }
+        li.indent1 span:first-child {
+        	padding-left: 25px;
+        }
+        li.indent2 span:first-child {
+        	padding-left: 50px;
+        }
+        li.indent3 span:first-child {
+        	padding-left: 75px;
+        }
+        li.indent4 span:first-child {
+        	padding-left: 100px;
+        }
+        li.indent5 span:first-child {
+        	padding-left: 125px;
+        }
+        li.indent6 span:first-child {
+        	padding-left: 150px;
+        }
+        li.indent7 span:first-child {
+        	padding-left: 175px;
+        }
+        li.indent8 span:first-child {
+        	padding-left: 200px;
+        }
+        li.indent9 span:first-child {
+        	padding-left: 225px;
+        }
+
+        li.unleaded:before {
+        	content: "";
+        }
+
+        /* On Registry index pages (such as the Public Library), these are used for
+        download buttons and the like: */
+
+        span.registrybuttons {
+        	height: 20px;
+        	padding: 2px 8px 2px 8px;
+        	margin: 2px;
+        	border:1px solid;
+        	border-radius: 5px;
+        }
+
+        span.registryminibuttons {
+        	height: 14px;
+        	padding: 2px 5px 2px 5px;
+        	margin: 2px;
+        	border:1px solid;
+        	border-radius: 4px;
+        }
+
+        /* Used to hide or display sections in the Registry pages: */
+
+        div.registrysectionitemsopen {
+        	display: block;
+        }
+
+        div.registrysectionitemsclosed {
+        	display: none;
+        }
+
+        /* Hanging indentation for Registry item paragraphs: */
+
+        p.registryitem {
+        	padding-left: 80px;
+        	text-indent: -40px;
+        }
+
+        p.registryaddition {
+        	padding-left: 40px;
+        	text-indent: -40px;
+        }
+
+        -->
+    </style>
+    <script type="text/javascript">
+        function project() {
+            return window.Project;
+        }
+        function showExtra(id, imid) {
+        	if (document.getElementById(id).style.display == 'block') {
+        		document.getElementById(id).style.display = 'none';
+        		document.getElementById(imid).src = 'inform:/extra.png';
+        	} else {
+        		document.getElementById(id).style.display = 'block';
+        		document.getElementById(imid).src = 'inform:/extraclose.png';
+        	}
+        }
+        function openExtra(id, imid) {
+        	document.getElementById(id).style.display = 'block';
+        	document.getElementById(imid).src = 'inform:/extraclose.png';
+        }
+        function closeExtra(id, imid) {
+        	document.getElementById(id).style.display = 'none';
+        	document.getElementById(imid).src = 'inform:/extra.png';
+        }
+        function pasteCode(code) {
+            var myProject = project();
+
+            myProject.selectView('source');
+            myProject.pasteCode(code);
+        }
+
+    </script>
+</head>
+<body>
+    <!--CONTENT BEGINS-->
+    <table CELLPADDING=0 CELLSPACING=0 width="100%" bgcolor="#000000"><tr><TD width=38px height=26px align="center" valign="center"><a href="inform://Extensions/Extensions.html" border=0><img border=0 src="inform:/doc_images/Hookindex.png" border=0></a></td><TD width=38px height=26px align="center" valign="center"></td><td halign="left" valign="center" CELLPADDING=0 CELLSPACING=0><font color="#FFFFFF" size=2>Extensions</font></a></td><TD width=56px height=26px align="right" valign="center"><a href="inform:/index.html" border=0><img border=0 src="inform:/doc_images/Hookup.png" border=0></a></td></tr></table>
+
+    <p><a href="javascript:pasteCode('Include Title Case For Headings by Nathanael Nerode.[=0x000A=][=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a>&nbsp;<b>Title Case For Headings<span class="extensionindexentry"> by </span>Nathanael Nerode</b></p>
+    <p><span class="smaller">Version 1.0.170902</span></p>
+    <p>Applies title case to room names printed as a heading or in the status line.  Creates the printing a heading activity for further customization.  Tested with Inform 6M62.  Requires Undo Output Control by Erik Temple or by Nathanael Nerode to handle the case of room name printing after UNDO.</p>
+    <p></p>
+    </p>
+
+    <p> Section 1 - The Problem</p>
+
+    <p> It is traditional to give rooms titlecased names, like &quot;The Meadow&quot;. However, it is also often desirable to put a room into scope. This may be done so that people can say &quot;look at the meadow&quot;, or so that people can look at faraway rooms. When the room is in scope, or for other reasons, the room name may be printed in various other contexts, including some of the responses in the Standard Rules. And often we don't want those to be titlecase.</p>
+
+    <p> For instance, if you try this, the title in the status line and room description heading will be &quot;Meadow&quot;; but 'take meadow' will print &quot;You would have to get out of the Meadow first.&quot;</p>
+
+    <p><blockquote><span class="indexdullblue"><a href="javascript:pasteCode('[=0x0022=]Too Much Uppercase[=0x0022=][=0x000A=][=0x000A=]The Meadow is a room. [=0x0022=]This is a meadow.[=0x0022=][=0x000A=][=0x000A=]After deciding the scope of an object (called character):[=0x000A=][=0x0009=]Place the location of the character in scope, but not its contents.[=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a> &quot;Too Much Uppercase&quot;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> The Meadow is a room. &quot;This is a meadow.&quot;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> After deciding the scope of an object (called character):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; Place the location of the character in scope, but not its contents.</span></blockquote>
+
+    <p> And if you try this, 'take meadow' will print &quot;You would have to get out of the meadow first&quot;, but the title in the status line and room description heading will be &quot;meadow&quot;.</p>
+
+    <p><blockquote><span class="indexdullblue"><a href="javascript:pasteCode('[=0x0022=]too much lowercase[=0x0022=][=0x000A=][=0x000A=]a meadow is a room. [=0x0022=]This is a meadow.[=0x0022=][=0x000A=][=0x000A=]After deciding the scope of an object (called character):[=0x000A=][=0x0009=]Place the location of the character in scope, but not its contents.[=0x000A=][=0x000A=]test case with [=0x0022=]take meadow / look[=0x0022=][=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a> &quot;too much lowercase&quot;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> a meadow is a room. &quot;This is a meadow.&quot;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> After deciding the scope of an object (called character):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; Place the location of the character in scope, but not its contents.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> test case with &quot;take meadow / look&quot;</span></blockquote>
+
+    <p> When you start having rooms with possessive names like &quot;John's Hotel Room&quot;, it gets even more complicated. You probably want it to be called &quot;the hotel room&quot; in text but &quot;John's Hotel Room&quot; in the status line and headings.</p>
+
+    <p> Section 2 - The Solution</p>
+
+    <p> This extension will convert names like &quot;babbling brook&quot; to &quot;Babbling Brook&quot; (or &quot;box&quot; to &quot;Box&quot;, etc.) for the heading at the top of the room description, and for the status line, but otherwise keep them in lowercase. So we will see:<blockquote><span class="indexdullblue"> Babbling Brook<br>
+     This is a location.<br>
+     &gt; take brook<br>
+     You would have to get out of the babbling brook first.</span></blockquote>
+
+    <p> The example Meadow does this.</p>
+
+    <p> In addition, if a room or other object has the property &quot;title&quot;, that will be used for the headings instead. The type &quot;titled room&quot; is provided as a kind of room with a &quot;title&quot; property, but you can also give other kinds a &quot;title&quot; property if you want to.</p>
+
+    <p> The examples The Meadow and Near the Pond do this.</p>
+
+    <p> Section 3 - Advanced Solution - the printing a heading activity</p>
+
+    <p> This extension also introduces the &quot;printing a heading&quot; activity.</p>
+
+    <p> Printing a heading is active when printing the room name at the top of a room description. It is not active when printing the name of a dark room, which has its own &quot;printing the name of a dark room&quot; activity.</p>
+
+    <p> Printing a heading is also active when printing the name of a thing at the top of the visibility threshold. For instance, if you're inside a closed opaque box, the heading should read:<blockquote><span class="indexdullblue"> Box But it is not active when printing the name of a container which is not at the top level, so that you will get:<br>
+     Green Room (in the box)</span></blockquote>
+
+    <p> Printing a heading is also active when printing a name for the status line. (This does not normally have parenthetical expressions on it so I did not special-case them.)</p>
+
+    <p> By default, printing a heading will apply title case to the printed name of the object (See &quot;Meadow&quot;.) If the object has a &quot;title&quot; property, it will instead print that. (See &quot;The Meadow&quot; and &quot;Near the Pond&quot;.) But it can be overridden to print whatever you want.</p>
+
+    <p> The example &quot;People's Rooms&quot; implements a complex naming scheme involving possessives, which change depending on who the player character is.</p>
+
+    <p> Section 4 - Making it work right with &quot;Undo&quot; - Include Undo Output Control</p>
+
+    <p> There is one annoying corner case. When &quot;undo&quot; is successfully executed, the room name is printed as a heading. For this extension to process this heading correctly, it is necessary to:</p>
+
+    <p><blockquote><span class="indexdullblue"> Include Undo Output Control by Erik Temple.</span></blockquote>
+
+    <p> The newest version of Undo Output Control is on the &quot;Friends of I7&quot; extension page on Github. I updated it specifically so that I could fix this bug. If you have trouble including Undo Output Control, you may just be willing to live with the bug.</p>
+
+    <p><hr>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td halign="left" valign="top" cellpadding=0 cellspacing=0 width=38px>
+                <span id=eg1><table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="oval">
+                        <td width=38px height=30px align="left" valign="center">
+                            <a href="Title Case For Headings-eg1.html#eg1" style="text-decoration: none"><div class="paragraph Body" style="line-height: 1px; margin-bottom: 0px; margin-top: 0px; padding-bottom: 0pt; padding-top: 0px; text-align: center;">
+                                <span class="extensionexampleletter">A</span></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                </span>
+            </td>
+            <td cellpadding=0 cellspacing=0 halign="left" valign="top">
+                <a href="Title Case For Headings-eg1.html#eg1" style="text-decoration: none"><img border="0" src='inform:/doc_images/asterisk.png'><b><span class="indexdarkgrey">&nbsp;Example&nbsp;</span><span class="indexblack">Meadow</span></b></a><br>
+                <p>The title is Meadow, the name is meadow</p>
+
+            </td>
+        </tr>
+    </table>
+    </p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p><hr>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td halign="left" valign="top" cellpadding=0 cellspacing=0 width=38px>
+                <span id=eg2><table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="oval">
+                        <td width=38px height=30px align="left" valign="center">
+                            <a href="Title Case For Headings-eg2.html#eg2" style="text-decoration: none"><div class="paragraph Body" style="line-height: 1px; margin-bottom: 0px; margin-top: 0px; padding-bottom: 0pt; padding-top: 0px; text-align: center;">
+                                <span class="extensionexampleletter">B</span></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                </span>
+            </td>
+            <td cellpadding=0 cellspacing=0 halign="left" valign="top">
+                <a href="Title Case For Headings-eg2.html#eg2" style="text-decoration: none"><img border="0" src='inform:/doc_images/asterisk.png'><b><span class="indexdarkgrey">&nbsp;Example&nbsp;</span><span class="indexblack">The Meadow</span></b></a><br>
+                <p>But we want the title to be *The* Meadow.</p>
+
+            </td>
+        </tr>
+    </table>
+    </p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p><hr>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td halign="left" valign="top" cellpadding=0 cellspacing=0 width=38px>
+                <span id=eg3><table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="oval">
+                        <td width=38px height=30px align="left" valign="center">
+                            <a href="Title Case For Headings-eg3.html#eg3" style="text-decoration: none"><div class="paragraph Body" style="line-height: 1px; margin-bottom: 0px; margin-top: 0px; padding-bottom: 0pt; padding-top: 0px; text-align: center;">
+                                <span class="extensionexampleletter">C</span></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                </span>
+            </td>
+            <td cellpadding=0 cellspacing=0 halign="left" valign="top">
+                <a href="Title Case For Headings-eg3.html#eg3" style="text-decoration: none"><img border="0" src='inform:/doc_images/asterisk.png'><img border="0" src='inform:/doc_images/asterisk.png'><b><span class="indexdarkgrey">&nbsp;Example&nbsp;</span><span class="indexblack">Around the Pond</span></b></a><br>
+                <p>A more complex example</p>
+
+            </td>
+        </tr>
+    </table>
+    </p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p><hr>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td halign="left" valign="top" cellpadding=0 cellspacing=0 width=38px>
+                <span id=eg4><table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="oval">
+                        <td width=38px height=30px align="left" valign="center">
+                            <a href="Title Case For Headings.html#eg4" style="text-decoration: none"><div class="paragraph Body" style="line-height: 1px; margin-bottom: 0px; margin-top: 0px; padding-bottom: 0pt; padding-top: 0px; text-align: center;">
+                                <span class="extensionexampleletter">D</span></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                </span>
+            </td>
+            <td cellpadding=0 cellspacing=0 halign="left" valign="top">
+                <a href="Title Case For Headings.html#eg4" style="text-decoration: none"><img border="0" src='inform:/doc_images/asterisk.png'><img border="0" src='inform:/doc_images/asterisk.png'><img border="0" src='inform:/doc_images/asterisk.png'><img border="0" src='inform:/doc_images/asterisk.png'><b><span class="indexdarkgrey">&nbsp;Example&nbsp;</span><span class="indexblack">People's Rooms</span></b></a><br>
+                <p>Rooms with possessive names</p>
+
+            </td>
+        </tr>
+    </table>
+    <table border="0" cellspacing="0" cellpadding="0" class="extensionexample" width=100%>
+        <tr>
+            <td align="left" valign="top">
+                <p></p>
+
+                <p> This example lets you play the game as John or Alice, using an initial Pick Identity scene. After picking an identity at the start of the game, the default &quot;yourself&quot; object is removed. The text substitutions adjust the printed names and titles of the dorm rooms to match (so one of them is &quot;Your Dorm Room&quot; and the other is &quot;Alice's Dorm Room&quot; or &quot;John's Dorm Room&quot;.</p>
+
+                <p> There is one really tricky bit. The Standard Rules will not list an item in the room description if it believes the item has been mentioned already. Using the possessive form of John in the title of the room causes it to be marked as mentioned, so it must be unmentioned before the room description is printed -- or else John will turn invisible when in his own room.</p>
+
+                <p> In the Pick Identity scene, it is necessary to run the scene checking rules manually to trigger the scene change at the right time. The initial room description must be deferred until after the identity is chosen, as well.</p>
+
+                <p> Note the careful attention to capitalization in the descriptions. The title case in the headings, however, happens automatically.</p>
+
+                <p> Test this by looking at all the rooms as John, and then by looking at all the rooms as Alice.</p>
+
+                <p><a href="javascript:pasteCode('[=0x0022=]People[=0x0027=]s Rooms[=0x0022=] by Nathanael Nerode[=0x000A=][=0x000A=]Include Undo Output Control by Erik Temple.[=0x000A=]Include Title Case for Headings by Nathanael Nerode.[=0x000A=][=0x000A=][=0x000A=]To say unmention (item - a thing):[=0x000A=][=0x0009=]now item is not mentioned;[=0x000A=][=0x000A=]Pick Identity is a scene.[=0x000A=]Pick Identity begins when play begins.[=0x000A=]Pick Identity ends when the player is not yourself.[=0x000A=][=0x000A=]When Pick Identity begins:[=0x000A=][=0x0009=]now the command prompt is [=0x0022=]Would you like to play as John or Alice? [=0x003E=][=0x0022=].[=0x000A=][=0x000A=][=0x000A=]The initial room description rule is not listed in the startup rulebook.[=0x000A=][=0x000A=][=0x000A=]After reading a command when Pick Identity is happening:[=0x000A=][=0x0009=]if the player[=0x0027=]s command matches [=0x0022=]Alice[=0x0022=]:[=0x000A=][=0x0009=][=0x0009=]now the player is Alice;[=0x000A=][=0x0009=][=0x0009=]follow the scene changing rules;[=0x000A=][=0x0009=]otherwise if the player[=0x0027=]s command matches [=0x0022=]John[=0x0022=]:[=0x000A=][=0x0009=][=0x0009=]now the player is John;[=0x000A=][=0x0009=][=0x0009=]follow the scene changing rules;[=0x000A=][=0x0009=]otherwise:[=0x000A=][=0x0009=][=0x0009=]say [=0x0022=]I didn[=0x0027=]t understand that.  Please type [=0x0027=]Alice[=0x0027=] or [=0x0027=]John[=0x0027=].[=0x0022=];[=0x000A=][=0x0009=]reject the player[=0x0027=]s command.[=0x000A=][=0x000A=]When Pick Identity ends:[=0x000A=][=0x0009=]now the command prompt is [=0x0022=][=0x003E=][=0x0022=];[=0x000A=][=0x0009=]now yourself is nowhere;[=0x000A=][=0x0009=]say line break;[=0x000A=][=0x0009=]try looking.[=0x000A=][=0x000A=]To say (T - a text) capitalized/capitalised:[=0x000A=][=0x0009=]let temp be T;[=0x000A=][=0x0009=]replace the regular expression [=0x0022=]^([=0x005C=]w)[=0x0022=] in T with [=0x0022=][=0x005C=]u1[=0x0022=];[=0x000A=][=0x0009=]say T;[=0x000A=][=0x000A=]To say (O - an object) capitalized/capitalised:[=0x000A=][=0x0009=]let temp be [=0x0022=][O][=0x0022=];[=0x000A=][=0x0009=]say temp capitalized;[=0x000A=][=0x000A=]Dormitory Hallway is a room. [=0x0022=]This is the hallway of the dormitory.  [Dorm room 1 capitalized] is to the west and [dorm room 2] is to the east.[=0x0022=][=0x000A=][=0x000A=]A dorm room is a kind of room.[=0x000A=]Occupancy relates various dorm rooms to one person (called the occupant).[=0x000A=]The verb to be occupied by means the occupancy relation.[=0x000A=]The verb to occupy means the reversed occupancy relation.[=0x000A=]Dorm room 1 is occupied by John.[=0x000A=]Dorm room 2 is occupied by Alice.[=0x000A=][=0x000A=]Rule for printing the name of a dorm room (called item) while printing a heading:[=0x000A=][=0x0009=]say [=0x0022=][regarding the occupant of item][Possessive] Dorm Room[unmention the occupant][=0x0022=].[=0x000A=]Rule for printing the name of a dorm room (called item):[=0x000A=][=0x0009=]say [=0x0022=][regarding the occupant of item][possessive] dorm room[unmention the occupant][=0x0022=].[=0x000A=][=0x000A=]Dorm room 1 is a dorm room.[=0x000A=]Dorm room 1 is west of hallway.[=0x000A=]The description of dorm room 1 is [=0x0022=][We][[=0x0027=]re] in [dorm room 1].  [We] [can] leave to the east.[=0x0022=][=0x000A=][=0x000A=]Dorm room 2 is a dorm room.[=0x000A=]Dorm room 2 is east of hallway.[=0x000A=]The description of dorm room 2 is [=0x0022=][We][[=0x0027=]re] in [dorm room 2]. [We] [can] leave to the west.[=0x0022=][=0x000A=][=0x000A=]John is a man.[=0x000A=]The description of John is [=0x0022=][John] [look] no different from last time you saw [them].[=0x0022=][=0x000A=]John is in dorm room 1.[=0x000A=]Persuasion rule for asking John to try going: persuasion succeeds.[=0x000A=][=0x000A=]Alice is a woman.[=0x000A=]The description of Alice is [=0x0022=][Alice] [look] no different from last time you saw [them].[=0x0022=][=0x000A=]Alice is in dorm room 2.[=0x000A=]Persuasion rule for asking Alice to try going: persuasion succeeds.[=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a> &quot;People's Rooms&quot; by Nathanael Nerode</p>
+
+                <p><blockquote><span class="indexdullblue"> Include Undo Output Control by Erik Temple.<br>
+                 Include Title Case for Headings by Nathanael Nerode.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> To say unmention (item - a thing):<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; now item is not mentioned;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Pick Identity is a scene.<br>
+                 Pick Identity begins when play begins.<br>
+                 Pick Identity ends when the player is not yourself.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> When Pick Identity begins:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; now the command prompt is &quot;Would you like to play as John or Alice? &gt;&quot;.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The initial room description rule is not listed in the startup rulebook.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> After reading a command when Pick Identity is happening:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; if the player's command matches &quot;Alice&quot;:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; now the player is Alice;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; follow the scene changing rules;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; otherwise if the player's command matches &quot;John&quot;:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; now the player is John;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; follow the scene changing rules;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; otherwise:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say &quot;I didn't understand that.  Please type 'Alice' or 'John'.&quot;;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; reject the player's command.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> When Pick Identity ends:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; now the command prompt is &quot;&gt;&quot;;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; now yourself is nowhere;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; say line break;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; try looking.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> To say (T - a text) capitalized/capitalised:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; let temp be T;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; replace the regular expression &quot;^(\w)&quot; in T with &quot;\u1&quot;;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; say T;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> To say (O - an object) capitalized/capitalised:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; let temp be &quot;[O]&quot;;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; say temp capitalized;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Dormitory Hallway is a room. &quot;This is the hallway of the dormitory.  [Dorm room 1 capitalized] is to the west and [dorm room 2] is to the east.&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> A dorm room is a kind of room.<br>
+                 Occupancy relates various dorm rooms to one person (called the occupant).<br>
+                 The verb to be occupied by means the occupancy relation.<br>
+                 The verb to occupy means the reversed occupancy relation.<br>
+                 Dorm room 1 is occupied by John.<br>
+                 Dorm room 2 is occupied by Alice.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Rule for printing the name of a dorm room (called item) while printing a heading:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; say &quot;[regarding the occupant of item][Possessive] Dorm Room[unmention the occupant]&quot;.<br>
+                 Rule for printing the name of a dorm room (called item):<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; say &quot;[regarding the occupant of item][possessive] dorm room[unmention the occupant]&quot;.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Dorm room 1 is a dorm room.<br>
+                 Dorm room 1 is west of hallway.<br>
+                 The description of dorm room 1 is &quot;[We]['re] in [dorm room 1].  [We] [can] leave to the east.&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Dorm room 2 is a dorm room.<br>
+                 Dorm room 2 is east of hallway.<br>
+                 The description of dorm room 2 is &quot;[We]['re] in [dorm room 2]. [We] [can] leave to the west.&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> John is a man.<br>
+                 The description of John is &quot;[John] [look] no different from last time you saw [them].&quot;<br>
+                 John is in dorm room 1.<br>
+                 Persuasion rule for asking John to try going: persuasion succeeds.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Alice is a woman.<br>
+                 The description of Alice is &quot;[Alice] [look] no different from last time you saw [them].&quot;<br>
+                 Alice is in dorm room 2.<br>
+                 Persuasion rule for asking Alice to try going: persuasion succeeds.</span></blockquote>
+
+                <p></p>
+
+            </td>
+        </tr>
+    </table>
+    </p>
+
+    <p>
+    <!--CONTENT ENDS-->
+</body>
+</html>

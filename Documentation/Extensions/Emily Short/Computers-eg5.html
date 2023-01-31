@@ -1,0 +1,1780 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Extension</title>
+    <style type="text/css">
+        <!--
+        /* The default font (family) and size */
+
+        body, p, td {
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.8rem; /* 100/125 */
+        }
+
+        /* For fixed-point material within text, such as the typing on the Library Card index page */
+
+        span.typewritten {
+        	font-family: monospace;
+        	font-size: 0.867rem; /* 13/12 * 100/125 */
+        }
+
+        /* For less important material: the small print */
+
+        span.smaller {
+        	font-size: 80%;
+        }
+
+        /* The "heading panel" is the coloured box, high up on the page. The colours
+        vary depending on the page: for example, the style on a report of a translation
+        with no problems is "headingpanelsucceeded", usually green, but if there were
+        problems then "headingpanelfailed" is used, which is usually red. "headingpanel"
+        itself is a more neutral grey by default. "headingpanelDark" is an alternative
+        look to make the extensions index pages have some visual contrast with the others;
+        by default they are a darker grey. */
+
+        .headingpanel {
+        	background: #eeeeee;
+        }
+        .headingpanelsucceeded {
+        	background: #E6FFE6;
+        }
+        .headingpanelfailed {
+        	background: #f69Ca6;
+        }
+        .headingpanelalt {
+        	background: #808080;
+        }
+
+        /* Heading panels have two lines of text: an upper one in a larger size, and a
+        lower one in a smaller. Again, the alt versions are meant to contrast.
+
+        	Report on Translation: Succeeded                <-- headingpaneltext
+        	Produced by Inform 10.1.0 (build 6U97)          <-- headingpanelrubric
+
+        	Installed Extensions                            <-- headingpaneltextalt
+        	Bundles of extra rules or phrases to...         <-- headingpanelrubricalt
+
+        */
+
+        span.headingpaneltext {
+        	color: #222222;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+        span.headingpaneltextalt {
+        	color: #ffffff;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        span.headingpanelrubric {
+        	color: #222222;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.733rem; /* 11/12 * 100/125 */
+        	font-weight: bold;
+        }
+        span.headingpanelrubricalt {
+        	color: #ffffff;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.733rem; /* 11/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* Horizontal rule styling */
+
+        div.hr {
+        	border: 0;
+        	width: 100%;
+        	color: #707070;
+        	background-color: #707070;
+        	height: 5px;
+        }
+
+        /* This styles the (usually white) text of the example numbers written inside
+        oval blobs in the extension documentation, which mimic the look of the in-app
+        documentation. */
+
+        .oval, .oval td {
+        	background-image:url('inform:/doc_images/ovoid.png');
+        	color:white;
+        }
+
+        /* Styling used in the extension documentation indexes: */
+
+        /* Used for extension names in the extensions pane of the app */
+
+        span.extensioncensusentry {
+        	color: #ffffff;
+        }
+
+        span.extensionindexentry {
+        	color: #404040;
+        }
+
+        span.extensionindexerror {
+        	color: #ff8080;
+        }
+
+        /* This is used in extension documentation, where an example is presented
+        in a slightly tinted box: */
+
+        table.extensionexample {
+        	background-color: #f0f0f0;
+        }
+
+        span.extensionexampleletter {
+        	color: #202020;
+        	font-size: 14px;
+        	font-weight: bold;
+        }
+
+        /* Seen in problem messages: */
+
+        span.problemred {
+        	color: #800000;
+        }
+
+        span.problemgreen {
+        	color: #008000;
+        }
+
+        span.phraseword {
+        	color: #808080;
+        }
+
+        span.phrasetokentext {
+        	color: #e00060;
+        }
+
+        span.phrasetokendesctext {
+        	color: #4040ff;
+        }
+
+        span.phrasetokenvaluetext {
+        	color: #ff4040;
+        }
+
+        /* Now we move on to styling used in the Index pages only: */
+
+        /* The periodic table display has "sidebars", usually grey and taller than they
+        are wide; they contain no text. */
+
+        div.periodictablesidebarcolour {
+        	background: #888;
+        }
+        div.periodictablesidebar:hover {
+        	background: #222;
+        }
+
+        /* The text of the element-abbreviation, such as "Lx" or "Ph", uses: */
+
+        span.elementtext {
+        	color: #ffffff;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* Similarly for the "atomic number" - a single digit - in the top left corner
+        of these boxes: */
+
+        span.elementnumbertext {
+        	color: #ffffff;
+        	font-size: 0.622rem; /* 7/12 * 96/72 * 100/125 */
+        }
+
+        /* For the text of the element title, to the right of the element box: */
+
+        span.elementtitletext {
+        	color: #ffffff;
+        	font-size: 0.6rem; /* 9/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* The banner at the top of each element: */
+
+        table.elementbanner {
+        	background: #eeeeee;
+        }
+
+        /* For the typewriting on the Library Card: */
+
+        span.librarycardtitle {
+        	color: #803030;
+        }
+
+        span.librarycardother {
+        	color: #303030;
+        }
+
+        /* Generically used for "more details" boxes in the index: */
+
+        table.indexmorebox {
+        	background-color: #e0e0e0;
+            border-radius: 8px;
+        }
+
+        /* But not for activity contents: */
+
+        table.indexactivitycontents {
+        	background-color: #e8e0c0;
+            border-radius: 8px;
+        }
+
+        /* For responses in index entries about rules: */
+
+        span.indexresponseletter {
+        	color: #ffffff;
+        	font-family: 'Courier New', Courier, monospace;
+        	background-color: #8080ff;
+        }
+
+        span.indexresponsetext {
+        	color: #000066;
+        }
+
+        /* Used ubiquitously throughout the index and extension documentation: */
+
+        span.indexblack {
+        	color: #000000;
+        }
+
+        span.indexgrey {
+        	color: #808080;
+        }
+
+        span.indexdarkgrey {
+            color: #505050;
+        }
+
+        span.indexdullred {
+        	color: #800000;
+        }
+
+        span.indexdullgreen {
+        	color: #008000;
+        }
+
+        span.indexdullblue {
+        	color: #000080;
+        }
+
+        /* Used for the room squares in the World map in the Index (which is currently
+        a table with one row of one column) */
+
+        table.indexmaproom {
+        	border-color: #000000;
+        }
+
+        /* Used in the numbering of levels of the World map in the Index */
+
+        span.indexmaplevelnumbers {
+        	color: #c0c0c0;
+        }
+
+        /* Used e.g. for title rows in the Chart of basic kinds in the Index */
+
+        tr.headingrow {
+        	background-color: #e0e0e0;
+        }
+
+        /* Standard rows have black text on striped background colours, these being
+        the usual ones seen in Mac OS X applications such as iTunes. */
+
+        tr.stripeone {
+        	background-color: #ffffff;
+        }
+
+        tr.stripetwo {
+        	background-color: #f3f6fa;
+        }
+
+        tr.tintedrow {
+        	background-color: #808080;
+        }
+
+        /* In the Figures index, this is the background colour used behind images
+        (though in fact it will only be visible if the image fails to load, or uses
+        transparency): */
+
+        div.figureindexbox {
+        	background-color: #6495ed;
+        }
+
+        /* To get the book-contents-page style leaders on the Contents element of
+           the index to work, these must use the background colour of the body of
+           the page, whatever that is: */
+
+        ul.leaders li.leaded span:first-child {
+        	background: white;
+        }
+        ul.leaders li.leaded span + span {
+        	background: white;
+        }
+
+        /* On Registry index pages (such as the Public Library), these are used for
+        download buttons and the like: */
+
+        span.registrybuttontext {
+        	font-size: 11px;
+        	border-color: #000000;
+        }
+
+        span.registryminibuttontext {
+        	font-size: 10px;
+        	border-color: #000000;
+        }
+
+        span.registrybuttonuninstalled {
+        	color: #000000;
+        	background: #ffffdd;
+        }
+
+        span.registrybuttoninstalled {
+        	color: #000000;
+        	background: #ffffff;
+        	pointer-events: none;
+        }
+
+        span.registrybuttonbuiltin {
+        	color: #888888;
+        	background: #ffffff;
+        	pointer-events: none;
+        }
+
+        span.registrybuttonupdate {
+        	color: #000000;
+        	background: #aaddff;
+        }
+
+        span.registrybuttonrevert {
+        	color: #000000;
+        	background: #ddaaff;
+        }
+
+        span.registrybuttonrevealer {
+        	color: #ffffff;
+        	background: #444444;
+        }
+
+        /* Registry index section headings: */
+
+        span.registrysectionname {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 16px;
+        	line-height: 18px;
+        }
+        span.registrysubsectionname {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 14px;
+        	line-height: 16px;
+        }
+
+        /* These are for the "mark" for a section, usually a section-symbol and number */
+
+        span.registrysectionmark {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 16px;
+        	line-height: 18px;
+        	color: #666;
+        }
+        span.registrysubsectionmark {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 14px;
+        	line-height: 16px;
+        	color: #666;
+        }
+
+        /* Text of an item listed in a registry: */
+
+        span.registryitemtext {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 12px;
+        	line-height: 16px;
+        }
+
+        /* And how the links in a registry index page behave: */
+
+        a.registrysilentlink {
+        	text-decoration: none;
+        	color: #000;
+        }
+        a.registrybuttonlink {
+        	text-decoration: none;
+        }
+        a.registrycontentslink:link {
+        	text-decoration: none;
+        	color: #202020;
+        }
+        a.registrycontentslink:visited {
+        	text-decoration: none;
+        	color: #202020;
+        }
+        a.registrycontentslink:hover {
+        	text-decoration: none;
+        	color: #D00000;
+        }
+        a.registrycontentslink:active {
+        	text-decoration: none;
+        	color: #D00000;
+        }
+
+        -->
+    </style>
+    <style type="text/css">
+        <!--
+        /* (1) General layout material */
+
+        *, *:before, *:after {
+        	-moz-box-sizing: border-box;
+        	-webkit-box-sizing: border-box;
+        	box-sizing: border-box;
+        }
+        .headingpanellayout {
+        	position: relative;
+        	height: 56px;
+        	padding: 0px;
+        	white-space:nowrap;
+        }
+        .headingpanellayoutdeeper {
+        	position: relative;
+        	height: 117px;
+        	padding: 0px;
+        	white-space:nowrap;
+        }
+        .headingtext {
+        	position: absolute;
+        	top: -4px;
+        	left: -1px;
+        	width: 100%;
+        	padding: 14px 10px 0px 10px;
+        }
+        .headingrubric {
+        	position: absolute;
+        	top: 36px;
+        	width: 100%;
+        	padding: 0px 10px 0px 10px;
+        }
+        h3.tighter {
+        	margin-top: 0px;
+        }
+        p.hang {
+        	padding-left: 25px;
+        	text-indent: -25px;
+        	margin-top: 0px;
+        	margin-bottom: 0px;
+        }
+        p.in1 {
+        	padding-left: 0px;
+        }
+        p.tightin1 {
+        	padding-left: 0px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin1 {
+        	padding-left: 0px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin1 {
+        	padding-left: 50px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in2 {
+        	padding-left: 25px;
+        }
+        p.tightin2 {
+        	padding-left: 25px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin2 {
+        	padding-left: 25px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin2 {
+        	padding-left: 75px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in3 {
+        	padding-left: 50px;
+        }
+        p.tightin3 {
+        	padding-left: 50px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin3 {
+        	padding-left: 50px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin3 {
+        	padding-left: 100px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in4 {
+        	padding-left: 75px;
+        }
+        p.tightin4 {
+        	padding-left: 75px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin4 {
+        	padding-left: 75px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin4 {
+        	padding-left: 125px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in5 {
+        	padding-left: 100px;
+        }
+        p.tightin5 {
+        	padding-left: 100px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin5 {
+        	padding-left: 100px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin5 {
+        	padding-left: 150px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in6 {
+        	padding-left: 125px;
+        }
+        p.tightin6 {
+        	padding-left: 125px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin6 {
+        	padding-left: 125px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin6 {
+        	padding-left: 175px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in7 {
+        	padding-left: 150px;
+        }
+        p.tightin7 {
+        	padding-left: 150px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin7 {
+        	padding-left: 150px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin7 {
+        	padding-left: 200px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in8 {
+        	padding-left: 175px;
+        }
+        p.tightin8 {
+        	padding-left: 175px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin8 {
+        	padding-left: 175px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin8 {
+        	padding-left: 225px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in9 {
+        	padding-left: 200px;
+        }
+        p.tightin9 {
+        	padding-left: 200px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin9 {
+        	padding-left: 200px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin9 {
+        	padding-left: 250px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+
+        /* (2) Index page layout material */
+
+        /* The periodic table display has "sidebars", usually grey and taller than they
+        are wide; they contain no text. */
+
+        div.periodictablesidebar {
+        	height: 56px;
+        	width: 16px;
+        }
+        .periodictablesidebar a:link { text-decoration: none; }
+        .periodictablesidebar a:visited { text-decoration: none; }
+        .periodictablesidebar a:active { text-decoration: none; }
+
+        /* The "element boxes" are the cells appearing in the periodic-table display
+        on the welcome page of the index: */
+
+        .elementbox {
+        	position: relative;
+        	height: 56px;
+        	width: 56px;
+        	padding: 0px;
+        }
+
+        .elementbox a:link { text-decoration: none; }
+        .elementbox a:visited { text-decoration: none; }
+        .elementbox a:active { text-decoration: none; }
+        .elementbox a:hover { text-decoration: none; }
+        .elementbox:hover {
+        	opacity: 0.6;
+        }
+
+        /* The "small element boxes" look like those, but are smaller, and used on
+        the headings of the content which those original boxes link to: */
+
+        .smallelementbox {
+        	position: relative;
+        	height: 40px;
+        	width: 40px;
+        	padding: 0px;
+        }
+
+        .smallelementbox a:link { text-decoration: none; }
+        .smallelementbox a:visited { text-decoration: none; }
+        .smallelementbox a:active { text-decoration: none; }
+        .smallelementbox a:hover { text-decoration: none; }
+        .smallelementbox:hover {
+        	opacity: 0.6;
+        }
+
+        /* This is a class for the links formed by the element boxes: */
+
+        a.elementlink {
+        	position: absolute;
+        	top: -4px;
+        	left: -1px;
+        	width: 100%;
+        	padding: 14px 0px 14px 1px;
+        	text-align: center;
+        }
+
+        /* Similarly for the "atomic number" - a single digit - in the top left corner
+        of these boxes: */
+
+        div.elementnumber {
+        	position: absolute;
+        	top: 1px;
+        	left: 3px;
+        	text-align: left;
+        }
+
+        /* For the text of the element title, to the right of the element box: */
+
+        div.elementtitle {
+        	position: absolute;
+        	top: 35px;
+        	width: 100%;
+        	text-align: center;
+        }
+
+        /* Used for the book-contents-page style leaders on the Contents element of
+           the index: */
+
+        ul.leaders {
+        	padding: 0;
+        	margin-top: 1px;
+        	margin-bottom: 0;
+        	overflow-x: hidden;
+        	list-style: none}
+        ul.leaders li.leaded:before {
+        	float: left;
+        	width: 0;
+        	white-space: nowrap;
+        	content:
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "}
+        ul.leaders li.leaded span:first-child {
+        	padding-right: 0.33em;
+        }
+        ul.leaders li.leaded span + span {
+        	float: right;
+        	padding-left: 0.33em;
+        }
+        li.indent1 span:first-child {
+        	padding-left: 25px;
+        }
+        li.indent2 span:first-child {
+        	padding-left: 50px;
+        }
+        li.indent3 span:first-child {
+        	padding-left: 75px;
+        }
+        li.indent4 span:first-child {
+        	padding-left: 100px;
+        }
+        li.indent5 span:first-child {
+        	padding-left: 125px;
+        }
+        li.indent6 span:first-child {
+        	padding-left: 150px;
+        }
+        li.indent7 span:first-child {
+        	padding-left: 175px;
+        }
+        li.indent8 span:first-child {
+        	padding-left: 200px;
+        }
+        li.indent9 span:first-child {
+        	padding-left: 225px;
+        }
+
+        li.unleaded:before {
+        	content: "";
+        }
+
+        /* On Registry index pages (such as the Public Library), these are used for
+        download buttons and the like: */
+
+        span.registrybuttons {
+        	height: 20px;
+        	padding: 2px 8px 2px 8px;
+        	margin: 2px;
+        	border:1px solid;
+        	border-radius: 5px;
+        }
+
+        span.registryminibuttons {
+        	height: 14px;
+        	padding: 2px 5px 2px 5px;
+        	margin: 2px;
+        	border:1px solid;
+        	border-radius: 4px;
+        }
+
+        /* Used to hide or display sections in the Registry pages: */
+
+        div.registrysectionitemsopen {
+        	display: block;
+        }
+
+        div.registrysectionitemsclosed {
+        	display: none;
+        }
+
+        /* Hanging indentation for Registry item paragraphs: */
+
+        p.registryitem {
+        	padding-left: 80px;
+        	text-indent: -40px;
+        }
+
+        p.registryaddition {
+        	padding-left: 40px;
+        	text-indent: -40px;
+        }
+
+        -->
+    </style>
+    <script type="text/javascript">
+        function project() {
+            return window.Project;
+        }
+        function showExtra(id, imid) {
+        	if (document.getElementById(id).style.display == 'block') {
+        		document.getElementById(id).style.display = 'none';
+        		document.getElementById(imid).src = 'inform:/extra.png';
+        	} else {
+        		document.getElementById(id).style.display = 'block';
+        		document.getElementById(imid).src = 'inform:/extraclose.png';
+        	}
+        }
+        function openExtra(id, imid) {
+        	document.getElementById(id).style.display = 'block';
+        	document.getElementById(imid).src = 'inform:/extraclose.png';
+        }
+        function closeExtra(id, imid) {
+        	document.getElementById(id).style.display = 'none';
+        	document.getElementById(imid).src = 'inform:/extra.png';
+        }
+        function pasteCode(code) {
+            var myProject = project();
+
+            myProject.selectView('source');
+            myProject.pasteCode(code);
+        }
+
+    </script>
+</head>
+<body>
+    <!--CONTENT BEGINS-->
+    <table CELLPADDING=0 CELLSPACING=0 width="100%" bgcolor="#000000"><tr><TD width=38px height=26px align="center" valign="center"><a href="inform://Extensions/Extensions.html" border=0><img border=0 src="inform:/doc_images/Hookindex.png" border=0></a></td><TD width=38px height=26px align="center" valign="center"></td><td halign="left" valign="center" CELLPADDING=0 CELLSPACING=0><font color="#FFFFFF" size=2>Extensions</font></a></td><TD width=56px height=26px align="right" valign="center"><a href="inform:/index.html" border=0><img border=0 src="inform:/doc_images/Hookup.png" border=0></a></td></tr></table>
+
+    <p><a href="javascript:pasteCode('Include Computers by Emily Short.[=0x000A=][=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a>&nbsp;<b>Computers<span class="extensionindexentry"> by </span>Emily Short</b></p>
+    <p><span class="smaller">Version 8.0.160611</span></p>
+    <p>Computer hardware and software, including search engines and email programs. Version 3 adds handling for batteries and cords, if we include Power Sources by Emily Short (which itself depends on Plugs and Sockets by Sean Turner).</p>
+    <p></p>
+    <hr>
+    <p><span class="indexblack"><b><a style="text-decoration: none" href=#docsec1>Chapter 1: </a></b></span>Hardware<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec2>Section 1.1: </a></span>The computer kind; screens and keyboards<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec3>Section 1.2: </a></span>Laptops and desktops; mice and trackpads<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec4>Section 1.3: </a></span>Extension ports<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec5>Chapter 2: </a></b></span>Software<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec6>Section 2.1: </a></span>Software in general<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec7>Section 2.2: </a></span>Default software kinds<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec8>Section 2.3: </a></span>password-lock programs<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec9>Section 2.4: </a></span>Multiple-Choice Programs<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec10>Section 2.5: </a></span>Search engines<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec11>Section 2.6: </a></span>Email<br>
+    <br>
+    <b>Examples</b><br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href="Computers-eg1.html#eg1">A &mdash; Reading Email</a></span><br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href="Computers-eg2.html#eg2">B &mdash; Powered Email Machine</a></span><br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href="Computers-eg3.html#eg3">C &mdash; USB Drive</a></span><br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href="Computers-eg4.html#eg4">D &mdash; True Search</a></span><br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href="Computers-eg5.html#eg5">E &mdash; Operations</a></span><br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href="Computers-eg6.html#eg6">F &mdash; Balance Checking</a></span><br>
+    </p>
+    <hr>
+    <p></p>
+    </p>
+
+    <p> &quot;Computers&quot; implements a basic computer set-up. Implemented computers have peripherals: such as a screen and keyboard by default, and others optionally. They may run software; several types of default software are provided. They may also have data ports of various sorts, though the behavior of these ports is minimally elaborated here.</p>
+
+    <p> By itself, &quot;Computers&quot; does not implement cords or batteries and does not worry about computer power supplies. However, if we include Power Supplies by Emily Short (which also requires Plugs and Sockets by Sean Turner), we will get power cords for our desktop computers and a combination of cords and batteries for laptops.</p>
+
+    <p><p><span class="indexdullred"><b><span id=docsec1>Chapter 1: Hardware</span></b></span></p>
+    </p>
+
+    <p><p><span class="indexblack"><b><span id=docsec2>Section 1.1: The computer kind; screens and keyboards</span></b></span></p>
+    </p>
+
+    <p> A computer is implemented as a device that may be switched on and off. &quot;Computers&quot; supplies every computer with a screen (which can also be called &quot;monitor&quot; by the player) and a keyboard. The keyboard is required for the computer to understand typing; if one is absent, the player will not be able to enter typed commands.</p>
+
+    <p> When switched on, a computer plays a startup noise and displays the contents of its screen. We may change the startup noise so:</p>
+
+    <p><blockquote><span class="indexdullblue"> The startup noise of the PC is &quot;[The item described] [chime] cheerfully.&quot;</span></blockquote>
+
+    <p> The contents of the computer's screen will depend on what software the computer is currently running. (See below.)</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec3>Section 1.2: Laptops and desktops; mice and trackpads</span></b></span></p>
+    </p>
+
+    <p> &quot;Computer&quot; has two subordinate kinds, &quot;laptop&quot; and &quot;desktop computer&quot;. A laptop may be opened or closed (synonymous with switching it on and off, for simplicity) and has a trackpad. A desktop computer is by default fixed in place and has a mouse.</p>
+
+    <p> For non-standard configurations of computer, such as an ATM with a modified keyboard and no mouse/trackpad, we would fall back on the base &quot;computer&quot; kind and add the desired components by hand.</p>
+
+    <p> Trackpads and mice are both of the kind &quot;selection device&quot;. If a computer does not incorporate any selection device, the player will not be able to click on things to select them on that computer. If we wished to implement a different type of console, we might alternatively make joysticks, touchpads, or trackballs as selection devices.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec4>Section 1.3: Extension ports</span></b></span></p>
+    </p>
+
+    <p> &quot;Computers&quot; also has the concept of an &quot;extension port&quot;, which is a generic kind suitable for implementing DVD or CD drive slots, USB ports, and any other realistic or futuristic reader for a data storage device; and the kind &quot;data storage device&quot;, which is the only sort of item that may be placed into an extension port. An extension port may contain exactly one thing at a time.</p>
+
+    <p> So for instance we might write</p>
+
+    <p><blockquote><span class="indexdullblue"> The CD slot is an extension port. It is part of the old PC.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> The CD-ROM is a data storage device.</span></blockquote>
+
+    <p>... whereupon the CD-ROM may be placed in the CD slot, but nothing else will be permitted.</p>
+
+    <p> The extension assumes that the player who types</p>
+
+    <p><blockquote><span class="indexdullblue"> INSERT STORAGE DEVICE INTO COMPUTER</span></blockquote>
+
+    <p> really means to insert the storage device into the extension port that is part of the computer. Input will be redirected automatically if a given computer has only one extension port and the situation is unambiguous.</p>
+
+    <p> If we have a game in which multiple types of data storage devices exist and are to be placed in multiple types of extension ports, we may need to add subkinds of these two kinds, and restrict more thoroughly which storage devices may be put into which ports.</p>
+
+    <p> Furthermore, there is no default treatment of data storage devices or their effect on computers or computer software, as the possibilities are too diverse. We should decide on a per-game basis what happens when a given storage device is hooked up.</p>
+
+    <p> The examples show a very simple way to a storage device to extend the range of a search engine program.</p>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec5>Chapter 2: Software</span></b></span></p>
+    </p>
+
+    <p><p><span class="indexblack"><b><span id=docsec6>Section 2.1: Software in general</span></b></span></p>
+    </p>
+
+    <p> A given computer may be running one or more pieces of software; whichever software is currently dominant receives the input sent by the keyboard, and is also visible when the player looks at the screen or the computer as a whole.</p>
+
+    <p> The appearance of the software on the screen is given by the software's description. Thus we might have</p>
+
+    <p><blockquote><span class="indexdullblue"> The PC runs a password-lock program called rudimentary passcode. The description of rudimentary passcode is &quot;[regarding the noun]A box on the screen [invite] [us] to type a password to proceed.&quot;</span></blockquote>
+
+    <p> A computer can run several programs at once, in which case the program with the lowest &quot;software priority&quot; is the one that is considered to be working and receiving input at the moment. By default, most software has a software priority of five, while password-lock programs have software priority 1 (meaning they must be dealt with before other software becomes available). If it is intended that the user can change programs manually, we might handle this by changing software priorities during play to make the one in use uppermost; as in</p>
+
+    <p><blockquote><span class="indexdullblue"> now the software priority of the email program is 1.</span></blockquote>
+
+    <p> When the player uses a TYPE or CLICK ON command, the topic understood is passed on to the input handling rules. The input handling rules are an object-based rulebook and are keyed to the specific program currently dominant on the computer. One of the several input handling rules looks like this:</p>
+
+    <p><blockquote><span class="indexdullblue"> An input handling rule for a multiple-choice program (called chosen software) (this is the pick a choice rule):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; if the topic understood is a topic listed in the options table of the chosen software:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; follow the effect entry;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; rule succeeds;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; otherwise:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say &quot;[out-of-bounds response of the chosen software][paragraph 	break]&quot;;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; rule fails.</span></blockquote>
+
+    <p>... and consequently we can make new input handling rules for any new software we write, or to customize the behavior of the default software kinds.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec7>Section 2.2: Default software kinds</span></b></span></p>
+    </p>
+
+    <p> Five types of software are provided by default:</p>
+
+    <p> (1) a password-lock program that renders the computer inoperable until the password is typed</p>
+
+    <p> (2) a search program that returns results on typed searches, as well as to standard syntax such as LOOK UP &quot;whatever&quot; IN SEARCH PROGRAM</p>
+
+    <p> (3) a multiple-choice program that allows the user to select options, and runs rules accordingly</p>
+
+    <p> (4) an enumerated multiple-choice program (the same kind of thing, but assigning a number to each choice instead of matching them with topic keywords)</p>
+
+    <p> (5) an email program capable of organizing incoming and outgoing messages, marking which messages are read, and reporting new arrivals.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec8>Section 2.3: password-lock programs</span></b></span></p>
+    </p>
+
+    <p> To define a password-lock program, we may write something like:</p>
+
+    <p><blockquote><span class="indexdullblue"> The PC runs a password-lock program called rudimentary passcode. The password of rudimentary passcode is &quot;xyzzy&quot;.</span></blockquote>
+
+    <p> Note that because of the way the z-machine handles typed input, the player's input will always be flattened to lower case before it is interpreted. Therefore passwords should always be in lower case.</p>
+
+    <p> We may also optionally define two other aspects of a password-lock program, namely the text displayed when the player's attempt fails, and that displayed when it succeeds. Thus:</p>
+
+    <p><blockquote><span class="indexdullblue"> The rejection of rudimentary passcode is &quot;'Password incorrect.'&quot;<br>
+     The success of rudimentary passcode is &quot;The password field vanishes.&quot;</span></blockquote>
+
+    <p><p><span class="indexblack"><b><span id=docsec9>Section 2.4: Multiple-Choice Programs</span></b></span></p>
+    </p>
+
+    <p> A multiple-choice program is one that presents the player with a series of choices to type or click on, and executes a rule whenever one is selected. This is suitable for setting up operating systems, dedicated special-purpose computers such as ATMs, or other interfaces that involve negotiating a series of menus. Items from a multiple-choice list may be selected by typing or by mouse or trackpad if one of these is available.</p>
+
+    <p> To set up a multiple-choice program, we must establish an options table like so:</p>
+
+    <p><blockquote><span class="indexdullblue"> The operating system is a multiple-choice program. The options table of the operating system is the Table of GUI Options.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Table of GUI Options</span><br>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> topic</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> title</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> effect
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;microsoft/word&quot; or &quot;microsoft word&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;Microsoft Word&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> open-Word rule
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;adobe illustrator&quot; or &quot;adobe/illustrator&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;Adobe Illustrator&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> open-Illustrator rule</span>
+            </td>
+        </tr>
+    </table>
+    </blockquote>
+
+    <p> If we wish a multiple-choice program to function as an operating system allowing access to various other programs on the computer, we might use these effect rules to change the software priority of other programs.</p>
+
+    <p> A subkind of multiple-choice program is the enumerated multiple-choice program, for when we wish the player to make a selection by number. Here instead of providing a topic list, we provide an index column, which will contain numbers (but, as these will be chosen at runtime, we do not need to specify them ourselves). We may add lines to the table or remove them again if we wish to change the player's available options.</p>
+
+    <p><blockquote><span class="indexdullblue"> The ATM operation program is an enumerated multiple-choice program. The options table of the ATM operation program is the Table of Transactions.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Table of Transactions</span><br>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> index</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> title</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> effect
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> --</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;Check balance&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> balance-check rule
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> --</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;Quick cash&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> quick-cash rule
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> --</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;Buy stamps&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> stamp-purchase rule
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> --</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;Cancel&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> cancellation rule</span>
+            </td>
+        </tr>
+    </table>
+    </blockquote>
+
+    <p> Both enumerated and regular multiple-choice programs have a response to print if the player attempts to type or select something that is not understood as an option. We may change this by altering the out of bounds response, like so:</p>
+
+    <p><blockquote><span class="indexdullblue"> The out-of-bounds response of the ATM operation program is &quot;Your selection, '[topic understood]', is not one of the available choices.&quot;</span></blockquote>
+
+    <p><p><span class="indexblack"><b><span id=docsec10>Section 2.5: Search engines</span></b></span></p>
+    </p>
+
+    <p> To define a search engine, we must provide a table of data, such as</p>
+
+    <p><blockquote><span class="indexdullblue"> The PC runs a search engine called Goggle. The data table of Goggle is the Table of Goggle Data.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Table of Goggle Data</span><br>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> topic</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> title</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> data
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;food/cake/yellow&quot; or &quot;yellow cake&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;OnlineRecipes.org&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;A delicious recipe for yellow cake.&quot;
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;yellow balloon&quot; or &quot;yellow/balloon&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;PartyPlanning.com&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;How to order yellow balloons online.&quot;</span>
+            </td>
+        </tr>
+    </table>
+    </blockquote>
+
+    <p> By default, in keeping with the behavior of real search engines, this search engine will go through and match every possible topic on the list, reporting all hits, rather than matching only the first instance. This means that output can be very long if the individual descriptions are themselves long, so use with discretion.</p>
+
+    <p> If we wish, we can define a search engine that does not rely on the topic table but actually searches the data text for whatever string the player has typed in. This is more powerful, but slower. To turn this functionality on, we should include</p>
+
+    <p><blockquote><span class="indexdullblue"> When play begins:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; now slow searching is true.</span></blockquote>
+
+    <p> When slow searching is true, the search engine will ignore the topic column and instead look for the searched text in the data itself. There is an example using this behavior below.</p>
+
+    <p> Search engines have two pieces of text, the &quot;no-records response&quot; and &quot;results-found response&quot;, as defined here:</p>
+
+    <p><blockquote><span class="indexdullblue"> The no-records response of a search engine is usually &quot;No records found.&quot;.<br>
+     The results-found response of a search engine is usually &quot;Your search turns up the following results:&quot;.</span></blockquote>
+
+    <p>... and as usual we may modify these to change the way search results are described.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec11>Section 2.6: Email</span></b></span></p>
+    </p>
+
+    <p> Email is a program that allows the player to receive and read email from a list. To establish the email in an email program, we would write</p>
+
+    <p><blockquote><span class="indexdullblue"> The message table of laptop email is Table of Laptop Messages.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Table of Laptop Messages</span><br>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> topic</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> message</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> arrival time</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> read</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> answered</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> description
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;memo&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;Memo&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> 9:00 AM</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> false</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> false</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;Your boss would like to see you in his office right away.&quot;
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;SPAM&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;SPAM&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> --</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> false</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> false</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;Money for you from Nigeria!&quot;
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> with 10 blank rows.</span>
+            </td>
+        </tr>
+    </table>
+    </blockquote>
+
+    <p> Note that an arrival time is provided for &quot;memo&quot; but not for &quot;SPAM&quot;. That is because memo is understood to have been delivered already, while SPAM has not. To deliver new email, we would write</p>
+
+    <p><blockquote><span class="indexdullblue"> deliver &quot;SPAM&quot; to laptop email.</span></blockquote>
+
+    <p> This would mark the spam message, which already exists in the Table of Laptop Messages, as available for the player to read. It would also set the arrival time.</p>
+
+    <p> If the player is in view of a switched on computer that is running this program, the arrival of the message will be reported at the moment when it happens. The text of this report is handled by the &quot;new mail message&quot; of the email program, like so:</p>
+
+    <p><blockquote><span class="indexdullblue"> The new mail message of an email program is usually &quot;You have new mail on [the random computer which is running the item described].&quot;.</span></blockquote>
+
+    <p> To change this output, we would create a different new mail message for the email program in question.</p>
+
+    <p> Typing or clicking on one of the topic words will bring up what ever text we have put in the description field, which might be a brief summary or might be the full text of the email in question. READ email will also work.</p>
+
+    <p> REPLY TO email is implemented, but generally blocked by the &quot;block replying to email&quot; rule. This is because the behavior of replying to email is likely to vary quite a bit from game to game, depending on whether we want to allow the player some control over the email he composes and what other game-state changes result from sending that email.</p>
+
+    <p> If we wish to allow replies to email, we should first unlist the block replying to email rule, like so:</p>
+
+    <p><blockquote><span class="indexdullblue"> The block replying to email rule is not listed in any rulebook.</span></blockquote>
+
+    <p> At that point, default behavior of the action is to mark the email replied and to report simply &quot;You reply.&quot; It is up to us to elaborate on this in some more interesting way.</p>
+
+    <p><hr>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td halign="left" valign="top" cellpadding=0 cellspacing=0 width=38px>
+                <span id=eg1><table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="oval">
+                        <td width=38px height=30px align="left" valign="center">
+                            <a href="Computers-eg1.html#eg1" style="text-decoration: none"><div class="paragraph Body" style="line-height: 1px; margin-bottom: 0px; margin-top: 0px; padding-bottom: 0pt; padding-top: 0px; text-align: center;">
+                                <span class="extensionexampleletter">A</span></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                </span>
+            </td>
+            <td cellpadding=0 cellspacing=0 halign="left" valign="top">
+                <a href="Computers-eg1.html#eg1" style="text-decoration: none"><img border="0" src='inform:/doc_images/asterisk.png'><b><span class="indexdarkgrey">&nbsp;Example&nbsp;</span><span class="indexblack">Reading Email</span></b></a><br>
+                <p>A laptop set up with a password-lock program that gives way to email we can read, and a new message that is delivered while we wait.</p>
+
+            </td>
+        </tr>
+    </table>
+    </p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p><hr>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td halign="left" valign="top" cellpadding=0 cellspacing=0 width=38px>
+                <span id=eg2><table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="oval">
+                        <td width=38px height=30px align="left" valign="center">
+                            <a href="Computers-eg2.html#eg2" style="text-decoration: none"><div class="paragraph Body" style="line-height: 1px; margin-bottom: 0px; margin-top: 0px; padding-bottom: 0pt; padding-top: 0px; text-align: center;">
+                                <span class="extensionexampleletter">B</span></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                </span>
+            </td>
+            <td cellpadding=0 cellspacing=0 halign="left" valign="top">
+                <a href="Computers-eg2.html#eg2" style="text-decoration: none"><img border="0" src='inform:/doc_images/asterisk.png'><b><span class="indexdarkgrey">&nbsp;Example&nbsp;</span><span class="indexblack">Powered Email Machine</span></b></a><br>
+                <p>The same as above, except that we add Power Sources to create a laptop with a battery that can be drained of power and shut down.</p>
+
+            </td>
+        </tr>
+    </table>
+    </p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p><hr>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td halign="left" valign="top" cellpadding=0 cellspacing=0 width=38px>
+                <span id=eg3><table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="oval">
+                        <td width=38px height=30px align="left" valign="center">
+                            <a href="Computers-eg3.html#eg3" style="text-decoration: none"><div class="paragraph Body" style="line-height: 1px; margin-bottom: 0px; margin-top: 0px; padding-bottom: 0pt; padding-top: 0px; text-align: center;">
+                                <span class="extensionexampleletter">C</span></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                </span>
+            </td>
+            <td cellpadding=0 cellspacing=0 halign="left" valign="top">
+                <a href="Computers-eg3.html#eg3" style="text-decoration: none"><img border="0" src='inform:/doc_images/asterisk.png'><b><span class="indexdarkgrey">&nbsp;Example&nbsp;</span><span class="indexblack">USB Drive</span></b></a><br>
+                <p>A very simple implementation of a laptop that can search for and find new data when a USB stick is inserted into its extension port.</p>
+
+            </td>
+        </tr>
+    </table>
+    </p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p><hr>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td halign="left" valign="top" cellpadding=0 cellspacing=0 width=38px>
+                <span id=eg4><table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="oval">
+                        <td width=38px height=30px align="left" valign="center">
+                            <a href="Computers-eg4.html#eg4" style="text-decoration: none"><div class="paragraph Body" style="line-height: 1px; margin-bottom: 0px; margin-top: 0px; padding-bottom: 0pt; padding-top: 0px; text-align: center;">
+                                <span class="extensionexampleletter">D</span></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                </span>
+            </td>
+            <td cellpadding=0 cellspacing=0 halign="left" valign="top">
+                <a href="Computers-eg4.html#eg4" style="text-decoration: none"><img border="0" src='inform:/doc_images/asterisk.png'><b><span class="indexdarkgrey">&nbsp;Example&nbsp;</span><span class="indexblack">True Search</span></b></a><br>
+                <p>A desktop computer running a search engine that has slow search activated so that it will match any string against the searched data.</p>
+
+            </td>
+        </tr>
+    </table>
+    </p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p><hr>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td halign="left" valign="top" cellpadding=0 cellspacing=0 width=38px>
+                <span id=eg5><table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="oval">
+                        <td width=38px height=30px align="left" valign="center">
+                            <a href="Computers.html#eg5" style="text-decoration: none"><div class="paragraph Body" style="line-height: 1px; margin-bottom: 0px; margin-top: 0px; padding-bottom: 0pt; padding-top: 0px; text-align: center;">
+                                <span class="extensionexampleletter">E</span></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                </span>
+            </td>
+            <td cellpadding=0 cellspacing=0 halign="left" valign="top">
+                <a href="Computers.html#eg5" style="text-decoration: none"><img border="0" src='inform:/doc_images/asterisk.png'><img border="0" src='inform:/doc_images/asterisk.png'><b><span class="indexdarkgrey">&nbsp;Example&nbsp;</span><span class="indexblack">Operations</span></b></a><br>
+                <p>A desktop computer running an operating system that in turn allows the player to select and run either the browser or the email program.</p>
+
+            </td>
+        </tr>
+    </table>
+    <table border="0" cellspacing="0" cellpadding="0" class="extensionexample" width=100%>
+        <tr>
+            <td align="left" valign="top">
+                <p></p>
+
+                <p> We're going to use a multiple-choice program to implement our operating system, and also implement &quot;type quit&quot; and &quot;select quit&quot; to let the player quit out of other programs when he wishes to return to the OS. (By default, the player is not allowed to quit running programs; this makes it easier to implement single-use computers that are good for only one function, which is quite a common arrangement in IF if not in life.)</p>
+
+                <p> We also want the computer to revert back to the operating system if switched off while running some other program.</p>
+
+                <p><blockquote><span class="indexdullblue"><a href="javascript:pasteCode('[=0x0022=]Operations[=0x0022=][=0x000A=][=0x000A=]Include Computers by Emily Short.[=0x000A=][=0x000A=]Conference room is a room.[=0x000A=][=0x000A=]The conference table is a thing in the Conference Room. The old PC is a desktop computer on the conference table.[=0x000A=][=0x000A=]The old PC runs a multiple-choice program called PCOS. PCOS is privately-named. The options table of PCOS is the Table of GUI Options.[=0x000A=][=0x0009=]The software priority of PCOS is 1.[=0x000A=][=0x000A=]Table of GUI Options[=0x000A=]topic[=0x0009=]title[=0x0009=]effect[=0x000A=][=0x0022=]mail/email[=0x0022=][=0x0009=][=0x0022=]Mail[=0x0022=][=0x0009=]open-Mail rule[=0x000A=][=0x0022=]browser/internet[=0x0022=][=0x0009=][=0x0022=]Browser[=0x0022=][=0x0009=]open-browser rule[=0x000A=][=0x000A=]This is the open-Mail rule:[=0x000A=][=0x0009=]repeat with item running through software run by the old PC:[=0x000A=][=0x0009=][=0x0009=]now the software priority of item is 5;[=0x000A=][=0x0009=]now the software priority of PC email is 1;[=0x000A=][=0x0009=]say [=0x0022=]You select the mail.[=0x0022=];[=0x000A=][=0x0009=]try examining PC email.[=0x000A=][=0x000A=]This is the open-Browser rule:[=0x000A=][=0x0009=]repeat with item running through software run by the old PC:[=0x000A=][=0x0009=][=0x0009=]now the software priority of item is 5;[=0x000A=][=0x0009=]now the software priority of Goggle is 1;[=0x000A=][=0x0009=]say [=0x0022=]You select the browser.[=0x0022=];[=0x000A=][=0x0009=]try examining Goggle.[=0x000A=][=0x000A=]The old PC runs an email program called PC email. PC email is privately-named.[=0x000A=][=0x000A=]The message table of PC email is Table of PC Messages.[=0x000A=][=0x000A=]Table of PC Messages[=0x000A=]topic[=0x0009=]message[=0x0009=]arrival time[=0x0009=]read[=0x0009=]answered[=0x0009=]description[=0x000A=][=0x0022=]memo[=0x0022=][=0x0009=][=0x0022=]Memo[=0x0022=][=0x0009=]9:00 AM[=0x0009=]false[=0x0009=]false[=0x0009=][=0x0022=]Your boss would like to see you in his office right away.[=0x0022=][=0x000A=][=0x0022=]SPAM[=0x0022=][=0x0009=][=0x0022=]SPAM[=0x0022=][=0x0009=]--[=0x0009=]false[=0x0009=]false[=0x0009=][=0x0022=]Money for you from Nigeria![=0x0022=][=0x000A=]with 10 blank rows.[=0x000A=][=0x000A=]At 9:10 AM:[=0x000A=][=0x0009=]deliver [=0x0022=]SPAM[=0x0022=] to PC email.[=0x000A=][=0x000A=]The PC runs a search engine called Goggle. The data table of Goggle is the Table of Goggle Data.[=0x000A=][=0x000A=]Table of Goggle Data[=0x000A=]topic[=0x0009=]title[=0x0009=]data[=0x000A=][=0x0022=]food/cake/yellow[=0x0022=] or [=0x0022=]yellow cake[=0x0022=][=0x0009=][=0x0022=]OnlineRecipes.org[=0x0022=][=0x0009=][=0x0022=]A delicious recipe for yellow cake.[=0x0022=][=0x000A=][=0x0022=]yellow balloon[=0x0022=] or [=0x0022=]yellow/balloon[=0x0022=][=0x0009=][=0x0022=]PartyPlanning.com[=0x0022=][=0x0009=][=0x0022=]How to order yellow balloons online.[=0x0022=][=0x000A=][=0x000A=]Software can be quittable. A software is usually not quittable. PC email and Goggle are quittable.[=0x000A=][=0x000A=]A first input handling rule for quittable software (called chosen software):[=0x000A=][=0x0009=]let N be indexed text;[=0x000A=][=0x0009=]let N be the topic understood;[=0x000A=][=0x0009=]if N is [=0x0022=]quit[=0x0022=]:[=0x000A=][=0x0009=][=0x0009=]reset to operating system;[=0x000A=][=0x0009=][=0x0009=]say [=0x0022=]You return to the operating system.[=0x0022=];[=0x000A=][=0x0009=][=0x0009=]try examining PCOS;[=0x000A=][=0x0009=][=0x0009=]rule succeeds.[=0x000A=][=0x000A=]Carry out switching off the old PC:[=0x000A=][=0x0009=]reset to operating system.[=0x000A=][=0x000A=]To reset to operating system:[=0x000A=][=0x0009=]repeat with item running through software run by the old PC:[=0x000A=][=0x0009=][=0x0009=]now the software priority of item is 5;[=0x000A=][=0x0009=]now the software priority of PCOS is 1;[=0x000A=][=0x000A=]After examining a quittable software (called chosen software):[=0x000A=][=0x0009=]say [=0x0022=]You can also select QUIT to return to the operating system.[=0x0022=][=0x000A=][=0x000A=]Test me with [=0x0022=]turn on PC / click browser / look up food on computer / type cake / type quit / type mail on keyboard / select memo / reply to memo / type quit / click browser / turn off PC / turn on PC / click browser / reboot[=0x0022=].[=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a> &quot;Operations&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Include Computers by Emily Short.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Conference room is a room.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The conference table is a thing in the Conference Room. The old PC is a desktop computer on the conference table.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The old PC runs a multiple-choice program called PCOS. PCOS is privately-named. The options table of PCOS is the Table of GUI Options.<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; The software priority of PCOS is 1.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Table of GUI Options</span><br>
+                <table border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> topic</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> title</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> effect
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;mail/email&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;Mail&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> open-Mail rule
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;browser/internet&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;Browser&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> open-browser rule</span>
+                        </td>
+                    </tr>
+                </table>
+                </blockquote>
+
+                <p><blockquote><span class="indexdullblue"> This is the open-Mail rule:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; repeat with item running through software run by the old PC:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; now the software priority of item is 5;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; now the software priority of PC email is 1;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; say &quot;You select the mail.&quot;;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; try examining PC email.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> This is the open-Browser rule:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; repeat with item running through software run by the old PC:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; now the software priority of item is 5;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; now the software priority of Goggle is 1;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; say &quot;You select the browser.&quot;;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; try examining Goggle.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The old PC runs an email program called PC email. PC email is privately-named.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The message table of PC email is Table of PC Messages.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Table of PC Messages</span><br>
+                <table border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> topic</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> message</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> arrival time</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> read</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> answered</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> description
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;memo&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;Memo&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> 9:00 AM</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> false</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> false</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;Your boss would like to see you in his office right away.&quot;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;SPAM&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;SPAM&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> --</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> false</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> false</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;Money for you from Nigeria!&quot;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> with 10 blank rows.</span>
+                        </td>
+                    </tr>
+                </table>
+                </blockquote>
+
+                <p><blockquote><span class="indexdullblue"> At 9:10 AM:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; deliver &quot;SPAM&quot; to PC email.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The PC runs a search engine called Goggle. The data table of Goggle is the Table of Goggle Data.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Table of Goggle Data</span><br>
+                <table border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> topic</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> title</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> data
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;food/cake/yellow&quot; or &quot;yellow cake&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;OnlineRecipes.org&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;A delicious recipe for yellow cake.&quot;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;yellow balloon&quot; or &quot;yellow/balloon&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;PartyPlanning.com&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;How to order yellow balloons online.&quot;</span>
+                        </td>
+                    </tr>
+                </table>
+                </blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Software can be quittable. A software is usually not quittable. PC email and Goggle are quittable.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> A first input handling rule for quittable software (called chosen software):<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; let N be indexed text;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; let N be the topic understood;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; if N is &quot;quit&quot;:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; reset to operating system;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say &quot;You return to the operating system.&quot;;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; try examining PCOS;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; rule succeeds.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Carry out switching off the old PC:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; reset to operating system.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> To reset to operating system:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; repeat with item running through software run by the old PC:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; now the software priority of item is 5;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; now the software priority of PCOS is 1;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> After examining a quittable software (called chosen software):<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; say &quot;You can also select QUIT to return to the operating system.&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Test me with &quot;turn on PC / click browser / look up food on computer / type cake / type quit / type mail on keyboard / select memo / reply to memo / type quit / click browser / turn off PC / turn on PC / click browser / reboot&quot;.</span></blockquote>
+
+                <p></p>
+
+            </td>
+        </tr>
+    </table>
+    <hr>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td halign="left" valign="top" cellpadding=0 cellspacing=0 width=38px>
+                <span id=eg6><table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="oval">
+                        <td width=38px height=30px align="left" valign="center">
+                            <a href="Computers-eg6.html#eg6" style="text-decoration: none"><div class="paragraph Body" style="line-height: 1px; margin-bottom: 0px; margin-top: 0px; padding-bottom: 0pt; padding-top: 0px; text-align: center;">
+                                <span class="extensionexampleletter">F</span></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                </span>
+            </td>
+            <td cellpadding=0 cellspacing=0 halign="left" valign="top">
+                <a href="Computers-eg6.html#eg6" style="text-decoration: none"><img border="0" src='inform:/doc_images/asterisk.png'><img border="0" src='inform:/doc_images/asterisk.png'><img border="0" src='inform:/doc_images/asterisk.png'><b><span class="indexdarkgrey">&nbsp;Example&nbsp;</span><span class="indexblack">Balance Checking</span></b></a><br>
+                <p>An ATM, or automatic teller machine, that requires a debit card and pin before allowing the player access to the main menu screen. Demonstrates the use of extension ports, enumerated multiple-choice programs, and a new software kind from scratch for the welcome screen.</p>
+
+            </td>
+        </tr>
+    </table>
+    </p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p>
+    <!--CONTENT ENDS-->
+</body>
+</html>

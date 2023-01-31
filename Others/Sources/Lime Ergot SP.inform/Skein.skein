@@ -1,0 +1,1107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Skein rootNode="node-140">
+  <generator>Windows Inform 7 6M62</generator>
+  <activeNode nodeId="node-140"/>
+  <item nodeId="node-140">
+    <command xml:space="preserve">- start -</command>
+    <result xml:space="preserve">"Sea amable, lugarteniente, prep&#x00E1;reme un trago.&#x000A;La m&#x00E1;quina est&#x00E1; dispuesta.&#x000A;Tomar&#x00E9; un calavera verde."&#x000A;&#x000A;Ergot de Lima&#x000A;Una Aventura de Texto por Caleb Wilson&#x000A;Release 3 / Serial number 170828 / Inform 7 build 6M62 (I6/v6.33 lib 6/12N) SD&#x000A;&#x000A;Varado&#x000A;El sol abrasa la parte superior del muelle de cemento, el agua salpica por debajo. Jerogl&#x00ED;ficos resplandecientes inscritos en la superficie del puerto. Olores a sal, y putrefacci&#x00F3;n, y sudor, y limo. El suelo quema como una plancha.&#x000A;&#x000A;El muelle termina aqu&#x00ED;. Hacia el sur est&#x00E1; el embarcadero. La capital de St. Stellio (la cual es una ciudad tambi&#x00E9;n llamada St. Stellio) es invisible, all&#x00E1;, en alg&#x00FA;n lugar a trav&#x00E9;s del fulgor abrasador del oeste. Hacia el norte una mara&#x00F1;a de follaje crece directamente desde el pi&#x00E9;lago. Hacia el este est&#x00E1; el oc&#x00E9;ano Atl&#x00E1;ntico.&#x000A;&#x000A;La General Livia Tudor-Adolphus est&#x00E1; sentada en una enorme silla de ruedas hecha de mimbre. La luz del sol hace centellear la insignia plateada de navajas autom&#x00E1;ticas de su uniforme.&#x000A;&#x000A;Al lado de la general se encuentra un gran artefacto met&#x00E1;lico con engranajes, volantes, pistones y v&#x00E1;lvulas. Lo m&#x00E1;s importante es que incluye una tolva en la parte superior, una placa en el centro y una espita cerca de la base, bajo la cual hay un vaso estriado.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="0">NO</temporary>
+    <children>
+      <child nodeId="node-141"/>
+      <child nodeId="node-166"/>
+      <child nodeId="node-234"/>
+    </children>
+  </item>
+  <item nodeId="node-141">
+    <command xml:space="preserve">i</command>
+    <result xml:space="preserve">No llevas nada.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-142"/>
+    </children>
+  </item>
+  <item nodeId="node-142">
+    <command xml:space="preserve">examinar lima</command>
+    <result xml:space="preserve">No veo eso que dices.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-143"/>
+    </children>
+  </item>
+  <item nodeId="node-143">
+    <command xml:space="preserve">examinar lime</command>
+    <result xml:space="preserve">No veo eso que dices.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-144"/>
+    </children>
+  </item>
+  <item nodeId="node-144">
+    <command xml:space="preserve">examinar wharf</command>
+    <result xml:space="preserve">The wharf was built in a hurry to dock warships, and once the island of St. Stellio was taken, it hurried to decay. Now the ships are all gone. Now everyone is gone. (Well, almost everyone.)&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-145"/>
+    </children>
+  </item>
+  <item nodeId="node-145">
+    <command xml:space="preserve">x wharf</command>
+    <result xml:space="preserve">The wharf was built in a hurry to dock warships, and once the island of St. Stellio was taken, it hurried to decay. Now the ships are all gone. Now everyone is gone. (Well, almost everyone.)&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-146"/>
+    </children>
+  </item>
+  <item nodeId="node-146">
+    <command xml:space="preserve">n</command>
+    <result xml:space="preserve">That way is an impassable tangle of stems and leaves, too flimsy to support your weight anyway.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-147"/>
+    </children>
+  </item>
+  <item nodeId="node-147">
+    <command xml:space="preserve">e</command>
+    <result xml:space="preserve">That way is water.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-148"/>
+    </children>
+  </item>
+  <item nodeId="node-148">
+    <command xml:space="preserve">o</command>
+    <result xml:space="preserve">That way is water.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-149"/>
+    </children>
+  </item>
+  <item nodeId="node-149">
+    <command xml:space="preserve">s</command>
+    <result xml:space="preserve">The general barks at you: "Did I not make myself clear? Chain of command, my dear--I'll take that drink, now."&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-150"/>
+    </children>
+  </item>
+  <item nodeId="node-150">
+    <command xml:space="preserve">examine drink</command>
+    <result xml:space="preserve">No conozco ese verbo.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-151"/>
+    </children>
+  </item>
+  <item nodeId="node-151">
+    <command xml:space="preserve">x drink</command>
+    <result xml:space="preserve">No veo eso que dices.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-152"/>
+    </children>
+  </item>
+  <item nodeId="node-152">
+    <command xml:space="preserve">examine machine</command>
+    <result xml:space="preserve">No conozco ese verbo.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-153"/>
+    </children>
+  </item>
+  <item nodeId="node-153">
+    <command xml:space="preserve">x machine</command>
+    <result xml:space="preserve">It's a waist-high "mechanical bar-tender," imported from home at great expense. What a waste. You can read the placard to see what ingredients are called for next, or place ingredients in the hopper.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-154"/>
+    </children>
+  </item>
+  <item nodeId="node-154">
+    <command xml:space="preserve">l</command>
+    <result xml:space="preserve">Stranded&#x000A;The cement wharf is sun-baked above, slapped by water below. Hieroglyphs of glare inscribed on the flat surface of the harbor. Odors of salt, and rot, and sweat, and silt. The air burns like an iron.&#x000A;&#x000A;The wharf ends here. South is the pier. The capital of St. Stellio (which is a city also named St. Stellio) is invisible, somewhere through the glare to the west. To the north a tangle of foliage grows directly from the brine. To the east is the Atlantic ocean.&#x000A;&#x000A;General Livia Tudor-Adolphus sits in a huge wicker wheelchair. The sunlight glints on her uniform's silver switchblade insignia.&#x000A;&#x000A;Beside the general stands a large metal contraption of gears, flywheels, pistons, and valves. Most importantly it includes a hopper at the top, a placard at the middle, and a spout near the base, beneath which is a fluted glass.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-155"/>
+    </children>
+  </item>
+  <item nodeId="node-155">
+    <command xml:space="preserve">x capital</command>
+    <result xml:space="preserve">No veo eso que dices.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-156"/>
+    </children>
+  </item>
+  <item nodeId="node-156">
+    <command xml:space="preserve">x tangle</command>
+    <result xml:space="preserve">This tangle of bushes grows from water at the end of the pier. Deep inside the maze of stems and leaves you spot a skull. Beside the skull is a rusted sword.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-157"/>
+    </children>
+  </item>
+  <item nodeId="node-157">
+    <command xml:space="preserve">x skull</command>
+    <result xml:space="preserve">A pink orchid grows from the skull's nasal hole.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-158"/>
+    </children>
+  </item>
+  <item nodeId="node-158">
+    <command xml:space="preserve">x orchid</command>
+    <result xml:space="preserve">Following the roots of the orchid deeper into the gloom, you spot the rest of the skeleton.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-159"/>
+    </children>
+  </item>
+  <item nodeId="node-159">
+    <command xml:space="preserve">x skeleton</command>
+    <result xml:space="preserve">A skeleton lies deep within the tangle of stems, near the water level. There is a bowl-shaped mass of roots below it.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-160"/>
+    </children>
+  </item>
+  <item nodeId="node-160">
+    <command xml:space="preserve">x bowl</command>
+    <result xml:space="preserve">Down close to the water, some roots have grown into the shape of a bowl.&#x000A;&#x000A;Sitting in the hollow of the roots is a plump St. Stellio lime.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-161"/>
+    </children>
+  </item>
+  <item nodeId="node-161">
+    <command xml:space="preserve">coger lime</command>
+    <result xml:space="preserve">Cogido.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-162"/>
+    </children>
+  </item>
+  <item nodeId="node-162">
+    <command xml:space="preserve">dialecto sudamericano</command>
+    <result xml:space="preserve">Elegido dialecto SUDAMERICANO.&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-163"/>
+    </children>
+  </item>
+  <item nodeId="node-163">
+    <command xml:space="preserve">undo</command>
+    <result xml:space="preserve">Stranded&#x000A;[Retrocediendo al turno anterior.]&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-164"/>
+    </children>
+  </item>
+  <item nodeId="node-164">
+    <command xml:space="preserve">tomar lime</command>
+    <result xml:space="preserve">Ya tienes el St. Stellio lime.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-165"/>
+    </children>
+  </item>
+  <item nodeId="node-165">
+    <command xml:space="preserve">olerme</command>
+    <result xml:space="preserve">You do not smell very good.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+  </item>
+  <item nodeId="node-166">
+    <command xml:space="preserve">examinar muelle</command>
+    <result xml:space="preserve">El muelle fue constru&#x00ED;do a toda prisa para atracar las naves de guerra, y una vez que la isla de St. Stellio fue tomada, se apresur&#x00F3; a desmoronarse. Ahora no queda ninguna nave. Todo el mundo se ha ido. (Bueno, casi todos).&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-167"/>
+      <child nodeId="node-204"/>
+    </children>
+  </item>
+  <item nodeId="node-167">
+    <command xml:space="preserve">examinar st stello</command>
+    <result xml:space="preserve">No veo eso que dices.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-168"/>
+    </children>
+  </item>
+  <item nodeId="node-168">
+    <command xml:space="preserve">examinar st. stellio</command>
+    <result xml:space="preserve">No veo eso que dices.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-169"/>
+    </children>
+  </item>
+  <item nodeId="node-169">
+    <command xml:space="preserve">examinar stellio</command>
+    <result xml:space="preserve">No veo eso que dices.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-170"/>
+    </children>
+  </item>
+  <item nodeId="node-170">
+    <command xml:space="preserve">examinar st</command>
+    <result xml:space="preserve">No veo eso que dices.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-171"/>
+    </children>
+  </item>
+  <item nodeId="node-171">
+    <command xml:space="preserve">examinar capital</command>
+    <result xml:space="preserve">No veo eso que dices.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-172"/>
+    </children>
+  </item>
+  <item nodeId="node-172">
+    <command xml:space="preserve">examinar general</command>
+    <result xml:space="preserve">General Livia Tudor-Adolphus es la oficial de m&#x00E1;s alto rango que ha quedado en St. Stellio. Es una delgada mujer en sus ochenta. Lleva puesto un uniforme verde oscuro. Bajo un sombrero picudo, y una peluca hecha de metal blanco modelado en la forma de unos rizos apretados, su cara est&#x00E1; curtida y arrugada. Sus ojos son como dos esferas de hielo perfectamente formadas.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-173"/>
+    </children>
+  </item>
+  <item nodeId="node-173">
+    <command xml:space="preserve">examinar ojos</command>
+    <result xml:space="preserve">No veo eso que dices.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-174"/>
+    </children>
+  </item>
+  <item nodeId="node-174">
+    <command xml:space="preserve">examinar embarcadero</command>
+    <result xml:space="preserve">Est&#x00E1; abandonado.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-175"/>
+    </children>
+  </item>
+  <item nodeId="node-175">
+    <command xml:space="preserve">examinar suelo</command>
+    <result xml:space="preserve">No ves nada en especial al mirar en esa direcci&#x00F3;n.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-176"/>
+    </children>
+  </item>
+  <item nodeId="node-176">
+    <command xml:space="preserve">oler</command>
+    <result xml:space="preserve">Huele como el tr&#x00F3;pico.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-177"/>
+    </children>
+  </item>
+  <item nodeId="node-177">
+    <command xml:space="preserve">examinar cielo</command>
+    <result xml:space="preserve">( el cielo)&#x000A;Un abismo azul ardiente.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-178"/>
+    </children>
+  </item>
+  <item nodeId="node-178">
+    <command xml:space="preserve">examinar luz</command>
+    <result xml:space="preserve">S&#x00ED;mbolos danzantes sin sentido hechos de luz. Est&#x00E1;s algo precupado de que casi puedas leerlos.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-179"/>
+    </children>
+  </item>
+  <item nodeId="node-179">
+    <command xml:space="preserve">examinar luz</command>
+    <result xml:space="preserve">S&#x00ED;mbolos danzantes sin sentido hechos de luz. Est&#x00E1;s algo precupado de que casi puedas leerlos.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-180"/>
+    </children>
+  </item>
+  <item nodeId="node-180">
+    <command xml:space="preserve">m</command>
+    <result xml:space="preserve">Varado&#x000A;El muelle de cemento est&#x00E1; asado por el sol por arriba, salpicado por el agua por debajo. Jerogl&#x00ED;ficos resplandecientes inscritos en la superficie del puerto. Olores a sal, y putrefacci&#x00F3;n, y sudor, y limo. El suelo quema como una plancha.&#x000A;&#x000A;El muelle termina aqu&#x00ED;. Hacia el sur est&#x00E1; el embarcadero. La capital de St. Stellio (la cual es una ciudad tambi&#x00E9;n llamada St. Stellio) es invisible, en alg&#x00FA;n lugar a trav&#x00E9;s del fulgor abrasador del oeste. Hacia el norte una mara&#x00F1;a de follaje crece directamente desde el pi&#x00E9;lago. Hacia el este est&#x00E1; el oc&#x00E9;ano Atl&#x00E1;ntico.&#x000A;&#x000A;La General Livia Tudor-Adolphus est&#x00E1; sentada en una enorme silla de ruedas hecha de mimbre. El sol centellea sobre su insignia plateada de navajas autom&#x00E1;ticas.&#x000A;&#x000A;Al lado de la general se encuentra un gran artefacto met&#x00E1;lico con engranajes, volantes, pistones y v&#x00E1;lvulas. Lo m&#x00E1;s importante es que incluye una tolva en la parte superior, una placa en el centro y una espita cerca de la base, bajo el cual hay un vaso estriado..&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-181"/>
+    </children>
+  </item>
+  <item nodeId="node-181">
+    <command xml:space="preserve">examinar limo</command>
+    <result xml:space="preserve">No veo eso que dices.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-182"/>
+    </children>
+  </item>
+  <item nodeId="node-182">
+    <command xml:space="preserve">examinar mar</command>
+    <result xml:space="preserve">El t&#x00ED;pico pi&#x00E9;lago tropical, del color de la turquesa.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-183"/>
+    </children>
+  </item>
+  <item nodeId="node-183">
+    <command xml:space="preserve">examinar pielago</command>
+    <result xml:space="preserve">El t&#x00ED;pico pi&#x00E9;lago tropical, del color de la turquesa.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-184"/>
+    </children>
+  </item>
+  <item nodeId="node-184">
+    <command xml:space="preserve">examinar muelle</command>
+    <result xml:space="preserve">El muelle fue constru&#x00ED;do a toda prisa para atracar las naves de guerra, y una vez que la isla de St. Stellio fue tomada, se apresur&#x00F3; a desmoronarse. Ahora no queda ninguna nave. Todo el mundo se ha ido. (Bueno, casi todos.)&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-185"/>
+    </children>
+  </item>
+  <item nodeId="node-185">
+    <command xml:space="preserve">m</command>
+    <result xml:space="preserve">Varado&#x000A;El muelle de cemento est&#x00E1; asado por el sol por arriba, salpicado por el agua por debajo. Jerogl&#x00ED;ficos resplandecientes inscritos en la superficie del puerto. Olores a sal, y putrefacci&#x00F3;n, y sudor, y limo. El suelo quema como una plancha.&#x000A;&#x000A;El muelle termina aqu&#x00ED;. Hacia el sur est&#x00E1; el embarcadero. La capital de St. Stellio (la cual es una ciudad tambi&#x00E9;n llamada St. Stellio) es invisible, en alg&#x00FA;n lugar a trav&#x00E9;s del fulgor abrasador del oeste. Hacia el norte una mara&#x00F1;a de follaje crece directamente desde el pi&#x00E9;lago. Hacia el este est&#x00E1; el oc&#x00E9;ano Atl&#x00E1;ntico.&#x000A;&#x000A;La General Livia Tudor-Adolphus est&#x00E1; sentada en una enorme silla de ruedas hecha de mimbre. El sol centellea sobre su insignia plateada de navajas autom&#x00E1;ticas.&#x000A;&#x000A;Al lado de la general se encuentra un gran artefacto met&#x00E1;lico con engranajes, volantes, pistones y v&#x00E1;lvulas. Lo m&#x00E1;s importante es que incluye una tolva en la parte superior, una placa en el centro y una espita cerca de la base, bajo el cual hay un vaso estriado..&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-186"/>
+    </children>
+  </item>
+  <item nodeId="node-186">
+    <command xml:space="preserve">examinar general</command>
+    <result xml:space="preserve">General Livia Tudor-Adolphus es la oficial de m&#x00E1;s alto rango que ha quedado en St. Stellio. Es una delgada mujer en sus ochenta. Lleva puesto un uniforme verde oscuro. Bajo un sombrero picudo, y una peluca hecha de metal blanco modelado en la forma de unos rizos apretados, su cara est&#x00E1; curtida y arrugada. Sus ojos son como dos esferas de hielo perfectamente formadas.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-187"/>
+    </children>
+  </item>
+  <item nodeId="node-187">
+    <command xml:space="preserve">examinar sombrero</command>
+    <result xml:space="preserve">Verde oscuro, lujoso cuero.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-188"/>
+    </children>
+  </item>
+  <item nodeId="node-188">
+    <command xml:space="preserve">examinar uniforme</command>
+    <result xml:space="preserve">Sarga verde oscuro. T&#x00FA; tambi&#x00E9;n llevas uno, s&#x00F3;lo que sin tanta decoraci&#x00F3;n. Est&#x00E1;n tan calientes como el Infierno.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-189"/>
+    </children>
+  </item>
+  <item nodeId="node-189">
+    <command xml:space="preserve">examinar navajas</command>
+    <result xml:space="preserve">No veo eso que dices.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-190"/>
+    </children>
+  </item>
+  <item nodeId="node-190">
+    <command xml:space="preserve">examinar insignia</command>
+    <result xml:space="preserve">No veo eso que dices.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-191"/>
+    </children>
+  </item>
+  <item nodeId="node-191">
+    <command xml:space="preserve">examinar peluca</command>
+    <result xml:space="preserve">Tiene que picar.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-192"/>
+    </children>
+  </item>
+  <item nodeId="node-192">
+    <command xml:space="preserve">examinar silla</command>
+    <result xml:space="preserve">Una monstruosidad G&#x00F3;tica hecha de metal y mimbre.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-193"/>
+    </children>
+  </item>
+  <item nodeId="node-193">
+    <command xml:space="preserve">examinar silla de ruedas</command>
+    <result xml:space="preserve">Intenta de nuevo, porque s&#x00F3;lo te pude entender: examinar  la silla.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-194"/>
+    </children>
+  </item>
+  <item nodeId="node-194">
+    <command xml:space="preserve">examinar silla de mimbre</command>
+    <result xml:space="preserve">Intenta de nuevo, porque s&#x00F3;lo te pude entender: examinar  la silla.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-195"/>
+    </children>
+  </item>
+  <item nodeId="node-195">
+    <command xml:space="preserve">examinar silla mimbre</command>
+    <result xml:space="preserve">Una monstruosidad G&#x00F3;tica hecha de metal y mimbre.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-196"/>
+    </children>
+  </item>
+  <item nodeId="node-196">
+    <command xml:space="preserve">examinar silla de ruedas</command>
+    <result xml:space="preserve">Intenta de nuevo, porque s&#x00F3;lo te pude entender: examinar  la silla.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-197"/>
+    </children>
+  </item>
+  <item nodeId="node-197">
+    <command xml:space="preserve">examinar ruedas</command>
+    <result xml:space="preserve">Una monstruosidad G&#x00F3;tica hecha de metal y mimbre.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-198"/>
+    </children>
+  </item>
+  <item nodeId="node-198">
+    <command xml:space="preserve">examine wheel chair</command>
+    <result xml:space="preserve">No conozco ese verbo.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-199"/>
+    </children>
+  </item>
+  <item nodeId="node-199">
+    <command xml:space="preserve">examinar sombrero</command>
+    <result xml:space="preserve">Verde oscuro, lujoso cuero.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-200"/>
+    </children>
+  </item>
+  <item nodeId="node-200">
+    <command xml:space="preserve">examinar sombrero picudo</command>
+    <result xml:space="preserve">Verde oscuro, lujoso cuero.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-201"/>
+    </children>
+  </item>
+  <item nodeId="node-201">
+    <command xml:space="preserve">examinar peluca</command>
+    <result xml:space="preserve">Tiene que picar.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-202"/>
+    </children>
+  </item>
+  <item nodeId="node-202">
+    <command xml:space="preserve">examinar insignia</command>
+    <result xml:space="preserve">No veo eso que dices.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-203"/>
+    </children>
+  </item>
+  <item nodeId="node-203">
+    <command xml:space="preserve">examinar insignia plateada</command>
+    <result xml:space="preserve">No veo eso que dices.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+  </item>
+  <item nodeId="node-204">
+    <command xml:space="preserve">examinar jerogl&#x00ED;ficos</command>
+    <result xml:space="preserve">No, no tienen sentido.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-205"/>
+    </children>
+  </item>
+  <item nodeId="node-205">
+    <command xml:space="preserve">examinar puerto</command>
+    <result xml:space="preserve">El muelle fue constru&#x00ED;do a toda prisa para atracar las naves de guerra, y una vez que la isla de St. Stellio fue tomada, se apresur&#x00F3; a desmoronarse. Ahora no queda ninguna nave. Todo el mundo se ha ido. (Bueno, casi todos).&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-206"/>
+    </children>
+  </item>
+  <item nodeId="node-206">
+    <command xml:space="preserve">oler</command>
+    <result xml:space="preserve">Huele como el tr&#x00F3;pico.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-207"/>
+    </children>
+  </item>
+  <item nodeId="node-207">
+    <command xml:space="preserve">examinar suelo</command>
+    <result xml:space="preserve">No ves nada en especial al mirar en esa direcci&#x00F3;n.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-208"/>
+    </children>
+  </item>
+  <item nodeId="node-208">
+    <command xml:space="preserve">examinar muelle</command>
+    <result xml:space="preserve">El muelle fue constru&#x00ED;do a toda prisa para atracar las naves de guerra, y una vez que la isla de St. Stellio fue tomada, se apresur&#x00F3; a desmoronarse. Ahora no queda ninguna nave. Todo el mundo se ha ido. (Bueno, casi todos).&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-209"/>
+    </children>
+  </item>
+  <item nodeId="node-209">
+    <command xml:space="preserve">examinar capital</command>
+    <result xml:space="preserve">No veo eso que dices.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-210"/>
+    </children>
+  </item>
+  <item nodeId="node-210">
+    <command xml:space="preserve">examinar st stellio</command>
+    <result xml:space="preserve">No veo eso que dices.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-211"/>
+    </children>
+  </item>
+  <item nodeId="node-211">
+    <command xml:space="preserve">examinar fulgor</command>
+    <result xml:space="preserve">S&#x00ED;mbolos de luz danzantes sin sentido alguno. Est&#x00E1;s algo precupado de que casi puedas leerlos.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-212"/>
+    </children>
+  </item>
+  <item nodeId="node-212">
+    <command xml:space="preserve">examinar general</command>
+    <result xml:space="preserve">General Livia Tudor-Adolphus es la oficial de m&#x00E1;s alto rango que ha quedado en St. Stellio. Es una delgada mujer en sus ochenta. Lleva puesto un uniforme verde oscuro. Bajo un sombrero picudo, y una peluca hecha de metal blanco modelado en la forma de unos rizos apretados, est&#x00E1; su cara curtida y arrugada. Sus ojos son como dos esferas de hielo perfectamente formadas.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-213"/>
+    </children>
+  </item>
+  <item nodeId="node-213">
+    <command xml:space="preserve">examinar traje</command>
+    <result xml:space="preserve">No veo eso que dices.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-214"/>
+    </children>
+  </item>
+  <item nodeId="node-214">
+    <command xml:space="preserve">examinar uniforme</command>
+    <result xml:space="preserve">Sarga verde oscuro. T&#x00FA; tambi&#x00E9;n llevas uno, s&#x00F3;lo que sin tanta decoraci&#x00F3;n. Est&#x00E1;n tan calientes como el Infierno.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-215"/>
+    </children>
+  </item>
+  <item nodeId="node-215">
+    <command xml:space="preserve">examinar insignia</command>
+    <result xml:space="preserve">Las navajas plateadas (autom&#x00E1;ticas) sobre las solapas de la general significan que ella estuvo aqu&#x00ED; durante la toma de St. Stellio hace treinta a&#x00F1;os. Tambi&#x00E9;n significa que derram&#x00F3; sangre. Hay rumores de que es igualmente h&#x00E1;bil con rifle, sable, ca&#x00F1;&#x00F3;n y orden de ejecuci&#x00F3;n con car&#x00E1;cter retroactivo.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-216"/>
+    </children>
+  </item>
+  <item nodeId="node-216">
+    <command xml:space="preserve">examinar navajas</command>
+    <result xml:space="preserve">No veo eso que dices.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-217"/>
+    </children>
+  </item>
+  <item nodeId="node-217">
+    <command xml:space="preserve">examinar navaja</command>
+    <result xml:space="preserve">No veo eso que dices.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-218"/>
+    </children>
+  </item>
+  <item nodeId="node-218">
+    <command xml:space="preserve">examinar insignia</command>
+    <result xml:space="preserve">Las navajas plateadas (autom&#x00E1;ticas) sobre las solapas de la general significan que ella estuvo aqu&#x00ED; durante la toma de St. Stellio hace treinta a&#x00F1;os. Tambi&#x00E9;n significa que derram&#x00F3; sangre. Hay rumores de que es igualmente h&#x00E1;bil con rifle, sable, ca&#x00F1;&#x00F3;n y orden de ejecuci&#x00F3;n con car&#x00E1;cter retroactivo.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-219"/>
+    </children>
+  </item>
+  <item nodeId="node-219">
+    <command xml:space="preserve">examinar insignia plateada</command>
+    <result xml:space="preserve">Las navajas plateadas (autom&#x00E1;ticas) sobre las solapas de la general significan que ella estuvo aqu&#x00ED; durante la toma de St. Stellio hace treinta a&#x00F1;os. Tambi&#x00E9;n significa que derram&#x00F3; sangre. Hay rumores de que es igualmente h&#x00E1;bil con rifle, sable, ca&#x00F1;&#x00F3;n y orden de ejecuci&#x00F3;n con car&#x00E1;cter retroactivo.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-220"/>
+    </children>
+  </item>
+  <item nodeId="node-220">
+    <command xml:space="preserve">examinar navaja</command>
+    <result xml:space="preserve">No veo eso que dices.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-221"/>
+    </children>
+  </item>
+  <item nodeId="node-221">
+    <command xml:space="preserve">acciones</command>
+    <result xml:space="preserve">Actions listing on.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-222"/>
+    </children>
+  </item>
+  <item nodeId="node-222">
+    <command xml:space="preserve">examinar navaja</command>
+    <result xml:space="preserve">No veo eso que dices.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-223"/>
+    </children>
+  </item>
+  <item nodeId="node-223">
+    <command xml:space="preserve">examinar automatica</command>
+    <result xml:space="preserve">No veo eso que dices.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-224"/>
+    </children>
+  </item>
+  <item nodeId="node-224">
+    <command xml:space="preserve">examinar mimbre</command>
+    <result xml:space="preserve">No veo eso que dices.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-225"/>
+    </children>
+  </item>
+  <item nodeId="node-225">
+    <command xml:space="preserve">examinar jerogl&#x00ED;ficos</command>
+    <result xml:space="preserve">[examining el jerogl&#x00ED;ficos]&#x000A;No, no tienen sentido.&#x000A;&#x000A;[examining el jerogl&#x00ED;ficos - succeeded]&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-226"/>
+    </children>
+  </item>
+  <item nodeId="node-226">
+    <command xml:space="preserve">examinar s&#x00ED;mbolos</command>
+    <result xml:space="preserve">[examining el jerogl&#x00ED;ficos]&#x000A;No, no tienen sentido.&#x000A;&#x000A;[examining el jerogl&#x00ED;ficos - succeeded]&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-227"/>
+    </children>
+  </item>
+  <item nodeId="node-227">
+    <command xml:space="preserve">examinar simbolos</command>
+    <result xml:space="preserve">[examining el jerogl&#x00ED;ficos]&#x000A;No, no tienen sentido.&#x000A;&#x000A;[examining el jerogl&#x00ED;ficos - succeeded]&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-228"/>
+    </children>
+  </item>
+  <item nodeId="node-228">
+    <command xml:space="preserve">examinar s&#x00ED;mbolos</command>
+    <result xml:space="preserve">[examining el jerogl&#x00ED;ficos]&#x000A;No, no tienen sentido.&#x000A;&#x000A;[examining el jerogl&#x00ED;ficos - succeeded]&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-229"/>
+    </children>
+  </item>
+  <item nodeId="node-229">
+    <command xml:space="preserve">examinar simbolo</command>
+    <result xml:space="preserve">No veo eso que dices.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-230"/>
+    </children>
+  </item>
+  <item nodeId="node-230">
+    <command xml:space="preserve">examinar jeroglifico</command>
+    <result xml:space="preserve">[examining el jerogl&#x00ED;ficos]&#x000A;No, no tienen sentido.&#x000A;&#x000A;[examining el jerogl&#x00ED;ficos - succeeded]&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-231"/>
+    </children>
+  </item>
+  <item nodeId="node-231">
+    <command xml:space="preserve">examinar s&#x00ED;mbolos</command>
+    <result xml:space="preserve">[examining el jerogl&#x00ED;ficos]&#x000A;No, no tienen sentido.&#x000A;&#x000A;[examining el jerogl&#x00ED;ficos - succeeded]&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-232"/>
+    </children>
+  </item>
+  <item nodeId="node-232">
+    <command xml:space="preserve">examinar simbolos</command>
+    <result xml:space="preserve">[examining el jerogl&#x00ED;ficos]&#x000A;No, no tienen sentido.&#x000A;&#x000A;[examining el jerogl&#x00ED;ficos - succeeded]&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-233"/>
+    </children>
+  </item>
+  <item nodeId="node-233">
+    <command xml:space="preserve">acerca de</command>
+    <result xml:space="preserve">[getting info]&#x000A;Lime Ergot fue originariamente escrita y programada por Caleb Wilson, bajo el pseud&#x00F3;nimo de Rust Blight, en el transcurso de tres horas en Octubre de 2014 para la ECTOCOMP. La versi&#x00F3;n 2 fue mejorada y de alguna forma expandida, y la actual, versi&#x00F3;n 3, fue mejorada muy ligeramente y actualizada a la &#x00FA;ltima versi&#x00F3;n de Inform. Adem&#x00E1;s ha sido traducida al espa&#x00F1;ol por Ruber Eaglenest. Gracias a Seth Kaplan, Neil Butters, y Duncan Bowsman por el testeo. Y a no-nonsense, Johan Paz, Comely y Santiago Eximeno, por la revisi&#x00F3;n en espa&#x00F1;ol. Env&#x00ED;a un email al autor a rotifer@gmail.com.&#x000A;[getting info - succeeded]&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+  </item>
+  <item nodeId="node-234">
+    <command xml:space="preserve">examinar insignia</command>
+    <result xml:space="preserve">Las navajas plateadas sobre las solapas de la general significan que ella estuvo aqu&#x00ED; durante la toma de St. Stellio hace treinta a&#x00F1;os. Tambi&#x00E9;n significan que ella derram&#x00F3; sangre. Hay rumores de que es igualmente h&#x00E1;bil con rifle, sable, ca&#x00F1;&#x00F3;n y orden de ejecuci&#x00F3;n con car&#x00E1;cter retroactivo.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-235"/>
+    </children>
+  </item>
+  <item nodeId="node-235">
+    <command xml:space="preserve">examinar navaja</command>
+    <result xml:space="preserve">Las navajas plateadas sobre las solapas de la general significan que ella estuvo aqu&#x00ED; durante la toma de St. Stellio hace treinta a&#x00F1;os. Tambi&#x00E9;n significan que ella derram&#x00F3; sangre. Hay rumores de que es igualmente h&#x00E1;bil con rifle, sable, ca&#x00F1;&#x00F3;n y orden de ejecuci&#x00F3;n con car&#x00E1;cter retroactivo.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-236"/>
+    </children>
+  </item>
+  <item nodeId="node-236">
+    <command xml:space="preserve">examinar navajas</command>
+    <result xml:space="preserve">No veo eso que dices.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-237"/>
+    </children>
+  </item>
+  <item nodeId="node-237">
+    <command xml:space="preserve">i</command>
+    <result xml:space="preserve">No llevas nada.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-238"/>
+    </children>
+  </item>
+  <item nodeId="node-238">
+    <command xml:space="preserve">examinarme</command>
+    <result xml:space="preserve">Eres el lugarteniente Musco. Sin nadie m&#x00E1;s a los que mandar, eres oficialmente el soldado de menor rango en todo St. Stellio.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-239"/>
+    </children>
+  </item>
+  <item nodeId="node-239">
+    <command xml:space="preserve">examinar stellio</command>
+    <result xml:space="preserve">No veo eso que dices.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-240"/>
+    </children>
+  </item>
+  <item nodeId="node-240">
+    <command xml:space="preserve">m</command>
+    <result xml:space="preserve">Varado&#x000A;El muelle de cemento est&#x00E1; asado por el sol por arriba, salpicado por el agua por debajo. Jerogl&#x00ED;ficos resplandecientes inscritos en la superficie del puerto. Olores a sal, y putrefacci&#x00F3;n, y sudor, y limo. El suelo quema como una plancha.&#x000A;&#x000A;El muelle termina aqu&#x00ED;. Hacia el sur est&#x00E1; el embarcadero. La capital de St. Stellio (la cual es una ciudad tambi&#x00E9;n llamada St. Stellio) es invisible, en alg&#x00FA;n lugar a trav&#x00E9;s del fulgor abrasador del oeste. Hacia el norte una mara&#x00F1;a de follaje crece directamente desde el pi&#x00E9;lago. Hacia el este est&#x00E1; el oc&#x00E9;ano Atl&#x00E1;ntico.&#x000A;&#x000A;La General Livia Tudor-Adolphus est&#x00E1; sentada en una enorme silla de ruedas hecha de mimbre. El sol centellea sobre su insignia plateada de navajas autom&#x00E1;ticas.&#x000A;&#x000A;Al lado de la general se encuentra un gran artefacto met&#x00E1;lico con engranajes, volantes, pistones y v&#x00E1;lvulas. Lo m&#x00E1;s importante es que incluye una tolva en la parte superior, una placa en el centro y una espita cerca de la base, bajo el cual hay un vaso estriado..&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+  </item>
+</Skein>

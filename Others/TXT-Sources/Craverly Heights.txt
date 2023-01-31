@@ -1,0 +1,671 @@
+"Craverly Heights" by Ryan Veeder
+
+Volume - Boring
+
+The release number is 2.
+
+Include Basic Screen Effects by Emily Short.
+
+Use American dialect, serial comma, and no scoring.
+
+When play begins:
+	now the right hand status line is "";
+
+Volume - The World
+
+Book - Generalities
+
+Section - Establishing Rooms And Regions
+
+Onstage is a region.
+
+Backstage is a region.
+
+Breakroom is a room in Backstage. The printed name of Breakroom is "Break Room". South Hallway is a room in Backstage. Hallway Intersection is a room in Backstage. North Hallway is a room in Backstage. East Hallway is a room in Backstage. West Hallway is a room in Backstage.
+
+Hospital is a room in Onstage. The printed name of Hospital is "Roland Memorial Hospital". Pizza is a room in Onstage. The printed name of Pizza is "Gina's Pizzeria". Craverly Manor is a room in Onstage.
+
+Hospital is west of North Hallway. Pizza is north of East Hallway. Breakroom is east of South Hallway. Craverly Manor is south of West Hallway. Hallway Intersection is south of North Hallway. Hallway Intersection is east of West Hallway. Hallway Intersection is north of South Hallway. Hallway Intersection is west of East Hallway.
+
+Section - The Boring Verbs
+
+Instead of looking under something, say "[if the location is in backstage]There's nothing under [the noun][otherwise]You are unable to find anything beneath [the noun][end if]."
+
+Instead of waiting in Onstage, say "You glance around [if the sunglasses are worn]menacingly[otherwise]meaningfully[end if]."
+
+Instead of touching something, say "[if the location is in backstage][The noun] feels normal[otherwise]You pause to consider the texture of [the noun][end if]."
+
+Instead of touching a person, say "[if the location is in backstage]You touch [noun], who tries to shoo you away[otherwise]You put your hand against [noun]'s face. [noun] looks meaningfully back at you[end if]."
+
+Instead of touching the player, say "[if the location is in backstage]You feel fine[otherwise]You press a finger against your skin. You are as real as anything else[end if]."
+
+Instead of waking up, say "[if the location is in backstage]This is too stupid to be a dream[otherwise]'Maybe this is all a dream,' you say, gazing into the distance, but no answer comes[end if]."
+
+Instead of thinking, say "[if the location is in backstage]You pause to consider what choices have led to this situation[otherwise if the sunglasses are worn]You pause to think. But of course you, Sidney Langridge, can think only of yourself[otherwise]'I need to think,' you say, pressing your fingers against your temples. 'The answer is staring me right in the face, I just know it.' You squint deeply, the weight of all Craverly Heights's problems upon your shoulders[end if]."
+
+Instead of swearing obscenely, say "[if the location is in backstage]If that's what it takes to get you to calm down[otherwise]You better control yourself: This is daytime TV[end if]."
+
+Instead of swearing mildly, say "[if the location is in backstage]If that's what it takes to get you to calm down[otherwise]You better control yourself: This is daytime TV[end if]."
+
+Instead of singing, say "[if the location is in backstage]Not one of your talents[otherwise]They don't pay you enough[end if]."
+
+Instead of sleeping, say "[if the location is in backstage]There's a lot left to do today[otherwise]Not on the job[end if]."
+
+Section - Miscellaneous Stuff
+
+Talking to is an action applying to one visible thing.
+
+Understand "greet [something]" or "say hello/hi to [something]" or "talk to [something]" as talking to.
+
+Instead of pushing something scenery, try taking the noun.
+
+Instead of taking some scenery, say "[if the location is in Onstage]Moving that is someone else's job[otherwise]That belongs where it is[end if]."
+
+Instead of listening while in Backstage, say "It's pretty quiet."
+
+A person can be transparent. A person is usually transparent.
+
+Instead of giving something to someone, try showing the noun to the second noun.
+
+Section - Commonalities Of Onstage Locations
+
+The camera is a backdrop. Understand "cameras" as the camera. The camera is in Onstage. The description of the camera is "You just accidentally glanced at a camera, but they can edit that out."
+
+Before doing something other than examining with the camera:
+	if the noun is the camera:
+		say "You're not supposed to acknowledge it." instead.
+
+
+Book - The Rooms Themselves
+
+Part - Gina's Pizzeria
+
+The description of Pizza is "The tender light of the morning[unicode 8212]or the very early evening[unicode 8212]casts itself softly against the downy linen of spotless white tablecloths and the Italian flag hanging from the wall. The exit is south."
+
+Instead of listening to Pizza, say "All you hear is the heavy silence of an oven that has not been turned on, the anticipatory hush of a pizza cutter that lies motionless inside of an unopened drawer. You hear nothing."
+
+The white tablecloth is a scenery supporter in Pizza. Understand "tablecloths" and "tables" and "table" and "white tablecloths" as the white tablecloth. The description of the white tablecloth is "Like an expectant canvas is each tablecloth, ready to receive the masterpiece that is every one of Gina's pizzas.".
+
+The Italian flag is scenery in Pizza. Understand "tricolor" and "tricolore" as the Italian flag. The description of the Italian flag is "The tricolor stands straight and proud and wide and true for all to see, a symbol of the deep respect and affection that Gina feels toward her heritage."
+
+After looking in Pizza:
+	if Gina is not in the location:
+		say "[one of]'It looks like Gina's not here yet,' you announce to the empty room. 'I wonder where she is.'[paragraph break]The room is silent[or]You glance around [if the sunglasses are worn]menacingly[otherwise]meaningfully[end if]. Gina is nowhere to be seen[stopping]."
+	
+Section - Gina
+
+Gina is a woman. "Gina is here, resolutely straightening things out in anticipation of the day's business." Understand "woman" and "lane" and "lady" as Gina.
+
+The description of Gina is "Gina is clearly in the midst of a valiant attempt to radiate her usual cheer, but her mien is marred by the looming knowledge of her beloved daughter's ill condition. Her pink blouse is wrinkled, belying the distraction that bedevils even the most meticulous of worried mothers."
+
+Instead of talking to Gina:
+	if the sunglasses are worn:
+		say "[one of]'Hello, Gina,' you say, your teeth flashing impishly from between your wily lips.[paragraph break]Gina's face is a stoic cliff, carved from stone. 'Sid. You're supposed to be in a federal prison.'[paragraph break]Your cackling is like an incoming thunderstorm. 'People seem to think so! But I figure, wherever I am is where I'm supposed to be.' You smirk[or]'What are you still doing here?' asks Gina.[paragraph break]'Wouldn't you like to know?' is your menacing reply[stopping].";
+	otherwise if prog is 0:
+		say "[one of]'Pauline's insurance has run out,' you say. Gina's expression descends into concern.[paragraph break]'She needs a procedure, or she'll die,' you continue. 'Is there any way you can pay for it?'[paragraph break]'This pizzeria is barely paying for its own bills,' says Gina. 'All the money I could have spent to save Pauline's life, I spent on my dream of becoming a restauranteur.'[paragraph break]'We all have to live with our mistakes,' you say, 'but Pauline may not have long to live with yours.'[paragraph break]Gina tries to hide her face[or]'What about Pauline's father?' you ask. 'Could he pay for the procedure?'[paragraph break]'Doc, Pauline's father isn't in Antibes.' Your jaw slackens at the sound of Gina's revelation. 'The fact is, I don't know who Pauline's father is.'[paragraph break]Your expression is one of shock[stopping].";
+	otherwise if prog is 1:
+		say "'Please let me know if there's any news from the hospital,' Gina says, trying her best not to break down into an avalanche of motherly tears.";
+	otherwise if prog is 2:
+		say "'What are you still doing here?' Gina cries. 'Pauline needs to know about her real father! And so does...her father."
+
+Instead of kissing Gina:
+	if the sunglasses are worn:
+		say "Gina rebuffs your amorous advance. 'Sidney, I wouldn't kiss you with my dead husband's mouth.'" instead;
+	otherwise:
+		say "[one of]'What are you doing?' Gina asks as you approach her.[paragraph break]'Let me show you,' you say, as you put your arms around her body and tenderly meet her lips against yours. Gina yields passionately to your embrace.[paragraph break]But then the moment is over. 'This can never happen again,' Gina whispers[or]You kiss Gina again. Again you feel the warmth of bodily contact that you have been craving for so long. Again Gina says that this can never happen again[stopping]."
+
+After pointing the handgun at Gina:
+	if the sunglasses are worn:
+		if the suspect is Gina:
+			if the satchel is not enclosed by a room:
+				say "'I want those jewels, Gina!' you say, threatening the matronly entepreneur with the shining steel of your lethal accessory. 'Or do you want your blood all over these nice white tablecloths?'[paragraph break]'Don't shoot, Sid! Here!' She reveals a satchel, which she throws across the dining room and into your hand. 'Please, don't shoot me.'[paragraph break]'Of course not. I wouldn't hurt you, as long as you played nice.' You shake the satchel full of jewels with a satisfied air. 'And you sure did play real nice,' you say, smugly.";
+				now the player carries the satchel;
+			otherwise:
+				say "'There are no more jewels, Sid,' Gina cries. 'They're all in that bag.'[paragraph break]'I was just making sure,' you say.";
+		otherwise:
+			say "Gina reels in shock at the sight of the gun that is pointed her way. She cringes audibly. You cackle ominously.";
+	otherwise:
+		say "Gina stares down the barrel of your pistol with a face twisted by incredible shock.[paragraph break]'Doc!' she gasps. 'Put the gun down! You're not thinking straight!'[paragraph break]'Or am I?' you retort."
+
+
+After pointing the handgun at Leopold:
+	if the sunglasses are worn and the suspect is Leopold:
+		if the satchel is not enclosed by a room:
+			say "'I want those jewels, old man!' you say, menacing the silver-haired millionaire with the gleaming barrel of your murderous weapon. 'Are you going to play along, or are you going to die?'[paragraph break]'All right, all right! Here!' Leopold draws a satchel out of his pocket and tosses it to you. 'They're all there. Just leave me be!'[paragraph break]You feel the heft of the satchel in your hand and smile a smug smile.";
+			now the player carries the satchel;
+		otherwise:
+			say "'I've already given you the jewels, Sidney,' Leopold chides.[paragraph break]'That's right, you did,' you respond. 'And don't you forget it!'";
+	otherwise:
+		say "Leopold regards the handgun with a cool indifference. 'Put that thing down, [if the sunglasses are worn]Sidney[otherwise]Langridge[end if]. You're liable to hurt yourself.'"
+
+
+	
+After shooting Gina the first time:
+	now Gina is dead;
+	now the initial appearance of Gina is "Gina lies on the floor, dead.";
+	now the description of Gina is "Gina had so much love to give this world[unicode 8212]but now she's dead. Never again will man or woman taste the delicious pizzas that Gina had to offer. This entepreneur has tossed her last crust.";
+	say "Your gun screams as if in anger as it ejects its bullet straight into Gina's mortal coil. If she had any last words, it is too late for them now.[paragraph break]She falls to the floor with a horrible slump, as dead as her Italian role model, Julius Caesar.";
+	if Leopold Craverly is dead and Pauline is dead:
+		execute the bloodbath ending.
+
+	
+After shooting Gina:
+	say "You fire another bullet into Gina's dead body. 'I don't know why I did that,' you announce."
+	
+Instead of showing the handgun to Gina:
+	if the sunglasses are worn:
+		say "'Is that the gun you used to shoot the mayor?' Gina asks.[paragraph break]'Nah, this gun is innocent,' you say, quickly adding: 'And so am I!'";
+	otherwise:
+		say "Gina regards your gun with a skeptic's pair of eyes. 'Why would a doctor need a gun?' she asks.[paragraph break]'We doctors need a lot of things,' you answer meaningfully."
+
+Instead of showing the magnifying glass to Gina, say "'Are you on the trail of a mystery?' Gina asks.[paragraph break]'In my own way, I suppose, I am,' you say, [if the sunglasses are worn]menacingly[otherwise]meaningfully[end if]."
+
+Instead of showing the framed photo to Gina:
+	if the sunglasses are worn:
+		if the satchel is enclosed by a room:
+			say "'That dog's death was as meaningless as your life,' Gina eloquently states.";
+		otherwise if the suspect is not Leopold Craverly:
+			say "[ginaspeech]";
+			now the suspect is Gina;
+		otherwise:
+			say "'Where did you get that photo of my daughter's beloved golden retriever Wendell?' Gina asks indignantly and accusingly. You lick your lips menacingly.[paragraph break]'So it's a crime to have a photo of a dog now?' you ask. 'What is this world coming to?'[paragraph break]Gina glares at you.";
+	otherwise:
+		say "Gina regards the photo sadly. 'Oh, Wendell, you big lug. Why'd you have to leave us?' she asks.[paragraph break]'You don't have any clues to the mystery of his death?' you ask.[paragraph break]Gina regards you angrily. 'Are you accusing me of something?' she asks.[paragraph break]'Of course not,' you answer."
+
+
+Instead of asking Gina about "[the jewels]":
+	if the satchel is enclosed by a room:
+		say "'You got your jewels. Now, go,' Gina pouts, her pride hurt by your actions as much as her heart is hurt by her daughter's illness.";
+	otherwise:
+		say "[ginaspeech]";
+		now the suspect is Gina;
+
+To say ginaspeech:
+	say "[one of]'You can cut the act, Gina. I know that you know that me and Janine killed Wendell the dog because he knew where we buried the jewels[unicode 8212]the jewels that you dug up in the train yard while I was in prison,' you say, holding up the photo of Wendell as if it were Exhibit A in a courtroom of crime.[paragraph break]'Maybe that's all true, or maybe not,' Gina says, 'but I'm not handing over those jewels.'[paragraph break]You grimace[or]'The jewels are mine, Sid!' Gina says haughtily, her pink blouse rippling with satisfaction[stopping].";
+
+
+Part - Roland Memorial Hospital
+
+The player is in Hospital.
+
+The description of the player is "[if the location is in Backstage]You have no idea what you're doing[otherwise if the sunglasses are worn]You are Sidney Langridge, feared and hated in the town of Craverly Heights and beyond. Only in appearance are you identical to Doctor Langridge, for in words and deeds you are the polar opposite of your do-gooder twin[otherwise]You are Doctor Langridge, mentor to some, friend to many, and healer to all of the citizens of Craverly Heights. Everyone in town knows your name. It is Doctor Langridge[end if]."
+
+The description of Hospital is "The whirring and chirping of medical instruments is all around[unicode 8212]a worrying commotion[if the sunglasses are not worn], to some, but to your ears it is as regular as a heartbeat, as usual as business. While you walk these sterile halls, you are in your element: the element of health[end if]. The exit is east."
+
+Instead of listening to Hospital, say "The whirring and chirping of medical instruments is all around. A worrying commotion[if the sunglasses are not worn], to some. But to your ears it is as regular as a heartbeat. As usual as business[end if]."
+
+The bed is scenery in Hospital. Understand "hospital bed" as the bed. The description of the bed is "For all its convenience-enhancing technological features, this bed is still a detestable prison in the doe-eyes of its tenant, the invalid Pauline."
+
+Section - Pauline
+
+Pauline is a woman in Hospital. "Pauline, pale and frail, looks up at you [if the sunglasses are worn]confusedly[otherwise]pleadingly[end if] from her supine position aboard her hospital bed." Understand "girl" and "woman" and "janine" as Pauline.
+
+The description of Pauline is "You gaze down [if the sunglasses are worn]menacingly[otherwise]meaningfully[end if] at Pauline, at her once-soft features cast into sharp relief by the mysterious illness that wracks her youthful form."
+
+After examining Pauline the first time:
+	if Pauline is dead:
+		rule succeeds;
+	otherwise:
+		say "[paulinespeak]".
+
+Instead of talking to Pauline:
+	say "[paulinespeak]"
+	
+To say paulinespeak:
+	if the sunglasses are worn:
+		say "[one of]'Sidney!' Pauline's eyes widen as they detect your identity. 'You shouldn't be here! What if the doctor, your twin, sees you?'[paragraph break]'You leave the nerd to me, sugarbabe. I've been dealing with that clamshell since the day we were both born[or]'You came back for me, Sidney,' Pauline says, her chest working double-time to force the words out of her lungs.[paragraph break]'I sure did, sugarbabe[stopping].'";
+	otherwise if prog is 0:
+		say "[one of]'Oh, Doctor Langridge,' Pauline rasps, 'Tell me some good news.'[paragraph break]'I wish I could,' you say, 'but the truth is that your condition is getting worse. And the even worse news is that your insurance won't pay for your procedure.'[paragraph break]Pauline's lip quivers[or]'Can't anything be done, Doctor Langridge?' Pauline asks pitifully.[paragraph break]'I'll talk to your mother,' you say, though your countenance does not indicate confidence[stopping].";
+	otherwise if prog is 1:
+		say "'Please let me know if you find out about those test results,' Pauline pleads.";
+	otherwise if prog is 2:
+		say "Pauline looks up at you, beautiful tears welling in her still more beautiful eyes. 'Please, Doctor Langridge! Talk to my father! He might be able to help!'"
+	
+Instead of kissing Pauline:
+	if the sunglasses are worn:
+		say "[one of]You plant a long, meaningful kiss on Pauline's quivering lips. 'It's been so long,' she sighs[or]You kiss Pauline again, for fun. Nobody tells Sidney Langridge not to kiss sick people[stopping].";
+	otherwise:
+		say "[one of]You lean down until your face almost meets Pauline's. 'The Hippocratic Oath warns a doctor not to give into his or her feelings for a patient,' you say, 'but an oath can only be kept for so long.' Pauline rises weakly to kiss you passionately. The moment is perfect, but it does not last forever.[paragraph break]'No one can know about this,' you say. Pauline nods weakly[or]You kiss Pauline again. She responds with enthusiasm despite her bedridden condition[stopping]."
+	
+After pointing the handgun at Pauline:
+	say "'What are you doing?' Pauline shrieks.[paragraph break]'You'll see soon enough,' you say, [if the sunglasses are worn]menacingly[otherwise]meaningfully[end if]."
+	
+After shooting Pauline the first time:
+	now Pauline is dead;
+	now the initial appearance of Pauline is "Pauline's dead body lies motionless in her hospital bed.";
+	now the description of Pauline is "No longer do Pauline's tender lips draw breath; no longer do her eyes plead for release from the life of infirmity that had entrapped her.";
+	say "You fire into Pauline's chest. The crack of the gunshot is drowned out by her desperate scream[unicode 8212]but, an instant later, her screaming ends. She's dead.";
+	if Leopold Craverly is dead and Gina is dead:
+		execute the bloodbath ending.
+
+	
+After shooting Pauline:
+	say "You fire another bullet into Pauline's dead body. 'Now she's dead for sure,' you announce."
+	
+Instead of showing the handgun to Pauline:
+	if the sunglasses are worn:
+		say "'Nice gun,' Pauline says.[paragraph break]'Thanks,' you say, menacingly.";
+	otherwise:
+		say "'Why would a doctor need a gun?' Pauline asks, her eyes clouded with innocence.[paragraph break]'That's a good question, Pauline. But I can't tell you,' you say. And then you add: 'Yet.'"
+
+Instead of showing the magnifying glass to Pauline, say "As Pauline looks through the magnifying glass, an expression of befuddlement overtakes her face. 'Everything is distorted and strange,' she says.[paragraph break]'That's [if the sunglasses are worn]because magnifying glasses are for sucks[otherwise]in the nature of a lens,' you respond. 'They can reveal to us the world's secret truths, or they can show us a bizarre parody of our lives, as if reflected in a funhouse mirror. We must always be mindful of this, when we gaze through a glass[end if],' you say."
+
+The suspect is a thing that varies. The suspect is Janine.
+
+Instead of showing the framed photo to Pauline:
+	if the sunglasses are worn:
+		say "[one of]Salty, unhappy tears well up in Pauline's eyes as she regards the image of her beloved dog. 'I miss him so much,' she says.[paragraph break]'But you remember why we killed him, don't you?' you ask.[paragraph break]'Of course. Wendell kept trying to dig up the place where we buried the jewels.'[paragraph break]'Yeah, well, right after I got out of prison I went back to that place, where we buried the jewels. But someone got there first. Someone dug them up.'[paragraph break]Pauline gasps. 'But who else knew about the jewels?'[paragraph break]'Only one person,' you menacingly say[or]'Have you talked to the one other person who knew about the jewels yet?' Pauline asks[stopping].";
+	otherwise:
+		say "[one of]At the sight of her beloved departed dog, Pauline's expression sinks still further into the mire of melancholy.[paragraph break]'Oh, Wendell,' she mourns, on the verge of weeping. 'If only you were here, I wouldn't feel nearly so awful. If I ever find out who took you from me...'[paragraph break]'But Wendell's death was ruled an accident,' you say.[paragraph break]Pauline fixes you with as steely a glare as she can muster in her depleted state. 'You don't believe that, do you?' she asks.[paragraph break]'No,' you say[or]You offer the photo to Pauline again, but she refuses to look at it[stopping]."
+
+
+
+Part - Craverly Manor
+
+The description of Craverly Manor is "A gargantuan portrait of the hawk-eyed and hawk-nosed Leopold Craverly stares down at you from its perch on the mahogany-panelled wall. The exit is north."
+
+Instead of listening to Craverly Manor, say "The manor is eerily quiet. The other Craverlies have left; only Leopold lives here now."
+
+The gargantuan portrait is scenery in Craverly Manor. Understand "painting" and "picture" as the gargantuan portrait. The description of the gargantuan portrait is "The portrait may resemble Craverly even more than does Craverly himself. Art imitates life, yes: but life is messy, and inaccurate; art is perfect, and reflects the real world as it really is."
+
+The mahogany-panelled wall is scenery in Craverly Manor. Understand "walls" and "mahogany" and "wood" and "panel" and "panels" as the mahogany-panelled wall. The description of the mahogany-panelled wall is "These stoic walls have enclosed the Craverly clan for generations, ever since Aloysius Craverly built Craverly Manor and founded Craverly Heights in the early nineteenth century."
+
+Section - Leopold Craverly
+
+Leopold Craverly is a man in Craverly Manor. "Standing beneath the portrait is Leopold Craverly himself, identical to his own image in every way. He eyes you sternly from his perch atop his snake-headed cane." Understand "man" and "leo" as Leopold Craverly.
+
+The description of Leopold Craverly is "Though his hair is silver-white, and his eyes have been furrowed by a lifetime of avarice and cynicism, Leopold still has many years left in his life, and many goals left to achieve in those years, no matter what or who stands in his way."
+
+After examining Leopold the first time:
+	if Leopold is dead:
+		rule succeeds;
+	otherwise:
+		say "[leospeak]".
+
+Leopold Craverly carries the snake-headed cane. Understand "snake" and "head" and "snake head" as the snake-headed cane. The description of the snake-headed cane is "A mystery: Does Leopold carry this sinister cane because of a physical infirmity, or is its purpose merely to inspire apprehension and respect in those who behold it? Even you, [if the sunglasses are worn]a master criminal[otherwise]the finest doctor in Craverly Heights[end if], cannot be sure."
+
+After talking to Leopold:
+	say "[leospeak]";
+	
+To say leospeak:
+	if the sunglasses are worn:
+		say "[one of]'Hello, there, Leo!' you say.[paragraph break]'Out of prison again,' Leopold begins, and you say 'Naturally!' as he says 'I see.' You both stop talking, and Leopold coughs, waiting for you to talk to him again[or]'Hello, there, Leo!' you say.[paragraph break]'Out of prison again,' Leopold says, and then he is quiet for a moment.[paragraph break]'Naturally!' you say, too late, and Leopold shakes his head. 'Sorry. Let's try it one more time.'[paragraph break]You shuffle your feet[or]'Hello, there, Leo!' you say.[paragraph break]'Out of prison again,' Leopold says, and you say 'Naturally!'[paragraph break]Leopold nods[stopping].";
+	otherwise:
+		say "[one of]'What's new over at Roland Memorial, Langridge?' Leopold asks.[paragraph break]'It's Gina's daughter, Pauline. They can't afford the only procedure that will keep her alive. But, Mister Craverly, I know you are not an uncharitable man.'[paragraph break]Leopold lets loose a torrent of guffaws. 'I think that sentence needs one more negative, Langridge! Of what concern to me is the situation of a girl I wouldn't recognize on the street?'[paragraph break]Your response to this question is a glare like a polished silver dagger[or]'I beg you to reconsider Janine's plight, Mister Craverly,' you say.[paragraph break]'I think you mean [italic type]Pauline.[roman type] And I beg you to leave off the subject, Langridge!' answers Leopold in a mocking tone[stopping].";
+	
+Instead of kissing Leopold:
+	if the sunglasses are worn:
+		say "Leopold pushes you away. 'Forget it, Sid. I'm not one of those young people who melts in half when a criminal comes on to him.";
+	otherwise:
+		say "[one of]You rush boldly up to Leopold and, before he can react, you softly grab his head and press your lips against his lips. The meeting of your bodies is an explosive event, but it is not accompanied by a meeting of hearts.[paragraph break]'Oh, Langridge,' Leopold mutters, still embraced by your arms, 'I left my chances for love behind a long time ago. Don't turn out like me[unicode 8212]don't hold out hope for something that can never be.'[paragraph break]With an expression of tremendous emotion, you step away from him[or]Leopold allows you to kiss him once more, but you come no closer to melting the diamond cage that surrounds his paralytic soul[stopping]."
+
+After pointing the handgun at Leopold:
+	if the sunglasses are worn and the suspect is Leopold:
+		if the satchel is not enclosed by a room:
+			say "'I want those jewels, old man!' you say, menacing the silver-haired millionaire with the gleaming barrel of your murderous weapon. 'Are you going to play along, or are you going to die?'[paragraph break]'All right, all right! Here!' Leopold draws a satchel out of his pocket and tosses it to you. 'They're all there. Just leave me be!'[paragraph break]You feel the heft of the satchel in your hand and smile a smug smile.";
+			now the player carries the satchel;
+		otherwise:
+			say "'I've already given you the jewels, Sidney,' Leopold chides.[paragraph break]'That's right, you did,' you respond. 'And don't you forget it!'";
+	otherwise:
+		say "Leopold regards the handgun with a cool indifference. 'Put that thing down, [if the sunglasses are worn]Sidney[otherwise]Langridge[end if]. You're liable to hurt yourself.'"
+	
+Sidshotleo is a truth state that varies. Sidshotleo is false.
+
+After shooting Leopold the first time:
+	if the sunglasses are worn:
+		now sidshotleo is true;
+	now Leopold is dead;
+	now the initial appearance of Leopold is "Leopold lies dead on the floor, his stiffening hand still clutching at the place in his chest where you shot him through the heart.";
+	now the description of Leopold is "Leopold thought he would live long enough to see all of his dreams come true. Now you know that his belief was false.";
+	say "'Come now, [if the sunglasses are worn]Sidney[otherwise]Langridge[end if], calm yourself!' the old man cries, but it is too late for him. You fire the gun into his heart, the heart that could never bring itself to feel love. It will never feel anything again[sidenote].[paragraph break]Craverly falls to the floor, dead.";
+	if Pauline is dead and Gina is dead:
+		execute the bloodbath ending.
+		
+To say sidenote:
+	if the suspect is Leopold Craverly:
+		if the sunglasses are worn:
+			if the satchel is not enclosed by a room:
+				say ", and you will never find the jewels";
+			otherwise:
+				say "";
+		otherwise:
+			say "";
+	otherwise:
+		say "";
+	
+After shooting Leopold:
+	say "You fire another bullet into Leopold Craverly's dead body. 'That one was for Wendell,' you say."
+	
+Instead of showing the handgun to Leopold, say "'A cute toy,' Craverly says, clearly unimpressed by the instrument of death you present to him. 'Be careful with it; you might break a window!' He guffaws enthusiastically at his own flimsy joke."
+
+Instead of showing the magnifying glass to Leopold, say "Leopold scoffs at your proffered magnifying glass. 'I'm afraid I don't have time for your [if the sunglasses are worn]Nancy Drew nincompoopery, Sidney[otherwise]Hardy Boys shenanigans, Langridge[end if].'"
+
+Instead of showing the framed photo to Leopold Craverly:
+	if the sunglasses are worn:
+		if the satchel is enclosed by a room:
+			say "Leopold sneers. 'You wouldn't stay in prison, but at least that dog will stay in the ground.'";
+		otherwise if the suspect is not Gina:
+			say "[one of]'You remember Wendell, right?'[paragraph break]'Of course,' Craverly sneers, 'That's Gina's dog. I seem to recall it perished under mysterious circumstances?'[paragraph break]'Cut the bull, Leo. We both know that I made Janine hit Wendell with her car after you saw him digging down at the train yard where we buried the jewels. I mean, Pauline.'[paragraph break]Craverly chortles. 'And now you think I have the jewels? Well, even if I do, they're staying with me[or]Craverly laughs again. 'I won't give you the jewels, no matter how many times you show me that photograph[stopping].'";
+			now the suspect is Leopold Craverly;
+		otherwise:
+			say "'Why are you showing me this dog?' Craverly asks, his question as pointed as the tip of his snake-headed cane.[paragraph break]'This dog is dead,' you say, 'and I'm going to get the jewels it found.'[paragraph break]'Does this concern me in any way?' asks Craverly, his question as tentative as his grasp of the concept of empathy.[paragraph break]'Not for now, it doesn't,' you reply, menacingly.";
+	otherwise:
+		say "'What's that there?' Craverly asks.[paragraph break]'It's Wendell,' you say. 'Pauline's dog.'[paragraph break]'Ah, I see, I see. And how has he been doing?'[paragraph break]'He died three years ago,' you answer meaningfully, 'Under mysterious circumstances.'[paragraph break]Craverly stares meaningfully back at you."
+		
+Check asking Leopold Craverly about "[the jewels]":
+	if the sunglasses are worn:
+		if the suspect is not Gina:
+			say "[one of]'All right, Leo. We both know that I made Janine hit Wendell with her car after he you saw him digging down at the train yard where we buried the jewels. I mean, Pauline.'[paragraph break]Craverly chortles. 'You think I have the jewels? Well, even if I do, they're staying with me[or]Craverly laughs again. 'I won't give you the jewels, no matter how many times you ask me about them[stopping].'";
+			now the suspect is Leopold Craverly instead;
+
+
+
+Part - The Hallways
+
+Chapter - North Hallway
+
+The description of North Hallway is "[one of]Pauline's[or]Pauline's[or]Janine's[or]Pauline's[then at random] hospital room is west from here. The hallway continues south."
+
+The rack of shelves is a supporter in North Hallway. Understand "shelf" as the rack of shelves.
+
+Rule for writing a paragraph about the rack of shelves: say "There's a rack of shelves standing against this end of the hall."
+
+Instead of taking the rack of shelves, say "That belongs where it is."
+
+Section - The Magnifying Glass
+
+The magnifying glass is on the rack of shelves. The description of the magnifying glass is "[if the location is in backstage]A cheap, beat-up magnifying glass[otherwise if the sunglasses are worn]As a criminal mastermind, you have no need for magnifying glasses. What concerns you is the big picture[otherwise]Every doctor needs a magnifying glass, the better with which to see the minuscule problems that plague humanity in such enormous ways[end if]."
+
+Instead of searching the magnifying glass:
+	if the location is in backstage:
+		say "The glass fails to reveal any new information." instead;
+	otherwise:
+		let foo be a random scenery in the location;
+		if foo is the camera:
+			say "You lean in for a closer look at nothing in particular." instead;
+		otherwise:
+			say "You lean in for a closer look at [the foo]." instead.
+
+Section - The Framed Photo
+
+The framed photo is on the rack of shelves. Understand "dog photo" and "dog" and "picture" and "photograph" and "wendell" as the framed photo. The description of the framed photo is "[if the location is in backstage]In the frame is a photo of a dog[otherwise if the sunglasses are worn]In this picture frame is a photo of Wendell the dog, Pauline's dog, which she loved. But you know that Pauline has a secret, a secret concerning Wendell[otherwise]A photo of Pauline's beloved golden retriever, Wendell. A faithful companion to his owner, and beloved of all citizens of Craverly Heights, Wendell was cut down before his time[unicode 8212]under mysterious circumstances[end if]."
+
+Understand "jewel" and "gem" and "gems" and "jewels" as "[the jewels]".
+
+
+
+Section - The Pair of Sunglasses
+
+The pair of sunglasses is on the rack of shelves. The pair of sunglasses is wearable. Understand "glasses" and "shades" and "glass" and "shade" and "them" as the pair of sunglasses. The description of the pair of sunglasses is "[if the location is in backstage]Grossly out-of-fashion, and as flimsy[otherwise if the sunglasses are worn]Your sunglasses are what set you apart from your twin[unicode 8212]that, and the fact that you flunked out of medical school[otherwise]With a pang of familial familiarity, these flat-topped shades remind you vividly of the sunglasses that your twin Sid used to wear[end if]."
+
+Check wearing the sunglasses:
+	if the location is in onstage:
+		say "This is not a suitable venue for you to be altering your appearance so drastically and cavalierly." instead.
+		
+Check taking off the sunglasses:
+	if the location is in onstage:
+		say "This is not a suitable venue for you to be altering your appearance so drastically and cavalierly." instead.
+
+
+
+Section - The Handgun
+
+The handgun is on the rack of shelves. Understand "gun" and "pistol" and "firearm" and "trigger" as the handgun. The description of the handgun is "[if the location is in backstage]Nickel-plated. Shiny[otherwise if the sunglasses are worn]The familiar weight of your gun in your hand is like a soft peck on the cheek from your mother[unicode 8212]you assume. Mom always liked your twin better[otherwise]How ironic that a healer and caregiver such as yourself should carry in your hands such a monstrous implement of destruction. Or is it? Maybe it is not ironic at all. Maybe it makes perfect sense for you to carry this gun: you, who so often hold the powers of life and death in your hands[end if]."
+
+Instead of touching the handgun, say "[if the location is in backstage]It feels a lot like plastic[otherwise]The steel of the gun feels cold. Cold like a broken promise[end if]."
+
+Pointing is an action applying to one thing. Understand "Aim [something preferably held]" as pointing. Understand "point [something preferably held]" as pointing.
+
+Carry out pointing:
+	say "You point [the noun] [if the location is in onstage]squarely [end if]at nothing in particular."
+
+pointing it at is an action applying to two things. Understand "Aim [something preferably held] at [something]" as pointing it at. Understand "point [something preferably held] at [something]" as pointing it at. Understand "aim at [something] with [something preferably held]" as pointing it at (with nouns reversed). Understand "point at [something] with [something preferably held]" as pointing it at (with nouns reversed).
+
+Check pointing it at:
+	if the noun is the handgun and the second noun is the player:
+		if the location is in backstage:
+			say "You point the gun at yourself. Kind of scary. Not really." instead;
+		otherwise:
+			say "You raise the gun to your temple[if Pauline is in the location]. Pauline gasps[otherwise if Gina is in the location]Gina gasps[otherwise if Leopold Craverly is in the location]Leopold squints at you[end if]." instead.
+		
+
+Carry out pointing it at:
+	say "You point [the noun] [if the location is in onstage]squarely [end if]at [the second noun]."
+	
+The current target is a thing that varies.
+
+The faux-thing is a privately-named part of the player.
+
+Every turn:
+	if the current action is pointing the handgun at something:
+		now the current target is the second noun;
+	otherwise:
+		now the current target is the faux-thing. [The game will remember what you're pointing at for one turn, and then (unless you get on with it and shoot the thing) it won't care anymore.]
+		
+Vagueshooting is an action applying to nothing. Understand "shoot" and "fire" as vagueshooting.
+
+Instead of vagueshooting:
+	if the player carries the handgun:
+		try shooting the handgun instead;
+	otherwise:
+		say "You don't have anything with which to shoot." instead.
+
+Shooting is an action applying to one thing. Understand "shoot [something]" and "fire [something]" as shooting.
+
+Check shooting:
+	if the player does not carry the handgun:
+		say "You don't have anything with which to shoot." instead;
+	if the noun is the handgun:
+		if the current target is the faux-thing:
+			say "[if the location is in backstage]You pull the trigger. Nothing. It doesn't even click[otherwise]With an expression of utter animalism on your face, you raise your gun and fire a shot into the air[end if]." instead;
+		otherwise:
+			try shooting the current target instead;
+	if the noun is not a person:
+		say "[if the location is in backstage]The gun has no effect on [the noun]. The trigger doesn't even click[otherwise if the sunglasses are worn]You stop yourself. 'This [noun] isn't worth my bullets,' you say, menacingly. 'Bullets are expensive.'[paragraph break]You squint menacingly at [the noun][otherwise]You stop yourself. 'This [noun] isn't worth my bullets,' you say, thoughtfully. 'It's done nothing wrong. Some things in this world are still innocent. But some aren't. But even if they are, is it my duty to mete out justice?' You look down meaningfully at the gun[end if]."
+		
+
+Instead of shooting the player:
+	if the location is in backstage:
+		say "On days like this, it's not the last thought that occurs to you." instead;
+	otherwise if the sunglasses are worn:
+		say "With the pistol aimed at your temple, you almost pull the deadly trigger that could free the world from the scourge of the existence of the dastardly Sidney Langridge, but you pull the gun away from your head, suddenly.[paragraph break]'Sorry to disappoint,' you announce, 'But Sid Langridge is gonna be around for a while longer. I've got things to do.'[paragraph break]You sneer menacingly.";
+	otherwise:
+		say "'I've had it,' you announce. 'I can't go on. All the secrets. All the lies. I'm finished. This is the end for your beloved Doctor Langridge. And little do you know: the secret of Wendell's death dies with me!'[paragraph break]BLAM[paragraph break]PRESS ANY KEY TO CONTINUE[paragraph break]";
+		wait for any key;
+		say "[unicode 10020][unicode 10020][unicode 10020][paragraph break]'Why. Why did you do that.'[paragraph break]'It's like I said! I can't go on. I quit. Craverly Heights is a sinking ship, and this rat is jumping off.'[paragraph break]'First of all, that remark is offensive to rats. Second, you can't quit. Your contract has you in this studio for the next three years.'[paragraph break]'Well, what are you going to do? Doctor Langridge is dead.'[paragraph break]'Oh, that's not a problem...'";
+		end the game saying "We're bringing back your evil twin."
+		
+To execute the bloodbath ending:
+	say "PRESS ANY KEY TO CONTINUE[paragraph break]";
+	wait for any key;
+	say "[unicode 10020][unicode 10020][unicode 10020][paragraph break]'So what happens now?'[paragraph break]'First of all, none of that happened.'[paragraph break]'You mean like, we're gonna say it was a dream?'[paragraph break]'No, I mean we're going to scrap all of it and start from scratch. Nobody had a dream, nobody got shot, nothing. We're going to air a rerun. Then we're going to hire a new writer, and we're going to do a [italic type]real[roman type] episode, with a plot. And [italic type]you[roman type] are forbidden from improvising. Never again.'";
+	end the game saying "Tune in next week!"
+
+A person can be dead.
+
+Attempto is indexed text that varies. The attempto is "do this thing".
+
+Before doing something other than examining with a dead person:
+	now the attempto is the player's command;
+	replace the text "pauline" in attempto with "Pauline";
+	replace the text "janine" in attempto with "Janine";
+	replace the text "leopold" in attempto with "Leopold";
+	replace the text "wendell" in attempto with "Wendell";
+	replace the text "gina" in attempto with "Gina";
+	replace the text "craverly" in attempto with "Craverly";
+	say "'I wish... I wish I could [attempto], but it's too late,' you announce, your voice weighed by the burden of monstrous regret brought on by the enormity of the fact that you have brought from the realm of the unspeakable into the realm of the true: '[if the noun is male]He's[otherwise]She's[end if] dead.'" instead.
+
+
+Chapter - East Hallway
+
+The description of East Hallway is "Gina's Pizzeria is north from here. The hallway continues west."
+
+Chapter - South Hallway
+
+The description of South Hallway is "The break room is east from here. The hallway continues north."
+
+Chapter - West Hallway
+
+The description of West Hallway is "Craverly Manor is south from here. The hallway continues east."
+
+Chapter - Hallway Intersection
+
+The description of Hallway Intersection is "Nobody's around.[paragraph break]The hallway runs north, south, east, and west from here."
+
+The non-diegetic bulletin is here. "A non-diegetic bulletin is posted on the wall." The description of the non-diegetic bulletin is "The bulletin reads: [italic type]Hey! You, with the keyboard! Let me know what you think of this game on Twitter (@rcveeder) or via email (rcveeder@me.com).[paragraph break]Here's a tip: To finish the game, you're going to have to use the verb SHOW, as in '>show THING to PERSON'. You might also have to '>point THING at PERSON' at some point.[paragraph break]Thanks for playing[roman type]."
+
+Instead of doing something other than examining with the non-diegetic bulletin, say "You're not supposed to pay too much attention to that."
+
+Part - Break Room
+
+The description of Breakroom is "An antique vending machine takes up most of the tiny room. The exit is west."
+
+The antique vending machine is scenery in Breakroom. Understand "note" and "notes" and "sticky note" and "sticky notes" and "sticky" as the vending machine. The description of the antique vending machine is "There's one sticky note on the machine that says 'OUT OF ORDER', and there's another sticky note that says 'THIS MACHINE OWES ME $7000'."
+
+Instead of taking the vending machine, say "You can't lug this vending machine around. It's the real thing."
+
+The table is a scenery supporter in Breakroom. The description of the table is "It's a piece of junk."
+
+
+Section - The Script
+
+The script is on the table. Understand "sheet" and "sheets" and "paper" and "papers" and "test results" and "result" and "results" and "couple sheets of paper" and "sheets of paper" and "set of test results" and "test" as the script.
+
+Instead of examining the script in Backstage:
+	say "Two pages. The first page reads:[paragraph break]";
+	center "[fixed letter spacing]CRAVERLY HEIGHTS";
+	center "EPISODE # 6001";
+	say "[paragraph break][fixed letter spacing]If it's so easy, why don't you write it yourself?[variable letter spacing][paragraph break]The second page is blank."
+	
+Instead of showing the script to Lane, say "Lane has already seen the script. She rolls her eyes. 'I know, right?'"
+
+Prog is a number that varies. Prog is 0.
+
+The printed name of the script is "[if the location is in backstage]script[otherwise if prog is 0]couple sheets of paper[otherwise]set of test results[end if]".
+
+
+
+Instead of showing the script to Pauline:
+	if the sunglasses are worn:
+		say "'What's that?' Pauline asks.[paragraph break]You shake the papers triumphantly. 'This is my certificate of release! From prison! They give you a certificate that says you aren't supposed to be incarcerated anymore, in case a cop tries to toss you back in the slammer.'[paragraph break]'I didn't know that,' says Pauline.";
+	otherwise if Prog is 0:
+		say "You place the papers gingerly in Pauline's delicate hands.[paragraph break]'Are these...the test results?' Pauline asks.[paragraph break]'Yes, Janine,' you say. Of course they are.[paragraph break]'What do they say?'[paragraph break]You bite your lip thoughtfully. 'I still need to analyze them,' you say. 'I'll let you know once I'm finished.'";
+		increment Prog;
+		rule succeeds;
+	otherwise if prog is 1:
+		say "'Have you finished analyzing the test results?' Pauline asks. You frown.[paragraph break]'I'm afraid not. Soon, though.' You hope.[paragraph break]'Maybe my mother can help,' says Pauline.[paragraph break]'Very good idea, Janine. I'll see what she has to say.' You cough. 'I mean, Pauline.'";
+		rule succeeds;
+	otherwise if prog is 2:
+		say "[one of]'I've finished analyzing your results,' you say, passing the papers to Pauline. She inspects them closely.[paragraph break]'As you can see, the tests don't apply to you specifically. They also have something to do with the identity of your father.'[paragraph break]Pauline looks up from the paper, her eyes wide with amazement.[paragraph break]'Now, I need those back, for reasons I think you can guess.' You pull the test results out of her hands[or]Pauline frowns. 'I've seen the results, Doctor Langridge,' she says, 'But have you shown them to...my father?'[paragraph break]'I just wanted to make sure that's what you wanted,' you reply.[paragraph break]'It is,' says Pauline[stopping].";
+		rule succeeds.
+		
+Instead of showing the script to Gina:
+	if the sunglasses are worn:
+		say "'This is the deed to my new condo,' you tell Gina. She cranes her head to get a better look at the mysterious papers while maintaining a safe distance from your crime-ridden form.[paragraph break]'I hope it's far away from here,' she says.[paragraph break]'Nice try,' you say, 'But I'll never tell the likes of you where it is!'";
+	otherwise if Prog is 0:
+		say "Gina is utterly boggled by the papers you present to her. 'I have no idea what this is,' she says. 'Did you get this back at the hospital?'[paragraph break]'Yes, Gina,' you say. Of course you did.[paragraph break]'Then maybe they'll hold some interest to Pauline. If she has the strength to read them,' Gina adds bitterly.";
+		rule succeeds;
+	otherwise if prog is 1:
+		if Leopold Craverly is dead:
+			say "'I wanted to show you these test results,' you say, thrusting the papers in to Gina's motherly hands. She looks them over with an expression that changes from skeptical, to interested, to astonished.[paragraph break]'Doc! This means...'[paragraph break]You lean in closer.[paragraph break]'This means...' Gina stammers, 'Pauline's father is Leopold Craverly!'[paragraph break]Your eyes widen. 'But I just[if sidshotleo is true][unicode 8212]I mean, Sidney, my twin, just[end if] murdered him!'[paragraph break]PRESS ANY KEY TO CONTINUE[paragraph break]";
+			execute the dead craverly ending;
+		otherwise:
+			say "'I wanted to show you these test results,' you say, thrusting the papers in to Gina's motherly hands. She looks them over with an expression that changes from skeptical, to interested, to astonished.[paragraph break]'Doc! This means...'[paragraph break]You lean in closer.[paragraph break]'This means...' Gina stammers, 'Pauline's father is...'[paragraph break]Your eyes widen. Of course!";
+			increment Prog;
+			rule succeeds;
+	otherwise if prog is 2:
+		say "'I don't need these!' exclaims Gina. 'Pauline needs to find out who her real father is! And so does...her father.'";
+		rule succeeds.
+		
+To execute the dead craverly ending:
+	wait for any key;
+	say "[unicode 10020][unicode 10020][unicode 10020][paragraph break]'And why did you do that?'[paragraph break]'I don't know! We had no script!'[paragraph break]'So you murdered your costar? I thought the first rule of improv was [']Don't randomly kill your fellow characters['].'[paragraph break]'Actually, the first rule of improv is, you're supposed to say [']Yes, and['].'[paragraph break]'Oh, I see. Let me try it out: Yes, and, you're fired.'";
+	end the game saying "Tune in next week."
+
+Instead of showing the script to Leopold Craverly:
+	if the sunglasses are worn:
+		say "'What's that you've got there?' Leopold asks.[paragraph break]You smirk with unconscionable smugness. 'It's a script. I'm gonna be a star,' you say.[paragraph break]'I imagine you must think so. But you're no star, Sidney. You're a black hole.'[paragraph break]You grimace at the disquieting veracity of Leopold's words.";
+	otherwise if Prog is 0:
+		say "'What's this?' Leopold says, eyeing the papers with inexplicable contempt. 'Some document you found at the hospital?'[paragraph break]'Yes,' you say.[paragraph break]'Then I can safely assume that it does not concern me!' Craverly punctuates his statement with a triumphant guffaw.";
+		rule succeeds;
+	otherwise if prog is 1:
+		say "'What's this?' Leopold asks, eyeing the papers with inexplicable contempt.[paragraph break]'These are test results,' you say. 'Pauline's test results.'[paragraph break]'Ah! I will attempt an impersonation of someone who cares, then: What do they say?'[paragraph break]You glare at the old man, at his hateful face. 'I haven't figured that out. Yet.'[paragraph break]'Of course! I expect nothing more from the greatest doctor in Craverly Heights.' Leopold guffaws.";
+		rule succeeds;
+	otherwise if prog is 2:
+		say "'What's this?' Leopold asks, eyeing the papers with inexplicable trepidation.[paragraph break]'These are test results. Pauline's test results,' you say, extremely meaningfully. 'They constitute conclusive proof that you are Pauline's father.'[paragraph break]The weight of this revelation nearly knocks Leopold onto the floor. He grasps his cane all the tighter, and mutters:[paragraph break]'Nineteen years ago... The train tunnel collapse!'[paragraph break]'The underground gases that seeped into the tunnel caused amnesia in all of the passengers,' you explain. 'Nobody on the train could remember what happened before the rescue team arrived. But now we know about one thing that definitely did happen. You and Gina conceived a child, a child that desperately needs a medical procedure she can't afford.'[paragraph break]'I'll pay every cent!' Leopold is on the verge of tears. 'I have a daughter! The Craverly line will go on!'[paragraph break]PRESS ANY KEY TO CONTINUE[paragraph break]";
+		finish the episode.
+		
+To finish the episode:
+	wait for any key;
+	say "[unicode 10020][unicode 10020][unicode 10020][paragraph break]'And fade to black. See? Everything worked out fine.'[paragraph break][if Gina is dead and Pauline is dead]'But Pauline and Gina are dead.'[paragraph break]'Nah, we can edit that out. What the heck were you trying to accomplish there?'[paragraph break]An answer does not spring to mind.[paragraph break][otherwise if Gina is dead]'But Gina is dead.'[paragraph break]'Nah, we can edit that out. What the heck were you trying to accomplish there?'[paragraph break]An answer does not spring to mind.[paragraph break][otherwise if Pauline is dead]'But Pauline is dead.'[paragraph break]'Nah, we can edit that out. What the heck were you trying to accomplish there?'[paragraph break]An answer does not spring to mind.[paragraph break][end if]'So Pauline's gonna be okay?'[paragraph break]'Of course! We were never gonna kill her off. She has to stay in that bed until Lisa has her baby, but we'll figure that out.'[paragraph break]The director leans back and sighs. 'Now, you guys did a good job out there today. I don't want to diminish the enormity of your accomplishment. But before we get working on #6002, we gotta get one thing done.'";
+	end the game saying "We gotta hire a flippin['] writer.".
+
+Section - Lane
+
+Lane is a woman in Breakroom. "Lane is sitting around with a blank look on her face."
+
+The description of Lane is "Lane is wearing a pink blouse."
+
+Lane wears the pink blouse. The description of the pink blouse is "[if the location is in backstage]The blouse looks just fine on Lane[otherwise]Gina's favorite blouse brings out the rosiness of her complexion, even as dulled as it has become by the tragedies that life has delivered to her[end if]."
+
+Instead of talking to Lane:
+	remove Lane from play;
+	now Gina wears the pink blouse;
+	now Gina is in Pizza;
+	say "'Hey, Lane,' you say. 'Shouldn't you be down at the Pizzeria?'[paragraph break]Lane's eyes widen. 'Oh, shoot, sorry! Sorry!'[paragraph break]She continues to apologize as she rushes out into the hall."
+
+Instead of kissing Lane, say "Lane pushes you away. 'Save it for later, all right?'"
+
+After pointing the handgun at Lane:
+	say "She rolls her eyes."
+	
+After shooting Lane:
+	say "With the gun pointed right at Lane, you pull the trigger. Nothing happens.[paragraph break]She sighs. 'Cut that out.'"
+	
+Instead of showing the handgun to Lane, say "Lane shrugs. 'I've seen cooler.'"
+
+Instead of showing the framed photo to Lane, say "Lane squints at the photo of the dog. 'I'm pretty sure this came with the frame.'"
+
+Instead of showing the magnifying glass to Lane, say "Lane shakes her head. 'It's a piece of junk.'"
+
+Section - The Satchel
+
+The satchel is a thing. Understand "pouch" and "sack" and "bag" as the satchel. The description of the satchel is "[if the location is in backstage]This is not real suede[otherwise if the sunglasses are worn]It's a small suede pouch, as luxurious as the prize it contains[otherwise][end if]."
+
+Instead of opening the satchel, try searching the noun.
+
+Instead of searching the satchel, say "[if the location is in backstage]Yeah, it's empty[otherwise if the sunglasses are worn]Yes, they're all in here. The jewels that caused you so much trouble, trouble that caused you to commit so many crimes, crimes that caused you to spend so long in prison[otherwise]What should be in here? It could be anything. But it ought to be something good[end if]."
+
+Instead of showing the satchel to Leopold Craverly:
+	if the sunglasses are worn:
+		if the suspect is Leopold Craverly:
+			say "'Don't rub it in, Sidney,' Leopold grouses.";
+		otherwise:
+			say "'What's that you've got there?' asks Leopold, clearly curious about the contents of the mysterious pouch that you've produced.[paragraph break]'These are the jewels,' you explain, 'the jewels that I spent so long in prison for. I stole them on your orders! But you betrayed me. But now they're mine!'[paragraph break]'And what are you going to do with them?' asks Leopold, the shadows of confusion darting across his weathered brow.[paragraph break]'I'm going to buy Craverly Manor, and you're going to be my butler.'[paragraph break]PRESS ANY KEY TO CONTINUE[paragraph break]";
+			wait for any key;
+			say "[unicode 10020][unicode 10020][unicode 10020][paragraph break]'That doesn't make a lot of sense.'[paragraph break]'Well, maybe Leopold could turn out to be in debt?'[paragraph break]'Sure, I guess. But I would have liked it better if we spread out the whole saga of Sidney returning, Sidney getting the jewels, and Sidney demanding to buy the manor over the course of twelve or twenty episodes.'[paragraph break]'Oh. Do you want us to shoot it again?'[paragraph break]'There's no time. We'll just edit this one until it works. You go home and get something to eat.'[paragraph break]'Yeah, we're all going down to the Gas Leak. You wanna join us?'[paragraph break]'No thanks...'";
+			end the game saying "...I'm gonna be busy looking for a writer.";
+	otherwise:
+		say "'Where did you get that?' Leopold cries, shocked and aghast.[paragraph break]You raise your eyebrows. 'You mean, where did I get this... bag of marbles?'[paragraph break]Leopold regains his composure. 'Ah, yes. Never mind.'";
+
+Instead of showing the satchel to Pauline:
+	if the sunglasses are worn:
+		say "'The jewels!' Pauline gasps, her breathlessness as much a factor of her surprise as a consequence of her illness. 'Then you were able to convince...'[paragraph break]'[if the suspect is Gina]Your mother[otherwise]Mister Craverly[end if], yes. The jewels are mine[unicode 8212]ours, now.'[paragraph break]'Sidney, we can sell the jewels for the money for the medical treatment that will save my life!' Pauline's eyes are huge and wet beneath the hospital lights as they plaintively gaze upward into your own.[paragraph break]'Sugarbabe, those were my thoughts exactly.'[paragraph break]PRESS ANY KEY TO CONTINUE[paragraph break]";
+		wait for any key;
+		say "[unicode 10020][unicode 10020][unicode 10020][paragraph break]'Why is Sidney nice all of a sudden?'[paragraph break]'Well, I thought about just abandoning Janine, but I realized I had a chance to push things in a bold new direction.'[paragraph break]'It's Pauline. And that's not gonna work. People love Sidney the evil twin; they're not going to respond well to Sidney the altruist. Besides, Pauline has to stay sick until Lisa has her baby.'[paragraph break]'Oh. Do we need to shoot the whole thing again?'[paragraph break]'There's no time. We'll figure something out.'";
+		end the game saying "Right after we hire a writer.";
+	otherwise:
+		say "'What's in that bag, Doctor Langridge?' asks sweet, innocent Janine.[paragraph break]You consider the question with all the weight it merits.[paragraph break]'I have here some medicine. But it won't help you. It's a special medicine, for a different patient. I shouldn't tell you too much about it. Never mind.'";
+		
+Instead of showing the satchel to Gina:
+	if the sunglasses are worn:
+		if the suspect is Gina:
+			say "'Get that out of my face, Sid,' Gina grouses.";
+		otherwise:
+			say "Gina cocks her head at the appearance of the suede pouch. 'Hey, scumbag! What's in the bag? Is it scum?'[paragraph break]'It's a pile of jewels. They're worth a lot of money. And I'm giving them to you.' Gina's jaw drops, but you continue. 'Then you're going to sell them, and then you're going to use the money to open a new Gina's Pizzeria location. And you're going to make me part owner. And we're going to be rich.'[paragraph break]Gina can't think of anything to say.[paragraph break]PRESS ANY KEY TO CONTINUE[paragraph break]";
+			wait for any key;
+			say "[unicode 10020][unicode 10020][unicode 10020][paragraph break]'We definitely can't afford a second restaurant set, though.'[paragraph break]'We can work around that. Or, do you want us to shoot it again?'[paragraph break]'No, there's no time. We're already editing this one. You can go home.'[paragraph break]'So, does that mean...'[paragraph break]'Oh, right. No, you're not fired.'";
+			end the game saying "We're definitely hiring a writer, though.";			
+	otherwise:
+		say "'Gina, what do you think is in this bag?' you ask.[paragraph break]'I don't know, Doc. Is it doll hands?'[paragraph break]'Yes, and,' you say, 'if you see any other doll parts, make sure you let me know.'";
+

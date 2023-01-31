@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Skein rootNode="node-244">
+  <generator>Windows Inform 7 6M62</generator>
+  <activeNode nodeId="node-259"/>
+  <item nodeId="node-244">
+    <command xml:space="preserve">- start -</command>
+    <result xml:space="preserve">Equipment List&#x000A;An Interactive Fiction&#x000A;Release 1 / Serial number 180411 / Inform 7 build 6M62 (I6/v6.33 lib 6/12N) SD&#x000A;&#x000A;Watery Room&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">NO</temporary>
+    <children>
+      <child nodeId="node-245"/>
+    </children>
+  </item>
+  <item nodeId="node-245">
+    <command xml:space="preserve">i</command>
+    <result xml:space="preserve">You are carrying: &#x000A;  a snorkel&#x000A;  a waterproof sack (open)&#x000A;    an undersea map&#x000A;    a diving guide&#x000A;    a cup&#x000A;      a worm&#x000A;    500 Argentine pesos&#x000A;  a swimsuit (being worn)&#x000A;  a pair of flippers (being worn)&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-246"/>
+    </children>
+  </item>
+  <item nodeId="node-246">
+    <command xml:space="preserve">inventory</command>
+    <result xml:space="preserve">You are carrying: &#x000A;  a snorkel&#x000A;  a waterproof sack (open)&#x000A;    an undersea map&#x000A;    a diving guide&#x000A;    a cup&#x000A;      a worm&#x000A;    500 Argentine pesos&#x000A;  a swimsuit (being worn)&#x000A;  a pair of flippers (being worn)&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-247"/>
+    </children>
+  </item>
+  <item nodeId="node-247">
+    <command xml:space="preserve">imventory tall</command>
+    <result xml:space="preserve">That's not a verb I recognise.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-248"/>
+    </children>
+  </item>
+  <item nodeId="node-248">
+    <command xml:space="preserve">inventory tall</command>
+    <result xml:space="preserve">Inventory listing is now set to tall.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-249"/>
+    </children>
+  </item>
+  <item nodeId="node-249">
+    <command xml:space="preserve">i</command>
+    <result xml:space="preserve">You are carrying: &#x000A;  a snorkel&#x000A;  a waterproof sack (open)&#x000A;    an undersea map&#x000A;    a diving guide&#x000A;    a cup&#x000A;      a worm&#x000A;    500 Argentine pesos&#x000A;  a swimsuit (being worn)&#x000A;  a pair of flippers (being worn)&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-250"/>
+    </children>
+  </item>
+  <item nodeId="node-250">
+    <command xml:space="preserve">inventory wide</command>
+    <result xml:space="preserve">Inventory listing is now set to wide.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-251"/>
+    </children>
+  </item>
+  <item nodeId="node-251">
+    <command xml:space="preserve">i</command>
+    <result xml:space="preserve">You are carrying a snorkel, a waterproof sack (open), inside which are an undersea map, a diving guide, a cup, inside which is a worm and 500 Argentine pesos, a swimsuit (being worn) and a pair of flippers (being worn).&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-252"/>
+    </children>
+  </item>
+  <item nodeId="node-252">
+    <command xml:space="preserve">inventory curt</command>
+    <result xml:space="preserve">Inventory listing is now set to curt.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-253"/>
+    </children>
+  </item>
+  <item nodeId="node-253">
+    <command xml:space="preserve">i</command>
+    <result xml:space="preserve">You are carrying a snorkel, a waterproof sack (in which are an undersea map, a diving guide, a cup (in which is a worm) and 500 Argentine pesos), a swimsuit and a pair of flippers.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-254"/>
+    </children>
+  </item>
+  <item nodeId="node-254">
+    <command xml:space="preserve">inventory minimal</command>
+    <result xml:space="preserve">Inventory listing is now set to minimal.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-255"/>
+    </children>
+  </item>
+  <item nodeId="node-255">
+    <command xml:space="preserve">i</command>
+    <result xml:space="preserve">You are carrying a snorkel, a waterproof sack (in which are an undersea map, a diving guide, a cup (in which is a worm) and 500 Argentine pesos), a swimsuit and a pair of flippers.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-256"/>
+    </children>
+  </item>
+  <item nodeId="node-256">
+    <command xml:space="preserve">inventory divided tall</command>
+    <result xml:space="preserve">Inventory listing is now set to divided tall.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-257"/>
+    </children>
+  </item>
+  <item nodeId="node-257">
+    <command xml:space="preserve">i</command>
+    <result xml:space="preserve">You are carrying: &#x000A;  a snorkel&#x000A;  a waterproof sack (open)&#x000A;    an undersea map&#x000A;    a diving guide&#x000A;    a cup&#x000A;      a worm&#x000A;    500 Argentine pesos&#x000A;You are wearing: &#x000A;  a swimsuit&#x000A;  a pair of flippers&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-258"/>
+    </children>
+  </item>
+  <item nodeId="node-258">
+    <command xml:space="preserve">inventory divided wide</command>
+    <result xml:space="preserve">Inventory listing is now set to divided wide.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-259"/>
+    </children>
+  </item>
+  <item nodeId="node-259">
+    <command xml:space="preserve">i</command>
+    <result xml:space="preserve">You are wearing a swimsuit and a pair of flippers.&#x000A;&#x000A;You are carrying a snorkel and a waterproof sack.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+  </item>
+</Skein>

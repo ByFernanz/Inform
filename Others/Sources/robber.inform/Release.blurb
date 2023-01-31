@@ -1,0 +1,9 @@
+! Blurb file created by NI build 5J39
+variable [RELEASE] = "9"
+storyfile "/Users/sussman/projects/if/robber/robber.inform/Build/output.z5" include
+metadata "/Users/sussman/projects/if/robber/robber.inform/Metadata.iFiction" include
+variable [YEAR] = "2008"
+variable [TITLE] = "Trainstopping"
+variable [AUTHOR] = "Ben Collins-Sussman"
+variable [BLURB] = "BAM! A mug of ale hits the table, splashing your shoes. Muddy Charlie slumps back in his chair, eyes you carefully, and starts to chuckle.<br/>'You know your problem? You don't think big enough.'<br/>His expression is familiar. Last time you saw that look, it was just before you two decided to rustle the mayor's private herd back in 1866. That didn't work so well.<br/>'What now?' you ask. 'A new idea?'<br/>'Big plans.' He grins widely. 'That new cross-country railroad is almost finished. It's gonna change everything... bigger trains, more people... and prize cargo.'<br/>'A train holdup? Are you kidding?'<br/>'Relax. This time we got [italic type]technology[roman type] on our side.' He leans close and whispers: 'Made in Sweden... or Germany. It's big, dangerous, and nobody knows about it yet.'<br/>'A new weapon?'<br/>'Dynamic, buddy. Dynamic Might.'"
+variable [IFID] = "8AA7291E-9709-4B6E-A228-FECE28AABCD5"

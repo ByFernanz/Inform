@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Skein rootNode="node-91">
+  <generator>Windows Inform 7 6M62</generator>
+  <activeNode nodeId="node-212"/>
+  <item nodeId="node-91">
+    <command xml:space="preserve">Once upon a summer night, the ragman came singing under your window</command>
+    <result xml:space="preserve">Maybe it was the cold or the sensation of emptiness to my side, but I was fully awake. I didn't dare to move, so I just lay there, very still, looking at the ceiling with my hands hidden under the sheets.&#x000A;&#x000A;I suppose it has happened to you some time. You wake up in the late hours in the night, with the sensation that there's someone in your room, and end up lightning a candle to find that there's nobody there, just a nocturnal mouse at most.&#x000A;&#x000A;Only this time I knew he was nearby.&#x000A;&#x000A;He came to collect an old debt, from when I was still young, from when I still believe in the future and run naked between the bindweeds.&#x000A;&#x000A;"Five times five years has passed, my green-eyed child... five times five years of luck and fortune. A man who loves you, a son of hair like wheat in summer, coins slipping through your fingers, a house with a white gate and servants to attend it."&#x000A;&#x000A;Fingers colder than white frost touch my face, while a cacophony of ten voices whispers on my ears, but I suppress the scream that struggles to escape from my throat and I lay still with eyes shut.&#x000A;&#x000A;"Are you sleeping? I don't believe so. As you see, I keep my promises. Would you keep yours? The desire of my heart in exchange for a time of bliss."&#x000A;&#x000A;I hear the floorboards creak. He moves away. He is... he is near the cradle, I know it.&#x000A;&#x000A;"I ask not for silver, nor gold, nor earthly wealth. I don't desire anything in vain, much less something you can't give me. I only ask for what a mortal can dispose of. Give it to me, and our contract will be folded, sealed and stored in the fourth drawer of the hundredth room inside the tallest tower of my inverted castle. Deny it from me, and I will take your son, your husband will suffer a terrible death, your servants will abandon you pouring venom upon your honor, and winter will nest in your home. Give me... give me the love of a mother and everything will be settled. Only five beats of your heart I grant you."&#x000A;&#x000A;With a sigh, I stand.</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-92"/>
+    </children>
+  </item>
+  <item nodeId="node-92">
+    <command xml:space="preserve">[enter]</command>
+    <result xml:space="preserve">Once upon a winter night, the ragman came singing under your window&#x000A;An Interactive Fiction by Expio&#x000A;Release 3 / Serial number 191030 / Inform 7 build 6M62 (I6/v6.33 lib 6/12N) SD&#x000A;&#x000A;Bedroom&#x000A;I am half sunken in the gloom of the room. The fireplace shines with dying embers that barely reach to illuminate the scene. Most of the light comes from the moon that penetrates, invasive, through the open window, along with some sporadic snow drifts like folds of cloth.&#x000A;&#x000A;It must has been open for a while since some snow has accumulated over the harpsichord, in the space next to the window.&#x000A;&#x000A;The Ragman is hunched over the cradle of my only son at the far corner of the room. I can hear him whisper a cradle song while he knits with his long, long fingers, complicated structures of thread, which my son tries to grasp with his little hands; he is crying quietly, irritated, either afraid or hungry.&#x000A;&#x000A;I am reclined on the bed, my back resting against the headboard. To my side there is an empty space. The sheets have been set aside.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-93"/>
+      <child nodeId="node-212"/>
+    </children>
+  </item>
+  <item nodeId="node-93">
+    <command xml:space="preserve">take the child</command>
+    <result xml:space="preserve">I extend my cold fingers, but my strenght fails to me. It's like if I had a slab over me. They are perhaps my sins.&#x000A;&#x000A;"One was the sun king."&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-94"/>
+    </children>
+  </item>
+  <item nodeId="node-94">
+    <command xml:space="preserve">examine the ragman</command>
+    <result xml:space="preserve">An old shadow from my youth. From times of desires and crooked paths. He seems like an abandoned scarecrow, with broken and twisted limbs. His arms and legs adopt impossible angles when he moves, in a strange dance, like if he was controlled by a mad master of puppets. He dresses a maelstrom of fabrics and patches, and colours out of order., from which such disparate ornaments hang like a pocket watch, a rosary of marbled beads, a salmon's eye, a Grylloblatta, an earring from which an ear still hangs... What for ours is junk, for him is the most precious of jewels, a trophy devoid of banality.&#x000A;&#x000A;Worst of all is his head and hands. Instead of a cranium, he wears the empty semblance of a mannequin, plain, without trimmings, and as the only concession to a human figure wears a tangled wig, like the ones seen in the festivities of the high neighborhoods. His hands... are like metallic branches that hang threads with which he entertains, himself or to an audience, creating strange shapes: a cradle, a boat, a bird... all while the tiny cherub faces that are the tips of his fingers do not cease to chatter.&#x000A;&#x000A;"Two was the inhabitants of paradise."&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-95"/>
+    </children>
+  </item>
+  <item nodeId="node-95">
+    <command xml:space="preserve">examine the window</command>
+    <result xml:space="preserve">The window is open wide. Maybe because the strong winter wind that preceded the Ragman's entrance. However, as far as I know, he never had to enter any house, he has always been there where you never look at.&#x000A;&#x000A;"Three were the wise men, gift bearers."&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-96"/>
+    </children>
+  </item>
+  <item nodeId="node-96">
+    <command xml:space="preserve">close window</command>
+    <result xml:space="preserve">I extend my cold fingers, but my strenght fails to me. It's like if I had a slab over me. They are perhaps my sins.&#x000A;&#x000A;"Four, the misfortunes that will mark the end of the man reign."&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-97"/>
+    </children>
+  </item>
+  <item nodeId="node-97">
+    <command xml:space="preserve">i</command>
+    <result xml:space="preserve">I am carrying nothing.&#x000A;&#x000A;&#x000A;&#x000A;    *** "And five the faces that my right hand has spawned.&#x000A;&#x000A;My heart dictated this. Five heart beats have sounded. Nor four, nor six has been, five is the choosen number. And seeing that from what I have come I have been denied, there is no more result than to fulfill with the stipulated. May bitterness and cold be your willing lovers forever, since what was once yours is now mine. ***&#x000A;&#x000A;&#x000A;&#x000A;Would you like to RESTART, RESTORE a saved game, QUIT or UNDO the last command?&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-98"/>
+    </children>
+  </item>
+  <item nodeId="node-98">
+    <command xml:space="preserve">restart</command>
+    <result xml:space="preserve">Maybe it was the cold or the sensation of emptiness to my side, but I was fully awake. I didn't dare to move, so I just stood there, very still, looking at the ceiling with my hands hidden under the sheets.&#x000A;&#x000A;I suppose it has happened to you some time.  You wake up at late hours in the night, with the sensation that there's someone in your room, you end up lightning a candle to find that there's nobody there, just a nocturnal mouse at best.&#x000A;&#x000A;Only this time I knew he was nearby.&#x000A;&#x000A;He came to collect an old debt,  from when I was still young, from when I still believe in the future and run naked between the bindweeds.&#x000A;&#x000A;"Five times five years has passed my green-eyed child... five times five years of luck and fortune. A man who loves you, a son of hair like wheat in summer, coins slipping through your fingers, a house with a white gate and servants to attend it."&#x000A;&#x000A;Fingers colder than white frost touch my face, while a cacophony of ten voices whispers on my ears, but I suppress the scream that struggles to drill my throat and I lay still with eyes wide shut.&#x000A;&#x000A;"Are you sleeping? I don't believe so. As you see, I keep my promises. Would you keep yours? The desire of my heart in exchange for a time of bliss."&#x000A;&#x000A;I hear the floorboards creak. He moves away. He is... he is near the cradle, I know it.&#x000A;&#x000A;"I don't ask nor silver, nor gold, nor earthly wealth. I don't desire anything in vain, much less something you can't give me. I only ask for what a mortal can dispose of. Give it to me, and our contract will be folded, sealed and stored in the fourth drawer of the hundredth room inside the tallest tower of my inverted castle. Deny it to me, and I will take your son, your husband will suffer a terrible death, your servants will abandon you pouring venom upon your honor and winter will nest in your home. Give me... give me the love of a mother and everything will be settled. Only five beats of your heart I grant you."&#x000A;&#x000A;With a sigh, I stand.</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-99"/>
+    </children>
+  </item>
+  <item nodeId="node-99">
+    <command xml:space="preserve">[enter]</command>
+    <result xml:space="preserve">Once upon a summer night, the ragman came singing under your window&#x000A;An Interactive Fiction by Expio&#x000A;Release 3 / Serial number 190902 / Inform 7 build 6M62 (I6/v6.33 lib 6/12N) SD&#x000A;&#x000A;Bedroom&#x000A;I am half sunken in the gloom of the room. The fireplace shine with dying embers that barely reach to illuminate the scene. Most of the light comes from the moon that penetrates, invasive, through the open window along with some sporadic snow cloth.&#x000A;&#x000A;It must has been open for a while since some snow has accumulated over the harpsichord, in the space next to the window.&#x000A;&#x000A;The Ragman is hunched over the cradle of my only son at the far corner of the room. I can hear him whisper a cradle song while he knits with his long, long fingers, complicated structures of thread, that my son tries to grasp with his little hands, or take them away, because now he is crying quietly, he may be afraid or hungry.&#x000A;&#x000A;I am reclined on the bed, my back resting against the headboard. To my side there an empty space. The sheets have been set aside.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-100"/>
+    </children>
+  </item>
+  <item nodeId="node-100">
+    <command xml:space="preserve">examine child</command>
+    <result xml:space="preserve">My precious, my life. Just when I thought it could not be possible... it happened. My joy and sadness. Joy because he was an unexpected gift, sadness because he was the rubric of a contract. Now, he is unwillingly playing with the thread figures that the Ragman is crafting for him. He cries and protests quietly.&#x000A;&#x000A;"One was the sun king."&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-101"/>
+    </children>
+  </item>
+  <item nodeId="node-101">
+    <command xml:space="preserve">examine son</command>
+    <result xml:space="preserve">My precious, my life. Just when I thought it could not be possible... it happened. My joy and sadness. Joy because he was an unexpected gift, sadness because he was the rubric of a contract. Now, he is unwillingly playing with the thread figures that the Ragman is crafting for him. He cries and protests quietly.&#x000A;&#x000A;"Two was the inhabitants of paradise."&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-102"/>
+    </children>
+  </item>
+  <item nodeId="node-102">
+    <command xml:space="preserve">examine my child</command>
+    <result xml:space="preserve">My precious, my life. Just when I thought it could not be possible... it happened. My joy and sadness. Joy because he was an unexpected gift, sadness because he was the rubric of a contract. Now, he is unwillingly playing with the thread figures that the Ragman is crafting for him. He cries and protests quietly.&#x000A;&#x000A;"Three were the wise men, gift bearers."&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-103"/>
+    </children>
+  </item>
+  <item nodeId="node-103">
+    <command xml:space="preserve">examine harpiscord</command>
+    <result xml:space="preserve">One of the few hobbies that I allow myself. I have been told that I play quite well, so I have placed it by the window, for aesthetic reasons and a point of vanity. There's a music sheet over the desk, it is: "Piano and orchestra concert No 33, by B&#x00E9;la Bart&#x00F3;k".&#x000A;&#x000A;"Four, the misfortunes that will mark the end of the man reign."&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-104"/>
+    </children>
+  </item>
+  <item nodeId="node-104">
+    <command xml:space="preserve">examine clock</command>
+    <result xml:space="preserve">I can't see any such thing.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-105"/>
+    </children>
+  </item>
+  <item nodeId="node-105">
+    <command xml:space="preserve">jump</command>
+    <result xml:space="preserve">That's not a verb I recognise.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-106"/>
+    </children>
+  </item>
+  <item nodeId="node-106">
+    <command xml:space="preserve">restart</command>
+    <result xml:space="preserve">Are you sure you want to restart?</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-107"/>
+    </children>
+  </item>
+  <item nodeId="node-107">
+    <command xml:space="preserve">[enter]</command>
+    <result xml:space="preserve">Please answer yes or no.&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-108"/>
+    </children>
+  </item>
+  <item nodeId="node-108">
+    <command xml:space="preserve">kill child</command>
+    <result xml:space="preserve">Please answer yes or no.&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-109"/>
+    </children>
+  </item>
+  <item nodeId="node-109">
+    <command xml:space="preserve">kill ragman</command>
+    <result xml:space="preserve">Please answer yes or no.&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-110"/>
+    </children>
+  </item>
+  <item nodeId="node-110">
+    <command xml:space="preserve">jump</command>
+    <result xml:space="preserve">Please answer yes or no.&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-111"/>
+    </children>
+  </item>
+  <item nodeId="node-111">
+    <command xml:space="preserve">wave</command>
+    <result xml:space="preserve">Please answer yes or no.&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-112"/>
+    </children>
+  </item>
+  <item nodeId="node-112">
+    <command xml:space="preserve">wave at ragman</command>
+    <result xml:space="preserve">Please answer yes or no.&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-113"/>
+    </children>
+  </item>
+  <item nodeId="node-113">
+    <command xml:space="preserve">squeeze child</command>
+    <result xml:space="preserve">Please answer yes or no.&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-114"/>
+    </children>
+  </item>
+  <item nodeId="node-114">
+    <command xml:space="preserve">restart</command>
+    <result xml:space="preserve">Please answer yes or no.&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-115"/>
+    </children>
+  </item>
+  <item nodeId="node-115">
+    <command xml:space="preserve">t</command>
+    <result xml:space="preserve">Please answer yes or no.&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-116"/>
+    </children>
+  </item>
+  <item nodeId="node-116">
+    <command xml:space="preserve">taste ragman</command>
+    <result xml:space="preserve">Please answer yes or no.&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-117"/>
+    </children>
+  </item>
+  <item nodeId="node-117">
+    <command xml:space="preserve">yes</command>
+    <result xml:space="preserve">Maybe it was the cold or the sensation of emptiness to my side, but I was fully awake. I didn't dare to move, so I just stood there, very still, looking at the ceiling with my hands hidden under the sheets.&#x000A;&#x000A;I suppose it has happened to you some time.  You wake up at late hours in the night, with the sensation that there's someone in your room, you end up lightning a candle to find that there's nobody there, just a nocturnal mouse at best.&#x000A;&#x000A;Only this time I knew he was nearby.&#x000A;&#x000A;He came to collect an old debt,  from when I was still young, from when I still believe in the future and run naked between the bindweeds.&#x000A;&#x000A;"Five times five years has passed my green-eyed child... five times five years of luck and fortune. A man who loves you, a son of hair like wheat in summer, coins slipping through your fingers, a house with a white gate and servants to attend it."&#x000A;&#x000A;Fingers colder than white frost touch my face, while a cacophony of ten voices whispers on my ears, but I suppress the scream that struggles to drill my throat and I lay still with eyes wide shut.&#x000A;&#x000A;"Are you sleeping? I don't believe so. As you see, I keep my promises. Would you keep yours? The desire of my heart in exchange for a time of bliss."&#x000A;&#x000A;I hear the floorboards creak. He moves away. He is... he is near the cradle, I know it.&#x000A;&#x000A;"I don't ask nor silver, nor gold, nor earthly wealth. I don't desire anything in vain, much less something you can't give me. I only ask for what a mortal can dispose of. Give it to me, and our contract will be folded, sealed and stored in the fourth drawer of the hundredth room inside the tallest tower of my inverted castle. Deny it to me, and I will take your son, your husband will suffer a terrible death, your servants will abandon you pouring venom upon your honor and winter will nest in your home. Give me... give me the love of a mother and everything will be settled. Only five beats of your heart I grant you."&#x000A;&#x000A;With a sigh, I stand.</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-118"/>
+    </children>
+  </item>
+  <item nodeId="node-118">
+    <command xml:space="preserve"> </command>
+    <result xml:space="preserve">Once upon a summer night, the ragman came singing under your window&#x000A;An Interactive Fiction by Expio&#x000A;Release 3 / Serial number 190902 / Inform 7 build 6M62 (I6/v6.33 lib 6/12N) SD&#x000A;&#x000A;Bedroom&#x000A;I am half sunken in the gloom of the room. The fireplace shine with dying embers that barely reach to illuminate the scene. Most of the light comes from the moon that penetrates, invasive, through the open window along with some sporadic snow cloth.&#x000A;&#x000A;It must has been open for a while since some snow has accumulated over the harpsichord, in the space next to the window.&#x000A;&#x000A;The Ragman is hunched over the cradle of my only son at the far corner of the room. I can hear him whisper a cradle song while he knits with his long, long fingers, complicated structures of thread, that my son tries to grasp with his little hands, or take them away, because now he is crying quietly, he may be afraid or hungry.&#x000A;&#x000A;I am reclined on the bed, my back resting against the headboard. To my side there an empty space. The sheets have been set aside.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-119"/>
+    </children>
+  </item>
+  <item nodeId="node-119">
+    <command xml:space="preserve">taste me</command>
+    <result xml:space="preserve">That's not a verb I recognise.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-120"/>
+    </children>
+  </item>
+  <item nodeId="node-120">
+    <command xml:space="preserve">squeeze me</command>
+    <result xml:space="preserve">That's not a verb I recognise.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-121"/>
+    </children>
+  </item>
+  <item nodeId="node-121">
+    <command xml:space="preserve">rub me</command>
+    <result xml:space="preserve">I rub myself.&#x000A;&#x000A;"One was the sun king."&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+  </item>
+  <item nodeId="node-212">
+    <command xml:space="preserve">nurse ragman</command>
+    <result xml:space="preserve">"D... Dri... Drink." I manage to articulate with an effort that almost depletes my waning strength. The Ragman jumps and dance and claps, then he pounces on me, tearing my nightdress, in his devouring thirst. His hands scream with joy while they take turns to snatch a piece of me. My son cries in a forgotten corner, confused, as now my world is reduced to this moment of loss and liberation.&#x000A;&#x000A;Little by little the laugh of the Ragman fades away.&#x000A;&#x000A;"Very good... satisfying and warm is the love of a mother. This will make my heart know summer for some time. Our account is settled, our pact completed. Now I retire, since other souls, craving for what they already have, require my care.&#x000A;&#x000A;I open my eyes. He is gone.&#x000A;&#x000A;My son is still crying.&#x000A;&#x000A;I stand up and close the window. I stoke the fire.&#x000A;&#x000A;I cuddle and cradle my son. He is still hungry, but I am empty. I can only offer him... cold..&#x000A;&#x000A;&#x000A;&#x000A;    *** The End ***&#x000A;&#x000A;&#x000A;&#x000A;&#x000A;Would you like to RESTART, RESTORE a saved game, QUIT or UNDO the last command?&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+  </item>
+</Skein>

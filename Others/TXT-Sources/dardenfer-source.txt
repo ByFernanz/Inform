@@ -1,0 +1,1065 @@
+[
+BALROG, Dard'enFer, 22 août 2012.
+Copyleft : cette œuvre est libre, vous pouvez la copier, la diffuser et la
+modifier selon les termes de la Licence Art Libre http://www.artlibre.org
+]
+
+"Dard[']enFer" by "BALROG"
+
+Include French by Eric Forgeot.
+Use French Language.
+Include Basic Screen Effects by Emily Short.
+
+Part 1 - Configurations et initialisations générales
+
+The story genre is "Comédie".
+The story creation year is 2012.
+
+The story headline is "L'épopée d'une abeille rouillée".
+
+Include (-
+[ Banner;
+   BeginActivity(PRINTING_BANNER_TEXT_ACT);
+   if (ForActivity(PRINTING_BANNER_TEXT_ACT) == false) {
+         VM_Style(HEADER_VMSTY);
+      print (string) Story;
+      VM_Style(NORMAL_VMSTY);
+      new_line;
+!      print (string) Headline; !# Comment out this line #!
+      print "L'épopée d'une abeille rouillée"; !# And change it to something like this #!
+      #ifdef Story_Author;
+      print " par ", (string) Story_Author;
+      #endif; ! Story_Author
+      new_line;
+      VM_Describe_Release();
+      print " / Inform 7 build ", (string) NI_BUILD_COUNT, " ";
+      print "(I6/v"; inversion;
+      print " lib ", (string) LibRelease, ") ";
+      #Ifdef STRICT_MODE;
+      print "S";
+      #Endif; ! STRICT_MODE
+      #Ifdef DEBUG;
+      print "D";
+      #Endif; ! DEBUG
+      new_line;
+    }
+    EndActivity(PRINTING_BANNER_TEXT_ACT);
+];
+-) instead of "Banner" in "Printing.i6t".
+
+A thing is usually undescribed.
+Use no scoring.
+A device is a kind of thing.
+
+When play begins, say "Vous êtes fourbe. Tordu. Alors puisqu[']un obstacle obstrue votre route, vous comptez bien l[']en éloigner. Pour toujours. Mais vous n[']avez aucun pouvoir. La hiérarchie sociale vous empêche ne serait-ce que d[']approcher vos malfaiteurs. Cependant, vous croyez dur comme fer au pouvoir de la science.".
+
+After printing the banner text, say "Pour plus d[']informations sur le jeu, tapez « infos ».".
+Understand "infos", "informations" as a mistake ("Dard[']enFer est une fiction interactive, ou jeu d[']aventure textuel. Composé uniquement de texte, il faut taper au clavier les actions à effectuer (le plus souvent sous la forme suivante : verbe à l[']infinitif + objet/chose/rien). Si c[']est la première fois que vous jouez à un jeu pareil (ce qui est peu probable si vous lisez ceci, m[']enfin) ou si ce concept vous intrigue, rendez-vous sur http://ifiction.free.fr.[paragraph break]Si vous êtes bloqué, si vous ne savez plus quoi faire, vous pouvez consulter la solution. Elle est trop complète pour être utilisée innocemment, mais libre à vous d'y accéder en tapant « aide » ou « solution ».[paragraph break]Pour consulter les crédits de ce jeu, tapez tout simplement « crédits ». Pour voir la licence, tapez « licence ».").
+Understand "licence", "license" as a mistake ("BALROG, Dard[']enFer, 22 août 2012.[line break]Copyleft : cette œuvre est libre, vous pouvez la copier, la diffuser et la modifier selon les termes de la Licence Art Libre http://www.artlibre.org").
+Understand "credits" as a mistake ("Créateur du jeu : BALROG[line break]Bêta-testeurs : Stormi et Eriorg (voilà des individus bien courageux !)[line break]Aides diverses : la communauté sur http://ifiction.free.fr").
+Understand "soluce", "solution", "aide", "astuce", "astuces" as a mistake ("Si vous êtes vraiment bloqué, lisez ce qui suit. Notez que le contenu de cette petite aide change selon où vous en êtes dans le jeu.[paragraph break][if player is in MAISON]Avant le grand départ, il faut rassembler tout le matériel utile. Fouillez bien votre chambre ainsi que les toilettes. Ah oui, vous avez noté sur un bout de papier une liste de tâches à accomplir. Les post-it ça peut servir si on ne les perd pas...[otherwise if player is in NATURE]Au cas où quelqu'un passerait dans le coin, vous avez planqué votre machine quelque part... sûrement en un lieu qui n'est pas du genre à attirer l[']œil. Comme on dit, promenez-vous dans les bois.[otherwise if player is in VILLE and Robot is not deaf]Vraiment, c'est fou. Contrariez un peu quelques vauriens et ils se mettront à tout détruire sur leur chemin... quelle éducation. À part ça, n[']oubliez pas le corps dans lequel vous êtes plongé. Ce n'est pas comme si vous pouviez faire du skateboard en l[']état, alors usez de vos sens intelligemment. Et surtout, n[']oubliez pas que les abeilles, en cas de nécessité, ça pique.[otherwise if player is in VILLE and Robot is deaf]Mince, quel choc... et quelle fougue ! On peut dire que vous avez du cran. Cependant, on dirait bien que la décharge électrique a endommagé votre robot. Les haut-parleurs ne fonctionnent plus ? En tout cas rien n[']en sort. Mais peut-être que certains sons restent audibles ? Soyez attentifs.[otherwise if player is in Ciel]Ça suffit, écoutez votre instinct ![end if]").
+
+The couteau is a thing with the description "Un objet bien dangereux, à n[']utiliser que dans des cas particuliers."
+The couteau can be small. It is small.
+The player is carrying the couteau.
+Instead of dropping couteau, say "Vous préférez le garder, au cas où.".
+Instead of inserting couteau into something, say "Vous préférez le laisser dans votre poche, pour un accès facilité. Au cas où.".
+
+Some lunettes are a female thing with the description "Difficile d'y voir, sans vos lunettes ? Non. Mais elles sont confortables et classes.".
+The player is wearing lunettes.
+Instead of switching on lunettes, say "Ce n'est pas le moment.".
+Instead of switching off lunettes, say "Elles sont déjà éteintes.".
+
+Part 2 - Déroulement du jeu (objets, lieux, interactions)
+
+
+Chapter 1 - Préparer la bête
+
+Chambre is a room with the description "Vous voilà dans votre nouvelle chambre, assez peu meublée pour le moment. Vous possédez tout de même un lit (mais où est passé le matelas ?) et une table. [if ecran is switched on]Pour le moment, seule la faiblarde lumière de votre écran d[']ordinateur tente d[']éclairer la pièce.[otherwise]La pièce n[']est plus éclairée mais vous y voyez quand même correctement, quelle qu[']en soit l[']obscure raison.[end if] Vous pouvez sortir par le nord.".
+The printed name of Chambre is "Votre nouvelle demeure".
+Instead of exiting from Chambre, try going north.
+
+The description_chambre is a female scenery thing in Chambre with the description "[description of Chambre]".
+Understand "chambre" as description_chambre.
+Instead of doing something other than examining to description_chambre, say "Vous êtes dans votre chambre.".
+
+The matelas is a scenery thing in Chambre with the description "Vous cherchez un peu partout... même dans votre mémoire. Mais où peut bien se trouver votre matelas ?".
+
+The ordi is a scenery container in Chambre with the description "Votre Machine. Ou ce qu[']il en reste. Devant l[']urgence de la situation, vous avez dû la démonter pour en soutirer quelques pièces nécessaires à l[']élaboration de votre projet. En pensant à cette bête éventrée, des larmes vous dégoulinent le long des joues.".
+Understand "ordinateur", "pc", "machine", "tour" as ordi.
+The printed name of ordi is "ordinateur".
+Instead of searching the ordi for the first time:
+	say "Votre unité centrale est curieusement dépouillée, ce qui est normal au vu de vos expérimentations récentes, mais vous trouvez tout de même un petit objet métallique dans un coin sombre de la tour. C[']est votre abeille robotique. Elle était donc là ! Vous la mettez dans votre poche.";
+	move the abeille to player.
+Instead of searching the ordi, say "[if nourriture moisie is in ordi]Vos mains entrent en contact avec de la nourriture moisie. Il n[']y a rien d[']autre là-dedans.[otherwise]Il n'y a rien dedans.[end if]".
+Instead of switching on the ordi, say "Il... ne vit plus.".
+Instead of switching off the ordi, say "Il s[']est éteint il y a bien longtemps de cela, lorsque vous l[']avez sacrifié.".
+Instead of taking ordi, say "C'est trop encombrant pour l'emmener avec vous.".
+Instead of opening ordi, say "Votre ordinateur n'est déjà plus qu'un cadavre, éventré. Essayez de le respecter un peu, lui qui vous a rendu tant de services par le passé.".
+Instead of closing ordi, say "C'est peine perdu, vous n'avez plus les morceaux pour cela.".
+Instead of pushing or pulling ordi, say "Vous déplacez l'ordinateur, et rien ne se passe.".
+Instead of smelling ordi:
+   if nourriture moisie is in ordi begin;
+      try smelling the nourriture moisie;
+   otherwise;
+      say "Une singulière odeur de putréfaction à laquelle se mêle de délicieuses senteurs métalliques.";
+   end if.
+
+The nourriture moisie is a female thing in ordi with the description "Vous reconnaissez du pain, mais à part ça... d'autres aliments pourris sont mélangés à de la poussière, le tout formant une singulière bouillie en boule.".
+Instead of eating nourriture moisie:
+   say "Allez, ne vous laissez pas abattre ! Vous commencez à mâcher le mystérieux mets... et le regrettez aussitôt, mais avec courage vous parvenez à l'avaler.";
+   remove nourriture moisie from play.
+Instead of smelling nourriture moisie, say "Vous ne parvenez pas à renifler cette odeur bien longtemps.".
+Instead of inserting nourriture moisie into something, say "N'aidez pas la puanteur à proliférer.".
+
+The abeille is a female thing with the description "Votre sainte création, solution de tous vos maux les plus terribles. Presque aussi petit qu[']une abeille et ressemblant presque à une abeille. Ça manque un peu de couleur et on dirait un peu trop un robot, mais personne ne s[']en rendra compte ![if micro is part of abeille] Maintenant, votre abeille peut entendre.[end if]". 
+The abeille can be small. It is small.
+Understand "robot" as abeille.
+Instead of switching on abeille, say "Ce n'est pas le moment de jouer avec.".
+Instead of switching off abeille, say "Elle est déjà éteinte.".
+ 
+The ecran is a scenery device in Chambre with the description "[if ecran is switched on]Cet objet pur diffuse une lumière blanche dont la contemplation échauffe votre cœur innocent. Dommage qu[']il ne vous serve plus que de lampe.[otherwise]Il fait très sombre, trop pour votre âme sensible. Ceci est LA solution.[end if]".
+Understand "moniteur" as ecran.
+The printed name of ecran is "écran".
+The ecran can be switched on and switched off.
+The ecran is switched on.
+Instead of taking ecran, say "C'est trop encombrant, inutile de l'emporter avec vous.".
+Instead of switching off the ecran when ecran is switched on:
+   say "L[']obscurité totale vous est peu familière. Mais tant pis, vous en profiterez pour reposer vos yeux.";
+   now the ecran is switched off.
+Instead of switching on the ecran when ecran is switched off:
+   say "Ça ne change à vrai dire pas grand chose, mais c[']est mieux que rien.";
+   now the ecran is switched on.
+Instead of pushing or pulling ecran, say "Attention à ne pas le faire tomber.".
+
+The table is a female scenery thing in Chambre with the description "Une table basse assez banale mais solide, sur laquelle repose votre ordinateur, un moniteur et un bol.".
+Instead of looking under the table, say "En passant vos mains sous la table, vous ne récoltez qu[']un joli tas de poussière.".
+Instead of pushing or pulling or entering the table, say "Allons, vous risqueriez de casser quelque chose.".
+
+The lit_en_bois is a scenery thing in Chambre with the description "Un lit en bois, à planches. C[']est un peu dur de dormir dessus mais on s[']y fait finalement assez bien à la longue.".
+Understand "lit" as lit_en_bois.
+The printed name of lit_en_bois is "lit en bois".
+Instead of looking under the lit_en_bois for the first time:
+	say "En fouillant cette zone obscure, vos mains finissent par agripper une petite boîte cubique. Intéressant.";
+	move the boite to player.
+Instead of looking under the lit_en_bois, say "Vous ne récoltez que de la poussière.".
+Instead of entering the lit_en_bois, say "Ce lit n[']est pas très confortable vous savez.".
+
+Some planches are a female scenery thing with the description "La plupart de ces planches semblent prêtes à se briser.". It is part of lit_en_bois.
+Understand "planche", "vieilles planches", "vieille planche" as planches.
+Instead of taking planches, say "Ne perdez pas votre temps avec ces vieilles planches irrécupérables.".
+Instead of attacking planches, say "Allons, ne brisez point.".
+Instead of tasting planches, say "Aïe ! Et une écharde dans la langue.".
+Instead of entering planches, say "Vous risqueriez de les briser et de vous faire mal.".
+Instead of pulling, pushing or turning planches, try taking planches.
+   
+The boite is a female closed openable container with the description "Il s[']agit d[']une petite boîte en métal, un peu rouillée.".
+The printed name of boite is "boîte".
+Instead of waving boite, say "Parfois, vous souffrez en pensant à la futilité de vos actes.".
+Instead of inserting something not small into boite when boite is not closed, say "Il n'y a pas suffisamment de place dedans.".
+Instead of inserting boite into boite when boite is not closed, say "Vous ne pouvez pas mettre un objet à l'intérieur de lui-même.".
+
+Some papiers are a thing in the boite with the description "Des morceaux de papiers soigneusement pliés et en bon état. C[']est vraiment écrit petit mais ça reste lisible.". 
+The papiers can be small. It is small.
+Understand "papier" as papiers.
+Papiers have some text called the reading-material. The reading-material of papiers is "Ce sont vos plans, pour construire un petit robot. Un schéma rempli d[']instructions ressemble vaguement à une abeille, vue selon différents angles et même de l[']intérieur. Le reste est un amas de formules mathématiques en tous genres. Le fait que vous soyez l[']auteur de ces écrits vous laisse une drôle de sensation. Pour peu, vous penseriez être fou.".
+Instead of reading papiers for the first time: 
+	say "[reading-material]";
+	say "[paragraph break]Une note vous échappe des mains pour venir s[']écraser au sol misérablement.";
+	move the note to the Chambre;
+   now note is described.
+Instead of reading papiers, say "[reading-material][line break]".
+
+The note is a female thing with the description "-fixer le micro.[line break]-mettre en place la batterie X[line break]-concevoir le programme de pilotage X[line break]-fabriquer lunettes X[line break]-fabriquer émetteur-récepteur et le cacher X[line break]-préparer cabane X[line break]-faire ce qu[']il faut[line break]-se débarrasser du matériel". 
+The note can be small. It is small.
+Understand "notes", "plan" as note.
+Instead of reading note, say "[description of note][line break]".
+
+The bol is a container in Chambre with the description "De la fumée s[']échappe encore du mystérieux bouillon que contient ce bol.[if cuillere is in bol] Une petite cuillère se trouve dedans.[end if]".
+Instead of taking bol, say "Impossible de fourrer ceci dans vos poches sans en mettre partout. Videz le bol avant.".
+Instead of drinking or tasting bol, try drinking bouillon.
+Instead of smelling bol, try smelling fumee.
+Instead of pouring bol, say "Allons, ce serait du gâchis.".
+Instead of searching bol, say "Dans le bol, un mystérieux bouillon encore chaud attend d[']être bu.".
+Instead of inserting cuillere into bol: 
+   say "Vous la remettez dans le bol.";
+   move cuillere to bol;
+   now cuillere is undescribed.
+Instead of inserting something into bol, say "Vous gâcheriez le bouillon.".
+
+The bouillon is a thing in the bol with the description "Un bouillon encore assez chaud, de couleur sombre. Il n[']y en a qu[']un fond."
+Understand "liquide" as bouillon.
+Instead of drinking or tasting bouillon:
+	say "Vous engloutissez le liquide... ou ce que vous pouvez. Car bien vite, vous êtes pris de tremblements incontrôlables et lâchez le bol, qui vous accompagne dans votre dernière chute.";
+   wait for any key;
+	end the game in death.
+Instead of taking bouillon, say "Ne transporter que le contenu du bol sera difficile. À moins... de le boire ?".
+Instead of pouring bouillon, try pouring bol.
+
+The fumee is a thing in the bol with the description "Elle n'a rien de particulièrement remarquable.".
+Instead of smelling fumee, say "En voilà des senteurs chimiques et sans aucun doute nocives.".
+Instead of smelling bouillon, try smelling fumee.
+
+The cuillere is a female thing in the bol with the description "Elle ne semble pas enchantée ou quoi que ce soit.".
+The printed name of cuillere is "cuillère".
+Understand "cuiller" as cuillere.
+
+Instead of listening when the location is Chambre, say "Vous entendez le calme ronronnement de votre ordinateur... ah non, c[']est une hallucination.".
+Instead of listening to something when location is Chambre, say "Ceci ne fait pas de bruit.".
+
+The porte_chambre is a door. It is south of Couloir and north of Chambre. The porte_chambre is female, closed and openable. The description is "Elle n'a rien de spécial.".
+The porte_chambre is described.
+The printed name of porte_chambre is "porte de votre chambre".
+Understand "porte", "porte de votre chambre", "porte de la chambre", "porte de ma chambre" as porte_chambre.
+The indefinite article of porte_chambre is "la".
+
+Couloir is a room with the description "Un couloir étroit et glacial. Il fait particulièrement sombre mais vous pouvez distinguer la porte des toilettes à l'ouest, ainsi que la sortie au nord. Libre à vous aussi de retourner dans votre chambre au sud si vous n[']avez rien de mieux à faire.".
+
+The sortie is a female thing in Couloir with the description "Elle vous tend les bras, mais vous n[']êtes pas prêt.".
+Instead of doing something to sortie:
+   if player is carrying abeille and player is carrying console and player is carrying lunettes or player is wearing lunettes and micro is part of abeille begin;
+      say "Libre à vous de sortir d[']ici.";
+   otherwise;
+      say "Vous sortirez plus tard.";
+   end if.
+
+Instead of going north in Couloir:
+   if player is carrying abeille and player is carrying console and player is carrying lunettes or player is wearing lunettes and micro is part of abeille begin;
+      say "Vous sortez de votre appartement perdu, prêt à en découdre.";
+      wait for any key;
+      say "Maintenant vous marchez. Encore et encore, jusqu[']à apercevoir le commencement d[']une forêt. Vous vérifiez que personne ne vous observe et entrez jusque dans ses profondeurs.";
+      wait for any key;
+      say "Quelques minutes de marche plus tard... vous y voilà.";
+      wait for any key;
+      move player to Foret;
+   otherwise;
+      say "Avant de sortir, vous devez rassembler tout le matériel nécessaire.";
+   end if.
+
+Instead of exiting from Couloir, try going north.
+Instead of ingoing in Couloir, say "Vous pouvez entrer au choix dans votre chambre ou dans les toilettes, alors soyez plus précis.".
+
+The vers_chambre is a female thing in Couloir with the description "Ah, vous en avez fait des choses intéressantes dans cette pièce.".
+The printed name of vers_chambre is "chambre".
+Understand "chambre" as vers_chambre.
+Instead of doing something other than examining or entering to vers_chambre, say "Vous pouvez y entrer.".
+Instead of entering vers_chambre, try going south.
+
+The vers_wc is a thing in Couloir with the description "C'est un lieu conçu pour des pratiques à dissimuler.".
+The printed name of vers_wc is "toilettes".
+Understand "toilettes", "wc" as vers_wc.
+Instead of doing something other than examining, entering or smelling to vers_wc, say "Si ce lieu vous attire tant, entrez-y.".
+Instead of entering vers_wc, try going west.
+Instead of smelling vers_wc, say "[if caca is in Toilettes]Cette odeur...[line break]Même d'ici, ça vous donne la nausée.[otherwise]Vous reniflez un bon coup. Pour une fois, nulle odeur putride en provenance des toilettes ne vient agresser vos narines.[end if]".
+
+Before going to Toilettes, say "Ainsi, installé sur le Trône, vous vous sentez mieux.".
+
+Toilettes is a room with the description "C[']est assez étroit, bien que suffisant pour accomplir les nécessités. Il y a une petite caisse en bois[if console is on caisse or rouleau is on caisse] servant de support à[end if][if console is on caisse] une console de jeu portable[end if][if console is on caisse and rouleau is on caisse] ainsi qu[']à[end if][if rouleau is on caisse] un rouleau de papier toilettes[end if].[if casque is in Toilettes] Un casque audio gît au sol.[end if] Vous pouvez sortir vers l'est.".
+Instead of exiting from Toilettes, try going east.
+
+Instead of upstanding when location is Toilettes, say "Hors de question ! Quitte à rester, que ce soit sur le Trône !".
+
+The porte_toilettes is a door. It is west of Couloir and east of Toilettes. The porte_toilettes is female, closed and openable. The description is "[if location is Couloir]Il est inscrit « WC » sur la porte.[otherwise]Il est écrit en gros, avec du sang, « 42 » sur la porte.[end if] Elle n[']est pas verrouillée, vous pouvez [if location is Couloir]entrer et vous soulager[otherwise]sortir de là[end if] si c[']est votre souhait. La porte est [if porte_toilettes is closed]fermée[otherwise]ouverte[end if].".
+The porte_toilettes is described.
+The printed name of porte_toilettes is "porte des toilettes".
+Understand "porte", "porte des toilettes", "porte des wc" as porte_toilettes.
+The indefinite article of porte_toilettes is "la".
+
+The sang is a scenery thing with the description "Ce sang, pas frais, est le vôtre. Quarante-deux... 42... 42 !!! Pas de panique, n'importe qui serait choqué à votre place.". It is part of porte_toilettes.
+Understand "42" as sang.
+[le sang n'est que sur une face de la porte, côté toilettes]
+Instead of examining sang when location is Couloir, say "Vous ne voyez rien de tel, à moins que cela ne soit sans grande importance.".
+Instead of smelling sang, say "Il n'a plus d'odeur depuis longtemps.".
+
+The caca is a thing with the description "On croirait voir là l[']œuvre d[']un vieillard. Il serait temps pour vous de reprendre des forces.". 
+Understand "crotte", "merde" as caca.
+Instead of defecating when location is Toilettes:
+   if caca is in Toilettes begin;
+      say "Allons, vous n[']êtes pas une machine à déféquer.";
+   otherwise;
+      say "Ahhh... quel bonheur. Un poids conséquent se dégage de votre conscience.";
+      now caca is in Toilettes;
+   end if.
+Instead of taking caca, say "Euh... non, ce n[']est vraiment pas une bonne idée.".
+Instead of smelling caca, say "Vraiment, ça pue.".
+
+The trone is a scenery thing in Toilettes with the description "Impressionnant. Toujours aussi robuste et fiable, le Trône vous supporte.".
+Understand "toilettes", "cuvette" as trone.
+The printed name of trone is "trône".
+Instead of entering trone, say "Vous êtes déjà dessus. À vrai dire, vous ne pouvez vous empêcher de vous y installer confortablement chaque fois que vous vous retrouvez en ce lieu.".
+
+The trou_des_toilettes is a scenery thing with the description "[if caca is in Toilettes]Chétive et molle, votre crotte se terre dans la pénombre.[otherwise]Le trou n'est pas tout à fait propre, mais au moins il ne contient pas de corps étranger.[end if]". It is part of trone.
+The printed name of trou des toilettes is "Trou".
+Understand "trou", "trou des toilettes" as trou_des_toilettes.
+Instead of entering trou_des_toilettes, say "Il est insensé d'espérer pouvoir survivre là-dedans.".
+Instead of taking trou_des_toilettes, say "Ce n'est pas possible, et tant mieux.".
+
+The caisse is a female supporter in Toilettes with the description "Faite de bois massif, cette caisse sert habituellement de reposoir à vos gadgets.".
+Instead of taking caisse, say "Elle est vraiment lourde, peu commode à transporter.".
+Instead of entering caisse, say "Il n[']y a pas assez de place ici pour faire ce genre d[']acrobaties.".
+Instead of turning caisse, say "Vous ne parviendrez pas à la faire tournoyer ici, c'est bien trop étroit.".
+Instead of opening caisse, say "C'est n'est qu'un bloc de bois cubique, dont l'utilité est de protéger vos précieux machins du sol putride.".
+
+The bois is a scenery thing with the description "C'est de l'acajou. Formidable.". It is part of caisse.
+
+The console is a female device on the caisse with the description "Il s[']agit d[']une Nintendo DS première génération, dans un état curieusement bon. Il manque cependant de la peinture autour de la croix directionnelle. D[']étranges cartouches sont insérées dans les deux ports de la console.".
+The printed name of console is "Nintendo DS".
+Understand "DS", "ds", "nintendo ds", "nintendo", "console de jeu portable"  as console.
+The console can be switched on and switched off. 
+The console is switched off.
+Instead of playing console, try switching on the console.
+Instead of switching on the console for the first time:
+	say "La larme à l[']œil, vous lancez une partie. Peut-être votre dernière. Plus passionnément que jamais, votre mercenaire détruit des armées de soldats serviles et de créatures malfaisantes. Vous parvenez à vous infiltrer dans la base Alien. Maintenant, le boss final ![line break]Oups, un petit robot vient de vous flinguer.[line break]...[line break]Vous éteignez la console de jeu.";
+   move console to player.
+Instead of switching on the console, say "Vous n[']avez plus vraiment le temps de jouer, et il ne faudrait pas trop user la batterie.".
+Instead of attacking console, say "Ce serait pure folie étant donné que vous en avez encore besoin.".
+
+The batterie is a female thing with the description "Une batterie de piètre qualité, fournie avec la console.". It is part of console.
+Instead of taking batterie, say "Inutile de l'enlever, vous n'avez pas de batterie de rechange.".
+Instead of unoking or unhooking batterie, say "Vous ne feriez jamais de mal à une DéeSse.".
+
+The croix is a female scenery thing with the description "Votre fidèle croix directionnelle, toujours en parfait état. Seule la peinture autour est usée.". It is part of console.
+
+The peinture is a female scenery thing with the description "Il manque de la peinture autour de la croix, surtout vers les coins du bas.". It is part of console.
+
+The casque is thing in Toilettes with the description "Un petit casque audio qui fonctionne bien. Il est équipé d[']un micro, utile pour discuter en jouant à des jeux en ligne sur votre petite machine.".
+Understand "casque audio" as casque.
+
+The micro is a thing with the description "[if micro is part of abeille]Vous l'avez incorporé à l'abeille[otherwise]Ce microphone irait à merveille sur une petite machine[end if].". it is part of casque.
+The micro can be small. It is small.
+Understand "microphone" as micro.
+Instead of wearing micro, say "Ce n'est pas un vêtement.".
+Instead of taking micro when micro is part of casque, say "Si vous tenez tant à récupérer ce petit microphone insignifiant, songez sérieusement à brutaliser un peu votre casque.".
+Instead of unhooking or unoking or pulling or taking off micro when micro is part of casque:
+	say "La main tremblante, vous saisissez votre couteau. C[']est nécessaire ! Vous parvenez à décrocher le microphone du casque, que vous réduisez ensuite en bouillie.";
+   remove casque from play;
+   move micro to player.
+Instead of taking or unhooking or unoking or pulling or taking off micro when micro is part of abeille, say "Allons, ne défaites pas votre montage si réussi.".
+Instead of unhooking or unoking or pulling micro when micro is not part of abeille and micro is not part of casque, say "Il n'est plus fixé à quoi que ce soit.".
+Instead of attacking or cutting casque, try unoking micro.
+Instead of tying or putting or inserting micro into abeille:
+   if micro is part of casque begin;
+      say "Vous devez d[']abord décrocher le micro du casque.";
+   otherwise;
+      say "Un usage agile de vos mains vous permet de mettre en place le micro en quelques secondes.";
+      now micro is part of abeille;
+   end if.
+   
+Some etranges cartouches are a female thing with the description "Vraiment, ce sont d[']étranges bestioles. Vos dernières créations, dont vous êtes particulièrement fier. On dirait presque des cartouches normales.". It is part of console.
+The printed name of cartouches is "étranges cartouches".
+Instead of taking etranges cartouches, say "Laissez-donc ces pauvres bêtes tranquilles. Au chaud, dans leurs ports !".
+
+The rouleau is a thing on caisse with the description "Il est environ à moitié usé. Des motifs, petits crapauds, sont dessinés dessus.".
+Understand "pq", "papier toilettes", "papier hygiénique" as rouleau.
+Instead of smelling the rouleau, say "Quelle douce odeur.".
+Instead of rubbing player with rouleau, say "Depuis peu, vous aimez les crapauds. Impossible de les salir ainsi.".
+Instead of searching rouleau, say "Sacrilège ! Ne le défaites surtout pas. Paix aux crapauds.".
+
+Some crapauds are a thing  with the description "Des petits crapauds bleus, à l'aspect respectable. Seuls les contours et les yeux sont dessinés.". It is part of rouleau.
+Understand "motifs", "dessins", "crapaud", "yeux" as crapauds.
+Instead of taking crapauds, say "Ce ne sont que des dessins".
+
+Instead of smelling when the location is Toilettes, say "Des odeurs d'excrément. Vous trouvez ça drôle ?".
+
+Chapter 2 - Se préparer au pire
+
+Foret is a room with the description "La végétation est très dense ici, ce qui n[']empêche pas le soleil de projeter de sublimes tracés lumineux tout autour de vous. Une cabane trapue se tient fièrement devant vous, à l'est. Un peu plus loin au nord, un étroit passage se dessine entre les feuillages.".
+The printed name of Foret is "Une forêt dense".
+
+The passage is a scenery thing in Foret with the description "C'est le seul chemin visible d'ici. Il semblerait qu'un humain l'ait tracé.".
+Understand "chemin" as passage.
+Instead of doing something other than examining or entering passage, say "D'où vous êtes, vous ne pouvez que le regarder ou, si tel est votre souhait, y entrer.".
+Instead of entering passage, try going north.
+
+Instead of ingoing when location is Foret, try going east.
+
+The porte_cabane is a female, closed and openable door. It is inside of Foret and outside of Base. The description is "Une porte en bois, bien conservée malgré la pluie qu'elle a dû essuyer.".
+Before going through porte_cabane, now porte_cabane is described.
+The printed name of porte_cabane is "porte de la cabane".
+The indefinite article of porte_cabane is "la".
+Understand "porte", "porte cabane", "porte de la cabane", "entree" as porte_cabane.
+
+The cabane is a female scenery thing in Foret with the description "On peut dire que cet habitat traditionnel se fond plutôt bien dans le décor. Mais vous remarquez à quel point il semble solide et isolé. D[']ailleurs, il n[']y a pas la moindre ouverture si on excepte l[']entrée. Une minute... vous êtes le constructeur de cette cabane !".
+Understand "cabane trapue" as cabane.
+Instead of entering cabane, try ingoing.
+Instead of searching cabane, say "Pour cela, il vous faut entrer.".
+
+Instead of examining sol when location is Foret, say "Il a dû pleuvoir récemment car le sol est un peu humide.".
+
+Base is a room with the description "On y voit à peine, ici. Dans un coin de la pièce, vous distinguez votre lit de camp et un sac de couchage. C[']est sinon entièrement vide. Vous pouvez sortir par l'ouest.".
+Base is east from Foret.
+The printed name of Base is "Base secrète".
+
+The lit de camp is a scenery thing in Base with the description "Vous n[']avez pas dormi depuis bien longtemps, mais ce n[']est pas le moment d[']y penser.".
+Understand "lit" as lit de camp.
+Instead of entering lit de camp:
+	say "Bon allez, pourquoi pas, juste pour essayer.[paragraph break]Et ainsi, vous sombrez dans le sommeil... des heures durant, vous rêvez de la mission que jamais plus vous ne pourrez accomplir.[paragraph break]À peine ouvrez-vous les yeux qu[']un couteau déchire votre gorge.";
+   wait for any key;
+	end the game in death.
+
+The sac is a container in Base with the description "Hmmm... c[']est tentant mais tant pis, dites-vous que vous dormirez vraiment bien une fois que tout ceci sera fini.".
+Understand "sac de couchage", "duvet", "couverture" as sac.
+The sac is closed.
+Instead of opening sac:
+   if sac is closed begin;
+      say "Unzip ! Le sac de couchage est maintenant ouvert.";
+      now sac is not closed;
+      if scorpion is in sac begin;
+         say "Vous secouez un peu le sac et un scorpion s'en échappe à toute vitesse, pour aller se réfugier dans un coin sombre.";
+         remove scorpion from play;
+      end if;
+   otherwise;
+      say "Le sac de couchage est déjà ouvert.";
+   end if.
+Instead of closing sac:
+   if sac is closed begin;
+      say "Le sac de couchage est déjà fermé.";
+   otherwise;
+      say "Zip ! Le sac de couchage est maintenant fermé.";
+      now sac is closed;
+   end if.
+
+The scorpion is an animal in sac.
+
+Instead of searching sac for the first time:
+   if sac is closed begin;
+      say "Vous plongez votre bras dans le sac de couchage.";
+      wait for any key;
+      say "Hmmmm... il n'y a rien. Ah si !";
+      wait for any key;
+      say "Tiens, mais qu'est-ce donc ?";
+      wait for any key;
+      say "Ça bouge ! Vous retirez violemment votre main. Sur son dos, un énorme scorpion. Le temps se fige tandis que vous fixez l'insecte, qui semble vouloir vous dire quelque chose.";
+      wait for any key;
+      say "On dirait qu'il sourit...";
+      wait for any key;
+      say "Puis il vous pique. Vous passez les derniers instants de votre vie à agoniser en vous agitant dans tous les sens.";
+      wait for any key;
+      end the game in death;
+   otherwise;
+      try searching sac;
+   end if.
+Instead of searching sac, say "[if sac is closed]Vous plongez votre bras dans le sac de couchage, mais rien ne vient à la rencontre de votre main farfouilleuse.[otherwise]Vous ne remarquez rien de particulier, si ce n'est que l'intérieur du sac de couchage n'est pas extrêmement propre.[end if]".
+Instead of taking sac, say "Ce n'est pas le moment de dormir.".
+Instead of inserting something into sac, say "Ce n'est pas fait pour stocker vos affaires.".
+
+Robot is an animal in Base with the description "Vous aimeriez bien pouvoir regarder votre petit robot avec vos nouveaux yeux, n[']est-ce pas ? Peut-être que vous devriez aussi envisager de fonder une colonie d[']abeilles, dont vous seriez le chef. Hum...".
+The Robot can be deaf or not deaf.
+The Robot is not deaf.
+The Robot can be rapid or not rapid.
+The Robot is not rapid.
+
+Foret2 is a room with the description "[if branches are cutted]Le passage, dégagé par vos soins mène vers une clairière en direction du nord-est.[otherwise]Des branches, buissons, arbres et autres ronces en pagaille semblent s[']allier pour vous barrer la route. Le sol est bien encombré aussi, principalement par des feuillages.[end if] Vous pouvez retourner près de votre cabane en direction du sud.".
+The printed name of Foret2 is "Un passage entre les feuillages".
+Foret2 is north from Foret.
+
+The pelle is a female thing with the description "[if pelle is hiden]D'après vos souvenirs, c'est une pelle on ne peut plus banale. Un peu ancienne, mais en bon état.[otherwise]Banale au possible, elle est un peu rouillée mais tout à fait utilisable.[end if]".
+The pelle can be hiden or not hiden. It is hiden.
+Instead of taking pelle when pelle is hiden, say "Vous ne voyez pas de pelle.".
+
+Some feuilles are a scenery thing in Foret2 with the description "Il y en a tellement que c'en est presque louche.".
+Understand "feuillage", "feuillages", "feuille" as feuilles.
+Instead of searching or looking under feuilles for the first time:
+   if pelle is hiden begin;
+      say "Qui sait quels trésors se cachent sous ces tas de feuilles...";
+      wait for any key;
+      say "[line break]BANG ! Votre face est percutée de plein fouet et vous tombez à la renverse.";
+      wait for any key;
+      say "Vous avez marché sur une pelle.";
+      now pelle is in Foret2;
+      now pelle is described;
+      now pelle is not hiden;
+   otherwise;
+      try searching feuilles;
+   end if.
+Instead of searching or looking under feuilles: 
+   if pelle is described begin;
+      say "Vous ne trouvez rien de particulier sous les feuilles.";
+   otherwise;
+      say "Vous sortez la pelle de sous les feuilles.";
+      now pelle is described;
+      now pelle is not hiden;
+   end if.
+Instead of inserting pelle into feuilles:
+   say "Vous cachez la pelle dans les feuilles.";
+   now pelle is in Foret2;
+   now pelle is hiden;
+   now pelle is undescribed.
+Instead of inserting pelle into branches, say "Vous auriez du mal à la récupérer.".
+Instead of searching sol when location is Foret2, try searching feuilles.
+Instead of examining sol when location is Foret2, say "Le sol étant recouvert de feuilles et de plantes en tous genres, il vous faudra touiller un peu pour l'admirer.".
+
+Some branches are a female scenery thing in Foret2 with the description "[if branches are cutted]Des branches coupées traînent un peu partout.[otherwise]À cause de ces végétaux, vous ne pouvez aller plus loin. Peut-être est-ce mieux ainsi.[end if]".
+Understand "buissons", "ronces", "végétaux" as branches.
+The branches can be cutted or not cutted.
+The branches are not cutted.
+Instead of cutting branches:
+   say "Vous dégainez votre couteau pour débroussailler le passage. Vous vous frayez ainsi un chemin dans la forêt, des minutes durant, jusqu[']à atteindre une petite clairière ensoleillée.";
+   wait for any key;
+   now branches are cutted;
+   now clairiere is in Foret2;
+   move player to Foret3.
+
+Instead of going northeast when location is Foret2:
+   if branches are cutted begin;
+      continue the action;
+   otherwise;
+      say "[description of branches][line break]";
+   end if.
+      
+The clairiere is a scenery thing with the description "Voilà un coin qui semble agréable.".
+The printed name of clairiere is "clairière".
+Instead of doing something other than examining or entering clairiere, say "Allez-y pour faire cela.".
+Instead of entering clairiere, try going northeast.
+Instead of ingoing when location is foret2, try entering clairiere.
+
+Foret3 is a room with the description "Ce cercle dégagé d'une dizaine de pieds de diamètre est inondé de soleil. En son centre, le sol semble avoir subi quelques outrages. Au sud-ouest d'ici se trouve un passage entre les feuillages.".
+Foret3 is northeast from Foret2.
+The printed name of Foret3 is "Une clairière ensoleillée".
+
+Instead of exiting when location is Foret3, try going southwest.
+
+Instead of examining sol when location is Foret3, say "De la terre a été retournée récemment."
+Instead of digging when location is Foret3 and player is carrying pelle:
+   if trou is in Foret3 begin;
+      if trou is open begin;
+         say "L'agrandir plus ne servirait à rien.";
+      otherwise;
+         say "Vous creusez où la terre est fraîche... mais ne trouvez rien.";
+         now trou is open;
+      end if;
+   otherwise;
+      say "Vous creusez où la terre est fraîche...";
+      wait for any key;
+      say "BING ! Votre pelle heurte un objet métallique. C'est un coffret. Vous le sortez de là.";
+      now coffret is in Foret3;
+      now coffret is described;
+      now trou is open;
+      now trou is in Foret3;
+   end if.
+The terre is a thing in Foret3.
+Instead of examining terre, try examining sol.
+Instead of digging terre, try digging sol.
+
+The trou is a scenery thing with the description "[if trou is open]Le trou que vous avez creusé n'a rien d'exceptionnel.[otherwise]Le trou a été rebouché.[end if]".
+The trou can be open or closed. It is not open.
+Instead of searching trou, say "Le trou est vide.".
+Instead of pluging trou: 
+   say "Vous rebouchez le trou.";
+   now trou is not open.
+Instead of entering trou: 
+   if trou is open begin;
+      say "Il n'est pas encore temps de vous retirer sous terre.";
+   otherwise;
+      try examining trou;
+   end if.
+
+Instead of inserting something into trou: 
+   if trou is open begin;
+      say "Vous ne reviendrez plus ici. Inutile d'y cacher vos biens précieux.";
+   otherwise;
+      try examining trou;
+   end if.
+
+The coffret is an openable container with the description "Un petit coffre en métal, bien solide mais sans verrou.".
+Understand "coffre", "petit coffre" as coffret.
+The coffret is closed.
+Instead of inserting something into coffret when machine is in coffret and coffret is not closed, say "Il n'y a plus de place dedans.".
+Instead of inserting coffret into coffret when coffret is not closed, say "Vous ne pouvez pas mettre un objet à l'intérieur de lui-même.".
+
+The machine is a female device in coffret with the description "De forme cubique, ce boîtier couvert de boutons doit servir d[']intermédiaire entre la manette de pilotage, les lunettes et l[']abeille.".
+The machine can be switched on.
+The machine is switched off.
+Instead of dropping machine when machine is in coffret:
+   say "D'accord.";
+   move machine to location.
+Instead of dropping machine when location is Base:
+   say "Vous installez la machine au centre de la pièce.";
+   now machine is in Base.
+Instead of switching on machine:
+   if location is Base begin;
+      if player is carrying abeille and player is carrying console begin;
+         if machine is in Base begin;
+            if player is wearing lunettes begin;
+               say "Bip ! La machine se met en route dans un cri strident, accompagné des clignotements furieux de quelques diodes. C[']est parti. Vous allumez l[']abeille, vos lunettes customisées et votre Nintendo DS, puis lancez le programme de pilotage.";
+               wait for any key;
+               say "Bzzzzz... ça marche ! Vous pouvez désormais contrôler l[']abeille au pad, et voir au travers de sa caméra dans vos lunettes. Vous parlez et entendez votre voix ressortir des haut-parleurs de la Nintendo DS. Yeahh, tout fonctionne, même ce micro intégré à l[']abeille au dernier moment ! Quel miracle...";
+               wait for any key;
+               say "Maintenant, on se concentre.";
+               wait for any key;
+               say "Vous êtes désormais en symbiose avec votre robot, votre dernier espoir. Vos sens s[']amenuisent et vous plongez dans sa conscience, devenant une abeille.";
+               wait for any key;
+               change player to Robot;
+               say "Et ainsi, vous sortez de la cabane et volez en dehors de cette forêt. Quelles sensations !";
+               wait for any key;
+               move player to Boulevard;
+            otherwise;
+               say "Vos lunettes sont indispensables à l'opération. Si vous ne les portez pas... autant ne rien faire.";
+            end if;
+         otherwise;
+            say "Cette machine est assez lourde. Vous devriez la poser avant de d'entamer l'opération.";
+         end if;
+      otherwise;
+         say "Vous n'êtes pas prêt. Rassemblez tous le matériel prévu dans le plan.";
+      end if;
+   otherwise;
+      say "Quelqu'un pourrait vous surprendre ici. Mettez-vous à l'abri.";
+   end if.
+
+Some boutons are a thing with the description "Malgré les apparences, cette machine est très simple à utiliser. La plupart des boutons qui la recouvrent ne sont en fait que des commandes de débogage. À part ça, il y a un bouton bleu, un peu plus gros que les autres, en plein milieu. « On/Off » est écrit dessus.". It is part of machine.
+Understand "bouton" as boutons.
+Instead of pushing boutons, say "Les choix ne manquent pas. Précisez sur lequel appuyer.".
+
+The bouton_bleu is a thing with the description "Il est bleu et légèrement plus gros que les autres boutons. « On/Off » est écrit dessus.". It is part of machine.
+The printed name of bouton_bleu is "bouton bleu".
+Understand "gros bouton", "bouton on/off", "bouton du milieu", "bouton bleu" as bouton_bleu.
+Instead of pushing bouton_bleu, try switching on machine.
+
+Chapter 3 - Dans le corps du robot
+
+Boulevard is a room with the description "Posté en hauteur pour éviter les passants et les véhicules pressés, vous voyez les choses d[']une toute autre manière désormais. Cependant rien n[']est parfait et vous ne pouvez réellement admirer le décor au travers de vos lunettes. Toutefois c[']est suffisant pour se repérer. Vous pouvez ainsi traverser la chaussée au nord pour vous diriger vers le centre-ville, ou aller vers un petit parc au sud. À l[']est et à l[']ouest ne se trouve que la continuation de l[']immense chaussée qui vous fait face.". 
+The printed name of Boulevard is "Face à la circulation menaçante".
+Instead of downgoing when location is Boulevard, say "C'est trop dangereux, il y a des voitures et des humains partout en bas.".
+
+Some passants are a scenery thing in Boulevard with the description "Tous sont affairés, en pleine panique. Ah, ces pauvres humains !".
+Understand "humains", "humain", "passant" as passants.
+Instead of pricking passants, say "Non ! Pas de meurtre inutile je vous prie.".
+Instead of searching passants, say "C'est bien trop dangereux.".
+
+The chaussee is a female scenery thing in Boulevard with the description "Toutes ces voitures qui passent... mieux vaudrait ne pas se poser sur cette route.".
+The printed name of chaussee is "chaussée".
+Understand "route" as chaussee.
+
+Some voitures are a female scenery thing in Boulevard with the description "Que ces créatures métalliques sont terrifiantes.".
+Understand "voiture", "vehicules", "vehicule" as voitures.
+Instead of searching voitures, say "Ne commettez pas une telle folie.".
+Instead of pricking voitures:
+   say "Ça suffit ! C'est tout ce qu'ils méritent. Vous foncez, enragé, sur le pare-brise le plus proche. Certes, vous parvenez à le trouer. C'est magnifique. Mais vous voilà réduit en miettes.";
+   wait for any key;
+   end the game saying "L[']opération est un échec. Vous passerez le restant de votre vie à pleurer en vous traînant comme une larve, parcouru de crises de terreur à la moindre vue de voitures.".
+
+The Centre-ville is a room with the description "Pour peu, on se croirait dans une ruche. Ça grouille de vie par ici. Vous pouvez rejoindre le Boulevard vers le sud.".
+The Centre-ville is north from Boulevard.
+
+The vie is a female thing in Centre-ville with the description "Humains, voitures, pigeons... Tous sont rassemblés en ce lieu et forment un nid dense et putride.".
+Understand "humains", "humain", "voiture", "voitures", "pigeon", "pigeons", "nid", "oiseaux", "oiseau" as vie.
+
+Instead of going nowhere from Centre-ville, say "Ne vous égarez pas.".
+
+Instead of listening when player is Robot and Robot is deaf and location is not Centre-ville, say "Tout n[']est plus que silence.".
+
+Instead of listening when location is Centre-ville:
+   if Robot is deaf begin;
+      say "......................................   ..... .. .. ..   ..    ..................  bzzzzz!";
+      wait for any key;
+      say "!!!!!!!!!!!!!!!!!!!!!!!!";
+      wait for any key;
+      say "Une abeille passe devant vous et s[']éloigne en direction du ciel.";
+      say "Vous la suivez.";
+      wait for any key;
+      move player to Ciel;
+      now player is not deaf;
+      say "Le vent souffle fort. Vous mouvoir dans ces conditions est difficile, mais le jeu en vaut la chandelle. Une dame abeille on ne peut plus charmante vole avec célérité devant vous !";
+   otherwise;
+      say "Tiens, maintenant que vous y prêtez attention... c[']est vraiment étrange. Vous ne percevez ici qu[']un grésillement continu, comme si quelqu[']un essayait de vous parler dans une langue inconnue.";
+   end if.
+
+Parc is a room with the description "Quel lieu paisible et agréable, au beau milieu de l[']après-midi. Le parc est centré sur une fontaine abritant une statue de poisson qui, quelle originalité, crache de l[']eau vers le ciel. Quelques arbustes décorés sont répartis symétriquement, tout comme des bancs. Mais vous gardez les « pieds sur terre » ; les crottes qui appartenaient probablement à des chiens sont tout aussi bien réparties au sol et visibles. [if enfants are in Parc]Quelques enfants jouent avec une balle, et a[otherwise]A[end if]ccroupi au sol, tout près de la fontaine se trouve un vieillard occupé à lire un journal.[paragraph break]Vous pouvez retourner près du grand boulevard au nord, ou voler vers l[']ouest où se trouve une petite ruelle.".
+Parc is south from Boulevard.
+The printed name of Parc is "Un petit espace de détente".
+
+Instead of listening when location is Parc and Robot is not deaf:
+   if enfants are in Parc begin;
+      say "Les rires des enfants ainsi que leurs pieds qui raclent le sol et percutent fréquemment une balle sont les seuls bruits que vous pouvez distinguer.";
+   otherwise;
+      say "Des oiseaux chantent discrètement, et parfois vous entendez le vieillard siffloter quelque air inconnu.";
+   end if.
+
+The vieillard is a man in Parc with the description "Ce vieillard vous semble bien mystérieux, la tête complètement masquée sous son chapeau et par son journal. Ses mains pourraient inciter à penser qu[']il est presque centenaire, et pourtant il est souplement accroupi et ne semble pas souffrir de la position, qui tiraillerait les genoux de bien des jeunes gens, qu[']il tient avec une stabilité apparemment remarquable. Il est assez maigre mais paraît aussi curieusement musclé. Depuis que vous êtes ici, vous ne l[']avez pas encore vu tourner de page.".
+Understand "vieux", "homme", "vieil homme" as vieillard.
+Instead of pricking vieillard, say "Chaque fois que vous tentez d[']approcher le vieillard, sa tête bouge légèrement, comme s[']il était capable de détecter votre présence. L[']approcher plus, vous en êtes convaincu, pourrait mettre en péril votre survie.".
+
+Some mains are a female thing with the description "Ses mains, ridées à première vue, sont en fait parcourues par de profondes rainures grises. Des cicatrices rondes, évoquant des lèvres délabrées, trônent au dos de chaque main. Comme si la Mort y avait déposé des baisers après avoir joué de la faux dessus.". It is part of vieillard.
+Understand "cicatrices", "rides", "rainures", "main" as mains.
+Instead of pricking mains, try pricking vieillard.
+
+The vieillard is carrying a journal.
+The description of the journal is "Vous ne parvenez pas à distinguer ce qui est écrit sur la couverture, si ce n[']est le titre du journal : en trois mots, chacun commençant par une capitale rouge ; « Le Canard Libéré ».".
+Instead of reading journal, say "[description of journal][line break]".
+The vieillard is wearing a chapeau.
+The description of chapeau is "Il est, vraiment, très sombre.".
+
+The fontaine is a female scenery thing in Parc with the description "Une statue en forme de poisson, regardant le ciel, crache quatre jets d[']eau autour d[']elle. Vous restez à une distance raisonnable pour éviter les gouttelettes.".
+Instead of entering fontaine, say "Le robot que vous pilotez n[']est pas étanche. Restez éloigné de cette fontaine.".
+
+Some eau is a scenery thing in Parc with the description "Elle est limpide, mais terrifiante pour le tas de ferraille que vous êtes.".
+Instead of drinking or tasting eau, say "Vous êtes encore conscient de l'existence de votre corps physique, assis dans une cabane au beau milieu d'une forêt. Plus tard, peut-être, vous pourrez boire un petit verre d'eau. Pour l'heure, mieux vaut vous tenir éloigné de tout liquide.".
+Instead of entering eau, try entering fontaine.
+
+The statue is a female scenery thing in Parc with the description "Un poisson de pierre, somme toute assez volumineux et dont les lèvres esquissent un sourire malicieux. La roche est vraiment nette et vous ne remarquez pas la moindre fissure.".
+Understand "poisson", "roche", "lèvres" as statue.
+
+Some bancs are a scenery thing in Parc with the description "Des bancs en bois, dont la peinture verte s[']est écaillée avec le temps. Vous ressentez une certaine mélancolie à l[']idée de ne pouvoir vous asseoir dessus.".
+Understand "banc" as bancs.
+Instead of entering bancs, say "Vous vous posez sur le banc. Un instant seulement, car dans votre condition actuelle il ne vous offre aucun confort particulier.".
+
+The peinture_des_bancs is a female scenery thing in Parc with the description "Le peu de peinture qu'il reste sur ces bancs, d'un vert pâle, fait peine à voir. Une nouvelle couche ne serait pas de trop, mais ça puerait un peu au début. Peu importe en fait, vous ne traînez jamais par ici en temps normal.".
+The printed name of peinture_des_bancs is "peinture des bancs".
+Understand "peinture du banc", "peinture", "peinture des bancs" as peinture_des_bancs.
+
+Some arbustes are a scenery thing in Parc with the description "Les arbustes, tous identiques, sont décorés d[']étranges banderoles tricolores.".
+Understand "arbrisseaux", "arbres", "arbuste" as arbustes.
+Instead of searching or entering arbustes, say "Il est agréable de se planquer là-dedans, mais vous n'y trouvez rien.".
+
+Some banderoles are a scenery thing with the description "Bleu, Blanc, Rouge. Que cela peut-il bien représenter ? Vous ne vous souvenez guère avoir jamais croisé ce symbole au cours de votre existence.". It is part of arbustes.
+
+Some merdes are a female thing in Parc with the description "Il y en a de plusieurs tailles, d[']anciennetés variables mais toutes ces crottes proviennent vraisemblablement de chiens. Si un jour vous fabriquez une autre abeille robot, vous ne manquerez pas d[']implémenter quelques fonctionnalités exotiques...".
+Understand "cacas", "crottes" as merdes.
+
+Some enfants are a man in Parc with the description "Ces gosses jouent à la balle, peinards. Quels êtres insouciants.".
+Understand "enfant", "gosse", "gosses" as enfants.
+Instead of pricking enfants:
+   say "Vous approchez furtivement l[']enfant qui tient la balle.";
+   wait for any key;
+   say "  — Ah !!! Une abeille ![line break]Les enfants prennent la fuite et disparaissent en un éclair. Les bougres.";
+   move enfants to Ruelle;
+   remove balle from play.
+
+The balle is a female thing in Parc with the description "Un petit ballon de handball, un peu dégonflé apparemment.".
+Understand "ballon" as balle.
+Instead of pricking balle:
+   say "La balle est au sol, et une petite farce vous vient à l[']esprit. Vous voletez jusqu[']à la balle pour vous poser dessus, puis y enfoncez votre dard en fer.[line break]Pssshhh !";
+   wait for any key;
+   say "Ahahahhahahh, si seulement vous aviez programmé un rire à votre abeille.[paragraph break]Hé, mais... non ! Vous remuez votre carcasse métallique, votre dard ne daigne pas se déloger du ballon.";
+   say "Il semblerait que les enfants n[']aient pas remarqué votre petite farce. L[']un d'eux shoote le ballon, réduisant votre création en miettes.";
+   wait for any key;
+   end the game saying "Pour vous, le salut n[']est plus qu[']un vieux rêve. Anéanti par des bambins... mais qu'espériez-vous accomplir ?".
+
+Before going to Ruelle when enfants are in Ruelle:
+   now the porte is broken;
+   say "Des rires retentissent. Les vauriens de tout à l[']heure ! Les voilà qui décampent une fois de plus. Qu[']ont-ils bien pu faire d[']aussi amusant dans cette ruelle ? On dirait qu'ils ont cassé quelque chose.";
+   remove enfants from play;
+   wait for any key.
+
+Ruelle is a room with the description "Les immeubles qui se dressent, formant cette ruelle, empêchent au soleil de passer. Il en résulte que vous n[']y voyez presque rien avec votre pauvre caméra, si ce n[']est une poubelle dans un coin et une porte au sud. Vous pouvez rejoindre le parc vers l'est.".
+Ruelle is west from Parc.
+The printed name of Ruelle is "Une étroite et sombre ruelle".
+
+Some immeubles are a scenery thing in Ruelle with the description "Ces immeubles, gigantesques et menaçants, ont des murs crasseux.".
+Understand "immeuble", "mur", "murs", "crasse" as immeubles.
+
+Instead of ingoing in Ruelle:
+   if porte is broken begin;
+      say "Vous passez sans difficulté par le trou dans la vitre, qui vous paraît énorme.";
+      wait for any key;
+      continue the action;
+   otherwise;
+      say "Vous vous cognez à la vitre. Ça vous apprendra à vous moquer des oiseaux maladroits.";
+   end if.
+Instead of going south in Ruelle, try ingoing.
+
+The poubelle is a female scenery thing in Ruelle with the description "Une poubelle ordinaire, plus volumineuse que celles qu[']on trouve dans les cuisines. Qu[']il est délectable de vous poser dessus sans craindre de vous salir ou d[']offenser vos narines.".
+Instead of entering or searching poubelle, say "La poubelle est fermée.".
+Instead of opening poubelle, say "Vous manquez de force.".   
+Instead of looking behind poubelle, say "En vous faufilant derrière la poubelle, vous ne remarquer rien de particulier.".
+
+The porte is a female scenery thing in Ruelle with the description "Ce n[']est rien qu[']une porte, avec quelques petites vitres sales[if porte is broken].[line break]Un carreau est brisé.[end if][if porte is repaired][line break]La vitre brisée a été réparée ![end if][if porte is not broken and porte is not repaired] mais entières.[end if]".
+The porte can be broken.
+The porte is not broken.
+The porte can be repaired.
+The porte is not repaired.
+Instead of entering porte, try ingoing.
+
+Some vitres are a female scenery thing in Ruelle with the description "Les vitres sont sales...[if porte is not broken] mais en bon état. Dommage.[otherwise] et l'une d'elles est cassée.[end if]".
+Understand "carreaux", "carreau", "vitre" as vitres.
+Instead of entering vitres, try ingoing.
+Instead of attacking vitres:
+   if porte is broken begin;
+      say "Une vitre est déjà cassée, c[']est suffisant pour passer.";
+   otherwise;
+      say "Vous êtes bien trop fébrile pour cela.";
+   end if.
+
+Boutique is a room with the description "[if lampe is not broken]Des objets plus ou moins usagés et utiles sont éparpillés un peu partout dans la pièce. Certains sont vraiment difficiles à reconnaître, et l[']éclairage minable de l[']unique petite lampe au plafond n[']arrange pas leur mise en valeur. Vous ne doutez pas que les piles d'objets ne cesseront de croître jusqu[']au jour où la boutique ne pourra plus les contenir, car il semblerait qu'aucun client ne soit passé ici depuis des lustres. Une vieille femme un peu enrobée se tient derrière un comptoir. Pour sortir, vous pouvez passer par la porte au nord.[otherwise]Il fait tout noir.[end if]".
+Boutique is inside from Ruelle.
+The printed name of Boutique is "Une boutique de bibelots".
+
+The plafond is a scenery thing in Boutique with the description "Le plafond, couvert de poussière, devait être blanc à l'origine. Une lampe y est suspendue.".
+Understand "poussiere" as plafond.
+
+Instead of upgoing when location is Boutique, say "Vous ne pouvez traverser le plafond.".
+Instead of downgoing when location is Boutique, say "Ce n'est pas comme si vous êtiez véritablement en hauteur dans cette pièce.".
+
+Instead of doing something other than going, flying, outgoing, exiting or listening when location is Boutique and lampe is broken, say "Il fait tout noir.".
+Instead of listening when location is Boutique and Robot is not deaf, say "Une radio diffuse un air de jazz inconnu de vos « oreilles ».".
+
+Before exiting from Boutique when lampe is broken:
+   say "Un maigre faisceau de lumière perçant la porte vous permet de trouver la sortie.";
+   wait for any key.
+
+The porte_boutique is a female scenery thing in Boutique with the description "Cette porte est tout à fait banale, mais un des carreaux a été brisé. Ses restes traînent au sol.".
+Understand "porte" as porte_boutique.
+The printed name of porte_boutique is "porte".
+Instead of entering porte, try exiting.
+
+Instead of going north in Boutique, try exiting.
+
+The vieille is a woman in Boutique with the description "Ses cheveux gris frisés, peu entretenus, sont symétriquement disposés de telle sorte que ses yeux vert pâle ressortent grossièrement de sa figure. Crispée, la vieille dame tient un caillou dans la main et marmonne quelques insultes.".
+Understand "dame", "vendeuse", "femme", "vieille femme", "vieille dame" as vieille.
+Instead of listening to vieille:
+   if Robot is deaf begin;
+      try listening;
+   otherwise;
+      say "De sa voix rauque, elle maugrée continuellement. Ses paroles, il m'est défendu de les rapporter ici.";
+   end if.
+
+Instead of pricking vieille when Robot is not deaf: 
+   say "Vous approchez de la vieille dame pour exécuter votre sombre dessein.";
+   wait for any key;
+   say "— Quel est ce bruit ? crie-t-elle.[line break]La radio se coupe, laissant place à un silence total. Médusée, une tête pivote pour venir se figer dans votre direction. Quelque chose ne va pas.";
+   wait for any key;
+   say "— Qu[']est[']c[']est qu[']ce machin ? On dirait[']i pas une grosse mouche en ferraille ! Mazette !";
+   wait for any key;
+   say "[line break]Un geste s[']exécute. Une telle vitesse, un mouvement si précis. A-t-elle déjà fait du baseball ? À peine avez-vous le temps d[']admirer sa posture qu[']un caillou vient vous percuter.";
+   wait for any key;
+   say "Votre vue se brouille et vous chutez durement.[line break]";
+   wait for any key;
+   say "Un pied écrabouille votre corps souffrant, le réduisant en bouillie informe.";
+   wait for any key;
+   end the game saying "Quel choc... tous vos efforts réduits à néant à cause d'une brave dame. C[']est une vraie raclée que vous avez pris là. Jamais vous n'oublierez la beauté morbide de son geste. Une violente envie vous prend à l'estomac... celle de la revanche. Un jour, vous affronterez à nouveau cette vieille dame. Toujours sous la forme d'abeille, car c'est ainsi qu'elle vous a vaincu. Oui ! Elle ne s'en tirera pas ainsi ! En attendant, vous devez tout recommencer du début.".
+
+The vieille is carrying a caillou.
+The description of caillou is "En étant minuscule, on considère les choses autrement. Ce caillou vous paraît bien dangereux.".
+
+Some debris are a thing in Boutique with the description "Alors, ces sales gosses peureux s[']amusent à briser des vitres... quels fourbes.".
+The printed name of debris is "débris de verre".
+Understand "vitre", "carreau", "debris de verre", "restes", "vitres", "carreaux" as debris.
+
+Some objets are a scenery thing in Boutique with the description "Chaises à trois pieds, balances en plastique, rondins de bois décorés, livres anciens et autres vases loufoques se côtoient dans un chaos terrifiant. En cherchant un peu, vous trouveriez probablement quelques choses à votre goût.".
+Understand "machin", "machins", "bibelot", "bibelots", "chaise", "chaises", "balance", "balances", "rondin", "rondins", "rondin de bois", "rondins de bois", "livre", "livres", "livre ancien", "livres anciens", "vase", "vases", "chose", "choses", "chaos", "vase loufoque", "vases loufoques", "objet" as objets.
+Instead of searching objets, say "[if lampe is broken]Il fait tout noir.[otherwise]En vous promenant dans ces tas d'objets, vous en voyez des choses variées, mais rien qui puisse vous servir sous votre forme actuelle.[end if]".
+
+The lampe is a female scenery thing in Boutique with the description "Une ampoule économe, pendue à un fil. S[']en approcher serait, à n[']en pas douter, bien dangereux.".
+Understand "ampoule" as lampe.
+The lampe can be broken.
+The lampe is not broken.
+Instead of pricking lampe:
+   if Robot is deaf begin;
+      say "La lampe est déjà hors d[']état de nuire, et vous ne pouvez plus la voir de toute manière.";
+   otherwise;
+      say "Une petite farce ne serait pas de refus, pensez-vous. Vous approchez de la lampe et plantez votre dard terrifiant dans le fil électrique qui traîne. Cette vile vendeuse insolente sera plongée dans les ténèbres et la terreur.";
+      wait for any key;
+      say "Vous n[']y pensez qu[']une fois qu[']il est trop tard, mais cela n[']est-il pas un peu dangereux pour un robot ?";
+      wait for any key;
+      say "Vous entendez un bruit sourd, comme si votre cerveau venait d[']éclater.";
+      wait for any key;
+      say "[paragraph break]Et tout devient noir.[line break]Mais quelque chose ne va pas. Pourquoi cette humaine ne réagit-elle pas ? Pire, il n[']y a plus le moindre bruit. Est-elle en train de guetter le murmure de votre moteur pour vous tomber dessus tout d'un coup ? Le problème, c'est que vous ne percevez même plus les murmures de la ville. Quoi qu[']il en soit, rester ici serait pour sûr assez risqué.";
+      now Robot is deaf;
+      now lampe is broken;
+   end if.
+
+The fil is a scenery thing in Boutique with the description "Il semble légèrement dénudé... Quoi qu[']il en soit, c[']est aussi grâce à lui que la pièce est éclairée en ce moment même.".
+Instead of pricking fil, try pricking lampe.
+
+SortirVite is a scene.
+SortirVite begins when the lampe is broken.
+SortirVite ends when the time since SortirVite began is 10 minutes.
+When SortirVite ends:
+   if player is in Boutique begin;
+      say "CRRR !";
+      wait for any key;
+      end the game saying "Vous reprenez conscience dans votre cabane. Votre abeille est morte ! C'est probablement la vieille dame qui s'est amusée à la broyer. Fichtre.";
+   otherwise;
+      now porte is not broken;
+      now porte is repaired;
+   end if.
+
+The comptoir is a scenery thing in Boutique with the description "C[']est une imitation de comptoir, une vulgaire planche de bois posée sur un muret. Les avant-bras grassouillets de la vendeuse reposent dessus, ses mains menaçantes débordant et remuant nerveusement. Un verre à moitié vide est posé près du bord, menaçant de chuter.".
+
+The verre is a thing in Boutique with the description "Il contient un liquide jaunâtre et mousseux.".
+Instead of drinking verre, say "N[']oubliez pas quel corps votre esprit fait se mouvoir actuellement.".
+
+The liquide is a thing in Boutique with the description "Ce breuvage, jaunâtre et mousseux vous rappelle quelque chose, mais vous ne sauriez le nommer.".
+Instead of drinking liquide, try drinking verre.
+
+Chapter 4 - La poursuite
+
+Ciel is a room with the description "Le ciel est bleu, les oiseaux chantent... peu importe !".
+
+Le_ciel is a scenery thing in Ciel with the description "[description of Ciel]".
+The printed name of le_ciel is "ciel".
+Understand "ciel", "oiseau", "oiseaux" as le_ciel.
+
+Instead of going nowhere from Ciel, say "Rien à faire, vous êtes complètement attiré par cette splendide créature.".
+Instead of listening when location is Ciel for the first time :
+   say "Dame abeille murmure de douces paroles à votre attention.[line break]Quel est ce flot d[']énergie qui vous envahit !?";
+   now player is rapid.
+Instead of listening when location is Ciel, say "Quelle voix sublime...".
+
+The dameabeille is a female animal in Ciel with the description "Quelle beauté...".
+The printed name of dameabeille is "Dame abeille".
+Understand "dame abeille", "dame", "créature", "déesse", "abeille" as dameabeille.
+Instead of pricking dameabeille:
+   if player is rapid begin;
+      say "Il est temps de foncer ![paragraph break]Petit à petit, vous approchez Dame abeille.";
+      wait for any key;
+      say "Et voilà ! Vous parvenez à l[']immobiliser. Maintenant, il est temps de planter votre dard. Vous respirez un bon coup.";
+      wait for any key;
+      say "Mais que pensez-vous être en train de faire ? N[']aviez-vous pas une mission ? Avez-vous vraiment fait tout cela pour piquer une vulgaire abeille ?[line break]Un doux murmure interrompt vos pensées :[line break]— Je suis prête... viens !";
+      wait for any key;
+      say "C[']est trop pour vous, impossible de résister. Allez, c[']est part . ! ~~~~";
+      wait for any key;
+      say "~~ ~~ ~~[line break]Fichtre, la batterie !";
+      say "Tandis que le sol s[']approche dangereusement de vous, votre vision se brouille.";
+      say "........";
+      wait for any key;
+      say "[line break]Vous revoilà dans votre cabane. L[']opération est un fiasco complet. Mais après tout, quelle importance... Vous avez pris votre pied. N'est-ce pas suffisant ? Vous ruminez ces paroles en repensant à tout ce que vous avez accompli aujourd[']hui.";
+      wait for any key;
+      say "La face fendue d'un large sourire, vous élaborez déjà un nouveau plan. Les malfrats rôdent toujours.";
+      wait for any key;
+      end the game in victory;
+   otherwise;
+      say "Arggh, impossible de la rattraper.";
+   end if.
+
+Part 3 - Gestion des verbes en tous lieux 
+
+
+Chapter 1 - Synonymes
+
+Understand "retirer [something preferably held]" as taking off.
+Understand "search under [something]", "fouiller sous [something]" as looking under.
+Understand "jeter [something preferably held]" as dropping.
+Understand "porter [something preferably held]" as wearing.
+Understand "atterir", "voler vers le bas", "aller vers le bas" as downgoing.
+Understand "voler vers le haut", "aller en haut", "aller vers le haut" as upgoing.
+
+Chapter 2 - Nouveaux verbes
+
+Understand the command "voler vers" as something new.
+Understand "voler vers" as entering.
+Understand the command "regarder" as something new.
+Understand "regarder" or "regarder autour" as looking.
+Understand "regarder [something]" as examining.
+Understand "regarder dans/sur [something]" as searching.
+Understand "regarder a l'interieur de [something]" as searching.
+Understand "regarder a l'interieur du [something]" as searching.
+Understand "regarder a travers [something]" as searching.
+Understand "regarder sous [something]" as looking under.
+
+Looking behind is an action applying to one thing and requiring light.
+Understand "regarder derriere [something]", "fouiller derriere [something]", "look behind [something]", "search behind [something]" as looking behind.
+Carry out looking behind:
+   say "Il n'y a rien là.".
+
+Pluging is an action applying to one thing and requiring light.
+Understand "plug [something]", "boucher [something]", "reboucher [something]" as pluging.
+Check pluging:
+   say "Il n'y a là rien à boucher." instead.
+
+Playing is an action applying to one thing and requiring light.
+Understand "jouer a [something]", "jouer a la [something]", "jouer avec [something]", "jouer avec la [something]", "play [something]" as playing.
+Check playing:
+   say "Ce n'est pas un jeu." instead.
+
+Unhooking is an action applying to two things and requiring light.
+Understand "decrocher [something] du [something]", "arracher [something] du [something]", "detacher [something] du [something]", "decrocher [something] de [something]", "arracher [something] de [something]", "detacher [something] de [something]", "retirer [something] de [something]", "retirer [something] du [something]" as unhooking.
+Check unhooking:
+   say "Inutile d'essayer." instead.
+
+[version modifiée du verbe unhooking au comportement un peu différent]
+Unoking is an action applying to one thing and requiring light.
+Understand "decrocher [something]", "detacher [something]", "arracher [something]", "retirer [something]" as unoking.
+Check unoking:
+   say "Inutile d'essayer." instead.
+
+Defecating is an action applying to nothing.
+Understand "chier", "faire caca", "defequer" as defecating.
+Check defecating:
+   say "Vraiment, ce n[']est pas l[']endroit rêvé pour se lâcher." instead.
+
+Digging is an action applying to one visible thing and requiring light.
+Understand "creuser [something]", "dig [something]", "creuser sur [something]", "dig on [something]" as digging.
+Check digging:
+   if player is not carrying pelle begin;
+      say "Vous comptez creuser avec vos ongles ?";
+   otherwise;
+      say "Creuser ici ne servirait à rien." instead;
+   end if.
+
+Diggnothing is an action applying to nothing.
+Understand "creuser", "dig" as diggnothing.
+Instead of diggnothing, try digging sol.
+
+Pouring is an action applying to one thing and requiring light.
+Understand "verser [something]", "vider [something]" as pouring.
+Check pouring when player is not Robot:
+   say "Vous ne pouvez tout vider." instead.
+
+Pricking is an action applying to one thing and requiring light.
+Understand "piquer [something]", "prick [something]" as pricking.
+Check pricking when player is Robot:
+   say "N[']usez pas votre venin sur une telle chose." instead.
+Check pricking when player is not Robot:
+   say "Allons, vous n[']avez de toute évidence pas de dard. Pauvre petit humain." instead.
+
+Flying is an action applying to nothing.
+Understand "fly", "voler" as flying.
+Check flying when player is Robot:
+   say "De toute évidence, vous volez déjà." instead.
+Check flying when player is not Robot:
+   say "Vous n[']êtes pas Superman ©, mon cher." instead.
+
+Chapter 3 - Modifications des réponses aux verbes
+
+Instead of sleeping, say "Il vaudrait mieux résister à la tentation. Vous manquez de temps.".
+Instead of examining player, say "[if player is Robot][description of Robot][line break][otherwise]Étant donné votre degré de fourberie, vous n[']éprouvez pas le besoin d[']examiner votre fière carcasse. D[']ailleurs, nul ne le peut car c[']est dans l[']ombre que vous agissez. Par contre, vous sentez bien que votre corps s[']est affaibli depuis quelque temps.[end if]".
+
+Instead of doing something other than searching, entering, waiting, flying, exiting, going, ingoing, outgoing, upgoing, downgoing, looking, examining, listening or pricking when the player is Robot, say "Une abeille ne peut faire cela.".
+
+Instead of downgoing when player is Robot, say "Les humains aiment beaucoup tuer les abeilles, alors ne vous approchez pas trop du sol.".
+Instead of dropping player when player is Robot, try downgoing.
+Instead of upgoing when player is Robot, say "Jamais vous n'avez rêvé de voler tout haut dans le ciel, alors ne perdez pas de temps et remplissez donc votre mission.".
+Instead of going nowhere when player is Robot, say "Ce qui se trouve dans cette direction présente peu d'intérêt.".
+Instead of waiting when player is Robot, say "À rien ne sert d'attendre, agissez !".
+Instead of smelling when player is Robot, say "Rappelez-vous... malgré les apparences, c'est un authentique robot que vous pilotez.".
+Instead of sleeping when player is Robot, say "Les robots n'ont pas besoin de dormir. Quant à vous, c'est de temps que vous manquez.".
+Instead of pricking player when player is Robot, say "Souhaiter faire une telle chose... mais quelle mouche vous a piqué ? C[']est en plus impossible.".
+Instead of searching when player is Robot, say "Vous ne pouvez pas fouiller cela.".
+
+Part 4 - Régions et backdrops
+
+MONDE is a region.
+
+Ciel is in MONDE.
+
+MAISON is a region in MONDE.
+Chambre, Couloir, Toilettes are in MAISON.
+
+NATURE is a region in MONDE.
+Base is in NATURE.
+LESBOIS is a region in NATURE.
+Foret, Foret2, Foret3 are in LESBOIS.
+
+VILLE is a region in MONDE.
+Boulevard, Parc, Ruelle, Boutique, Centre-ville are in VILLE.
+
+The sol is backdrop in MONDE with the description "Le sol en lui-même n'a rien de particulier.".
+
+Instead of going nowhere from LESBOIS, say "Il n[']y a rien de particulier à voir par là-bas. Ne perdez pas votre temps en promenades.".
+Instead of exiting from LESBOIS, say "Vous êtes déjà dehors.".
+
+Some arbres are a backdrop in LESBOIS with the description "Majestueux, ils se dressent tout autour de vous.".
+
+The vegetation is a female backdrop in LESBOIS with the description "Ici tout est plus ou moins vert ou marron, mais ce n'est pas moche pour autant. Vous savez apprécier l'apparence simple des choses naturelles.".
+
+The soleil is backdrop in LESBOIS with the description "Vous n[']êtes pas habitué à tant de lumière, aussi vous détournez vite les yeux.".
+The printed name of soleil is "le Soleil".
+Instead of doing something other than examining to soleil, say "D[']où vous êtes, vous ne pouvez rien faire d[']autre que le regarder.".
+
+Some traces are backdrop in LESBOIS with the description "Ces rayons lumineux emplissent votre cœur d'espoir, mais font mal aux yeux.".
+Understand "traces lumineux", "rayons", "rayons lumineux", "lumieres" as traces.
+Instead of doing something other than examining to traces, say "Ce n'est que de la lumière, vous ne savez pas trop comment vous y prendre pour faire cela.".
+
+[Test]
+test me with "r dans ordi/n/o/prendre console et casque/casser casque/mettre micro sur abeille/e/n/n/fouiller sol/prendre pelle/couper branches/creuser/prendre coffret/so/s/entrer/ouvrir coffret/poser machine/allumer machine/s/piquer enfants/o/entrer/piquer lampe/sortir/e/n/n/ecouter/ecouter/piquer abeille"

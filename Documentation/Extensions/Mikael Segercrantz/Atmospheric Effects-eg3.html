@@ -1,0 +1,1970 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Extension</title>
+    <style type="text/css">
+        <!--
+        /* The default font (family) and size */
+
+        body, p, td {
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.8rem; /* 100/125 */
+        }
+
+        /* For fixed-point material within text, such as the typing on the Library Card index page */
+
+        span.typewritten {
+        	font-family: monospace;
+        	font-size: 0.867rem; /* 13/12 * 100/125 */
+        }
+
+        /* For less important material: the small print */
+
+        span.smaller {
+        	font-size: 80%;
+        }
+
+        /* The "heading panel" is the coloured box, high up on the page. The colours
+        vary depending on the page: for example, the style on a report of a translation
+        with no problems is "headingpanelsucceeded", usually green, but if there were
+        problems then "headingpanelfailed" is used, which is usually red. "headingpanel"
+        itself is a more neutral grey by default. "headingpanelDark" is an alternative
+        look to make the extensions index pages have some visual contrast with the others;
+        by default they are a darker grey. */
+
+        .headingpanel {
+        	background: #eeeeee;
+        }
+        .headingpanelsucceeded {
+        	background: #E6FFE6;
+        }
+        .headingpanelfailed {
+        	background: #f69Ca6;
+        }
+        .headingpanelalt {
+        	background: #808080;
+        }
+
+        /* Heading panels have two lines of text: an upper one in a larger size, and a
+        lower one in a smaller. Again, the alt versions are meant to contrast.
+
+        	Report on Translation: Succeeded                <-- headingpaneltext
+        	Produced by Inform 10.1.0 (build 6U97)          <-- headingpanelrubric
+
+        	Installed Extensions                            <-- headingpaneltextalt
+        	Bundles of extra rules or phrases to...         <-- headingpanelrubricalt
+
+        */
+
+        span.headingpaneltext {
+        	color: #222222;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+        span.headingpaneltextalt {
+        	color: #ffffff;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        span.headingpanelrubric {
+        	color: #222222;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.733rem; /* 11/12 * 100/125 */
+        	font-weight: bold;
+        }
+        span.headingpanelrubricalt {
+        	color: #ffffff;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.733rem; /* 11/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* Horizontal rule styling */
+
+        div.hr {
+        	border: 0;
+        	width: 100%;
+        	color: #707070;
+        	background-color: #707070;
+        	height: 5px;
+        }
+
+        /* This styles the (usually white) text of the example numbers written inside
+        oval blobs in the extension documentation, which mimic the look of the in-app
+        documentation. */
+
+        .oval, .oval td {
+        	background-image:url('inform:/doc_images/ovoid.png');
+        	color:white;
+        }
+
+        /* Styling used in the extension documentation indexes: */
+
+        /* Used for extension names in the extensions pane of the app */
+
+        span.extensioncensusentry {
+        	color: #ffffff;
+        }
+
+        span.extensionindexentry {
+        	color: #404040;
+        }
+
+        span.extensionindexerror {
+        	color: #ff8080;
+        }
+
+        /* This is used in extension documentation, where an example is presented
+        in a slightly tinted box: */
+
+        table.extensionexample {
+        	background-color: #f0f0f0;
+        }
+
+        span.extensionexampleletter {
+        	color: #202020;
+        	font-size: 14px;
+        	font-weight: bold;
+        }
+
+        /* Seen in problem messages: */
+
+        span.problemred {
+        	color: #800000;
+        }
+
+        span.problemgreen {
+        	color: #008000;
+        }
+
+        span.phraseword {
+        	color: #808080;
+        }
+
+        span.phrasetokentext {
+        	color: #e00060;
+        }
+
+        span.phrasetokendesctext {
+        	color: #4040ff;
+        }
+
+        span.phrasetokenvaluetext {
+        	color: #ff4040;
+        }
+
+        /* Now we move on to styling used in the Index pages only: */
+
+        /* The periodic table display has "sidebars", usually grey and taller than they
+        are wide; they contain no text. */
+
+        div.periodictablesidebarcolour {
+        	background: #888;
+        }
+        div.periodictablesidebar:hover {
+        	background: #222;
+        }
+
+        /* The text of the element-abbreviation, such as "Lx" or "Ph", uses: */
+
+        span.elementtext {
+        	color: #ffffff;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* Similarly for the "atomic number" - a single digit - in the top left corner
+        of these boxes: */
+
+        span.elementnumbertext {
+        	color: #ffffff;
+        	font-size: 0.622rem; /* 7/12 * 96/72 * 100/125 */
+        }
+
+        /* For the text of the element title, to the right of the element box: */
+
+        span.elementtitletext {
+        	color: #ffffff;
+        	font-size: 0.6rem; /* 9/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* The banner at the top of each element: */
+
+        table.elementbanner {
+        	background: #eeeeee;
+        }
+
+        /* For the typewriting on the Library Card: */
+
+        span.librarycardtitle {
+        	color: #803030;
+        }
+
+        span.librarycardother {
+        	color: #303030;
+        }
+
+        /* Generically used for "more details" boxes in the index: */
+
+        table.indexmorebox {
+        	background-color: #e0e0e0;
+            border-radius: 8px;
+        }
+
+        /* But not for activity contents: */
+
+        table.indexactivitycontents {
+        	background-color: #e8e0c0;
+            border-radius: 8px;
+        }
+
+        /* For responses in index entries about rules: */
+
+        span.indexresponseletter {
+        	color: #ffffff;
+        	font-family: 'Courier New', Courier, monospace;
+        	background-color: #8080ff;
+        }
+
+        span.indexresponsetext {
+        	color: #000066;
+        }
+
+        /* Used ubiquitously throughout the index and extension documentation: */
+
+        span.indexblack {
+        	color: #000000;
+        }
+
+        span.indexgrey {
+        	color: #808080;
+        }
+
+        span.indexdarkgrey {
+            color: #505050;
+        }
+
+        span.indexdullred {
+        	color: #800000;
+        }
+
+        span.indexdullgreen {
+        	color: #008000;
+        }
+
+        span.indexdullblue {
+        	color: #000080;
+        }
+
+        /* Used for the room squares in the World map in the Index (which is currently
+        a table with one row of one column) */
+
+        table.indexmaproom {
+        	border-color: #000000;
+        }
+
+        /* Used in the numbering of levels of the World map in the Index */
+
+        span.indexmaplevelnumbers {
+        	color: #c0c0c0;
+        }
+
+        /* Used e.g. for title rows in the Chart of basic kinds in the Index */
+
+        tr.headingrow {
+        	background-color: #e0e0e0;
+        }
+
+        /* Standard rows have black text on striped background colours, these being
+        the usual ones seen in Mac OS X applications such as iTunes. */
+
+        tr.stripeone {
+        	background-color: #ffffff;
+        }
+
+        tr.stripetwo {
+        	background-color: #f3f6fa;
+        }
+
+        tr.tintedrow {
+        	background-color: #808080;
+        }
+
+        /* In the Figures index, this is the background colour used behind images
+        (though in fact it will only be visible if the image fails to load, or uses
+        transparency): */
+
+        div.figureindexbox {
+        	background-color: #6495ed;
+        }
+
+        /* To get the book-contents-page style leaders on the Contents element of
+           the index to work, these must use the background colour of the body of
+           the page, whatever that is: */
+
+        ul.leaders li.leaded span:first-child {
+        	background: white;
+        }
+        ul.leaders li.leaded span + span {
+        	background: white;
+        }
+
+        /* On Registry index pages (such as the Public Library), these are used for
+        download buttons and the like: */
+
+        span.registrybuttontext {
+        	font-size: 11px;
+        	border-color: #000000;
+        }
+
+        span.registryminibuttontext {
+        	font-size: 10px;
+        	border-color: #000000;
+        }
+
+        span.registrybuttonuninstalled {
+        	color: #000000;
+        	background: #ffffdd;
+        }
+
+        span.registrybuttoninstalled {
+        	color: #000000;
+        	background: #ffffff;
+        	pointer-events: none;
+        }
+
+        span.registrybuttonbuiltin {
+        	color: #888888;
+        	background: #ffffff;
+        	pointer-events: none;
+        }
+
+        span.registrybuttonupdate {
+        	color: #000000;
+        	background: #aaddff;
+        }
+
+        span.registrybuttonrevert {
+        	color: #000000;
+        	background: #ddaaff;
+        }
+
+        span.registrybuttonrevealer {
+        	color: #ffffff;
+        	background: #444444;
+        }
+
+        /* Registry index section headings: */
+
+        span.registrysectionname {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 16px;
+        	line-height: 18px;
+        }
+        span.registrysubsectionname {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 14px;
+        	line-height: 16px;
+        }
+
+        /* These are for the "mark" for a section, usually a section-symbol and number */
+
+        span.registrysectionmark {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 16px;
+        	line-height: 18px;
+        	color: #666;
+        }
+        span.registrysubsectionmark {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 14px;
+        	line-height: 16px;
+        	color: #666;
+        }
+
+        /* Text of an item listed in a registry: */
+
+        span.registryitemtext {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 12px;
+        	line-height: 16px;
+        }
+
+        /* And how the links in a registry index page behave: */
+
+        a.registrysilentlink {
+        	text-decoration: none;
+        	color: #000;
+        }
+        a.registrybuttonlink {
+        	text-decoration: none;
+        }
+        a.registrycontentslink:link {
+        	text-decoration: none;
+        	color: #202020;
+        }
+        a.registrycontentslink:visited {
+        	text-decoration: none;
+        	color: #202020;
+        }
+        a.registrycontentslink:hover {
+        	text-decoration: none;
+        	color: #D00000;
+        }
+        a.registrycontentslink:active {
+        	text-decoration: none;
+        	color: #D00000;
+        }
+
+        -->
+    </style>
+    <style type="text/css">
+        <!--
+        /* (1) General layout material */
+
+        *, *:before, *:after {
+        	-moz-box-sizing: border-box;
+        	-webkit-box-sizing: border-box;
+        	box-sizing: border-box;
+        }
+        .headingpanellayout {
+        	position: relative;
+        	height: 56px;
+        	padding: 0px;
+        	white-space:nowrap;
+        }
+        .headingpanellayoutdeeper {
+        	position: relative;
+        	height: 117px;
+        	padding: 0px;
+        	white-space:nowrap;
+        }
+        .headingtext {
+        	position: absolute;
+        	top: -4px;
+        	left: -1px;
+        	width: 100%;
+        	padding: 14px 10px 0px 10px;
+        }
+        .headingrubric {
+        	position: absolute;
+        	top: 36px;
+        	width: 100%;
+        	padding: 0px 10px 0px 10px;
+        }
+        h3.tighter {
+        	margin-top: 0px;
+        }
+        p.hang {
+        	padding-left: 25px;
+        	text-indent: -25px;
+        	margin-top: 0px;
+        	margin-bottom: 0px;
+        }
+        p.in1 {
+        	padding-left: 0px;
+        }
+        p.tightin1 {
+        	padding-left: 0px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin1 {
+        	padding-left: 0px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin1 {
+        	padding-left: 50px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in2 {
+        	padding-left: 25px;
+        }
+        p.tightin2 {
+        	padding-left: 25px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin2 {
+        	padding-left: 25px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin2 {
+        	padding-left: 75px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in3 {
+        	padding-left: 50px;
+        }
+        p.tightin3 {
+        	padding-left: 50px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin3 {
+        	padding-left: 50px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin3 {
+        	padding-left: 100px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in4 {
+        	padding-left: 75px;
+        }
+        p.tightin4 {
+        	padding-left: 75px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin4 {
+        	padding-left: 75px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin4 {
+        	padding-left: 125px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in5 {
+        	padding-left: 100px;
+        }
+        p.tightin5 {
+        	padding-left: 100px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin5 {
+        	padding-left: 100px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin5 {
+        	padding-left: 150px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in6 {
+        	padding-left: 125px;
+        }
+        p.tightin6 {
+        	padding-left: 125px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin6 {
+        	padding-left: 125px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin6 {
+        	padding-left: 175px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in7 {
+        	padding-left: 150px;
+        }
+        p.tightin7 {
+        	padding-left: 150px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin7 {
+        	padding-left: 150px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin7 {
+        	padding-left: 200px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in8 {
+        	padding-left: 175px;
+        }
+        p.tightin8 {
+        	padding-left: 175px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin8 {
+        	padding-left: 175px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin8 {
+        	padding-left: 225px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in9 {
+        	padding-left: 200px;
+        }
+        p.tightin9 {
+        	padding-left: 200px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin9 {
+        	padding-left: 200px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin9 {
+        	padding-left: 250px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+
+        /* (2) Index page layout material */
+
+        /* The periodic table display has "sidebars", usually grey and taller than they
+        are wide; they contain no text. */
+
+        div.periodictablesidebar {
+        	height: 56px;
+        	width: 16px;
+        }
+        .periodictablesidebar a:link { text-decoration: none; }
+        .periodictablesidebar a:visited { text-decoration: none; }
+        .periodictablesidebar a:active { text-decoration: none; }
+
+        /* The "element boxes" are the cells appearing in the periodic-table display
+        on the welcome page of the index: */
+
+        .elementbox {
+        	position: relative;
+        	height: 56px;
+        	width: 56px;
+        	padding: 0px;
+        }
+
+        .elementbox a:link { text-decoration: none; }
+        .elementbox a:visited { text-decoration: none; }
+        .elementbox a:active { text-decoration: none; }
+        .elementbox a:hover { text-decoration: none; }
+        .elementbox:hover {
+        	opacity: 0.6;
+        }
+
+        /* The "small element boxes" look like those, but are smaller, and used on
+        the headings of the content which those original boxes link to: */
+
+        .smallelementbox {
+        	position: relative;
+        	height: 40px;
+        	width: 40px;
+        	padding: 0px;
+        }
+
+        .smallelementbox a:link { text-decoration: none; }
+        .smallelementbox a:visited { text-decoration: none; }
+        .smallelementbox a:active { text-decoration: none; }
+        .smallelementbox a:hover { text-decoration: none; }
+        .smallelementbox:hover {
+        	opacity: 0.6;
+        }
+
+        /* This is a class for the links formed by the element boxes: */
+
+        a.elementlink {
+        	position: absolute;
+        	top: -4px;
+        	left: -1px;
+        	width: 100%;
+        	padding: 14px 0px 14px 1px;
+        	text-align: center;
+        }
+
+        /* Similarly for the "atomic number" - a single digit - in the top left corner
+        of these boxes: */
+
+        div.elementnumber {
+        	position: absolute;
+        	top: 1px;
+        	left: 3px;
+        	text-align: left;
+        }
+
+        /* For the text of the element title, to the right of the element box: */
+
+        div.elementtitle {
+        	position: absolute;
+        	top: 35px;
+        	width: 100%;
+        	text-align: center;
+        }
+
+        /* Used for the book-contents-page style leaders on the Contents element of
+           the index: */
+
+        ul.leaders {
+        	padding: 0;
+        	margin-top: 1px;
+        	margin-bottom: 0;
+        	overflow-x: hidden;
+        	list-style: none}
+        ul.leaders li.leaded:before {
+        	float: left;
+        	width: 0;
+        	white-space: nowrap;
+        	content:
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "}
+        ul.leaders li.leaded span:first-child {
+        	padding-right: 0.33em;
+        }
+        ul.leaders li.leaded span + span {
+        	float: right;
+        	padding-left: 0.33em;
+        }
+        li.indent1 span:first-child {
+        	padding-left: 25px;
+        }
+        li.indent2 span:first-child {
+        	padding-left: 50px;
+        }
+        li.indent3 span:first-child {
+        	padding-left: 75px;
+        }
+        li.indent4 span:first-child {
+        	padding-left: 100px;
+        }
+        li.indent5 span:first-child {
+        	padding-left: 125px;
+        }
+        li.indent6 span:first-child {
+        	padding-left: 150px;
+        }
+        li.indent7 span:first-child {
+        	padding-left: 175px;
+        }
+        li.indent8 span:first-child {
+        	padding-left: 200px;
+        }
+        li.indent9 span:first-child {
+        	padding-left: 225px;
+        }
+
+        li.unleaded:before {
+        	content: "";
+        }
+
+        /* On Registry index pages (such as the Public Library), these are used for
+        download buttons and the like: */
+
+        span.registrybuttons {
+        	height: 20px;
+        	padding: 2px 8px 2px 8px;
+        	margin: 2px;
+        	border:1px solid;
+        	border-radius: 5px;
+        }
+
+        span.registryminibuttons {
+        	height: 14px;
+        	padding: 2px 5px 2px 5px;
+        	margin: 2px;
+        	border:1px solid;
+        	border-radius: 4px;
+        }
+
+        /* Used to hide or display sections in the Registry pages: */
+
+        div.registrysectionitemsopen {
+        	display: block;
+        }
+
+        div.registrysectionitemsclosed {
+        	display: none;
+        }
+
+        /* Hanging indentation for Registry item paragraphs: */
+
+        p.registryitem {
+        	padding-left: 80px;
+        	text-indent: -40px;
+        }
+
+        p.registryaddition {
+        	padding-left: 40px;
+        	text-indent: -40px;
+        }
+
+        -->
+    </style>
+    <script type="text/javascript">
+        function project() {
+            return window.Project;
+        }
+        function showExtra(id, imid) {
+        	if (document.getElementById(id).style.display == 'block') {
+        		document.getElementById(id).style.display = 'none';
+        		document.getElementById(imid).src = 'inform:/extra.png';
+        	} else {
+        		document.getElementById(id).style.display = 'block';
+        		document.getElementById(imid).src = 'inform:/extraclose.png';
+        	}
+        }
+        function openExtra(id, imid) {
+        	document.getElementById(id).style.display = 'block';
+        	document.getElementById(imid).src = 'inform:/extraclose.png';
+        }
+        function closeExtra(id, imid) {
+        	document.getElementById(id).style.display = 'none';
+        	document.getElementById(imid).src = 'inform:/extra.png';
+        }
+        function pasteCode(code) {
+            var myProject = project();
+
+            myProject.selectView('source');
+            myProject.pasteCode(code);
+        }
+
+    </script>
+</head>
+<body>
+    <!--CONTENT BEGINS-->
+    <table CELLPADDING=0 CELLSPACING=0 width="100%" bgcolor="#000000"><tr><TD width=38px height=26px align="center" valign="center"><a href="inform://Extensions/Extensions.html" border=0><img border=0 src="inform:/doc_images/Hookindex.png" border=0></a></td><TD width=38px height=26px align="center" valign="center"></td><td halign="left" valign="center" CELLPADDING=0 CELLSPACING=0><font color="#FFFFFF" size=2>Extensions</font></a></td><TD width=56px height=26px align="right" valign="center"><a href="inform:/index.html" border=0><img border=0 src="inform:/doc_images/Hookup.png" border=0></a></td></tr></table>
+
+    <p><a href="javascript:pasteCode('Include Atmospheric Effects by Mikael Segercrantz.[=0x000A=][=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a>&nbsp;<b>Atmospheric Effects<span class="extensionindexentry"> by </span>Mikael Segercrantz</b></p>
+    <p><span class="smaller">Version 6.0.140513</span></p>
+    <p>A table-based way to add atmospheric effects to rooms, regions, things and scenes.</p>
+    <p></p>
+    <hr>
+    <p><span class="indexblack"><b><a style="text-decoration: none" href=#docsec1>Chapter 1: </a></b></span>Version Note<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec2>Section 1.1: </a></span>6L02 Compatibility Update<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec3>Chapter 2: </a></b></span>The Kinds Provided<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec4>Section 2.1: </a></span>The Sceninc Types<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec5>Section 2.2: </a></span>The Running Types<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec6>Section 2.3: </a></span>The Further Types<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec7>Section 2.4: </a></span>The Ignoring Types<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec8>Section 2.5: </a></span>How Types Interact<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec9>Chapter 3: </a></b></span>The Tables Required<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec10>Section 3.1: </a></span>The Table of Atmospheric Definition<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec11>Section 3.2: </a></span>The Sub-Tables of the Table of Atmospheric Definition<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec12>Section 3.3: </a></span>The Sub-Tables of the Sub-Tables of the Table of Atmospheric Definition<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec13>Section 3.4: </a></span>The Table of Messages to Show<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec14>Chapter 4: </a></b></span>The Tables Defined<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec15>Chapter 5: </a></b></span>Overriding<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec16>Section 5.1: </a></span>How to Override this Extension's Default Behavior<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec17>Section 5.2: </a></span>How the Scenic Messaging Rule is Defined<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec18>Section 5.3: </a></span>How the Scenic Displaying Rule is Defined<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec19>Chapter 6: </a></b></span>Internals<br>
+    <br>
+    <b>Examples</b><br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href="Atmospheric Effects-eg1.html#eg1">A &mdash; Forest and Clearing</a></span><br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href="Atmospheric Effects-eg2.html#eg2">B &mdash; City and Neighborhood</a></span><br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href="Atmospheric Effects-eg3.html#eg3">C &mdash; The City-Plane of Union</a></span><br>
+    </p>
+    <hr>
+    <p></p>
+    </p>
+
+    <p><p><span class="indexdullred"><b><span id=docsec1>Chapter 1: Version Note</span></b></span></p>
+    </p>
+
+    <p> This version of the extension breaks compatibility with any previous version earlier than version 4. It is highly recommended to upgrade all code using any previous version of Atmospheric Effects to use this version.</p>
+
+    <p> Version 4 of Atmospheric Effects was a complete rewrite, containing almost all the features available in previous releases. This version is improved to work better, and to separate the displaying of scenic messages from the generation of them in a greater degree. (In the last version, where the messages were generated just before the prompt, the scene changing mechanism had run between the result of the action and the generation of messages; now, the messages are generated just after getting the result of the action, and the messages are displayed only just before prompting for the next command, which seems to fix the problem of messages dependent on scenes.)</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec2>Section 1.1: 6L02 Compatibility Update</span></b></span></p>
+    </p>
+
+    <p> This extension differs from the author's original version: it has been modified for compatibility with version 6L02 of Inform. The latest version of this extension can be found at &lt;https://github.com/i7/extensions&gt;.</p>
+
+    <p> This extension is released under the Creative Commons Attribution licence. Bug reports, feature requests or questions should be made at &lt;https://github.com/i7/extensions/issues&gt;.</p>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec3>Chapter 2: The Kinds Provided</span></b></span></p>
+    </p>
+
+    <p> This extension provides four kinds of value; a scenic type, a running type, a further type and an ignoring type.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec4>Section 2.1: The Sceninc Types</span></b></span></p>
+    </p>
+
+    <p> The scenic types are<blockquote><span class="indexdullblue"> * fully random (with full random as a synonym), displaying messages in a completely random order, without regard to if the message has been shown or not;<br>
+     * random, displaying messages in a constrained random order, so that each message in the table is shown once before any message may repeat; and<br>
+     * ordered, listing the messages in the same order they are defined in the table.</span></blockquote>
+
+    <p><p><span class="indexblack"><b><span id=docsec5>Section 2.2: The Running Types</span></b></span></p>
+    </p>
+
+    <p> The running types are<blockquote><span class="indexdullblue"> * run once (with once as a synonym), the messages of the table will show up only once; and<br>
+     * run forever (with forever as a synonym), the messages will loop once the table has been used, and if the scenic type is random, again in a random order (making sure the same message does not appear twice in a row).</span></blockquote>
+
+    <p><p><span class="indexblack"><b><span id=docsec6>Section 2.3: The Further Types</span></b></span></p>
+    </p>
+
+    <p> The further types are<blockquote><span class="indexdullblue"> * default, which changes to the Table of Default Messages once all the messages in the current table have been exhausted; and<br>
+     * stopping, which stops the current table once it has been exhausted and doesn't bring in a new source of messages.</span></blockquote>
+
+    <p><p><span class="indexblack"><b><span id=docsec7>Section 2.4: The Ignoring Types</span></b></span></p>
+    </p>
+
+    <p> The ignoring types are<blockquote><span class="indexdullblue"> * ignore, which<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; 1) In the Atmospheric Definition table on things tells the extension to ignore rooms and regions (note that at the moment this means that even if the thing has ran out of messages, it forces the room and regions to be quiet whenever it is present);<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; 2) In the Atmospheric Definition table on rooms tells the extension to ignore regions;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; 3) In the Atmospheric Definition table on regions tells the extension to ignore larger regions; and<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; 4) In the subtables of the Atmospheric Definition table tells the extension to ignore all lines after the current line in case a message was shown.<br>
+     and<br>
+     * do not ignore, which is the opposite of ignore.</span></blockquote>
+
+    <p><p><span class="indexblack"><b><span id=docsec8>Section 2.5: How Types Interact</span></b></span></p>
+    </p>
+
+    <p> For entries with a scenic type of fully random, the running type and the further type are completely ignored, and for entries with a running type of run forever, the further type is completely ignored.</p>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec9>Chapter 3: The Tables Required</span></b></span></p>
+    </p>
+
+    <p><p><span class="indexblack"><b><span id=docsec10>Section 3.1: The Table of Atmospheric Definition</span></b></span></p>
+    </p>
+
+    <p> To use scenic effects in our games, we need to define the following table:</p>
+
+    <p><blockquote><span class="indexdullblue"> Table of Atmospheric Definition (continued)</span><br>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> loci</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> ignoring</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> subtable
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> an object</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> an ignoring type</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> a table-name</span>
+            </td>
+        </tr>
+    </table>
+    </blockquote>
+
+    <p> The loci entry contains the name of the room or region for which to use the subtable entry for messages, while the ignoring type tells the extension whether to ignore messages from larger entities containing the player.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec11>Section 3.2: The Sub-Tables of the Table of Atmospheric Definition</span></b></span></p>
+    </p>
+
+    <p> In addition, for each separate subtable required, we need to define a table following the form of:</p>
+
+    <p><blockquote><span class="indexdullblue"> Table of Example Atmospheric Definition</span><br>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> during</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> initch</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> latch</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> aftcnt</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> curcnt</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> sctype</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> runtype</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> frtype</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> igtype</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> subtable
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> a scene</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> a number</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> a number</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> a number</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> a number</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> a scenic type</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> a running type</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> a further type</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> an ignoring type</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> a table-name</span>
+            </td>
+        </tr>
+    </table>
+    </blockquote>
+
+    <p> Where the during entry is the name of the scene during which the messages from the subtable will be displayed (or empty for any time), initch is the initial chance of displaying messasges, latch is the later chance for displaying messages, aftcnt is the number of messages to show before changing from the initial chance to the later chance, curcnt is the current amount of messages shown, sctype is the scenic type of the messages to be shown, runtype the running type, frtype the further type, igtype the ignoring type and finally subtable contains the name of the table from which the messages will be picked.</p>
+
+    <p> If any of these entries except the during entry and the subtable entry are missing, they will be initialized automatically. The initial chance to 100 percent, the later chance to the initial chance, the after count to 0, the scenic type to random, the running type to run forever, the further type to stopping and the ignoring type to do not ignore. If the subtable is the Table of Default Messages, the running type is automatically set to run forever and the further type to stopping. The current count is always initialized to 0. If there is no subtable entry, the whole row is ignored.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec12>Section 3.3: The Sub-Tables of the Sub-Tables of the Table of Atmospheric Definition</span></b></span></p>
+    </p>
+
+    <p> For each separate table of messages required, we also need to define a table according to the following specification:</p>
+
+    <p><blockquote><span class="indexdullblue"> Table of Example Messages</span><br>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> used</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> message
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> a number</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> text</span>
+            </td>
+        </tr>
+    </table>
+    </blockquote>
+
+    <p><p><span class="indexblack"><b><span id=docsec13>Section 3.4: The Table of Messages to Show</span></b></span></p>
+    </p>
+
+    <p> In addition, we may need to continue the Table of Messages to Show, in case there may be more than 20 messages to show at one time. This is done as follows:</p>
+
+    <p><blockquote><span class="indexdullblue"> Table of Messages to Show (continued)</span><br>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> message
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> with &lt;number&gt; blank rows</span>
+            </td>
+        </tr>
+    </table>
+    </blockquote>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec14>Chapter 4: The Tables Defined</span></b></span></p>
+    </p>
+
+    <p> This extension provides a few tables of its own, each one empty except for one blank row to contrain the contents of the table. We have already encountered one of these, the Table of Atmospheric Definition, which is used to initialize the locations and regions of the game world with the correct scenic messasges.</p>
+
+    <p> The second one is the Table of Default Atmospherics. If we fill this table up with information, the messages of any subtables of it will be shown in any room or region not mentioned in the Table of Atmospheric Definition.</p>
+
+    <p> We are also provided with the Table of Default Messages, which can be filled with messages to be used when the further type of some messasge source is default and all the messages in the original table of messages have been shown.</p>
+
+    <p> Also, the extension brings us the Table of Messages to Show, which is used to collect the messages to be displayed during one turn. The default size of the table is 20 rows, which may be increased if necessary.</p>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec15>Chapter 5: Overriding</span></b></span></p>
+    </p>
+
+    <p><p><span class="indexblack"><b><span id=docsec16>Section 5.1: How to Override this Extension's Default Behavior</span></b></span></p>
+    </p>
+
+    <p> If necessary, it is possible to override two of the rules provided by this extension. The first, called &quot;the scenic messaging rule&quot;, allows for the modification of the message-generating process. The second, called &quot;the scenic displaying rule&quot;, allows for the modification of the message-displaying process. If we wish to override one or both of these rules, it is possible with a procedural rule such as the following one:</p>
+
+    <p><blockquote><span class="indexdullblue"> Procedural rule:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; substitute own messaging rule for the scenic messaging rule;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; substitute own displaying rule for the scenic displaying rule.</span></blockquote>
+
+    <p><p><span class="indexblack"><b><span id=docsec17>Section 5.2: How the Scenic Messaging Rule is Defined</span></b></span></p>
+    </p>
+
+    <p> The scenic messaging rule provided by the extension is defined as follows:</p>
+
+    <p><blockquote><span class="indexdullblue"> A first every turn rule (this is the scenic messaging rule):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; correct synonyms;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; check thing messages;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; check room messages;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; check region messages.</span></blockquote>
+
+    <p><p><span class="indexblack"><b><span id=docsec18>Section 5.3: How the Scenic Displaying Rule is Defined</span></b></span></p>
+    </p>
+
+    <p> The scenic displaying rule provided by the extension is defined as follows:</p>
+
+    <p><blockquote><span class="indexdullblue"> A last before reading a command rule (this is the scenic displaying rule):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; display all messages.</span></blockquote>
+
+    <p> This rule has been defined as a before reading a command rule, so that the first messages will be shown before reading the first command in the game.</p>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec19>Chapter 6: Internals</span></b></span></p>
+    </p>
+
+    <p> The extension defines a kind of value called shown type used on regions. It is highly recommended that it not be used by anyone.</p>
+
+    <p> The extension also defines a region called the empty region. It is used by the extension to manage looking through regions.</p>
+
+    <p><hr>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td halign="left" valign="top" cellpadding=0 cellspacing=0 width=38px>
+                <span id=eg1><table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="oval">
+                        <td width=38px height=30px align="left" valign="center">
+                            <a href="Atmospheric Effects-eg1.html#eg1" style="text-decoration: none"><div class="paragraph Body" style="line-height: 1px; margin-bottom: 0px; margin-top: 0px; padding-bottom: 0pt; padding-top: 0px; text-align: center;">
+                                <span class="extensionexampleletter">A</span></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                </span>
+            </td>
+            <td cellpadding=0 cellspacing=0 halign="left" valign="top">
+                <a href="Atmospheric Effects-eg1.html#eg1" style="text-decoration: none"><img border="0" src='inform:/doc_images/asterisk.png'><b><span class="indexdarkgrey">&nbsp;Example&nbsp;</span><span class="indexblack">Forest and Clearing</span></b></a><br>
+                <p>A simple example of regional and room effects, and ignoring messages.</p>
+
+            </td>
+        </tr>
+    </table>
+    </p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p><hr>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td halign="left" valign="top" cellpadding=0 cellspacing=0 width=38px>
+                <span id=eg2><table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="oval">
+                        <td width=38px height=30px align="left" valign="center">
+                            <a href="Atmospheric Effects-eg2.html#eg2" style="text-decoration: none"><div class="paragraph Body" style="line-height: 1px; margin-bottom: 0px; margin-top: 0px; padding-bottom: 0pt; padding-top: 0px; text-align: center;">
+                                <span class="extensionexampleletter">B</span></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                </span>
+            </td>
+            <td cellpadding=0 cellspacing=0 halign="left" valign="top">
+                <a href="Atmospheric Effects-eg2.html#eg2" style="text-decoration: none"><img border="0" src='inform:/doc_images/asterisk.png'><img border="0" src='inform:/doc_images/asterisk.png'><b><span class="indexdarkgrey">&nbsp;Example&nbsp;</span><span class="indexblack">City and Neighborhood</span></b></a><br>
+                <p>A more complex example on using Atmospheric Effects on rooms and regions, with regions contained in other regions.</p>
+
+            </td>
+        </tr>
+    </table>
+    </p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p><hr>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td halign="left" valign="top" cellpadding=0 cellspacing=0 width=38px>
+                <span id=eg3><table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="oval">
+                        <td width=38px height=30px align="left" valign="center">
+                            <a href="Atmospheric Effects.html#eg3" style="text-decoration: none"><div class="paragraph Body" style="line-height: 1px; margin-bottom: 0px; margin-top: 0px; padding-bottom: 0pt; padding-top: 0px; text-align: center;">
+                                <span class="extensionexampleletter">C</span></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                </span>
+            </td>
+            <td cellpadding=0 cellspacing=0 halign="left" valign="top">
+                <a href="Atmospheric Effects.html#eg3" style="text-decoration: none"><img border="0" src='inform:/doc_images/asterisk.png'><img border="0" src='inform:/doc_images/asterisk.png'><img border="0" src='inform:/doc_images/asterisk.png'><img border="0" src='inform:/doc_images/asterisk.png'><b><span class="indexdarkgrey">&nbsp;Example&nbsp;</span><span class="indexblack">The City-Plane of Union</span></b></a><br>
+                <p>Showing how to use the Atmospheric Effects extension using as a setting the City-Plane of Union from the Epic Level Handbook for the latest edition of AD&amp;D.</p>
+
+            </td>
+        </tr>
+    </table>
+    <table border="0" cellspacing="0" cellpadding="0" class="extensionexample" width=100%>
+        <tr>
+            <td align="left" valign="top">
+                <p></p>
+
+                <p><blockquote><span class="indexdullblue"><a href="javascript:pasteCode('[=0x0022=]The City-Plane of Union[=0x0022=][=0x000A=][=0x000A=]Include Version 6 of Atmospheric Effects by Mikael Segercrantz.[=0x000A=][=0x000A=]Use full-length room descriptions and the serial comma.[=0x000A=][=0x000A=]Part 1 - Geography[=0x000A=][=0x000A=]Chapter 1 (a) - Planar Gate[=0x000A=][=0x000A=]Planar Gate is a room.[=0x000A=][=0x000A=]Planar Gate Region is a region. The planar gate is in the planar gate region.[=0x000A=][=0x000A=]Chapter 1 (b) - Temple Quarter[=0x000A=][=0x000A=]Northwest Temple Quarter is a room. South of northwest temple quarter is a room called Southwest Temple Quarter. East of southwest temple quarter is a room called East Temple Quarter. It is southeast of northwest temple quarter.[=0x000A=][=0x000A=]Temple Quarter Region is a region. Northwest temple quarter, southwest temple quarter and east temple quarter are in the temple quarter region.[=0x000A=][=0x000A=]Chapter 1 (c) - Material Gate[=0x000A=][=0x000A=]Material Gate is a room.[=0x000A=][=0x000A=]Material Gate Region is a region. The material gate is in the material gate region.[=0x000A=][=0x000A=]Chapter 1 (d) - Military Quarter[=0x000A=][=0x000A=]South Military Quarter is a room. North of south military quarter is a room called North Military Quarter.[=0x000A=][=0x000A=]Military Quarter Region is a region. North military quarter and south military quarter are in the military quarter region.[=0x000A=][=0x000A=]Chapter 1 (e) - High Quarter[=0x000A=][=0x000A=]Southeast High Quarter is a room. Northwest of southeast high quarter is a room called Northwest High Quarter.[=0x000A=][=0x000A=]High Quarter Region is a region. Southeast high quarter and northwest high quarter are in the high quarter region.[=0x000A=][=0x000A=]Chapter 1 (f) - Commerce Quarter[=0x000A=][=0x000A=]Northwest Commerce Quarter is a room. South of northwest commerce quarter is a room called Southwest Commerce Quarter. East of northwest commerce quarter is a room called Northeast Commerce Quarter. It is northeast of southwest commerce quarter. South of northeast commerce quarter is a room called Southeast Commerce Quarter. It is east of southwest commerce quarter and southeast of northwest commerce quarter.[=0x000A=][=0x000A=]Commerce Quarter Region is a region. Northwest commerce quarter, southwest commerce quarter, northeast commerce quarter and southeast commerce quarter are in the commerce quarter region.[=0x000A=][=0x000A=]Chapter 1 (g) - Market Quarter[=0x000A=][=0x000A=]Northwest Market Quarter is a room. South of northwest market quarter is a room called Southwest Market Quarter. East of southwest market quarter is a room called South Market Quarter. It is southeast of northwest market quarter. North of south market quarter is a room called North Market Quarter. It is northeast of southwest market quarter and east of northwest market quarter. East of north market quarter is a room called Northeast Market Quarter. It is northeast of south market quarter. South of northeast market quarter is a room called Central Southeast Market Quarter. It is southeast of north market quarter and east of south market quarter. East of central southeast market quarter is a room called Southeast Market Quarter. It is southeast of northeast market quarter.[=0x000A=][=0x000A=]Market Quarter Region is a region. Northwest market quarter, southwest market quarter, north market quarter, south market quarter, northeast market quarter, central southeast market quarter and southeast market quarter are in the market quarter region.[=0x000A=][=0x000A=]Chapter 1 (h) - Magic Quarter[=0x000A=][=0x000A=]West Magic Quarter is a room. East of west magic quarter is a room called East Magic Quarter.[=0x000A=][=0x000A=]Magic Quarter Region is a region. West magic quarter and east magic quarter are in the magic quarter region.[=0x000A=][=0x000A=]Chapter 1 (i) - Perfumed Quarter[=0x000A=][=0x000A=]Southwest Perfumed Quarter is a room. East of southwest perfumed quarter is a room called Southeast Perfumed Quarter. North of southwest perfumed quarter is a room called North Perfumed Quarter. It is northwest of southeast perfumed quarter.[=0x000A=][=0x000A=]Perfumed Quarter Region is a region. Southwest perfumed quarter, southeast perfumed quarter and north perfumed quarter are in the perfumed quarter region.[=0x000A=][=0x000A=]Chapter 1 (j) - Tavern Quarter[=0x000A=][=0x000A=]East Tavern Quarter is a room. West of east tavern quarter is a room called West Tavern Quarter.[=0x000A=][=0x000A=]Tavern Quarter Region is a region. East tavern quarter and west tavern quarter are in the tavern quarter region.[=0x000A=][=0x000A=]Chapter 1 (k) - Guild Quarter[=0x000A=][=0x000A=]Southeast Guild Quarter is a room. Northwest of southeast guild quarter is a room called Northwest Guild Quarter.[=0x000A=][=0x000A=]Guild Quarter Region is a region. Southeast guild quarter and northwest guild quarter are in the guild quarter region.[=0x000A=][=0x000A=]Chapter 1 (l) - Staircase Gate[=0x000A=][=0x000A=]Staircase Gate is a room.[=0x000A=][=0x000A=]Staircase Gate region is a region. Staircase gate is in the staircase gate region.[=0x000A=][=0x000A=]Chapter 1 (m) - Bridges[=0x000A=][=0x000A=]Planar-Temple Bridge is a room. It is south of planar gate and north of northwest temple quarter.[=0x000A=][=0x000A=]Planar-Material Bridge is a room. It is north of planar gate and south of material gate.[=0x000A=][=0x000A=]Planar-Commerce Bridge is a room. It is northeast of planar gate and southwest of southwest commerce quarter.[=0x000A=][=0x000A=]Temple-Market Bridge is a room. It is northeast of east temple quarter and southwest of southwest market quarter.[=0x000A=][=0x000A=]Material-Military Bridge is a room. It is north of material gate and south of south military quarter.[=0x000A=][=0x000A=]Material-Commerce Bridge is a room. It is east of material gate and west of southwest commerce quarter.[=0x000A=][=0x000A=]Military-High Bridge is a room. It is northwest of north military quarter and southeast of southeast high quarter.[=0x000A=][=0x000A=]Military-Commerce Bridge is a room. It is southeast of south military quarter and northwest of northwest commerce quarter.[=0x000A=][=0x000A=]Commerce-Market Bridge is a room. It is south of southeast commerce quarter and north of northwest market quarter.[=0x000A=][=0x000A=]Market-Magic Bridge is a room. It is north of northeast market quarter and south of west magic quarter.[=0x000A=][=0x000A=]Commerce-Magic Bridge is a room. It is southeast of northeast commerce quarter and northwest of west magic quarter.[=0x000A=][=0x000A=]Magic-Perfumed Bridge is a room. It is northeast of east magic quarter and southwest of southwest perfumed quarter.[=0x000A=][=0x000A=]Magic-Staircase Bridge is a room. It is north of east magic quarter and south of staircase gate.[=0x000A=][=0x000A=]Commerce-Guild Bridge is a room. It is north of northeast commerce quarter and south of southeast guild quarter.[=0x000A=][=0x000A=]Guild-Tavern Bridge is a room. It is northeast of southeast guild quarter and southwest of west tavern quarter.[=0x000A=][=0x000A=]Tavern-Staircase Bridge is a room. It is southeast of west tavern quarter and northwest of staircase gate.[=0x000A=][=0x000A=]Tavern-Perfumed-Staircase Bridge is a room. It is east of east tavern quarter, north of staircase gate and west of north perfumed quarter.[=0x000A=][=0x000A=]Chapter 1 (n) - The City-Plane[=0x000A=][=0x000A=]City-Plane of Union is a region. Planar-temple bridge, planar-commerce bridge, planar-material bridge, temple-market bridge, material-military bridge, material-commerce bridge, military-high bridge, military-commerce bridge, commerce-market bridge, market-magic bridge, commerce-magic bridge, magic-perfumed bridge, magic-staircase bridge, commerce-guild bridge, guild-tavern bridge, tavern-staircase bridge, tavern-perfumed-staircase bridge, planar gate region, material gate region, military quarter region, high quarter region, temple quarter region, commerce quarter region, market quarter region, magic quarter region, perfumed quarter region, tavern quarter region, guild quarter region and staircase gate region are in the city-plane of union.[=0x000A=][=0x000A=]Chapter 1 (o) - Objects[=0x000A=][=0x000A=]A gushing fountain is in southwest commerce quarter. It is fixed in place.[=0x000A=][=0x000A=]Part 2 - Atmospherics[=0x000A=][=0x000A=]Chapter 2 (a) - Full City-Plane[=0x000A=][=0x000A=]Table of City-Plane of Union Definition[=0x000A=]during[=0x0009=]initch[=0x0009=]latch[=0x0009=]aftcnt[=0x0009=]curcnt[=0x0009=]sctype[=0x0009=]runtype[=0x0009=]frtype[=0x0009=]igtype[=0x0009=]subtable[=0x000A=]Arrival[=0x0009=]100[=0x0009=]33[=0x0009=]1[=0x0009=]0[=0x0009=]ordered[=0x0009=]run once[=0x0009=]stopping[=0x0009=]do not ignore[=0x0009=]Table of Arrival Messages[=0x000A=]Encounters[=0x0009=]50[=0x0009=]50[=0x0009=]0[=0x0009=]0[=0x0009=]random[=0x0009=]run forever[=0x0009=]stopping[=0x0009=]do not ignore[=0x0009=]Table of Encounter Messages[=0x000A=][=0x000A=]Table of Arrival Messages[=0x000A=]used[=0x0009=]message[=0x000A=]0[=0x0009=][=0x0022=]The sudden bustling of activity as you enter the City-Plane of Union almost overwhelmes you.[=0x0022=][=0x000A=]0[=0x0009=][=0x0022=]You are slowly, ever so slowly, getting used to the bustling of activities .[=0x0022=][=0x000A=]0[=0x0009=][=0x0022=]The bustling activities continue as usual, but you are getting more and more acclimatized to them.[=0x0022=][=0x000A=]0[=0x0009=][=0x0022=]Suddenly, you realize you no longer notice anything unusal about all the activities going on around you.[=0x0022=][=0x000A=][=0x000A=]Table of Encounter Messages[=0x000A=]used[=0x0009=]message[=0x000A=]0[=0x0009=][=0x0022=]A patrol of Union City guards stop to question people.[=0x0022=][=0x000A=]0[=0x0009=][=0x0022=]In the distance, you can see a patrol of guards coming closer to you.[=0x0022=][=0x000A=]0[=0x0009=][=0x0022=]You are stopped by a patrol of Union City guards and asked for your papers. You show the papers to them.[=0x0022=][=0x000A=]0[=0x0009=][=0x0022=]A mercane is looking at you, squinting [if a random chance of 1 in 2 succeeds]his[otherwise]her[end if] eyes.[=0x0022=][=0x000A=][=0x000A=]Chapter 2 (b) - Specific things[=0x000A=][=0x000A=]Table of Gushing Fountain Definition[=0x000A=]during[=0x0009=]initch[=0x0009=]latch[=0x0009=]aftcnt[=0x0009=]curcnt[=0x0009=]sctype[=0x0009=]runtype[=0x0009=]frtype[=0x0009=]igtype[=0x0009=]subtable[=0x000A=]--[=0x0009=]100[=0x0009=]100[=0x0009=]0[=0x0009=]0[=0x0009=]random[=0x0009=]run forever[=0x0009=]stopping[=0x0009=]do not ignore[=0x0009=]Table of Gushing Fountain Messages[=0x000A=][=0x000A=]Table of Gushing Fountain Messages[=0x000A=]used[=0x0009=]message[=0x000A=]0[=0x0009=][=0x0022=]The fountain unleases a gush of water, at least 20 feet high.[=0x0022=][=0x000A=]0[=0x0009=][=0x0022=]You hear a gurgling sound from the fountain, as it sucks in water from the pool.[=0x0022=][=0x000A=]0[=0x0009=][=0x0022=]A glimmer of gold catches your eye, deep in the pool of the fountain.[=0x0022=][=0x000A=]0[=0x0009=][=0x0022=]The constant stream of water from the fountain flies about the area as a gust of wind arrives.[=0x0022=][=0x000A=][=0x000A=]Chapter 2 (c) - The Stairway Gate[=0x000A=][=0x000A=]Table of Stairway Gate Definition[=0x000A=]during[=0x0009=]initch[=0x0009=]latch[=0x0009=]aftcnt[=0x0009=]curcnt[=0x0009=]sctype[=0x0009=]runtype[=0x0009=]frtype[=0x0009=]igtype[=0x0009=]subtable[=0x000A=]--[=0x0009=]100[=0x0009=]50[=0x0009=]2[=0x0009=]0[=0x0009=]random[=0x0009=]run forever[=0x0009=]stopping[=0x0009=]do not ignore[=0x0009=]Table of Stairway Gate Messages[=0x000A=][=0x000A=]Table of Stairway Gate Messages[=0x000A=]used[=0x0009=]message[=0x000A=]0[=0x0009=][=0x0022=]People come in and leave through the Stairway Gate to the Infinite Stairway.[=0x0022=][=0x000A=]0[=0x0009=][=0x0022=]The bustling of people travelling through the Stairway Gate is awe-inspring.[=0x0022=][=0x000A=][=0x000A=]Chapter 2 (d) - Definition[=0x000A=][=0x000A=]Table of Atmospheric Definition (continued)[=0x000A=]loci[=0x0009=]ignoring[=0x0009=]subtable[=0x000A=]City-Plane of Union[=0x0009=]do not ignore[=0x0009=]Table of City-Plane of Union Definition[=0x000A=]gushing fountain[=0x0009=]do not ignore[=0x0009=]Table of Gushing Fountain Definition[=0x000A=]Staircase Gate[=0x0009=]do not ignore[=0x0009=]Table of Stairway Gate Definition[=0x000A=][=0x000A=]Part 3 - Scenes[=0x000A=][=0x000A=]Chapter 3 (a) - Arrival[=0x000A=][=0x000A=]Arrival is a scene. Arrival begins when play begins. Arrival ends when the number of filled rows in the Table of Arrival Messages is 0.[=0x000A=][=0x000A=]Chapter 3 (b) - Encounters[=0x000A=][=0x000A=]Encounters is a scene. Encounters begins when Arrival ends.[=0x000A=][=0x000A=]Part 4 - Modifications[=0x000A=][=0x000A=]Chapter 4 (a) - Room[=0x000A=][=0x000A=]The description of a room is usually [=0x0022=][exit list][=0x0022=].[=0x000A=][=0x000A=]To say exit list:[=0x000A=][=0x0009=]let count be 0;[=0x000A=][=0x0009=]repeat with d running through directions:[=0x000A=][=0x0009=][=0x0009=]let r be the room d from the location;[=0x000A=][=0x0009=][=0x0009=]if r is a room, increase count by 1;[=0x000A=][=0x0009=]if the count is 0:[=0x000A=][=0x0009=][=0x0009=]say [=0x0022=]You appear to be trapped in here.[=0x0022=];[=0x000A=][=0x0009=]otherwise:[=0x000A=][=0x0009=][=0x0009=]if the count is 1:[=0x000A=][=0x0009=][=0x0009=][=0x0009=]say [=0x0022=]From here, the only way is[=0x0022=];[=0x000A=][=0x0009=][=0x0009=]otherwise:[=0x000A=][=0x0009=][=0x0009=][=0x0009=]say [=0x0022=]From here, the viable exits are[=0x0022=];[=0x000A=][=0x0009=][=0x0009=]let original be count;[=0x000A=][=0x0009=][=0x0009=]repeat with d running through directions:[=0x000A=][=0x0009=][=0x0009=][=0x0009=]let r be the room d from the location;[=0x000A=][=0x0009=][=0x0009=][=0x0009=]if r is a room:[=0x000A=][=0x0009=][=0x0009=][=0x0009=][=0x0009=]say [=0x0022=] [d] to [r][=0x0022=];[=0x000A=][=0x0009=][=0x0009=][=0x0009=][=0x0009=]decrease count by 1;[=0x000A=][=0x0009=][=0x0009=][=0x0009=][=0x0009=]if count is 1:[=0x000A=][=0x0009=][=0x0009=][=0x0009=][=0x0009=][=0x0009=]if original is 2, say [=0x0022=] and[=0x0022=];[=0x000A=][=0x0009=][=0x0009=][=0x0009=][=0x0009=][=0x0009=]otherwise say [=0x0022=][optional comma] and[=0x0022=];[=0x000A=][=0x0009=][=0x0009=][=0x0009=][=0x0009=]otherwise:[=0x000A=][=0x0009=][=0x0009=][=0x0009=][=0x0009=][=0x0009=]if count is 0, say [=0x0022=].[=0x0022=];[=0x000A=][=0x0009=][=0x0009=][=0x0009=][=0x0009=][=0x0009=]otherwise say [=0x0022=],[=0x0022=].[=0x000A=][=0x000A=]To say optional comma:[=0x000A=][=0x0009=]if the serial comma option is active, say [=0x0022=],[=0x0022=].[=0x000A=][=0x000A=]Chapter 4 (b) - Status line[=0x000A=][=0x000A=]When play begins:[=0x000A=][=0x0009=]now the left hand status line is [=0x0022=][map region of the location][=0x0022=];[=0x000A=][=0x0009=]now the right hand status line is [=0x0022=][number of visited rooms]/[number of rooms][=0x0022=].[=0x000A=][=0x000A=]Part 5 - Starting and ending the game[=0x000A=][=0x000A=]Chapter 5 (a) - Starting[=0x000A=][=0x000A=]When play begins:[=0x000A=][=0x0009=]say [=0x0022=]What happenstance.[=0x000A=][=0x000A=]You have been trying to reach this place for the last few years, and suddenly, you find yourself here. [=0x0009=]In... The City-Plane of Union.[=0x000A=][=0x000A=]Now, you want to find out everything there is to know about the place. Thankfully, you[=0x0027=]ve memorized the map of the place.[line break](To win, visit every room and see every message)[paragraph break][=0x0022=].[=0x000A=][=0x000A=]Chapter 5 (b) - Ending[=0x000A=][=0x000A=]Every turn:[=0x000A=][=0x0009=]let total be 0;[=0x000A=][=0x0009=]repeat with n running from 1 to the number of rows in the Table of Atmospheric Definition:[=0x000A=][=0x0009=][=0x0009=]choose row n in the table of Atmospheric Definition;[=0x000A=][=0x0009=][=0x0009=]if there is a subtable entry:[=0x000A=][=0x0009=][=0x0009=][=0x0009=]let tbl be the subtable entry;[=0x000A=][=0x0009=][=0x0009=][=0x0009=]repeat with o running from 1 to the number of rows in tbl:[=0x000A=][=0x0009=][=0x0009=][=0x0009=][=0x0009=]choose row o in tbl;[=0x000A=][=0x0009=][=0x0009=][=0x0009=][=0x0009=]if there is a subtable entry:[=0x000A=][=0x0009=][=0x0009=][=0x0009=][=0x0009=][=0x0009=]if the sctype entry is ordered or the sctype entry is random:[=0x000A=][=0x0009=][=0x0009=][=0x0009=][=0x0009=][=0x0009=][=0x0009=]let c be the curcnt entry;[=0x000A=][=0x0009=][=0x0009=][=0x0009=][=0x0009=][=0x0009=][=0x0009=]let d be the number of filled rows in the subtable entry;[=0x000A=][=0x0009=][=0x0009=][=0x0009=][=0x0009=][=0x0009=][=0x0009=]let f be d minus c;[=0x000A=][=0x0009=][=0x0009=][=0x0009=][=0x0009=][=0x0009=][=0x0009=]if f is less than 0, now f is 0;[=0x000A=][=0x0009=][=0x0009=][=0x0009=][=0x0009=][=0x0009=][=0x0009=]increase total by f;[=0x000A=][=0x0009=][=0x0009=][=0x0009=][=0x0009=][=0x0009=]otherwise:[=0x000A=][=0x0009=][=0x0009=][=0x0009=][=0x0009=][=0x0009=][=0x0009=]let lbt be the subtable entry;[=0x000A=][=0x0009=][=0x0009=][=0x0009=][=0x0009=][=0x0009=][=0x0009=]repeat with p running from 1 to the number of rows in lbt:[=0x000A=][=0x0009=][=0x0009=][=0x0009=][=0x0009=][=0x0009=][=0x0009=][=0x0009=]if there is a message entry:[=0x000A=][=0x0009=][=0x0009=][=0x0009=][=0x0009=][=0x0009=][=0x0009=][=0x0009=][=0x0009=]if the used entry is 0, increase total by 1;[=0x000A=][=0x0009=]increase total by the number of rooms;[=0x000A=][=0x0009=]decrease total by the number of visited rooms;[=0x000A=][=0x0009=]if total is 0, end the story saying [=0x0022=]You have visited all rooms and seen all messages[=0x0022=].[=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a> &quot;The City-Plane of Union&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Include Version 6 of Atmospheric Effects by Mikael Segercrantz.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Use full-length room descriptions and the serial comma.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Part 1 - Geography</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Chapter 1 (a) - Planar Gate</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Planar Gate is a room.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Planar Gate Region is a region. The planar gate is in the planar gate region.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Chapter 1 (b) - Temple Quarter</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Northwest Temple Quarter is a room. South of northwest temple quarter is a room called Southwest Temple Quarter. East of southwest temple quarter is a room called East Temple Quarter. It is southeast of northwest temple quarter.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Temple Quarter Region is a region. Northwest temple quarter, southwest temple quarter and east temple quarter are in the temple quarter region.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Chapter 1 (c) - Material Gate</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Material Gate is a room.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Material Gate Region is a region. The material gate is in the material gate region.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Chapter 1 (d) - Military Quarter</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> South Military Quarter is a room. North of south military quarter is a room called North Military Quarter.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Military Quarter Region is a region. North military quarter and south military quarter are in the military quarter region.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Chapter 1 (e) - High Quarter</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Southeast High Quarter is a room. Northwest of southeast high quarter is a room called Northwest High Quarter.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> High Quarter Region is a region. Southeast high quarter and northwest high quarter are in the high quarter region.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Chapter 1 (f) - Commerce Quarter</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Northwest Commerce Quarter is a room. South of northwest commerce quarter is a room called Southwest Commerce Quarter. East of northwest commerce quarter is a room called Northeast Commerce Quarter. It is northeast of southwest commerce quarter. South of northeast commerce quarter is a room called Southeast Commerce Quarter. It is east of southwest commerce quarter and southeast of northwest commerce quarter.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Commerce Quarter Region is a region. Northwest commerce quarter, southwest commerce quarter, northeast commerce quarter and southeast commerce quarter are in the commerce quarter region.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Chapter 1 (g) - Market Quarter</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Northwest Market Quarter is a room. South of northwest market quarter is a room called Southwest Market Quarter. East of southwest market quarter is a room called South Market Quarter. It is southeast of northwest market quarter. North of south market quarter is a room called North Market Quarter. It is northeast of southwest market quarter and east of northwest market quarter. East of north market quarter is a room called Northeast Market Quarter. It is northeast of south market quarter. South of northeast market quarter is a room called Central Southeast Market Quarter. It is southeast of north market quarter and east of south market quarter. East of central southeast market quarter is a room called Southeast Market Quarter. It is southeast of northeast market quarter.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Market Quarter Region is a region. Northwest market quarter, southwest market quarter, north market quarter, south market quarter, northeast market quarter, central southeast market quarter and southeast market quarter are in the market quarter region.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Chapter 1 (h) - Magic Quarter</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> West Magic Quarter is a room. East of west magic quarter is a room called East Magic Quarter.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Magic Quarter Region is a region. West magic quarter and east magic quarter are in the magic quarter region.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Chapter 1 (i) - Perfumed Quarter</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Southwest Perfumed Quarter is a room. East of southwest perfumed quarter is a room called Southeast Perfumed Quarter. North of southwest perfumed quarter is a room called North Perfumed Quarter. It is northwest of southeast perfumed quarter.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Perfumed Quarter Region is a region. Southwest perfumed quarter, southeast perfumed quarter and north perfumed quarter are in the perfumed quarter region.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Chapter 1 (j) - Tavern Quarter</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> East Tavern Quarter is a room. West of east tavern quarter is a room called West Tavern Quarter.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Tavern Quarter Region is a region. East tavern quarter and west tavern quarter are in the tavern quarter region.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Chapter 1 (k) - Guild Quarter</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Southeast Guild Quarter is a room. Northwest of southeast guild quarter is a room called Northwest Guild Quarter.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Guild Quarter Region is a region. Southeast guild quarter and northwest guild quarter are in the guild quarter region.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Chapter 1 (l) - Staircase Gate</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Staircase Gate is a room.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Staircase Gate region is a region. Staircase gate is in the staircase gate region.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Chapter 1 (m) - Bridges</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Planar-Temple Bridge is a room. It is south of planar gate and north of northwest temple quarter.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Planar-Material Bridge is a room. It is north of planar gate and south of material gate.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Planar-Commerce Bridge is a room. It is northeast of planar gate and southwest of southwest commerce quarter.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Temple-Market Bridge is a room. It is northeast of east temple quarter and southwest of southwest market quarter.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Material-Military Bridge is a room. It is north of material gate and south of south military quarter.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Material-Commerce Bridge is a room. It is east of material gate and west of southwest commerce quarter.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Military-High Bridge is a room. It is northwest of north military quarter and southeast of southeast high quarter.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Military-Commerce Bridge is a room. It is southeast of south military quarter and northwest of northwest commerce quarter.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Commerce-Market Bridge is a room. It is south of southeast commerce quarter and north of northwest market quarter.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Market-Magic Bridge is a room. It is north of northeast market quarter and south of west magic quarter.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Commerce-Magic Bridge is a room. It is southeast of northeast commerce quarter and northwest of west magic quarter.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Magic-Perfumed Bridge is a room. It is northeast of east magic quarter and southwest of southwest perfumed quarter.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Magic-Staircase Bridge is a room. It is north of east magic quarter and south of staircase gate.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Commerce-Guild Bridge is a room. It is north of northeast commerce quarter and south of southeast guild quarter.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Guild-Tavern Bridge is a room. It is northeast of southeast guild quarter and southwest of west tavern quarter.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Tavern-Staircase Bridge is a room. It is southeast of west tavern quarter and northwest of staircase gate.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Tavern-Perfumed-Staircase Bridge is a room. It is east of east tavern quarter, north of staircase gate and west of north perfumed quarter.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Chapter 1 (n) - The City-Plane</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> City-Plane of Union is a region. Planar-temple bridge, planar-commerce bridge, planar-material bridge, temple-market bridge, material-military bridge, material-commerce bridge, military-high bridge, military-commerce bridge, commerce-market bridge, market-magic bridge, commerce-magic bridge, magic-perfumed bridge, magic-staircase bridge, commerce-guild bridge, guild-tavern bridge, tavern-staircase bridge, tavern-perfumed-staircase bridge, planar gate region, material gate region, military quarter region, high quarter region, temple quarter region, commerce quarter region, market quarter region, magic quarter region, perfumed quarter region, tavern quarter region, guild quarter region and staircase gate region are in the city-plane of union.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Chapter 1 (o) - Objects</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> A gushing fountain is in southwest commerce quarter. It is fixed in place.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Part 2 - Atmospherics</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Chapter 2 (a) - Full City-Plane</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Table of City-Plane of Union Definition</span><br>
+                <table border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> during</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> initch</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> latch</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> aftcnt</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> curcnt</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> sctype</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> runtype</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> frtype</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> igtype</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> subtable
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> Arrival</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> 100</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> 33</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> 1</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> 0</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> ordered</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> run once</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> stopping</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> do not ignore</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> Table of Arrival Messages
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> Encounters</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> 50</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> 50</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> 0</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> 0</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> random</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> run forever</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> stopping</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> do not ignore</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> Table of Encounter Messages</span>
+                        </td>
+                    </tr>
+                </table>
+                </blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Table of Arrival Messages</span><br>
+                <table border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> used</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> message
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> 0</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;The sudden bustling of activity as you enter the City-Plane of Union almost overwhelmes you.&quot;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> 0</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;You are slowly, ever so slowly, getting used to the bustling of activities .&quot;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> 0</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;The bustling activities continue as usual, but you are getting more and more acclimatized to them.&quot;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> 0</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;Suddenly, you realize you no longer notice anything unusal about all the activities going on around you.&quot;</span>
+                        </td>
+                    </tr>
+                </table>
+                </blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Table of Encounter Messages</span><br>
+                <table border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> used</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> message
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> 0</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;A patrol of Union City guards stop to question people.&quot;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> 0</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;In the distance, you can see a patrol of guards coming closer to you.&quot;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> 0</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;You are stopped by a patrol of Union City guards and asked for your papers. You show the papers to them.&quot;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> 0</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;A mercane is looking at you, squinting [if a random chance of 1 in 2 succeeds]his[otherwise]her[end if] eyes.&quot;</span>
+                        </td>
+                    </tr>
+                </table>
+                </blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Chapter 2 (b) - Specific things</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Table of Gushing Fountain Definition</span><br>
+                <table border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> during</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> initch</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> latch</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> aftcnt</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> curcnt</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> sctype</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> runtype</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> frtype</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> igtype</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> subtable
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> --</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> 100</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> 100</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> 0</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> 0</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> random</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> run forever</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> stopping</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> do not ignore</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> Table of Gushing Fountain Messages</span>
+                        </td>
+                    </tr>
+                </table>
+                </blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Table of Gushing Fountain Messages</span><br>
+                <table border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> used</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> message
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> 0</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;The fountain unleases a gush of water, at least 20 feet high.&quot;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> 0</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;You hear a gurgling sound from the fountain, as it sucks in water from the pool.&quot;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> 0</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;A glimmer of gold catches your eye, deep in the pool of the fountain.&quot;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> 0</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;The constant stream of water from the fountain flies about the area as a gust of wind arrives.&quot;</span>
+                        </td>
+                    </tr>
+                </table>
+                </blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Chapter 2 (c) - The Stairway Gate</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Table of Stairway Gate Definition</span><br>
+                <table border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> during</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> initch</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> latch</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> aftcnt</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> curcnt</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> sctype</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> runtype</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> frtype</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> igtype</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> subtable
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> --</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> 100</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> 50</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> 2</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> 0</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> random</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> run forever</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> stopping</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> do not ignore</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> Table of Stairway Gate Messages</span>
+                        </td>
+                    </tr>
+                </table>
+                </blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Table of Stairway Gate Messages</span><br>
+                <table border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> used</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> message
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> 0</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;People come in and leave through the Stairway Gate to the Infinite Stairway.&quot;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> 0</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;The bustling of people travelling through the Stairway Gate is awe-inspring.&quot;</span>
+                        </td>
+                    </tr>
+                </table>
+                </blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Chapter 2 (d) - Definition</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Table of Atmospheric Definition (continued)</span><br>
+                <table border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> loci</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> ignoring</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> subtable
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> City-Plane of Union</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> do not ignore</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> Table of City-Plane of Union Definition
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> gushing fountain</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> do not ignore</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> Table of Gushing Fountain Definition
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> Staircase Gate</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> do not ignore</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> Table of Stairway Gate Definition</span>
+                        </td>
+                    </tr>
+                </table>
+                </blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Part 3 - Scenes</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Chapter 3 (a) - Arrival</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Arrival is a scene. Arrival begins when play begins. Arrival ends when the number of filled rows in the Table of Arrival Messages is 0.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Chapter 3 (b) - Encounters</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Encounters is a scene. Encounters begins when Arrival ends.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Part 4 - Modifications</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Chapter 4 (a) - Room</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The description of a room is usually &quot;[exit list]&quot;.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> To say exit list:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; let count be 0;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; repeat with d running through directions:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; let r be the room d from the location;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if r is a room, increase count by 1;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; if the count is 0:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say &quot;You appear to be trapped in here.&quot;;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; otherwise:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if the count is 1:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say &quot;From here, the only way is&quot;;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; otherwise:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say &quot;From here, the viable exits are&quot;;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; let original be count;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; repeat with d running through directions:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; let r be the room d from the location;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if r is a room:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say &quot; [d] to [r]&quot;;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; decrease count by 1;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if count is 1:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if original is 2, say &quot; and&quot;;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; otherwise say &quot;[optional comma] and&quot;;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; otherwise:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if count is 0, say &quot;.&quot;;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; otherwise say &quot;,&quot;.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> To say optional comma:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; if the serial comma option is active, say &quot;,&quot;.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Chapter 4 (b) - Status line</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> When play begins:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; now the left hand status line is &quot;[map region of the location]&quot;;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; now the right hand status line is &quot;[number of visited rooms]/[number of rooms]&quot;.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Part 5 - Starting and ending the game</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Chapter 5 (a) - Starting</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> When play begins:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; say &quot;What happenstance.<br>
+                <br>
+                You have been trying to reach this place for the last few years, and suddenly, you find yourself here. 	In... The City-Plane of Union.<br>
+                <br>
+                Now, you want to find out everything there is to know about the place. Thankfully, you've memorized the map of the place.[line break](To win, visit every room and see every message)[paragraph break]&quot;.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Chapter 5 (b) - Ending</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Every turn:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; let total be 0;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; repeat with n running from 1 to the number of rows in the Table of Atmospheric Definition:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; choose row n in the table of Atmospheric Definition;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if there is a subtable entry:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; let tbl be the subtable entry;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; repeat with o running from 1 to the number of rows in tbl:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; choose row o in tbl;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if there is a subtable entry:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if the sctype entry is ordered or the sctype entry is random:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; let c be the curcnt entry;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; let d be the number of filled rows in the subtable entry;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; let f be d minus c;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if f is less than 0, now f is 0;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; increase total by f;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; otherwise:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; let lbt be the subtable entry;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; repeat with p running from 1 to the number of rows in lbt:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if there is a message entry:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if the used entry is 0, increase total by 1;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; increase total by the number of rooms;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; decrease total by the number of visited rooms;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; if total is 0, end the story saying &quot;You have visited all rooms and seen all messages&quot;.</span></blockquote>
+
+                <p></p>
+
+            </td>
+        </tr>
+    </table>
+    </p>
+
+    <p>
+    <!--CONTENT ENDS-->
+</body>
+</html>

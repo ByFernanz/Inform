@@ -1,0 +1,54 @@
+"Caduceus" by Mala Costraca
+
+The ocean is a backdrop which is everywhere.
+When play begins, say "Reclaim the caduceus if you dare."
+
+A man can be awake, asleep, near death or passed away.
+The description of the ocean is "A storm will come this day."
+
+The caduceus is inside an ornate chest of crimson red.
+The description is "An artifact that's said to wake the dead,
+but the tale says men who touch it will sleep eternally."
+Instead of waving the caduceus:
+	end the story finally.
+
+The Ship's Deck is a room. It contains an old gangplank.
+"There's been no sign of the crewmen since all the cargo sank."
+
+The gangplank is not portable. "The gangplank stands nearby."
+A person can be reckless, brave, hysterical or shy.
+
+Inside from the Ship's Deck is the office of the cap'n.
+Instead of going inside:
+	say "No entry."; stop the action.
+
+The captain is a man. Men are usually brave.
+Instead of listening to the ocean, say "Gulls and crashing waves."
+
+Instead of pushing the gangplank when the captain is awake:
+	say "The captain comes out seething. This was a mistake.
+	You both leap to the side as something plummets from the sky.
+	As the captain sees the chest, he narrows his one eye.";
+	now the ornate chest is on the Ship's Deck; move the captain
+	to the Ship's Deck; say "'Stop what you're doing!'"; stop the action.
+
+The ornate chest is openable, closed and fixed in place.
+Instead of examining yourself, say "Your unease shows on your face."
+
+Understand "treasure" or "riches" as the ornate chest.
+The description is "It must have fallen down from the crow's nest."
+
+The description of the captain is "The captain looks a wreck.
+[if the captain is asleep]He's lying curled up on the deck."
+
+Every turn when the caduceus can be seen by the awake captain:
+		try the captain taking the caduceus;
+		say "The witch said this would happen."
+
+Instead of someone taking the caduceus:
+	if the actor is an awake man:
+		now the actor is asleep;
+		say "All according to your plan.
+		The captain moves to grab his prize, but just like in the tale,
+		he falls asleep and the treasure drops."
+The player is female.

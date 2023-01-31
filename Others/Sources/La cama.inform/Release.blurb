@@ -1,0 +1,57 @@
+! Blurb file created by Inform build 6M62
+
+status "C:\Program Files (x86)\Inform 7\Internal\Miscellany\CblorbModel.html" "C:\Users\ruber\Documents\Inform\Projects\La cama.inform\Build\StatusCblorb.html"
+
+
+! Identification
+
+project folder "C:\Users\ruber\Documents\Inform\Projects\La cama.inform"
+release to "C:\Users\ruber\Documents\Inform\Projects\La cama.materials\Release"
+
+! Blorb instructions
+
+storyfile leafname "La cama.gblorb"
+storyfile "C:\Users\ruber\Documents\Inform\Projects\La cama.inform\Build\output.ulx" include
+ifiction "C:\Users\ruber\Documents\Inform\Projects\La cama.inform\Metadata.iFiction" include
+cover "C:\Program Files (x86)\Inform 7\Internal\Miscellany\Cover.jpg"
+picture 1 "C:\Program Files (x86)\Inform 7\Internal\Miscellany\Cover.jpg"
+release file "C:\Program Files (x86)\Inform 7\Internal\Miscellany\Cover.jpg"
+release file "C:\Program Files (x86)\Inform 7\Internal\Miscellany\Small Cover.jpg"
+
+! Placeholder variables
+
+placeholder [IFID] = "3A5869B9-B465-4B91-886E-A2912FFCAC24"
+placeholder [RELEASE] = "1"
+placeholder [YEAR] = "2019"
+placeholder [TITLE] = "La cama"
+placeholder [AUTHOR] = "Lou Reed, Ruber Eaglenest"
+placeholder [BLURB] = "Esta obra no es más que una copia y remezcla de la canción The Bed, de Lou Reed, con versos adicionales, y remezclas de otras canciones del album Berlin. Pero ambientado en una época anterior, como la historia de una pareja victoriana."
+
+! Other material to release
+
+
+! Website instructions
+
+placeholder [ENCODEDSTORYFILE] = "La cama.gblorb.js"
+template path "C:\Users\ruber\Documents\Inform\Projects\La cama.materials\Templates"
+template path "C:\Users\ruber\Documents\Inform\Templates"
+template path "C:\Program Files (x86)\Inform 7\Internal\Templates"
+placeholder [INTERPRETERSCRIPTS] = " "
+interpreter "Quixe" "g"
+base64 "C:\Users\ruber\Documents\Inform\Projects\La cama.inform\Build\output.ulx" to "C:\Users\ruber\Documents\Inform\Projects\La cama.materials\Release\interpreter\La cama.gblorb.js"
+
+! Website instructions
+
+template path "C:\Users\ruber\Documents\Inform\Projects\La cama.materials\Templates"
+template path "C:\Users\ruber\Documents\Inform\Templates"
+template path "C:\Program Files (x86)\Inform 7\Internal\Templates"
+css
+website "OneColumn"
+status instruction ||&nbsp;<a href="source:story.ni#line11"><img border=0 src=inform:/doc_images/Reveal.png></a>||
+status alternative ||Using 'Release along with cover art', to provide something more distinctive than the default artwork above&nbsp;<a href=inform:/doc403.html><img border=0 src=inform:/doc_images/help.png></a>||
+status alternative ||Using 'Release along with a file of "Such-and-Such" called "whatever.pdf"', perhaps to add a manual, or a welcoming note&nbsp;<a href=inform:/doc401.html><img border=0 src=inform:/doc_images/help.png></a>||
+status alternative ||Using 'Release along with the source text'&nbsp;<a href=inform:/doc412.html><img border=0 src=inform:/doc_images/help.png></a>||
+status alternative ||Using 'Release along with a solution'&nbsp;<a href=inform:/doc411.html><img border=0 src=inform:/doc_images/help.png></a>||
+status alternative ||Using 'Release along with the library card'&nbsp;<a href=inform:/doc412.html><img border=0 src=inform:/doc_images/help.png></a>||
+status alternative ||Using 'Release along with the introductory booklet'&nbsp;<a href=inform:/doc404.html><img border=0 src=inform:/doc_images/help.png></a>||
+status alternative ||Using 'Release along with the introductory postcard'&nbsp;<a href=inform:/doc404.html><img border=0 src=inform:/doc_images/help.png></a>||

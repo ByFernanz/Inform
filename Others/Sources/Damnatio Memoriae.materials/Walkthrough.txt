@@ -1,0 +1,181 @@
+Solution to "Damnatio Memoriae" by Emily Short
+
+Choice:
+  DROP ALL -> go to branch (1) ... Hide Clemens
+  ENSLAVE CLEMENS TO ME -> go to branch (2) ... Get caught in magic, but survive
+  KILL CLEMENS -> go to branch (3) ... Kill Clemens
+  ENSLAVE CLEMENS TO VASE -> go to branch (4) ... Silence Clemens
+
+Branch (1)
+GET CLEMENS 
+Choice:
+  ENSLAVE CLEMENS TO ME -> go to branch (1.1) ... Fake my own death
+  OUT -> go to branch (1.2) ... Conceal other evidence
+
+Branch (1.1)
+OUT 
+DROP CLEMENS 
+IN 
+GET LAMP 
+Z 
+Z 
+Z 
+Z 
+
+Branch (1.2)
+PUT CLEMENS UNDER HAY 
+IN 
+LOOK UNDER STOOL 
+GET LAMP  ... Burn phaenomena
+BURN OLD LETTER 
+BURN PHAENOMENA 
+LINK VASE TO PITCHER 
+BREAK VASE 
+
+Branch (2)
+Z 
+Z 
+Z 
+Z 
+Z 
+Z 
+Z 
+Z 
+Z 
+Z 
+
+Branch (3)
+LOOK UNDER STOOL 
+Choice:
+  PUT PHAENOMENA UNDER STOOL -> go to branch (3.1) ... Hide phaenomena
+  BURN PHAENOMENA -> go to branch (3.2) ... Burn phaenomena
+
+Branch (3.1)
+LOOK 
+THINK 
+BURN OLD LETTER 
+DESTROY THE PAINTING  ... Destroy the painting
+LINK PAINTING TO VASE 
+BREAK VASE 
+LOOK 
+Z 
+Z 
+Z 
+
+Branch (3.2)
+LOOK 
+THINK 
+BURN OLD LETTER 
+Choice:
+  X PAINTED -> go to branch (3.2.1) ... Blame the painting on Germanicus
+  DESTROY THE PAINTING -> go to branch (3.2.2) ... Destroy the painting
+
+Branch (3.2.1)
+REVERSE LINK RECENT TO PAINTED 
+Z 
+Z 
+Z 
+Z 
+Z 
+Z 
+
+Branch (3.2.2)
+LINK PAINTING TO VASE 
+BREAK VASE 
+LOOK 
+LOOK UNDER STOOL 
+Z 
+Z 
+Z 
+
+Branch (4)
+Choice:
+  LOOK UNDER STOOL -> go to branch (4.1) ... Leave Clemens silent
+  REVERSE LINK CLEMENS TO ME -> go to branch (4.2) ... Make Clemens controllable by me
+
+Branch (4.1)
+BURN PHAENOMENA  ... Burn phaenomena
+LOOK 
+THINK 
+BURN OLD LETTER 
+X PAINTED 
+REVERSE LINK RECENT TO PAINTED 
+Z 
+Z 
+Z 
+Z 
+Z 
+Z 
+
+Branch (4.2)
+Choice:
+  LOOK UNDER STOOL -> go to branch (4.2.1) ... Conceal evidence
+  LINK VASE TO PITCHER -> go to branch (4.2.2) ... Let them mistake Clemens for me
+
+Branch (4.2.1)
+Choice:
+  PUT PHAENOMENA UNDER STOOL -> go to branch (4.2.1.1) ... Hide phaenomena
+  BURN PHAENOMENA -> go to branch (4.2.1.2) ... Burn phaenomena
+
+Branch (4.2.1.1)
+LOOK 
+THINK 
+BURN OLD LETTER 
+DESTROY THE PAINTING  ... Destroy the painting
+LINK PAINTING TO VASE 
+BREAK VASE 
+LOOK 
+Z 
+Z 
+Z 
+
+Branch (4.2.1.2)
+LOOK 
+THINK 
+BURN OLD LETTER 
+DESTROY THE PAINTING  ... Destroy the painting
+LINK PAINTING TO VASE 
+BREAK VASE 
+LOOK 
+LOOK UNDER STOOL 
+Z 
+Z 
+
+Branch (4.2.2)
+BREAK VASE 
+BURN OLD 
+I 
+Choice:
+  OUT -> go to branch (4.2.2.1) ... Let Clemens go to prison
+  GET PHAENOMENA -> go to branch (4.2.2.2) ... Save both of us
+  Z -> go to branch (4.2.2.3) ... Get caught but not killed
+  HIDE PHAENOMENA UNDER STOOL -> go to branch (4.2.2.4) ... Be found together with look-alike Clemens
+
+Branch (4.2.2.1)
+Z 
+Z 
+Z 
+Z 
+Z 
+
+Branch (4.2.2.2)
+OUT 
+Z 
+Z 
+Z 
+Z 
+Z 
+
+Branch (4.2.2.3)
+Z 
+Z 
+Z 
+Z 
+Z 
+
+Branch (4.2.2.4)
+LOOK UNDER STOOL 
+HIDE PHAENOMENA UNDER STOOL 
+Z 
+Z 
+Z 

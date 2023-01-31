@@ -1,0 +1,221 @@
+"Pesadilla voraz" by Grendelkhan
+
+Part 0 - Library Card, Includes y Uses
+
+ [ Datos bibliográficos ]
+ The story title is "Pesadilla voraz".
+The story author is "Grendelkhan".
+The story headline is "'La voracidad de la vida y la muerte.'".
+ The story genre is "Surreal".
+ The release number is 1.
+ The story creation year is 2008.
+ The story description is "La luz allá a lo lejos revela la única salida posible para tí y tus hermanas, y poder escapar de éste frío intenso y aterrador, rodeadas de la más absoluta oscuridad. ¿Podréis escapar de aquí, de una vez por todas?".
+
+Release along with cover art, a file of "Manual de juego" called "manual.pdf" and the source text and a website.
+
+  Include Spanish Localization by Sarganar.
+ [ Include Exit Descriptions Sp by Matthew Fletcher.]
+  Include Basic Screen Effects Sp by Emily Short.
+
+  Use full-length room descriptions and no scoring.
+  Use Comando Salidas.
+
+Rule for constructing the status line:
+     center "[story title]" at row 1;
+     rule succeeds.
+
+Rule for deciding whether all includes scenery: it does not. [para que no entren en 'coge todo']
+
+
+[Cuando el jugador pide ayuda]
+
+Asking for help is an action out of world. Understand "instrucciones" or "ayuda" as asking for help.
+
+Carry out asking for help:
+   say "Bienvenido al mundo de los relatos interactivos. En éstos juegos interaccionas escribiendo frases como EXAMINA SILLA o ABRE PUERTA (también puedes usar los verbos en infinitivo, si lo prefieres, como en ABRIR PUERTA). El juego responde describiéndote cómo es el mundo que te rodea y el resultado de tus acciones.
+[paragraph break]Hay una serie de comandos comunes a todos los juegos conversacionales. Puedes caminar simplemente indicando el punto cardinal hacia el que quieres ir; por ejemplo NORTE o SUDESTE. Todas las direcciones pueden abreviarse a una o dos letras; en el caso anterior N o SE. También puedes ir ARRIBA o ABAJO o sus sinónimos SUBE y BAJA. En algunos lugares puedes poner también ENTRA o SAL. Además puedes usar 'ENTRA EN' o 'TREPA A' con algunas cosas.[paragraph break]Cada vez que entres en un lugar, el juego te lo describirá con detalle. Sin embargo, para volver a ver la descripción completa en cualquier momento, usa el comando MIRA (abreviatura M).";
+wait for any key;
+say "[paragraph break]Puedes interactuar con tu entorno de varias formas. Puedes COGER objetos (o TOMAR en el dialecto sudamericano) y SOLTAR objetos. Tambíen puedes PONER objetos EN cosas, o SACAR objetos DE otros. Puedes llegar a crear frases complejas, como por ejemplo SACA EL LADRILLO ROJO Y LA PELOTA AZUL DE LA CAJA DE METAL Y DESPUES TIRA EL LADRILLO CONTRA LA VENTANA. El juego comprenderá esta frase, pero normalmente no necesitarás escribir nada tan complejo.
+[paragraph break]Para mirar un objeto más de cerca, EXAMINA el objeto (abreviatura X). Para obtener un listado de todo lo que llevas contigo escribe INVENTARIO (o I). Otros comandos útiles que puedes intentar son EMPUJA, REGISTRA, SACUDE, LANZA, FROTA, PATEA, TREPA, MIRA POR, o LEE.
+[paragraph break]También puedes interaccionar con otros personajes mediante órdenes como PREGUNTA A (personaje) SOBRE (tema). Por ejemplo, PREGUNTA A REY SOBRE CASTILLO.
+[paragraph break]Parte de un juego conversacional consiste en averiguar lo que el juego entiende. Éste relato conoce cientos de palabras, así que intenta todo lo que se te ocurra.[line break]Si finalmente no encuentras la solución puedes acudir a los foros del CAAD en www.caad.es/foro, lugar donde se reúnen los aficionados a los juegos conversacionales.".
+
+
+
+Part 1 - Inicializaciones
+
+[Aquí definimos la cantidad de objetos que puede llevar el jugador a la misma vez, inicialmente 6]
+ The carrying capacity of the player is 0.
+ 
+[ Redefiniremos algunos de los mensajes estándares de la librería.]
+ When play begins: change the command prompt to "  - ";
+ Rule for printing a parser error when parser error is I beg your pardon: say " " instead.
+ Check requesting the score: say "¿En qué estas pensando? ¡Tenemos que sobrevivir!" instead.
+ Check examining a direction (called target):
+	if the target is up then say "Estoy demasiado nerviosa como para fijarme en los detalles." instead;
+	if the target is down then say "Estoy demasiado nerviosa como para fijarme en los detalles" instead.
+
+
+[ Inicio del juego - El texto que aparece primero]
+
+ When play begins:
+clear the screen;
+     display the boxed quotation
+     "'Pesadilla voraz'
+Serie Minúscula (c) 2008. 
+por Grendelkhan";
+     show the current quotation;
+say "'[italic type]Incontables eones transcurren en frío metódico y oscuridad total. Herméticos cierres insólitos en el mar de dudas inconfesables. Rodedada de tus iguales pero incapaces de expresar el dolor igual que tú... [paragraph break]
+¡Pero espera! Un ruido sordo se escucha en el exterior. Y de repente, algo inesperado sucede para tí y tus hermanas de cautiverio. Un haz de luz surge de entre las sombras, revelando una salida que hasta ahora se os antojaba imposible. [paragraph break]Hoy es tu momento de ganar la libertad...'";
+wait for any key;
+
+
+Part 2 - El mundo del juego
+
+Section 1 - La bolsa
+
+[Por defecto, el juego empieza en la primera localidad que se define]
+ The Bolsa is a room."La luz allá a lo lejos revela la única salida posible para tí y tus hermanas, y poder escapar de éste frío intenso y aterrador, rodeadas de la más absoluta oscuridad[if unvisited]. ¿Podréis escapar de aquí, de una vez por todas?[end if].".  The printed name is "Atrapadas en el frío".
+
+Before going outside for the first time:
+say "[paragraph break][italic type]Te abres paso como puedes entre la multitud de tus hermanas, enloquecida por la sensación de libertad que te promete la luz... ya estás llegando, ya cruzas el umbral...";
+wait for any key;
+say "[paragraph break][italic type]Saltas al vacío. Ignoras por completo dónde estás, ni hacia dónde estás cayendo. La parábola del salto es similar a la de tus hermanas, que caen junto a tí aterradas. Un caleidoscopio de colores ocres y un intenso olor que no logras aprehender es lo único que tus sentidos son capaces de transmitir hasta que caes...";
+wait for any key;
+say "[paragraph break][italic type]...con un sonoro ¡clonc! que te hace gemir de dolor, pero te das cuenta de que algo líquido ha amortiguado el golpe. Te sumerges sin darte cuenta en un mar espeso y sucio. Y entonces el frío de la anterior oscuridad se torna caldero de fiebre y quemazón. Observas entre gritos a tus hermanas, intentando escapar de éste gran mar de fuego y muerte, preguntándose porqué tanto dolor, porqué tanto sufrimiento...";
+wait for any key;
+move croqueta to sarten; 
+rule succeeds.
+
+Before going outside:
+say "Imposible escapar de éste lugar...";
+move croqueta to sarten;
+rule succeeds.
+
+The bolsainterior is here. It is female and scenery. The description is "Frio y oscuridad te rodea allá donde mires. Tus hermanas están apelotonadas en cualquier dirección, y todas ignoráis a dónde os conducen.". 
+Understand "bolsa" or "frio" or "oscuridad" or "cavidad" or "cueva" as bolsainterior.
+
+The luz are here. It is enterable, scenery, lit and fixed in place. The description is "Luz celestial que promete la libertad, línea que separa la vida de la muerte. Hacia la luz van tus hermanas y hacia la luz anhelas ir tú, para escapar del frío oscuro que asola éste lugar.".
+Understand "luz" or "salida" or "linea" or "abertura" as the luz.
+
+Instead of entering the luz: try going outside. 
+
+Instead of touching the luz: try going outside.
+
+Instead of going nowhere, say "[paragraph break][italic type]¡¿A dónde me quieres llevar?! ¡La libertad está ahí fuera! ¡Tienes que salir como sea!".
+
+
+Section 2 - Las croquetas
+
+The hermanas are here. They are plural female, woman and scenery. The description is "Tus hermanas intentan escapar, aterrorizadas de estar en el interior de ésta sórdida oscuridad fría como el hielo.". 
+Understand "croquetas" or "hermanas" or "hermana" or "piel" or  "comida" as hermanas.
+
+[Para decir cosas]
+Instead of telling hermanas about something, say "Intentas decirles algo a tus hermanas, pero el terror les impide articular palabra...".
+
+[Para preguntar cosas]
+Instead of asking hermanas about something, say "Intentas decirles algo a tus hermanas, pero el terror les impide articular palabra...".
+
+Instead of kissing the hermanas, say  "Tus muestras de cariño no logran calmar la ansiedad y la incertidumbre del cautiverio.".
+Instead of touching the hermanas, try kissing the hermanas.
+Instead of attacking the hermanas, say "Estás empezando a perder el sentido... ¡No puedes hacer daño a tus hermanas! Piensa un poco.".
+Instead of pushing the hermanas, try attacking the hermanas.
+
+Section 3 - La croqueta
+
+Croqueta is a woman in the bolsa. The player is croqueta. The description is "[italic type]Tu cuerpo ha cambiado mucho debido al cautiverio, y no puedes recordar cómo eras antes, ni capaz de entender cómo eres ahora.".
+
+Part 2 - La sartén
+
+[Por defecto, el juego empieza en la primera localidad que se define]
+ The sarten is a room. The sarten is outside from the bolsa."Un gran mar de fuego y muerte es la cruel libertad que se escondía tras la luz. Un cadalso indigno para tí y tus hermanas[if unvisited], que buscáis ansiosas la forma de escapar de éste infernal lugar...[end if]. [if cocinero is in sarten] Un ser de pesadilla os tortura con su brazo metálico.[end if]".  The printed name is "Atrapadas en el mar de fuego".
+
+
+Section 1 - El aceite
+
+The aceite is here. It is scenery. The description is "¡Quema! Abrasador mar de fuego donde chapotean patéticamente tus hermanas. Es una crueldad inimaginable después de tanto frío y oscuridad.".
+ Understand "mar" or "fuego" or "cadalso" or "lugar" or "liquido" or "sarten" as aceite.
+
+Instead of going nowhere, say "[paragraph break][italic type]¡Imposible escapar de éste infernal lugar!".
+
+Instead of going inside, say "[paragraph break][italic type]¡Imposible alcanzar el lugar de frío y oscuridad, que se aleja enrollándose sobre sí mismo por fuerzas poderosas que eres incapaz de comprender!".
+
+Instead of going outside, say "[paragraph break][italic type]¡Imposible escapar de éste infernal lugar!".
+
+Instead of touching the aceite, say "¡¡Quema!!".
+Instead of kissing the aceite, try touching the aceite.
+Instead of attacking the aceite, try touching the aceite.
+Instead of turning the aceite, try saltaring.
+Instead of pushing the aceite, try saltaring.
+Understand "remover [something]", "remueve [something]", "patalea [something]" as pushing.
+
+Saltaring is an action applying to nothing.
+
+Understand "nada" or "nada en mar" or "bucea"  or "bucea en mar" or "grita" as saltaring.
+
+Instead of jumping, try saltaring;
+
+Report saltaring:
+	say "Ahora no es el momento..."
+
+Instead of saltaring when the croqueta is in the sarten:
+say "[paragraph break][italic type]Armándote de valor te remueves en el mar de fuego, gritando como una posesa hasta que ocurre algo inesperado y doloroso... con tu enérgico chapoteo has conseguido enfurecer al mar, que lanza una columna de fuego que impacta en la piel blanca del ser de pesadilla... ¡Se retuerce de dolor! Preso de la agonía al sentir el intenso calor, hace un torpe movimiento con su brazo metálico que activa algún extraño mecanismo y el mar se transforma en profunda catarata...";
+wait for any key;
+say "[paragraph break][italic type]Caes por la catarata junto con tus hermanas hasta que impactáis en un terreno llano y gigantesco... ¡Libres al fin! Empiezas a rodar hacia un rincón oscuro bajo una inmensa torre de acero, giras y giras sin mirar atrás hasta que llegas a la cálida oscuridad bajo la torre. Allá fuera algunas de tus hermanas son pisoteadas sin piedad por el gran ser de pesadilla, pero otras han conseguido escapar rodando igual que tú...";
+wait for any key;
+say "[paragraph break][italic type]'¿Qué nuevas aventuras te esperan aquí abajo, en el reino de la sombra? Sólo el gran dios Findus lo sabe...'"; End the game in victory.
+
+
+Section 2 - Las croquetas en el aceite
+
+The hermanas2 are here.  It is plural female, woman and scenery.  The description is "Tus hermanas intentan escapar inútilmente del líquido abrasador, pero sabes que van a morir quemándose la piel, ahogadas entre gritos agónicos en el interior del mar de fuego.".
+Understand "croquetas" or "hermanas" or "hermana" or "piel" or  "comida" as hermanas2.
+
+[Para decir cosas]
+Instead of telling hermanas2 about something, say "¿Hablar? Tus hermanas están muriendo. Tan solo puedes gritar de agonía.".
+
+[Para preguntar cosas]
+Instead of asking hermanas2 about something, say "¿Hablar? Tus hermanas están muriendo. Tan solo puedes gritar de agonía.".
+
+Instead of kissing the hermanas2, say  "Quizás tan sólo queda abrazaros y aguantar así hasta el final, al menos con el amor de tus hermanas tu muerte no resulta tan trágica.".
+
+Instead of touching the hermanas2, try kissing the hermanas2.
+Instead of attacking the hermanas2, say "Demasiado dolor. Te estás volviendo loca y se te ocurre matar a tus hermanas... pero tiene que haber otra salida.".
+Instead of pushing the hermanas2, try attacking the hermanas2.
+
+Instead of pushing the croqueta, try saltaring.
+Instead of turning the croqueta, try saltaring.
+
+Section 3 - El cocinero
+
+The cocinero is man and scenery. The description is "Un ser de pesadilla, es aquello a lo que más habéis temido siempre tú y tus hermanas. Eres incapaz de mirarlo durante mucho tiempo porque es aterrador... Armado con su brazo metálico, os rocía una y otra vez de líquido abrasador hasta vuestra muerte final.". Understand "pesadilla" or "ser" or "enemigo" or "criatura" or "persona" or "brazo" or "metalico" as the cocinero.
+
+Instead of attacking the cocinero, say "Demasiado grande, demasiado lejos, resulta inalcanzable para tí, pero él os manipula a su antojo desde su posición, ayudándose del largo metal, con gesto frio y distante, como si fuera ajeno a tanto dolor, tanto sufrimiento...".
+
+Instead of kissing the cocinero, try attacking the cocinero.
+Instead of touching the cocinero, try attacking the cocinero.
+
+Section 4 - La fritura
+
+      Freir is a recurring scene. Freir begins when the croqueta is in sarten and cocinero is not in sarten.
+   Freir ends sadly when the time since Freir began is 3 minutes. 
+
+  When Freir ends sadly:
+	say  "[paragraph break][italic type]De repente, algo metálico pasa por debajo de tu cuerpo, aterrorizada giras sobre tí misma sin saber muy bien que hacer... entonces una ola enorme cae sobre tí, abrasándote la espalda.";
+wait for any key;
+say "[paragraph break][italic type]Gritas desesperada, imaginando el momento en que tu cuerpo ya no pueda aguantar más dolor y sucumba a la muerte. Súbitamente la cosa metálica pasa de nuevo por debajo y consigue darte la vuelta... entonces es cuando lo ves... un ser horrible... una pesadilla innombrable...'";
+move cocinero to sarten;
+wait for any key;
+
+Freir2 is a recurring scene. Freir2 begins when the cocinero is in sarten.
+   Freir2 ends sadly when the time since Freir2 began is 4 minutes. 
+
+  When Freir2 ends sadly:
+	say "[paragraph break][italic type]Entonces, casi en el último estertor de la muerte, el brazo metálico de la criatura te saca a tí y a algunas de tus hermanas del mar de fuego. Una suave brisa te acaricia la piel, quemada irreversiblemente, hasta que caéis en una superfície blanca. Piensas por un momento que la gran criatura se ha apiadado de vosotras... pero sólo es un espejismo...";
+wait for any key;
+	end the game saying  "[paragraph break][italic type]...el ser te coge entre sus enormes dedos, sacudiéndote de arriba a abajo. Humeante soportas estoicamente las crueldades de la gigantesca pesadilla. Ves toda tu vida pasar ante tus ojos cuando te conduce hacia sus fauces, oscuras y hediondas. Éste es el fin. Caes en el interior de su boca y de una dentellada te parte en dos, machacándote hasta la muerte. Lo último que escuchas al morir es '¡No están mal estas croquetas!'";
+
+Section 5 - Cocina
+
+The cocina is a room. The cocina is outside from the sarten.
+

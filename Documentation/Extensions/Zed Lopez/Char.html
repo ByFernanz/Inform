@@ -1,0 +1,979 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Extension</title>
+    <style type="text/css">
+        <!--
+        /* The default font (family) and size */
+
+        body, p, td {
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.8rem; /* 100/125 */
+        }
+
+        /* For fixed-point material within text, such as the typing on the Library Card index page */
+
+        span.typewritten {
+        	font-family: monospace;
+        	font-size: 0.867rem; /* 13/12 * 100/125 */
+        }
+
+        /* For less important material: the small print */
+
+        span.smaller {
+        	font-size: 80%;
+        }
+
+        /* The "heading panel" is the coloured box, high up on the page. The colours
+        vary depending on the page: for example, the style on a report of a translation
+        with no problems is "headingpanelsucceeded", usually green, but if there were
+        problems then "headingpanelfailed" is used, which is usually red. "headingpanel"
+        itself is a more neutral grey by default. "headingpanelDark" is an alternative
+        look to make the extensions index pages have some visual contrast with the others;
+        by default they are a darker grey. */
+
+        .headingpanel {
+        	background: #eeeeee;
+        }
+        .headingpanelsucceeded {
+        	background: #E6FFE6;
+        }
+        .headingpanelfailed {
+        	background: #f69Ca6;
+        }
+        .headingpanelalt {
+        	background: #808080;
+        }
+
+        /* Heading panels have two lines of text: an upper one in a larger size, and a
+        lower one in a smaller. Again, the alt versions are meant to contrast.
+
+        	Report on Translation: Succeeded                <-- headingpaneltext
+        	Produced by Inform 10.1.0 (build 6U97)          <-- headingpanelrubric
+
+        	Installed Extensions                            <-- headingpaneltextalt
+        	Bundles of extra rules or phrases to...         <-- headingpanelrubricalt
+
+        */
+
+        span.headingpaneltext {
+        	color: #222222;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+        span.headingpaneltextalt {
+        	color: #ffffff;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        span.headingpanelrubric {
+        	color: #222222;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.733rem; /* 11/12 * 100/125 */
+        	font-weight: bold;
+        }
+        span.headingpanelrubricalt {
+        	color: #ffffff;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.733rem; /* 11/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* Horizontal rule styling */
+
+        div.hr {
+        	border: 0;
+        	width: 100%;
+        	color: #707070;
+        	background-color: #707070;
+        	height: 5px;
+        }
+
+        /* This styles the (usually white) text of the example numbers written inside
+        oval blobs in the extension documentation, which mimic the look of the in-app
+        documentation. */
+
+        .oval, .oval td {
+        	background-image:url('inform:/doc_images/ovoid.png');
+        	color:white;
+        }
+
+        /* Styling used in the extension documentation indexes: */
+
+        /* Used for extension names in the extensions pane of the app */
+
+        span.extensioncensusentry {
+        	color: #ffffff;
+        }
+
+        span.extensionindexentry {
+        	color: #404040;
+        }
+
+        span.extensionindexerror {
+        	color: #ff8080;
+        }
+
+        /* This is used in extension documentation, where an example is presented
+        in a slightly tinted box: */
+
+        table.extensionexample {
+        	background-color: #f0f0f0;
+        }
+
+        span.extensionexampleletter {
+        	color: #202020;
+        	font-size: 14px;
+        	font-weight: bold;
+        }
+
+        /* Seen in problem messages: */
+
+        span.problemred {
+        	color: #800000;
+        }
+
+        span.problemgreen {
+        	color: #008000;
+        }
+
+        span.phraseword {
+        	color: #808080;
+        }
+
+        span.phrasetokentext {
+        	color: #e00060;
+        }
+
+        span.phrasetokendesctext {
+        	color: #4040ff;
+        }
+
+        span.phrasetokenvaluetext {
+        	color: #ff4040;
+        }
+
+        /* Now we move on to styling used in the Index pages only: */
+
+        /* The periodic table display has "sidebars", usually grey and taller than they
+        are wide; they contain no text. */
+
+        div.periodictablesidebarcolour {
+        	background: #888;
+        }
+        div.periodictablesidebar:hover {
+        	background: #222;
+        }
+
+        /* The text of the element-abbreviation, such as "Lx" or "Ph", uses: */
+
+        span.elementtext {
+        	color: #ffffff;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* Similarly for the "atomic number" - a single digit - in the top left corner
+        of these boxes: */
+
+        span.elementnumbertext {
+        	color: #ffffff;
+        	font-size: 0.622rem; /* 7/12 * 96/72 * 100/125 */
+        }
+
+        /* For the text of the element title, to the right of the element box: */
+
+        span.elementtitletext {
+        	color: #ffffff;
+        	font-size: 0.6rem; /* 9/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* The banner at the top of each element: */
+
+        table.elementbanner {
+        	background: #eeeeee;
+        }
+
+        /* For the typewriting on the Library Card: */
+
+        span.librarycardtitle {
+        	color: #803030;
+        }
+
+        span.librarycardother {
+        	color: #303030;
+        }
+
+        /* Generically used for "more details" boxes in the index: */
+
+        table.indexmorebox {
+        	background-color: #e0e0e0;
+            border-radius: 8px;
+        }
+
+        /* But not for activity contents: */
+
+        table.indexactivitycontents {
+        	background-color: #e8e0c0;
+            border-radius: 8px;
+        }
+
+        /* For responses in index entries about rules: */
+
+        span.indexresponseletter {
+        	color: #ffffff;
+        	font-family: 'Courier New', Courier, monospace;
+        	background-color: #8080ff;
+        }
+
+        span.indexresponsetext {
+        	color: #000066;
+        }
+
+        /* Used ubiquitously throughout the index and extension documentation: */
+
+        span.indexblack {
+        	color: #000000;
+        }
+
+        span.indexgrey {
+        	color: #808080;
+        }
+
+        span.indexdarkgrey {
+            color: #505050;
+        }
+
+        span.indexdullred {
+        	color: #800000;
+        }
+
+        span.indexdullgreen {
+        	color: #008000;
+        }
+
+        span.indexdullblue {
+        	color: #000080;
+        }
+
+        /* Used for the room squares in the World map in the Index (which is currently
+        a table with one row of one column) */
+
+        table.indexmaproom {
+        	border-color: #000000;
+        }
+
+        /* Used in the numbering of levels of the World map in the Index */
+
+        span.indexmaplevelnumbers {
+        	color: #c0c0c0;
+        }
+
+        /* Used e.g. for title rows in the Chart of basic kinds in the Index */
+
+        tr.headingrow {
+        	background-color: #e0e0e0;
+        }
+
+        /* Standard rows have black text on striped background colours, these being
+        the usual ones seen in Mac OS X applications such as iTunes. */
+
+        tr.stripeone {
+        	background-color: #ffffff;
+        }
+
+        tr.stripetwo {
+        	background-color: #f3f6fa;
+        }
+
+        tr.tintedrow {
+        	background-color: #808080;
+        }
+
+        /* In the Figures index, this is the background colour used behind images
+        (though in fact it will only be visible if the image fails to load, or uses
+        transparency): */
+
+        div.figureindexbox {
+        	background-color: #6495ed;
+        }
+
+        /* To get the book-contents-page style leaders on the Contents element of
+           the index to work, these must use the background colour of the body of
+           the page, whatever that is: */
+
+        ul.leaders li.leaded span:first-child {
+        	background: white;
+        }
+        ul.leaders li.leaded span + span {
+        	background: white;
+        }
+
+        /* On Registry index pages (such as the Public Library), these are used for
+        download buttons and the like: */
+
+        span.registrybuttontext {
+        	font-size: 11px;
+        	border-color: #000000;
+        }
+
+        span.registryminibuttontext {
+        	font-size: 10px;
+        	border-color: #000000;
+        }
+
+        span.registrybuttonuninstalled {
+        	color: #000000;
+        	background: #ffffdd;
+        }
+
+        span.registrybuttoninstalled {
+        	color: #000000;
+        	background: #ffffff;
+        	pointer-events: none;
+        }
+
+        span.registrybuttonbuiltin {
+        	color: #888888;
+        	background: #ffffff;
+        	pointer-events: none;
+        }
+
+        span.registrybuttonupdate {
+        	color: #000000;
+        	background: #aaddff;
+        }
+
+        span.registrybuttonrevert {
+        	color: #000000;
+        	background: #ddaaff;
+        }
+
+        span.registrybuttonrevealer {
+        	color: #ffffff;
+        	background: #444444;
+        }
+
+        /* Registry index section headings: */
+
+        span.registrysectionname {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 16px;
+        	line-height: 18px;
+        }
+        span.registrysubsectionname {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 14px;
+        	line-height: 16px;
+        }
+
+        /* These are for the "mark" for a section, usually a section-symbol and number */
+
+        span.registrysectionmark {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 16px;
+        	line-height: 18px;
+        	color: #666;
+        }
+        span.registrysubsectionmark {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 14px;
+        	line-height: 16px;
+        	color: #666;
+        }
+
+        /* Text of an item listed in a registry: */
+
+        span.registryitemtext {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 12px;
+        	line-height: 16px;
+        }
+
+        /* And how the links in a registry index page behave: */
+
+        a.registrysilentlink {
+        	text-decoration: none;
+        	color: #000;
+        }
+        a.registrybuttonlink {
+        	text-decoration: none;
+        }
+        a.registrycontentslink:link {
+        	text-decoration: none;
+        	color: #202020;
+        }
+        a.registrycontentslink:visited {
+        	text-decoration: none;
+        	color: #202020;
+        }
+        a.registrycontentslink:hover {
+        	text-decoration: none;
+        	color: #D00000;
+        }
+        a.registrycontentslink:active {
+        	text-decoration: none;
+        	color: #D00000;
+        }
+
+        -->
+    </style>
+    <style type="text/css">
+        <!--
+        /* (1) General layout material */
+
+        *, *:before, *:after {
+        	-moz-box-sizing: border-box;
+        	-webkit-box-sizing: border-box;
+        	box-sizing: border-box;
+        }
+        .headingpanellayout {
+        	position: relative;
+        	height: 56px;
+        	padding: 0px;
+        	white-space:nowrap;
+        }
+        .headingpanellayoutdeeper {
+        	position: relative;
+        	height: 117px;
+        	padding: 0px;
+        	white-space:nowrap;
+        }
+        .headingtext {
+        	position: absolute;
+        	top: -4px;
+        	left: -1px;
+        	width: 100%;
+        	padding: 14px 10px 0px 10px;
+        }
+        .headingrubric {
+        	position: absolute;
+        	top: 36px;
+        	width: 100%;
+        	padding: 0px 10px 0px 10px;
+        }
+        h3.tighter {
+        	margin-top: 0px;
+        }
+        p.hang {
+        	padding-left: 25px;
+        	text-indent: -25px;
+        	margin-top: 0px;
+        	margin-bottom: 0px;
+        }
+        p.in1 {
+        	padding-left: 0px;
+        }
+        p.tightin1 {
+        	padding-left: 0px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin1 {
+        	padding-left: 0px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin1 {
+        	padding-left: 50px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in2 {
+        	padding-left: 25px;
+        }
+        p.tightin2 {
+        	padding-left: 25px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin2 {
+        	padding-left: 25px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin2 {
+        	padding-left: 75px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in3 {
+        	padding-left: 50px;
+        }
+        p.tightin3 {
+        	padding-left: 50px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin3 {
+        	padding-left: 50px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin3 {
+        	padding-left: 100px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in4 {
+        	padding-left: 75px;
+        }
+        p.tightin4 {
+        	padding-left: 75px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin4 {
+        	padding-left: 75px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin4 {
+        	padding-left: 125px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in5 {
+        	padding-left: 100px;
+        }
+        p.tightin5 {
+        	padding-left: 100px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin5 {
+        	padding-left: 100px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin5 {
+        	padding-left: 150px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in6 {
+        	padding-left: 125px;
+        }
+        p.tightin6 {
+        	padding-left: 125px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin6 {
+        	padding-left: 125px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin6 {
+        	padding-left: 175px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in7 {
+        	padding-left: 150px;
+        }
+        p.tightin7 {
+        	padding-left: 150px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin7 {
+        	padding-left: 150px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin7 {
+        	padding-left: 200px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in8 {
+        	padding-left: 175px;
+        }
+        p.tightin8 {
+        	padding-left: 175px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin8 {
+        	padding-left: 175px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin8 {
+        	padding-left: 225px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in9 {
+        	padding-left: 200px;
+        }
+        p.tightin9 {
+        	padding-left: 200px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin9 {
+        	padding-left: 200px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin9 {
+        	padding-left: 250px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+
+        /* (2) Index page layout material */
+
+        /* The periodic table display has "sidebars", usually grey and taller than they
+        are wide; they contain no text. */
+
+        div.periodictablesidebar {
+        	height: 56px;
+        	width: 16px;
+        }
+        .periodictablesidebar a:link { text-decoration: none; }
+        .periodictablesidebar a:visited { text-decoration: none; }
+        .periodictablesidebar a:active { text-decoration: none; }
+
+        /* The "element boxes" are the cells appearing in the periodic-table display
+        on the welcome page of the index: */
+
+        .elementbox {
+        	position: relative;
+        	height: 56px;
+        	width: 56px;
+        	padding: 0px;
+        }
+
+        .elementbox a:link { text-decoration: none; }
+        .elementbox a:visited { text-decoration: none; }
+        .elementbox a:active { text-decoration: none; }
+        .elementbox a:hover { text-decoration: none; }
+        .elementbox:hover {
+        	opacity: 0.6;
+        }
+
+        /* The "small element boxes" look like those, but are smaller, and used on
+        the headings of the content which those original boxes link to: */
+
+        .smallelementbox {
+        	position: relative;
+        	height: 40px;
+        	width: 40px;
+        	padding: 0px;
+        }
+
+        .smallelementbox a:link { text-decoration: none; }
+        .smallelementbox a:visited { text-decoration: none; }
+        .smallelementbox a:active { text-decoration: none; }
+        .smallelementbox a:hover { text-decoration: none; }
+        .smallelementbox:hover {
+        	opacity: 0.6;
+        }
+
+        /* This is a class for the links formed by the element boxes: */
+
+        a.elementlink {
+        	position: absolute;
+        	top: -4px;
+        	left: -1px;
+        	width: 100%;
+        	padding: 14px 0px 14px 1px;
+        	text-align: center;
+        }
+
+        /* Similarly for the "atomic number" - a single digit - in the top left corner
+        of these boxes: */
+
+        div.elementnumber {
+        	position: absolute;
+        	top: 1px;
+        	left: 3px;
+        	text-align: left;
+        }
+
+        /* For the text of the element title, to the right of the element box: */
+
+        div.elementtitle {
+        	position: absolute;
+        	top: 35px;
+        	width: 100%;
+        	text-align: center;
+        }
+
+        /* Used for the book-contents-page style leaders on the Contents element of
+           the index: */
+
+        ul.leaders {
+        	padding: 0;
+        	margin-top: 1px;
+        	margin-bottom: 0;
+        	overflow-x: hidden;
+        	list-style: none}
+        ul.leaders li.leaded:before {
+        	float: left;
+        	width: 0;
+        	white-space: nowrap;
+        	content:
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "}
+        ul.leaders li.leaded span:first-child {
+        	padding-right: 0.33em;
+        }
+        ul.leaders li.leaded span + span {
+        	float: right;
+        	padding-left: 0.33em;
+        }
+        li.indent1 span:first-child {
+        	padding-left: 25px;
+        }
+        li.indent2 span:first-child {
+        	padding-left: 50px;
+        }
+        li.indent3 span:first-child {
+        	padding-left: 75px;
+        }
+        li.indent4 span:first-child {
+        	padding-left: 100px;
+        }
+        li.indent5 span:first-child {
+        	padding-left: 125px;
+        }
+        li.indent6 span:first-child {
+        	padding-left: 150px;
+        }
+        li.indent7 span:first-child {
+        	padding-left: 175px;
+        }
+        li.indent8 span:first-child {
+        	padding-left: 200px;
+        }
+        li.indent9 span:first-child {
+        	padding-left: 225px;
+        }
+
+        li.unleaded:before {
+        	content: "";
+        }
+
+        /* On Registry index pages (such as the Public Library), these are used for
+        download buttons and the like: */
+
+        span.registrybuttons {
+        	height: 20px;
+        	padding: 2px 8px 2px 8px;
+        	margin: 2px;
+        	border:1px solid;
+        	border-radius: 5px;
+        }
+
+        span.registryminibuttons {
+        	height: 14px;
+        	padding: 2px 5px 2px 5px;
+        	margin: 2px;
+        	border:1px solid;
+        	border-radius: 4px;
+        }
+
+        /* Used to hide or display sections in the Registry pages: */
+
+        div.registrysectionitemsopen {
+        	display: block;
+        }
+
+        div.registrysectionitemsclosed {
+        	display: none;
+        }
+
+        /* Hanging indentation for Registry item paragraphs: */
+
+        p.registryitem {
+        	padding-left: 80px;
+        	text-indent: -40px;
+        }
+
+        p.registryaddition {
+        	padding-left: 40px;
+        	text-indent: -40px;
+        }
+
+        -->
+    </style>
+    <script type="text/javascript">
+        function project() {
+            return window.Project;
+        }
+        function showExtra(id, imid) {
+        	if (document.getElementById(id).style.display == 'block') {
+        		document.getElementById(id).style.display = 'none';
+        		document.getElementById(imid).src = 'inform:/extra.png';
+        	} else {
+        		document.getElementById(id).style.display = 'block';
+        		document.getElementById(imid).src = 'inform:/extraclose.png';
+        	}
+        }
+        function openExtra(id, imid) {
+        	document.getElementById(id).style.display = 'block';
+        	document.getElementById(imid).src = 'inform:/extraclose.png';
+        }
+        function closeExtra(id, imid) {
+        	document.getElementById(id).style.display = 'none';
+        	document.getElementById(imid).src = 'inform:/extra.png';
+        }
+        function pasteCode(code) {
+            var myProject = project();
+
+            myProject.selectView('source');
+            myProject.pasteCode(code);
+        }
+
+    </script>
+</head>
+<body>
+    <!--CONTENT BEGINS-->
+    <table CELLPADDING=0 CELLSPACING=0 width="100%" bgcolor="#000000"><tr><TD width=38px height=26px align="center" valign="center"><a href="inform://Extensions/Extensions.html" border=0><img border=0 src="inform:/doc_images/Hookindex.png" border=0></a></td><TD width=38px height=26px align="center" valign="center"></td><td halign="left" valign="center" CELLPADDING=0 CELLSPACING=0><font color="#FFFFFF" size=2>Extensions</font></a></td><TD width=56px height=26px align="right" valign="center"><a href="inform:/index.html" border=0><img border=0 src="inform:/doc_images/Hookup.png" border=0></a></td></tr></table>
+
+    <p><a href="javascript:pasteCode('Include Char by Zed Lopez.[=0x000A=][=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a>&nbsp;<b>Char<span class="extensionindexentry"> by </span>Zed Lopez</b></p>
+    <p><span class="smaller">Version 1</span></p>
+    <p></p>
+    </p>
+
+    <p> Example: * Char</p>
+
+    <p><a href="javascript:pasteCode('[=0x0022=]Char[=0x0022=][=0x000A=][=0x000A=]Include Char by Zed Lopez.[=0x000A=]Include Unit Tests by Zed Lopez.[=0x000A=][=0x000A=]Use test automatically.[=0x000A=]Use quit after autotesting.[=0x000A=][=0x000A=]Lab is a room.[=0x000A=][=0x000A=]Ord-text is a unit test. [=0x0022=]Ordinal of text[=0x0022=].[=0x000A=][=0x000A=]For testing ord-text:[=0x000A=]for [=0x0022=]Cat[=0x0022=] assert ord of [=0x0022=]Cat[=0x0022=] is 67;[=0x000A=]for [=0x0022=]empty[=0x0022=] assert ord of [=0x0022=][=0x0022=] is 0;[=0x000A=]for [=0x0022=]B[=0x0022=] assert ord of [=0x0022=]B[=0x0022=] is 66;[=0x000A=][=0x000A=]Char-for-num is a unit test. [=0x0022=]char for [=0x003C=]number[=0x003E=][=0x0022=].[=0x000A=][=0x000A=]For testing char-for-num:[=0x000A=]for [=0x0022=]32 -[=0x003E=] space[=0x0022=] assert [=0x0022=][char 32][=0x0022=] exactly matches [=0x0022=] [=0x0022=];[=0x000A=]for [=0x0022=]122 -[=0x003E=] z[=0x0022=] assert [=0x0022=][char 122][=0x0022=] exactly matches [=0x0022=]z[=0x0022=];[=0x000A=][=0x000A=]Text-to-char is a unit test. [=0x0022=]char of [=0x003C=]text[=0x003E=][=0x0022=].[=0x000A=][=0x000A=]For testing text-to-char:[=0x000A=]for [=0x0022=]space[=0x0022=] assert char of [=0x0022=] [=0x0022=] is char 32;[=0x000A=]for [=0x0022=]z[=0x0022=] assert char of [=0x0022=]z[=0x0022=] is char 122;[=0x000A=][=0x000A=]Ord-char is a unit test. [=0x0022=]Ordinal of char[=0x0022=].[=0x000A=][=0x000A=]For testing ord-char:[=0x000A=]for [=0x0022=]C[=0x0022=] assert ord of char 67 is 67;[=0x000A=]for [=0x0022=] [=0x0022=] assert ord of char 32 is 32;[=0x000A=][=0x000A=]Char-list-to-num-list is a unit test. [=0x0022=]ord of [=0x003C=]list of unicode characters[=0x003E=][=0x0022=].[=0x000A=][=0x000A=]For testing char-list-to-num-list:[=0x000A=]let L be a list of unicode characters;[=0x000A=]add char 67 to L;[=0x000A=]add char 97 to L;[=0x000A=]add char 116 to L;[=0x000A=]for [=0x0022=]Cat[=0x0022=] assert ord of L is { 67, 97, 116 };[=0x000A=][=0x000A=]Num-list-to-char-list is a unit test. [=0x0022=]chars of [=0x003C=]list of numbers[=0x003E=][=0x0022=].[=0x000A=][=0x000A=]For testing num-list-to-char-list:[=0x000A=]let L be chars of { 67, 97, 116 };[=0x000A=]for [=0x0022=]Cat[=0x0022=] assert entry 2 in L is char 97;[=0x000A=]for [=0x0022=]Cat[=0x0022=] assert number of entries in L is 3;[=0x000A=][=0x000A=]Text-to-chars is a unit test. [=0x0022=]chars of [=0x003C=]text[=0x003E=][=0x0022=].[=0x000A=][=0x000A=]For testing text-to-chars:[=0x000A=]let L be chars of [=0x0022=]Cat[=0x0022=];[=0x000A=]for [=0x0022=]Cat, first[=0x0022=] assert entry 1 in L is char 67;[=0x000A=]for [=0x0022=]Cat, last[=0x0022=] assert entry 3 in L is char 116;[=0x000A=]for [=0x0022=]Cat[=0x0022=] assert number of entries in L is 3;[=0x000A=][=0x000A=]Join-char-list is a unit test. [=0x0022=][=0x003C=]list of sayable values[=0x003E=] joined by [=0x003C=]sayable value[=0x003E=][=0x0022=].[=0x000A=][=0x000A=]Numericat is a list of unicode characters that varies.[=0x000A=]asterisk is initially [=0x0022=]*[=0x0022=].[=0x000A=]comma-space is initially [=0x0022=], [=0x0022=].[=0x000A=]empty-string is initially [=0x0022=][=0x0022=].[=0x000A=][=0x000A=]For testing join-char-list:[=0x000A=]now numericat is chars of { 67, 97, 116 };[=0x000A=]for [=0x0022=]C*a*t[=0x0022=] assert [=0x0022=][numericat joined by asterisk][=0x0022=] exactly matches [=0x0022=]C*a*t[=0x0022=];[=0x000A=]for [=0x0022=]C, a, t[=0x0022=] assert [=0x0022=][numericat joined by comma-space][=0x0022=] exactly matches [=0x0022=]C, a, t[=0x0022=];[=0x000A=]for [=0x0022=]saying Cat[=0x0022=] assert [=0x0022=][numericat joined by empty-string][=0x0022=] exactly matches [=0x0022=]Cat[=0x0022=];[=0x000A=][=0x000A=]Say list of chars as a text is a unit test.[=0x000A=][=0x000A=]For testing say list of chars as a text:[=0x000A=]let L be chars of { 67, 97, 116 };[=0x000A=]for [=0x0022=]say cat[=0x0022=] assert [=0x0022=][L as a text][=0x0022=] exactly matches [=0x0022=]Cat[=0x0022=];[=0x000A=][=0x000A=]Joined is a unit test. [=0x0022=]Joined[=0x0022=][=0x000A=][=0x000A=]For testing joined:[=0x000A=]let L be chars of { 67, 97, 116 };[=0x000A=]for [=0x0022=]join L[=0x0022=] assert [=0x0022=][L joined][=0x0022=] exactly matches [=0x0022=]Cat[=0x0022=];[=0x000A=][=0x000A=]Alice is a person. Bob is a person.[=0x000A=][=0x000A=]Alice-and-bob is initially { Alice, Bob }.[=0x000A=][=0x000A=]sv-joined is a unit test. [=0x0022=]Sayable value joined.[=0x0022=][=0x000A=][=0x000A=]For testing sv-joined:[=0x000A=]for [=0x0022=]alicebob[=0x0022=] assert [=0x0022=][alice-and-bob joined][=0x0022=] exactly matches [=0x0022=]AliceBob[=0x0022=].[=0x000A=][=0x000A=]char-list-as-text is a unit test. [=0x0022=]List of chars as a text[=0x0022=].[=0x000A=][=0x000A=]For testing char-list-as-text:[=0x000A=]let L be chars of { 67, 97, 116 };[=0x000A=]let T be L as a text;[=0x000A=]for [=0x0022=]char list as text[=0x0022=] assert T exactly matches [=0x0022=]Cat[=0x0022=];[=0x000A=][=0x000A=]n-copies is a unit test. [=0x0022=]N copies[=0x0022=].[=0x000A=][=0x000A=]For testing n-copies:[=0x000A=]for [=0x0022=]0 copies[=0x0022=] assert [=0x0022=][0 copies of char 88][=0x0022=] exactly matches [=0x0022=][=0x0022=];[=0x000A=]for [=0x0022=]3 copies[=0x0022=] assert [=0x0022=][3 copies of char 88][=0x0022=] exactly matches [=0x0022=]XXX[=0x0022=];[=0x000A=][=0x000A=]n-spaces is a unit test. [=0x0022=]N spaces[=0x0022=].[=0x000A=][=0x000A=]For testing n-spaces:[=0x000A=]for [=0x0022=]5 spaces[=0x0022=] assert [=0x0022=][5 spaces][=0x0022=] exactly matches [=0x0022=]     [=0x0022=];[=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a> &quot;Char&quot;</p>
+
+    <p><blockquote><span class="indexdullblue"> Include Char by Zed Lopez.<br>
+     Include Unit Tests by Zed Lopez.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Use test automatically.<br>
+     Use quit after autotesting.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Lab is a room.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Ord-text is a unit test. &quot;Ordinal of text&quot;.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> For testing ord-text:<br>
+     for &quot;Cat&quot; assert ord of &quot;Cat&quot; is 67;<br>
+     for &quot;empty&quot; assert ord of &quot;&quot; is 0;<br>
+     for &quot;B&quot; assert ord of &quot;B&quot; is 66;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Char-for-num is a unit test. &quot;char for &lt;number&gt;&quot;.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> For testing char-for-num:<br>
+     for &quot;32 -&gt; space&quot; assert &quot;[char 32]&quot; exactly matches &quot; &quot;;<br>
+     for &quot;122 -&gt; z&quot; assert &quot;[char 122]&quot; exactly matches &quot;z&quot;;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Text-to-char is a unit test. &quot;char of &lt;text&gt;&quot;.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> For testing text-to-char:<br>
+     for &quot;space&quot; assert char of &quot; &quot; is char 32;<br>
+     for &quot;z&quot; assert char of &quot;z&quot; is char 122;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Ord-char is a unit test. &quot;Ordinal of char&quot;.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> For testing ord-char:<br>
+     for &quot;C&quot; assert ord of char 67 is 67;<br>
+     for &quot; &quot; assert ord of char 32 is 32;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Char-list-to-num-list is a unit test. &quot;ord of &lt;list of unicode characters&gt;&quot;.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> For testing char-list-to-num-list:<br>
+     let L be a list of unicode characters;<br>
+     add char 67 to L;<br>
+     add char 97 to L;<br>
+     add char 116 to L;<br>
+     for &quot;Cat&quot; assert ord of L is { 67, 97, 116 };</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Num-list-to-char-list is a unit test. &quot;chars of &lt;list of numbers&gt;&quot;.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> For testing num-list-to-char-list:<br>
+     let L be chars of { 67, 97, 116 };<br>
+     for &quot;Cat&quot; assert entry 2 in L is char 97;<br>
+     for &quot;Cat&quot; assert number of entries in L is 3;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Text-to-chars is a unit test. &quot;chars of &lt;text&gt;&quot;.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> For testing text-to-chars:<br>
+     let L be chars of &quot;Cat&quot;;<br>
+     for &quot;Cat, first&quot; assert entry 1 in L is char 67;<br>
+     for &quot;Cat, last&quot; assert entry 3 in L is char 116;<br>
+     for &quot;Cat&quot; assert number of entries in L is 3;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Join-char-list is a unit test. &quot;&lt;list of sayable values&gt; joined by &lt;sayable value&gt;&quot;.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Numericat is a list of unicode characters that varies.<br>
+     asterisk is initially &quot;*&quot;.<br>
+     comma-space is initially &quot;, &quot;.<br>
+     empty-string is initially &quot;&quot;.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> For testing join-char-list:<br>
+     now numericat is chars of { 67, 97, 116 };<br>
+     for &quot;C*a*t&quot; assert &quot;[numericat joined by asterisk]&quot; exactly matches &quot;C*a*t&quot;;<br>
+     for &quot;C, a, t&quot; assert &quot;[numericat joined by comma-space]&quot; exactly matches &quot;C, a, t&quot;;<br>
+     for &quot;saying Cat&quot; assert &quot;[numericat joined by empty-string]&quot; exactly matches &quot;Cat&quot;;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Say list of chars as a text is a unit test.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> For testing say list of chars as a text:<br>
+     let L be chars of { 67, 97, 116 };<br>
+     for &quot;say cat&quot; assert &quot;[L as a text]&quot; exactly matches &quot;Cat&quot;;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Joined is a unit test. &quot;Joined&quot;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> For testing joined:<br>
+     let L be chars of { 67, 97, 116 };<br>
+     for &quot;join L&quot; assert &quot;[L joined]&quot; exactly matches &quot;Cat&quot;;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Alice is a person. Bob is a person.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Alice-and-bob is initially { Alice, Bob }.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> sv-joined is a unit test. &quot;Sayable value joined.&quot;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> For testing sv-joined:<br>
+     for &quot;alicebob&quot; assert &quot;[alice-and-bob joined]&quot; exactly matches &quot;AliceBob&quot;.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> char-list-as-text is a unit test. &quot;List of chars as a text&quot;.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> For testing char-list-as-text:<br>
+     let L be chars of { 67, 97, 116 };<br>
+     let T be L as a text;<br>
+     for &quot;char list as text&quot; assert T exactly matches &quot;Cat&quot;;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> n-copies is a unit test. &quot;N copies&quot;.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> For testing n-copies:<br>
+     for &quot;0 copies&quot; assert &quot;[0 copies of char 88]&quot; exactly matches &quot;&quot;;<br>
+     for &quot;3 copies&quot; assert &quot;[3 copies of char 88]&quot; exactly matches &quot;XXX&quot;;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> n-spaces is a unit test. &quot;N spaces&quot;.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> For testing n-spaces:<br>
+     for &quot;5 spaces&quot; assert &quot;[5 spaces]&quot; exactly matches &quot;     &quot;;</span></blockquote>
+
+    <p></p>
+
+    <p>
+    <!--CONTENT ENDS-->
+</body>
+</html>

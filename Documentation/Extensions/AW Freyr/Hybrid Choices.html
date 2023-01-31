@@ -1,0 +1,1957 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Extension</title>
+    <style type="text/css">
+        <!--
+        /* The default font (family) and size */
+
+        body, p, td {
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.8rem; /* 100/125 */
+        }
+
+        /* For fixed-point material within text, such as the typing on the Library Card index page */
+
+        span.typewritten {
+        	font-family: monospace;
+        	font-size: 0.867rem; /* 13/12 * 100/125 */
+        }
+
+        /* For less important material: the small print */
+
+        span.smaller {
+        	font-size: 80%;
+        }
+
+        /* The "heading panel" is the coloured box, high up on the page. The colours
+        vary depending on the page: for example, the style on a report of a translation
+        with no problems is "headingpanelsucceeded", usually green, but if there were
+        problems then "headingpanelfailed" is used, which is usually red. "headingpanel"
+        itself is a more neutral grey by default. "headingpanelDark" is an alternative
+        look to make the extensions index pages have some visual contrast with the others;
+        by default they are a darker grey. */
+
+        .headingpanel {
+        	background: #eeeeee;
+        }
+        .headingpanelsucceeded {
+        	background: #E6FFE6;
+        }
+        .headingpanelfailed {
+        	background: #f69Ca6;
+        }
+        .headingpanelalt {
+        	background: #808080;
+        }
+
+        /* Heading panels have two lines of text: an upper one in a larger size, and a
+        lower one in a smaller. Again, the alt versions are meant to contrast.
+
+        	Report on Translation: Succeeded                <-- headingpaneltext
+        	Produced by Inform 10.1.0 (build 6U97)          <-- headingpanelrubric
+
+        	Installed Extensions                            <-- headingpaneltextalt
+        	Bundles of extra rules or phrases to...         <-- headingpanelrubricalt
+
+        */
+
+        span.headingpaneltext {
+        	color: #222222;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+        span.headingpaneltextalt {
+        	color: #ffffff;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        span.headingpanelrubric {
+        	color: #222222;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.733rem; /* 11/12 * 100/125 */
+        	font-weight: bold;
+        }
+        span.headingpanelrubricalt {
+        	color: #ffffff;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.733rem; /* 11/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* Horizontal rule styling */
+
+        div.hr {
+        	border: 0;
+        	width: 100%;
+        	color: #707070;
+        	background-color: #707070;
+        	height: 5px;
+        }
+
+        /* This styles the (usually white) text of the example numbers written inside
+        oval blobs in the extension documentation, which mimic the look of the in-app
+        documentation. */
+
+        .oval, .oval td {
+        	background-image:url('inform:/doc_images/ovoid.png');
+        	color:white;
+        }
+
+        /* Styling used in the extension documentation indexes: */
+
+        /* Used for extension names in the extensions pane of the app */
+
+        span.extensioncensusentry {
+        	color: #ffffff;
+        }
+
+        span.extensionindexentry {
+        	color: #404040;
+        }
+
+        span.extensionindexerror {
+        	color: #ff8080;
+        }
+
+        /* This is used in extension documentation, where an example is presented
+        in a slightly tinted box: */
+
+        table.extensionexample {
+        	background-color: #f0f0f0;
+        }
+
+        span.extensionexampleletter {
+        	color: #202020;
+        	font-size: 14px;
+        	font-weight: bold;
+        }
+
+        /* Seen in problem messages: */
+
+        span.problemred {
+        	color: #800000;
+        }
+
+        span.problemgreen {
+        	color: #008000;
+        }
+
+        span.phraseword {
+        	color: #808080;
+        }
+
+        span.phrasetokentext {
+        	color: #e00060;
+        }
+
+        span.phrasetokendesctext {
+        	color: #4040ff;
+        }
+
+        span.phrasetokenvaluetext {
+        	color: #ff4040;
+        }
+
+        /* Now we move on to styling used in the Index pages only: */
+
+        /* The periodic table display has "sidebars", usually grey and taller than they
+        are wide; they contain no text. */
+
+        div.periodictablesidebarcolour {
+        	background: #888;
+        }
+        div.periodictablesidebar:hover {
+        	background: #222;
+        }
+
+        /* The text of the element-abbreviation, such as "Lx" or "Ph", uses: */
+
+        span.elementtext {
+        	color: #ffffff;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* Similarly for the "atomic number" - a single digit - in the top left corner
+        of these boxes: */
+
+        span.elementnumbertext {
+        	color: #ffffff;
+        	font-size: 0.622rem; /* 7/12 * 96/72 * 100/125 */
+        }
+
+        /* For the text of the element title, to the right of the element box: */
+
+        span.elementtitletext {
+        	color: #ffffff;
+        	font-size: 0.6rem; /* 9/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* The banner at the top of each element: */
+
+        table.elementbanner {
+        	background: #eeeeee;
+        }
+
+        /* For the typewriting on the Library Card: */
+
+        span.librarycardtitle {
+        	color: #803030;
+        }
+
+        span.librarycardother {
+        	color: #303030;
+        }
+
+        /* Generically used for "more details" boxes in the index: */
+
+        table.indexmorebox {
+        	background-color: #e0e0e0;
+            border-radius: 8px;
+        }
+
+        /* But not for activity contents: */
+
+        table.indexactivitycontents {
+        	background-color: #e8e0c0;
+            border-radius: 8px;
+        }
+
+        /* For responses in index entries about rules: */
+
+        span.indexresponseletter {
+        	color: #ffffff;
+        	font-family: 'Courier New', Courier, monospace;
+        	background-color: #8080ff;
+        }
+
+        span.indexresponsetext {
+        	color: #000066;
+        }
+
+        /* Used ubiquitously throughout the index and extension documentation: */
+
+        span.indexblack {
+        	color: #000000;
+        }
+
+        span.indexgrey {
+        	color: #808080;
+        }
+
+        span.indexdarkgrey {
+            color: #505050;
+        }
+
+        span.indexdullred {
+        	color: #800000;
+        }
+
+        span.indexdullgreen {
+        	color: #008000;
+        }
+
+        span.indexdullblue {
+        	color: #000080;
+        }
+
+        /* Used for the room squares in the World map in the Index (which is currently
+        a table with one row of one column) */
+
+        table.indexmaproom {
+        	border-color: #000000;
+        }
+
+        /* Used in the numbering of levels of the World map in the Index */
+
+        span.indexmaplevelnumbers {
+        	color: #c0c0c0;
+        }
+
+        /* Used e.g. for title rows in the Chart of basic kinds in the Index */
+
+        tr.headingrow {
+        	background-color: #e0e0e0;
+        }
+
+        /* Standard rows have black text on striped background colours, these being
+        the usual ones seen in Mac OS X applications such as iTunes. */
+
+        tr.stripeone {
+        	background-color: #ffffff;
+        }
+
+        tr.stripetwo {
+        	background-color: #f3f6fa;
+        }
+
+        tr.tintedrow {
+        	background-color: #808080;
+        }
+
+        /* In the Figures index, this is the background colour used behind images
+        (though in fact it will only be visible if the image fails to load, or uses
+        transparency): */
+
+        div.figureindexbox {
+        	background-color: #6495ed;
+        }
+
+        /* To get the book-contents-page style leaders on the Contents element of
+           the index to work, these must use the background colour of the body of
+           the page, whatever that is: */
+
+        ul.leaders li.leaded span:first-child {
+        	background: white;
+        }
+        ul.leaders li.leaded span + span {
+        	background: white;
+        }
+
+        /* On Registry index pages (such as the Public Library), these are used for
+        download buttons and the like: */
+
+        span.registrybuttontext {
+        	font-size: 11px;
+        	border-color: #000000;
+        }
+
+        span.registryminibuttontext {
+        	font-size: 10px;
+        	border-color: #000000;
+        }
+
+        span.registrybuttonuninstalled {
+        	color: #000000;
+        	background: #ffffdd;
+        }
+
+        span.registrybuttoninstalled {
+        	color: #000000;
+        	background: #ffffff;
+        	pointer-events: none;
+        }
+
+        span.registrybuttonbuiltin {
+        	color: #888888;
+        	background: #ffffff;
+        	pointer-events: none;
+        }
+
+        span.registrybuttonupdate {
+        	color: #000000;
+        	background: #aaddff;
+        }
+
+        span.registrybuttonrevert {
+        	color: #000000;
+        	background: #ddaaff;
+        }
+
+        span.registrybuttonrevealer {
+        	color: #ffffff;
+        	background: #444444;
+        }
+
+        /* Registry index section headings: */
+
+        span.registrysectionname {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 16px;
+        	line-height: 18px;
+        }
+        span.registrysubsectionname {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 14px;
+        	line-height: 16px;
+        }
+
+        /* These are for the "mark" for a section, usually a section-symbol and number */
+
+        span.registrysectionmark {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 16px;
+        	line-height: 18px;
+        	color: #666;
+        }
+        span.registrysubsectionmark {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 14px;
+        	line-height: 16px;
+        	color: #666;
+        }
+
+        /* Text of an item listed in a registry: */
+
+        span.registryitemtext {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 12px;
+        	line-height: 16px;
+        }
+
+        /* And how the links in a registry index page behave: */
+
+        a.registrysilentlink {
+        	text-decoration: none;
+        	color: #000;
+        }
+        a.registrybuttonlink {
+        	text-decoration: none;
+        }
+        a.registrycontentslink:link {
+        	text-decoration: none;
+        	color: #202020;
+        }
+        a.registrycontentslink:visited {
+        	text-decoration: none;
+        	color: #202020;
+        }
+        a.registrycontentslink:hover {
+        	text-decoration: none;
+        	color: #D00000;
+        }
+        a.registrycontentslink:active {
+        	text-decoration: none;
+        	color: #D00000;
+        }
+
+        -->
+    </style>
+    <style type="text/css">
+        <!--
+        /* (1) General layout material */
+
+        *, *:before, *:after {
+        	-moz-box-sizing: border-box;
+        	-webkit-box-sizing: border-box;
+        	box-sizing: border-box;
+        }
+        .headingpanellayout {
+        	position: relative;
+        	height: 56px;
+        	padding: 0px;
+        	white-space:nowrap;
+        }
+        .headingpanellayoutdeeper {
+        	position: relative;
+        	height: 117px;
+        	padding: 0px;
+        	white-space:nowrap;
+        }
+        .headingtext {
+        	position: absolute;
+        	top: -4px;
+        	left: -1px;
+        	width: 100%;
+        	padding: 14px 10px 0px 10px;
+        }
+        .headingrubric {
+        	position: absolute;
+        	top: 36px;
+        	width: 100%;
+        	padding: 0px 10px 0px 10px;
+        }
+        h3.tighter {
+        	margin-top: 0px;
+        }
+        p.hang {
+        	padding-left: 25px;
+        	text-indent: -25px;
+        	margin-top: 0px;
+        	margin-bottom: 0px;
+        }
+        p.in1 {
+        	padding-left: 0px;
+        }
+        p.tightin1 {
+        	padding-left: 0px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin1 {
+        	padding-left: 0px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin1 {
+        	padding-left: 50px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in2 {
+        	padding-left: 25px;
+        }
+        p.tightin2 {
+        	padding-left: 25px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin2 {
+        	padding-left: 25px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin2 {
+        	padding-left: 75px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in3 {
+        	padding-left: 50px;
+        }
+        p.tightin3 {
+        	padding-left: 50px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin3 {
+        	padding-left: 50px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin3 {
+        	padding-left: 100px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in4 {
+        	padding-left: 75px;
+        }
+        p.tightin4 {
+        	padding-left: 75px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin4 {
+        	padding-left: 75px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin4 {
+        	padding-left: 125px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in5 {
+        	padding-left: 100px;
+        }
+        p.tightin5 {
+        	padding-left: 100px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin5 {
+        	padding-left: 100px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin5 {
+        	padding-left: 150px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in6 {
+        	padding-left: 125px;
+        }
+        p.tightin6 {
+        	padding-left: 125px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin6 {
+        	padding-left: 125px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin6 {
+        	padding-left: 175px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in7 {
+        	padding-left: 150px;
+        }
+        p.tightin7 {
+        	padding-left: 150px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin7 {
+        	padding-left: 150px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin7 {
+        	padding-left: 200px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in8 {
+        	padding-left: 175px;
+        }
+        p.tightin8 {
+        	padding-left: 175px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin8 {
+        	padding-left: 175px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin8 {
+        	padding-left: 225px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in9 {
+        	padding-left: 200px;
+        }
+        p.tightin9 {
+        	padding-left: 200px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin9 {
+        	padding-left: 200px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin9 {
+        	padding-left: 250px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+
+        /* (2) Index page layout material */
+
+        /* The periodic table display has "sidebars", usually grey and taller than they
+        are wide; they contain no text. */
+
+        div.periodictablesidebar {
+        	height: 56px;
+        	width: 16px;
+        }
+        .periodictablesidebar a:link { text-decoration: none; }
+        .periodictablesidebar a:visited { text-decoration: none; }
+        .periodictablesidebar a:active { text-decoration: none; }
+
+        /* The "element boxes" are the cells appearing in the periodic-table display
+        on the welcome page of the index: */
+
+        .elementbox {
+        	position: relative;
+        	height: 56px;
+        	width: 56px;
+        	padding: 0px;
+        }
+
+        .elementbox a:link { text-decoration: none; }
+        .elementbox a:visited { text-decoration: none; }
+        .elementbox a:active { text-decoration: none; }
+        .elementbox a:hover { text-decoration: none; }
+        .elementbox:hover {
+        	opacity: 0.6;
+        }
+
+        /* The "small element boxes" look like those, but are smaller, and used on
+        the headings of the content which those original boxes link to: */
+
+        .smallelementbox {
+        	position: relative;
+        	height: 40px;
+        	width: 40px;
+        	padding: 0px;
+        }
+
+        .smallelementbox a:link { text-decoration: none; }
+        .smallelementbox a:visited { text-decoration: none; }
+        .smallelementbox a:active { text-decoration: none; }
+        .smallelementbox a:hover { text-decoration: none; }
+        .smallelementbox:hover {
+        	opacity: 0.6;
+        }
+
+        /* This is a class for the links formed by the element boxes: */
+
+        a.elementlink {
+        	position: absolute;
+        	top: -4px;
+        	left: -1px;
+        	width: 100%;
+        	padding: 14px 0px 14px 1px;
+        	text-align: center;
+        }
+
+        /* Similarly for the "atomic number" - a single digit - in the top left corner
+        of these boxes: */
+
+        div.elementnumber {
+        	position: absolute;
+        	top: 1px;
+        	left: 3px;
+        	text-align: left;
+        }
+
+        /* For the text of the element title, to the right of the element box: */
+
+        div.elementtitle {
+        	position: absolute;
+        	top: 35px;
+        	width: 100%;
+        	text-align: center;
+        }
+
+        /* Used for the book-contents-page style leaders on the Contents element of
+           the index: */
+
+        ul.leaders {
+        	padding: 0;
+        	margin-top: 1px;
+        	margin-bottom: 0;
+        	overflow-x: hidden;
+        	list-style: none}
+        ul.leaders li.leaded:before {
+        	float: left;
+        	width: 0;
+        	white-space: nowrap;
+        	content:
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "}
+        ul.leaders li.leaded span:first-child {
+        	padding-right: 0.33em;
+        }
+        ul.leaders li.leaded span + span {
+        	float: right;
+        	padding-left: 0.33em;
+        }
+        li.indent1 span:first-child {
+        	padding-left: 25px;
+        }
+        li.indent2 span:first-child {
+        	padding-left: 50px;
+        }
+        li.indent3 span:first-child {
+        	padding-left: 75px;
+        }
+        li.indent4 span:first-child {
+        	padding-left: 100px;
+        }
+        li.indent5 span:first-child {
+        	padding-left: 125px;
+        }
+        li.indent6 span:first-child {
+        	padding-left: 150px;
+        }
+        li.indent7 span:first-child {
+        	padding-left: 175px;
+        }
+        li.indent8 span:first-child {
+        	padding-left: 200px;
+        }
+        li.indent9 span:first-child {
+        	padding-left: 225px;
+        }
+
+        li.unleaded:before {
+        	content: "";
+        }
+
+        /* On Registry index pages (such as the Public Library), these are used for
+        download buttons and the like: */
+
+        span.registrybuttons {
+        	height: 20px;
+        	padding: 2px 8px 2px 8px;
+        	margin: 2px;
+        	border:1px solid;
+        	border-radius: 5px;
+        }
+
+        span.registryminibuttons {
+        	height: 14px;
+        	padding: 2px 5px 2px 5px;
+        	margin: 2px;
+        	border:1px solid;
+        	border-radius: 4px;
+        }
+
+        /* Used to hide or display sections in the Registry pages: */
+
+        div.registrysectionitemsopen {
+        	display: block;
+        }
+
+        div.registrysectionitemsclosed {
+        	display: none;
+        }
+
+        /* Hanging indentation for Registry item paragraphs: */
+
+        p.registryitem {
+        	padding-left: 80px;
+        	text-indent: -40px;
+        }
+
+        p.registryaddition {
+        	padding-left: 40px;
+        	text-indent: -40px;
+        }
+
+        -->
+    </style>
+    <script type="text/javascript">
+        function project() {
+            return window.Project;
+        }
+        function showExtra(id, imid) {
+        	if (document.getElementById(id).style.display == 'block') {
+        		document.getElementById(id).style.display = 'none';
+        		document.getElementById(imid).src = 'inform:/extra.png';
+        	} else {
+        		document.getElementById(id).style.display = 'block';
+        		document.getElementById(imid).src = 'inform:/extraclose.png';
+        	}
+        }
+        function openExtra(id, imid) {
+        	document.getElementById(id).style.display = 'block';
+        	document.getElementById(imid).src = 'inform:/extraclose.png';
+        }
+        function closeExtra(id, imid) {
+        	document.getElementById(id).style.display = 'none';
+        	document.getElementById(imid).src = 'inform:/extra.png';
+        }
+        function pasteCode(code) {
+            var myProject = project();
+
+            myProject.selectView('source');
+            myProject.pasteCode(code);
+        }
+
+    </script>
+</head>
+<body>
+    <!--CONTENT BEGINS-->
+    <table CELLPADDING=0 CELLSPACING=0 width="100%" bgcolor="#000000"><tr><TD width=38px height=26px align="center" valign="center"><a href="inform://Extensions/Extensions.html" border=0><img border=0 src="inform:/doc_images/Hookindex.png" border=0></a></td><TD width=38px height=26px align="center" valign="center"></td><td halign="left" valign="center" CELLPADDING=0 CELLSPACING=0><font color="#FFFFFF" size=2>Extensions</font></a></td><TD width=56px height=26px align="right" valign="center"><a href="inform:/index.html" border=0><img border=0 src="inform:/doc_images/Hookup.png" border=0></a></td></tr></table>
+
+    <p><a href="javascript:pasteCode('Include Hybrid Choices by AW Freyr.[=0x000A=][=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a>&nbsp;<b>Hybrid Choices<span class="extensionindexentry"> by </span>AW Freyr</b></p>
+    <p><span class="smaller">Version 7</span></p>
+    <p>Provides a choice-based interface that can be freely switched between interactive and non-interactive modes. Basically, it does CYOA.</p>
+    <p></p>
+    <hr>
+    <p><span class="indexblack"><b><a style="text-decoration: none" href=#docsec1>Chapter 1: </a></b></span>Introduction<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec2>Section 1.1: </a></span>A Note About the Repeated Description Bug<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec3>Section 1.2: </a></span>Version History<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec4>Section 1.3: </a></span>Acknowledgements<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec5>Chapter 2: </a></b></span>What is Hybrid CYOA<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec6>Chapter 3: </a></b></span>Basic Usage<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec7>Section 3.1: </a></span>Starting up CYOA<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec8>Section 3.2: </a></span>Simple Choices<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec9>Section 3.3: </a></span>Flipping Pages<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec10>Section 3.4: </a></span>Menus, One-Offs and Dead-Ends<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec11>Section 3.5: </a></span>Page Control<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec12>Section 3.6: </a></span>End-Page<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec13>Chapter 4: </a></b></span>Advanced Topics<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec14>Section 4.1: </a></span>Choice-Switch<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec15>Section 4.2: </a></span>Page-Switch<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec16>Section 4.3: </a></span>Page-Toggle<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec17>Section 4.4: </a></span>Page-Output<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec18>Section 4.5: </a></span>Choice-Displaying<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec19>Section 4.6: </a></span>Choice-Priority<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec20>Chapter 5: </a></b></span>Interaction Between CYOA and Model World<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec21>Section 5.1: </a></span>In CYOA Mode...<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec22>Section 5.2: </a></span>Time<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec23>Section 5.3: </a></span>Moving the Player<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec24>Section 5.4: </a></span>CYOA Parser<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec25>Section 5.5: </a></span>Turn To<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec26>Section 5.6: </a></span>Items<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec27>Section 5.7: </a></span>Note on Flexible Windows<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec28>Section 5.8: </a></span>Debug mode<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec29>Chapter 6: </a></b></span>Advanced Topic - Object Choices<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec30>Section 6.1: </a></span>Presenting Objects as Choices<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec31>Section 6.2: </a></span>Handling Objects<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec32>Chapter 7: </a></b></span>Advanced Topic - Memory Economy<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec33>Chapter 8: </a></b></span>Reference<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec34>Section 8.1: </a></span>Action Reference<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec35>Section 8.2: </a></span>Rulebook Reference<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec36>Section 8.3: </a></span>Variables Reference<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec37>Section 8.4: </a></span>Page Properties Reference<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec38>Section 8.5: </a></span>Phrase Reference<br>
+    <br>
+    <b>Examples</b><br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href="Hybrid Choices-eg1.html#eg1">A &mdash; The Only Room</a></span><br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href="Hybrid Choices-eg2.html#eg2">B &mdash; Eating a Banana</a></span><br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href="Hybrid Choices-eg3.html#eg3">C &mdash; Temple of Fear</a></span><br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href="Hybrid Choices-eg4.html#eg4">D &mdash; Colored Rooms</a></span><br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href="Hybrid Choices-eg5.html#eg5">E &mdash; The Lineup</a></span><br>
+    </p>
+    <hr>
+    <p></p>
+    </p>
+
+    <p><p><span class="indexdullred"><b><span id=docsec1>Chapter 1: Introduction</span></b></span></p>
+    </p>
+
+    <p> This extension is inspired by and heavily adapted from the Adventure Book extension by Edward Griffiths. It features the ability to switch freely between CYOA and interactive modes, has an easily modifiable parser, and better memory economy. If you are familiar with Adventure Book, you will notice a number of similarities. Pages are &quot;pages&quot;, and the relations are familiar if named differently. There are also significant differences. Choices are no longer separate objects, but integrated as a part of the page. Rulebooks provide a more flexible and modular approach to altering the extension's default behavior.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec2>Section 1.1: A Note About the Repeated Description Bug</span></b></span></p>
+    </p>
+
+    <p> Some people have reported duplicated room and page descriptions for a while. I've seen this myself, and I was aware of the problem, but because I am a lazy developer crushed by a demanding and poorly-paying day job, I just haven't had the chance to sit down and fix it until now. Now this is the patch. Rather, this is patch produced by lazily copy-pasting Vince Laviano's fix directly into the extension (thanks random forum guy!). Still, some of these are really beyond my paltry powers, so I'm going to go over three scenarios where you might encounter repeated text and their fixes.</p>
+
+    <p> Scenario 1: Moving the player, as in &quot;now the player is in Hogwarts&quot; will always print a room description, and in the case of CYOA mode will actually print the page description twice. This is hard-coded behavior, and as much as there should be a &quot;Moving the Player to&quot; activity, there isn't. The only way to prevent this is the use of the phrase &quot;move the player to Hogwarts, without printing a room description&quot;. You could also use the &quot;cyoa teleport to Hogwarts&quot; phrase included in this extension.</p>
+
+    <p> Scenario 2: If you are getting repeated page descriptions in the beginning of the game, you are probably using &quot;When play begins: switch to cyoa at p1.&quot; instead of the proper &quot;Instead of looking for the first time: switch to cyoa at p1.&quot; Again, looking at the very beginning of a game is pretty much hardcoded behavior, and there's nothing I can do to prevent it (or really should). Alternatively, you can use the &quot;without looking&quot; phrase option to suppress any duplicated page description, as in &quot;switch to cyoa at p1, without looking&quot;.</p>
+
+    <p> Scenario 3: Using a page-toggle rule to exit CYOA as opposed to simply labeling a page as an end-page will cause the room description to print twice. It is recommended you use the end-page property rather than a page-toggle rule, but if for some reason you need to use the page-toggle rules, you can use &quot;switch from cyoa, without looking&quot; as a temporary fix.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec3>Section 1.2: Version History</span></b></span></p>
+    </p>
+
+    <p><blockquote><span class="indexdullblue"> Version 7, June 21st, 2016<br>
+     -- Fixed a bug where passages were being printed twice (credit to Vince Laviano)<br>
+     -- Added options to remove looking when switching to and from CYOA modes.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Verstion 6, December 11th, 2015<br>
+     -- Fixed a bug where page-toggle rules were firing twice for dead-end pages, and not for the previous page as intended. Page-output rules were not firing for dead-end pages at all.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Version 5, November 4th, 2015<br>
+     -- Added adaptive text and responses in an attempt to follow Public Library guidelines.<br>
+     -- Fixed several problems with the examples.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Version 4, October 6th, 2015<br>
+     -- Major update with significant new features.<br>
+     -- A choice can be an object, and there are now ways of handling choices which are objects.<br>
+     -- Objects can be manually inserted as choices.<br>
+     -- The choice selection response will now more accurately display what was listed as the choice.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Version 3, August 19th, 2015<br>
+     -- Fixed a bug related to page-output rules not firing.<br>
+     -- Rewrote the choice-displaying functions<br>
+     -- Allowed authors to set choice order through the choice-priority functions.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Version 2, February 12th, 2015<br>
+     -- Updated for compatibility to Flexible Windows version 15.<br>
+     -- Various typographical fixes (I wrote the previous documentation in a rush)</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Version 1, July 31st, 2014<br>
+     -- Initial Release</span></blockquote>
+
+    <p><p><span class="indexblack"><b><span id=docsec4>Section 1.3: Acknowledgements</span></b></span></p>
+    </p>
+
+    <p> Thanks to Hanon Ondricek, who help test and draft this document. He wrote the funny stuff.</p>
+
+    <p> Thanks to Edward Griffiths, who provided the model and direct inspiration for this extension.</p>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec5>Chapter 2: What is Hybrid CYOA</span></b></span></p>
+    </p>
+
+    <p> Hybrid CYOA is a CYOA menu-based system that can switch back to interactive modes. At the top level, it simply presents the player with a passage and a list of options.</p>
+
+    <p><blockquote><span class="indexdullblue"> The murderer brandishes a wicked knife at you. What will you do?</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> 1) Fight back!<br>
+     2) Freeze!<br>
+     3) Run away!</span></blockquote>
+
+    <p> The player can type one of the selected options. That option leads to more options.</p>
+
+    <p><blockquote><span class="indexdullblue"> &gt;1</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> What weapon will you use?</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> 1) Fists.<br>
+     2) Sword.<br>
+     3) Grenade.</span></blockquote>
+
+    <p>... and sometimes they won't.</p>
+
+    <p><blockquote><span class="indexdullblue"> &gt;3</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> You toss the grenade and kill both yourself and the murderer.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> *** YOU DIED ***</span></blockquote>
+
+    <p> Where Hybrid Choices gets very powerful is how it interacts with the normal parser mode we are all familiar with. Hybrid Choices has the ability to swap back and forth, allowing you to have sequences of CYOA punctuated by normal Interactive Fiction goodness.</p>
+
+    <p><blockquote><span class="indexdullblue"> Where do you want to travel?</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> 1) London<br>
+     2) New York<br>
+     3) Sydney</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> &gt;3</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> You take a plane to Sydney.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> You stand before the Sydney Opera House, north of you, and the Government House is to the south. Southwest is a pleasant promenade with shops, and southeast heads off into a beach.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> &gt;</span></blockquote>
+
+    <p> This is really only scratching the surface. There are detailed examples at the end of the document which demonstrate different things you can accomplish with Hybrid Choices. Have fun!</p>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec6>Chapter 3: Basic Usage</span></b></span></p>
+    </p>
+
+    <p><p><span class="indexblack"><b><span id=docsec7>Section 3.1: Starting up CYOA</span></b></span></p>
+    </p>
+
+    <p> Hybrid Choices allows an author to seamlessly switch between the the Inform parser and a flexible choice-based adventure mode. You can do this by invoking this phrase:</p>
+
+    <p><blockquote><span class="indexdullblue">... switch to cyoa at (PAGE)...</span></blockquote>
+
+    <p>... Where PAGE is where you want the player to start making choices.</p>
+
+    <p> If you want the player to start CYOA mode immediately on starting the game, simply drop in this code:</p>
+
+    <p><a href="javascript:pasteCode('[=0x000A=]Instead of looking for the first time:[=0x000A=][=0x0009=]switch to cyoa at YOURPAGEHERE.[=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a><blockquote><span class="indexdullblue"> Instead of looking for the first time:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; switch to cyoa at YOURPAGEHERE.</span></blockquote>
+
+    <p> Returning from CYOA mode is done via an &quot;end-page&quot; which will be explained later.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec8>Section 3.2: Simple Choices</span></b></span></p>
+    </p>
+
+    <p> We can imagine a page as a passage in our favorite adventure books of yore. When we write a &quot;page&quot;, this is like a passage in our story.</p>
+
+    <p><blockquote><span class="indexdullblue"> The first junction is a page.<br>
+     &quot;The tunnel goes left and right.&quot;</span></blockquote>
+
+    <p> This is the simplest page possible. Presumably, it is the first page in our book.</p>
+
+    <p> Now we can add some choices.</p>
+
+    <p><blockquote><span class="indexdullblue"> The left tunnel is a page.<br>
+     &quot;You go left and find yourself in a long corridor.&quot;<br>
+     The cdesc is &quot;Go left.&quot;. It is for the first junction.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> The right tunnel is a page.<br>
+     &quot;You go right and find yourself in a large cave. A little stream runs through it.&quot;<br>
+     The cdesc is &quot;Go right.&quot;. It is for the first junction.</span></blockquote>
+
+    <p> Some notes here. The CDESC stands for &quot;CHOICE DESCRIPTION&quot;, and it is what is displayed when this page is offered as a choice.</p>
+
+    <p> The second thing you'll notice is that the choice is &quot;for the first junction&quot;. This indicates that his page is a choice for the first junction. This is short for &quot;The first junction turns to this page&quot;.</p>
+
+    <p> Flexible CYOA handles multiple pages just fine.</p>
+
+    <p><blockquote><span class="indexdullblue"> The easy choice is a page.<br>
+     &quot;You make the easy choice.&quot;<br>
+     The cdesc is &quot;Do the easy thing.&quot; It is for page1, page2, page3, page4...</span></blockquote>
+
+    <p><p><span class="indexblack"><b><span id=docsec9>Section 3.3: Flipping Pages</span></b></span></p>
+    </p>
+
+    <p> Flipped pages are pages we read through but don't &quot;stop&quot; on. We see the passage but then move onto a new page immediately, a very useful function for long passages.</p>
+
+    <p><blockquote><span class="indexdullblue"> p1 is a page.<br>
+     &quot;You keep going...&quot;<br>
+     It flips to p2.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> p2 is a page.<br>
+     &quot;...and going...&quot;<br>
+     It flips to p3.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> p3 is a page.<br>
+     &quot;...and going!&quot;</span></blockquote>
+
+    <p> Hybrid Choices will not bother printing choices for p1 or p2, because we've told I7 to print these pages but immediately skip past them. This comes with a risk. If Hybrid Choices detects that we've written an infinite loop, like this...</p>
+
+    <p><blockquote><span class="indexdullblue"> p1 is a page.<br>
+     &quot;You keep going...&quot;<br>
+     It flips to p2.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> p2 is a page.<br>
+     &quot;...and going...&quot;<br>
+     It flips to p3.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> p3 is a page.<br>
+     &quot;...and going...&quot;<br>
+     It flips to p4.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> p4 is a page.<br>
+     &quot;...and going...&quot;<br>
+     It flips to P2.</span></blockquote>
+
+    <p>... Then it will failsafe to the last page where choices were offered, in this case it would be the last page that turned to P1.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec10>Section 3.4: Menus, One-Offs and Dead-Ends</span></b></span></p>
+    </p>
+
+    <p> Pages need not have any content. Somtimes they are useful for just presenting a series of options.</p>
+
+    <p><blockquote><span class="indexdullblue"> The menu is a page.</span></blockquote>
+
+    <p> Now we can refer back to this menu with our other choices.</p>
+
+    <p><blockquote><span class="indexdullblue"> AskAboutPizza is a page.<br>
+     &quot;'What about pizza?' you ask.<br>
+    <br>
+    Jenny frowns. 'No, I had some for lunch yesterday.'&quot;<br>
+     The cdesc is &quot;Ask about pizza.&quot; It is for the menu. It is a dead-end. It is one-off.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> AskAboutWine is a page.<br>
+     &quot;'What about wine?' you ask.<br>
+    <br>
+    Jenny frowns. 'No, I have to drive home tonight.'&quot;<br>
+     The cdesc is &quot;Ask about wine.&quot; It is for the menu. It is a dead-end. It is one-off.</span></blockquote>
+
+    <p> A page defined as a &quot;dead-end&quot; will return to the original page that sent it there, even through multiple flipped pages! Very useful for menus.</p>
+
+    <p> The second adjective you see is &quot;one-off&quot;. This ensures that, once this choice is picked, it will never be displayed again.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec11>Section 3.5: Page Control</span></b></span></p>
+    </p>
+
+    <p> Sometimes, even when a page turns to another, we might not want to offer it as a choice. Hybrid Choices offers a number of ways to control which choices are displayed based on previous choices. One way we can control this is through use of the &quot;cancel&quot; and &quot;need&quot; relations.</p>
+
+    <p><blockquote><span class="indexdullblue"> P1 is a page.<br>
+     &quot;There is a door. On the wall is a switch that says, 'FLIP TO DISABLE TRAP'.&quot;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> P2 is a page.<br>
+     &quot;You flip the switch. Hmm... you feel imperceptibly safer.&quot;<br>
+     The cdesc is &quot;Flip the switch.&quot; It is for P1. It is a dead end. It is one off.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> P3 is a page.<br>
+     &quot;You travel through the door and are murdered by traps.&quot;<br>
+     The cdesc is &quot;Saunter through the door.&quot; It is canceled by P2. It is for P1.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> P4 is a page.<br>
+     &quot;You safely travel throug the door.&quot;<br>
+     The cdesc is &quot;Saunter through the door.&quot; It is needed by P2. It is for P1.</span></blockquote>
+
+    <p> When a page X &quot;cancels&quot; a page Y, it removes page Y from ever being considered as a choice if page X is visited. When a page X &quot;needs&quot; a page Y, page X will never be considered until page Y is visited. This works for multiple pages, but in a slightly different ways. All of a page's needed pages need to be visited before it becomes a viable choice. However, only one of a page's canceled pages need to be visited to cancel that page.</p>
+
+    <p> The second method is by &quot;activating/deactivating&quot; pages. A page is either &quot;active&quot; or &quot;inactive&quot;. When it is &quot;inactive&quot;, it will not be displayed as a choice. You can do this with a phrase.</p>
+
+    <p><blockquote><span class="indexdullblue">... activate PAGE...<br>
+    ... deactivate PAGE...</span></blockquote>
+
+    <p> This will toggle the page. You can even do this in groups. Say we have a game where pages are identifiable by color.</p>
+
+    <p><blockquote><span class="indexdullblue"> After examining the anti-red:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; say &quot;All that anti-red sears out your eyeballs.&quot;;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; deactivate red pages;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; activate ultra-green pages.</span></blockquote>
+
+    <p> This is also useful for the page-toggle rulebook, which will be covered later.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec12>Section 3.6: End-Page</span></b></span></p>
+    </p>
+
+    <p> An end-page, when read, will return the player to the normal parser interface.</p>
+
+    <p><blockquote><span class="indexdullblue"> ChoicesAreDone is a page.<br>
+     &quot;OK, you've finished doing all your choices. Go back to your typety-typety i-can-do-anything-but-disambiguate parser world and you'll find that rope has now been secured to both the tree AND the horse cart with minimal fuss.&quot;<br>
+     The cdesc is &quot;Finish.&quot; It is an end-page.</span></blockquote>
+
+    <p> The original parser will be fully active, and for all purposes it becomes a classic IF game. A location description will be printed, and the game will resume following the every turn rules.</p>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec13>Chapter 4: Advanced Topics</span></b></span></p>
+    </p>
+
+    <p> Hybrid Choices has four main rulebooks: choice-switch, page-switch, page-toggle and page-output.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec14>Section 4.1: Choice-Switch</span></b></span></p>
+    </p>
+
+    <p> The choice-switch rules dictate whether a page will be offered as a choice. This provides a much finer level of control than the methods of page control outlined above as you can pretty much dictate whatever you want.</p>
+
+    <p><blockquote><span class="indexdullblue"> A choice-switch rule for the banana page:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; unless the player carries a banana:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; rule fails.</span></blockquote>
+
+    <p> If the rule fails, the page is suppressed as a choice. If the rule succeeds, the choice is immediately displayed, even if another, later rule would have eliminated it as a choice.</p>
+
+    <p><blockquote><span class="indexdullblue"> A choice-switch rule for the magic page:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; if the player spoke the magic words:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; rule succeeds.</span></blockquote>
+
+    <p> Here, the magic page is always offered as long as the player spoke the words, *even* if the page is inactive or canceled by an earlier page. This can be very useful.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec15>Section 4.2: Page-Switch</span></b></span></p>
+    </p>
+
+    <p> It is possible at certain points to swap out the page you are currently looking at. This is the purpose of the page-switch. This rulebook switches out one page for another when called. It is useful when you have one choice that has many possibilities depending on the game state, or if you have an event that would stop the player immediately.</p>
+
+    <p><blockquote><span class="indexdullblue"> The p1 is a page.<br>
+     &quot;You are in front of the extra-dimensional door. There is but one thing to do...&quot;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> The p2 is a page.<br>
+     The cdesc is &quot;Open the door.&quot; It is for p1.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> A page-switch rule for p2:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; let X be a random number between 1 and 6;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; if X is 1:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; now the current page is InHell;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; else if X is 2:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; now the current page is InHeaven;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; else if X is 3:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; now the current page is SomewhereInMongolia;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; else if X is 4:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; now the current page is InTheVacuumOfSpace;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; else if X is 5:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; now the current page is AtYourParents;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; else if X is 6:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; now the current page is StormingNormandyBeach.</span></blockquote>
+
+    <p> As you can see, the page-switch rule works by changing the &quot;current page&quot; at the very last minute. The &quot;current page&quot; is whatever page is being currently processed.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec16>Section 4.3: Page-Toggle</span></b></span></p>
+    </p>
+
+    <p> The page-toggle is used specifically to interact with the model world. It is the bread-and-butter method to give inventory items, adjust the model world, change truth states, etc.</p>
+
+    <p><blockquote><span class="indexdullblue"> A page-toggle rule for TakeTheBanana:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; now the player carries the banana.</span></blockquote>
+
+    <p> You can also move the player by using the page-toggle rule.</p>
+
+    <p><blockquote><span class="indexdullblue"> A page-toggle rule for ElevatorToThirdFloor:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; cyoa teleport to Third Floor.</span></blockquote>
+
+    <p> CYOA teleport is used to prevent duplicated text, but is essentially identical to &quot;now the player is in the third floor&quot;.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec17>Section 4.4: Page-Output</span></b></span></p>
+    </p>
+
+    <p> Often, the description is not enough for truly complex pages. If you want something with really complicated prose, the page-output rule is where to put it.</p>
+
+    <p><blockquote><span class="indexdullblue"> A page-output rule for ReallyBoringSpeech:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; say &quot;[one of]'Read my lips, no new bad things.'[or]'I desire peace between humans and fish.'[or]'I am not a crook.'[at random]&quot;.</span></blockquote>
+
+    <p> If there is also a description, that will also be printed after the page-output rules fire.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec18>Section 4.5: Choice-Displaying</span></b></span></p>
+    </p>
+
+    <p> Normally, a cdesc is the same no matter where it is displayed. The choice-displaying activity determines what is printed when a page is displayed as a choice. This is usually the cdesc, but it can be anything else you want.</p>
+
+    <p><blockquote><span class="indexdullblue"> Rule for choice-displaying the blending page:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; if the current page is red-blue:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say &quot;Purple.&quot;;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; else if the current page is yellow-blue:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say &quot;Green.&quot;;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; else if the current page is yellow-red:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say &quot;Orange.&quot;</span></blockquote>
+
+    <p> This is useful if you want to simulate several choices that are really just one choice leading to the same page.</p>
+
+    <p><blockquote><span class="indexdullblue"> Rule for choice-displaying GoToGarden:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; if the current page is InTheHall:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say &quot;Exit the house.&quot;;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; else if the current page is InTheDriveway:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say &quot;Take the path to the garden.&quot;</span></blockquote>
+
+    <p> If you want multiple choice on the same page to lead to the same page, it's best to make those pages flip to the desired destination.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec19>Section 4.6: Choice-Priority</span></b></span></p>
+    </p>
+
+    <p> As of Version 3, you can now influence choice order by setting choice-priorities. This is useful if you want options to leave menus on the very bottom rather than somewhere awkward like in the very middle.</p>
+
+    <p> When a choice is elected for selection, it is given a numerical value (by default '50') through the choice-priority rules. The lower the number, the higher it is displayed as a choice.</p>
+
+    <p> Let's say you always want violence to be the last option. We can pretty easily do that now.</p>
+
+    <p><blockquote><span class="indexdullblue"> pkillthem is a page.<br>
+     The cdesc is &quot;Kill them!&quot;<br>
+     The description is &quot;Violence is always the last option.&quot;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Choice-priority for pkillthem:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; rule succeeds with result 200.</span></blockquote>
+
+    <p> You can do the opposite as well, always putting a choice on top.</p>
+
+    <p><blockquote><span class="indexdullblue"> phugthem is a page.<br>
+     The cdesc is &quot;Hug them!&quot;<br>
+     The description is &quot;Shnuggles are always appropriate.&quot;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Choice-priority for phugthem:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; rule succeeds with result 1.</span></blockquote>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec20>Chapter 5: Interaction Between CYOA and Model World</span></b></span></p>
+    </p>
+
+    <p> Hybrid Choices opens the possibility to use the model world in your CYOA projects, and vice-versa. Here's how stuff interacts.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec21>Section 5.1: In CYOA Mode...</span></b></span></p>
+    </p>
+
+    <p> Since Hybrid Choice is not always in CYOA mode, it is often helpful to know which mode we are currently in.</p>
+
+    <p><blockquote><span class="indexdullblue">... if in CYOA mode...</span></blockquote>
+
+    <p> This returns true if we are in CYOA mode. Similarly,</p>
+
+    <p><blockquote><span class="indexdullblue">... if not in CYOA mode...</span></blockquote>
+
+    <p>... returns true if we are playing interactively.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec22>Section 5.2: Time</span></b></span></p>
+    </p>
+
+    <p> While Hybrid Choices does allow time to pass (hence making UNDO possible), it suppresses the every turn rulebook. This is generally because these rules are not appropriate in CYOA mode. If you don't like this behavior, you can disable it by unlisting the rule.</p>
+
+    <p><a href="javascript:pasteCode('[=0x000A=]The prevent every turn events rule is not listed in the every turn rulebook.[=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a><blockquote><span class="indexdullblue"> The prevent every turn events rule is not listed in the every turn rulebook.</span></blockquote>
+
+    <p><p><span class="indexblack"><b><span id=docsec23>Section 5.3: Moving the Player</span></b></span></p>
+    </p>
+
+    <p> You'll often find yourself moving the player around the model world during choice mode. This presents a minor problem, as the passage will print twice. In this case, Hybrid Choices uses a particular function to move the player.</p>
+
+    <p><blockquote><span class="indexdullblue">... cyoa teleport to A LOCATION...</span></blockquote>
+
+    <p> This moves the player without &quot;looking&quot;, thus solving the issue.</p>
+
+    <p><blockquote><span class="indexdullblue"> A page toggle rule for GoingToSchool:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; cyoa teleport to school.</span></blockquote>
+
+    <p><p><span class="indexblack"><b><span id=docsec24>Section 5.4: CYOA Parser</span></b></span></p>
+    </p>
+
+    <p> Hybrid Choices allows for a pretty flexible parser. By default, it allows players to make a choice, use the various testing functions (not in final release, of course), basic commands like looking and taking inventory, and the system commands like save, quit, restore, etc. However, you might want to implement new commands in CYOA mode, for example, examining.</p>
+
+    <p><a href="javascript:pasteCode('[=0x000A=]After reading a command when in cyoa mode (this is the accept examining in CYOA rule):[=0x000A=][=0x0009=]if the player[=0x0027=]s command includes [=0x0022=]x/examine[=0x0022=], now the command accepted is true.[=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a><blockquote><span class="indexdullblue"> After reading a command when in cyoa mode (this is the accept examining in CYOA rule):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; if the player's command includes &quot;x/examine&quot;, now the command accepted is true.</span></blockquote>
+
+    <p> This will allow examining to happen in CYOA mode.</p>
+
+    <p><a href="javascript:pasteCode('[=0x000A=]After reading a command when in cyoa mode (this is the accept examining in CYOA rule):[=0x000A=][=0x0009=]if the player[=0x0027=]s command includes [=0x0022=]xyzzy[=0x0022=], now the command accepted is true.[=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a><blockquote><span class="indexdullblue"> After reading a command when in cyoa mode (this is the accept examining in CYOA rule):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; if the player's command includes &quot;xyzzy&quot;, now the command accepted is true.</span></blockquote>
+
+    <p> This will allow the player to type in &quot;XYZZY&quot;, so you can code some sort of action in response to it.</p>
+
+    <p> Unless you set the &quot;command accepted&quot; to true in your own parser rules, they will automatically be rejected in CYOA mode. By default, the error message that's printed is &quot;That command isn't available in choice mode.&quot; but you can change it to whatever you want.</p>
+
+    <p><blockquote><span class="indexdullblue"> The CYOA error message is &quot;You did wrong, bub.&quot;</span></blockquote>
+
+    <p> The reason a text variable is used rather than a response message is simple, sometimes inconsistent error messages can give a clue, say, when the player has to type a password in a certain room.</p>
+
+    <p><blockquote><span class="indexdullblue"> &gt; ABCCB</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> That command isn't available in choice mode.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> &gt; XYZZY</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> That command isn't available in CYOA mode.</span></blockquote>
+
+    <p> Use of a text variable ensures consistency in error messages, and avoids giving unintentional clues.</p>
+
+    <p><blockquote><span class="indexdullblue"> Instead of xyzzying:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; if the player is not in the colossal cave:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say &quot;[cyoa error message][paragraph break]&quot;;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; else:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say &quot;Yeah the cute IF reference works.&quot;</span></blockquote>
+
+    <p><p><span class="indexblack"><b><span id=docsec25>Section 5.5: Turn To</span></b></span></p>
+    </p>
+
+    <p> If, by special circumstances, you want to go to a certain page through the use of an action while in choice mode, you'll want to use the &quot;turn to A PAGE&quot; phrase. This phrase causes Hybrid Choices to immediately turn to that page, but still respecting things like page flipping and such.</p>
+
+    <p><blockquote><span class="indexdullblue"> Instead of xyzzying:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; if the player is not in the colossal cave:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say &quot;[cyoa error message][paragraph break]&quot;;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; else:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; turn to the victory page.</span></blockquote>
+
+    <p> You do not want to use this outside of choice mode, IT WILL NOT WORK. If you want to go into choice mode from interactive mode, use the &quot;switch to cyoa at A PAGE&quot; instead.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec26>Section 5.6: Items</span></b></span></p>
+    </p>
+
+    <p> Like Adventure Book, Hybrid Choices makes use of items. Unlike Adventure Book, however, inventory items are not special sorts of flags, they're actual things in the player's inventory and things around them. A key picked up in interactive mode can be used to open a door in choice mode, and vice versa.</p>
+
+    <p><blockquote><span class="indexdullblue"> unlockdoor is a page.<br>
+     &quot;You unlock the door with the bronze key.&quot;<br>
+     The cdesc is &quot;Unlock the door.&quot; The required item is the bronze key.</span></blockquote>
+
+    <p> The &quot;required item&quot; of any give page is the thing that's needed in the player's inventory to reveal it. A page can only have one required item at a time.</p>
+
+    <p> Similarly, the &quot;canceling item&quot; is an object that suppresses a page if the player is lugging it around.</p>
+
+    <p><blockquote><span class="indexdullblue"> hitdoor is a page.<br>
+     &quot;Without a key, you hit the door with futility.&quot;<br>
+     The cdesc is &quot;Hit door.&quot; The canceling item is the bronze key.</span></blockquote>
+
+    <p> Another way you can use items is through the &quot;item-invoking&quot; action. This action allows the player to type the name of a thing in interactive mode, for example, a key, and have that prompt a certain action. By default, item-invoking is disabled. You'll need to activate it by switching the &quot;item-invoking disabled&quot; truth state to false.</p>
+
+    <p><a href="javascript:pasteCode('[=0x000A=]When play begins:[=0x000A=][=0x0009=]now item-invoking disabled is false.[=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a><blockquote><span class="indexdullblue"> When play begins:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; now item-invoking disabled is false.</span></blockquote>
+
+    <p> Now you'll need to supply the behaviors when you do item-invoking. By default, it just says &quot;The thing can't be used here.&quot;, which isn't very exciting. There are a couple of applications for it, you can use it for inventory management, or you can use it as a way to interact with objects outside of the player's inventory.</p>
+
+    <p> This is a very quick example of a system which opens a menu whenever you item-invoke something.</p>
+
+    <p><a href="javascript:pasteCode('[=0x000A=]A thing has an object called the item menu. The item menu is usually nothing.[=0x000A=][=0x000A=]Check item-invoking something:[=0x000A=][=0x0009=]if the item menu of the noun is not a page:[=0x000A=][=0x0009=][=0x0009=]say [=0x0022=][The noun] [are] not very interesting.[=0x0022=] instead.[=0x000A=][=0x000A=]Carry out item-invoking something:[=0x000A=][=0x0009=]turn to item menu of the noun.[=0x000A=][=0x000A=]The block item-invoking rule is not listed in the report item-invoking rulebook.[=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a><blockquote><span class="indexdullblue"> A thing has an object called the item menu. The item menu is usually nothing.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Check item-invoking something:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; if the item menu of the noun is not a page:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say &quot;[The noun] [are] not very interesting.&quot; instead.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Carry out item-invoking something:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; turn to item menu of the noun.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> The block item-invoking rule is not listed in the report item-invoking rulebook.</span></blockquote>
+
+    <p><p><span class="indexblack"><b><span id=docsec27>Section 5.7: Note on Flexible Windows</span></b></span></p>
+    </p>
+
+    <p> If you include Flexible Windows by Jon Ingold, a little choice window is displayed at the bottom of the page. Hybrid Choices will not compile with Flexible Windows version 14 and below.</p>
+
+    <p> In any case, Hybrid Choices provides you some tools to add a choice window. If you don't use Flexible Windows butsome other interface extension you'll need to provide your own code for each of these three phrases.</p>
+
+    <p><blockquote><span class="indexdullblue"> SET CHOICE-WINDOW- This opens the choice-window.<br>
+     UNSET CHOICE-WINDOW- This closes the choice-window.<br>
+     REFRESH CHOICES- This prints the choices to the choice-window.</span></blockquote>
+
+    <p><p><span class="indexblack"><b><span id=docsec28>Section 5.8: Debug mode</span></b></span></p>
+    </p>
+
+    <p> Finally, while testing, cyoa debug mode can be toggled on and off by typing &quot;cyoa debug&quot;. This will print all the pages you passed.</p>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec29>Chapter 6: Advanced Topic - Object Choices</span></b></span></p>
+    </p>
+
+    <p> As of Version 4, there is no restriction on what object can be a choice. This makes Hybrid Choices very powerful in how it can manipulate the model world, and lifts a lot of prior limitations. In Hybrid Choices parlance, an &quot;object choice&quot; is a choice which is not a page.</p>
+
+    <p> You might be wonder -- what's the point of this? Why would I want objects to be pages? Well, assume you want to an action that brings up all interactive objects in one room as choices. For example, a &quot;list visible objects&quot; command that will let players open a menu of all visible objects that can be examined. Previously, you would need to make a page for each single object, then write page-toggle rules for each of them, and choice-switch rules in case they aren't visible. Object Choices automates what would otherwise be a laborious process.</p>
+
+    <p> This is all very powerful but comes with the caveat that Hybrid Choices doesn't assume how you want to manipulate object-choices, so some work is necessary to get the full benefit out of them. Once you do, you can use Hybrid Choices to construct action menus, fast travel, node-based conversation systems, or anything, really. &quot;Colored Rooms&quot; and &quot;The Lineup&quot; both present examples of how you could implement object choices.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec30>Section 6.1: Presenting Objects as Choices</span></b></span></p>
+    </p>
+
+    <p> Object have to be manually inserted as choices using the POPULATE CHOICE LIST WITH phrase.</p>
+
+    <p><blockquote><span class="indexdullblue"> populate choice list with visible people who are not the player.<br>
+     populate choice list with round balls.<br>
+     populate choice list with grandma.</span></blockquote>
+
+    <p> These place these objects as a choices in the next menu, along with any other pages they might refer to. It's recommended you perform this function with the page-toggle rules.</p>
+
+    <p><blockquote><span class="indexdullblue"> A page-toggle rule for #killallmartians:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; populate choice list with living martians.</span></blockquote>
+
+    <p> These options are only valid once, so you need to repopulate them again if you want to use them again.</p>
+
+    <p> Objects, like pages, can be manipulated using the choice-priority and choice-display.</p>
+
+    <p><blockquote><span class="indexdullblue"> Choice-priority for a Martian:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; rule succeeds with result 1.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Choice-display a Martian (called the poolord):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; say &quot;Kill [poolord].&quot;</span></blockquote>
+
+    <p><p><span class="indexblack"><b><span id=docsec31>Section 6.2: Handling Objects</span></b></span></p>
+    </p>
+
+    <p> By default, if an object is chosen, nothing happens. You are simply booted out of cyoa mode. You need to teach Hybrid Choices how to handle object choices.</p>
+
+    <p> This is mostly done through the General Choose Object rules.</p>
+
+    <p><blockquote><span class="indexdullblue"> General choose object rule for a martian (called N):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; say &quot;You brutally murder the unarmed Martian. Now you feel both safe AND empowered.&quot;;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; now N is dead.</span></blockquote>
+
+    <p> This implementation is good enough if your applications are limited. However, Hybrid Choices provides us a method of changing the rulebook to check objects. This rulebook is called the object-choice-handler. Changing the object-choice-handler changes which rulebook is consulted. The one restriction is that these must be object-based rulebooks.</p>
+
+    <p><blockquote><span class="indexdullblue"> The murder rules are an object based rulebook.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> A page-toggle rule for #killallmartians:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; now the object-choice-handler are the murder rules;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; populate choice list with living martians.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Murder a martian (called N):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; say &quot;You brutally murder the unarmed Martian. Now you feel both safe AND empowered.&quot;;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; now N is dead.</span></blockquote>
+
+    <p> One problem. After we've picked an object we are booted to interactive mode, and we might not want that. All we need do is designate a page to go to. We manually change the current page.</p>
+
+    <p><blockquote><span class="indexdullblue"> Murder a martian (called N):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; say &quot;You brutally murder the unarmed Martian. Now you feel both safe AND empowered.&quot;;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; now N is dead;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; now the current page is asafespace.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> asafespace is a page.<br>
+     &quot;Finally. A safe space.&quot;.</span></blockquote>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec32>Chapter 7: Advanced Topic - Memory Economy</span></b></span></p>
+    </p>
+
+    <p> Hybrid Choices uses more properties and relations than strictly necessary. Much of this is merely convenience, and larger projects might benefit if they comment out certain parts of the extension. It is recommended if you are running into memory issues to copy-paste the extension in to their source code without the folllowing sections-- &quot;section d - page-dependent&quot;. This includes two various-to-various relations and is a major memory hog.</p>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec33>Chapter 8: Reference</span></b></span></p>
+    </p>
+
+    <p><p><span class="indexblack"><b><span id=docsec34>Section 8.1: Action Reference</span></b></span></p>
+    </p>
+
+    <p><blockquote><span class="indexdullblue"> choosing -- The action that is invoked when the player enters a choice.<br>
+     item-invoking -- The action that is invoked when the player types the name of an object in choice mode.<br>
+     toggling cyoa debug mode -- An action out of world which toggles CYOA debug mode on and off.</span></blockquote>
+
+    <p><p><span class="indexblack"><b><span id=docsec35>Section 8.2: Rulebook Reference</span></b></span></p>
+    </p>
+
+    <p><blockquote><span class="indexdullblue"> choice-displaying activity -- An activity on objects which prints a particular choice.<br>
+     choice-priority rules -- An object based rulebook producing a number, the lower, the higher the choice is displayed.<br>
+     choice-switch rules -- A page based rulebook which determines whether a choice will be displayed.<br>
+     displaying available decisions activity -- Prints a list of available decisions<br>
+     general choose object rules -- An object based rulebook that tells Hybrid Choices how to handle objects if chosen instead of pages.<br>
+     page-output rules -- A page based rulebook that prints complex text when the page is displayed<br>
+     page-switch rules -- A page based rulebook which switches the current page if necessary.<br>
+     page-toggle rules -- A page based rulebook which manipulates the model the world.<br>
+     selecting activity -- goes through the internal machinery when a choice is made. This should probably not be messed with unless with great care.</span></blockquote>
+
+    <p><p><span class="indexblack"><b><span id=docsec36>Section 8.3: Variables Reference</span></b></span></p>
+    </p>
+
+    <p><blockquote><span class="indexdullblue"> assigned index -- a number that's used internally. We recommend not fiddling with this.<br>
+     current page -- the page that's currently being processed.<br>
+     CYOA debug boolean -- a truth state that records whether in debug mode.<br>
+     CYOA error message -- a text that contains the error message that's printed when the parser fails.0<br>
+     CYOA mode -- a truth state that records whether the game is in CYOA mode.<br>
+     item-invoking disabled -- when true, disallows the item-invoking action.<br>
+     object-choice-handler -- an objects based rulebook variable, holding by default the general choose object rules, which decides which rulebook is consulted when an object is chosen.<br>
+     previous page -- the last page that offered the player a choice.</span></blockquote>
+
+    <p><p><span class="indexblack"><b><span id=docsec37>Section 8.4: Page Properties Reference</span></b></span></p>
+    </p>
+
+    <p><blockquote><span class="indexdullblue"> (If you are having memory problems, going into the extension and commenting out properties you don't need is a good way to improve performance. There are more than are strictly necessary, but I wanted to be complete.)<br>
+     active, inactive -- assignable adjective, determines whether a page will be or not be displayed.<br>
+     canceling item -- object property, the page is never displayed while this is detected in inventory.<br>
+     cdesc -- text property, the text that's displayed while this is detected in inventory.<br>
+     cyoa teleport -- object property, when used, teleports the player into the specified object.<br>
+     destination page -- not assignable, the page which this goes to when it flips to another page.<br>
+     displayed boolean -- truth state property, set as &quot;true&quot; if the page has ever been displayed.<br>
+     end-page -- assignable adjective, ends CYOA mode.<br>
+     one-off -- assignable adjective, marks a page which is never displayed again once chosen.<br>
+     no-look (deprecated) -- assignable adjective, suppressed double prints when they occurred. Use CYOA teleport instead.<br>
+     required item -- object property, the page is only displayed as a choice if this is detected in the inventory.</span></blockquote>
+
+    <p><p><span class="indexblack"><b><span id=docsec38>Section 8.5: Phrase Reference</span></b></span></p>
+    </p>
+
+    <p><blockquote><span class="indexdullblue"> ACTIVATE (A PAGE) -- switches the page to active.<br>
+     ACTIVATE (DESCRIPTION OF PAGES) -- switches the description of pages to active.<br>
+     ACTIVATE (LIST OF PAGES) -- switches a list of pages to active.<br>
+     CLEAR CHOICES -- clears all choices, in preperation for a new set. Best not used.<br>
+     CYOA TELEPORT TO (OBJECT) -- moves the player to the object without printing a room description.<br>
+     DEACTIVATE (A PAGE) -- switches the page to inactive.<br>
+     DEACTIVATE (DESCRIPTION OF PAGES) -- switches the description of pages to inactive.<br>
+     DEACTIVATE (LIST OF PAGES) -- switches a list of pages to inactive.<br>
+     EXECUTE PAGE TURNING -- this phrase move to a new current page, with respect to page-flipping, dead-ends, and various rules. Best not used.<br>
+     if IN CYOA DEBUG MODE -- returns true if in CYOA debug mode.<br>
+     if IN CYOA MODE -- returns true if in CYOA mode.<br>
+     if NOT IN CYOA MODE -- returns false if in CYOA mode.<br>
+     POPULATE CHOICE LIST WITH (object) -- manually inserts an object into a choice list.<br>
+     POPULATE CHOICE LIST WITH (description of objects) -- manually inserts all objects matching a description into a choice list.<br>
+     POPULATE CHOICE LISTS FOR (page) -- inserts all pages into the choice list that turn from the page.<br>
+     if READING (A PAGE) -- a more readable way of ask if the current page is that page.<br>
+     REFRESH CHOICES -- reprints all the choices in the choice-window.<br>
+     SET CHOICE-WINDOW -- opens the choice window, if using Flexible Windows.<br>
+     SWITCH FROM CYOA -- switches to interactive mode from choice mode.<br>
+     SWITCH TO CYOA AT (A PAGE) -- switches from interactive mode to cyoa mode at the specified page.<br>
+     TURN TO (A PAGE) -- makes this page the new current page and executes the page turning routine.<br>
+     UNSET CHOICE-WINDOW -- closes the choice window, if using Flexible Windows.</span></blockquote>
+
+    <p><hr>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td halign="left" valign="top" cellpadding=0 cellspacing=0 width=38px>
+                <span id=eg1><table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="oval">
+                        <td width=38px height=30px align="left" valign="center">
+                            <a href="Hybrid Choices-eg1.html#eg1" style="text-decoration: none"><div class="paragraph Body" style="line-height: 1px; margin-bottom: 0px; margin-top: 0px; padding-bottom: 0pt; padding-top: 0px; text-align: center;">
+                                <span class="extensionexampleletter">A</span></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                </span>
+            </td>
+            <td cellpadding=0 cellspacing=0 halign="left" valign="top">
+                <a href="Hybrid Choices-eg1.html#eg1" style="text-decoration: none"><img border="0" src='inform:/doc_images/asterisk.png'><b><span class="indexdarkgrey">&nbsp;Example&nbsp;</span><span class="indexblack">The Only Room</span></b></a><br>
+                <p>A very short and entirely abstract game used for testing.</p>
+
+            </td>
+        </tr>
+    </table>
+    </p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p><hr>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td halign="left" valign="top" cellpadding=0 cellspacing=0 width=38px>
+                <span id=eg2><table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="oval">
+                        <td width=38px height=30px align="left" valign="center">
+                            <a href="Hybrid Choices-eg2.html#eg2" style="text-decoration: none"><div class="paragraph Body" style="line-height: 1px; margin-bottom: 0px; margin-top: 0px; padding-bottom: 0pt; padding-top: 0px; text-align: center;">
+                                <span class="extensionexampleletter">B</span></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                </span>
+            </td>
+            <td cellpadding=0 cellspacing=0 halign="left" valign="top">
+                <a href="Hybrid Choices-eg2.html#eg2" style="text-decoration: none"><img border="0" src='inform:/doc_images/asterisk.png'><img border="0" src='inform:/doc_images/asterisk.png'><b><span class="indexdarkgrey">&nbsp;Example&nbsp;</span><span class="indexblack">Eating a Banana</span></b></a><br>
+                <p>A simple demonstration of item-invoking and how it might be implemented in a large project.</p>
+
+            </td>
+        </tr>
+    </table>
+    </p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p><hr>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td halign="left" valign="top" cellpadding=0 cellspacing=0 width=38px>
+                <span id=eg3><table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="oval">
+                        <td width=38px height=30px align="left" valign="center">
+                            <a href="Hybrid Choices-eg3.html#eg3" style="text-decoration: none"><div class="paragraph Body" style="line-height: 1px; margin-bottom: 0px; margin-top: 0px; padding-bottom: 0pt; padding-top: 0px; text-align: center;">
+                                <span class="extensionexampleletter">C</span></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                </span>
+            </td>
+            <td cellpadding=0 cellspacing=0 halign="left" valign="top">
+                <a href="Hybrid Choices-eg3.html#eg3" style="text-decoration: none"><img border="0" src='inform:/doc_images/asterisk.png'><img border="0" src='inform:/doc_images/asterisk.png'><img border="0" src='inform:/doc_images/asterisk.png'><b><span class="indexdarkgrey">&nbsp;Example&nbsp;</span><span class="indexblack">Temple of Fear</span></b></a><br>
+                <p>A full, basic game demonstrating a lot of different features.</p>
+
+            </td>
+        </tr>
+    </table>
+    </p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p><hr>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td halign="left" valign="top" cellpadding=0 cellspacing=0 width=38px>
+                <span id=eg4><table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="oval">
+                        <td width=38px height=30px align="left" valign="center">
+                            <a href="Hybrid Choices-eg4.html#eg4" style="text-decoration: none"><div class="paragraph Body" style="line-height: 1px; margin-bottom: 0px; margin-top: 0px; padding-bottom: 0pt; padding-top: 0px; text-align: center;">
+                                <span class="extensionexampleletter">D</span></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                </span>
+            </td>
+            <td cellpadding=0 cellspacing=0 halign="left" valign="top">
+                <a href="Hybrid Choices-eg4.html#eg4" style="text-decoration: none"><img border="0" src='inform:/doc_images/asterisk.png'><img border="0" src='inform:/doc_images/asterisk.png'><img border="0" src='inform:/doc_images/asterisk.png'><b><span class="indexdarkgrey">&nbsp;Example&nbsp;</span><span class="indexblack">Colored Rooms</span></b></a><br>
+                <p>Implementing a fast travel system using a basic implementation of object choices.</p>
+
+            </td>
+        </tr>
+    </table>
+    </p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p><hr>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td halign="left" valign="top" cellpadding=0 cellspacing=0 width=38px>
+                <span id=eg5><table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="oval">
+                        <td width=38px height=30px align="left" valign="center">
+                            <a href="Hybrid Choices-eg5.html#eg5" style="text-decoration: none"><div class="paragraph Body" style="line-height: 1px; margin-bottom: 0px; margin-top: 0px; padding-bottom: 0pt; padding-top: 0px; text-align: center;">
+                                <span class="extensionexampleletter">E</span></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                </span>
+            </td>
+            <td cellpadding=0 cellspacing=0 halign="left" valign="top">
+                <a href="Hybrid Choices-eg5.html#eg5" style="text-decoration: none"><img border="0" src='inform:/doc_images/asterisk.png'><img border="0" src='inform:/doc_images/asterisk.png'><img border="0" src='inform:/doc_images/asterisk.png'><img border="0" src='inform:/doc_images/asterisk.png'><b><span class="indexdarkgrey">&nbsp;Example&nbsp;</span><span class="indexblack">The Lineup</span></b></a><br>
+                <p>An advanced implementation of object choices, demonstrating how Hybrid CYOA can be used to make a very powerful interface.</p>
+
+            </td>
+        </tr>
+    </table>
+    </p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p>
+    <!--CONTENT ENDS-->
+</body>
+</html>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ifindex version="1.0" xmlns="http://babel.ifarchive.org/protocol/iFiction/">
+    <story>
+        <identification>
+            <ifid>6CA25311-0B73-4C34-9B95-CA31A67C5483</ifid>
+            <format>glulx</format>
+        </identification>
+        <bibliographic>
+            <title>The Bed</title>
+            <author>Ruber Eaglenest and Lou Reed</author>
+            <headline>An sad song</headline>
+            <genre>Gothic</genre>
+            <firstpublished>2018</firstpublished>
+            <description>This is a rip-off of the Lou Reed's song The bed, with additional verses and mixes from songs of the entirely album Berlin. But setted earlier in time, as the tragic story of a victorian couple.</description>
+            <language>en</language>
+            <group>Inform</group>
+        </bibliographic>
+        <releases>
+            <attached>
+                <release>
+                    <releasedate>2020-09-28</releasedate>
+                    <version>1</version>
+                    <compiler>Inform 7</compiler>
+                    <compilerversion>6M62</compilerversion>
+                </release>
+            </attached>
+        </releases>
+        <colophon>
+            <generator>Inform 7</generator>
+            <generatorversion>6M62</generatorversion>
+            <originated>2020-09-28</originated>
+        </colophon>
+        <glulx>
+            <serial>200928</serial>
+            <release>1</release>
+            <compiler>Inform 7 build 6M62</compiler>
+        </glulx>
+    </story>
+</ifindex>

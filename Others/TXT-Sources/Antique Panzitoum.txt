@@ -1,0 +1,354 @@
+"Antique Panzitoum" by Abandoned Pools.
+The story headline is "A source code story".
+The story description is "No."
+
+The release number is 1.
+
+The story creation year is 2020.
+
+Chapter 1 - Near Panzitoum
+
+Section 1 - You, The Traveller
+
+The description of the player is "You are a traveller in an antique land."
+
+Section 2 - What Whispers of Trickling Sand Say
+
+When play begins:
+	say "..
+	.
+	.
+	..
+	.
+	.
+	..
+	.             .
+	.
+	..
+	.";
+	say "
+	.
+	..
+	.
+	.
+	.     ..
+	.";
+	say ".
+	.
+	..";
+	
+After printing the banner text:
+	say "   .
+	.
+	..
+	.
+	.
+	.    .
+	.
+	.";
+	say ".
+	.
+	..
+	..
+	.   .";
+
+Section 3 - Sand
+
+Sands is a room. "The specific character of this land has been buried beneath the dust. From here you might walk north, northeast, east, southeast, south, southwest, west, or northwest."
+
+A thing can be lost. A lost thing is scenery.
+Instead of doing something to a lost thing, say "If there ever was [a noun] here, it has been lost forever beneath the sands."
+
+The stone key is in the sands.
+The stone key unlocks the stone door.
+The stone key is lost.
+
+The chosen direction is a direction that varies.
+
+The boon of wondrous luck is a number that varies.
+
+Instead of going nowhere when the player is in the sands:
+	if the chosen direction is north, now the boon of wondrous luck is 82;
+	if the chosen direction is east, now the boon of wondrous luck is 45;
+	if the chosen direction is southeast, now the boon of wondrous luck is 149;
+	if the chosen direction is south, now the boon of wondrous luck is 3323;
+	if the chosen direction is southwest, now the boon of wondrous luck is 8431;
+	if the chosen direction is west, now the boon of wondrous luck is 5191;
+	if the chosen direction is northwest, now the boon of wondrous luck is 745;
+	if a random chance of 1 in boon of wondrous luck succeeds:
+		try going northeast;
+	else:
+		say "Grain of sand creak and whisper beneath your feet.
+		
+		You find yourself in a place which looks no different than the place you were before."
+		
+Chapter 2 - Just Outside Panzitoum
+
+Section 1 - Courtyard
+
+Before going to the courtyard for the first time, say "You discover something."
+
+Courtyard is northeast of the sands. "Here a stone door remains sealed, stout and whole, beneath a massive stone wall to the north."
+
+Instead of going nowhere when the player is in the courtyard, try going southwest.
+
+The stone door is north of the courtyard and south of the Monumental Way. The stone door is a door. It is scenery. It is locked.
+
+Chapter 3 - In Panzitoum
+
+A thing can be gilded.
+A thing can be wondrous.
+A thing can be fabulous.
+A thing can be monstrous.
+A thing can be glorious.
+A thing can be marvelous.
+A thing can be astounding.
+A thing can be astonishing.
+A thing can be horrifying.
+A thing can be awesome.
+
+Section 1 - The Monumental Way
+
+The Monumental Way is a room.
+
+Thirty-eight statues of conquered warlords are in the Monumental Way. They are glorious. They are gilded. They are awesome.
+
+The first plinth is a supporter in the Monumental Way.
+The second plinth is a supporter in the Monumental Way.
+The third plinth is a supporter in the Monumental Way.
+
+A cracked skull is on the third plinth. It is gilded. It is horrifying. It is monstrous.
+
+The fourth plinth is a supporter in the Monumental Way.
+
+Section 2 - The Plaza of the Sun
+
+A room can be serene.
+
+The Plaza of the Sun is north of the Monumental Way.
+
+The Ziggurat of the Sun is in the Plaza of the Sun. It is gilded. It is wondrous. It is astounding. It is fabulous.
+
+The Lobby is inside from the Plaza of the Sun.
+
+The Sanctum is down from the Lobby.
+
+The Chamber of the Hierophant is up from the lobby. It is serene.
+
+The Chamber of the Assistant of the Hierophant is southwest from the Chamber of the Hierophant. It is serene.
+
+The Chamber of the Second Assistant of the Hierophant is west from the Chamber of the Assistant of the Hierophant. It is serene.
+
+The Confusing Hallway is south of the Chamber of the Second Assistant of the Hierophant and east of the Chamber of the Assistant of the Hierophant.
+
+The Chamber of the Servant of the Hierophant is northwest from the Chamber of the Second Assistant of the hierophant and east from the Chamber of the Hierophant. It is serene.
+
+A fractured skull is in the Chamber of the Servant of the Hierophant. It is gilded.
+
+A porphory ring is in the Chamber of the Servant of the Hierophant.
+A green diamond is part of the porphory ring.
+A tiny flaw is part of the green diamond.
+
+A brass coin is in the Chamber of the Servant of the Hierophant.
+A symbol of the Monarch of Panzitoum is part of the brass coin.
+A symbol of the Ziggurat of the Sun is part of the brass coin.
+
+A stone apple is in the Chamber of the Servant of the Hierophant. It is marvelous.
+
+Section 3 - Near The Great Well
+
+A room can be sour in smell.
+
+Near the Great Well is northwest of the Monumental Way. It is sour in smell.
+
+The well itself is a container in Near the Great Well. It is astounding. It is marvelous.
+
+Countless discarded treasures are in the well itself. They are wondrous. They are fabulous. They are lost.
+
+Section 4 - Stone Arbor
+
+The Stone Arbor is northeast of the Monumental Way.
+
+A petrified tree is in the Stone Arbor. It is glorious. It is wondrous. It is astounding.
+
+A stone peach is part of the petrified tree. It is marvelous.
+A stone pear is part of the petrified tree. It is marvelous.
+A stone pineapple is part of the petrified tree. It is marvelous.
+An empty twig is part of the petrified tree.
+A stone apricot is part of the petrified tree. It is fabulous.
+A stone banana is part of the petrified tree. It is astounding.
+A stone pomegranate is part of the petrified tree. It is wondrous.
+A stone coconut is part of the petrified tree. It is marvelous.
+
+A bark slipper is in the Stone Arbor.
+
+Section 5 - Pleasure Palace Plaza
+
+A room can be dazzling.
+A room can be vast.
+A room can be all sand.
+A room can be partly sandy.
+A room can be sand-sprinkled.
+A room can be melancholy.
+
+The Plaza of the Pleasure Palace is northeast of the Plaza of the Sun. It is vast. It is dazzling. It is all sand. It is melancholy.
+
+The Inner Palace is inside from the Plaza of the Pleasure Palace. It is partly sandy. It is melancholy.
+
+The Innermost Palace is inside from the Inner Palace. It is sand-sprinkled. It is melancholy.
+
+Actually One Further Hidden Inner Palace is inside from the Innermost Palace. It is sour in smell. It is serene.
+
+A royal skeleton is in the Hidden Inner Palace. It is gilded. It is wondrous. It is monstrous.
+
+A spidersilk robe is worn by the royal skeleton.
+A pornographic embroidered scene is part of the spidersilk robe.
+The green lover is part of the embroidered scene.
+The blue lover is part of the embroidered scene.
+The checkered lover is part of the embroidered scene.
+An acrobatic tripartite kiss is part of the embroidered scene.
+A voyeuristic cricket is part of the embroidered scene.
+A very large artificial phallus is part of the embroidered scene. It is wondrous.
+
+A fingerbone is part of the royal skeleton.
+
+A jadeite ring is worn by the fingerbone.
+A pornographic carving is part of the jadeite ring.
+A tiny orgy is part of the pornographic carving.
+Twelve vigorous participants are part of the tiny orgy.
+
+A soapstone goblet is in the Hidden Inner Palace. It is a container.
+
+A scum of dried wine is in the soapstone goblet.
+A flake of dried poison is in the soapstone goblet.
+
+The Secret Passage is southwest of the Hidden Inner Palace and northwest of the Confusing Hallway.
+
+Section 6 - Necropolis
+
+A room can be hauntingly silent.
+
+A thing can be written in a language you know.
+
+The Necropolis is northeast of Near the Great Well. It is all sand. It is vast. It is hauntingly silent.
+
+Five hundred eighty two ribs are in the Necropolis. They are gilded.
+Eight hundred thirty one skulls are in the Necropolis. They are gilded.
+Two hundred ninety femurs are in the Necropolis. They are gilded.
+
+The obelisk is in the Necropolis. It is astounding. It is awesome.
+
+The inscription is part of the obelisk. It is not written in a language you know.
+
+Section 7 - The Library of Panzitoum
+
+Outside the Library of Panzitoum is west of the Necropolis. It is hauntingly silent.
+
+The Vaults are inside from Outside the Library. They are hauntingly silent.
+
+Many scrolls of accumulated knowledge are in the Vaults. They are wondrous. They are glorious. They are gilded. They are awesome. They are astounding. They are astonishing. They are not written in a language you know.
+
+An oddly familiar very large artificial phallus is in the Vaults. It is astounding.
+
+A Hidden Passageway is north of the Vaults and northeast of the Confusing Hallway.
+
+Section 8 - False Route to Confuse Intruders
+
+The Twisted Hall is northeast of the Dogleg Passage and west of the Forked Tunnel.
+
+The Dogleg Passage is north of the Sunken Way and southeast of the Dead End.
+
+The Forked Tunnel is south of the Narrow Way and southwest of the Sunken Way.
+
+Section 9 - Secret Route To The Isolated Chamber
+
+The Secret Corridor is south of the Confusing Hallway.
+
+The Obscure Junction is west of the Secret Corridor.
+
+The Isolated Chamber is southeast of the Obscure Junction.
+
+A heretical altar is in the Isolated Chamber. It is gilded. It is monstrous. It is a supporter.
+
+A heretical scripture is on the heretical altar. It is not written in a language you know.
+An obsidian knife is on the heretical altar. It is horrifying. It is monstrous.
+Two femurs are on the heretical altar. They are gilded.
+
+A bark mask is on the heretical altar. It is monstrous. It is wearable.
+
+Section 10 - The Sanctum
+
+The Sanctum is hauntingly silent. It is sand-sprinkled. It is serene. It is dark.
+
+The holy wall is in the Sanctum. It is fixed in place. It is wondrous.
+
+Ninety four sacred sun prayer carvings are part of the holy wall. They are not written in a language you know. 
+
+Section 11 - The Tomb
+
+Things can be jumbled.
+
+The Tomb is down from Sanctum. It is dark. It is all sand.
+
+Four hundred forty four bones are in the Tomb. They are gilded. They are jumbled.
+
+Section 12 - The Pit System
+
+The Pit is down from Tomb. It is dark. It is sour in smell.
+
+Seven thousand one hundred ninety one bones are in the Pit. They are gilded. They are jumbled.
+
+The Lower Pit is down from the Pit. It is dark. It is sour in smell.
+
+Eleven thousand two hundred forty one bones are in the Lower Pit. They are gilded. They are jumbled.
+
+The Uttermost Pit is down from the Lower Pit. It is dark. It is vast. It is hauntingly silent.
+
+Two hundred ninety thousand eight hundred twenty eight bones are in the Uttermost Pit. They are gilded. They are jumbled.
+
+Section 13 - The Neglected Chapel
+
+A thing can be decayed.
+
+The Neglected Chapel is south from the Uttermost Pit. It is sour in smell. It is serene.
+
+The skull of the high priest is in the Neglected Chapel. It is gilded. It is wondrous. It is decayed. It is a container.
+
+A vitrified eye is in the skull of the high priest. It is marvelous.
+
+A vision frozen at the moment of death is part of the vitrified eye. It is horrifying.
+
+Eight grains of sand are part of the vision.
+Twenty three grains of sand are part of the vision.
+Three hundred ninety seven grains of sand are part of the vision.
+Twelve thousand nine hundred forty five grains of sand are part of the vision.
+
+An unusually large artificial phallus is part of the vision.
+
+Nineteen thousand four hundred twelve grains of sand are part of the vision.
+Five hundred sixty six grains of sand are part of the vision.
+Twenty two thousand three hundred eighty seven grains of sand are part of the vision.
+
+A sacrificial knife is part of the vision.
+
+One hundred fifty nine thousand two hundred fifty two grains of sand are part of the vision.
+
+A draught of poison is part of the vision.
+
+Nine grains of sand are part of the vision.
+Two grains of sand are part of the vision.
+A grain of sand is part of the vision.
+
+The merciless passage of millennia are part of the vision.
+
+Those Who Gild the Dead are part of the vision.
+They are gilded.
+They are wondrous.
+They are fabulous.
+They are monstrous.
+They are glorious.
+They are marvelous.
+They are astounding.
+They are astonishing.
+They are horrifying.
+They are awesome.

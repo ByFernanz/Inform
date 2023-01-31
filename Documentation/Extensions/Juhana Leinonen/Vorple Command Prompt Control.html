@@ -1,0 +1,195 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>Extension</title><script type="text/javascript">	function showExtra(id, imid) {		if (document.getElementById(id).style.display == 'block') {			document.getElementById(id).style.display = 'none';			document.getElementById(imid).src = 'inform:/extra.png';		} else {			document.getElementById(id).style.display = 'block';			document.getElementById(imid).src = 'inform:/extraclose.png';		}	}    function openExtra(id, imid) {    	document.getElementById(id).style.display = 'block';    	document.getElementById(imid).src = 'inform:/extraclose.png';    }    function closeExtra(id, imid) {    	document.getElementById(id).style.display = 'none';    	document.getElementById(imid).src = 'inform:/extra.png';    }</script></head><STYLE TYPE="text/css"><!--.oval, .oval TD{background-image:url('inform:/doc_images/ovoid.png');color:white;}--></STYLE><body><script language="JavaScript">function project() {   return external.Project;}function pasteCode(code) {    var myProject = external.Project;    myProject.selectView('source');    myProject.pasteCode(code);}</script><font size=2><table CELLPADDING=0 CELLSPACING=0 width="100%" bgcolor="#000000"><tr><TD width=38px height=26px align="center" valign="center"><a href="inform://Extensions/Extensions.html" border=0><img border=0 src="inform:/doc_images/Hookindex.png" border=0></a></td><TD width=38px height=26px align="center" valign="center"></td><td halign="left" valign="center" CELLPADDING=0 CELLSPACING=0><font color="#FFFFFF" size=2>Extensions</font></a></td><TD width=56px height=26px align="right" valign="center"><a href="inform:/index.html" border=0><img border=0 src="inform:/doc_images/Hookup.png" border=0></a></td></tr></table><p><script language="JavaScript">
+function pasteCode1018(code) {
+    var myProject = project();
+
+    myProject.selectView('source');
+    myProject.pasteCode('Include Vorple Command Prompt Control by Juhana Leinonen.[=0x000A=][=0x000A=][=0x000A=]');
+}
+</script>
+<a href="javascript:pasteCode1018()"><img border=0 src=inform:/doc_images/paste.png></a>&nbsp;<b>Vorple Command Prompt Control<font color="#404040"> by </font>Juhana Leinonen</b><p><small>for Glulx only&nbsp;<p>Version 3/181103</small><p>Manually triggering parser commands, changing the contents of the command prompt and manipulating the command history.<p><p><hr><p>
+<p>
+ Chapter: Queueing parser commands
+<p>
+ The phrase
+<p>
+<blockquote><font color="#000080"> queue a parser command &quot;test me&quot;;</font></blockquote>
+<p>
+ adds a command to a queue that executes it as player input as soon as the prompt becomes available. For example, the following code runs the commands ABOUT and INVENTORY when the play begins, just as if the player would have typed the commands:
+<p>
+<blockquote><font color="#000080"> When play begins:<br>&nbsp;&nbsp;&nbsp;&nbsp; queue a parser command &quot;about&quot;;<br>&nbsp;&nbsp;&nbsp;&nbsp; queue a parser command &quot;inventory&quot;.</font></blockquote>
+<p>
+ Specifying &quot;without showing the command&quot; hides the command from view, but not the result of the command. The following example runs the command INVENTORY whenever the player examines the player character:
+<p>
+<blockquote><font color="#000080"> After examining the player:<br>&nbsp;&nbsp;&nbsp;&nbsp; queue a parser command &quot;inventory&quot;, without showing the command.</font></blockquote>
+<p>
+ The modifier causes the output to be something similar to:
+<p>
+<blockquote><font color="#000080"> &gt;x me<br> As good-looking as ever.</font></blockquote>
+<p>
+<blockquote><font color="#000080"> You are carrying nothing.</font></blockquote>
+<p>
+ Hiding the command is purely a visual effect. It doesn't stop the turn counter from incrementing or block every turn rules from running, or in any other way differ from commands that the player types. The player can also bring up the hidden command from the command history by pressing the up key (see the next chapter).
+<p>
+ The feature should be used sparingly: unless there's a specific reason to pass the commands through the parser this way, in vast majority of cases it's better to trigger actions using the standard &quot;try&quot; construct. In the previous example we should rather write &quot;After examining the player: try taking inventory.&quot;
+<p>
+ Why queue the commands instead of just passing them to the prompt immediately? Whenever any Inform code is executed, the game loop is processing a turn. Technically the input prompt is available only between turns, so we must wait for it to become available. The story can't start processing a new turn while it's still processing the previous one.
+<p>
+ Chapter: Manipulating the command history
+<p>
+ The command history is the list of commands that the player has typed previously and can be browsed by pressing the up and down keys on the keyboard. The phrases to add, remove, change and clear the command history are these:
+<p>
+<blockquote><font color="#000080"> add the command &quot;version&quot; to the command history;<br> remove the last command from the command history;<br> change the last command in the command history to &quot;examine mailbox&quot;;<br> clear the command history;</font></blockquote>
+<p>
+ Additions, removals and changes always operate on the most recent command in the history. Trying to remove commands from the history when there's nothing to remove doesn't cause an error, the phrase just doesn't do anything. The &quot;clear the command history&quot; wipes out all of them at once.
+<p>
+ This feature can be useful when combined with hidden parser commands described in the previous chapter:
+<p>
+<blockquote><font color="#000080"> queue a parser command &quot;act secretly&quot;, without showing the command;</font></blockquote>
+<p>
+<blockquote><font color="#000080"> Before acting secretly when &quot;[player's command]&quot; is &quot;act secretly&quot;:<br>&nbsp;&nbsp;&nbsp;&nbsp; remove the last command from the command history.</font></blockquote>
+<p>
+... although this is somewhat cumbersome and, as said before, much easier with a standard &quot;try acting secretly&quot; unless there's a very good reason to pass the command through the parser.
+<p>
+ Chapter: Prefilling the command line
+<p>
+ We can insert some text into the command line:
+<p>
+<blockquote><font color="#000080"> prefill the command line with &quot;look&quot;;</font></blockquote>
+<p>
+ At the end of the turn when it's the player's turn to type a command, the word &quot;look&quot; is already entered into the command line. The player can then either continue to type the rest of the command or delete the prefilled text and issue some other command.
+<p>
+ Chapter: Changing the previous command
+<p>
+ We can also visually change the text of the command the player just typed. The following example changes the abbreviation L to LOOK:
+<p>
+<blockquote><font color="#000080"> After reading a command:<br>&nbsp;&nbsp;&nbsp;&nbsp; if the player's command matches &quot;L&quot;:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; change the text of the player's previous command to &quot;LOOK&quot;.</font></blockquote>
+<p>
+ This only changes the text on the screen, nothing else. The story file still receives the original command and the command history will show the original command as well, unless changed with the &quot;change the last command in the command history&quot; phrase.
+<p>
+ Chapter: Hiding and showing the prompt
+<p>
+ (Note: this feature is for advanced usage only and not useful unless there's custom JavaScript code involved, so the documentation gets somewhat technical.)
+<p>
+ The phrases &quot;hide the prompt&quot; and &quot;unhide the prompt&quot; hide and show the command prompt. When the prompt is hidden, the player can't type any commands. This feature is useful for custom JavaScript actions that take some time to finish, e.g. retrieving data from a server, and we don't want the player to take any actions while something triggered by the previous action is still being processed.
+<p>
+ Hiding the prompt is needed only for asynchronous operations that don't already block script execution in the browser. It's not necessary to hide the prompt for slow synchronous operations that just take some time to finish.
+<p>
+ In most cases the JavaScript code itself will unhide the prompt when it's ready. The JavaScript command to show the prompt is &quot;vorple.prompt.unhide()&quot;. The script can also hide the prompt with &quot;vorple.prompt.hide()&quot;.
+<p>
+ &quot;Hide the prompt&quot; only prevents user input. Passing commands to the prompt programmatically with &quot;queue a parser command&quot; still works even when the prompt is hidden.
+<p>
+ As the name suggests, the &quot;unhide&quot; phrase only undoes what the &quot;hide the prompt&quot; phrase does. If the prompt is hidden for some other reason (e.g. the story is waiting for a keypress) it will not force the prompt to appear.
+<p>
+ Example: * Let Me Show You - A walkthrough command that automatically runs commands
+<p>
+ Many stories include a WALKTHROUGH command that either shows the list of commands that get you to the end or tells you where to find it. Here we're making a walkthrough command that actually enters the commands on the player's behalf.
+<p>
+<blockquote><font color="#000080"><script language="JavaScript">
+function pasteCode1019(code) {
+    var myProject = project();
+
+    myProject.selectView('source');
+    myProject.pasteCode('[=0x0022=]Let Me Show You[=0x0022=][=0x000A=][=0x000A=]Include Vorple Command Prompt Control by Juhana Leinonen.[=0x000A=]Release along with the [=0x0022=]Vorple[=0x0022=] interpreter.[=0x000A=][=0x000A=]Chapter 1 - World Setup[=0x000A=][=0x000A=]The Occult Store is a room.[=0x000A=][=0x000A=]The puzzle box is here. The puzzle box is a locked container. The description of the puzzle box is [=0x0022=]An intricate, wooden box with all sorts of weird decorations, including a carving of the moon, a wooden rabbit[=0x0027=]s ear, and a jewel.[=0x0022=][=0x000A=][=0x000A=]A moon carving is part of the puzzle box. A rabbit[=0x0027=]s ear is part of the puzzle box. A jewel is part of the puzzle box. A secret is in the puzzle box.[=0x000A=][=0x000A=]Correct steps taken is a number that varies. Correct steps taken is 0.[=0x000A=][=0x000A=]Instead of pushing the moon carving for the first time:[=0x000A=][=0x0009=]say [=0x0022=]You hear a faint click.[=0x0022=];[=0x000A=][=0x0009=]increment the correct steps taken.[=0x000A=][=0x000A=]Instead of pulling the rabbit[=0x0027=]s ear for the first time:[=0x000A=][=0x0009=]say [=0x0022=]The ear decoration moves a little.[=0x0022=];[=0x000A=][=0x0009=]increment the correct steps taken.[=0x000A=][=0x000A=]Instead of turning the jewel for the first time:[=0x000A=][=0x0009=]say [=0x0022=]The jewel turns just a bit.[=0x0022=];[=0x000A=][=0x0009=]increment the correct steps taken.[=0x000A=][=0x000A=]Every turn when the correct steps taken is 3:[=0x000A=][=0x0009=]say [=0x0022=]There[=0x0027=]s an audible rumble as the mechanism inside the puzzle box turns and finally unlocks the box.[=0x0022=];[=0x000A=][=0x0009=]now the puzzle box is unlocked;[=0x000A=][=0x0009=]now the correct steps taken is 0.[=0x000A=][=0x000A=]Chapter 2 - Walkthrough[=0x000A=][=0x000A=]Requesting the walkthrough is an action out of world applying to nothing.[=0x000A=]Understand [=0x0022=]walkthrough[=0x0022=] and [=0x0022=]walkthru[=0x0022=] as requesting the walkthrough.[=0x000A=][=0x000A=]Carry out requesting the walkthrough:[=0x000A=][=0x0009=]if Vorple is supported:[=0x000A=][=0x0009=][=0x0009=]say [=0x0022=]Ok, let[=0x0027=]s go...[=0x0022=];[=0x000A=][=0x0009=][=0x0009=]if the player is not carrying the puzzle box:[=0x000A=][=0x0009=][=0x0009=][=0x0009=]queue a parser command [=0x0022=]take puzzle box[=0x0022=];[=0x000A=][=0x0009=][=0x0009=]queue a parser command [=0x0022=]push moon[=0x0022=];[=0x000A=][=0x0009=][=0x0009=]queue a parser command [=0x0022=]pull ear[=0x0022=];[=0x000A=][=0x0009=][=0x0009=]queue a parser command [=0x0022=]turn jewel[=0x0022=];[=0x000A=][=0x0009=]otherwise:[=0x000A=][=0x0009=][=0x0009=]say [=0x0022=]Try this: PUSH MOON / PULL EAR / TURN JEWEL[=0x0022=].[=0x000A=][=0x000A=]Test me with [=0x0022=]walkthrough[=0x0022=].[=0x000A=][=0x000A=]');
+}
+</script>
+<a href="javascript:pasteCode1019()"><img border=0 src=inform:/doc_images/paste.png></a> &quot;Let Me Show You&quot;</font></blockquote>
+<p>
+<blockquote><font color="#000080"> Include Vorple Command Prompt Control by Juhana Leinonen.<br> Release along with the &quot;Vorple&quot; interpreter.</font></blockquote>
+<p>
+<blockquote><font color="#000080"> Chapter 1 - World Setup</font></blockquote>
+<p>
+<blockquote><font color="#000080"> The Occult Store is a room.</font></blockquote>
+<p>
+<blockquote><font color="#000080"> The puzzle box is here. The puzzle box is a locked container. The description of the puzzle box is &quot;An intricate, wooden box with all sorts of weird decorations, including a carving of the moon, a wooden rabbit's ear, and a jewel.&quot;</font></blockquote>
+<p>
+<blockquote><font color="#000080"> A moon carving is part of the puzzle box. A rabbit's ear is part of the puzzle box. A jewel is part of the puzzle box. A secret is in the puzzle box.</font></blockquote>
+<p>
+<blockquote><font color="#000080"> Correct steps taken is a number that varies. Correct steps taken is 0.</font></blockquote>
+<p>
+<blockquote><font color="#000080"> Instead of pushing the moon carving for the first time:<br>&nbsp;&nbsp;&nbsp;&nbsp; say &quot;You hear a faint click.&quot;;<br>&nbsp;&nbsp;&nbsp;&nbsp; increment the correct steps taken.</font></blockquote>
+<p>
+<blockquote><font color="#000080"> Instead of pulling the rabbit's ear for the first time:<br>&nbsp;&nbsp;&nbsp;&nbsp; say &quot;The ear decoration moves a little.&quot;;<br>&nbsp;&nbsp;&nbsp;&nbsp; increment the correct steps taken.</font></blockquote>
+<p>
+<blockquote><font color="#000080"> Instead of turning the jewel for the first time:<br>&nbsp;&nbsp;&nbsp;&nbsp; say &quot;The jewel turns just a bit.&quot;;<br>&nbsp;&nbsp;&nbsp;&nbsp; increment the correct steps taken.</font></blockquote>
+<p>
+<blockquote><font color="#000080"> Every turn when the correct steps taken is 3:<br>&nbsp;&nbsp;&nbsp;&nbsp; say &quot;There's an audible rumble as the mechanism inside the puzzle box turns and finally unlocks the box.&quot;;<br>&nbsp;&nbsp;&nbsp;&nbsp; now the puzzle box is unlocked;<br>&nbsp;&nbsp;&nbsp;&nbsp; now the correct steps taken is 0.</font></blockquote>
+<p>
+<blockquote><font color="#000080"> Chapter 2 - Walkthrough</font></blockquote>
+<p>
+<blockquote><font color="#000080"> Requesting the walkthrough is an action out of world applying to nothing.<br> Understand &quot;walkthrough&quot; and &quot;walkthru&quot; as requesting the walkthrough.</font></blockquote>
+<p>
+<blockquote><font color="#000080"> Carry out requesting the walkthrough:<br>&nbsp;&nbsp;&nbsp;&nbsp; if Vorple is supported:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say &quot;Ok, let's go...&quot;;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if the player is not carrying the puzzle box:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; queue a parser command &quot;take puzzle box&quot;;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; queue a parser command &quot;push moon&quot;;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; queue a parser command &quot;pull ear&quot;;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; queue a parser command &quot;turn jewel&quot;;<br>&nbsp;&nbsp;&nbsp;&nbsp; otherwise:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; say &quot;Try this: PUSH MOON / PULL EAR / TURN JEWEL&quot;.</font></blockquote>
+<p>
+<blockquote><font color="#000080"> Test me with &quot;walkthrough&quot;.</font></blockquote>
+<p>
+ Example: ** Clarification Helper - Prefilling the command line with a partial command
+<p>
+ This example shows brings the player's command back to the command prompt after the story has shown the &quot;What do you want to...&quot; clarification request. If the player types just &quot;take&quot;, the story asks &quot;What do you want to take?&quot;. The word &quot;take&quot; is added to the next prompt and the player can continue typing with the name of the thing that they wanted to take.
+<p>
+<blockquote><font color="#000080"><script language="JavaScript">
+function pasteCode1020(code) {
+    var myProject = project();
+
+    myProject.selectView('source');
+    myProject.pasteCode('[=0x0022=]Clarification Helper[=0x0022=][=0x000A=][=0x000A=]Include Vorple Command Prompt Control by Juhana Leinonen.[=0x000A=]Release along with the [=0x0022=]Vorple[=0x0022=] interpreter.[=0x000A=][=0x000A=]After issuing the response text of a response (called R):[=0x000A=][=0x0009=]if R is parser clarification internal rule response (D) or R is parser clarification internal rule response (E):[=0x000A=][=0x0009=][=0x0009=]prefill the command line with [=0x0022=][parser command so far] [=0x0022=].[=0x000A=][=0x000A=]The playroom is a room. A wooden block and a toy horse are here.[=0x000A=][=0x000A=]Test me with [=0x0022=]x[=0x0022=].[=0x000A=][=0x000A=]');
+}
+</script>
+<a href="javascript:pasteCode1020()"><img border=0 src=inform:/doc_images/paste.png></a> &quot;Clarification Helper&quot;</font></blockquote>
+<p>
+<blockquote><font color="#000080"> Include Vorple Command Prompt Control by Juhana Leinonen.<br> Release along with the &quot;Vorple&quot; interpreter.</font></blockquote>
+<p>
+<blockquote><font color="#000080"> After issuing the response text of a response (called R):<br>&nbsp;&nbsp;&nbsp;&nbsp; if R is parser clarification internal rule response (D) or R is parser clarification internal rule response (E):<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; prefill the command line with &quot;[parser command so far] &quot;.</font></blockquote>
+<p>
+<blockquote><font color="#000080"> The playroom is a room. A wooden block and a toy horse are here.</font></blockquote>
+<p>
+<blockquote><font color="#000080"> Test me with &quot;x&quot;.</font></blockquote>
+<p>
+ Example: *** The Manchurian Candidate - Retroactively replacing the player's commands
+<p>
+ A common trick to force the player to type a specific command is to print a fake command prompt, wait for keypresses and print the predetermined command one character at a time, regardless of what keys the player actually presses.
+<p>
+ Thanks to the full control we have over the command line and the output, we can take the effect one step further and switch the player's command to something else after the player has already typed it.
+<p>
+ This example gives the effect the full treatment: the player's command is intercepted and replaced with a new one inside the game itself, in the scrollback, and in the command history. The fake commands are functionally identical to any commands the user would have typed themselves.
+<p>
+<blockquote><font color="#000080"><script language="JavaScript">
+function pasteCode1021(code) {
+    var myProject = project();
+
+    myProject.selectView('source');
+    myProject.pasteCode('[=0x0022=]The Manchurian Candidate[=0x0022=][=0x000A=][=0x000A=]Include Vorple Command Prompt Control by Juhana Leinonen.[=0x000A=]Release along with the [=0x0022=]Vorple[=0x0022=] interpreter.[=0x000A=][=0x000A=]Chapter 1 - Forcing commands[=0x000A=][=0x000A=]The list of forced commands is a list of text that varies. The list of forced commands is { [=0x0022=]enter book depository[=0x0022=], [=0x0022=]up[=0x0022=], [=0x0022=]open window[=0x0022=], [=0x0022=]inventory[=0x0022=], [=0x0022=]put rifle on sill[=0x0022=], [=0x0022=]shoot[=0x0022=] }.[=0x000A=][=0x000A=]After reading a command when the list of forced commands is not empty:[=0x000A=][=0x0009=]let the new command be entry 1 in the list of forced commands;[=0x000A=][=0x0009=]change the text of the player[=0x0027=]s command to the new command;[=0x000A=][=0x0009=]change the text of the player[=0x0027=]s previous command to the new command;[=0x000A=][=0x0009=]change the last command in the command history to the new command;[=0x000A=][=0x0009=]remove entry 1 from the list of forced commands.[=0x000A=][=0x000A=]Chapter 2 - World Setup[=0x000A=][=0x000A=]Elm Street is a room. The book depository is scenery in Elm Street.[=0x000A=][=0x000A=]The Book Depository Foyer is a room.[=0x000A=]The Sixth Floor is up from the Book Depository Foyer.[=0x000A=]The window is in the Sixth Floor. The window can be openable. The window can be open or closed. It is openable and closed. A sill is part of the window. The sill is a supporter.[=0x000A=][=0x000A=]The player is carrying a rifle.[=0x000A=][=0x000A=]Instead of entering the book depository:[=0x000A=][=0x0009=]say [=0x0022=]Something compels you to go inside the book depository.[=0x0022=];[=0x000A=][=0x0009=]now the player is in the Book Depository Foyer.[=0x000A=][=0x000A=]Before going up from the Book Depository Foyer:[=0x000A=][=0x0009=]say [=0x0022=]You can[=0x0027=]t help but move up the stairs.[=0x0022=][=0x000A=][=0x000A=]After opening the window:[=0x000A=][=0x0009=]say [=0x0022=]The presidential motorcade is just approaching in the distance.[=0x0022=][=0x000A=][=0x000A=]Instead of taking inventory:[=0x000A=][=0x0009=]say [=0x0022=]You are carrying a rifle. You can[=0x0027=]t remember where you got it.[=0x0022=][=0x000A=][=0x000A=]After putting the rifle on the sill:[=0x000A=][=0x0009=]say [=0x0022=]You place the rifle on the window sill.[=0x0022=][=0x000A=][=0x000A=]Shooting is an action applying to nothing. Understand [=0x0022=]shoot[=0x0022=] as shooting.[=0x000A=]Carry out shooting:[=0x000A=][=0x0009=]say [=0x0022=]Without hesitation you take aim and squeeze the trigger...[=0x0022=];[=0x000A=][=0x0009=]end the story.[=0x000A=][=0x000A=]');
+}
+</script>
+<a href="javascript:pasteCode1021()"><img border=0 src=inform:/doc_images/paste.png></a> &quot;The Manchurian Candidate&quot;</font></blockquote>
+<p>
+<blockquote><font color="#000080"> Include Vorple Command Prompt Control by Juhana Leinonen.<br> Release along with the &quot;Vorple&quot; interpreter.</font></blockquote>
+<p>
+<blockquote><font color="#000080"> Chapter 1 - Forcing commands</font></blockquote>
+<p>
+<blockquote><font color="#000080"> The list of forced commands is a list of text that varies. The list of forced commands is { &quot;enter book depository&quot;, &quot;up&quot;, &quot;open window&quot;, &quot;inventory&quot;, &quot;put rifle on sill&quot;, &quot;shoot&quot; }.</font></blockquote>
+<p>
+<blockquote><font color="#000080"> After reading a command when the list of forced commands is not empty:<br>&nbsp;&nbsp;&nbsp;&nbsp; let the new command be entry 1 in the list of forced commands;<br>&nbsp;&nbsp;&nbsp;&nbsp; change the text of the player's command to the new command;<br>&nbsp;&nbsp;&nbsp;&nbsp; change the text of the player's previous command to the new command;<br>&nbsp;&nbsp;&nbsp;&nbsp; change the last command in the command history to the new command;<br>&nbsp;&nbsp;&nbsp;&nbsp; remove entry 1 from the list of forced commands.</font></blockquote>
+<p>
+<blockquote><font color="#000080"> Chapter 2 - World Setup</font></blockquote>
+<p>
+<blockquote><font color="#000080"> Elm Street is a room. The book depository is scenery in Elm Street.</font></blockquote>
+<p>
+<blockquote><font color="#000080"> The Book Depository Foyer is a room.<br> The Sixth Floor is up from the Book Depository Foyer.<br> The window is in the Sixth Floor. The window can be openable. The window can be open or closed. It is openable and closed. A sill is part of the window. The sill is a supporter.</font></blockquote>
+<p>
+<blockquote><font color="#000080"> The player is carrying a rifle.</font></blockquote>
+<p>
+<blockquote><font color="#000080"> Instead of entering the book depository:<br>&nbsp;&nbsp;&nbsp;&nbsp; say &quot;Something compels you to go inside the book depository.&quot;;<br>&nbsp;&nbsp;&nbsp;&nbsp; now the player is in the Book Depository Foyer.</font></blockquote>
+<p>
+<blockquote><font color="#000080"> Before going up from the Book Depository Foyer:<br>&nbsp;&nbsp;&nbsp;&nbsp; say &quot;You can't help but move up the stairs.&quot;</font></blockquote>
+<p>
+<blockquote><font color="#000080"> After opening the window:<br>&nbsp;&nbsp;&nbsp;&nbsp; say &quot;The presidential motorcade is just approaching in the distance.&quot;</font></blockquote>
+<p>
+<blockquote><font color="#000080"> Instead of taking inventory:<br>&nbsp;&nbsp;&nbsp;&nbsp; say &quot;You are carrying a rifle. You can't remember where you got it.&quot;</font></blockquote>
+<p>
+<blockquote><font color="#000080"> After putting the rifle on the sill:<br>&nbsp;&nbsp;&nbsp;&nbsp; say &quot;You place the rifle on the window sill.&quot;</font></blockquote>
+<p>
+<blockquote><font color="#000080"> Shooting is an action applying to nothing. Understand &quot;shoot&quot; as shooting.<br> Carry out shooting:<br>&nbsp;&nbsp;&nbsp;&nbsp; say &quot;Without hesitation you take aim and squeeze the trigger...&quot;;<br>&nbsp;&nbsp;&nbsp;&nbsp; end the story.</font></blockquote>
+<p>
+
+<p>
+<p></body></html>

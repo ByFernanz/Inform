@@ -1,0 +1,2217 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Extension</title>
+    <style type="text/css">
+        <!--
+        /* The default font (family) and size */
+
+        body, p, td {
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.8rem; /* 100/125 */
+        }
+
+        /* For fixed-point material within text, such as the typing on the Library Card index page */
+
+        span.typewritten {
+        	font-family: monospace;
+        	font-size: 0.867rem; /* 13/12 * 100/125 */
+        }
+
+        /* For less important material: the small print */
+
+        span.smaller {
+        	font-size: 80%;
+        }
+
+        /* The "heading panel" is the coloured box, high up on the page. The colours
+        vary depending on the page: for example, the style on a report of a translation
+        with no problems is "headingpanelsucceeded", usually green, but if there were
+        problems then "headingpanelfailed" is used, which is usually red. "headingpanel"
+        itself is a more neutral grey by default. "headingpanelDark" is an alternative
+        look to make the extensions index pages have some visual contrast with the others;
+        by default they are a darker grey. */
+
+        .headingpanel {
+        	background: #eeeeee;
+        }
+        .headingpanelsucceeded {
+        	background: #E6FFE6;
+        }
+        .headingpanelfailed {
+        	background: #f69Ca6;
+        }
+        .headingpanelalt {
+        	background: #808080;
+        }
+
+        /* Heading panels have two lines of text: an upper one in a larger size, and a
+        lower one in a smaller. Again, the alt versions are meant to contrast.
+
+        	Report on Translation: Succeeded                <-- headingpaneltext
+        	Produced by Inform 10.1.0 (build 6U97)          <-- headingpanelrubric
+
+        	Installed Extensions                            <-- headingpaneltextalt
+        	Bundles of extra rules or phrases to...         <-- headingpanelrubricalt
+
+        */
+
+        span.headingpaneltext {
+        	color: #222222;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+        span.headingpaneltextalt {
+        	color: #ffffff;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        span.headingpanelrubric {
+        	color: #222222;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.733rem; /* 11/12 * 100/125 */
+        	font-weight: bold;
+        }
+        span.headingpanelrubricalt {
+        	color: #ffffff;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.733rem; /* 11/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* Horizontal rule styling */
+
+        div.hr {
+        	border: 0;
+        	width: 100%;
+        	color: #707070;
+        	background-color: #707070;
+        	height: 5px;
+        }
+
+        /* This styles the (usually white) text of the example numbers written inside
+        oval blobs in the extension documentation, which mimic the look of the in-app
+        documentation. */
+
+        .oval, .oval td {
+        	background-image:url('inform:/doc_images/ovoid.png');
+        	color:white;
+        }
+
+        /* Styling used in the extension documentation indexes: */
+
+        /* Used for extension names in the extensions pane of the app */
+
+        span.extensioncensusentry {
+        	color: #ffffff;
+        }
+
+        span.extensionindexentry {
+        	color: #404040;
+        }
+
+        span.extensionindexerror {
+        	color: #ff8080;
+        }
+
+        /* This is used in extension documentation, where an example is presented
+        in a slightly tinted box: */
+
+        table.extensionexample {
+        	background-color: #f0f0f0;
+        }
+
+        span.extensionexampleletter {
+        	color: #202020;
+        	font-size: 14px;
+        	font-weight: bold;
+        }
+
+        /* Seen in problem messages: */
+
+        span.problemred {
+        	color: #800000;
+        }
+
+        span.problemgreen {
+        	color: #008000;
+        }
+
+        span.phraseword {
+        	color: #808080;
+        }
+
+        span.phrasetokentext {
+        	color: #e00060;
+        }
+
+        span.phrasetokendesctext {
+        	color: #4040ff;
+        }
+
+        span.phrasetokenvaluetext {
+        	color: #ff4040;
+        }
+
+        /* Now we move on to styling used in the Index pages only: */
+
+        /* The periodic table display has "sidebars", usually grey and taller than they
+        are wide; they contain no text. */
+
+        div.periodictablesidebarcolour {
+        	background: #888;
+        }
+        div.periodictablesidebar:hover {
+        	background: #222;
+        }
+
+        /* The text of the element-abbreviation, such as "Lx" or "Ph", uses: */
+
+        span.elementtext {
+        	color: #ffffff;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* Similarly for the "atomic number" - a single digit - in the top left corner
+        of these boxes: */
+
+        span.elementnumbertext {
+        	color: #ffffff;
+        	font-size: 0.622rem; /* 7/12 * 96/72 * 100/125 */
+        }
+
+        /* For the text of the element title, to the right of the element box: */
+
+        span.elementtitletext {
+        	color: #ffffff;
+        	font-size: 0.6rem; /* 9/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* The banner at the top of each element: */
+
+        table.elementbanner {
+        	background: #eeeeee;
+        }
+
+        /* For the typewriting on the Library Card: */
+
+        span.librarycardtitle {
+        	color: #803030;
+        }
+
+        span.librarycardother {
+        	color: #303030;
+        }
+
+        /* Generically used for "more details" boxes in the index: */
+
+        table.indexmorebox {
+        	background-color: #e0e0e0;
+            border-radius: 8px;
+        }
+
+        /* But not for activity contents: */
+
+        table.indexactivitycontents {
+        	background-color: #e8e0c0;
+            border-radius: 8px;
+        }
+
+        /* For responses in index entries about rules: */
+
+        span.indexresponseletter {
+        	color: #ffffff;
+        	font-family: 'Courier New', Courier, monospace;
+        	background-color: #8080ff;
+        }
+
+        span.indexresponsetext {
+        	color: #000066;
+        }
+
+        /* Used ubiquitously throughout the index and extension documentation: */
+
+        span.indexblack {
+        	color: #000000;
+        }
+
+        span.indexgrey {
+        	color: #808080;
+        }
+
+        span.indexdarkgrey {
+            color: #505050;
+        }
+
+        span.indexdullred {
+        	color: #800000;
+        }
+
+        span.indexdullgreen {
+        	color: #008000;
+        }
+
+        span.indexdullblue {
+        	color: #000080;
+        }
+
+        /* Used for the room squares in the World map in the Index (which is currently
+        a table with one row of one column) */
+
+        table.indexmaproom {
+        	border-color: #000000;
+        }
+
+        /* Used in the numbering of levels of the World map in the Index */
+
+        span.indexmaplevelnumbers {
+        	color: #c0c0c0;
+        }
+
+        /* Used e.g. for title rows in the Chart of basic kinds in the Index */
+
+        tr.headingrow {
+        	background-color: #e0e0e0;
+        }
+
+        /* Standard rows have black text on striped background colours, these being
+        the usual ones seen in Mac OS X applications such as iTunes. */
+
+        tr.stripeone {
+        	background-color: #ffffff;
+        }
+
+        tr.stripetwo {
+        	background-color: #f3f6fa;
+        }
+
+        tr.tintedrow {
+        	background-color: #808080;
+        }
+
+        /* In the Figures index, this is the background colour used behind images
+        (though in fact it will only be visible if the image fails to load, or uses
+        transparency): */
+
+        div.figureindexbox {
+        	background-color: #6495ed;
+        }
+
+        /* To get the book-contents-page style leaders on the Contents element of
+           the index to work, these must use the background colour of the body of
+           the page, whatever that is: */
+
+        ul.leaders li.leaded span:first-child {
+        	background: white;
+        }
+        ul.leaders li.leaded span + span {
+        	background: white;
+        }
+
+        /* On Registry index pages (such as the Public Library), these are used for
+        download buttons and the like: */
+
+        span.registrybuttontext {
+        	font-size: 11px;
+        	border-color: #000000;
+        }
+
+        span.registryminibuttontext {
+        	font-size: 10px;
+        	border-color: #000000;
+        }
+
+        span.registrybuttonuninstalled {
+        	color: #000000;
+        	background: #ffffdd;
+        }
+
+        span.registrybuttoninstalled {
+        	color: #000000;
+        	background: #ffffff;
+        	pointer-events: none;
+        }
+
+        span.registrybuttonbuiltin {
+        	color: #888888;
+        	background: #ffffff;
+        	pointer-events: none;
+        }
+
+        span.registrybuttonupdate {
+        	color: #000000;
+        	background: #aaddff;
+        }
+
+        span.registrybuttonrevert {
+        	color: #000000;
+        	background: #ddaaff;
+        }
+
+        span.registrybuttonrevealer {
+        	color: #ffffff;
+        	background: #444444;
+        }
+
+        /* Registry index section headings: */
+
+        span.registrysectionname {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 16px;
+        	line-height: 18px;
+        }
+        span.registrysubsectionname {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 14px;
+        	line-height: 16px;
+        }
+
+        /* These are for the "mark" for a section, usually a section-symbol and number */
+
+        span.registrysectionmark {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 16px;
+        	line-height: 18px;
+        	color: #666;
+        }
+        span.registrysubsectionmark {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 14px;
+        	line-height: 16px;
+        	color: #666;
+        }
+
+        /* Text of an item listed in a registry: */
+
+        span.registryitemtext {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 12px;
+        	line-height: 16px;
+        }
+
+        /* And how the links in a registry index page behave: */
+
+        a.registrysilentlink {
+        	text-decoration: none;
+        	color: #000;
+        }
+        a.registrybuttonlink {
+        	text-decoration: none;
+        }
+        a.registrycontentslink:link {
+        	text-decoration: none;
+        	color: #202020;
+        }
+        a.registrycontentslink:visited {
+        	text-decoration: none;
+        	color: #202020;
+        }
+        a.registrycontentslink:hover {
+        	text-decoration: none;
+        	color: #D00000;
+        }
+        a.registrycontentslink:active {
+        	text-decoration: none;
+        	color: #D00000;
+        }
+
+        -->
+    </style>
+    <style type="text/css">
+        <!--
+        /* (1) General layout material */
+
+        *, *:before, *:after {
+        	-moz-box-sizing: border-box;
+        	-webkit-box-sizing: border-box;
+        	box-sizing: border-box;
+        }
+        .headingpanellayout {
+        	position: relative;
+        	height: 56px;
+        	padding: 0px;
+        	white-space:nowrap;
+        }
+        .headingpanellayoutdeeper {
+        	position: relative;
+        	height: 117px;
+        	padding: 0px;
+        	white-space:nowrap;
+        }
+        .headingtext {
+        	position: absolute;
+        	top: -4px;
+        	left: -1px;
+        	width: 100%;
+        	padding: 14px 10px 0px 10px;
+        }
+        .headingrubric {
+        	position: absolute;
+        	top: 36px;
+        	width: 100%;
+        	padding: 0px 10px 0px 10px;
+        }
+        h3.tighter {
+        	margin-top: 0px;
+        }
+        p.hang {
+        	padding-left: 25px;
+        	text-indent: -25px;
+        	margin-top: 0px;
+        	margin-bottom: 0px;
+        }
+        p.in1 {
+        	padding-left: 0px;
+        }
+        p.tightin1 {
+        	padding-left: 0px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin1 {
+        	padding-left: 0px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin1 {
+        	padding-left: 50px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in2 {
+        	padding-left: 25px;
+        }
+        p.tightin2 {
+        	padding-left: 25px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin2 {
+        	padding-left: 25px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin2 {
+        	padding-left: 75px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in3 {
+        	padding-left: 50px;
+        }
+        p.tightin3 {
+        	padding-left: 50px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin3 {
+        	padding-left: 50px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin3 {
+        	padding-left: 100px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in4 {
+        	padding-left: 75px;
+        }
+        p.tightin4 {
+        	padding-left: 75px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin4 {
+        	padding-left: 75px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin4 {
+        	padding-left: 125px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in5 {
+        	padding-left: 100px;
+        }
+        p.tightin5 {
+        	padding-left: 100px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin5 {
+        	padding-left: 100px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin5 {
+        	padding-left: 150px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in6 {
+        	padding-left: 125px;
+        }
+        p.tightin6 {
+        	padding-left: 125px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin6 {
+        	padding-left: 125px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin6 {
+        	padding-left: 175px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in7 {
+        	padding-left: 150px;
+        }
+        p.tightin7 {
+        	padding-left: 150px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin7 {
+        	padding-left: 150px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin7 {
+        	padding-left: 200px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in8 {
+        	padding-left: 175px;
+        }
+        p.tightin8 {
+        	padding-left: 175px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin8 {
+        	padding-left: 175px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin8 {
+        	padding-left: 225px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in9 {
+        	padding-left: 200px;
+        }
+        p.tightin9 {
+        	padding-left: 200px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin9 {
+        	padding-left: 200px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin9 {
+        	padding-left: 250px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+
+        /* (2) Index page layout material */
+
+        /* The periodic table display has "sidebars", usually grey and taller than they
+        are wide; they contain no text. */
+
+        div.periodictablesidebar {
+        	height: 56px;
+        	width: 16px;
+        }
+        .periodictablesidebar a:link { text-decoration: none; }
+        .periodictablesidebar a:visited { text-decoration: none; }
+        .periodictablesidebar a:active { text-decoration: none; }
+
+        /* The "element boxes" are the cells appearing in the periodic-table display
+        on the welcome page of the index: */
+
+        .elementbox {
+        	position: relative;
+        	height: 56px;
+        	width: 56px;
+        	padding: 0px;
+        }
+
+        .elementbox a:link { text-decoration: none; }
+        .elementbox a:visited { text-decoration: none; }
+        .elementbox a:active { text-decoration: none; }
+        .elementbox a:hover { text-decoration: none; }
+        .elementbox:hover {
+        	opacity: 0.6;
+        }
+
+        /* The "small element boxes" look like those, but are smaller, and used on
+        the headings of the content which those original boxes link to: */
+
+        .smallelementbox {
+        	position: relative;
+        	height: 40px;
+        	width: 40px;
+        	padding: 0px;
+        }
+
+        .smallelementbox a:link { text-decoration: none; }
+        .smallelementbox a:visited { text-decoration: none; }
+        .smallelementbox a:active { text-decoration: none; }
+        .smallelementbox a:hover { text-decoration: none; }
+        .smallelementbox:hover {
+        	opacity: 0.6;
+        }
+
+        /* This is a class for the links formed by the element boxes: */
+
+        a.elementlink {
+        	position: absolute;
+        	top: -4px;
+        	left: -1px;
+        	width: 100%;
+        	padding: 14px 0px 14px 1px;
+        	text-align: center;
+        }
+
+        /* Similarly for the "atomic number" - a single digit - in the top left corner
+        of these boxes: */
+
+        div.elementnumber {
+        	position: absolute;
+        	top: 1px;
+        	left: 3px;
+        	text-align: left;
+        }
+
+        /* For the text of the element title, to the right of the element box: */
+
+        div.elementtitle {
+        	position: absolute;
+        	top: 35px;
+        	width: 100%;
+        	text-align: center;
+        }
+
+        /* Used for the book-contents-page style leaders on the Contents element of
+           the index: */
+
+        ul.leaders {
+        	padding: 0;
+        	margin-top: 1px;
+        	margin-bottom: 0;
+        	overflow-x: hidden;
+        	list-style: none}
+        ul.leaders li.leaded:before {
+        	float: left;
+        	width: 0;
+        	white-space: nowrap;
+        	content:
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "}
+        ul.leaders li.leaded span:first-child {
+        	padding-right: 0.33em;
+        }
+        ul.leaders li.leaded span + span {
+        	float: right;
+        	padding-left: 0.33em;
+        }
+        li.indent1 span:first-child {
+        	padding-left: 25px;
+        }
+        li.indent2 span:first-child {
+        	padding-left: 50px;
+        }
+        li.indent3 span:first-child {
+        	padding-left: 75px;
+        }
+        li.indent4 span:first-child {
+        	padding-left: 100px;
+        }
+        li.indent5 span:first-child {
+        	padding-left: 125px;
+        }
+        li.indent6 span:first-child {
+        	padding-left: 150px;
+        }
+        li.indent7 span:first-child {
+        	padding-left: 175px;
+        }
+        li.indent8 span:first-child {
+        	padding-left: 200px;
+        }
+        li.indent9 span:first-child {
+        	padding-left: 225px;
+        }
+
+        li.unleaded:before {
+        	content: "";
+        }
+
+        /* On Registry index pages (such as the Public Library), these are used for
+        download buttons and the like: */
+
+        span.registrybuttons {
+        	height: 20px;
+        	padding: 2px 8px 2px 8px;
+        	margin: 2px;
+        	border:1px solid;
+        	border-radius: 5px;
+        }
+
+        span.registryminibuttons {
+        	height: 14px;
+        	padding: 2px 5px 2px 5px;
+        	margin: 2px;
+        	border:1px solid;
+        	border-radius: 4px;
+        }
+
+        /* Used to hide or display sections in the Registry pages: */
+
+        div.registrysectionitemsopen {
+        	display: block;
+        }
+
+        div.registrysectionitemsclosed {
+        	display: none;
+        }
+
+        /* Hanging indentation for Registry item paragraphs: */
+
+        p.registryitem {
+        	padding-left: 80px;
+        	text-indent: -40px;
+        }
+
+        p.registryaddition {
+        	padding-left: 40px;
+        	text-indent: -40px;
+        }
+
+        -->
+    </style>
+    <script type="text/javascript">
+        function project() {
+            return window.Project;
+        }
+        function showExtra(id, imid) {
+        	if (document.getElementById(id).style.display == 'block') {
+        		document.getElementById(id).style.display = 'none';
+        		document.getElementById(imid).src = 'inform:/extra.png';
+        	} else {
+        		document.getElementById(id).style.display = 'block';
+        		document.getElementById(imid).src = 'inform:/extraclose.png';
+        	}
+        }
+        function openExtra(id, imid) {
+        	document.getElementById(id).style.display = 'block';
+        	document.getElementById(imid).src = 'inform:/extraclose.png';
+        }
+        function closeExtra(id, imid) {
+        	document.getElementById(id).style.display = 'none';
+        	document.getElementById(imid).src = 'inform:/extra.png';
+        }
+        function pasteCode(code) {
+            var myProject = project();
+
+            myProject.selectView('source');
+            myProject.pasteCode(code);
+        }
+
+    </script>
+</head>
+<body>
+    <!--CONTENT BEGINS-->
+    <table CELLPADDING=0 CELLSPACING=0 width="100%" bgcolor="#000000"><tr><TD width=38px height=26px align="center" valign="center"><a href="inform://Extensions/Extensions.html" border=0><img border=0 src="inform:/doc_images/Hookindex.png" border=0></a></td><TD width=38px height=26px align="center" valign="center"></td><td halign="left" valign="center" CELLPADDING=0 CELLSPACING=0><font color="#FFFFFF" size=2>Extensions</font></a></td><TD width=56px height=26px align="right" valign="center"><a href="inform:/index.html" border=0><img border=0 src="inform:/doc_images/Hookup.png" border=0></a></td></tr></table>
+
+    <p><a href="javascript:pasteCode('Include Adventure Book by Edward Griffiths.[=0x000A=][=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a>&nbsp;<b>Adventure Book<span class="extensionindexentry"> by </span>Edward Griffiths</b></p>
+    <p><span class="smaller">Version 1.0.140513</span></p>
+    <p>A system for creating Choose Your Own Adventure style programs, with advanced features.</p>
+    <p></p>
+    <hr>
+    <p><span class="indexblack"><b><a style="text-decoration: none" href=#docsec1>Chapter 1: </a></b></span>How to Write an Adventure Book<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec2>Section 1.1: </a></span>Introduction<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec3>Section 1.2: </a></span>Version History<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec4>Section 1.3: </a></span>Setting Up a Page<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec5>Section 1.4: </a></span>Choices<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec6>Section 1.5: </a></span>Pages Without Choices<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec7>Chapter 2: </a></b></span>Advanced Features<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec8>Section 2.1: </a></span>Setting Conditions<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec9>Section 2.2: </a></span>Inventory Items<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec10>Section 2.3: </a></span>Magic Words<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec11>Section 2.4: </a></span>Debugging<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec12>Chapter 3: </a></b></span>Integrating Inform 7 Code<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec13>Section 3.1: </a></span>Relationships<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec14>Section 3.2: </a></span>The Adventure Book Phrasebook<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec15>Section 3.3: </a></span>New Commands<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec16>Section 3.4: </a></span>Running Inform Code<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec17>Chapter 4: </a></b></span>Changes From the Original Adventure Book<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec18>Section 4.1: </a></span>Feature Changes<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec19>Section 4.2: </a></span>Porting Original Adventure Book Programs<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec20>Chapter 5: </a></b></span>Examples<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec21>Section 5.1: </a></span>Special Effects<br>
+    <br>
+    <b>Examples</b><br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href="Adventure Book-eg1.html#eg1">A &mdash; Simple Choices</a></span><br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href="Adventure Book-eg2.html#eg2">B &mdash; Conversation Trees</a></span><br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href="Adventure Book-eg3.html#eg3">C &mdash; Lockable Door</a></span><br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href="Adventure Book-eg4.html#eg4">D &mdash; Adaptive Text</a></span><br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href="Adventure Book-eg5.html#eg5">E &mdash; Winning and Dying</a></span><br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href="Adventure Book-eg6.html#eg6">F &mdash; Combat System</a></span><br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href="Adventure Book-eg7.html#eg7">G &mdash; Placebo!</a></span><br>
+    </p>
+    <hr>
+    <p></p>
+    </p>
+
+    <p><p><span class="indexdullred"><b><span id=docsec1>Chapter 1: How to Write an Adventure Book</span></b></span></p>
+    </p>
+
+    <p><p><span class="indexblack"><b><span id=docsec2>Section 1.1: Introduction</span></b></span></p>
+    </p>
+
+    <p> Adventure Book for Inform 7 is a recreation of the behavior of Jon Ingold's Adventure Book programming system. It offers a reasonably simple syntax for people who would like to create Choose Your Own Adventure style programs without a lot of hassle, but it also allows for some advanced features to make your program feel more like a real game -- changing conditions, inventory items, and magic words.</p>
+
+    <p> This documentation assumes some familiarity with Inform 7, but it's written with beginners and non-programmers in mind.</p>
+
+    <p> Special thanks to Jon Ingold for his feedback in the development of this extension. Comments are welcome at cpface@execpc.com.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec3>Section 1.2: Version History</span></b></span></p>
+    </p>
+
+    <p> Version 1/140513</p>
+
+    <p> This extension differs from the author's original version: it has been modified for compatibility with version 6L02 of Inform. The latest version of this extension can be found at &lt;https://github.com/i7/extensions&gt;.</p>
+
+    <p> This extension is released under the Creative Commons Attribution licence. Bug reports, feature requests or questions should be made at &lt;https://github.com/i7/extensions/issues&gt;.</p>
+
+    <p> Version 1/091203</p>
+
+    <p> Original release.</p>
+
+    <p> Version 1/110101</p>
+
+    <p> Giving and Removing relations renamed to Adding and Clearing, respectively, to avoid a conflict with newer versions of Inform 7. Code structure described in earlier documentation (&quot;It gives [flagname].&quot; and &quot;It removes [flagname].&quot;) should be unaffected, but any user-written code that refers directly to the relations will need to be modified.</p>
+
+    <p> &quot;Use memory economy.&quot; has been added to the extension to give authors a slightly larger buffer to work with.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec4>Section 1.3: Setting Up a Page</span></b></span></p>
+    </p>
+
+    <p> A good start to any programming language is creating a program to write &quot;Hello World!&quot;. So let's start with that and see how a page is set up.</p>
+
+    <p><blockquote><span class="indexdullblue"><a href="javascript:pasteCode('[=0x0022=]The Hello World Story[=0x0022=] by Edward Griffiths[=0x000A=][=0x000A=]Include Adventure Book by Edward Griffiths[=0x000A=][=0x000A=]The First Page is a page.[=0x000A=][=0x0022=]Hello World![=0x0022=][=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a> &quot;The Hello World Story&quot; by Edward Griffiths</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Include Adventure Book by Edward Griffiths</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> The First Page is a page.<br>
+     &quot;Hello World!&quot;</span></blockquote>
+
+    <p> This is sufficient to create a running program. If you click Inform 7's Go! button, you'll be presented with the Adventure Book opening screen and prompted to continue. When you do, you'll be shown the text &quot;Hello World!&quot; and given a prompt. Of course, since we haven't created any options for the player to try, the program can't continue in any useful way.</p>
+
+    <p> Notice how the page is written. The first line, &quot;The First Page is a page.&quot;, tells Inform that we're creating a new page and we're calling it The First Page. On the next line, we write what it says on that page, surrounded by quotes. And that's really all there is to it.</p>
+
+    <p> Pages can have just about any name you can think of. If it makes sense to you to call them &quot;Page 1&quot;, &quot;Page 2&quot;, and so on, that's fine. You can also name them after what happens on that page, such as &quot;Exploring the Cave&quot; or &quot;Arguing with Robert&quot;. The only really important rule is that the first page of your story must be called The First Page.</p>
+
+    <p> Notes for beginners: Whenever quoted text is used to describe a page or a choice, either the text must end with a sentence-ending punctuation mark (.!?) or there must be a period after the second quotation mark. All other sentences must end with a period. Within quoted text, replace all quotation marks with ' marks; the game will automatically replace them with the appropriate marks when the game is run. For example:</p>
+
+    <p><blockquote><span class="indexdullblue"> &quot;Margaret storms up to you.  'Do you really need the radio that loud?' she huffs.&quot;</span></blockquote>
+
+    <p> will be printed as:</p>
+
+    <p><blockquote><span class="indexdullblue"> Margaret storms up to you. &quot;Do you really need the radio that loud?&quot; she huffs.</span></blockquote>
+
+    <p><p><span class="indexblack"><b><span id=docsec5>Section 1.4: Choices</span></b></span></p>
+    </p>
+
+    <p> The most important function of an Adventure Book is to offer the player choices. Choices are listed after the quoted text that describes a page. Here is a page with three choices:</p>
+
+    <p><blockquote><span class="indexdullblue"> The First Page is a page.<br>
+     &quot;You are at the beach.  What would you like to do?&quot;<br>
+     A choice called TheFirstPageA is for The First Page. &quot;Go for a walk.&quot; It triggers Go Walking.<br>
+     A choice called TheFirstPageB is for The First Page. &quot;Build a sand castle.&quot; It triggers Building a Sandcastle.<br>
+     A choice called TheFirstPageC is for The First Page. &quot;Go for a swim.&quot; It triggers Go Swimming.</span></blockquote>
+
+    <p> Creating a choice has at least three parts. First, &quot;A choice called [something] is for [a page].&quot; tells Inform that we are creating a new choice for the page we've named. What we decide to call the choice isn't important because we'll never have to refer to it, but we can't have two choices with the same name. It's a good idea, then, to give a choice a name that refers in some way to the page that it's on to avoid making duplicates.</p>
+
+    <p> The second part is quoted text that's displayed when the page is read. You don't need to include the number that the player types to select the option; the system does that automatically. When the program is run, the page above will be printed like this:</p>
+
+    <p><blockquote><span class="indexdullblue"> You are at the beach. What would you like to do?</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> 1) Go for a walk.<br>
+     2) Build a sand castle.<br>
+     3) Go for a swim.</span></blockquote>
+
+    <p> The third part tells where the story will go if the player selects this choice. &quot;It triggers Go Walking.&quot; means that, if the player selects &quot;Go for a walk.&quot;, the program will &quot;turn to&quot; the page with the name Go Walking, and play will continue from there.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec6>Section 1.5: Pages Without Choices</span></b></span></p>
+    </p>
+
+    <p> Sometimes we'll want to direct the story to a particular place without requiring (or allowing) the player to make a decision. If this is the case, we'll follow the description of a page with the sentence &quot;It is followed by [the name of a page].&quot; instead of a list of choices. For example:</p>
+
+    <p><blockquote><span class="indexdullblue"> The First Page is a page.<br>
+     &quot;The directions have taken you through miles of back roads to an angry-looking house with chipped blue paint and foggy windows.  Is this really Melissa's house?&quot;<br>
+     It is followed by The Driveway.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> The Driveway is a page.<br>
+     &quot;You are standing in the driveway of what may or may not be Melissa's house.  What is your next move?&quot;<br>
+     A choice called...</span></blockquote>
+
+    <p> After the game prints the text for The First Page to the player, it will automatically continue on to The Driveway without any input from the player and continue reading from there. The chain can be as long as you'd like, with any number of &quot;It is followed by...&quot; statements.</p>
+
+    <p> One practical use for dividing up the action like this is that it allows us to return to the page called The Driveway and take further action there without reprinting the description of the player's initial arrival; if the player has been exploring the grounds for a while, the directions that brought him there aren't likely to be on his mind anymore. In more traditional Adventure Books, it may simply be a convenient way to join convergent plot lines together -- forcing paths through the plot to meet at a particular place.</p>
+
+    <p> Another useful behavior is for a page to return to the page that called it after it is read to allow the player to make a different choice. This is done by replacing the list of choices with the sentence &quot;It is a dead end.&quot; For example:</p>
+
+    <p><blockquote><span class="indexdullblue"><a href="javascript:pasteCode('[=0x0022=]Stranger at a Party[=0x0022=] by Edward Griffiths[=0x000A=][=0x000A=]Include Adventure Book by Edward Griffiths[=0x000A=][=0x000A=]The First Page is a page.[=0x000A=][=0x0022=]You find yourself lost in a throng of revelling strangers.[=0x0022=][=0x000A=]A choice called TheFirstPageA is for The First Page. [=0x0022=]Talk to the gentleman by the drinks.[=0x0022=] It triggers NoReply.[=0x000A=]A choice called TheFirstPageB is for The First Page. [=0x0022=]Talk to the guy by the stereo.[=0x0022=] It triggers NoReply.[=0x000A=]A choice called TheFirstPageC is for The First Page. [=0x0022=]Talk to the man sitting on the couch.[=0x0022=] It triggers NoReply.[=0x000A=]A choice called TheFirstPageD is for The First Page. [=0x0022=]Talk to one of the guys sharing stories in the corner.[=0x0022=] It triggers Your Friend Jake.[=0x000A=][=0x000A=]NoReply is a page.[=0x000A=][=0x0022=]He casts you a withering stare.[=0x0022=][=0x000A=]It is a dead end.[=0x000A=][=0x000A=]Your Friend Jake is a page.[=0x000A=][=0x0022=]When you approach the guys in the corner, you[=0x0027=]re surprised to find your good friend Jake.  Did he say he was coming to this party?[=0x0022=][=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a> &quot;Stranger at a Party&quot; by Edward Griffiths</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Include Adventure Book by Edward Griffiths</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> The First Page is a page.<br>
+     &quot;You find yourself lost in a throng of revelling strangers.&quot;<br>
+     A choice called TheFirstPageA is for The First Page. &quot;Talk to the gentleman by the drinks.&quot; It triggers NoReply.<br>
+     A choice called TheFirstPageB is for The First Page. &quot;Talk to the guy by the stereo.&quot; It triggers NoReply.<br>
+     A choice called TheFirstPageC is for The First Page. &quot;Talk to the man sitting on the couch.&quot; It triggers NoReply.<br>
+     A choice called TheFirstPageD is for The First Page. &quot;Talk to one of the guys sharing stories in the corner.&quot; It triggers Your Friend Jake.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> NoReply is a page.<br>
+     &quot;He casts you a withering stare.&quot;<br>
+     It is a dead end.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Your Friend Jake is a page.<br>
+     &quot;When you approach the guys in the corner, you're surprised to find your good friend Jake.  Did he say he was coming to this party?&quot;</span></blockquote>
+
+    <p> When the player selects an option that triggers the page NoReply, he'll be given a discouraging message and prompted to pick a different option from The First Page.</p>
+
+    <p> There are a number of uses for this sort of behavior. In a traditional Choose Your Own Adventure book, it was sometimes necessary to tell the player that there was something wrong with a choice he made and to force him to go back and try it again; this would allow us to send the player back without needing to know which page he came from. This is also useful for creating choices for smaller actions that don't drastically change the plot; &quot;Take a closer look at the old oak tree&quot;, for example, may trigger a page that describes the tree in detail, but, since it doesn't open up any new choices for the player, it sends him back to try something else.</p>
+
+    <p> It's worth mentioning that the author is allowed to string together a long chain of pages with &quot;It is followed by...&quot; statements and then to declare the last one to be a dead end. In this case, the program will flip back to the last page it read that offered the player a choice.</p>
+
+    <p> Finally, sooner or later, every story reaches its conclusion. To end a story, simply replace the list of choices with the sentence &quot;It is followed by The Last Page.&quot; The Last Page is a special page defined by the Adventure Book extension which does nothing except to offer the player choices to restart the game, restore a saved game, or quit. For example, here is a page that ends a story:</p>
+
+    <p><blockquote><span class="indexdullblue"> Drinking the Poison is a page.<br>
+     &quot;You bring the bubbling brew to your lips and take a long drink.  It burns your throat and suffocates you.  You feel faint...<br>
+    <br>
+    *** You have died ***&quot;<br>
+     It is followed by The Last Page.</span></blockquote>
+
+    <p> When Drinking the Poison is read, the following text is displayed:</p>
+
+    <p><blockquote><span class="indexdullblue"> You bring the bubbling brew to your lips and take a long drink. It burns your throat and suffocates you. You feel faint...</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> *** You have died ***</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> X) Restart<br>
+     R) Restore<br>
+     Q) Quit</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> &gt;</span></blockquote>
+
+    <p> Using The Last Page to end a story is recommended, but optional. There is no reason why you can't create your own game-ending pages.</p>
+
+    <p> This is all you need to know to create a functioning Adventure Book game. The next chapter will demonstrate some advanced features.</p>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec7>Chapter 2: Advanced Features</span></b></span></p>
+    </p>
+
+    <p><p><span class="indexblack"><b><span id=docsec8>Section 2.1: Setting Conditions</span></b></span></p>
+    </p>
+
+    <p> The advantage of a computer program over a traditional Choose Your Own Adventure story is that the computer can remember what has already happened and adapt what happens next based on that history. Adventure Book lets you use on or off markers called flags to keep track of what has happened and what the player can do.</p>
+
+    <p> Flags don't need to be declared in any special way. If you create a page that turns a flag on or off, Inform will automatically create that flag for you. However, a flag can be created with a sentence like &quot;[The flag's name] is a flag.&quot; For example:</p>
+
+    <p><blockquote><span class="indexdullblue"> TheReadingLampIsOn is a flag.</span></blockquote>
+
+    <p> Most flags begin the game in the off position. To set a flag to the &quot;on&quot; position, add the line &quot;It gives [the flag's name].&quot; just after the page's description and before the list of choices:</p>
+
+    <p><blockquote><span class="indexdullblue"> Turning on the Reading Lamp is a page.<br>
+     &quot;You turn the reading lamp on.&quot;<br>
+     It gives TheReadingLampIsOn.</span></blockquote>
+
+    <p> Now, whenever Turning on the Reading Lamp is read, the flag called TheReadingLampIsOn will be turned on.</p>
+
+    <p> To return a flag to the off position, add the line &quot;It removes [the flag's name].&quot; just after the page's description:</p>
+
+    <p><blockquote><span class="indexdullblue"> Turning off the Reading Lamp is a page:<br>
+     &quot;You turn the reading lamp off.&quot;<br>
+     It removes TheReadingLampIsOn.</span></blockquote>
+
+    <p> Any number of &quot;It gives ...&quot; and &quot;It removes...&quot; lines can be added to a page, just as long as they're all listed before defining the choices (or &quot;It is a dead end.&quot; or &quot;It is followed by...&quot; statements) for that page. For example:</p>
+
+    <p><blockquote><span class="indexdullblue"> Confusing Mess is a page:<br>
+     &quot;Goodness!  A lot has happened on this page!&quot;<br>
+     It gives TheDuckHasBeenSeen. It removes TheShirtIsWhite. It gives LoudMusicIsPlaying. It is a dead end.</span></blockquote>
+
+    <p> Flags affect the game by changing which options are allowed on a given page. Here is a choice to look at a bookshelf, but only if the reading lamp is turned on.</p>
+
+    <p><blockquote><span class="indexdullblue"> In the Library is a page.<br>
+     &quot;You are in your cozy library, surrounded by your favorite books.&quot;<br>
+     A choice called IntheLibraryA is for In the Library. &quot;Look at the bookshelf.&quot; It triggers Examine Bookshelf. It requires TheReadingLampIsOn.</span></blockquote>
+
+    <p> Adding &quot;It requires [flag name].&quot; to the description of a choice prevents it from being printed if the flag is turned off. In this case, the player will never be able to select an option to look at the bookshelf unless the flag TheReadingLampIsOn has been turned on.</p>
+
+    <p> Adding &quot;It is cancelled by [flag name].&quot; to the description of a choice prevents it from being printed if the flag is turned on. This can be used to create choices like this:</p>
+
+    <p><blockquote><span class="indexdullblue"> In the Library is a page.<br>
+     &quot;You are in your cozy library, surrounded by your favorite books.&quot;<br>
+     A choice called IntheLibraryA is for In the Library. &quot;Look at the bookshelf.&quot; It triggers Examine Bookshelf. It requires TheReadingLampIsOn.<br>
+     A choice called IntheLibraryB is for In the Library. &quot;Look at the bookshelf.&quot; It triggers Too Dark. It is cancelled by TheReadingLampIsOn.</span></blockquote>
+
+    <p> This would give the player a choice called &quot;Look at the bookshelf.&quot; no matter whether the lamp is on or not, but where the player goes when he selects it depends on the state of the lamp.</p>
+
+    <p> Any number of &quot;It requires...&quot; or &quot;It is cancelled by...&quot; statements can be added to the end of a choice's description. If any one of them would prevent a choice from being displayed, the choice is not printed.</p>
+
+    <p><blockquote><span class="indexdullblue"> A choice called ByThePondA is for By The Pond. &quot;Look at the ducks.&quot; It triggers Examine Ducks. It requires TheDucksAreByThePond. It is cancelled by TheStreetLightIsBroken.</span></blockquote>
+
+    <p> In this case, &quot;Look at the ducks.&quot; would only be printed if TheDucksAreByThePond is on and TheStreetLightIsBroken is off.</p>
+
+    <p> Note for advanced Inform users: You can alter the text printed in a page using the techniques described in Chapter 5.5 of Writing with Inform. The syntax for the conditions is simply &quot;[if (the name of the flag) is (on or off)]&quot;.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec9>Section 2.2: Inventory Items</span></b></span></p>
+    </p>
+
+    <p> One thing we might like to do in a game is give the player an inventory of items that he can use in different situations. Inventory items offer a bit more flexibility than flags alone, but they need to be declared first.</p>
+
+    <p> For example, suppose I want to make a game, and the items I want to add are a sword, a shield, and a flask. This is how I'd declare them:</p>
+
+    <p><blockquote><span class="indexdullblue"> The sword is an inventory item. The shield is an inventory item. The flask is an inventory item.</span></blockquote>
+
+    <p> &quot;[Name] is an inventory item.&quot; tells Inform that you're creating a new inventory item and gives it a name. It's a good idea to have one-word item names to keep things from getting confusing. When you have a lot of items in a game, listing them out individually can be cumbersome. The line above can be shortened to:</p>
+
+    <p><blockquote><span class="indexdullblue"> The sword, the shield, and the flask are inventory items.</span></blockquote>
+
+    <p> Inventory items can be declared anywhere in your code, but it's easier to keep track of them if you group them near the top.</p>
+
+    <p> Once your item is declared, it can be used exactly the same way as a flag. Pages can give or remove an inventory item, and choices can require or be cancelled by items:</p>
+
+    <p><blockquote><span class="indexdullblue"> A choice called InTheArenaA is for In the Arena. &quot;Attack the monster.&quot; It triggers Attack Monster. It requires the sword.</span></blockquote>
+
+    <p> But inventory items have a more subtle use. At any time, the player can type the name of an item he's holding to try and use that item instead of selecting one of the choices offered to him. Most of the time, this will simply tell the player &quot;You can't use that here.&quot;, but we can change that by adding a special kind of choice to our page called a use. The choice above could be written as a use like this:</p>
+
+    <p><blockquote><span class="indexdullblue"> A use called InTheArenaA is for In the Arena. It triggers Attack Monster. It uses the sword.</span></blockquote>
+
+    <p> There's no descriptive text because this option is never explicitly printed for the player; he will have to take the initiative to try and use his sword without prompting from the system. Notice &quot;It uses the sword.&quot; instead of &quot;It requires the sword.&quot; That means that the player will actually have to type in the sword's name in order to use this option.</p>
+
+    <p> One problem with Choose Your Own Adventure style stories is how explicitly the player's options are spelled out for him. Having &quot;hidden&quot; choices available for the player makes the game seem a little less confined.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec10>Section 2.3: Magic Words</span></b></span></p>
+    </p>
+
+    <p> Magic words are another way to allow the player to make a choice that hasn't been explicitly offered to him. For example, you could set up a computer terminal that requires a password or create a magic word that can be used to defeat an ogre or set up a puzzle that requires the player to deduce the correct sequence of keys to press. For a situation like this, we can create a special command called a magic word.</p>
+
+    <p> To create a magic word, you simply declare it like so:</p>
+
+    <p><blockquote><span class="indexdullblue"> Xyzzy is a magic word.</span></blockquote>
+
+    <p> Now we can make uses for xyzzy.</p>
+
+    <p><blockquote><span class="indexdullblue"> A use called IntheHouseA is for In the House. It triggers Teleport to Caves. It uses xyzzy.</span></blockquote>
+
+    <p> A magic word never needs to be given or removed. (In fact, trying to give or remove a magic word will have no effect.)</p>
+
+    <p> Suppose we want to make a number for the player to enter, like &quot;413&quot;. Inform won't allow us to use a purely numeric name for a magic word; &quot;413 is a magic word.&quot; will cause an error. In this case, it's probably better to use a sequence that has other characters in it, like &quot;4-1-3&quot; or &quot;4/13&quot;. But if it's absolutely necessary, then there is a work-around if you define your magic word like this:</p>
+
+    <p><blockquote><span class="indexdullblue"> 413 x is a magic word.</span></blockquote>
+
+    <p> The name &quot;413 x&quot; is a tricky way to declare a magic word that can be referred to as &quot;413&quot;. (Technically, &quot;x&quot; will also refer to it, but the system will override it in favor of the restart command.)</p>
+
+    <p> Now we can make a use like this:</p>
+
+    <p><blockquote><span class="indexdullblue"> A use called IntheVault is for In the Vault. It triggers Open the Vault. It uses 413 x.</span></blockquote>
+
+    <p> A word of caution: when using purely numeric sequences for magic words, they will always override the choices that the player types in, even on pages that don't use that magic word. For example, if we decide that the number 1 is going to be a magic word, like so:</p>
+
+    <p><blockquote><span class="indexdullblue"> 1 x is a magic word.</span></blockquote>
+
+    <p> then the player will never be allowed to select option number 1 on any page. (And, as a consequence, will never be able to leave the Introduction Screen.) In general, it's best to look for alternatives to purely numeric sequences.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec11>Section 2.4: Debugging</span></b></span></p>
+    </p>
+
+    <p> As your story grows in size and complexity, it can get difficult to keep track of everything. The Adventure Book extension provides a number of debugging commands that are only available when you're testing your game in Inform 7. There are reports about the game state as well as cheats that allow you to skip to any page, modify any flag, and acquire any inventory item.</p>
+
+    <p> On the most basic level, the game attempts to detect when a page has been left unwritten as you are playing it. How does the system decide if a page is unwritten? Well, whenever you refer to a new page -- when declaring a choice or a use or using &quot;It is followed by...&quot; to describe a page -- Inform 7 creates a blank page with that name. Unless a formal definition is provided for that page, the page will have no description, no choices, and no way to continue; if the game leads the player to that page, it will end abruptly and mysteriously. Since it's perfectly valid to create a page that doesn't have a text description (see the example &quot;Conversation Trees&quot; for a useful application), the system defines an unwritten page to be a page that has no way to continue -- no choices, no &quot;It is followed by...&quot; statement, no &quot;It is a dead end.&quot; statement.</p>
+
+    <p> As you're playing the game, any choice that would lead to an unwritten page is preceded by three asterisks (***). Here is an example of an unfinished story to show you how it works:</p>
+
+    <p><blockquote><span class="indexdullblue"><a href="javascript:pasteCode('[=0x0022=]Unfinished[=0x0022=] by Edward Griffiths[=0x000A=][=0x000A=]Include Adventure Book by Edward Griffiths[=0x000A=][=0x000A=]The sword is an inventory item. Xyzzy is a magic word.[=0x000A=][=0x000A=]The First Page is a page.[=0x000A=][=0x0022=]An excellent start to your adventure!  What are you going to do first?[=0x0022=][=0x000A=]A choice called tfpa is for The First Page. [=0x0022=]Set off for adventure![=0x0022=] It triggers The Next Page.[=0x000A=]A choice called tfpb is for The First Page. [=0x0022=]Set BOLDLY off for adventure![=0x0022=] It triggers The Third Page.[=0x000A=]A use called tfpc is for The First Page. It uses the sword. It triggers The Swordplay Page.[=0x000A=]A use called tfpd is for The First Page. It uses xyzzy. It triggers The Xyzzy Page.[=0x000A=][=0x000A=]The Third Page is a page.[=0x000A=][=0x0022=]You take an appropriately BOLD stance as you set off for adventure![=0x0022=][=0x000A=]It is followed by The Next Page.[=0x000A=][=0x000A=]The Fourth Page is a page.[=0x000A=][=0x0022=]You find yourself high up in the mountains!  What next?[=0x0022=][=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a> &quot;Unfinished&quot; by Edward Griffiths</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Include Adventure Book by Edward Griffiths</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> The sword is an inventory item. Xyzzy is a magic word.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> The First Page is a page.<br>
+     &quot;An excellent start to your adventure!  What are you going to do first?&quot;<br>
+     A choice called tfpa is for The First Page. &quot;Set off for adventure!&quot; It triggers The Next Page.<br>
+     A choice called tfpb is for The First Page. &quot;Set BOLDLY off for adventure!&quot; It triggers The Third Page.<br>
+     A use called tfpc is for The First Page. It uses the sword. It triggers The Swordplay Page.<br>
+     A use called tfpd is for The First Page. It uses xyzzy. It triggers The Xyzzy Page.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> The Third Page is a page.<br>
+     &quot;You take an appropriately BOLD stance as you set off for adventure!&quot;<br>
+     It is followed by The Next Page.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> The Fourth Page is a page.<br>
+     &quot;You find yourself high up in the mountains!  What next?&quot;</span></blockquote>
+
+    <p> Since we never defined The Next Page in this story, the choice &quot;Set off for adventure!&quot; is listed as:</p>
+
+    <p><blockquote><span class="indexdullblue"> *** 1) Set off for adventure!</span></blockquote>
+
+    <p> This is a visual cue to the author, as he's testing, that that part of the game isn't working yet. It's a useful hint, but it has a limitation -- it doesn't check to the end of a chain of &quot;It is followed by...&quot; statements to make sure that it ultimately leads to a written page. And so the second choice isn't marked in any way, and if the player selects that choice, he is taken to The Third Page, which is followed by The Next Page, where the game comes to an abrupt halt. Moreover, there are no indications at all for the use commands, since they're never printed in the page descriptions.</p>
+
+    <p> The &quot;report&quot; command is provided to help the author catch all of the missed connections in his story. At any time, you can type &quot;report&quot; instead of a normal game command to bring up a list of all unwritten pages and a summary of the paths that lead to that page as well as a list of pages that don't have any connection to them whatsoever. Print a report for the story above, and you'll see all sorts of problems with it:</p>
+
+    <p><blockquote><span class="indexdullblue"> Searching for pages that don't have any option to continue...</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> The Next Page has no options to continue.<br>
+     * The choice &quot;Set off for adventure!&quot; for The First Page triggers The Next Page.<br>
+     * The Third Page is followed by The Next Page.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> The Swordplay Page has no options to continue.<br>
+     * A use for the sword for The First Page triggers The Swordplay Page.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> The Xyzzy Page has no options to continue.<br>
+     * A use for Xyzzy for The First Page triggers The Xyzzy Page.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Fourth Page has no options to continue.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Searching for pages that can't be reached:<br>
+     Fourth Page</span></blockquote>
+
+    <p> It's a good idea to print a report for any game before you release it; short of exhaustively attempting every single choice of your game, it can be easy to miss one little connection along the way.</p>
+
+    <p> Suppose, however, that you have intentionally written a page without any means to continue. For example, you're writing a page to replace The Last Page. In that case, it can be annoying or misleading to see choices that lead to those pages marked with asterisks or to see them show up in reports. If this is the case, you can indicate that a page is &quot;a special page&quot; when you declare it:</p>
+
+    <p><blockquote><span class="indexdullblue"> The Really Last Page is a special page.<br>
+     &quot;GAME OVER.&quot;</span></blockquote>
+
+    <p> Now The Really Last Page will never show up in any reports, and any choices that lead to this page will be unmarked. It's important that you only use this option if you really mean it. The whole point of the report command is to remind you of parts of the story that you still need to continue; declaring a page to be &quot;special&quot; to keep it from being included in reports as you work on other parts of the story defeats the purpose.</p>
+
+    <p> As you're testing a large game, it can be a chore to have to exhaustively test every option, especially the parts of your game that depend on the states of flags and inventory items, and especially when you have to start from the beginning every time. To facilitate testing, a number of commands are provided to help you jump around to different parts of the story.</p>
+
+    <p> First, there's the &quot;skip to&quot; command. Type &quot;skip to [the name of a page]&quot;, and the game will behave exactly as if you'd selected a choice that led to that page; flags and inventory items will be given or removed, the chain of &quot;It is followed by...&quot; commands will be followed, and, if the final page is a dead end, it will return to the page you were just reading.</p>
+
+    <p> To make navigation between pages a little easier, you can type &quot;page names on&quot; to display the name of each page as it's read. (And, of course, typing &quot;page names off&quot; turns them off again.) As a last resort, you can type &quot;list pages&quot; to get the complete list of all pages in the story, but this can get very, very long.</p>
+
+    <p> Finally, there are commands for manipulating the flags. At any time, you can type &quot;list flags&quot; to get a list of all flags in the game, and whether they're on or off. (Similarly, you can get lists of all inventory items or magic words by typing &quot;list items&quot; or &quot;list magic words&quot;, respectively.) You can set any flag or obtain any inventory item by typing &quot;give [name of flag or item]&quot;, and you can turn any flag off or dispose of any inventory item by typing &quot;remove [name of flag or item]&quot;. If you're in a hurry, &quot;give all&quot; will set all flags and give you all of the inventory items, and &quot;remove all&quot; will clear all flags and trash all items.</p>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec12>Chapter 3: Integrating Inform 7 Code</span></b></span></p>
+    </p>
+
+    <p><p><span class="indexblack"><b><span id=docsec13>Section 3.1: Relationships</span></b></span></p>
+    </p>
+
+    <p> The purpose of the Adventure Book extension is to provide beginners and non-programmers a relatively simple and flexible way to write interactive fiction. However, experienced Inform 7 users may want to take full advantage of the language to produce more advanced effects. This chapter will detail how the Adventure Book system works behind the scenes and give authors some basic guidelines for using Inform 7 code to change or extend Adventure Book's behavior.</p>
+
+    <p> The Adventure Book system is built on three core kinds of things: pages, choices, and flags. A use is a kind of choice, an inventory item is a kind of flag, and a magic word is a kind of inventory item. The meat of an adventure book program is describing the properties of these objects and their relationships with each other.</p>
+
+    <p> Here is a comprehensive list of all of the relationships defined by Adventure Book:</p>
+
+    <p><blockquote><span class="indexdullblue"> Offering relates one page (called the parent) to various choices. The verb to offer (it offers, they offer, it offered, it is offered, it is offering) implies the offering relation. The verb to be for implies the reversed offering relation.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Triggering relates various choices to one page (called the destination). The verb to trigger (it triggers, they trigger, it triggered, it is triggered, it is triggering) implies the triggering relation.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Following relates one page (called the destination) to various pages. The verb to follow (it follows, they follow, it followed, it is followed, it is following) implies the following relation.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Adding relates various pages to various flags. The verb to give (it gives, they give, it gave, it is given, it is giving) implies the adding relation.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Clearing relates various pages to various flags. The verb to remove (it removes, they remove, it removed, it is removed, it is removing) implies the clearing relation.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Requiring relates various choices to various flags. The verb to require (it requires, they require, it required, it is required, it is requiring) implies the requiring relation.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Cancelling relates various flags to various choices. The verb to cancel (it cancels, they cancel, it cancelled, it is cancelled, it is cancelling) implies the cancelling relation.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Using relates various uses to one inventory item (called the tool). The verb to use (it uses, they use, it used, it is used, it is using) implies the using relation.</span></blockquote>
+
+    <p> You could, if you wished, rewrite the syntax for the game system by defining new verbs for the relationships. For example, if you don't like the expression &quot;It triggers...&quot; and you'd prefer to write &quot;It turnsto...&quot; instead, simply include this line in your program:</p>
+
+    <p><blockquote><span class="indexdullblue"> The verb to turnto (it turnsto, they turnto, it turnedto, it is turnedto, it is turningto) implies the triggering relation.</span></blockquote>
+
+    <p> Now you can write a (grammatically incorrect) sentence like:</p>
+
+    <p><blockquote><span class="indexdullblue"> A choice called thefirstpagea is for The First Page. &quot;Go on a hike.&quot; It turnsto GoHiking.</span></blockquote>
+
+    <p><p><span class="indexblack"><b><span id=docsec14>Section 3.2: The Adventure Book Phrasebook</span></b></span></p>
+    </p>
+
+    <p> The following is a list of all phrases defined by Adventure Book and what they do.</p>
+
+    <p><blockquote><span class="indexdullblue"> turn to (destination - a page)</span></blockquote>
+
+    <p> The Adventure Book system uses variables called &quot;current page&quot; and &quot;previous page&quot; to mark the player's place. The phrase &quot;turn to [page name]&quot; is used when we must conclude an author-written command by turning to a new page. It is responsible for updating the current and previous pages, flipping through the book until it reaches a page with a choice, rebuilding the list of choices based on where we ended up and how the game flags look, and giving the player the result. This should NOT be used in a &quot;to run inform code for...&quot; block; use &quot;change pages to...&quot; instead. (See the section on Running Inform Code.)</p>
+
+    <p><blockquote><span class="indexdullblue"> set (x - a flag)</span></blockquote>
+
+    <p> Sets x to the on position. If x is an inventory item, it moves x into the player's possession.</p>
+
+    <p><blockquote><span class="indexdullblue"> clear (x - a flag)</span></blockquote>
+
+    <p> Sets x to the off position. If x is an inventory item, it removes x from the player's possession.</p>
+
+    <p><blockquote><span class="indexdullblue"> rebuild the list of choices</span></blockquote>
+
+    <p> Throws out the old list of choices and creates a new one based on the current state of flag variables and the current page. This should always be done in a command that alters the game's flags without turning to a new page; otherwise, the player may be allowed to select choices that are no longer valid. Also, it's a good idea to end such commands with &quot;try looking&quot; to show the player his new list of choices.</p>
+
+    <p><blockquote><span class="indexdullblue"> read (x - a flag)</span></blockquote>
+
+    <p> Prints the description of the given page and does nothing else.</p>
+
+    <p><blockquote><span class="indexdullblue"> read through to the next decision</span></blockquote>
+
+    <p> This phrase is primarily used by the &quot;turn to...&quot; phrase, and it's responsible for a lot of the messy work of moving from page to page correctly. First, it runs any special inform code that may be defined for the current page. Then, it sets and clears any flags associated with that page. If the current page is followed by another page, it prints the description of the page and moves to the next page, running inform code and manipulating flags until it reaches the end of the chain of &quot;It is followed by...&quot; statements. If the current page is a dead end, it skips back to the page where the player made his last decision WITHOUT running inform code or manipulating flags.</p>
+
+    <p> It won't be necessary to invoke this phrase in most cases; it's usually much more useful to just use &quot;turn to...&quot; instead. However, it is available if necessary -- if, for example, you'd like to write a new &quot;turn to...&quot; phrase.</p>
+
+    <p><blockquote><span class="indexdullblue"> decide if (possibility - a choice) is valid</span></blockquote>
+
+    <p> This is true if the choice is not cancelled by any &quot;on&quot; flags and it does not require any &quot;off&quot; flags, and false otherwise.</p>
+
+    <p><blockquote><span class="indexdullblue"> decide if (possibility - a page) is unwritten</span></blockquote>
+
+    <p> This is false if the page has no means to continue (no choices, no &quot;It is a dead end.&quot; statement, no &quot;It is followed by...&quot; statement) and true otherwise.</p>
+
+    <p><blockquote><span class="indexdullblue"> change pages to (x - a page)</span></blockquote>
+
+    <p> This phrase changes the current page to the given page and then runs inform code for it. (See the section on Running Inform Code.)</p>
+
+    <p><blockquote><span class="indexdullblue"> run inform code for (x - a page)</span></blockquote>
+
+    <p> This phrase does nothing unless it has been redefined by the author. (See the section on Running Inform Code.)</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec15>Section 3.3: New Commands</span></b></span></p>
+    </p>
+
+    <p> One way to modify the behavior of the Adventure Book system is to create a new game command. The extension normally overrides most of the player commands that are built into Inform 7, but it doesn't have to. A table called the Table of Commands holds all of the extra commands that Adventure Book recognizes beyond the numbers for selecting choices and the names of inventory items and magic words. You can add new commands to this list by continuing the table like so:</p>
+
+    <p><blockquote><span class="indexdullblue"> Table of Commands (continued)</span><br>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> topic
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;jump&quot;
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;examine [an inventory item]&quot;</span>
+            </td>
+        </tr>
+    </table>
+    </blockquote>
+
+    <p> This will allow the player to use the commands &quot;jump&quot; and &quot;examine [something]&quot; in exactly the same way that they're used in Inform 7.</p>
+
+    <p> For example, let's say that we want to allow the &quot;examine&quot; command so that the player can look at his inventory items without having to provide him an explicit choice to do so. We would add &quot;examine&quot; to our Table of Items, and provide descriptions for all of the things the player might carry:</p>
+
+    <p><blockquote><span class="indexdullblue"><a href="javascript:pasteCode('[=0x0022=]A Closer Look[=0x0022=] by Edward Griffiths[=0x000A=][=0x000A=]Include Adventure Book by Edward Griffiths[=0x000A=][=0x000A=]Table of Commands (continued)[=0x000A=]topic[=0x000A=][=0x0022=]examine [an inventory item][=0x0022=][=0x000A=][=0x000A=]The ball is an inventory item. The description is [=0x0022=]Round and colorful.[=0x0022=][=0x000A=]The pail is an inventory item. The description is [=0x0022=]A small sand toy.[=0x0022=][=0x000A=]The ruby is an inventory item. The description is [=0x0022=]Red and beautiful.[=0x0022=][=0x000A=][=0x000A=]The First Page is a page.[=0x000A=][=0x0022=]You[=0x0027=]ve got a handful of knickknacks.  Type [=0x0027=]examine (item)[=0x0027=] to take a closer look.[=0x0022=][=0x000A=]It gives the ball, the pail, and the ruby.[=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a> &quot;A Closer Look&quot; by Edward Griffiths</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Include Adventure Book by Edward Griffiths</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Table of Commands (continued)</span><br>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> topic
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;examine [an inventory item]&quot;</span>
+            </td>
+        </tr>
+    </table>
+    </blockquote>
+
+    <p><blockquote><span class="indexdullblue"> The ball is an inventory item. The description is &quot;Round and colorful.&quot;<br>
+     The pail is an inventory item. The description is &quot;A small sand toy.&quot;<br>
+     The ruby is an inventory item. The description is &quot;Red and beautiful.&quot;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> The First Page is a page.<br>
+     &quot;You've got a handful of knickknacks.  Type 'examine (item)' to take a closer look.&quot;<br>
+     It gives the ball, the pail, and the ruby.</span></blockquote>
+
+    <p> Note that only the word &quot;examine&quot; will be accepted; synonyms like &quot;look at&quot; will have to be rejected unless we specifically list them.</p>
+
+    <p> Most Inform 7 commands aren't designed to function with Adventure Book's world model, so this is more useful for authors who want to add their own custom commands to a game. When a command is carried out, it can print information, adjust flags, and even move the player to a different page, if necessary. See The Adventure Book Phrasebook for the list of phrases that you can use in your commands to change the game state.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec16>Section 3.4: Running Inform Code</span></b></span></p>
+    </p>
+
+    <p> Whenever a page is triggered (except when it's returned to as a result of a dead end statement), the system invokes a phrase called &quot;run inform code for [page name]&quot;. This is the default behavior:</p>
+
+    <p><blockquote><span class="indexdullblue"> To run inform code for (x - a page):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; do nothing;</span></blockquote>
+
+    <p> This doesn't do anything interesting on its own. Rather, it's an entry point that allows the author to sneak in a snippet of Inform code that's performed in special circumstances.</p>
+
+    <p> For example, let's say that we want to have a choice that could lead to one of two pages, chosen at random. We could define a special case for &quot;run inform code for...&quot; that randomizes the player's destination when that choice is invoked:</p>
+
+    <p><blockquote><span class="indexdullblue"><a href="javascript:pasteCode('[=0x0022=]Opening Kickoff[=0x0022=] by Edward Griffiths[=0x000A=][=0x000A=]Include Adventure Book by Edward Griffiths[=0x000A=][=0x000A=]The First Page is a page.[=0x000A=][=0x0022=]You toss the coin up in the air...[=0x0022=].[=0x000A=]A choice called tfpa is for The First Page. [=0x0022=]Which way did it land?[=0x0022=] It triggers Landing.[=0x000A=][=0x000A=]Landing is a special page.[=0x000A=][=0x000A=]To run inform code for (x - Landing):[=0x000A=][=0x0009=]if a random chance of 1 in 2 succeeds:[=0x000A=][=0x0009=][=0x0009=]change pages to Heads;[=0x000A=][=0x0009=]otherwise:[=0x000A=][=0x0009=][=0x0009=]change pages to Tails;[=0x000A=][=0x000A=]Heads is a page.[=0x000A=][=0x0022=]Heads![=0x0022=][=0x000A=]It is followed by Reflip.[=0x000A=][=0x000A=]Tails is a page.[=0x000A=][=0x0022=]Tails![=0x0022=][=0x000A=]It is followed by Reflip.[=0x000A=][=0x000A=]Reflip is a page.[=0x000A=][=0x0022=]Care to try it again?[=0x0022=][=0x000A=]A choice called reflipa is for Reflip. [=0x0022=]Sure![=0x0022=] It triggers Landing.[=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a> &quot;Opening Kickoff&quot; by Edward Griffiths</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Include Adventure Book by Edward Griffiths</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> The First Page is a page.<br>
+     &quot;You toss the coin up in the air...&quot;.<br>
+     A choice called tfpa is for The First Page. &quot;Which way did it land?&quot; It triggers Landing.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Landing is a special page.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> To run inform code for (x - Landing):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; if a random chance of 1 in 2 succeeds:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; change pages to Heads;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; otherwise:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; change pages to Tails;</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Heads is a page.<br>
+     &quot;Heads!&quot;<br>
+     It is followed by Reflip.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Tails is a page.<br>
+     &quot;Tails!&quot;<br>
+     It is followed by Reflip.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Reflip is a page.<br>
+     &quot;Care to try it again?&quot;<br>
+     A choice called reflipa is for Reflip. &quot;Sure!&quot; It triggers Landing.</span></blockquote>
+
+    <p> The phrase &quot;change pages to [page name]&quot; is used in &quot;run inform code for...&quot; definitions when we want to trigger a different page as a result of what happened in our program. It ensures that any inform code for the new page will be run as the game continues forward. It is bad practice to use &quot;turn to...&quot; statements in your &quot;run inform code for...&quot; definitions because it can lead to recursion and unexpected effects.</p>
+
+    <p> Inform code extensions can give an Adventure Book a whole new flavor. See the example &quot;Combat System&quot; for a demonstration.</p>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec17>Chapter 4: Changes From the Original Adventure Book</span></b></span></p>
+    </p>
+
+    <p><p><span class="indexblack"><b><span id=docsec18>Section 4.1: Feature Changes</span></b></span></p>
+    </p>
+
+    <p> Authors who are already familiar with Jon Ingold's Adventure Book should hardly notice any changes in the look and feel of programs created with Adventure Book for Inform 7. However, there are a few subtle differences.</p>
+
+    <p> First, there are no longer &quot;win&quot; or &quot;lose&quot; commands. The program doesn't end unless the player explicitly quits. This is to allow the player a chance to restart or restore when a game is over without having to restart the entire program. The command &quot;It is followed by The Last Page.&quot; is provided to give authors a sort of standardized &quot;end game&quot; menu, but it doesn't differentiate between winning, losing, or other game-ending conditions. The author is welcome to create his own game-ending pages, and a few suggestions are offered in the Examples chapter.</p>
+
+    <p> Second, there are fewer practical limits on how many choices each page can support. A practically unlimited number of choices and uses can be attached to each page. However, only 30 choices can be printed at once. This means that, if there are more than 30 choices on a page, you will have to make sure that some of them are blocked by &quot;It requires ...&quot; or &quot;It is cancelled by ...&quot; commands to keep them under the limit. (Ideally, any page which needs so many choices should probably be broken down into sub-pages just to make things less confusing for the player.)</p>
+
+    <p> Third, you can now set conditions on an option to use an inventory item. You can use this to ensure that certain conditions are met before the player can use an item in his inventory; a key can't be used if the door is already unlocked, a gun can't be fired unless the player has loaded it with bullets, and so on.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec19>Section 4.2: Porting Original Adventure Book Programs</span></b></span></p>
+    </p>
+
+    <p> It's relatively simple to import code from the original Adventure Book into Adventure Book for Inform 7. ADV files are human-readable, plain text files that can be opened with any text editor. This section details how to convert existing Adventure Book games into new projects that can be compiled in Inform 7.</p>
+
+    <p> First, let's look at an example of how a page is described in an ADV file:</p>
+
+    <p><blockquote><span class="indexdullblue"> * YourHouse<br>
+     Your house is a rather modest little shack near the edge of town. It keeps<br>
+     the wind and the rain out on sunny days.<br>
+     +Venture forth+Road<br>
+     +Consider the loaf of bread on the table+Considerbread~@-BREADGONE</span></blockquote>
+
+    <p> An ADV file declares the name of a page with a line that begins with an asterisk (*). The line &quot;* YourHouse&quot; translates to:</p>
+
+    <p><blockquote><span class="indexdullblue"> YourHouse is a page.</span></blockquote>
+
+    <p> Text that doesn't begin with a special symbol is the description of the page. This can stay more or less as it is, but it should be enclosed in quotation marks, and any internal quotation marks should be replaced with ' marks.</p>
+
+    <p> A + sign indicates a choice. The text after the first + sign is the description of the choice. The text after the second + sign is the name of the page that it opens to. &quot;+Venture forth+Road&quot; translates to:</p>
+
+    <p><blockquote><span class="indexdullblue"> A choice called yourhousea is for YourHouse. &quot;Venture Forth&quot;. It triggers Road.</span></blockquote>
+
+    <p> A tilde (~) indicates a condition. The text immediately after the tilde is the name of the flag or inventory item that the condition is checking for. If the name begins with an @ sign, it is an &quot;It is cancelled by ...&quot; condition. Otherwise, the condition would be an &quot;It requires ...&quot; condition. If there is a - sign before the name, it is checking for a flag. Otherwise, it is checking for an inventory item. So &quot;~@-BREADGONE&quot; is an &quot;It is cancelled by ...&quot; condition that is checking for a flag. The last line of the example translates into this:</p>
+
+    <p><blockquote><span class="indexdullblue"> A choice called yourhouseb is for YourHouse. &quot;Consider the loaf of bread on the table&quot;. It triggers Considerbread. It is cancelled by BREADGONE.</span></blockquote>
+
+    <p> There may be multiple conditions on the same line, all separated by tildes. A line like &quot;~-DUCKGONE~@-MUSICON~RADIO~@SANDWICH&quot; can be broken down into four sentences:</p>
+
+    <p><blockquote><span class="indexdullblue"> It requires DUCKGONE. It is cancelled by MUSICON. It requires the radio. It is cancelled by the sandwich.</span></blockquote>
+
+    <p> where the radio and the sandwich are inventory items that are declared at the beginning of the text.</p>
+
+    <p> Put it all together, and the example page looks like this:</p>
+
+    <p><blockquote><span class="indexdullblue"> YourHouse is a page.<br>
+     &quot;Your house is a rather modest little shack near the edge of town.  It keeps
+    the wind and the rain out on sunny days.&quot;<br>
+     A choice called yourhousea is for YourHouse. &quot;Venture Forth&quot;. It triggers Road.<br>
+     A choice called yourhouseb is for YourHouse. &quot;Consider the loaf of bread on the table&quot;. It triggers Considerbread. It is cancelled by BREADGONE.</span></blockquote>
+
+    <p> A line that starts with a # indicates a special command for the ADV file reader. &quot;#div&quot; is a diversion to the page named immediately following &quot;#div&quot;. For example, &quot;#divForest5&quot; would translate to:</p>
+
+    <p><blockquote><span class="indexdullblue"> It is followed by Forest5.</span></blockquote>
+
+    <p> &quot;#ret&quot; is a &quot;return&quot;, called a dead end in the Inform 7 version. &quot;#ret&quot; translates directly into:</p>
+
+    <p><blockquote><span class="indexdullblue"> It is a dead end.</span></blockquote>
+
+    <p> &quot;#win&quot; and &quot;#die&quot; are commands for ending the game. The closest thing to this in Inform 7 is diverting to The Last Page:</p>
+
+    <p><blockquote><span class="indexdullblue"> It is followed by The Last Page.</span></blockquote>
+
+    <p> Lines that begin with &quot;&gt;&quot; and &quot;&lt;&quot; signs are &quot;It gives ...&quot; and &quot;It removes ...&quot; commands, respectively. So &quot;&gt;SWORD&quot; becomes:</p>
+
+    <p><blockquote><span class="indexdullblue"> It gives the sword.</span></blockquote>
+
+    <p> where the sword is an inventory item, and &quot;&lt;-BRIDGEBARRED&quot; becomes:</p>
+
+    <p><blockquote><span class="indexdullblue"> It removes BRIDGEBARRED.</span></blockquote>
+
+    <p> where BRIDGEBARRED is a flag.</p>
+
+    <p> A line that begins with a colon (:) is a use. The text after the first colon is the item that's being used, and the text after the second colon is the page to turn to if that item is used. So a line like &quot;:LICENSE:TakeBridge&quot; becomes:</p>
+
+    <p><blockquote><span class="indexdullblue"> A use called crossbridgea is for CrossBridge. It triggers TakeBridge. It uses the license.</span></blockquote>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec20>Chapter 5: Examples</span></b></span></p>
+    </p>
+
+    <p><p><span class="indexblack"><b><span id=docsec21>Section 5.1: Special Effects</span></b></span></p>
+    </p>
+
+    <p> Adventure Book boils interactive fiction down to its most basic elements -- accepting choices from the player, and changing the game state to match those choices. There are a lot of limitations to writing a game in this format, but with a little cleverness, it's fairly simple to create some very interesting effects. We'll conclude with some examples of some simple effects that may help fire up your imagination as well as a complete game written with the original Adventure Book and translated into Inform 7.</p>
+
+    <p><hr>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td halign="left" valign="top" cellpadding=0 cellspacing=0 width=38px>
+                <span id=eg1><table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="oval">
+                        <td width=38px height=30px align="left" valign="center">
+                            <a href="Adventure Book-eg1.html#eg1" style="text-decoration: none"><div class="paragraph Body" style="line-height: 1px; margin-bottom: 0px; margin-top: 0px; padding-bottom: 0pt; padding-top: 0px; text-align: center;">
+                                <span class="extensionexampleletter">A</span></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                </span>
+            </td>
+            <td cellpadding=0 cellspacing=0 halign="left" valign="top">
+                <a href="Adventure Book-eg1.html#eg1" style="text-decoration: none"><img border="0" src='inform:/doc_images/asterisk.png'><b><span class="indexdarkgrey">&nbsp;Example&nbsp;</span><span class="indexblack">Simple Choices</span></b></a><br>
+                <p>The basics of setting up a story with choices.</p>
+
+            </td>
+        </tr>
+    </table>
+    </p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p><hr>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td halign="left" valign="top" cellpadding=0 cellspacing=0 width=38px>
+                <span id=eg2><table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="oval">
+                        <td width=38px height=30px align="left" valign="center">
+                            <a href="Adventure Book-eg2.html#eg2" style="text-decoration: none"><div class="paragraph Body" style="line-height: 1px; margin-bottom: 0px; margin-top: 0px; padding-bottom: 0pt; padding-top: 0px; text-align: center;">
+                                <span class="extensionexampleletter">B</span></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                </span>
+            </td>
+            <td cellpadding=0 cellspacing=0 halign="left" valign="top">
+                <a href="Adventure Book-eg2.html#eg2" style="text-decoration: none"><img border="0" src='inform:/doc_images/asterisk.png'><img border="0" src='inform:/doc_images/asterisk.png'><b><span class="indexdarkgrey">&nbsp;Example&nbsp;</span><span class="indexblack">Conversation Trees</span></b></a><br>
+                <p>How to create dialogue menus with story characters.</p>
+
+            </td>
+        </tr>
+    </table>
+    </p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p><hr>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td halign="left" valign="top" cellpadding=0 cellspacing=0 width=38px>
+                <span id=eg3><table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="oval">
+                        <td width=38px height=30px align="left" valign="center">
+                            <a href="Adventure Book-eg3.html#eg3" style="text-decoration: none"><div class="paragraph Body" style="line-height: 1px; margin-bottom: 0px; margin-top: 0px; padding-bottom: 0pt; padding-top: 0px; text-align: center;">
+                                <span class="extensionexampleletter">C</span></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                </span>
+            </td>
+            <td cellpadding=0 cellspacing=0 halign="left" valign="top">
+                <a href="Adventure Book-eg3.html#eg3" style="text-decoration: none"><img border="0" src='inform:/doc_images/asterisk.png'><img border="0" src='inform:/doc_images/asterisk.png'><b><span class="indexdarkgrey">&nbsp;Example&nbsp;</span><span class="indexblack">Lockable Door</span></b></a><br>
+                <p>How to create a door that can be locked or unlocked from the inside or outside by using an inventory item.</p>
+
+            </td>
+        </tr>
+    </table>
+    </p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p><hr>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td halign="left" valign="top" cellpadding=0 cellspacing=0 width=38px>
+                <span id=eg4><table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="oval">
+                        <td width=38px height=30px align="left" valign="center">
+                            <a href="Adventure Book.html#eg4" style="text-decoration: none"><div class="paragraph Body" style="line-height: 1px; margin-bottom: 0px; margin-top: 0px; padding-bottom: 0pt; padding-top: 0px; text-align: center;">
+                                <span class="extensionexampleletter">D</span></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                </span>
+            </td>
+            <td cellpadding=0 cellspacing=0 halign="left" valign="top">
+                <a href="Adventure Book.html#eg4" style="text-decoration: none"><img border="0" src='inform:/doc_images/asterisk.png'><img border="0" src='inform:/doc_images/asterisk.png'><b><span class="indexdarkgrey">&nbsp;Example&nbsp;</span><span class="indexblack">Adaptive Text</span></b></a><br>
+                <p>How to change what's written on a page based on the game state.</p>
+
+            </td>
+        </tr>
+    </table>
+    <table border="0" cellspacing="0" cellpadding="0" class="extensionexample" width=100%>
+        <tr>
+            <td align="left" valign="top">
+                <p></p>
+
+                <p> In the original Adventure Book system, every page had a single, static description. One major advantage of using Inform 7 is that you can vary the way a page is written based on how flags are set and whether inventory items are carried. This can be very useful if you have a story where the player visits the same page many times, but it looks slightly different or slightly different things happen based on what has happened previously.</p>
+
+                <p> In this very simple example, the description of the cat varies depending on whether the player is holding the cat treats.</p>
+
+                <p><blockquote><span class="indexdullblue"><a href="javascript:pasteCode('[=0x0022=]Cat Feeder[=0x0022=] by Edward Griffiths[=0x000A=][=0x000A=]Include Adventure Book by Edward Griffiths[=0x000A=][=0x000A=]The treats is an inventory item.[=0x000A=][=0x000A=]The First Page is a page.[=0x000A=][=0x0022=]You[=0x0027=]re standing in your kitchen.  [if the treats is off]Your cat paces the room, bored and inattentive.[otherwise]Your cat has crossed the room to meet you, stroking itself against your ankles lovingly.[end if][=0x0022=].[=0x000A=]A choice called tfpa is for The First Page. [=0x0022=]Get out a box of cat treats.[=0x0022=] It triggers GetTheTreats. It is cancelled by the treats.[=0x000A=]A use called tfpb is for The First Page. It triggers FeedYourCat. It uses the treats.[=0x000A=][=0x000A=]GetTheTreats is a page.[=0x000A=][=0x0022=]You open the drawer and pull out one of the boxes of cat treats.[=0x0022=][=0x000A=]It gives the treats. It is a dead end.[=0x000A=][=0x000A=]FeedYourCat is a page.[=0x000A=][=0x0022=]Your cat happily devours every last treat from your hands, one by one.  Your usefulness spent, it returns its attention to personal matters.[=0x0022=][=0x000A=]It removes the treats. It is a dead end.[=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a> &quot;Cat Feeder&quot; by Edward Griffiths</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Include Adventure Book by Edward Griffiths</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The treats is an inventory item.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> The First Page is a page.<br>
+                 &quot;You're standing in your kitchen.  [if the treats is off]Your cat paces the room, bored and inattentive.[otherwise]Your cat has crossed the room to meet you, stroking itself against your ankles lovingly.[end if]&quot;.<br>
+                 A choice called tfpa is for The First Page. &quot;Get out a box of cat treats.&quot; It triggers GetTheTreats. It is cancelled by the treats.<br>
+                 A use called tfpb is for The First Page. It triggers FeedYourCat. It uses the treats.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> GetTheTreats is a page.<br>
+                 &quot;You open the drawer and pull out one of the boxes of cat treats.&quot;<br>
+                 It gives the treats. It is a dead end.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> FeedYourCat is a page.<br>
+                 &quot;Your cat happily devours every last treat from your hands, one by one.  Your usefulness spent, it returns its attention to personal matters.&quot;<br>
+                 It removes the treats. It is a dead end.</span></blockquote>
+
+                <p></p>
+
+            </td>
+        </tr>
+    </table>
+    <hr>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td halign="left" valign="top" cellpadding=0 cellspacing=0 width=38px>
+                <span id=eg5><table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="oval">
+                        <td width=38px height=30px align="left" valign="center">
+                            <a href="Adventure Book-eg5.html#eg5" style="text-decoration: none"><div class="paragraph Body" style="line-height: 1px; margin-bottom: 0px; margin-top: 0px; padding-bottom: 0pt; padding-top: 0px; text-align: center;">
+                                <span class="extensionexampleletter">E</span></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                </span>
+            </td>
+            <td cellpadding=0 cellspacing=0 halign="left" valign="top">
+                <a href="Adventure Book-eg5.html#eg5" style="text-decoration: none"><img border="0" src='inform:/doc_images/asterisk.png'><img border="0" src='inform:/doc_images/asterisk.png'><img border="0" src='inform:/doc_images/asterisk.png'><b><span class="indexdarkgrey">&nbsp;Example&nbsp;</span><span class="indexblack">Winning and Dying</span></b></a><br>
+                <p>How to add traditional &quot;win&quot; and &quot;die&quot; messages to your games.</p>
+
+            </td>
+        </tr>
+    </table>
+    </p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p><hr>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td halign="left" valign="top" cellpadding=0 cellspacing=0 width=38px>
+                <span id=eg6><table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="oval">
+                        <td width=38px height=30px align="left" valign="center">
+                            <a href="Adventure Book-eg6.html#eg6" style="text-decoration: none"><div class="paragraph Body" style="line-height: 1px; margin-bottom: 0px; margin-top: 0px; padding-bottom: 0pt; padding-top: 0px; text-align: center;">
+                                <span class="extensionexampleletter">F</span></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                </span>
+            </td>
+            <td cellpadding=0 cellspacing=0 halign="left" valign="top">
+                <a href="Adventure Book-eg6.html#eg6" style="text-decoration: none"><img border="0" src='inform:/doc_images/asterisk.png'><img border="0" src='inform:/doc_images/asterisk.png'><img border="0" src='inform:/doc_images/asterisk.png'><img border="0" src='inform:/doc_images/asterisk.png'><b><span class="indexdarkgrey">&nbsp;Example&nbsp;</span><span class="indexblack">Combat System</span></b></a><br>
+                <p>Using the &quot;run inform code for...&quot; phrase to add functionality.</p>
+
+            </td>
+        </tr>
+    </table>
+    </p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p><hr>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td halign="left" valign="top" cellpadding=0 cellspacing=0 width=38px>
+                <span id=eg7><table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="oval">
+                        <td width=38px height=30px align="left" valign="center">
+                            <a href="Adventure Book-eg7.html#eg7" style="text-decoration: none"><div class="paragraph Body" style="line-height: 1px; margin-bottom: 0px; margin-top: 0px; padding-bottom: 0pt; padding-top: 0px; text-align: center;">
+                                <span class="extensionexampleletter">G</span></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                </span>
+            </td>
+            <td cellpadding=0 cellspacing=0 halign="left" valign="top">
+                <a href="Adventure Book-eg7.html#eg7" style="text-decoration: none"><img border="0" src='inform:/doc_images/asterisk.png'><img border="0" src='inform:/doc_images/asterisk.png'><img border="0" src='inform:/doc_images/asterisk.png'><img border="0" src='inform:/doc_images/asterisk.png'><b><span class="indexdarkgrey">&nbsp;Example&nbsp;</span><span class="indexblack">Placebo!</span></b></a><br>
+                <p>A complete adventure game in Adventure Book format.</p>
+
+            </td>
+        </tr>
+    </table>
+    </p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p>
+    <!--CONTENT ENDS-->
+</body>
+</html>

@@ -1,0 +1,38 @@
+! Blurb file created by Inform build 6M62
+
+status "C:\Program Files (x86)\Inform 7\Internal\Miscellany\CblorbModel.html" "C:\Users\PC\Documents\Inform\Projects\Lime Ergot SP.inform\Build\StatusCblorb.html"
+
+
+! Identification
+
+project folder "C:\Users\PC\Documents\Inform\Projects\Lime Ergot SP.inform"
+release to "C:\Users\PC\Documents\Inform\Projects\Lime Ergot SP.materials\Release"
+
+! Blorb instructions
+
+storyfile leafname "Ergot de Lima.zblorb"
+storyfile "C:\Users\PC\Documents\Inform\Projects\Lime Ergot SP.inform\Build\output.z8" include
+ifiction "C:\Users\PC\Documents\Inform\Projects\Lime Ergot SP.inform\Metadata.iFiction" include
+cover "C:\Program Files (x86)\Inform 7\Internal\Miscellany\Cover.jpg"
+picture 1 "C:\Program Files (x86)\Inform 7\Internal\Miscellany\Cover.jpg"
+
+! Placeholder variables
+
+placeholder [IFID] = "79C2B606-805C-4E0E-967C-517C968939E9"
+placeholder [RELEASE] = "3"
+placeholder [YEAR] = "2014"
+placeholder [TITLE] = "Ergot de Lima"
+placeholder [AUTHOR] = "Caleb Wilson"
+placeholder [BLURB] = "Ya no queda nadie. (Bueno, casi nadie)."
+
+! Other material to release
+
+status alternative ||Using 'Release along with cover art', to provide something more distinctive than the default artwork above&nbsp;<a href=inform:/doc403.html><img border=0 src=inform:/doc_images/help.png></a>||
+status alternative ||Using 'Release along with a website'&nbsp;<a href=inform:/doc405.html><img border=0 src=inform:/doc_images/help.png></a>||
+status alternative ||Using 'Release along with an interpreter', for in-browser play on your website&nbsp;<a href=inform:/doc406.html><img border=0 src=inform:/doc_images/help.png></a>||
+status alternative ||Using 'Release along with a file of "Such-and-Such" called "whatever.pdf"', perhaps to add a manual, or a welcoming note&nbsp;<a href=inform:/doc401.html><img border=0 src=inform:/doc_images/help.png></a>||
+status alternative ||Using 'Release along with the source text'&nbsp;<a href=inform:/doc412.html><img border=0 src=inform:/doc_images/help.png></a>||
+status alternative ||Using 'Release along with a solution'&nbsp;<a href=inform:/doc411.html><img border=0 src=inform:/doc_images/help.png></a>||
+status alternative ||Using 'Release along with the library card'&nbsp;<a href=inform:/doc412.html><img border=0 src=inform:/doc_images/help.png></a>||
+status alternative ||Using 'Release along with the introductory booklet'&nbsp;<a href=inform:/doc404.html><img border=0 src=inform:/doc_images/help.png></a>||
+status alternative ||Using 'Release along with the introductory postcard'&nbsp;<a href=inform:/doc404.html><img border=0 src=inform:/doc_images/help.png></a>||

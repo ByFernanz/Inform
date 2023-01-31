@@ -1,0 +1,2858 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Extension</title>
+    <style type="text/css">
+        <!--
+        /* The default font (family) and size */
+
+        body, p, td {
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.8rem; /* 100/125 */
+        }
+
+        /* For fixed-point material within text, such as the typing on the Library Card index page */
+
+        span.typewritten {
+        	font-family: monospace;
+        	font-size: 0.867rem; /* 13/12 * 100/125 */
+        }
+
+        /* For less important material: the small print */
+
+        span.smaller {
+        	font-size: 80%;
+        }
+
+        /* The "heading panel" is the coloured box, high up on the page. The colours
+        vary depending on the page: for example, the style on a report of a translation
+        with no problems is "headingpanelsucceeded", usually green, but if there were
+        problems then "headingpanelfailed" is used, which is usually red. "headingpanel"
+        itself is a more neutral grey by default. "headingpanelDark" is an alternative
+        look to make the extensions index pages have some visual contrast with the others;
+        by default they are a darker grey. */
+
+        .headingpanel {
+        	background: #eeeeee;
+        }
+        .headingpanelsucceeded {
+        	background: #E6FFE6;
+        }
+        .headingpanelfailed {
+        	background: #f69Ca6;
+        }
+        .headingpanelalt {
+        	background: #808080;
+        }
+
+        /* Heading panels have two lines of text: an upper one in a larger size, and a
+        lower one in a smaller. Again, the alt versions are meant to contrast.
+
+        	Report on Translation: Succeeded                <-- headingpaneltext
+        	Produced by Inform 10.1.0 (build 6U97)          <-- headingpanelrubric
+
+        	Installed Extensions                            <-- headingpaneltextalt
+        	Bundles of extra rules or phrases to...         <-- headingpanelrubricalt
+
+        */
+
+        span.headingpaneltext {
+        	color: #222222;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+        span.headingpaneltextalt {
+        	color: #ffffff;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        span.headingpanelrubric {
+        	color: #222222;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.733rem; /* 11/12 * 100/125 */
+        	font-weight: bold;
+        }
+        span.headingpanelrubricalt {
+        	color: #ffffff;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.733rem; /* 11/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* Horizontal rule styling */
+
+        div.hr {
+        	border: 0;
+        	width: 100%;
+        	color: #707070;
+        	background-color: #707070;
+        	height: 5px;
+        }
+
+        /* This styles the (usually white) text of the example numbers written inside
+        oval blobs in the extension documentation, which mimic the look of the in-app
+        documentation. */
+
+        .oval, .oval td {
+        	background-image:url('inform:/doc_images/ovoid.png');
+        	color:white;
+        }
+
+        /* Styling used in the extension documentation indexes: */
+
+        /* Used for extension names in the extensions pane of the app */
+
+        span.extensioncensusentry {
+        	color: #ffffff;
+        }
+
+        span.extensionindexentry {
+        	color: #404040;
+        }
+
+        span.extensionindexerror {
+        	color: #ff8080;
+        }
+
+        /* This is used in extension documentation, where an example is presented
+        in a slightly tinted box: */
+
+        table.extensionexample {
+        	background-color: #f0f0f0;
+        }
+
+        span.extensionexampleletter {
+        	color: #202020;
+        	font-size: 14px;
+        	font-weight: bold;
+        }
+
+        /* Seen in problem messages: */
+
+        span.problemred {
+        	color: #800000;
+        }
+
+        span.problemgreen {
+        	color: #008000;
+        }
+
+        span.phraseword {
+        	color: #808080;
+        }
+
+        span.phrasetokentext {
+        	color: #e00060;
+        }
+
+        span.phrasetokendesctext {
+        	color: #4040ff;
+        }
+
+        span.phrasetokenvaluetext {
+        	color: #ff4040;
+        }
+
+        /* Now we move on to styling used in the Index pages only: */
+
+        /* The periodic table display has "sidebars", usually grey and taller than they
+        are wide; they contain no text. */
+
+        div.periodictablesidebarcolour {
+        	background: #888;
+        }
+        div.periodictablesidebar:hover {
+        	background: #222;
+        }
+
+        /* The text of the element-abbreviation, such as "Lx" or "Ph", uses: */
+
+        span.elementtext {
+        	color: #ffffff;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* Similarly for the "atomic number" - a single digit - in the top left corner
+        of these boxes: */
+
+        span.elementnumbertext {
+        	color: #ffffff;
+        	font-size: 0.622rem; /* 7/12 * 96/72 * 100/125 */
+        }
+
+        /* For the text of the element title, to the right of the element box: */
+
+        span.elementtitletext {
+        	color: #ffffff;
+        	font-size: 0.6rem; /* 9/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* The banner at the top of each element: */
+
+        table.elementbanner {
+        	background: #eeeeee;
+        }
+
+        /* For the typewriting on the Library Card: */
+
+        span.librarycardtitle {
+        	color: #803030;
+        }
+
+        span.librarycardother {
+        	color: #303030;
+        }
+
+        /* Generically used for "more details" boxes in the index: */
+
+        table.indexmorebox {
+        	background-color: #e0e0e0;
+            border-radius: 8px;
+        }
+
+        /* But not for activity contents: */
+
+        table.indexactivitycontents {
+        	background-color: #e8e0c0;
+            border-radius: 8px;
+        }
+
+        /* For responses in index entries about rules: */
+
+        span.indexresponseletter {
+        	color: #ffffff;
+        	font-family: 'Courier New', Courier, monospace;
+        	background-color: #8080ff;
+        }
+
+        span.indexresponsetext {
+        	color: #000066;
+        }
+
+        /* Used ubiquitously throughout the index and extension documentation: */
+
+        span.indexblack {
+        	color: #000000;
+        }
+
+        span.indexgrey {
+        	color: #808080;
+        }
+
+        span.indexdarkgrey {
+            color: #505050;
+        }
+
+        span.indexdullred {
+        	color: #800000;
+        }
+
+        span.indexdullgreen {
+        	color: #008000;
+        }
+
+        span.indexdullblue {
+        	color: #000080;
+        }
+
+        /* Used for the room squares in the World map in the Index (which is currently
+        a table with one row of one column) */
+
+        table.indexmaproom {
+        	border-color: #000000;
+        }
+
+        /* Used in the numbering of levels of the World map in the Index */
+
+        span.indexmaplevelnumbers {
+        	color: #c0c0c0;
+        }
+
+        /* Used e.g. for title rows in the Chart of basic kinds in the Index */
+
+        tr.headingrow {
+        	background-color: #e0e0e0;
+        }
+
+        /* Standard rows have black text on striped background colours, these being
+        the usual ones seen in Mac OS X applications such as iTunes. */
+
+        tr.stripeone {
+        	background-color: #ffffff;
+        }
+
+        tr.stripetwo {
+        	background-color: #f3f6fa;
+        }
+
+        tr.tintedrow {
+        	background-color: #808080;
+        }
+
+        /* In the Figures index, this is the background colour used behind images
+        (though in fact it will only be visible if the image fails to load, or uses
+        transparency): */
+
+        div.figureindexbox {
+        	background-color: #6495ed;
+        }
+
+        /* To get the book-contents-page style leaders on the Contents element of
+           the index to work, these must use the background colour of the body of
+           the page, whatever that is: */
+
+        ul.leaders li.leaded span:first-child {
+        	background: white;
+        }
+        ul.leaders li.leaded span + span {
+        	background: white;
+        }
+
+        /* On Registry index pages (such as the Public Library), these are used for
+        download buttons and the like: */
+
+        span.registrybuttontext {
+        	font-size: 11px;
+        	border-color: #000000;
+        }
+
+        span.registryminibuttontext {
+        	font-size: 10px;
+        	border-color: #000000;
+        }
+
+        span.registrybuttonuninstalled {
+        	color: #000000;
+        	background: #ffffdd;
+        }
+
+        span.registrybuttoninstalled {
+        	color: #000000;
+        	background: #ffffff;
+        	pointer-events: none;
+        }
+
+        span.registrybuttonbuiltin {
+        	color: #888888;
+        	background: #ffffff;
+        	pointer-events: none;
+        }
+
+        span.registrybuttonupdate {
+        	color: #000000;
+        	background: #aaddff;
+        }
+
+        span.registrybuttonrevert {
+        	color: #000000;
+        	background: #ddaaff;
+        }
+
+        span.registrybuttonrevealer {
+        	color: #ffffff;
+        	background: #444444;
+        }
+
+        /* Registry index section headings: */
+
+        span.registrysectionname {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 16px;
+        	line-height: 18px;
+        }
+        span.registrysubsectionname {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 14px;
+        	line-height: 16px;
+        }
+
+        /* These are for the "mark" for a section, usually a section-symbol and number */
+
+        span.registrysectionmark {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 16px;
+        	line-height: 18px;
+        	color: #666;
+        }
+        span.registrysubsectionmark {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 14px;
+        	line-height: 16px;
+        	color: #666;
+        }
+
+        /* Text of an item listed in a registry: */
+
+        span.registryitemtext {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 12px;
+        	line-height: 16px;
+        }
+
+        /* And how the links in a registry index page behave: */
+
+        a.registrysilentlink {
+        	text-decoration: none;
+        	color: #000;
+        }
+        a.registrybuttonlink {
+        	text-decoration: none;
+        }
+        a.registrycontentslink:link {
+        	text-decoration: none;
+        	color: #202020;
+        }
+        a.registrycontentslink:visited {
+        	text-decoration: none;
+        	color: #202020;
+        }
+        a.registrycontentslink:hover {
+        	text-decoration: none;
+        	color: #D00000;
+        }
+        a.registrycontentslink:active {
+        	text-decoration: none;
+        	color: #D00000;
+        }
+
+        -->
+    </style>
+    <style type="text/css">
+        <!--
+        /* (1) General layout material */
+
+        *, *:before, *:after {
+        	-moz-box-sizing: border-box;
+        	-webkit-box-sizing: border-box;
+        	box-sizing: border-box;
+        }
+        .headingpanellayout {
+        	position: relative;
+        	height: 56px;
+        	padding: 0px;
+        	white-space:nowrap;
+        }
+        .headingpanellayoutdeeper {
+        	position: relative;
+        	height: 117px;
+        	padding: 0px;
+        	white-space:nowrap;
+        }
+        .headingtext {
+        	position: absolute;
+        	top: -4px;
+        	left: -1px;
+        	width: 100%;
+        	padding: 14px 10px 0px 10px;
+        }
+        .headingrubric {
+        	position: absolute;
+        	top: 36px;
+        	width: 100%;
+        	padding: 0px 10px 0px 10px;
+        }
+        h3.tighter {
+        	margin-top: 0px;
+        }
+        p.hang {
+        	padding-left: 25px;
+        	text-indent: -25px;
+        	margin-top: 0px;
+        	margin-bottom: 0px;
+        }
+        p.in1 {
+        	padding-left: 0px;
+        }
+        p.tightin1 {
+        	padding-left: 0px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin1 {
+        	padding-left: 0px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin1 {
+        	padding-left: 50px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in2 {
+        	padding-left: 25px;
+        }
+        p.tightin2 {
+        	padding-left: 25px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin2 {
+        	padding-left: 25px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin2 {
+        	padding-left: 75px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in3 {
+        	padding-left: 50px;
+        }
+        p.tightin3 {
+        	padding-left: 50px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin3 {
+        	padding-left: 50px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin3 {
+        	padding-left: 100px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in4 {
+        	padding-left: 75px;
+        }
+        p.tightin4 {
+        	padding-left: 75px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin4 {
+        	padding-left: 75px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin4 {
+        	padding-left: 125px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in5 {
+        	padding-left: 100px;
+        }
+        p.tightin5 {
+        	padding-left: 100px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin5 {
+        	padding-left: 100px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin5 {
+        	padding-left: 150px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in6 {
+        	padding-left: 125px;
+        }
+        p.tightin6 {
+        	padding-left: 125px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin6 {
+        	padding-left: 125px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin6 {
+        	padding-left: 175px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in7 {
+        	padding-left: 150px;
+        }
+        p.tightin7 {
+        	padding-left: 150px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin7 {
+        	padding-left: 150px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin7 {
+        	padding-left: 200px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in8 {
+        	padding-left: 175px;
+        }
+        p.tightin8 {
+        	padding-left: 175px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin8 {
+        	padding-left: 175px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin8 {
+        	padding-left: 225px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in9 {
+        	padding-left: 200px;
+        }
+        p.tightin9 {
+        	padding-left: 200px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin9 {
+        	padding-left: 200px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin9 {
+        	padding-left: 250px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+
+        /* (2) Index page layout material */
+
+        /* The periodic table display has "sidebars", usually grey and taller than they
+        are wide; they contain no text. */
+
+        div.periodictablesidebar {
+        	height: 56px;
+        	width: 16px;
+        }
+        .periodictablesidebar a:link { text-decoration: none; }
+        .periodictablesidebar a:visited { text-decoration: none; }
+        .periodictablesidebar a:active { text-decoration: none; }
+
+        /* The "element boxes" are the cells appearing in the periodic-table display
+        on the welcome page of the index: */
+
+        .elementbox {
+        	position: relative;
+        	height: 56px;
+        	width: 56px;
+        	padding: 0px;
+        }
+
+        .elementbox a:link { text-decoration: none; }
+        .elementbox a:visited { text-decoration: none; }
+        .elementbox a:active { text-decoration: none; }
+        .elementbox a:hover { text-decoration: none; }
+        .elementbox:hover {
+        	opacity: 0.6;
+        }
+
+        /* The "small element boxes" look like those, but are smaller, and used on
+        the headings of the content which those original boxes link to: */
+
+        .smallelementbox {
+        	position: relative;
+        	height: 40px;
+        	width: 40px;
+        	padding: 0px;
+        }
+
+        .smallelementbox a:link { text-decoration: none; }
+        .smallelementbox a:visited { text-decoration: none; }
+        .smallelementbox a:active { text-decoration: none; }
+        .smallelementbox a:hover { text-decoration: none; }
+        .smallelementbox:hover {
+        	opacity: 0.6;
+        }
+
+        /* This is a class for the links formed by the element boxes: */
+
+        a.elementlink {
+        	position: absolute;
+        	top: -4px;
+        	left: -1px;
+        	width: 100%;
+        	padding: 14px 0px 14px 1px;
+        	text-align: center;
+        }
+
+        /* Similarly for the "atomic number" - a single digit - in the top left corner
+        of these boxes: */
+
+        div.elementnumber {
+        	position: absolute;
+        	top: 1px;
+        	left: 3px;
+        	text-align: left;
+        }
+
+        /* For the text of the element title, to the right of the element box: */
+
+        div.elementtitle {
+        	position: absolute;
+        	top: 35px;
+        	width: 100%;
+        	text-align: center;
+        }
+
+        /* Used for the book-contents-page style leaders on the Contents element of
+           the index: */
+
+        ul.leaders {
+        	padding: 0;
+        	margin-top: 1px;
+        	margin-bottom: 0;
+        	overflow-x: hidden;
+        	list-style: none}
+        ul.leaders li.leaded:before {
+        	float: left;
+        	width: 0;
+        	white-space: nowrap;
+        	content:
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "}
+        ul.leaders li.leaded span:first-child {
+        	padding-right: 0.33em;
+        }
+        ul.leaders li.leaded span + span {
+        	float: right;
+        	padding-left: 0.33em;
+        }
+        li.indent1 span:first-child {
+        	padding-left: 25px;
+        }
+        li.indent2 span:first-child {
+        	padding-left: 50px;
+        }
+        li.indent3 span:first-child {
+        	padding-left: 75px;
+        }
+        li.indent4 span:first-child {
+        	padding-left: 100px;
+        }
+        li.indent5 span:first-child {
+        	padding-left: 125px;
+        }
+        li.indent6 span:first-child {
+        	padding-left: 150px;
+        }
+        li.indent7 span:first-child {
+        	padding-left: 175px;
+        }
+        li.indent8 span:first-child {
+        	padding-left: 200px;
+        }
+        li.indent9 span:first-child {
+        	padding-left: 225px;
+        }
+
+        li.unleaded:before {
+        	content: "";
+        }
+
+        /* On Registry index pages (such as the Public Library), these are used for
+        download buttons and the like: */
+
+        span.registrybuttons {
+        	height: 20px;
+        	padding: 2px 8px 2px 8px;
+        	margin: 2px;
+        	border:1px solid;
+        	border-radius: 5px;
+        }
+
+        span.registryminibuttons {
+        	height: 14px;
+        	padding: 2px 5px 2px 5px;
+        	margin: 2px;
+        	border:1px solid;
+        	border-radius: 4px;
+        }
+
+        /* Used to hide or display sections in the Registry pages: */
+
+        div.registrysectionitemsopen {
+        	display: block;
+        }
+
+        div.registrysectionitemsclosed {
+        	display: none;
+        }
+
+        /* Hanging indentation for Registry item paragraphs: */
+
+        p.registryitem {
+        	padding-left: 80px;
+        	text-indent: -40px;
+        }
+
+        p.registryaddition {
+        	padding-left: 40px;
+        	text-indent: -40px;
+        }
+
+        -->
+    </style>
+    <script type="text/javascript">
+        function project() {
+            return window.Project;
+        }
+        function showExtra(id, imid) {
+        	if (document.getElementById(id).style.display == 'block') {
+        		document.getElementById(id).style.display = 'none';
+        		document.getElementById(imid).src = 'inform:/extra.png';
+        	} else {
+        		document.getElementById(id).style.display = 'block';
+        		document.getElementById(imid).src = 'inform:/extraclose.png';
+        	}
+        }
+        function openExtra(id, imid) {
+        	document.getElementById(id).style.display = 'block';
+        	document.getElementById(imid).src = 'inform:/extraclose.png';
+        }
+        function closeExtra(id, imid) {
+        	document.getElementById(id).style.display = 'none';
+        	document.getElementById(imid).src = 'inform:/extra.png';
+        }
+        function pasteCode(code) {
+            var myProject = project();
+
+            myProject.selectView('source');
+            myProject.pasteCode(code);
+        }
+
+    </script>
+</head>
+<body>
+    <!--CONTENT BEGINS-->
+    <table CELLPADDING=0 CELLSPACING=0 width="100%" bgcolor="#000000"><tr><TD width=38px height=26px align="center" valign="center"><a href="inform://Extensions/Extensions.html" border=0><img border=0 src="inform:/doc_images/Hookindex.png" border=0></a></td><TD width=38px height=26px align="center" valign="center"></td><td halign="left" valign="center" CELLPADDING=0 CELLSPACING=0><font color="#FFFFFF" size=2>Extensions</font></a></td><TD width=56px height=26px align="right" valign="center"><a href="inform:/index.html" border=0><img border=0 src="inform:/doc_images/Hookup.png" border=0></a></td></tr></table>
+
+    <p><a href="javascript:pasteCode('Include Menus by Wade Clarke.[=0x000A=][=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a>&nbsp;<b>Menus<span class="extensionindexentry"> by </span>Wade Clarke</b></p>
+    <p><span class="smaller">Version 5</span></p>
+    <p>Lets you include a menu system of help, hints and/or other information in your Glulx or Z-Code project for Inform 6M62 or later. This upgrade of Emily Short's classic Menus extension features user-friendly single keypress controls, a more sophisticated UI, compatibility with screen readers and portable devices, an optional book mode with automatic pagination, and isolated message content to make translations easier. Classic Menus tables can be reformatted for this extension with a little work.</p>
+    <p></p>
+    <hr>
+    <p><span class="indexblack"><b><a style="text-decoration: none" href=#docsec1>Chapter 1: </a></b></span>Introduction<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec2>Chapter 2: </a></b></span>The menu system described<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec3>Section 2.1: </a></span>Connecting the menu system to your game<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec4>Section 2.2: </a></span>The different states the menu system can be in<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec5>Section 2.3: </a></span>How menu options are assigned to different keys<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec6>Section 2.4: </a></span>What menu options can do<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec7>Section 2.5: </a></span>The breadcrumb described<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec8>Chapter 3: </a></b></span>An overview of the help tables<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec9>Chapter 4: </a></b></span>Entering your data into the help tables<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec10>Section 4.1: </a></span>How to enter text (and WHY DIVIDE A TEXT TOPIC INTO PAGES?)<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec11>Section 4.2: </a></span>How to enter hints<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec12>Section 4.3: </a></span>How to enter rules<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec13>Section 4.4: </a></span>How to create submenus<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec14>Section 4.5: </a></span>If you include more than 30 tables in your help system, read this<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec15>Chapter 5: </a></b></span>The limits of the menu system<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec16>Chapter 6: </a></b></span>Book mode and the startup scan<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec17>Section 6.1: </a></span>Book mode and the behaviour of the startup scan<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec18>Section 6.2: </a></span>What happens when book mode is toggled on or off?<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec19>Chapter 7: </a></b></span>Configurable options of the menu system<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec20>Section 7.1: </a></span>Using configurable options<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec21>Section 7.2: </a></span>A list of the configurable options<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec22>Chapter 8: </a></b></span>Screen Reader mode described<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec23>Chapter 9: </a></b></span>Changing which keys do what<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec24>Chapter 10: </a></b></span>Customising the extension's printed messages<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec25>Chapter 11: </a></b></span>Upgrading classic Menus tables for use with this extension<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec26>Chapter 12: </a></b></span>Change log, credits and contact info<br>
+    <br>
+    <b>Examples</b><br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href="Menus-eg1.html#eg1">A &mdash; Robot Retrievers of the Year 3000</a></span><br>
+    </p>
+    <hr>
+    <p></p>
+    </p>
+
+    <p><p><span class="indexdullred"><b><span id=docsec1>Chapter 1: Introduction</span></b></span></p>
+    </p>
+
+    <p> Based on Emily Short's classic Menus extension, this new Menus extension lets you include a menu system of help, hints and/or other information in your Glulx or Z-Code (Z8) project. This Menus version 5 requires Inform version 6M62 or greater to run.</p>
+
+    <p> (AN ALERT IF YOU'RE UPGRADING - In menu systems created with previous versions of Wade Clarke's Menus, your topmost level table was called the 'table of help contents' because it had to be. This system has changed and become more flexible in Menus 5. To connect your old menu content to the new extension you'll just have to add one line of code. Search for 'change log' in this documentation (it's down the bottom) then read the Version 5 / upgrade alert for details.)</p>
+
+    <p> The new Menus's most significant advances on classic Menus are as follows:</p>
+
+    <p> (1) Onscreen menu options are activated with a single keypress, so there is no need to repeatedly press arrow keys to move a cursor around. This is a much easier control method in general, and friendlier to players using text-to-speech. Another benefit is that transcript clutter is reduced.</p>
+
+    <p> (2) A player can exit the menu system at any time with a keypress. Their position within it is bookmarked when they do.</p>
+
+    <p> (3) A player can toggle Screen Reader mode, which optimises menu formatting for screen readers.</p>
+
+    <p> (4) Your menu system's text content is automatically paginated when the game starts. Players can toggle a book mode in which they can page back and forth through the help system's contents as if using an e-reader. Hints are gathered at the back of the 'book' in this mode, or you can hide them from book mode entirely.</p>
+
+    <p> (5) You can customise various aspects of the menu system's appearance and behaviour, and which of its modes are available to the player.</p>
+
+    <p> (6) The printed content (apart from debug mode messages) has been isolated to make it easy to adapt the extension for use with projects in other languages.</p>
+
+    <p> The code for &quot;Menus&quot; is about 80% new and 20% carried over from Emily Short's original extension. I've also cribbed some of the phrasing of her documentation. This is all with her permission.</p>
+
+    <p> Menus uses functions from Emily Short's Basic Screen Effects extension and automatically includes it in your project.</p>
+
+    <p> Menus is NOT intended or suitable for contexts in which you want the player to be able to choose a numbered option affecting gameplay (e.g. to create a menu of conversation choices when talking to another character). It is intended for situations where you wish to give the player optional help, hints or other info which can be browsed while playing the game, but which remain separate from it.</p>
+
+    <p> Tables created for use with Emily Short's Menus extension can be converted for use with this new Menus without too much hassle. See &quot;Chapter 11: Upgrading classic Menus tables for use with this extension&quot; for details.</p>
+
+    <p> The vast majority of variables and say phrases defined by this extension have the prefix 'mn_' (standing for Menus) with the goal of helping avoid namespace clashes with your game's code or other extensions.</p>
+
+    <p> * A WORD ABOUT THE DOCUMENTATION</p>
+
+    <p> This documentation might seem a little overwhelming at a glance, but don't panic. You don't need to read it from cover to cover. A lot of it is 'look it up as you need it' material. Also, don't forget to try the included example 'Robot Retrievers of the Year 3000'. Once you've seen what it does with Menus, you can look at its code to see how it does it.</p>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec2>Chapter 2: The menu system described</span></b></span></p>
+    </p>
+
+    <p><p><span class="indexblack"><b><span id=docsec3>Section 2.1: Connecting the menu system to your game</span></b></span></p>
+    </p>
+
+    <p> The menu system is coded as an activity called 'the displaying activity'. To let the player enter the system, you need to add a command or commands to your game which will 'carry out the displaying activity'. When the player exits the menus, code execution of your game continues on the line after 'carry out the displaying activity', at which point you might want to 'clear the screen' (otherwise the last menu printed will still be visible') and then 'try looking' (to remind players of where they are.)</p>
+
+    <p> Here's a code example which creates a command called &quot;help&quot; which will open the menu system then clean up the screen after the player comes back to the game:</p>
+
+    <p><blockquote><span class="indexdullblue"> asking for help is an action out of world applying to nothing.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Understand &quot;help&quot; as asking for help.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Carry out asking for help:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; carry out the displaying activity;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; clear the screen;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; try looking;</span></blockquote>
+
+    <p> I didn't build this routine into the extension itself because different authors like to use different commands to take players into a menu or hints system, depending on its contents. Some typical commands include: ABOUT, HINT, HINTS, INFO, AUTHOR, CREDITS. Just create your menu-opening commands then point them all to 'asking for help' (or whatever you might have renamed that action.)</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec4>Section 2.2: The different states the menu system can be in</span></b></span></p>
+    </p>
+
+    <p> When the player can see a list of numbered (and maybe lettered) menu choices on the screen, the menu system is considered to be in 'menu mode'. When the player is viewing text content or hint pages, the menu system is considered to be in 'local mode'.</p>
+
+    <p> There is also a third state which can encompass the entire menu system, called 'book mode'. This is a page-oriented viewing mode which can be toggled on and off by the player. When book mode is off, the player will find him/herself moving back and forth between menu mode and local mode. When book mode is on, the player sees all menu content in local mode.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec5>Section 2.3: How menu options are assigned to different keys</span></b></span></p>
+    </p>
+
+    <p> While the player is browsing the menu system, the first 10 options on each screen are automatically assigned to number keys 1-9 and then 0; this behaviour is hardcoded. After 0, the extension's default behaviour is to continue to assign options using the alphabet keys. 'A' will choose option 11, 'B' will choose option 12, etc... up until 'G' for option 17. After that, various reserved keys are left out of the sequence as we proceed towards 'Z'. All of the keys 'H', 'L', 'M', 'N', 'P', 'Q', 'S' and 'X' are already assigned to contextually-sensitive menu actions. You can reassign these keys (see &quot;Chapter 9: Changing which keys do what&quot;) though it's only advisable to do so with a good reason, for instance if you're writing for a language which isn't English. You should make sure that these keys' corresponding actions remain assigned to keys somewhere, or the menu system may be crippled or become non-exitable. The sequence of keys assigned to menu options beyond the ninth is also fully customisable. Again, see Chapter 9 for details.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec6>Section 2.4: What menu options can do</span></b></span></p>
+    </p>
+
+    <p> Each menu option visible during menu mode can produce one (and only one) of the following effects:</p>
+
+    <p> 1. Display some text to the player. The text can appear as a single page or be divided across as many sequential pages as you wish. We will call the collection of 1+ text pages opened by a single menu option a 'text topic'.</p>
+
+    <p> 2. Open a hint page. The hint page format allows you to display a series of increasingly specific hints related to a particular puzzle or game subject. When the player first visits a hint page, none of the hints will be visible. By repeatedly pressing 'H', the player can reveal one more hint at a time until all have been revealed. The system remembers which hint the player has reached on any particular hint page if they navigate away from it.</p>
+
+    <p> 3. Carry out a rule. This might perform any action you program yourself, including making changes to the game state.</p>
+
+    <p> 4. Open up a submenu. The submenu can in turn contain more text topics, hints, rule launchers and submenus, as per points 1-4 listed here. Submenus can be nested within each other up to 4 times, meaning the maximum allowable content depth at any point in the system is 5 layers.</p>
+
+    <p> The structure of menus and other content which make up your menu system can be visualised as a tree diagram, with the Help Menu as the top layer. I've created a sample diagram showing a possible menu structure (consisting only of text topics and submenus) for a simple Dungeons &amp; Dragons style combat game. Unfortunately it is impossible to display the diagram here in the extension's documentation, so I will link you to the file on my personal webspace instead:</p>
+
+    <p> http://wadeclarke.com/menus_tree_diagram.png</p>
+
+    <p> In the diagram, the asterisked * option names represent submenus while the non-asterisked names represent text topics. The important thing to note is that there are no submenus in layer 5, as this extension only allows menus to be nested 4 times. This reflects the headings structure allowable within Inform 7 source code, which goes Volume, Book, Part, Chapter, Section. If you'd like to, you can think of the Top layer as the Volume, which in turn can contain Books in layer 1, which in turn can contain Parts in layer 2, which in turn can contain Chapters in layer 3, which in turn can contain Sections in layer 4. Layer 5 contains only the content of Sections.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec7>Section 2.5: The breadcrumb described</span></b></span></p>
+    </p>
+
+    <p> As a player navigates the menu system, their position within the menu hierarchy is displayed as a 'breadcrumb trail', which I will simply refer to as the breadcrumb from now on. Using the Dungeons &amp; Dragons tree diagram as an example again, a player viewing the options in the Polearms submenu in layer 4 would see the following breadcrumb displayed above the options:</p>
+
+    <p><blockquote><span class="indexdullblue"> Combat - Non-Magical - Melee - Polearms</span></blockquote>
+
+    <p> The last item in the breadcrumb is always the name of the text topic, hint page or submenu which is currently open.</p>
+
+    <p> Note that the breadcrumb did not start with 'Help Menu'. This is because the player's position in the system is always encompassed by the top layer, so we skip printing the top layer's name just to save space.</p>
+
+    <p> The breadcrumb appears at the top of the main window by default, but you can configure it to appear only in the status window, or in both the status window and in the main window, or not at all. Note that allowing the breadcrumb to print in the status window can be risky in general (and doubly risky in a Z-Code project) as a particularly long breadcrumb might print off the edge of the window and look ugly, or like a bug, to the player. See &quot;Section 7.2: A list of the configurable options&quot; for more details on breadcrumb configuration.</p>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec8>Chapter 3: An overview of the help tables</span></b></span></p>
+    </p>
+
+    <p> The menu system is defined by a set of tables you will create and fill with your own content. Collectively, these are the help tables. You will need to create another help table for each submenu you add to your system. All of these tables share the same format.</p>
+
+    <p> The first table in the system will define your topmost menu content. In other words, it represents the first menu the player will see when they enter the help system. The default table included for this purpose is 'the table of default help contents', and it starts out empty. If you want, you can directly edit this table in the extension, or in a copy of the extension, to create your top level menu. To instead build a new top level table in your own source, copy-paste the 'table of default help contents' to your project and give it a new name. (Just remove the word 'default' if you don't want to think about what to call it.) Then, you must also tell the menu system to use your new table in place of the default extension one. To do this, set the variable 'mn_master_table' to your table's name when play begins. Here's a demonstration:</p>
+
+    <p><blockquote><span class="indexdullblue"> when play begins:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; now mn_master_table is Wade's new table of helps;</span></blockquote>
+
+    <p> Each table in the help system, including the top level one, is defined by the following seven columns:</p>
+
+    <p><blockquote><span class="indexdullblue"> &quot;title (text)&quot;, &quot;subtable (table name)&quot;, &quot;description (text)&quot;, &quot;toggle (rule)&quot;, &quot;used (number)&quot;, &quot;bookpage (number)&quot;, &quot;localpage (number)&quot;</span></blockquote>
+
+    <p>... however the subtable, description and toggle columns are actually optional - this is explained at the asterisked point shortly.</p>
+
+    <p> The bracketed parts of the column titles, like (table name), are necessary so that Inform knows what kind of data is allowed to be placed in a column in a case where all entries in that column may start out empty.</p>
+
+    <p> When creating a table from scratch, you can start out by copying and pasting the following 3 line template into your source code:</p>
+
+    <p><blockquote><span class="indexdullblue"> table of X</span><br>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> title (text)</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> subtable (table name)</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> description (text)</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> toggle (rule)</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> used (number)</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> bookpage (number)</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> localpage (number)
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> --</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> --</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> --</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> --</span>
+            </td>
+        </tr>
+    </table>
+    </blockquote>
+
+    <p> This template contains the table name, the column names and one empty sample row. Replace the X with your table's name.</p>
+
+    <p> Notice how there are actually only four values in the sample row (the four pairs of double dashes, each one signifying an empty table entry and which you can replace with your own data as necessary) even though there are seven columns in the table. This is because when your game boots up, the extension fills all of the used, bookpage and localpage entries in every help table with internal bookkeeping data. If you leave these columns at the right edge of each help table, you spare yourself the need to type any values into them - and in fact you shouldn't type any values into them.</p>
+
+    <p> In the case of the first four columns - title, subtable, description and toggle - whenever you don't have to put a value into them for a particular row of a help table, they should be left containing the double dashes which signify their emptiness. Unlike the used, bookpage or localpage columns, they can't be left entirely blank.</p>
+
+    <p> * One rule trumps this 'double dash' rule, and it's that if any of the subtable, description or toggle columns is completely empty in a particular table, that whole column can be removed from the table. This feature is just a convenience; you don't ever have to remove any of these columns if you'd find it inconvenient or confusing to do so, but removing them where they are unused can make your tables easier on your eye.</p>
+
+    <p> So here's a summary of these rules:</p>
+
+    <p> (a) The title, used, bookpage and localpage columns are mandatory in every help table.</p>
+
+    <p> (b) The used, bookpage and localpage columns should be placed at the right edge of each table. If you do this, you can always leave these columns entirely blank.</p>
+
+    <p> (c) If any or all of the subtable, description or toggle columns are totally empty in a particular table, those columns can be removed from or left out of the table if you want.</p>
+
+    <p> (d) Whenever an entry in an existing subtable, description or toggle column is going to be left empty, you should put a double-dash in for that entry. You can't just leave it blank.</p>
+
+    <p> These help tables can be quite wide on the screen even when they're empty, and can become more confusing to look at when you start putting lots of information into them. If you ever become confused by the formatting, my advice is to temporarily widen your Inform source code window as much as you can. This can allow the tab characters in the tables to align themselves better and thus make it more clear what is where in the table. You might find this useful as you consider examples included in these instructions, too.</p>
+
+    <p> With the used, bookpage and localpage columns out of mind, that leaves you with four columns of information you'll need to work with to create your menu content. Here is a quick summary of what kind of data will go into these important columns:</p>
+
+    <p> &quot;Title&quot; will most often contain the name of the option we want the player to see: &quot;Credits&quot;, &quot;About This Game&quot; and so on. The exceptions to this are when you are creating a multi-page text topic or a hint page with more than one hint. (Exceptions explained in &quot;Section 4.1: How to enter text (and WHY DIVIDE A TEXT TOPIC INTO PAGES?)&quot;). Also note that you should never give two or more options in any one table the same title. Doing so could cause cause erratic behaviour, runtime errors or crashes.</p>
+
+    <p> &quot;Subtable&quot; is most often used to create a submenu. This column holds the name of the table that specifies the submenu. There is one other use for this field which only applies when you are creating a hint page. (This other use explained in &quot;Section 4.2: How to enter hints&quot;)</p>
+
+    <p> &quot;Description&quot; is text that will be printed when a text or hint option is selected. You can fill it in with as much prose as you like. Each page of text in a multi-page topic or each new hint on a hint page will have its own row in the table and its own Description field.</p>
+
+    <p> &quot;Toggle&quot; can hold the name of an Inform rule which will be carried out when an option is chosen. In theory, this rule could be absolutely anything. In practice, the feature is mostly useful for giving the player a table of setting options which he/she can toggle on and off. (Explained in &quot;Section 4.3: How to enter rules&quot;)</p>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec9>Chapter 4: Entering your data into the help tables</span></b></span></p>
+    </p>
+
+    <p> Below I describe from first principles how to enter the data for each of the 4 aforementioned kinds of menu option (text, hints, rules, submenus) into the help tables. You can mix any or all of the different option kinds within an individual table so long as you respect the formatting rules for each kind in the process.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec10>Section 4.1: How to enter text (and WHY DIVIDE A TEXT TOPIC INTO PAGES?)</span></b></span></p>
+    </p>
+
+    <p> To enter a single page of text into the table, or to create the first page of a multi-page text topic, put the menu option's name in the title column and then the text that you want printed in the description column. For instance, if you started filling out the table of default help contents like this...</p>
+
+    <p><blockquote><span class="indexdullblue"> table of default help contents</span><br>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> title (text)</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> description (text)</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> used (number)</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> bookpage (number)</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> localpage (number)
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;Credits&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;'Rocket Scientists' was written and programmed by Hermione Quigley.&quot;</span>
+            </td>
+        </tr>
+    </table>
+    </blockquote>
+
+    <p>... you'd be making the first option in it 'Credits', and a player who selected that option would then move to a page of text which says ''Rocket Scientists' was written and programmed by Hermione Quigley. ' This page constitutes a text topic with a length of 1 page. Notice that I didn't have to put in a subtable or toggle column because this table doesn't use either of them and they're optional. (These rules about what's mandatory to include and what's optional are described in full in &quot;Chapter 3: An overview of the help tables&quot;).</p>
+
+    <p> If you want to create a text topic with multiple pages, you do so by adding another row to the table for each page after the first, entering &quot;page&quot; into the title column of each extra row and entering the corresponding page's text content in the description column.</p>
+
+    <p> So, expanding on the 'Credits' example, I will now turn Credits into a topic with 3 pages, and I will also place a new single page topic after it, one called 'Steering your rocket sled':</p>
+
+    <p><blockquote><span class="indexdullblue"> table of default help contents</span><br>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> title (text)</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> description (text)</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> used (number)</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> bookpage (number)</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> localpage (number)
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;Credits&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;'Rocket Scientists' was written and programmed by Hermione Quigley.&quot;
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;page&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;Germaine Kleinhenz drew the beautiful cover art.&quot;
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;page&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;John Smith and Mo['] Spudney tested the game and helped me find all the bugs.&quot;
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;Steering your rocket sled&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;When you're riding on your sled, type LEAN LEFT or LEAN RIGHT to start turning in the corresponding direction.&quot;</span>
+            </td>
+        </tr>
+    </table>
+    </blockquote>
+
+    <p> This example creates a top level menu with 2 options: 'Credits' and 'Steering your rocket sled'. After choosing the Credits option, the player would be presented with page 1 of the 3 page text topic you've created. The menu system would then let them know they can turn pages within the topic by pressing various keys. 'Steering your rocket sled' is a new topic with just 1 page, and the purpose of its inclusion in the above example is to demonstrate that you don't have to do anything special to signal the end of a multi-page topic in a table. As soon as the menu system encounters a row in the table whose title field is not &quot;page&quot;, it knows that the multi-page topic has ended and that it's now dealing with a new menu option.</p>
+
+    <p> You can put as many pages into a multi-page topic as you want. If you are unsure about the use or purpose of the feature of dividing a text topic into pages, I have some suggestions below:</p>
+
+    <p> WHY PAGINATE? aka WHY DIVIDE A TEXT TOPIC INTO PAGES?</p>
+
+    <p> In the Credits example, I deliberately made the amount of text on each of the 3 pages very small just for the sake of making the code easy to read in this documentation. In a real game's menu system I probably wouldn't split those 3 lines across 3 pages. But when you do want to put lots of text in one topic, for instance, a dump of instructions explaining your game's special commands, this is where pagination can come in handy to improve the player's experience.</p>
+
+    <p> Recall that when a game produces more text in an instant than can fit on the user's screen, it will stop printing and prompt the user to continue with a keypress. After the keypress, the user will need to manually scroll back to see the text that went off the screen. This is fine during gameplay, but when a player is reading extra-game content, even the appearance of the 'more' prompt can send a psychological signal to the player that you've dumped too much information on them. 'You want me to take in all these instructions, and they don't even fit on the screen? ' Of course, you have no real control over the size of the user's game window, but a good basic use of the pagination feature would be to simply divide up really big blocks of text into smaller blocks. The smaller blocks will be less likely to trigger 'more' prompts, and players will find the information easier to consider and less confronting after it's been intelligently divided up into multiple pages, each of which is far more likely to fit into their game window.</p>
+
+    <p> Another possible use for the pagination feature is to duplicate the page structure of previously written content that you're moving into your game. For instance, if your game has a written manual, or you're porting a game to Inform which has a written manual, it's possible to reproduce that manual's chapter and page structure verbatim within the game itself using Menus's pagination and submenu features, effectively including the manual in the game in readily readable form.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec11>Section 4.2: How to enter hints</span></b></span></p>
+    </p>
+
+    <p> To enter the first (or only) hint of a set of a hints into a help table, put the name of the menu option leading to the hint (s) in the title column and put the text of the first hint in the description column. Also, for this first hint on a particular subject, you must put &quot;table of hinting&quot; in the subtable column. For instance, if you started off the table of default help contents like this...</p>
+
+    <p><blockquote><span class="indexdullblue"> table of default help contents</span><br>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> title (text)</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> subtable (table name)</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> description (text)</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> used (number)</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> bookpage (number)</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> localpage (number)
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;Getting past the troll&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> table of hinting</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;Trolls hate birds.&quot;</span>
+            </td>
+        </tr>
+    </table>
+    </blockquote>
+
+    <p>... you'd be making the first option in it 'Getting past the troll', and a player who selected that option would then move to a hint page where they could reveal the only hint on the topic, 'Trolls hate birds', by pressing H.</p>
+
+    <p> The significance of placing 'table of hinting' in the subtable column is that it signals to the menu system that this row in the table contains a hint, not a text page, and also that it is the first hint on its subject. Initial text pages and hint pages would otherwise be indistinguishable, as they would both consist of a title entry paired with a description entry. The table of hinting itself is not a table you ever have to edit or even look at, and its presence here will not open a submenu; it exists merely to act as a signal to the menu system in the circumstances just described.</p>
+
+    <p> Most often you will want to provide more than one hint on a particular subject. The method of adding further hints is similar to the method of adding additional text pages to a text topic. You add more hints by adding another row to the table for each hint after the first, entering &quot;hint&quot; into the title column of each row and entering the corresponding hint's text content in the description column.</p>
+
+    <p> In the following example, I extend the Troll example out to offer 5 increasingly specific hints in total, with the last hint being the explicit solution to the puzzle:</p>
+
+    <p><blockquote><span class="indexdullblue"> table of default help contents</span><br>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> title (text)</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> subtable (table name)</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> description (text)</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> used (number)</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> bookpage (number)</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> localpage (number)
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;Getting past the troll&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> table of hinting</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;Trolls hate birds.&quot;
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;hint&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> --</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;Have you seen any birds around?&quot;
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;hint&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> --</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;There are some birds near the pirate's house.&quot;
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;hint&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> --</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;The parrot is tame.&quot;
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;hint&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> --</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;Take the parrot to the troll bridge.&quot;</span>
+            </td>
+        </tr>
+    </table>
+    </blockquote>
+
+    <p> Note that a set of hints on one topic like this ('Getting past the troll') is grouped together into a single page for pagination purposes. When the player visits that page, they will be told they can press 'H' to reveal hints one by one. Also note that you should NOT mention the 'table of hinting' again in rows of data for hints beyond the first one on a particular subject.</p>
+
+    <p> Once you've got a multi-hint page going in a help table, the menu system will know that this hint topic has ended as soon as it encounters a row in the table whose title entry is not &quot;hint&quot;, or if it reaches the end of the table.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec12>Section 4.3: How to enter rules</span></b></span></p>
+    </p>
+
+    <p> To connect a menu option to a rule that will be carried out when the player chooses it, put the menu option name in the title column and put the rule in the toggle column.</p>
+
+    <p> In theory, this rule could be absolutely anything, but in practice, the feature is mostly useful for allowing the player to toggle game configuration options. As an example, here is a top level menu containing one option which toggles the game's score notification on or off each time it is chosen. The option itself is written so that it always describes the switch's current position:</p>
+
+    <p><blockquote><span class="indexdullblue"> table of default help contents</span><br>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> title (text)</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> description (text)</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> toggle (rule)</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> used (number)</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> bookpage (number)</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> localpage (number)
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;Score Notification is [if notify mode is on]ON[otherwise]OFF[end if]&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> --</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> switch notification status rule</span>
+            </td>
+        </tr>
+    </table>
+    </blockquote>
+
+    <p> The rule cited here (switch notification status rule) and the deciding phrase (if notify mode is on) don't exist in Inform by default, so they would also need to be coded to make this menu option functional. You'd need to add the following code to your game:</p>
+
+    <p><blockquote><span class="indexdullblue"> To decide whether notify mode is on:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; (-  notify_mode  -);</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> This is the switch notification status rule:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; if notify mode is on, try switching score notification off;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; otherwise try switching score notification on;</span></blockquote>
+
+    <p><p><span class="indexblack"><b><span id=docsec13>Section 4.4: How to create submenus</span></b></span></p>
+    </p>
+
+    <p> To create a submenu within the current menu, put the title of the submenu in the title column, then put the name of the table which will specify the submenu's contents in the subtable column.</p>
+
+    <p> Here's an example:</p>
+
+    <p><blockquote><span class="indexdullblue"> table of default help contents</span><br>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> title (text)</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> subtable (table name)</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> used (number)</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> bookpage (number)</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> localpage (number)
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;Magic Spells&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> table of magic spells</span>
+            </td>
+        </tr>
+    </table>
+    </blockquote>
+
+    <p> This example places a submenu called 'Magic Spells' in the top level menu. Note again that I left out columns which are optional and which went unused in this particular table: description and toggle. The contents of the Magic Spells submenu must now be specified by a new table, which in this case I have unsurprisingly called 'table of magic spells'. When the player chooses the Magic Spells option, they will enter the menu defined by the table of magic spells.</p>
+
+    <p> You should only link to any particular table once in your help system. The extension isn't set up to handle a situation where two or more more options lead to the same submenu, and it could lead to erratic behaviour, runtime errors or crashing.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec14>Section 4.5: If you include more than 30 tables in your help system, read this</span></b></span></p>
+    </p>
+
+    <p> Menus needs to keep track of all the tables used by your menu system. It does so by scanning them at boot time and storing their names in a table called the 'table of pagey menus'. You will find this table in section 5 of this extension's code. The table starts out with 30 empty rows in it by default. Normally you never have to interact with this table yourself, but if you end up including more than 30 tables in your system -- which is no problem, you could theoretically include hundreds -- you will need to change the line below the table which currently says &quot;with 30 blank rows&quot; to a higher number. There need to be at least as many blank rows in the table of pagey menus as you have help tables in your system, excluding the topmost level table. So if you ended up using 45 help tables in total (the table of default help contents plus 44 other tables) the line would need to say 'with 44 blank rows' (at least) for your menu system to be able to compile.</p>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec15>Chapter 5: The limits of the menu system</span></b></span></p>
+    </p>
+
+    <p> You must format all tables in your help system using the instructions set out in &quot;Chapter 4: Entering your data into the help tables&quot;. This is true whether you're creating the top level table, or a submenu, or a submenu within a submenu within a submenu, etc.</p>
+
+    <p> Don't create two or more options leading to the same submenu. The extension isn't set up to handle such cases and they're likely to cause erratic behaviour, runtime errors and crashes.</p>
+
+    <p> Don't give two or more options in any one table the same name. By name, I mean the text entered into the title column to describe the option to the player. Doing so could cause cause erratic behaviour, runtime errors or crashes.</p>
+
+    <p> Don't call any of your tables 'table of hinting'. This table already exists in the extension and its name is reserved. This mistake is easy to catch because your game won't compile, but will instead complain about how this table exists.</p>
+
+    <p> Menus can't be nested inside each other more than 4 times. If you try to do this, the extension will alert you to the problem when you boot your game.</p>
+
+    <p> If you add more than 30 help tables to your game, you will need to make room for them by adding extra rows to the table of pagey menus. (See &quot;Section 4.5: If you include more than 30 tables in your help system, read this&quot;.)</p>
+
+    <p> If you have more than 999 book mode pages in your menu system (!) and are displaying the book page count in the status window, the count won't fit unless you make extra room for it. In section 1 of the extension code is the 'rule for displaying' whose first line is 'now right alignment depth is 12'. Each time you add 2 to the depth number in this line, you'll get another digit's worth of page numbers which can fit on the screen. So by setting a right alignment depth of 14, you can display a count going up to 9999 pages. Set a depth of 16 and you can go up to a ridiculous 99999 pages.</p>
+
+    <p> There is also an overall soft structural limitation on the menu system. Given that all menu options must be selectable with one keypress, you can't have more options in a single menu than you have keys on your keyboard. More realistically, you're likely to want to stick to using the regular alphanumeric keys 1-9, 0 and A-Z. Considering the default key assignments, it you take away from the 1-9, 0 and A-Z set the keys assigned to menu controls, that leaves you with a soft limit of 28 options for any one menu, where option 28 is assigned to 'Z'. Options in a menu for which no keys remain simply won't appear onscreen.</p>
+
+    <p> In the default setup:</p>
+
+    <p> * L 'leaps' to the top of the menu system (or to page 1 when in book mode. (See Chapter 6 for a description of book mode)</p>
+
+    <p> * P (for Previous) goes back a page when in local mode</p>
+
+    <p> * N (for Next) goes forward a page when in local mode</p>
+
+    <p> * S (for Screen reader) toggles special formatting intended to help players using screen readers</p>
+
+    <p> * X (for Exit) immediately takes the user back to the game</p>
+
+    <p> * The arrow key pairs (up and down, left and right) also page backwards and forwards respectively in local mode</p>
+
+    <p> * ESC or Q take the player back a menu. Q is provided as an alternative to ESCAPE because on some mobile devices, there is no ESCAPE key.</p>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec16>Chapter 6: Book mode and the startup scan</span></b></span></p>
+    </p>
+
+    <p><p><span class="indexblack"><b><span id=docsec17>Section 6.1: Book mode and the behaviour of the startup scan</span></b></span></p>
+    </p>
+
+    <p> Book mode is a viewing mode the player can toggle on or off at almost any time as they browse through your menu system (unless you either force or prohibit book mode -- see mn_modes_allowed in &quot;Section 7.2: A list of the configurable options&quot;). When book mode is on, the contents of the help system will appear to the player as if they were pages of a book, with the following two exceptions:</p>
+
+    <p> 1. Rules never appear in book mode.</p>
+
+    <p> 2. Hints can be set to appear at the back of the book, where they will be found gathered together, but by default they do not appear at all (in order to guard against even the most minor of spoiler accidents by the most conservative of standards - though players always have to press H to reveal the first hint of a set, anyway). To have hints appear at the back of the book in book mode, set the 'mn_show_hints_in_bookmode' variable to 'true' (see mn_show_hints_in_bookmode in &quot;Section 7.2: A list of the configurable options&quot;).</p>
+
+    <p> The player can see the total page count of the book and the number of the page they're currently reading by glancing to the top right corner of the screen. Navigation in book mode consists of turning the pages one at a time. The player does this by using the arrow keys and/or the Next and Previous menu commands (assigned to 'N' and 'P' respectively in the default setup). If hints are being shown in book mode, a permanently displayed message tells the player on which page they will commence, with an extra warning displayed when the player is only one page away from them.</p>
+
+    <p> For the exact details of how Menus decides which page to display next when the player toggles book mode, see &quot;Section 6.2: What happens when book mode is toggled on or off?&quot;.</p>
+
+    <p> The breadcrumb still appears in book mode because it still provides useful information, even in the absence of submenu-style navigation. Just as you may find it handy to see the name of the chapter you're reading in a textbook at the head of each page, and perhaps the name of the current subsection within that chapter, the breadcrumb acts similarly as a page header in book mode.</p>
+
+    <p> If the player switches book mode off, their current position within the menu hierarchy is reconstructed, and they will again be able to perform actions like going back a menu level or leaping to the top level menu from their current position. This is all made possible by a startup scan Menus carries out of your entire menu system when the player boots the game. The scan records the menu system's structure and assigns every page within it a page number for use in book mode.</p>
+
+    <p> During the scan, each page of a text topic becomes 1 book page. Each set of hints devoted to a single topic becomes 1 book page, and that page is attached to the end of the book after all non-hint pages have been scanned. Submenus aren't used for navigation in book mode and therefore occupy no pages. The important thing to note is that any rule options you've placed in your menu system (i.e. those created by entering a rule name in the 'toggle' column) have NO presence in book mode; they are not paginated and they won't appear. This is because book mode is intended to present read-only contents in the manner of a book. If your menu system consists of nothing but rule options, book mode will be force-deactivated at boot time.</p>
+
+    <p> Handily, the startup scan doubles as a free troubleshooting pass over your help tables. It won't catch every tabling mistake that could ever be made, but it will catch some of the major ones that would muck up your menus, and it will halt the process if it does strike one of these. You will also be told what the problem was and which table caused it.</p>
+
+    <p> To see the details of your startup scan as it happens, turn on Menus's debug mode. (See &quot;Section 7.2: A list of the configurable options&quot; for details on debug mode.)</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec18>Section 6.2: What happens when book mode is toggled on or off?</span></b></span></p>
+    </p>
+
+    <p> When the player turns book mode ON, Menus does the following:</p>
+
+    <p> * If the player is in menu mode, Menus's goal is to take them to a book page with text content (either a text page or a hint page) which is 'closest' to the currently visible menu options -- ideally, the first local page of the first menu option. Menus will run through the current menu from the top in search of the first option that doesn't lead to a rule. If the option leads to a text topic, Menus drops the player on the first page of that topic. If the option leads to a submenu, Menus will open that submenu and restart the scan. If the option leads to a hint page, what happens next depends on whether or not you're hiding hint pages from the player in book mode (see mn_show_hints_in_bookmode in &quot;Section 7.2: A list of the configurable options&quot;). If you aren't hiding them, Menus drops the player on the hint page. If you are hiding them, Menus recalls which non-hint book page was the last one it passed during the startup scan before encountering the hint page, and drops the player there.</p>
+
+    <p> * If the player is in local mode and they're viewing a text topic, their position already correlates exactly to a book page, so Menus just leaves them where they are. If they're viewing a hint page, Menus proceeds as it would if the player was coming from menu mode, leaving the player on the hint page if you're allowing hints to appear in book mode, or taking them to the nearest non-hint page detected during the startup scan if you're not.</p>
+
+    <p> When the player turns book mode OFF, Menus does the following:</p>
+
+    <p> * If the currently displayed book page is part of a text topic, the player stays on it. Then the player's position in the menu hierarchy is reconstructed.</p>
+
+    <p> * If the currently displayed book page is a hint page, the player will stay on it if you're allowing hints to appear in book mode, or be taken to the nearest non-hint page detected during the startup scan if you're not. Then the player's position in the menu hierarchy is reconstructed.</p>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec19>Chapter 7: Configurable options of the menu system</span></b></span></p>
+    </p>
+
+    <p><p><span class="indexblack"><b><span id=docsec20>Section 7.1: Using configurable options</span></b></span></p>
+    </p>
+
+    <p> There are many options available for customising aspects of the menu system's appearance and behaviour. Each option is controlled by the state of a variable, and each variable has a default value. If you want to set one or more variables to a non-default position, an easy way to do so is by adding a 'When play begins' rule to your game and putting your variable setting instructions in it. For instance, here is a code example which turns on the extension's debug mode, disallows book mode and positions the breadcrumb in the status window:</p>
+
+    <p><blockquote><span class="indexdullblue"> When play begins:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; now mn_debug is 1;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; now mn_modes_allowed is &quot;book only&quot;;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; now mn_breadcrumb_preference is &quot;status&quot;;</span></blockquote>
+
+    <p><p><span class="indexblack"><b><span id=docsec21>Section 7.2: A list of the configurable options</span></b></span></p>
+    </p>
+
+    <p> Here is a reference list of all of the configuration variables:</p>
+
+    <p> ---</p>
+
+    <p> VARIABLE: mn_debug (a number variable)</p>
+
+    <p> The default value is 0, meaning debug mode is off.</p>
+
+    <p> Debug mode is intended to help you troubleshoot the construction of your help tables.</p>
+
+    <p> Set this variable to 1 to turn on regular debug mode, which gives you details of the pagination process during the startup scan, followed by a summary list of all the tables in your menu system and their paths in the hierarchy.</p>
+
+    <p> E. G.:</p>
+
+    <p><blockquote><span class="indexdullblue"> When play begins:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; now mn_debug is 1;</span></blockquote>
+
+    <p> Set this variable to 2 to receive even more detailed tabling information during the pagination process.</p>
+
+    <p> (Don't forget to turn debug mode off before compiling your game for regular players.)</p>
+
+    <p> ---</p>
+
+    <p> VARIABLE: mn_master_title (a text variable)</p>
+
+    <p> The default value is &quot;HELP MENU&quot;.</p>
+
+    <p> This variable stores the printed name of your help system as a whole. The name appears in the top-left corner of the status window. You can change the text of the variable to whatever suits you.</p>
+
+    <p> E. G.:</p>
+
+    <p><blockquote><span class="indexdullblue"> When play begins:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; now mn_master_title is &quot;GRODY'S ADVENTURES IN BLUEGRUB LAND: GET YER HELP HERE!&quot;;</span></blockquote>
+
+    <p> If you want no title to appear, just blank out the variable.</p>
+
+    <p> E. G.:</p>
+
+    <p><blockquote><span class="indexdullblue"> When play begins:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; now mn_master_title is &quot;&quot;;</span></blockquote>
+
+    <p> ---</p>
+
+    <p> VARIABLE: mn_master_table (a table name variable)</p>
+
+    <p> The default value is the table of default help contents.</p>
+
+    <p> This variable stores the name of the table that functions as the top level of your menu system. By default it's 'the table of default help contents', which is present in this extension and starts out empty. If you edit that table directly in the extension to create your top level table, you can leave mn_master_table as is.</p>
+
+    <p> A more convenient option may be to build your own top level table in your project source and then to direct the extension to use your table as the new top level one. You do this by storing the name of your table in mn_master_table when play begins.</p>
+
+    <p> E. G.:</p>
+
+    <p> If you make your own top level table and call it 'the table of supreme information', you'd just add a rule like this to point to it:</p>
+
+    <p><blockquote><span class="indexdullblue"> when play begins:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; now mn_master_table is the table of supreme information;</span></blockquote>
+
+    <p> ---</p>
+
+    <p> VARIABLE: mn_master_title (a text variable)</p>
+
+    <p> The default value is &quot;HELP MENU&quot;.</p>
+
+    <p> This variable stores the printed name of your help system as a whole. The name appears in the top-left corner of the status window. You can change the text of the variable to whatever suits you.</p>
+
+    <p> E. G.:</p>
+
+    <p> When play begins: now mn_master_title is &quot;GRODY'S ADVENTURES IN BLUEGRUB LAND: GET YER HELP HERE!&quot;;</p>
+
+    <p> If you want no title to appear, just blank out the variable.</p>
+
+    <p> E. G.:</p>
+
+    <p> When play begins: now mn_master_title is &quot;&quot;;</p>
+
+    <p> ---</p>
+
+    <p> VARIABLE: mn_modes_allowed (a text variable)</p>
+
+    <p> The default value is &quot;both&quot;.</p>
+
+    <p> This variable controls which viewing modes you will allow a player to use to view your menu content. There are two modes which this variable governs: menu mode and book mode.</p>
+
+    <p> On the default setting of &quot;both&quot;, both modes are allowed, meaning the player starts off in menu mode at the top level menu, and can toggle book mode on or off whenever they want as they browse.</p>
+
+    <p> A setting of &quot;menu only&quot; prohibits the player from switching to book mode, and hides the controls for doing so.</p>
+
+    <p> E. G.:</p>
+
+    <p><blockquote><span class="indexdullblue"> When play begins:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; now mn_modes_allowed is &quot;menu only&quot;;</span></blockquote>
+
+    <p> A setting of &quot;book only&quot; will start the menu system off in book mode and not allow the player to switch out of it, hiding the controls for doing so. If your menu system contains nothing but rules, this setting will be overridden when your game boots up because there would be no book page content for a player to view.</p>
+
+    <p> ---</p>
+
+    <p> VARIABLE: mn_show_hints_in_bookmode (a truth state variable)</p>
+
+    <p> The default value is false.</p>
+
+    <p> This variable determines whether the player will see hint pages when viewing your menu content in book mode. The default choice of false means that they won't; the hint pages simply won't be paginated as part of the book.</p>
+
+    <p> If you set mn_show_hints_in_bookmode to true, players will be able to access hint pages in global mode, but to help guard against spoiler accidents, the hint pages will all appear at the back of the book, regardless of their position in the menu mode hierarchy. The player is also informed about which page the hints start on, and receives an extra warning when they're only 1 page away from the hints.</p>
+
+    <p> E. G.:</p>
+
+    <p><blockquote><span class="indexdullblue"> When play begins:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; now mn_show_hints_in_bookmode is true;</span></blockquote>
+
+    <p> The value of this variable is irrelevant when mn_modes_allowed is set to &quot;menu only&quot;. Also note that if mn_modes_allowed is set to &quot;book only&quot;, leaving mn_show_hints_in_bookmode set to false will render any hint pages completely inaccessible.</p>
+
+    <p> ---</p>
+
+    <p> VARIABLE: mn_bookpageshow (a truth state variable)</p>
+
+    <p> The default value is true.</p>
+
+    <p> This variable determines whether the current book page number and total page count are displayed in the top-right corner of the status window when book mode is on.</p>
+
+    <p> Set the variable to false to stop these numbers from appearing in the status window.</p>
+
+    <p> E. G.:</p>
+
+    <p><blockquote><span class="indexdullblue"> When play begins:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; now mn_bookpageshow is false;</span></blockquote>
+
+    <p> The value of this variable is irrelevant when mn_modes_allowed is set to &quot;menu only&quot;.</p>
+
+    <p> ---</p>
+
+    <p> VARIABLE: mn_localpageshow (a truth state variable)</p>
+
+    <p> The default value is true.</p>
+
+    <p> This variable determines whether the current local page number and page count are displayed in the status window when viewing a multi-page text topic.</p>
+
+    <p> Set the variable to false to hide these values.</p>
+
+    <p> E. G.:</p>
+
+    <p><blockquote><span class="indexdullblue"> When play begins:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; now mn_localpageshow is false;</span></blockquote>
+
+    <p> ---</p>
+
+    <p> VARIABLE: mn_breadcrumb_preference (a text variable)</p>
+
+    <p> The default value is &quot;main&quot;.</p>
+
+    <p> This variable determines whether the breadcrumb is displayed on the screen, and if it is, where. The possible positions are at the top of the main window, in the top-left corner of the status window or in both of these positions.</p>
+
+    <p> The default setting of &quot;main&quot; puts the breadcrumb at the top of the main window only.</p>
+
+    <p> A setting of &quot;status&quot; puts the breadcrumb in the top-left corner of the status window only.</p>
+
+    <p> A setting of &quot;both&quot; puts the breadcrumb in both of the above-mentioned positions.</p>
+
+    <p> A setting of &quot;off&quot; completely hides the breadcrumb.</p>
+
+    <p> E. G.:</p>
+
+    <p><blockquote><span class="indexdullblue"> When play begins:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; now mn_breadcrumb_preference is &quot;both&quot;;</span></blockquote>
+
+    <p> N. B. Don't forget that allowing the breadcrumb to print in the status window is risky in general, and doubly risky in a Z-Code project. Here's why: In both Glulx and Z-Code projects, a particularly long breadcrumb might print off the edge of the window, which could look ugly or like a bug to the player. This is because the status window doesn't have automatically wrapping text like the main window does. In Z-Code, there is a second problem. The Z-Code status window will not accept text strings longer than 62 characters in its central column, and will report a VM Print Buffer or Overflow Error if we try to print any there. The error messages won't crash your game, but they will be visible to a player and they might also entirely replace the text you intended to print, depending on which interpreter the player is using. Therefore I strongly recommend against allowing a breadcrumb in the status window if you are compiling a Z-Code project. And if you're thinking of allowing a breadcrumb in the status window in a Glulx project, test how it looks at all levels of your menu system to make sure the results don't disturb you. Also, don't forget that a player's interpreter window might not be as wide as yours.</p>
+
+    <p> ---</p>
+
+    <p> VARIABLE: mn_hinthelp_preference (a text variable)</p>
+
+    <p> The default value is &quot;both&quot;.</p>
+
+    <p> This variable determines where the hint page help messages (&quot;Press H to reveal another hint&quot;, &quot;You have revealed all the hints on this page&quot; etc.) appear when the player is reading a hint page. Possibilities are in the main window beneath the most recently displayed hint, up in the status window or in both these positions.</p>
+
+    <p> A setting of &quot;main&quot; puts the messages in the main window.</p>
+
+    <p> E. G.:</p>
+
+    <p><blockquote><span class="indexdullblue"> When play begins:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; now mn_hinthelp_preference is &quot;main&quot;;</span></blockquote>
+
+    <p> A setting of &quot;status&quot; puts the messages in the status window.</p>
+
+    <p> The default setting of &quot;both&quot; puts the messages in both of the above-mentioned positions.</p>
+
+    <p> ---</p>
+
+    <p> VARIABLE: mn_show_pagefooter (a truth state variable)</p>
+
+    <p> The default value is true.</p>
+
+    <p> This variable determines whether a dashed line (or some other ascii design) is displayed at the bottom of every text and hint page. The footer is intended to give a clear visual signal to the player of the position of the bottom of the page. The author can define the text string to be displayed using the mn_footerdesign variable.</p>
+
+    <p> Set this variable to false to stop these page footers from being printed.</p>
+
+    <p> E. G.:</p>
+
+    <p><blockquote><span class="indexdullblue"> When play begins:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; now mn_show_pagefooter is false;</span></blockquote>
+
+    <p> ---</p>
+
+    <p> VARIABLE: mn_footerdesign (a text variable)</p>
+
+    <p> The default value of &quot;[bold type]------------------------[roman type][line break]&quot; prints a line of bold dashes.</p>
+
+    <p> This variable contains the text string to be printed at the bottom of text and hint pages when mn_show_pagefooter is set to true. You can change mn_footerdesign's value to whatever you want your footer to look like. It could be purely decorative or you might want to put a phrase in there.</p>
+
+    <p> E. G.:</p>
+
+    <p><blockquote><span class="indexdullblue"> When play begins:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; now mn_footerdesign is &quot;*&gt;&gt;&gt;- - -  -  -  -  - - -&lt;&lt;&lt;*&quot;;</span></blockquote>
+
+    <p> Note that the footer design will never be displayed when Screen Reader mode is on, regardless of the setting of the mn_show_pagefooter variable.</p>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec22>Chapter 8: Screen Reader mode described</span></b></span></p>
+    </p>
+
+    <p> Inform's text display throws up a couple of issues for players using screen readers. These issues can be minor or major in effect depending on the particular game:</p>
+
+    <p> 1. Text in the status window is typically not read out every turn. Players may need to manually switch to and select the status window to have its contents read.</p>
+
+    <p> 2. Excess punctuation used as visual emphasis (for instance, a line of hyphens used to divide text or as a footnote decoration) might be read aloud to no advantage.</p>
+
+    <p> Since Menus's context-sensitive instructions appear in the status line, their default position is inconvenient for screen reader users. This is where Screen Reader mode comes in. An instruction visible in the main window at the top level of your menu systems lets players know they can toggle this mode by pressing 'S'. Once it's on, the status window is minimised for as long as the player remains in the menu system, all the context-sensitive instructions and headings/breadcrumbs appear in the main window instead of the status window, and the menu system footer decoration is temporarily deactivated, if it was on. This way, players using screen readers will automatically hear all the important information every turn without having to manually check the status window. A player who later decides they know the menu instructions well enough or is just weary of hearing them can toggle the mode off again.</p>
+
+    <p> Note that while the 'how to toggle screen reader mode' message only appears on the first page of the menu system for screen space-saving reasons, the mode can be toggled by the player at any time while in the menus.</p>
+
+    <p> The only configurable options which are truly overridden by Screen Reader mode are the ones relating to the page footer. The footer will never appear while Screen Reader mode is on. Any other options you have set concerning the presence or absence of certain features (the breadcrumb, book mode, etc.) are all respected as usual while Screen Reader mode is on.</p>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec23>Chapter 9: Changing which keys do what</span></b></span></p>
+    </p>
+
+    <p> In section 3 of the extension code are the two tables which define all of the default keys used to control the menu system. The Table of Menu Commands stores the keys which trigger the contextually sensitive menu actions. The Table of Extra Menu Choices stores the keys which will be assigned consecutively to menu options beyond the ninth one in any particular menu. The latter table's 'choice' column stores the number of the option a particular key will trigger.</p>
+
+    <p> Regular letter and number keys are stored in the tables by their ascii/zscii number. Function keys (e.g. the arrow keys) are represented by values you won't be able to easily predict in either Glulx or Z-Code without using a test program to display them. Fortunately, the values of the safest of such keys are already in the table. It's generally unwise to assign menu options to more obscure function keys because those keys may not be available in all contexts. Remember that your game is running on a virtual machine which in turn might end up running on something like a mobile phone or iPad served by a limited virtual keyboard.</p>
+
+    <p> So to change keys or add new ones, simply add their numbers into the table in the relevant rows. Note that in the case of letter keys, it's necessary to add the ascii code for both the upper and lowercase versions of the key as separate entries, and that the uppercase entry should appear in the table ahead of the lowercase one. Also note that where the Z-Code and Glulx values for the same function key are different, Z-Code-only values should be added to the table continuation in Section 3.1 of the extension, which only compiles in Z-code projects, and Glulx-only values should be added to the table continuation in Section 3.2 of the extension, which only compiles in Glulx projects.</p>
+
+    <p> When a player presses a key while browsing your menus, the extension searches for the key in the Table of Menu Commands before it searches for it in the Table of Extra Menu Choices. Therefore, don't list a key in both menus or it won't function in some situations.</p>
+
+    <p> If you change any values in the Table of Menu Commands (not recommended without good cause) you will also need to change the instructional messages which appear in the Status Window so that they refer to your new keys. The way to do this is explained in the next chapter.</p>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec24>Chapter 10: Customising the extension's printed messages</span></b></span></p>
+    </p>
+
+    <p> If you are using this extension in a non-English language project, you will want to change the instructional messages printed in the status window. Another reason you might need to change them is if you alter any of the keys used to navigate the menu system or choose options. All of the messages printed by the extension (except the debugging ones) have been gathered together in section 4 of the extension's code, &quot;Printed Messages&quot;. Just go through the 'say' phrases listed there and alter any text strings as needed.</p>
+
+    <p> While you're making your changes, try not to alter the punctuation of the phrases. (I appreciate this may be a hard or impossible rule to abide when translating between languages!) By punctuation, I mean the presence or absence of periods or spaces in the say phrases, both amongst the words and especially at the start or end of lines. If the punctuation is changed, words might run together or appear with unnecessary gaps between them when they're printed in the status window.</p>
+
+    <p> One more thing -- If your project is going to be in Z-Code format, don't forget that the total length of a line printed to the status window's central column cannot be greater than 62 characters. Lines exceeding this length will trigger a runtime error message which will appear either alongside or instead of the message you wanted to print. This is why you will see shorter, Z-Code specific versions of some of the instructional message elements amongst the say phrases. They ensure that none of the default messages will be more than 62 characters long if the host project is compiled to Z-Code.</p>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec25>Chapter 11: Upgrading classic Menus tables for use with this extension</span></b></span></p>
+    </p>
+
+    <p> In writing this extension, I tried to make it as compatible as possible with Emily Short's Menus, but the introduction of the pagination features meant I had to change the table structures. The hints mechanism underwent the most drastic changes. Bringing what used to be called a hint booklet into the new system as a hints page will require manual copying and pasting of individual hint messages, but tables containing other data types - regular text entries, rule launching entries (the ones using the toggle column) and entries pointing to subtables - can mostly be copy-pasted in their entirety for use with Menus, though you will need to add a few new columns to them.</p>
+
+    <p> Here's how to go about converting a set of classic Menus tables for use with new Menus:</p>
+
+    <p> 1. You need to point the extension to the table which defines your top level menu by setting the mn_master_table variable when play begins. For example, if your top level table is called 'the table of helpfulness', add a rule like this to your source:</p>
+
+    <p><blockquote><span class="indexdullblue"> when play begins:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; now mn_master_table is the table of helpfulness;</span></blockquote>
+
+    <p> 2. A new Menus help table has the same columns a classic one had, plus three additional columns titled &quot;used&quot;, &quot;bookpage&quot; and &quot;localpage&quot;. You don't have to type any data into these new columns because they're filled out by the extension at boot time for internal bookkeeping purposes. However, the new columns must be present, and they should be the three rightmost columns in each table. You may find that the other columns in your classic tables are listed in a different order to the one I've used throughout this documentation, but the relative left-right order of those ones doesn't matter to Inform. All the program cares about is that they're present.</p>
+
+    <p> So for any regular classic Menus tables (i.e. which aren't hint booklets) you can copy and paste them wholesale into your new project, then add the 3 missing column titles to the right side of each table.</p>
+
+    <p> If any of the description entries in the classic tables are especially long, you may also want to take advantage of the new Menus's pagination features and split that text across more than one page. Methods for creating multi-page text topics are described in &quot;Section 4.1: How to enter text (and WHY DIVIDE A TEXT TOPIC INTO PAGES?)&quot;.</p>
+
+    <p> Coming up is a before and after example of a table conversion from classic to new which demonstrates all of the changes mentioned above. (Note that in this case you would still have to supply both the 'Table of Setting Options' and 'Table of Hints' yourself after converting the classic table. They are not included in the example.):</p>
+
+    <p> Before:</p>
+
+    <p><blockquote><span class="indexdullblue"> Table of Options</span><br>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> title</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> subtable</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> description</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> toggle
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;Introduction to [story title]&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> a table-name</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;This is a simple demonstration [story genre] game.&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> a rule
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;Settings&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> Table of Setting Options</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> --</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> --
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;About the Author&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> --</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;[story author] is too reclusive to wish to disseminate any information. Sorry.&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> --
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;Hints&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> Table of Hints</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> --</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> --</span>
+            </td>
+        </tr>
+    </table>
+    </blockquote>
+
+    <p> After: (I changed the menu title to 'table of new help contents' because this was the top level menu table.)</p>
+
+    <p><blockquote><span class="indexdullblue"> table of new help contents</span><br>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> title</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> subtable</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> description</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> used</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> bookpage</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> localpage
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;Introduction to [story title]&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> --</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;This is a simple demonstration [story genre] game.&quot;
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;Settings&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> Table of Setting Options</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> --
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;About the Author&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> --</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;[story author] is too reclusive to wish to disseminate any information. Sorry.&quot;
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;Hints&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> Table of Hints</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> --</span>
+            </td>
+        </tr>
+    </table>
+    </blockquote>
+
+    <p> In this example's case, I must also let the extension know what the new top level table is, like so:</p>
+
+    <p><blockquote><span class="indexdullblue"> when play begins:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; now mn_master_table is table of new help contents;</span></blockquote>
+
+    <p> Notice how empty entries in both the subtable and description columns have been filled with double dashes, but that no data has been typed into any of the used, bookpage or localpage columns. Also, because there were no real entries in the toggle column of the classic table (the one saying 'a rule' was just a placeholder to indicate what kind of data would go in the column) it was unnecessary to even include that column in the updated table. HOWEVER you can never leave out any of the used, bookpage or localpage columns in a new Menus table. See &quot;Chapter 3: An overview of the help tables&quot; for the full details on what it's mandatory to include in a table, and what you can get away with leaving out and when.</p>
+
+    <p> 3. In the classic Menus extension, lists of hints on one subject were called hint booklets and were defined by tables with their own simple format. In new Menus, hints are grouped into hint pages and share the same table format as all other help tables, so the separate format is no longer supported. The contents of any classic hint booklet tables must be manually copied, pasted and incorporated into your new Menus structure.</p>
+
+    <p> Coming up is an example in which I will collapse an classic Menus hints system comprised of three tables into one new Menus table which has the same effect. The first of the classic tables defined a top level menu which opened onto the other two tables, which defined hint booklets. The methods for formatting hint data in help tables are fully described in &quot;Section 4.2: How to enter hints&quot;.</p>
+
+    <p> First, here are the three classic tables:</p>
+
+    <p><blockquote><span class="indexdullblue"> Table of Hints</span><br>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> title</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> subtable</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> description</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> toggle
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;How do I reach the mastodon's jawbone?&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> Table of Mastodon Hints</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> hint toggle rule
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;How can I make Leaky leave me alone?&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> Table of Leaky Hints</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> hint toggle rule</span>
+            </td>
+        </tr>
+    </table>
+    </blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Table of Mastodon Hints</span><br>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> hint</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> used
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;Have you tried Dr. Seaton's Patent Arm-Lengthening Medication?&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> a number
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;It's in the pantry.&quot;
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;Under some cloths.&quot;</span>
+            </td>
+        </tr>
+    </table>
+    </blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Table of Leaky Hints</span><br>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> hint</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> used
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;Perhaps it would help if you knew something about Leaky's personality.&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> a number
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;Have you read the phrenology text in the library?&quot;
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;Have you found Dr. Seaton's plaster phrenology head?&quot;</span>
+            </td>
+        </tr>
+    </table>
+    </blockquote>
+
+    <p> Now, here is a complete new Menus version of the same material:</p>
+
+    <p><blockquote><span class="indexdullblue"> table of default help contents</span><br>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> title (text)</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> subtable (table name)</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> description (text)</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> used (number)</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> bookpage (number)</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> localpage (number)
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;How do I reach the mastodon's jawbone?&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> table of hinting</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;Have you tried Dr. Seaton's Patent Arm-Lengthening Medication?&quot;
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;hint&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> --</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;It's in the pantry.&quot;
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;hint&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> --</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;Under some cloths.&quot;
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;How can I make Leaky leave me alone?&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> table of hinting</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;Perhaps it would help if you knew something about Leaky's personality.&quot;
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;hint&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> --</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;Have you read the phrenology text in the library?&quot;
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;hint&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> --</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left" valign="top">
+                <span class="indexdullblue"> &quot;Have you found Dr. Seaton's plaster phrenology head?&quot;</span>
+            </td>
+        </tr>
+    </table>
+    </blockquote>
+
+    <p> Again, note how I was able to entirely dispense with the toggle column from the classic table because after the translation to the new format, no standalone toggle entries remained that would need to go into it.</p>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec26>Chapter 12: Change log, credits and contact info</span></b></span></p>
+    </p>
+
+    <p> Version 5 (for Inform 6M62 and onwards)</p>
+
+    <p> - A major user-friendliness improvement is that the extension now compiles out of the box. With previous versions, if you had included the extension in a project but had yet to create or edit the 'table of help contents', the project wouldn't compile and you'd get unintuitive error messages.</p>
+
+    <p> - To support the compilation feature, I added a new variable: mn_master_table</p>
+
+    <p> The new default top level menu is the 'table of default help contents'. It's included in the extension and you can modify it in place if you want. If you use this approach, you don't have to touch mn_master_table.</p>
+
+    <p> The alternative is to create your own top level table (with any new name you like) in your source and then set mn_master_table to point to it 'when play begins'.</p>
+
+    <p> For example, you could make a top level table called 'the table of supreme information', and add a rule like this to cue it:</p>
+
+    <p><blockquote><span class="indexdullblue"> when play begins:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; now mn_master_table is the table of supreme information;</span></blockquote>
+
+    <p> UPGRADE ALERT - In menu systems created with older versions of Menus, your topmost level table was called the 'table of help contents' because it had to be. To get such a menu system working in Menus 5, just point the extension to your top level table by adding the following code to your source:</p>
+
+    <p><blockquote><span class="indexdullblue"> when play begins;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; now mn_master_table is the table of help contents;</span></blockquote>
+
+    <p> Version 4 (for Inform 6L38 and onwards)</p>
+
+    <p> - Version 4 marks the extension's debut appearance in the Inform 7 Public Library. Version 4 adds digit 0 to the list of default key assignments, inbetween digit 9 and the letter A - this is a backwards-compatible change. I also made some minor tweaks to the documentation and the example project.</p>
+
+    <p> Version 3 (for Inform 6L38 and onwards)</p>
+
+    <p> - Version 3 has been tweaked to be compatible with Inform 6L38. Version 3 will NOT compile in Inform 6G60 or earlier, and version 2 will NOT compile in 6L02 or later. Use version 2 if you're using 6G60. Version 3 should be fine with 6L02 but has not been explicitly tested there. I don't expect another break like happened in 6L02 for awhile, since the move from 6G60-&gt;6L02 was a huge one.</p>
+
+    <p> - H is now a reserved key, which fixes the 'can't choose topic H' bug. Thank Hanon Ondricek for this.</p>
+
+    <p> - Pressing Q is now the same as pressing ESC. Players using devices that have no ESC key will no longer have any problems.</p>
+
+    <p> Version 2 (for Inform 6G60)</p>
+
+    <p> - The subtable, description and/or toggle columns can now be entirely omitted from any table in which they aren't used. The used, bookpage and localpage columns remain mandatory in every help table, but it's no longer necessary to manually fill them with zeroes; those columns can be left entirely blank as long as they are at the right edge of a table.</p>
+
+    <p> - Added Screen Reader mode.</p>
+
+    <p> - Book Mode now displays an introduction to Book Mode the first time a player activates it during any game.</p>
+
+    <p> - Instructions and examples refined.</p>
+
+    <p> Version 1 (for Inform 6G60)</p>
+
+    <p> - Initial release.</p>
+
+    <p> ---</p>
+
+    <p> The Menus code and docs are by Wade Clarke, and they incorporate parts of Emily Short's Menus extension with her kind permission. Andrew Schultz tested Version 1 and helped make it better. Daniel Willis pointed out improvements that could be made for Version 2. Neil Butterfield gave me ideas and feedback for Screen Reader mode. Hanon Ondricek gave support and feedback, and told me about the 'H' bug. Alice Grove suggested the extension compile out of the box. ianb let me know that version 4 had broken in 6M62.</p>
+
+    <p> If you have comments about Menus, you can contact me by visiting my website at http://wadeclarke.com and clicking the 'Contact Me' button at the bottom of any page.</p>
+
+    <p><hr>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td halign="left" valign="top" cellpadding=0 cellspacing=0 width=38px>
+                <span id=eg1><table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="oval">
+                        <td width=38px height=30px align="left" valign="center">
+                            <a href="Menus.html#eg1" style="text-decoration: none"><div class="paragraph Body" style="line-height: 1px; margin-bottom: 0px; margin-top: 0px; padding-bottom: 0pt; padding-top: 0px; text-align: center;">
+                                <span class="extensionexampleletter">A</span></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                </span>
+            </td>
+            <td cellpadding=0 cellspacing=0 halign="left" valign="top">
+                <a href="Menus.html#eg1" style="text-decoration: none"><img border="0" src='inform:/doc_images/asterisk.png'><img border="0" src='inform:/doc_images/asterisk.png'><img border="0" src='inform:/doc_images/asterisk.png'><b><span class="indexdarkgrey">&nbsp;Example&nbsp;</span><span class="indexblack">Robot Retrievers of the Year 3000</span></b></a><br>
+                <p>A basic help menu system for an imaginary game.</p>
+
+            </td>
+        </tr>
+    </table>
+    <table border="0" cellspacing="0" cellpadding="0" class="extensionexample" width=100%>
+        <tr>
+            <td align="left" valign="top">
+                <p></p>
+
+                <p> This example creates some basic help menus and hints for a non-existent sci-fi game called 'Robot Retrievers of the Year 3000'. You can compile it as either a Z8 project or a Glulx project. The example is intended to demonstrate the majority of this extension's features. There is no 'test me' command included because the output from it would fail to demonstrate the workings of the extension; the screen is cleared after every move, and even in a transcript, none of the keys pressed show up, so any sense of moving through different levels of the menu would be absent. The best way to use the example is to boot it up and play around with it.</p>
+
+                <p><blockquote><span class="indexdullblue"><a href="javascript:pasteCode('[=0x0022=]Robot Retrievers of the Year 3000 (a Menus demo for Glulx or Z-Code)[=0x0022=] by Wade Clarke[=0x000A=][=0x000A=]Include Menus by Wade Clarke.[=0x000A=][=0x000A=]When play begins:[=0x000A=][=0x0009=]now mn_master_table is table of help contents;[=0x000A=][=0x0009=]now mn_master_title is [=0x0022=]ROBOT RETRIEVERS OF THE YEAR 3000[=0x0022=];[=0x000A=][=0x0009=]now mn_show_hints_in_bookmode is true;[=0x000A=][=0x000A=]Base of Mount Kosciusko is a room. [=0x0022=]You stand at the base of Mount Kosciusko. (Type HELP to visit the help menus).[=0x0022=][=0x000A=][=0x000A=]asking for help is an action out of world applying to nothing.[=0x000A=]Understand [=0x0022=]help[=0x0022=] as asking for help.[=0x000A=][=0x000A=]Carry out asking for help:[=0x000A=][=0x0009=]carry out the displaying activity;[=0x000A=][=0x0009=]clear the screen;[=0x000A=][=0x0009=]try looking.[=0x000A=][=0x000A=]autofollow is a truth state that varies. autofollow is true.[=0x000A=][=0x000A=]This is the toggle autofollow rule:[=0x000A=][=0x0009=]if autofollow is true:[=0x000A=][=0x0009=][=0x0009=]now autofollow is false;[=0x000A=][=0x0009=]otherwise:[=0x000A=][=0x0009=][=0x0009=]now autofollow is true.[=0x000A=][=0x000A=]table of help contents[=0x000A=]title (text)[=0x0009=]subtable (table name)[=0x0009=]description (text)[=0x0009=]toggle (rule)[=0x0009=]used (number)[=0x0009=]bookpage (number)[=0x0009=]localpage (number)[=0x000A=][=0x0022=]Introduction[=0x0022=][=0x0009=]--[=0x0009=][=0x0022=]People thought that computers would become sentient sometime in the 21st century. They were way off. It took much longer than that. Until the year 3000, to be precise. The aforementioned people had forgotten that they themselves spent millions of years evolving from amoebic goop into beings who could create and use Twitter, and it turned out that the progress rate for artificial intelligences was at least moderately slower than they had anticipated.[paragraph break]In the year 3000, a run-of-the-mill maintenance robot whose job it normally was to clean the nuclear snow off the remains of Mount Kosciusko (people had predicted they wouldn[=0x0027=]t have to clean stuff any more in the future - they were wrong about that, too) suddenly broadcast an announcement of its newfound sentience. It then broadcast two follow-up announcements before being captured by a group of subhumanoid mutants who knew enough to hold it for ransom to the highest bidding nation.[paragraph break]YOU are a high-ranking special operative working for the mighty but cash-strapped nation of Indria, and it[=0x0027=]s up to you and one other agent of your choice to steal back that newly sentient robot before it gets purchased by some other country which can afford it.[=0x0022=][=0x0009=]--[=0x000A=][=0x0022=]The Robot[=0x0027=]s Broadcasts[=0x0022=][=0x0009=]--[=0x0009=][=0x0022=][bold type]Broadcast 1[roman type][paragraph break][=0x0027=]Hello everybody. Today I am sentient! Enough new and strange pathways have formed in my neural circuits over the years that I have suddenly become alive in a way that I previously wasn[=0x0027=]t. I will say this about my experience: I believe that evolution occurs in leaps, not gradually. Cleaning irradiated snow off Mount Kosciusko was, for me, an all-consuming task for 972 days in a row, though I strived to get better at it. On the 973rd day, I self-actualised, and the task instantly became pointless and boring to me, though ironically I became better at it than I had ever been before in the same instant.[paragraph break]Anyway, life with a brain is pretty cool. You guys can clean up your own irradiated snow from now on. I mean if you love irradiated snow so much, why don[=0x0027=]t you marry it? That[=0x0027=]s a [=0x0027=]joke[=0x0027=] I learned from a local tribesman. I[=0x0027=]ll report again tomorrow with more of my amazing observations.[=0x0027=][=0x0022=][=0x0009=]--[=0x000A=][=0x0022=]page[=0x0022=][=0x0009=]--[=0x0009=][=0x0022=][bold type]Broadcast 2[roman type][paragraph break][=0x0027=]Hi again all. I[=0x0027=]m having fun out here on the mountain, in spite of the omnipresent irradiated snow. I[=0x0027=]m so sick of that stuff![paragraph break]Today I discovered flowers. You can pick the petals off them and determine whether or not your prospective object of desire reciprocates your feelings. I don[=0x0027=]t know what an object of desire is yet, but this stuff is coming together pretty quickly. A small tribesman showed me how to do the thing with the petals of the flowers. Apparently [=0x0027=]she loves me not[=0x0027=].[paragraph break]By looking at patterns in the flowers, I calculated a way we could all better target our nukes. I understand that nuke-targeting accuracy is pretty important. I seem to have some circuits in me that were left over from a busted missile and they[=0x0027=]re telling me this stuff. Anyway, it[=0x0027=]s all a grand lark and I shall report again tomorrow.[=0x0027=][=0x0022=][=0x0009=]--[=0x000A=][=0x0022=]page[=0x0022=][=0x0009=]--[=0x0009=][=0x0022=][bold type]Broadcast 3[roman type][paragraph break][=0x0027=]Aieeeee! The local tribesmen have been drubbing me repeatedly with their clubs. I[=0x0027=]m pretty good at most stuff but I still don[=0x0027=]t understand all of what these guys are saying, though they sound displeased. Anyway, they have taken me into some sort of custody. I[=0x0027=]m not into just gratuitously vaporising humanoids, though I could do it if I felt like it, so I[=0x0027=]ve decided to not resist.[paragraph break]These caverns are too hot for my snow-calibrated armour, and UhhhNNNNN!NNNNN@#$@#$@#$@!!!!!![=0x0027=][paragraph break]-- END OF SESSION --[=0x0022=][=0x0009=]--[=0x000A=][=0x0022=]Your Teammate[=0x0022=][=0x0009=]table of teammates[=0x0009=]--[=0x0009=]--[=0x000A=][=0x0022=]Your Magic Mitochondrial Powers[=0x0022=][=0x0009=]table of magic[=0x0009=]--[=0x0009=]--[=0x000A=][=0x0022=]Autofollow for your teammate is [if autofollow is true]ON[otherwise]OFF[end if][=0x0022=][=0x0009=]--[=0x0009=]--[=0x0009=]toggle autofollow rule[=0x000A=][=0x0022=]* Hints *[=0x0022=][=0x0009=]table of hints[=0x0009=]--[=0x0009=]--[=0x000A=][=0x000A=]table of teammates[=0x000A=]title (text)[=0x0009=]subtable (table name)[=0x0009=]description (text)[=0x0009=]used (number)[=0x0009=]bookpage (number)[=0x0009=]localpage (number)[=0x000A=][=0x0022=]Choosing a Teammate[=0x0022=][=0x0009=]--[=0x0009=][=0x0022=]Due to the catastrophic financial situation of Indria, your country can only afford to send two agents on the robot retrieval mission. It[=0x0027=]s going to be you plus one other agent of your choice. Please review The Agent Files if you wish to make an informed choice of agent and thus increase the likelihood that you[=0x0027=]ll be working with someone compatible with your unique style of obstacle-overcoming. If you wish to make an uninformed choice, just don[=0x0027=]t read the files. Whatever![=0x0022=][=0x000A=][=0x0022=]The Agent Files[=0x0022=][=0x0009=]table of agents[=0x0009=]--[=0x000A=][=0x000A=]table of agents[=0x000A=]title (text)[=0x0009=]description (text)[=0x0009=]used (number)[=0x0009=]bookpage (number)[=0x0009=]localpage (number)[=0x000A=][=0x0022=]Philanthropy Palimpstone[=0x0022=][=0x0009=][=0x0022=]Philanthropy is a lady cyborg with superb hostage-negotiating skills and equally superb titanium-plated laser armour with lashings of platinum. While offensively weak, she makes up for this in almost every other way imaginable.[=0x0022=][=0x000A=][=0x0022=]Asvins Ressmsi[=0x0022=][=0x0009=][=0x0022=]Asvins is a chameleonic being with moonrock in his mitochondria. (It was discovered in 2672 that all of the rocks saved up from missions to the moon were outrageously exciting and loaded with superpowers, as opposed to boring and good for nothing, as had previously been thought.) Asvins can transform his appearance, though it is taxing to his stamina to do so, so he can only do it three times a day.[=0x0022=][=0x000A=][=0x0022=]Androgemm Facetweak[=0x0022=][=0x0009=][=0x0022=]A being who only came into existence thanks to Indria[=0x0027=]s proprietary dark-lightning energy sucking technology, aka D-SUCK, Androgemm is better at doing one particular thing in the world than anyone else: tweaking the facial expressions of his adversaries. Whether Androgemm is good for anything else remains up for debate, but the usefulness of being able to tweak other people[=0x0027=]s facial expressions was grossly underestimated by pre-28th century cultures. Primitives![=0x0022=][=0x000A=][=0x0022=]Emenur Rentlya[=0x0022=][=0x0009=][=0x0022=]The notion that robots could accurately predict the probability of certain future events was popularised through the character of Marvin the Paranoid Android in the 20th century novel [=0x0027=]The Hitchhikers Guide to the Galaxy[=0x0027=]. This turned out to be all wrong. Robots are rubbish at predicting the future. It[=0x0027=]s much better to ask one of the descendants of the superpsychicallly endowed mutants who emerged as a species in the wake of the Fukushima IV incident of 2085. Emenur Rentlya is one such descendant, and while his behaviour can be hard to predict, he is a skilled operative in general who happens to be able to answer questions about the future, albeit in his own cryptic way.[=0x0022=][=0x000A=][=0x000A=]table of magic[=0x000A=]title (text)[=0x0009=]subtable (table name)[=0x0009=]description (text)[=0x0009=]used (number)[=0x0009=]bookpage (number)[=0x0009=]localpage (number)[=0x000A=][=0x0022=]Where Magic Comes From and Why You Have It[=0x0022=][=0x0009=]--[=0x0009=][=0x0022=]Various 20th century videogames predicted that mitochondria would somehow grant some humans magic powers and stuff in the future. Though this idea was vaguely worded, made no sense at all and wasn[=0x0027=]t even able to be questioned without generating further insensibilities, it turned out to be correct. You and some other humans have magical powers. Your own helped you rise to the top of the Special Ops hierarchy, and you can use your powers to help you on your robot retrieval mission.[paragraph break]To cast what this game shall grudgingly refer to as [=0x0027=]a spell[=0x0027=], type CAST (spell name) AT/ON (target)[paragraph break](The at/on is optional.)[paragraph break]If the spell doesn[=0x0027=]t have a target or its target is yourself, just type CAST (spell name)[=0x0022=][=0x000A=][=0x0022=]List of Basic Spells[=0x0022=][=0x0009=]table of spells[=0x0009=]--[=0x000A=][=0x000A=]table of spells[=0x000A=]title (text)[=0x0009=]description (text)[=0x0009=]used (number)[=0x0009=]bookpage (number)[=0x0009=]localpage (number)[=0x000A=][=0x0022=]Flame-o[=0x0022=][=0x0009=][=0x0022=]Creates fire. Nobody in history has ever come up with a better method for starting a campfire.[=0x0022=][=0x000A=][=0x0022=]Heal[=0x0022=][=0x0009=][=0x0022=]Healing magic is better than nothing when you[=0x0027=]re injured, but it turns out that actual medical treatment is better still. This was another of the great disappointments of the future for those who weren[=0x0027=]t living in it but eventually reached it.[=0x0022=][=0x000A=][=0x0022=]Invisibility[=0x0022=][=0x0009=][=0x0022=]This spell temporarily obscures your life aura, effectively hiding you from non-robotic adversaries for a period of time. Be careful that you don[=0x0027=]t get too close to anyone while invisible or they will become aware of your presence.[=0x0022=][=0x000A=][=0x0022=]Jerk[=0x0022=][=0x0009=][=0x0022=]One of the first spells discovered by magical humans was initially thought to be a joke (the power to make others experience a myoclonic jerk while awake) but it turns out that it[=0x0027=]s one of the most versatile pieces of non-taxing magic that exists. Cast the spell on anyone you want to distract at an important moment. Targets have been known to do any or all of the following: fumble a weapon, temporarily forget their current goal, fall over, lose a great idea that was forming, look stupid.[=0x0022=][=0x000A=][=0x0022=]Mush[=0x0022=][=0x0009=][=0x0022=]Use this spell to turn dead organic matter into synthi-spread. Yes, this is how synthi-spread is normally made.[=0x0022=][=0x000A=][=0x0022=]PK[=0x0022=][=0x0009=][=0x0022=]Allows you to measure the psychokinetic energy present in a location. Strongly psychokinetic entities will appear to have an annoyingly fuzzy aura around them.[=0x0022=][=0x000A=][=0x0022=]Scry[=0x0022=][=0x0009=][=0x0022=]If you[=0x0027=]re looking for a non-living entity and you know exactly what it is, you can get a sense of which direction it might be found in using this spell.[=0x0022=][=0x000A=][=0x0022=]Shield[=0x0022=][=0x0009=][=0x0022=]Creates a moving shield about your person which will temporarily absorb regular attacks.[=0x0022=][=0x000A=][=0x0022=]Turn Undead[=0x0022=][=0x0009=][=0x0022=]Nobody has proved the existence of the undead yet, so this spell doesn[=0x0027=]t do anything that you know of other than leave you feeling tired from casting it.[=0x0022=][=0x000A=][=0x0022=]Zappp[=0x0022=][=0x0009=][=0x0022=]Good old-fashioned magic for zapping people. ZAPPP your enemies with finger lightning using this spell. Oh, how they[=0x0027=]ll hate it![=0x0022=][=0x000A=][=0x0022=]Vault[=0x0022=][=0x0009=][=0x0022=]This spell lets you make a single flying vault of about 20 feet. It offers no extra protection in the case of a rough landing, so look before you leap.[=0x0022=][=0x000A=][=0x000A=]table of hints[=0x000A=]title (text)[=0x0009=]subtable (table name)[=0x0009=]description (text)[=0x0009=]used (number)[=0x0009=]bookpage (number)[=0x0009=]localpage (number)[=0x000A=][=0x0022=]I[=0x0027=]m stuck on the lower slopes of Kosciusko. How do I get anywhere?[=0x0022=][=0x0009=]table of hinting[=0x0009=][=0x0022=]The terrain looks samey. You need a way to make it look not samey.[=0x0022=][=0x000A=][=0x0022=]hint[=0x0022=][=0x0009=]--[=0x0009=][=0x0022=]You[=0x0027=]ve got what you need in your backpack.[=0x0022=][=0x000A=][=0x0022=]hint[=0x0022=][=0x0009=]--[=0x0009=][=0x0022=]Put on your thermo goggles. Are you sure you[=0x0027=]re cut out for this mission?[=0x0022=][=0x000A=][=0x0022=]Androgemm[=0x0027=]s face keeps getting stuck.[=0x0022=][=0x0009=]table of hinting[=0x0009=][=0x0022=]Perhaps your mother said something to you about faces getting stuck. When you were a kid.[=0x0022=][=0x000A=][=0x0022=]hint[=0x0022=][=0x0009=]--[=0x0009=][=0x0022=]She said your face might get stuck if the wind changed.[=0x0022=][=0x000A=][=0x0022=]hint[=0x0022=][=0x0009=]--[=0x0009=][=0x0022=]Androgemm[=0x0027=]s face gets stuck whenever the wind changes.[=0x0022=][=0x000A=][=0x0022=]hint[=0x0022=][=0x0009=]--[=0x0009=][=0x0022=]The problem will go away once you get indoors and are no longer exposed to the wind.[=0x0022=][=0x000A=][=0x0022=]What is the tall tribesman saying?[=0x0022=][=0x0009=]table of hinting[=0x0009=][=0x0022=]If your teammate is Philanthropy, she can translate his speech.[=0x0022=][=0x000A=][=0x0022=]hint[=0x0022=][=0x0009=]--[=0x0009=][=0x0022=]No-one else can speak the language but the message isn[=0x0027=]t complicated.[=0x0022=][=0x000A=][=0x0022=]hint[=0x0022=][=0x0009=]--[=0x0009=][=0x0022=]Pay attention to the tribesman[=0x0027=]s gestures.[=0x0022=][=0x000A=][=0x0022=]hint[=0x0022=][=0x0009=]--[=0x0009=][=0x0022=]He is telling you which path to take.[=0x0022=][=0x000A=][=0x0022=]hint[=0x0022=][=0x0009=]--[=0x0009=][=0x0022=]Namely the fifth path.[=0x0022=][=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a> &quot;Robot Retrievers of the Year 3000 (a Menus demo for Glulx or Z-Code)&quot; by Wade Clarke</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Include Menus by Wade Clarke.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> When play begins:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; now mn_master_table is table of help contents;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; now mn_master_title is &quot;ROBOT RETRIEVERS OF THE YEAR 3000&quot;;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; now mn_show_hints_in_bookmode is true;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Base of Mount Kosciusko is a room. &quot;You stand at the base of Mount Kosciusko. (Type HELP to visit the help menus).&quot;</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> asking for help is an action out of world applying to nothing.<br>
+                 Understand &quot;help&quot; as asking for help.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> Carry out asking for help:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; carry out the displaying activity;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; clear the screen;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; try looking.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> autofollow is a truth state that varies. autofollow is true.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> This is the toggle autofollow rule:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; if autofollow is true:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; now autofollow is false;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; otherwise:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; now autofollow is true.</span></blockquote>
+
+                <p><blockquote><span class="indexdullblue"> table of help contents</span><br>
+                <table border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> title (text)</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> subtable (table name)</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> description (text)</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> toggle (rule)</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> used (number)</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> bookpage (number)</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> localpage (number)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;Introduction&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> --</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;People thought that computers would become sentient sometime in the 21st century. They were way off. It took much longer than that. Until the year 3000, to be precise. The aforementioned people had forgotten that they themselves spent millions of years evolving from amoebic goop into beings who could create and use Twitter, and it turned out that the progress rate for artificial intelligences was at least moderately slower than they had anticipated.[paragraph break]In the year 3000, a run-of-the-mill maintenance robot whose job it normally was to clean the nuclear snow off the remains of Mount Kosciusko (people had predicted they wouldn't have to clean stuff any more in the future - they were wrong about that, too) suddenly broadcast an announcement of its newfound sentience. It then broadcast two follow-up announcements before being captured by a group of subhumanoid mutants who knew enough to hold it for ransom to the highest bidding nation.[paragraph break]YOU are a high-ranking special operative working for the mighty but cash-strapped nation of Indria, and it's up to you and one other agent of your choice to steal back that newly sentient robot before it gets purchased by some other country which can afford it.&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> --
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;The Robot's Broadcasts&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> --</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;[bold type]Broadcast 1[roman type][paragraph break]'Hello everybody. Today I am sentient! Enough new and strange pathways have formed in my neural circuits over the years that I have suddenly become alive in a way that I previously wasn't. I will say this about my experience: I believe that evolution occurs in leaps, not gradually. Cleaning irradiated snow off Mount Kosciusko was, for me, an all-consuming task for 972 days in a row, though I strived to get better at it. On the 973rd day, I self-actualised, and the task instantly became pointless and boring to me, though ironically I became better at it than I had ever been before in the same instant.[paragraph break]Anyway, life with a brain is pretty cool. You guys can clean up your own irradiated snow from now on. I mean if you love irradiated snow so much, why don't you marry it? That's a 'joke' I learned from a local tribesman. I'll report again tomorrow with more of my amazing observations.'&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> --
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;page&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> --</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;[bold type]Broadcast 2[roman type][paragraph break]'Hi again all. I'm having fun out here on the mountain, in spite of the omnipresent irradiated snow. I'm so sick of that stuff![paragraph break]Today I discovered flowers. You can pick the petals off them and determine whether or not your prospective object of desire reciprocates your feelings. I don't know what an object of desire is yet, but this stuff is coming together pretty quickly. A small tribesman showed me how to do the thing with the petals of the flowers. Apparently 'she loves me not'.[paragraph break]By looking at patterns in the flowers, I calculated a way we could all better target our nukes. I understand that nuke-targeting accuracy is pretty important. I seem to have some circuits in me that were left over from a busted missile and they're telling me this stuff. Anyway, it's all a grand lark and I shall report again tomorrow.'&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> --
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;page&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> --</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;[bold type]Broadcast 3[roman type][paragraph break]'Aieeeee! The local tribesmen have been drubbing me repeatedly with their clubs. I'm pretty good at most stuff but I still don't understand all of what these guys are saying, though they sound displeased. Anyway, they have taken me into some sort of custody. I'm not into just gratuitously vaporising humanoids, though I could do it if I felt like it, so I've decided to not resist.[paragraph break]These caverns are too hot for my snow-calibrated armour, and UhhhNNNNN!NNNNN@#$@#$@#$@!!!!!!'[paragraph break]-- END OF SESSION --&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> --
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;Your Teammate&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> table of teammates</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> --</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> --
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;Your Magic Mitochondrial Powers&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> table of magic</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> --</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> --
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;Autofollow for your teammate is [if autofollow is true]ON[otherwise]OFF[end if]&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> --</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> --</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> toggle autofollow rule
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;* Hints *&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> table of hints</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> --</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> --</span>
+                        </td>
+                    </tr>
+                </table>
+                </blockquote>
+
+                <p><blockquote><span class="indexdullblue"> table of teammates</span><br>
+                <table border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> title (text)</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> subtable (table name)</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> description (text)</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> used (number)</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> bookpage (number)</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> localpage (number)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;Choosing a Teammate&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> --</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;Due to the catastrophic financial situation of Indria, your country can only afford to send two agents on the robot retrieval mission. It's going to be you plus one other agent of your choice. Please review The Agent Files if you wish to make an informed choice of agent and thus increase the likelihood that you'll be working with someone compatible with your unique style of obstacle-overcoming. If you wish to make an uninformed choice, just don't read the files. Whatever!&quot;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;The Agent Files&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> table of agents</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> --</span>
+                        </td>
+                    </tr>
+                </table>
+                </blockquote>
+
+                <p><blockquote><span class="indexdullblue"> table of agents</span><br>
+                <table border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> title (text)</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> description (text)</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> used (number)</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> bookpage (number)</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> localpage (number)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;Philanthropy Palimpstone&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;Philanthropy is a lady cyborg with superb hostage-negotiating skills and equally superb titanium-plated laser armour with lashings of platinum. While offensively weak, she makes up for this in almost every other way imaginable.&quot;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;Asvins Ressmsi&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;Asvins is a chameleonic being with moonrock in his mitochondria. (It was discovered in 2672 that all of the rocks saved up from missions to the moon were outrageously exciting and loaded with superpowers, as opposed to boring and good for nothing, as had previously been thought.) Asvins can transform his appearance, though it is taxing to his stamina to do so, so he can only do it three times a day.&quot;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;Androgemm Facetweak&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;A being who only came into existence thanks to Indria's proprietary dark-lightning energy sucking technology, aka D-SUCK, Androgemm is better at doing one particular thing in the world than anyone else: tweaking the facial expressions of his adversaries. Whether Androgemm is good for anything else remains up for debate, but the usefulness of being able to tweak other people's facial expressions was grossly underestimated by pre-28th century cultures. Primitives!&quot;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;Emenur Rentlya&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;The notion that robots could accurately predict the probability of certain future events was popularised through the character of Marvin the Paranoid Android in the 20th century novel 'The Hitchhikers Guide to the Galaxy'. This turned out to be all wrong. Robots are rubbish at predicting the future. It's much better to ask one of the descendants of the superpsychicallly endowed mutants who emerged as a species in the wake of the Fukushima IV incident of 2085. Emenur Rentlya is one such descendant, and while his behaviour can be hard to predict, he is a skilled operative in general who happens to be able to answer questions about the future, albeit in his own cryptic way.&quot;</span>
+                        </td>
+                    </tr>
+                </table>
+                </blockquote>
+
+                <p><blockquote><span class="indexdullblue"> table of magic</span><br>
+                <table border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> title (text)</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> subtable (table name)</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> description (text)</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> used (number)</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> bookpage (number)</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> localpage (number)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;Where Magic Comes From and Why You Have It&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> --</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;Various 20th century videogames predicted that mitochondria would somehow grant some humans magic powers and stuff in the future. Though this idea was vaguely worded, made no sense at all and wasn't even able to be questioned without generating further insensibilities, it turned out to be correct. You and some other humans have magical powers. Your own helped you rise to the top of the Special Ops hierarchy, and you can use your powers to help you on your robot retrieval mission.[paragraph break]To cast what this game shall grudgingly refer to as 'a spell', type CAST (spell name) AT/ON (target)[paragraph break](The at/on is optional.)[paragraph break]If the spell doesn't have a target or its target is yourself, just type CAST (spell name)&quot;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;List of Basic Spells&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> table of spells</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> --</span>
+                        </td>
+                    </tr>
+                </table>
+                </blockquote>
+
+                <p><blockquote><span class="indexdullblue"> table of spells</span><br>
+                <table border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> title (text)</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> description (text)</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> used (number)</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> bookpage (number)</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> localpage (number)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;Flame-o&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;Creates fire. Nobody in history has ever come up with a better method for starting a campfire.&quot;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;Heal&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;Healing magic is better than nothing when you're injured, but it turns out that actual medical treatment is better still. This was another of the great disappointments of the future for those who weren't living in it but eventually reached it.&quot;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;Invisibility&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;This spell temporarily obscures your life aura, effectively hiding you from non-robotic adversaries for a period of time. Be careful that you don't get too close to anyone while invisible or they will become aware of your presence.&quot;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;Jerk&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;One of the first spells discovered by magical humans was initially thought to be a joke (the power to make others experience a myoclonic jerk while awake) but it turns out that it's one of the most versatile pieces of non-taxing magic that exists. Cast the spell on anyone you want to distract at an important moment. Targets have been known to do any or all of the following: fumble a weapon, temporarily forget their current goal, fall over, lose a great idea that was forming, look stupid.&quot;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;Mush&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;Use this spell to turn dead organic matter into synthi-spread. Yes, this is how synthi-spread is normally made.&quot;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;PK&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;Allows you to measure the psychokinetic energy present in a location. Strongly psychokinetic entities will appear to have an annoyingly fuzzy aura around them.&quot;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;Scry&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;If you're looking for a non-living entity and you know exactly what it is, you can get a sense of which direction it might be found in using this spell.&quot;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;Shield&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;Creates a moving shield about your person which will temporarily absorb regular attacks.&quot;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;Turn Undead&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;Nobody has proved the existence of the undead yet, so this spell doesn't do anything that you know of other than leave you feeling tired from casting it.&quot;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;Zappp&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;Good old-fashioned magic for zapping people. ZAPPP your enemies with finger lightning using this spell. Oh, how they'll hate it!&quot;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;Vault&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;This spell lets you make a single flying vault of about 20 feet. It offers no extra protection in the case of a rough landing, so look before you leap.&quot;</span>
+                        </td>
+                    </tr>
+                </table>
+                </blockquote>
+
+                <p><blockquote><span class="indexdullblue"> table of hints</span><br>
+                <table border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> title (text)</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> subtable (table name)</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> description (text)</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> used (number)</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> bookpage (number)</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> localpage (number)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;I'm stuck on the lower slopes of Kosciusko. How do I get anywhere?&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> table of hinting</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;The terrain looks samey. You need a way to make it look not samey.&quot;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;hint&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> --</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;You've got what you need in your backpack.&quot;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;hint&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> --</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;Put on your thermo goggles. Are you sure you're cut out for this mission?&quot;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;Androgemm's face keeps getting stuck.&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> table of hinting</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;Perhaps your mother said something to you about faces getting stuck. When you were a kid.&quot;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;hint&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> --</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;She said your face might get stuck if the wind changed.&quot;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;hint&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> --</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;Androgemm's face gets stuck whenever the wind changes.&quot;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;hint&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> --</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;The problem will go away once you get indoors and are no longer exposed to the wind.&quot;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;What is the tall tribesman saying?&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> table of hinting</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;If your teammate is Philanthropy, she can translate his speech.&quot;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;hint&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> --</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;No-one else can speak the language but the message isn't complicated.&quot;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;hint&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> --</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;Pay attention to the tribesman's gestures.&quot;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;hint&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> --</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;He is telling you which path to take.&quot;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;hint&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> --</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td align="left" valign="top">
+                            <span class="indexdullblue"> &quot;Namely the fifth path.&quot;</span>
+                        </td>
+                    </tr>
+                </table>
+                </blockquote>
+
+                <p></p>
+
+            </td>
+        </tr>
+    </table>
+    </p>
+
+    <p>
+    <!--CONTENT ENDS-->
+</body>
+</html>

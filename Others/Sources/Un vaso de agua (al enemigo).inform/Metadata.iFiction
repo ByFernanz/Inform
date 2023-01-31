@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ifindex version="1.0" xmlns="http://babel.ifarchive.org/protocol/iFiction/">
+    <story>
+        <identification>
+            <ifid>07B0104C-7404-4A98-8D3A-97BB9DC8C54A</ifid>
+            <format>zcode</format>
+        </identification>
+        <bibliographic>
+            <title>Un vaso de agua (al enemigo)</title>
+            <author>El Clérigo Urbatain</author>
+            <headline>Una versión</headline>
+            <genre>Fiction</genre>
+            <firstpublished>2008</firstpublished>
+            <description>Una versión interactiva de la canción 'Un vaso de agua (al enemigo)' de Radio Futura.</description>
+            <language>en</language>
+            <group>Inform</group>
+        </bibliographic>
+        <releases>
+            <attached>
+                <release>
+                    <releasedate>2010-07-07</releasedate>
+                    <version>2</version>
+                    <compiler>Inform 7</compiler>
+                    <compilerversion>6E59</compilerversion>
+                </release>
+            </attached>
+        </releases>
+        <colophon>
+            <generator>Inform 7</generator>
+            <generatorversion>6E59</generatorversion>
+            <originated>2010-07-07</originated>
+        </colophon>
+        <zcode>
+            <serial>100707</serial>
+            <release>2</release>
+            <compiler>Inform 7 build 6E59</compiler>
+        </zcode>
+    </story>
+</ifindex>

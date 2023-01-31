@@ -1,0 +1,1415 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Skein rootNode="node-1">
+  <generator>Windows Inform 7 6M62</generator>
+  <activeNode nodeId="node-161"/>
+  <item nodeId="node-1">
+    <command xml:space="preserve">Clase Dise&#x00F1;o Videojuegos</command>
+    <result xml:space="preserve">Clase de dise&#x00F1;o.&#x000A;Un relato interactivo por Ruber Eaglenest&#x000A;Release 1 / Serial number 200913 / Inform 7 build 6M62 (I6/v6.33 lib 6/12N) SD&#x000A;&#x000A;Sala de estar&#x000A;Esta es una sala de estar de una casa abandonada. Muy mal iluminada, est&#x00E1; en penumbra. Veo una cantidad de muebles rotos y escombros de toda clase. Hacia el sur, a trav&#x00E9;s de una puerta sin goznes, y b&#x00E1;sicamente, sin puerta, se sale hacia el jard&#x00ED;n.&#x000A;&#x000A;Puedes ver a Interruptor sala y un explorador.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-2"/>
+      <child nodeId="node-24"/>
+      <child nodeId="node-27"/>
+      <child nodeId="node-31"/>
+      <child nodeId="node-39"/>
+      <child nodeId="node-61"/>
+      <child nodeId="node-78"/>
+      <child nodeId="node-80"/>
+      <child nodeId="node-85"/>
+      <child nodeId="node-91"/>
+      <child nodeId="node-129"/>
+      <child nodeId="node-135"/>
+      <child nodeId="node-139"/>
+      <child nodeId="node-144"/>
+      <child nodeId="node-147"/>
+      <child nodeId="node-153"/>
+    </children>
+  </item>
+  <item nodeId="node-2">
+    <command xml:space="preserve">m</command>
+    <result xml:space="preserve">Dormitorio&#x000A; Una cama bastante grande aunque no muy opulenta reina tu dormitorio, con una mesita de noche a un lado, y una banqueta descalzadora a sus pies. Un amplio armario frente a la cama ocupa toda esa pared. Las paredes est&#x00E1;n empapeladas de un color verde p&#x00E1;lido, el suelo es de parqu&#x00E9; y est&#x00E1; alfombrado entre la cama y el armario. En la pared que da a la calle destaca un gran cierre de ventanas con forma trapezoidal, que en las noches de luna llena, la luz se torna azulada al atravesar sus cristales tintados. Pero, no es el caso: hoy hay luna nueva; no hay nada de luz en las calles de la vieja ciudad; y fuera de tu c&#x00F3;modo lecho hace un fr&#x00ED;o aterrador. En la pared contraria est&#x00E1; la puerta que va hacia el pasillo, cerrada.&#x000A;&#x000A;Hacia el oeste est&#x00E1; el pasillo.&#x000A;&#x000A;Cerca de tu cama, entre las sombras, puedes ver tu mesita de noche con una l&#x00E1;mpara encima.&#x000A;&#x000A;Sobre la mesita de noche ves una lamparita.&#x000A;&#x000A;Aqu&#x00ED; yace el tesoro olvidado del pirata Jimmy el Tuerto.&#x000A;&#x000A;Puedes ver tambi&#x00E9;n un cama (sobre el cual ves unas sabanas).&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-3"/>
+      <child nodeId="node-6"/>
+      <child nodeId="node-11"/>
+    </children>
+  </item>
+  <item nodeId="node-3">
+    <command xml:space="preserve">i</command>
+    <result xml:space="preserve">No llevas nada.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-4"/>
+    </children>
+  </item>
+  <item nodeId="node-4">
+    <command xml:space="preserve">examinarme</command>
+    <result xml:space="preserve">Tan buen aspecto como siempre.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-5"/>
+    </children>
+  </item>
+  <item nodeId="node-5">
+    <command xml:space="preserve">examinar alumnos</command>
+    <result xml:space="preserve">No observas nada especial en los alumnos.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+  </item>
+  <item nodeId="node-6">
+    <command xml:space="preserve">m</command>
+    <result xml:space="preserve">Playa&#x000A;Est&#x00E1;s en una playa, tan agusto viendo el atardecer. El sol se hunde en el mar.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-7"/>
+    </children>
+  </item>
+  <item nodeId="node-7">
+    <command xml:space="preserve">m</command>
+    <result xml:space="preserve">Playa&#x000A;Est&#x00E1;s en una playa, tan agusto viendo el atardecer. El sol desaparece en el mar, y por un instante un brillo verde se divisa en el horizonte.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-8"/>
+    </children>
+  </item>
+  <item nodeId="node-8">
+    <command xml:space="preserve">m</command>
+    <result xml:space="preserve">Playa&#x000A;Est&#x00E1;s en una playa, tan agusto viendo el atardecer. Se ha echo de noche aqu&#x00ED;. Hace fresco.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-9"/>
+    </children>
+  </item>
+  <item nodeId="node-9">
+    <command xml:space="preserve">m</command>
+    <result xml:space="preserve">Playa&#x000A;Est&#x00E1;s en una playa, tan agusto viendo el atardecer. Se ha echo de noche aqu&#x00ED;. Hace fresco.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-10"/>
+    </children>
+  </item>
+  <item nodeId="node-10">
+    <command xml:space="preserve">m</command>
+    <result xml:space="preserve">Playa&#x000A;Est&#x00E1;s en una playa, tan agusto viendo el atardecer. Se ha echo de noche aqu&#x00ED;. Hace fresco.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+  </item>
+  <item nodeId="node-11">
+    <command xml:space="preserve">examinar mesita</command>
+    <result xml:space="preserve">Es una mesita de noche de caoba, adornada con relieves. Tiene un &#x00FA;nico caj&#x00F3;n.&#x000A;&#x000A;Sobre la mesita de noche ves una lamparita.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-12"/>
+    </children>
+  </item>
+  <item nodeId="node-12">
+    <command xml:space="preserve">examinar tesoro</command>
+    <result xml:space="preserve">El cofre tiene relieves de calaveras. Al observarlo m&#x00E1;s de cerca te das cuenta de que est&#x00E1; hecho de huesos de calaveras, o quiz&#x00E1;s marfil.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-13"/>
+    </children>
+  </item>
+  <item nodeId="node-13">
+    <command xml:space="preserve">abrir cofre</command>
+    <result xml:space="preserve">Abres el cofre del tesoro, descubriendo unas monedas de oro.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-14"/>
+    </children>
+  </item>
+  <item nodeId="node-14">
+    <command xml:space="preserve">coger cofre</command>
+    <result xml:space="preserve">Cogido.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-15"/>
+    </children>
+  </item>
+  <item nodeId="node-15">
+    <command xml:space="preserve">dejar cofre</command>
+    <result xml:space="preserve">Dejado.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-16"/>
+    </children>
+  </item>
+  <item nodeId="node-16">
+    <command xml:space="preserve">m</command>
+    <result xml:space="preserve">Dormitorio&#x000A; Una cama bastante grande aunque no muy opulenta reina tu dormitorio, con una mesita de noche a un lado, y una banqueta descalzadora a sus pies. Un amplio armario frente a la cama ocupa toda esa pared. Las paredes est&#x00E1;n empapeladas de un color verde p&#x00E1;lido, el suelo es de parqu&#x00E9; y est&#x00E1; alfombrado entre la cama y el armario. En la pared que da a la calle destaca un gran cierre de ventanas con forma trapezoidal, que en las noches de luna llena, la luz se torna azulada al atravesar sus cristales tintados. Pero, no es el caso: hoy hay luna nueva; no hay nada de luz en las calles de la vieja ciudad; y fuera de tu c&#x00F3;modo lecho hace un fr&#x00ED;o aterrador. En la pared contraria est&#x00E1; la puerta que va hacia el pasillo, cerrada.&#x000A;&#x000A;Hacia el oeste est&#x00E1; el pasillo.&#x000A;&#x000A;Cerca de tu cama, entre las sombras, puedes ver tu mesita de noche con una l&#x00E1;mpara encima.&#x000A;&#x000A;Sobre la mesita de noche ves una lamparita.&#x000A;&#x000A;Puedes ver tambi&#x00E9;n un cofre del tesoro (en el cual ves unas monedas de oro) y un cama (sobre el cual ves unas sabanas).&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-17"/>
+    </children>
+  </item>
+  <item nodeId="node-17">
+    <command xml:space="preserve">coger cofre</command>
+    <result xml:space="preserve">Cogido.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-18"/>
+    </children>
+  </item>
+  <item nodeId="node-18">
+    <command xml:space="preserve">pon el cofre sobre la mesita</command>
+    <result xml:space="preserve">Pones el cofre del tesoro sobre la mesita de noche.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-19"/>
+    </children>
+  </item>
+  <item nodeId="node-19">
+    <command xml:space="preserve">abrir cofre</command>
+    <result xml:space="preserve">Ya esta abierto.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-20"/>
+    </children>
+  </item>
+  <item nodeId="node-20">
+    <command xml:space="preserve">abrir cofre</command>
+    <result xml:space="preserve">Ya esta abierto.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-21"/>
+    </children>
+  </item>
+  <item nodeId="node-21">
+    <command xml:space="preserve">coger cama</command>
+    <result xml:space="preserve">El cama est&#x00E1; fijo en el sitio.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-22"/>
+    </children>
+  </item>
+  <item nodeId="node-22">
+    <command xml:space="preserve">meter la cama en el cofre</command>
+    <result xml:space="preserve">(primero coges el cama)&#x000A;El cama est&#x00E1; fijo en el sitio.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-23"/>
+    </children>
+  </item>
+  <item nodeId="node-23">
+    <command xml:space="preserve">cerrar la cama</command>
+    <result xml:space="preserve">No es algo que pueda cerrarse.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+  </item>
+  <item nodeId="node-24">
+    <command xml:space="preserve">i</command>
+    <result xml:space="preserve">You are carrying nothing.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-25"/>
+    </children>
+  </item>
+  <item nodeId="node-25">
+    <command xml:space="preserve">examine me</command>
+    <result xml:space="preserve">As good-looking as ever.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-26"/>
+    </children>
+  </item>
+  <item nodeId="node-26">
+    <command xml:space="preserve">examine parasol</command>
+    <result xml:space="preserve">You can't see any such thing.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+  </item>
+  <item nodeId="node-27">
+    <command xml:space="preserve">examinar explorador</command>
+    <result xml:space="preserve">Un explorador de la zona muerta. Ataviado con traje estanco, mochila filtradora de aire, y fusil.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-28"/>
+    </children>
+  </item>
+  <item nodeId="node-28">
+    <command xml:space="preserve">cogerlo</command>
+    <result xml:space="preserve">No creo que al explorador le gustara.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-29"/>
+    </children>
+  </item>
+  <item nodeId="node-29">
+    <command xml:space="preserve">examinar basura</command>
+    <result xml:space="preserve">Est&#x00E1; todo destrozado, no queda ni un mueble en pie.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-30"/>
+    </children>
+  </item>
+  <item nodeId="node-30">
+    <command xml:space="preserve">examinar muebles</command>
+    <result xml:space="preserve">Est&#x00E1; todo destrozado, no queda ni un mueble en pie.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+  </item>
+  <item nodeId="node-31">
+    <command xml:space="preserve">actions</command>
+    <result xml:space="preserve">Actions listing on.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-32"/>
+    </children>
+  </item>
+  <item nodeId="node-32">
+    <command xml:space="preserve">examinar escombros</command>
+    <result xml:space="preserve">[examining el basura]&#x000A;Est&#x00E1; todo destrozado, no queda ni un mueble en pie.&#x000A;&#x000A;En el basura ves un jarr&#x00F3;n.&#x000A;&#x000A;[examining el basura - succeeded]&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-33"/>
+    </children>
+  </item>
+  <item nodeId="node-33">
+    <command xml:space="preserve">registrar la basura</command>
+    <result xml:space="preserve">[searching el basura]&#x000A;En el basura ves un jarr&#x00F3;n.&#x000A;&#x000A;[searching el basura - succeeded]&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-34"/>
+    </children>
+  </item>
+  <item nodeId="node-34">
+    <command xml:space="preserve">salidas</command>
+    <result xml:space="preserve">No conozco ese verbo.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-35"/>
+    </children>
+  </item>
+  <item nodeId="node-35">
+    <command xml:space="preserve">dir</command>
+    <result xml:space="preserve">No entend&#x00ED; esa frase.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-36"/>
+    </children>
+  </item>
+  <item nodeId="node-36">
+    <command xml:space="preserve">mirar</command>
+    <result xml:space="preserve">[looking]&#x000A;Sala de estar&#x000A;Esta es una sala de estar de una casa abandonada. Veo una cantidad de muebles rotos y escombros de toda clase.&#x000A;&#x000A;[looking - succeeded]&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-37"/>
+    </children>
+  </item>
+  <item nodeId="node-37">
+    <command xml:space="preserve">s</command>
+    <result xml:space="preserve">[going sur]&#x000A;&#x000A;Jardin&#x000A;M&#x00E1;s que un jard&#x00ED;n es un vergel de hierbas y &#x00E1;rboles salvajes completamente fuera de control. Uno de los &#x00E1;rboles destaca especialmente, es un cirpr&#x00E9;s enorme de dos pisos de altura.&#x000A;&#x000A;[going sur - succeeded]&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-38"/>
+    </children>
+  </item>
+  <item nodeId="node-38">
+    <command xml:space="preserve">n</command>
+    <result xml:space="preserve">[going norte]&#x000A;&#x000A;Sala de estar&#x000A;Esta es una sala de estar de una casa abandonada. Veo una cantidad de muebles rotos y escombros de toda clase.&#x000A;&#x000A;[going norte - succeeded]&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+  </item>
+  <item nodeId="node-39">
+    <command xml:space="preserve">examinar basura</command>
+    <result xml:space="preserve">Est&#x00E1; todo destrozado, no queda ni un mueble en pie, pero los restos forman huecos y recovecos donde se podr&#x00ED;a buscar m&#x00E1;s a fondo.&#x000A;&#x000A;En el basura ves un jarr&#x00F3;n.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-40"/>
+    </children>
+  </item>
+  <item nodeId="node-40">
+    <command xml:space="preserve">coger jarron</command>
+    <result xml:space="preserve">Cogido.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-41"/>
+    </children>
+  </item>
+  <item nodeId="node-41">
+    <command xml:space="preserve">undo</command>
+    <result xml:space="preserve">Sala de estar.&#x000A;[Retrocediendo al turno anterior.]&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-42"/>
+    </children>
+  </item>
+  <item nodeId="node-42">
+    <command xml:space="preserve">registrar basura</command>
+    <result xml:space="preserve">Debajo de un tabl&#x00F3;n, encuentras un jarr&#x00F3;n. El cual recoges y le quitas el polvo con la mano.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-43"/>
+    </children>
+  </item>
+  <item nodeId="node-43">
+    <command xml:space="preserve">i</command>
+    <result xml:space="preserve">Llevas:&#x000A;  un jarr&#x00F3;n&#x000A;    un llave&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-44"/>
+    </children>
+  </item>
+  <item nodeId="node-44">
+    <command xml:space="preserve">inventario</command>
+    <result xml:space="preserve">Llevas:&#x000A;  un jarr&#x00F3;n&#x000A;    un llave&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-45"/>
+    </children>
+  </item>
+  <item nodeId="node-45">
+    <command xml:space="preserve">coger llave</command>
+    <result xml:space="preserve">Cogida.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-46"/>
+    </children>
+  </item>
+  <item nodeId="node-46">
+    <command xml:space="preserve">undo</command>
+    <result xml:space="preserve">Sala de estar.&#x000A;[Retrocediendo al turno anterior.]&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-47"/>
+    </children>
+  </item>
+  <item nodeId="node-47">
+    <command xml:space="preserve">actions</command>
+    <result xml:space="preserve">Actions listing on.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-48"/>
+    </children>
+  </item>
+  <item nodeId="node-48">
+    <command xml:space="preserve">coger llave</command>
+    <result xml:space="preserve">[taking el llave]&#x000A;Cogida.&#x000A;[taking el llave - succeeded]&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-49"/>
+    </children>
+  </item>
+  <item nodeId="node-49">
+    <command xml:space="preserve">undo</command>
+    <result xml:space="preserve">Sala de estar.&#x000A;[Retrocediendo al turno anterior.]&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-50"/>
+    </children>
+  </item>
+  <item nodeId="node-50">
+    <command xml:space="preserve">sacar llave del jarr&#x00F3;n</command>
+    <result xml:space="preserve">[removing el llave from el jarr&#x00F3;n]&#x000A;La boca del jarr&#x00F3;n es muy peque&#x00F1;a y no te cabe la mano.&#x000A;[removing el llave from el jarr&#x00F3;n - failed]&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-51"/>
+    </children>
+  </item>
+  <item nodeId="node-51">
+    <command xml:space="preserve">registrar jarron</command>
+    <result xml:space="preserve">[searching el jarr&#x00F3;n]&#x000A;En el jarr&#x00F3;n ves un llave.&#x000A;&#x000A;[searching el jarr&#x00F3;n - succeeded]&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-52"/>
+    </children>
+  </item>
+  <item nodeId="node-52">
+    <command xml:space="preserve">romper jarron</command>
+    <result xml:space="preserve">[attacking el jarr&#x00F3;n]&#x000A;Con fuerza lanzas el jarr&#x00F3;n hacia el suelo, y este se rompe en mil pedazos.&#x000A;[attacking el jarr&#x00F3;n - failed]&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-53"/>
+    </children>
+  </item>
+  <item nodeId="node-53">
+    <command xml:space="preserve">m</command>
+    <result xml:space="preserve">[looking]&#x000A;Sala de estar&#x000A;Esta es una sala de estar de una casa abandonada. Veo una cantidad de muebles rotos y escombros de toda clase. Hacia el sur, a trav&#x00E9;s de una puerta sin goznes, y b&#x00E1;sicamente, sin puerta, se sale hacia el jard&#x00ED;n.&#x000A;&#x000A;Puedes ver un llave y un explorador.&#x000A;&#x000A;[looking - succeeded]&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-54"/>
+    </children>
+  </item>
+  <item nodeId="node-54">
+    <command xml:space="preserve">undo</command>
+    <result xml:space="preserve">Sala de estar.&#x000A;[Retrocediendo al turno anterior.]&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-55"/>
+    </children>
+  </item>
+  <item nodeId="node-55">
+    <command xml:space="preserve">undo</command>
+    <result xml:space="preserve">Sala de estar.&#x000A;[Retrocediendo al turno anterior.]&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-56"/>
+    </children>
+  </item>
+  <item nodeId="node-56">
+    <command xml:space="preserve">i</command>
+    <result xml:space="preserve">[taking inventory]&#x000A; Llevas:&#x000A;  un jarr&#x00F3;n&#x000A;    un llave&#x000A;&#x000A;[taking inventory - succeeded]&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-57"/>
+    </children>
+  </item>
+  <item nodeId="node-57">
+    <command xml:space="preserve">s</command>
+    <result xml:space="preserve">[going sur]&#x000A;&#x000A;Jardin&#x000A;M&#x00E1;s que un jard&#x00ED;n es un vergel de hierbas y &#x00E1;rboles salvajes completamente fuera de control. Uno de los &#x00E1;rboles destaca especialmente, es un cirpr&#x00E9;s enorme de dos pisos de altura. Hacia el norte se vuelve a la casa en ruinas.&#x000A;&#x000A;[going sur - succeeded]&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-58"/>
+    </children>
+  </item>
+  <item nodeId="node-58">
+    <command xml:space="preserve">romper jarron</command>
+    <result xml:space="preserve">[attacking el jarr&#x00F3;n]&#x000A;Con fuerza lanzas el jarr&#x00F3;n hacia el suelo, y este se rompe en mil pedazos.&#x000A;[attacking el jarr&#x00F3;n - failed]&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-59"/>
+    </children>
+  </item>
+  <item nodeId="node-59">
+    <command xml:space="preserve">m</command>
+    <result xml:space="preserve">[looking]&#x000A;Jardin&#x000A;M&#x00E1;s que un jard&#x00ED;n es un vergel de hierbas y &#x00E1;rboles salvajes completamente fuera de control. Uno de los &#x00E1;rboles destaca especialmente, es un cirpr&#x00E9;s enorme de dos pisos de altura. Hacia el norte se vuelve a la casa en ruinas.&#x000A;&#x000A;Puedes ver un llave.&#x000A;&#x000A;[looking - succeeded]&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-60"/>
+    </children>
+  </item>
+  <item nodeId="node-60">
+    <command xml:space="preserve">n</command>
+    <result xml:space="preserve">[going norte]&#x000A;&#x000A;Sala de estar&#x000A;Esta es una sala de estar de una casa abandonada. Veo una cantidad de muebles rotos y escombros de toda clase. Hacia el sur, a trav&#x00E9;s de una puerta sin goznes, y b&#x00E1;sicamente, sin puerta, se sale hacia el jard&#x00ED;n.&#x000A;&#x000A;Puedes ver un explorador.&#x000A;&#x000A;[going norte - succeeded]&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+  </item>
+  <item nodeId="node-61">
+    <command xml:space="preserve">s</command>
+    <result xml:space="preserve">Jardin&#x000A;M&#x00E1;s que un jard&#x00ED;n es un vergel de hierbas y &#x00E1;rboles salvajes completamente fuera de control. Uno de los &#x00E1;rboles destaca especialmente, es un cirpr&#x00E9;s enorme de dos pisos de altura. Hacia el norte se vuelve a la casa en ruinas.&#x000A;&#x000A;Puedes ver un coche.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-62"/>
+    </children>
+  </item>
+  <item nodeId="node-62">
+    <command xml:space="preserve">coger coche</command>
+    <result xml:space="preserve">Cogido.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-63"/>
+    </children>
+  </item>
+  <item nodeId="node-63">
+    <command xml:space="preserve">n</command>
+    <result xml:space="preserve">Sala de estar&#x000A;Esta es una sala de estar de una casa abandonada. Veo una cantidad de muebles rotos y escombros de toda clase. Hacia el sur, a trav&#x00E9;s de una puerta sin goznes, y b&#x00E1;sicamente, sin puerta, se sale hacia el jard&#x00ED;n.&#x000A;&#x000A;Puedes ver un explorador.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-64"/>
+    </children>
+  </item>
+  <item nodeId="node-64">
+    <command xml:space="preserve">registramos la basura</command>
+    <result xml:space="preserve">No conozco ese verbo.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-65"/>
+    </children>
+  </item>
+  <item nodeId="node-65">
+    <command xml:space="preserve">buscar en basura</command>
+    <result xml:space="preserve">Debajo de un tabl&#x00F3;n, encuentras un jarr&#x00F3;n. El cual recoges y le quitas el polvo con la mano.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-66"/>
+    </children>
+  </item>
+  <item nodeId="node-66">
+    <command xml:space="preserve">i</command>
+    <result xml:space="preserve">Llevas:&#x000A;  un jarr&#x00F3;n&#x000A;    un llave&#x000A;  un coche&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-67"/>
+    </children>
+  </item>
+  <item nodeId="node-67">
+    <command xml:space="preserve">meter el coche en el jarron</command>
+    <result xml:space="preserve">Pones el coche dentro del jarr&#x00F3;n.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-68"/>
+    </children>
+  </item>
+  <item nodeId="node-68">
+    <command xml:space="preserve">s n e o</command>
+    <result xml:space="preserve">Intenta de nuevo, porque s&#x00F3;lo te pude entender: (IR) ir hacia alg&#x00FA;n lado.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-69"/>
+    </children>
+  </item>
+  <item nodeId="node-69">
+    <command xml:space="preserve">norte sur este y oeste</command>
+    <result xml:space="preserve">Intenta de nuevo, porque s&#x00F3;lo te pude entender: (IR) ir hacia alg&#x00FA;n lado.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-70"/>
+    </children>
+  </item>
+  <item nodeId="node-70">
+    <command xml:space="preserve">m</command>
+    <result xml:space="preserve">Sala de estar&#x000A;Esta es una sala de estar de una casa abandonada. Veo una cantidad de muebles rotos y escombros de toda clase. Hacia el sur, a trav&#x00E9;s de una puerta sin goznes, y b&#x00E1;sicamente, sin puerta, se sale hacia el jard&#x00ED;n.&#x000A;&#x000A;Puedes ver un explorador.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-71"/>
+    </children>
+  </item>
+  <item nodeId="node-71">
+    <command xml:space="preserve">sur</command>
+    <result xml:space="preserve">Jardin&#x000A;M&#x00E1;s que un jard&#x00ED;n es un vergel de hierbas y &#x00E1;rboles salvajes completamente fuera de control. Uno de los &#x00E1;rboles destaca especialmente, es un cirpr&#x00E9;s enorme de dos pisos de altura. Hacia el norte se vuelve a la casa en ruinas.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-72"/>
+    </children>
+  </item>
+  <item nodeId="node-72">
+    <command xml:space="preserve">norte</command>
+    <result xml:space="preserve">Sala de estar&#x000A;Esta es una sala de estar de una casa abandonada. Veo una cantidad de muebles rotos y escombros de toda clase. Hacia el sur, a trav&#x00E9;s de una puerta sin goznes, y b&#x00E1;sicamente, sin puerta, se sale hacia el jard&#x00ED;n.&#x000A;&#x000A;Puedes ver un explorador.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-73"/>
+    </children>
+  </item>
+  <item nodeId="node-73">
+    <command xml:space="preserve">ir al sur</command>
+    <result xml:space="preserve">Jardin&#x000A;M&#x00E1;s que un jard&#x00ED;n es un vergel de hierbas y &#x00E1;rboles salvajes completamente fuera de control. Uno de los &#x00E1;rboles destaca especialmente, es un cirpr&#x00E9;s enorme de dos pisos de altura. Hacia el norte se vuelve a la casa en ruinas.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-74"/>
+    </children>
+  </item>
+  <item nodeId="node-74">
+    <command xml:space="preserve">sur</command>
+    <result xml:space="preserve">No puedes ir por ah&#x00ED;.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-75"/>
+    </children>
+  </item>
+  <item nodeId="node-75">
+    <command xml:space="preserve">s</command>
+    <result xml:space="preserve">No puedes ir por ah&#x00ED;.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-76"/>
+    </children>
+  </item>
+  <item nodeId="node-76">
+    <command xml:space="preserve">i </command>
+    <result xml:space="preserve">Llevas:&#x000A;  un jarr&#x00F3;n&#x000A;    un coche&#x000A;    un llave&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-77"/>
+    </children>
+  </item>
+  <item nodeId="node-77">
+    <command xml:space="preserve">inventario</command>
+    <result xml:space="preserve">Llevas:&#x000A;  un jarr&#x00F3;n&#x000A;    un coche&#x000A;    un llave&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+  </item>
+  <item nodeId="node-78">
+    <command xml:space="preserve">w</command>
+    <result xml:space="preserve">Pasillo&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-79"/>
+    </children>
+  </item>
+  <item nodeId="node-79">
+    <command xml:space="preserve">e</command>
+    <result xml:space="preserve">Dormitorio&#x000A;Sueles dormir largo y tendido, con un placentero y profundo sue&#x00F1;o del que siempre te cuesta salir, pues no habit&#x00FA;as a madrugar. Pero esta noche te cuesta bastante acabar en brazos de Morfeo, has estado dando vueltas en la cama pregunt&#x00E1;ndote por los motivos de tu insomnio sin encontrar ninguna respuesta clara. Y en este estado de duermevela, un ruido en la planta baja despierta la atenci&#x00F3;n de tu confundido cerebro. El hecho de que pueda ser un desconocido que ha entrado en tu propiedad para llevarse tu reci&#x00E9;n adquirida reliquia o cualquier otra, te hace temblar; y el miedo agudiza tus sentidos. Contienes la respiraci&#x00F3;n para escuchar atentamente en la oscuridad y as&#x00ED; poder percibir con mucha mayor claridad y nitidez esos sonidos de la planta inferior. Pero la espera se te hace demasiado larga y es entonces cuando decides bajar.&#x000A;&#x000A;-Pasar&#x00E1;n por encima de mi cad&#x00E1;ver antes de que pongan una de sus sucias manos encima de mis tesoros - murmuras para ti mismo mientras te dispones a levantarte de la cama. &#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+  </item>
+  <item nodeId="node-80">
+    <command xml:space="preserve">mirar</command>
+    <result xml:space="preserve">Dormitorio&#x000A;Tumbado en la cama, tus sentidos agudizados, clavas la mirada nervioso tratando de penetrar la oscuridad, pero lo &#x00FA;nico que consigues ver son manchas de penumbra sobre el fondo negro, aunque sabes que ah&#x00ED; afuera, entre las sombras, est&#x00E1; el resto de tu dormitorio.&#x000A;&#x000A;Hacia el oeste est&#x00E1; el pasillo.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-81"/>
+    </children>
+  </item>
+  <item nodeId="node-81">
+    <command xml:space="preserve">o</command>
+    <result xml:space="preserve">Pasillo&#x000A;Completa oscuridad reina en el pasillo. Te detienes un momento con el o&#x00ED;do pendiente en la planta baja, mas no logras percibir ning&#x00FA;n sonido. Tu vista pronto se acostumbra a la ausencia de luz. Compruebas que la oscuridad no es tan densa como parec&#x00ED;a, y puedes distinguir las siluetas y contornos del pasillo. Permaneces cerca de la puerta de tu dormitorio, hacia el este. Frente a &#x00E9;sta hay otra puerta que conduce al ba&#x00F1;o (en el oeste). En penumbras, el pasillo discurre desde aqu&#x00ED; hacia los lados perdi&#x00E9;ndose en la oscuridades de la fr&#x00ED;a mansi&#x00F3;n de norte a sur; por un lado hacia el ala este y por el otro hacia el ala oeste. Cerca, en la misma pared que la puerta del ba&#x00F1;o, apenas percibes el rect&#x00E1;ngulo de negra oscuridad, recortado sobre las sombras de la pared, que forma el inicio de la escalera que baja a la primera planta. Las sombras te confunden, tu vista se cansa, y solo puedes intuir su posici&#x00F3;n exacta.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-82"/>
+    </children>
+  </item>
+  <item nodeId="node-82">
+    <command xml:space="preserve">m</command>
+    <result xml:space="preserve">Pasillo&#x000A;&#x000A;&#x000A;El pasillo se muestra en todo su esplendor.&#x000A;&#x000A;Hacia el este puedes volver hacia tu dormitorio. Hacia el oeste hay un cuarto de ba&#x00F1;o. Y las escaleras descienden hasta la planta baja, sumidas en oscuridad.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-83"/>
+    </children>
+  </item>
+  <item nodeId="node-83">
+    <command xml:space="preserve">bajamos</command>
+    <result xml:space="preserve">No conozco ese verbo.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-84"/>
+    </children>
+  </item>
+  <item nodeId="node-84">
+    <command xml:space="preserve">bajar</command>
+    <result xml:space="preserve">Avanzas un pie para comenzar el descenso por la oscura escalera. Vas a poner una mano en la barandilla cuando resulta que no est&#x00E1; ah&#x00ED;, las sombras de tu cerebro te han confundido y tu mano se posa en la nada. Tu pie duda ante el vac&#x00ED;o, y aterrado clavas tus ojos en la negra profundidad de la escalera. Ante la posibilidad de caer por ella rodando, te doblas, te agachas trastabillando de espaldas, y consigues aferrarte al marco de acceso a la escalera sin llegar a caer.&#x000A;&#x000A;Permaneces agachado, respirando aturdido, por la peligrosa maniobra de intentar bajar sin luz; aunque te gustar&#x00ED;a poder bajar en silencio y oculto en las sombras, no va a poder ser.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+  </item>
+  <item nodeId="node-85">
+    <command xml:space="preserve">abrir armario</command>
+    <result xml:space="preserve">Abres el armario, descubriendo unas ropas y una bata.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-86"/>
+    </children>
+  </item>
+  <item nodeId="node-86">
+    <command xml:space="preserve">cerrar armario</command>
+    <result xml:space="preserve">Cierras el armario.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-87"/>
+    </children>
+  </item>
+  <item nodeId="node-87">
+    <command xml:space="preserve">coger armario</command>
+    <result xml:space="preserve">El armario est&#x00E1; fijo en el sitio.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-88"/>
+    </children>
+  </item>
+  <item nodeId="node-88">
+    <command xml:space="preserve">abrir tesoro</command>
+    <result xml:space="preserve">Abres el cofre del tesoro, descubriendo unas monedas de oro.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-89"/>
+    </children>
+  </item>
+  <item nodeId="node-89">
+    <command xml:space="preserve">meter armario en tesoro</command>
+    <result xml:space="preserve">(primero coges el armario)&#x000A;El armario est&#x00E1; fijo en el sitio.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-90"/>
+    </children>
+  </item>
+  <item nodeId="node-90">
+    <command xml:space="preserve">coger armario</command>
+    <result xml:space="preserve">El armario est&#x00E1; fijo en el sitio.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+  </item>
+  <item nodeId="node-91">
+    <command xml:space="preserve">abrir box</command>
+    <result xml:space="preserve">No veo eso que dices.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-92"/>
+    </children>
+  </item>
+  <item nodeId="node-92">
+    <command xml:space="preserve">m</command>
+    <result xml:space="preserve">Dormitorio&#x000A; Una cama bastante grande aunque no muy opulenta reina tu dormitorio, con una mesita de noche a un lado, y una banqueta descalzadora a sus pies. Un amplio armario frente a la cama ocupa toda esa pared. Las paredes est&#x00E1;n empapeladas de un color verde p&#x00E1;lido, el suelo es de parqu&#x00E9; y est&#x00E1; alfombrado entre la cama y el armario. En la pared que da a la calle destaca un gran cierre de ventanas con forma trapezoidal, que en las noches de luna llena, la luz se torna azulada al atravesar sus cristales tintados. Pero, no es el caso: hoy hay luna nueva; no hay nada de luz en las calles de la vieja ciudad; y fuera de tu c&#x00F3;modo lecho hace un fr&#x00ED;o aterrador. En la pared contraria est&#x00E1; la puerta que va hacia el pasillo, cerrada.&#x000A;&#x000A;Hacia el oeste est&#x00E1; el pasillo.&#x000A;&#x000A;Sobre la mesita de noche ves una lamparita y una radio.&#x000A;&#x000A;Sobre la cama ves unas sabanas.&#x000A;&#x000A;Aqu&#x00ED; yace el tesoro olvidado del pirata Jimmy el Tuerto.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-93"/>
+    </children>
+  </item>
+  <item nodeId="node-93">
+    <command xml:space="preserve">examina mesita</command>
+    <result xml:space="preserve">Es una mesita de noche de caoba, adornada con relieves. Tiene un &#x00FA;nico caj&#x00F3;n.&#x000A;&#x000A;Sobre la mesita de noche ves una lamparita y una radio.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-94"/>
+    </children>
+  </item>
+  <item nodeId="node-94">
+    <command xml:space="preserve">coger mesita</command>
+    <result xml:space="preserve">Dif&#x00ED;cilmente puedes llevarte eso.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-95"/>
+    </children>
+  </item>
+  <item nodeId="node-95">
+    <command xml:space="preserve">coger cama</command>
+    <result xml:space="preserve">Dif&#x00ED;cilmente puedes llevarte eso.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-96"/>
+    </children>
+  </item>
+  <item nodeId="node-96">
+    <command xml:space="preserve">coger armario</command>
+    <result xml:space="preserve">Dif&#x00ED;cilmente puedes llevarte eso.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-97"/>
+    </children>
+  </item>
+  <item nodeId="node-97">
+    <command xml:space="preserve">abrir armario</command>
+    <result xml:space="preserve">Abres el armario, descubriendo unas ropas y una bata.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-98"/>
+    </children>
+  </item>
+  <item nodeId="node-98">
+    <command xml:space="preserve">coger cofre</command>
+    <result xml:space="preserve">Cogido.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-99"/>
+    </children>
+  </item>
+  <item nodeId="node-99">
+    <command xml:space="preserve">meterlo en el armario</command>
+    <result xml:space="preserve">No estoy seguro de a qu&#x00E9; se refiere '-lo'.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-100"/>
+    </children>
+  </item>
+  <item nodeId="node-100">
+    <command xml:space="preserve">meter cofre en armario</command>
+    <result xml:space="preserve">Pones el cofre del tesoro dentro del armario.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-101"/>
+    </children>
+  </item>
+  <item nodeId="node-101">
+    <command xml:space="preserve">abrir cofre</command>
+    <result xml:space="preserve">Abres el cofre del tesoro, descubriendo unas monedas de oro.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-102"/>
+    </children>
+  </item>
+  <item nodeId="node-102">
+    <command xml:space="preserve">coger monedas</command>
+    <result xml:space="preserve">Coges una moneda, y al instante notas como la vida se escapa de tu cuerpo.&#x000A;&#x000A;&#x000A;&#x000A;    *** Est&#x00E1;s muerto. ***&#x000A;&#x000A;&#x000A;&#x000A;&#x00BF;Quieres REINICIAR, RECUPERAR un juego guardado, TERMINAR o hacer UNDO del &#x00FA;ltimo comando?&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-103"/>
+      <child nodeId="node-122"/>
+    </children>
+  </item>
+  <item nodeId="node-103">
+    <command xml:space="preserve">i</command>
+    <result xml:space="preserve">por favor, responde a alguna de arriba.&#x000A;&#x000A;&#x00BF;Quieres REINICIAR, RECUPERAR un juego guardado, TERMINAR o hacer UNDO del &#x00FA;ltimo comando?&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-104"/>
+    </children>
+  </item>
+  <item nodeId="node-104">
+    <command xml:space="preserve">inventario</command>
+    <result xml:space="preserve">por favor, responde a alguna de arriba.&#x000A;&#x000A;&#x00BF;Quieres REINICIAR, RECUPERAR un juego guardado, TERMINAR o hacer UNDO del &#x00FA;ltimo comando?&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-105"/>
+    </children>
+  </item>
+  <item nodeId="node-105">
+    <command xml:space="preserve">i</command>
+    <result xml:space="preserve">por favor, responde a alguna de arriba.&#x000A;&#x000A;&#x00BF;Quieres REINICIAR, RECUPERAR un juego guardado, TERMINAR o hacer UNDO del &#x00FA;ltimo comando?&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-106"/>
+    </children>
+  </item>
+  <item nodeId="node-106">
+    <command xml:space="preserve">examinar la radio</command>
+    <result xml:space="preserve">por favor, responde a alguna de arriba.&#x000A;&#x000A;&#x00BF;Quieres REINICIAR, RECUPERAR un juego guardado, TERMINAR o hacer UNDO del &#x00FA;ltimo comando?&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-107"/>
+    </children>
+  </item>
+  <item nodeId="node-107">
+    <command xml:space="preserve">encender radio</command>
+    <result xml:space="preserve">por favor, responde a alguna de arriba.&#x000A;&#x000A;&#x00BF;Quieres REINICIAR, RECUPERAR un juego guardado, TERMINAR o hacer UNDO del &#x00FA;ltimo comando?&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-108"/>
+    </children>
+  </item>
+  <item nodeId="node-108">
+    <command xml:space="preserve">examinar la radio</command>
+    <result xml:space="preserve">por favor, responde a alguna de arriba.&#x000A;&#x000A;&#x00BF;Quieres REINICIAR, RECUPERAR un juego guardado, TERMINAR o hacer UNDO del &#x00FA;ltimo comando?&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-109"/>
+    </children>
+  </item>
+  <item nodeId="node-109">
+    <command xml:space="preserve">apagar radio</command>
+    <result xml:space="preserve">por favor, responde a alguna de arriba.&#x000A;&#x000A;&#x00BF;Quieres REINICIAR, RECUPERAR un juego guardado, TERMINAR o hacer UNDO del &#x00FA;ltimo comando?&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-110"/>
+    </children>
+  </item>
+  <item nodeId="node-110">
+    <command xml:space="preserve">examinar radio</command>
+    <result xml:space="preserve">por favor, responde a alguna de arriba.&#x000A;&#x000A;&#x00BF;Quieres REINICIAR, RECUPERAR un juego guardado, TERMINAR o hacer UNDO del &#x00FA;ltimo comando?&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-111"/>
+    </children>
+  </item>
+  <item nodeId="node-111">
+    <command xml:space="preserve">acciones</command>
+    <result xml:space="preserve">por favor, responde a alguna de arriba.&#x000A;&#x000A;&#x00BF;Quieres REINICIAR, RECUPERAR un juego guardado, TERMINAR o hacer UNDO del &#x00FA;ltimo comando?&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-112"/>
+    </children>
+  </item>
+  <item nodeId="node-112">
+    <command xml:space="preserve">examinar radio</command>
+    <result xml:space="preserve">por favor, responde a alguna de arriba.&#x000A;&#x000A;&#x00BF;Quieres REINICIAR, RECUPERAR un juego guardado, TERMINAR o hacer UNDO del &#x00FA;ltimo comando?&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-113"/>
+    </children>
+  </item>
+  <item nodeId="node-113">
+    <command xml:space="preserve">encender radio</command>
+    <result xml:space="preserve">por favor, responde a alguna de arriba.&#x000A;&#x000A;&#x00BF;Quieres REINICIAR, RECUPERAR un juego guardado, TERMINAR o hacer UNDO del &#x00FA;ltimo comando?&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-114"/>
+    </children>
+  </item>
+  <item nodeId="node-114">
+    <command xml:space="preserve">examinarla</command>
+    <result xml:space="preserve">por favor, responde a alguna de arriba.&#x000A;&#x000A;&#x00BF;Quieres REINICIAR, RECUPERAR un juego guardado, TERMINAR o hacer UNDO del &#x00FA;ltimo comando?&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-115"/>
+    </children>
+  </item>
+  <item nodeId="node-115">
+    <command xml:space="preserve">abrir cofre</command>
+    <result xml:space="preserve">por favor, responde a alguna de arriba.&#x000A;&#x000A;&#x00BF;Quieres REINICIAR, RECUPERAR un juego guardado, TERMINAR o hacer UNDO del &#x00FA;ltimo comando?&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-116"/>
+    </children>
+  </item>
+  <item nodeId="node-116">
+    <command xml:space="preserve">acciones off</command>
+    <result xml:space="preserve">por favor, responde a alguna de arriba.&#x000A;&#x000A;&#x00BF;Quieres REINICIAR, RECUPERAR un juego guardado, TERMINAR o hacer UNDO del &#x00FA;ltimo comando?&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-117"/>
+    </children>
+  </item>
+  <item nodeId="node-117">
+    <command xml:space="preserve">coger monedas&#x00E7;</command>
+    <result xml:space="preserve">por favor, responde a alguna de arriba.&#x000A;&#x000A;&#x00BF;Quieres REINICIAR, RECUPERAR un juego guardado, TERMINAR o hacer UNDO del &#x00FA;ltimo comando?&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-118"/>
+    </children>
+  </item>
+  <item nodeId="node-118">
+    <command xml:space="preserve">coger monedas</command>
+    <result xml:space="preserve">por favor, responde a alguna de arriba.&#x000A;&#x000A;&#x00BF;Quieres REINICIAR, RECUPERAR un juego guardado, TERMINAR o hacer UNDO del &#x00FA;ltimo comando?&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-119"/>
+    </children>
+  </item>
+  <item nodeId="node-119">
+    <command xml:space="preserve">examinar cofre</command>
+    <result xml:space="preserve">por favor, responde a alguna de arriba.&#x000A;&#x000A;&#x00BF;Quieres REINICIAR, RECUPERAR un juego guardado, TERMINAR o hacer UNDO del &#x00FA;ltimo comando?&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-120"/>
+    </children>
+  </item>
+  <item nodeId="node-120">
+    <command xml:space="preserve">acciones</command>
+    <result xml:space="preserve">por favor, responde a alguna de arriba.&#x000A;&#x000A;&#x00BF;Quieres REINICIAR, RECUPERAR un juego guardado, TERMINAR o hacer UNDO del &#x00FA;ltimo comando?&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-121"/>
+    </children>
+  </item>
+  <item nodeId="node-121">
+    <command xml:space="preserve">o</command>
+    <result xml:space="preserve">por favor, responde a alguna de arriba.&#x000A;&#x000A;&#x00BF;Quieres REINICIAR, RECUPERAR un juego guardado, TERMINAR o hacer UNDO del &#x00FA;ltimo comando?&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+  </item>
+  <item nodeId="node-122">
+    <command xml:space="preserve">undo</command>
+    <result xml:space="preserve">Dormitorio&#x000A;[Retrocediendo al turno anterior.]&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-123"/>
+    </children>
+  </item>
+  <item nodeId="node-123">
+    <command xml:space="preserve">coger moneda</command>
+    <result xml:space="preserve">Coges una moneda, y al instante notas como la vida se escapa de tu cuerpo.&#x000A;&#x000A;&#x000A;&#x000A;    *** Est&#x00E1;s muerto. ***&#x000A;&#x000A;&#x000A;&#x000A;&#x00BF;Quieres REINICIAR, RECUPERAR un juego guardado, TERMINAR o hacer UNDO del &#x00FA;ltimo comando?&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-124"/>
+    </children>
+  </item>
+  <item nodeId="node-124">
+    <command xml:space="preserve">undo</command>
+    <result xml:space="preserve">Dormitorio&#x000A;[Retrocediendo al turno anterior.]&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-125"/>
+    </children>
+  </item>
+  <item nodeId="node-125">
+    <command xml:space="preserve">coger dobl&#x00F3;n</command>
+    <result xml:space="preserve">Coges una moneda, y al instante notas como la vida se escapa de tu cuerpo.&#x000A;&#x000A;&#x000A;&#x000A;    *** Est&#x00E1;s muerto. ***&#x000A;&#x000A;&#x000A;&#x000A;&#x00BF;Quieres REINICIAR, RECUPERAR un juego guardado, TERMINAR o hacer UNDO del &#x00FA;ltimo comando?&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-126"/>
+    </children>
+  </item>
+  <item nodeId="node-126">
+    <command xml:space="preserve">undo</command>
+    <result xml:space="preserve">Dormitorio&#x000A;[Retrocediendo al turno anterior.]&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-127"/>
+    </children>
+  </item>
+  <item nodeId="node-127">
+    <command xml:space="preserve">undo</command>
+    <result xml:space="preserve">Dormitorio&#x000A;[Retrocediendo al turno anterior.]&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-128"/>
+    </children>
+  </item>
+  <item nodeId="node-128">
+    <command xml:space="preserve">coger cofre</command>
+    <result xml:space="preserve">Cogido.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+  </item>
+  <item nodeId="node-129">
+    <command xml:space="preserve">coger cofre</command>
+    <result xml:space="preserve">El cofre del tesoro est&#x00E1; fijo en el sitio.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-130"/>
+    </children>
+  </item>
+  <item nodeId="node-130">
+    <command xml:space="preserve">acciones</command>
+    <result xml:space="preserve">Actions listing on.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-131"/>
+    </children>
+  </item>
+  <item nodeId="node-131">
+    <command xml:space="preserve">coger cofre</command>
+    <result xml:space="preserve">[taking el cofre del tesoro]&#x000A;El cofre del tesoro est&#x00E1; fijo en el sitio.&#x000A;[taking el cofre del tesoro - failed the can't take what's fixed in place rule]&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-132"/>
+    </children>
+  </item>
+  <item nodeId="node-132">
+    <command xml:space="preserve">abrir cofre</command>
+    <result xml:space="preserve">[opening el cofre del tesoro]&#x000A;Abres el cofre del tesoro, descubriendo unas monedas de oro.&#x000A;[opening el cofre del tesoro - succeeded]&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-133"/>
+    </children>
+  </item>
+  <item nodeId="node-133">
+    <command xml:space="preserve">mirar dentro del cofre</command>
+    <result xml:space="preserve">[searching el cofre del tesoro]&#x000A;En el cofre del tesoro ves unas monedas de oro.&#x000A;&#x000A;[searching el cofre del tesoro - succeeded]&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-134"/>
+    </children>
+  </item>
+  <item nodeId="node-134">
+    <command xml:space="preserve">examinar cofre</command>
+    <result xml:space="preserve">[examining el cofre del tesoro]&#x000A;El cofre tiene relieves de calaveras. Al observarlo m&#x00E1;s de cerca te das cuenta de que est&#x00E1; hecho de huesos de calaveras, o quiz&#x00E1;s marfil.&#x000A;&#x000A;En el cofre del tesoro ves unas monedas de oro.&#x000A;&#x000A;[examining el cofre del tesoro - succeeded]&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+  </item>
+  <item nodeId="node-135">
+    <command xml:space="preserve">abre cofre</command>
+    <result xml:space="preserve">La pesada tapa del cofre del hombre muerto se abre con un crujido. Un fulgor dorado te ciega moment&#x00E1;neamente.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-136"/>
+    </children>
+  </item>
+  <item nodeId="node-136">
+    <command xml:space="preserve">examinar cofre</command>
+    <result xml:space="preserve">El cofre tiene relieves de calaveras. Al observarlo m&#x00E1;s de cerca te das cuenta de que est&#x00E1; hecho de huesos de calaveras, o quiz&#x00E1;s marfil.&#x000A;&#x000A;En el cofre del tesoro ves unas monedas de oro.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-137"/>
+    </children>
+  </item>
+  <item nodeId="node-137">
+    <command xml:space="preserve">cerrar cofre</command>
+    <result xml:space="preserve">Cierras el cofre del tesoro.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-138"/>
+    </children>
+  </item>
+  <item nodeId="node-138">
+    <command xml:space="preserve">examinar cofre</command>
+    <result xml:space="preserve">El cofre tiene relieves de calaveras. Al observarlo m&#x00E1;s de cerca te das cuenta de que est&#x00E1; hecho de huesos de calaveras, o quiz&#x00E1;s marfil.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+  </item>
+  <item nodeId="node-139">
+    <command xml:space="preserve">comer donut</command>
+    <result xml:space="preserve">Estaba muy rico, pero es muy pesado al est&#x00F3;mago.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-140"/>
+    </children>
+  </item>
+  <item nodeId="node-140">
+    <command xml:space="preserve">comer donut</command>
+    <result xml:space="preserve">No veo eso que dices.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-141"/>
+    </children>
+  </item>
+  <item nodeId="node-141">
+    <command xml:space="preserve">coger moneda</command>
+    <result xml:space="preserve">No veo eso que dices.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-142"/>
+    </children>
+  </item>
+  <item nodeId="node-142">
+    <command xml:space="preserve">abrir cofre</command>
+    <result xml:space="preserve">La pesada tapa del cofre del hombre muerto se abre con un crujido. Un fulgor dorado te ciega moment&#x00E1;neamente.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-143"/>
+    </children>
+  </item>
+  <item nodeId="node-143">
+    <command xml:space="preserve">coger moneda</command>
+    <result xml:space="preserve">Coges una moneda, y al instante notas como la vida se escapa de tu cuerpo.&#x000A;&#x000A;&#x000A;&#x000A;    *** Est&#x00E1;s muerto. ***&#x000A;&#x000A;&#x000A;&#x000A;&#x00BF;Quieres REINICIAR, RECUPERAR un juego guardado, TERMINAR o hacer UNDO del &#x00FA;ltimo comando?&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+  </item>
+  <item nodeId="node-144">
+    <command xml:space="preserve">bajar</command>
+    <result xml:space="preserve">Oscuridad&#x000A;Est&#x00E1; muy oscuro y no puedes ver nada.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-145"/>
+    </children>
+  </item>
+  <item nodeId="node-145">
+    <command xml:space="preserve">examinara bombilla</command>
+    <result xml:space="preserve">No conozco ese verbo.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-146"/>
+    </children>
+  </item>
+  <item nodeId="node-146">
+    <command xml:space="preserve">examinar bombilla</command>
+    <result xml:space="preserve">No veo eso que dices.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+  </item>
+  <item nodeId="node-147">
+    <command xml:space="preserve">examinar interruptor</command>
+    <result xml:space="preserve">Interruptor sala est&#x00E1; apagado.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-148"/>
+    </children>
+  </item>
+  <item nodeId="node-148">
+    <command xml:space="preserve">pulsar interruptor</command>
+    <result xml:space="preserve">No ocurre nada, aparentemente.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-149"/>
+    </children>
+  </item>
+  <item nodeId="node-149">
+    <command xml:space="preserve">acciones</command>
+    <result xml:space="preserve">Actions listing on.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-150"/>
+    </children>
+  </item>
+  <item nodeId="node-150">
+    <command xml:space="preserve">pulsar interruptor</command>
+    <result xml:space="preserve">[pushing Interruptor sala]&#x000A;No ocurre nada, aparentemente.&#x000A;[pushing Interruptor sala - succeeded]&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-151"/>
+    </children>
+  </item>
+  <item nodeId="node-151">
+    <command xml:space="preserve">encender interruptor</command>
+    <result xml:space="preserve">[switching on Interruptor sala]&#x000A;You enciendes Interruptor sala.&#x000A;[switching on Interruptor sala - succeeded]&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-152"/>
+    </children>
+  </item>
+  <item nodeId="node-152">
+    <command xml:space="preserve">apagar interruptor</command>
+    <result xml:space="preserve">[switching off Interruptor sala]&#x000A;You apaga Interruptor sala.&#x000A;[switching off Interruptor sala - succeeded]&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+  </item>
+  <item nodeId="node-153">
+    <command xml:space="preserve">pulsar interruptor</command>
+    <result xml:space="preserve">You enciendes Interruptor sala.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-154"/>
+    </children>
+  </item>
+  <item nodeId="node-154">
+    <command xml:space="preserve">m</command>
+    <result xml:space="preserve">Sala de estar&#x000A;Esta es una sala de estar de una casa abandonada.  Veo una cantidad de muebles rotos y escombros de toda clase. Hacia el sur, a trav&#x00E9;s de una puerta sin goznes, y b&#x00E1;sicamente, sin puerta, se sale hacia el jard&#x00ED;n.&#x000A;&#x000A;Puedes ver a Interruptor sala y un explorador.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-155"/>
+    </children>
+  </item>
+  <item nodeId="node-155">
+    <command xml:space="preserve">pulsar interruptor</command>
+    <result xml:space="preserve">You apaga Interruptor sala.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-156"/>
+    </children>
+  </item>
+  <item nodeId="node-156">
+    <command xml:space="preserve">m</command>
+    <result xml:space="preserve">Sala de estar&#x000A;Esta es una sala de estar de una casa abandonada. Muy mal iluminada, est&#x00E1; en penumbra. Veo una cantidad de muebles rotos y escombros de toda clase. Hacia el sur, a trav&#x00E9;s de una puerta sin goznes, y b&#x00E1;sicamente, sin puerta, se sale hacia el jard&#x00ED;n.&#x000A;&#x000A;Puedes ver a Interruptor sala y un explorador.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-157"/>
+    </children>
+  </item>
+  <item nodeId="node-157">
+    <command xml:space="preserve">encender interruptor</command>
+    <result xml:space="preserve">You enciendes Interruptor sala.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-158"/>
+    </children>
+  </item>
+  <item nodeId="node-158">
+    <command xml:space="preserve">encender interruptor</command>
+    <result xml:space="preserve">Ya estaba encendido.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-159"/>
+    </children>
+  </item>
+  <item nodeId="node-159">
+    <command xml:space="preserve">m</command>
+    <result xml:space="preserve">Sala de estar&#x000A;Esta es una sala de estar de una casa abandonada.  Veo una cantidad de muebles rotos y escombros de toda clase. Hacia el sur, a trav&#x00E9;s de una puerta sin goznes, y b&#x00E1;sicamente, sin puerta, se sale hacia el jard&#x00ED;n.&#x000A;&#x000A;Puedes ver a Interruptor sala y un explorador.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-160"/>
+    </children>
+  </item>
+  <item nodeId="node-160">
+    <command xml:space="preserve">apagar interruptor</command>
+    <result xml:space="preserve">You apaga Interruptor sala.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-161"/>
+    </children>
+  </item>
+  <item nodeId="node-161">
+    <command xml:space="preserve">m</command>
+    <result xml:space="preserve">Sala de estar&#x000A;Esta es una sala de estar de una casa abandonada. Muy mal iluminada, est&#x00E1; en penumbra. Veo una cantidad de muebles rotos y escombros de toda clase. Hacia el sur, a trav&#x00E9;s de una puerta sin goznes, y b&#x00E1;sicamente, sin puerta, se sale hacia el jard&#x00ED;n.&#x000A;&#x000A;Puedes ver a Interruptor sala y un explorador.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+  </item>
+</Skein>

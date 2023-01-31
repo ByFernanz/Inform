@@ -1,0 +1,719 @@
+"Dash Slapney, Patrol Leader" by Andrew Schultz
+
+[I included the source because I am pleased with the trick I used to create the random scores, and I like the mechanism of randomizing rooms, too. I suspect people who want to give variety to their gameplay but who are beginning with Inform may find it helpful, too. I tried other stuff like definitions for the first time, and given how hands-on this game is, I think it's about as good as it will get for instructional code for me. I learned a lot writing it and revising it.]
+
+Book definitions
+
+release along with source text.
+
+release along with a solution.
+
+include basic screen effects by Emily Short.
+
+use no scoring.
+
+use american dialect.
+
+use serial comma.
+
+the story genre is "Slice of Life/Humor."
+
+the story headline is "A test of Boy Scout and life skills, sort of"
+
+the story creation year is 2012.
+
+the release number is 3.
+
+[release 2 detected if everyone helped]
+[release 3 added if Fatty had drunk blue river and ignores "closedness" of Blue River]
+
+a event is a kind of thing. an event has a number called result. an event has indexed text called shorthand. an event has a room called the puzzle-loc. an event has a thing called crit-item. an event can be won, lost, winnable, unplayable or unfinished. an event is usually unfinished. an event can be cheaty or not. An event is usually not cheaty.
+
+definition: an event is cheated if it is cheaty and it is won.
+
+a patrol-member is a kind of person. A patrol-member can be pleased. A patrol-member is usually not pleased.
+
+Book start-play
+
+when play begins:
+	say "[line break]Man! You forgot your scout troop entered you in the local Klondike Derby today! Your father banged on the door to get you up. There was a bunch of stuff you meant to study and pick up, but it's all helter-skelter now.[paragraph break]Your Senior Patrol Leader also dropped some stuff off, too. Something about learning to get by, and it's not really cheating but memory aides. All the same, if you do too much of it, you'll get caught. He also explains that a leader prepares stuff beforehand and pretty much can just WAIT and bark out orders once it's all set.[paragraph break]You just showered, and now you only have a bit of time to grab stuff. Your SPL reckoned that you could win four of seven events in the Klondike Derby and slip by. Any more might be suspicious. Nothing against your leadership skills--just, your patrol's too young, and, well, brains-over-brawn only goes so far.";
+	now player is wearing Your Scout Uniform;
+	now player is wearing Warm Coat;
+	let L be { 1234, 2413, 3214, 4321, 1342, 2143, 3421, 4132 };
+	repeat with X running through events:
+		let J be a random number from 1 to the number of entries in L;
+		now result of X is entry J in L;
+		remove entry J from L;
+		now right hand status line is "[number of carried things] item[if number of carried things is not 1]s[end if]";
+		[say "Event [X] has result [result of X].";]
+		
+[The scores for the other patrols are the scores divided by 1000, 100, 10 and 1, respectively, so the scores in the list above add up to 20-20-20-20. Well, times ten, but you get the idea. Your score is either 0 or 40. The others all lose 10 points if you win the event. So it's hard-coded if you win or lose based on the number of events you win. But because a random enemy patrol score is removed, you can be sure of the range of each patrol's score.]
+
+event-header is indexed text that varies. event-header is usually "               ".
+
+book command-parse
+
+After reading a command:
+	if the player's command includes " all":
+		say "A good scout doesn't bite off more than he can chew. One thing at a time!";
+		reject the player's command.
+
+book misc actions
+
+definition: an event is upcoming if it is unfinished or it is winnable.
+
+to pick-new-event:
+	if there is an upcoming event:
+		now current-event is a random upcoming event;
+		[say "Current event [current-event]";]
+		now left hand status line is "[current-event]";
+		now player is in puzzle-loc of current-event;
+		now Mikey is in puzzle-loc of current-event;
+		now Timmy is in puzzle-loc of current-event;
+		now Ted is in puzzle-loc of current-event;
+		now Fatty is in puzzle-loc of current-event;
+		the rule succeeds;
+	otherwise:
+		try-the-ending;
+
+to try-the-ending:
+	repeat with U running through events:
+		if puzzle-loc of U is unvisited:
+			say "You didn't visit [puzzle-loc of U].";
+	if number of events that are won > 4:
+		say "Wow! You cheated. I don't know how, but you did. I'd be curious to know. Impressive.";
+		end the story;
+		the rule succeeds;
+	if number of events that are won is 0:
+		say "[line break]Boy. You didn't win any events. Rough stuff.";
+		end the story;
+		the rule succeeds;
+	say "[line break]You've made it to the end of the Klondike Derby and won [number of events that are won] event[if number of events that are won > 1]s[end if]! Now for the final scoring...[paragraph  break]";
+	try requesting the score;
+	if number of events that are won < 4:
+		say "Sadly, it wasn't enough to avoid the shame of being dead last[if number of events that are won is 3]. A close dead last, but dead last nonetheless[otherwise]. Not even close, man[end if]. It's the sort of excuse you wanted, to get around to quitting scouting without guilt, but on the other hand, you sort of want redemption. You and your patrol members get a participation ribbon out of the whole deal, which would've been enough when you were Webelos, but not now.";
+	otherwise:
+		say "Congratulations! You managed to squeeze out a victory. It would've been suspicious if you'd have won five events, but now, the other patrols are squabbling over what they could've done better and how on earth they could've lost to a bunch of dorks like THAT.[paragraph break]";
+		if the number of pleased patrol-members < 4:
+			say "Sadly, there's the small detail that not everyone feels like he contributed. You see [list of not pleased patrol-members] pouting and fidgeting a bit. [if number of not pleased patrol-members is 2]Alienating half of your patrol is rather impressive, actually, and you rationalize it's better than having three guys mad at and ganging up on one lazybones[otherwise]Maybe you can fix that next time[end if]. [paragraph break]You doubt you permanently damaged anyone's ego, though your Scoutmaster calls you over to explain the true spirit of the event being teamwork and all before po-facedly offering you a congratulatory handshake.";
+		otherwise:
+			say "Best of all, everyone feels like he contributed, too! If that doesn't engender Scout Spirit, I don't know what does.";
+		pause the game;	[unfortunately the score doesn't update before the turn ends. If anyone knows how to do this, I'd be grateful.]
+		say "You shudder to think how you'd have done in the advanced division, where you have to do stuff like build suspensions that bears can't reach or transport 'injured' patrol members or even do those tasks that require communication, teamwork and physical strength. Whew.[paragraph break]Of course, it's the fear of this sort of thing (plus the merit badges that require swimming) that stalls your progress to Eagle Scout. But you did learn some valuable lessons about how random items can help you solve weird puzzles. Maybe it'll come in handy later.";
+[		repeat with YY running through patrol-members:
+			if YY is pleased:
+				say "[YY] is pleased.";
+			otherwise:
+				say "[YY] is not pleased.";
+		say "[number of pleased patrol-members].";]
+	end the story;
+		
+Book rooms
+
+check taking:
+	if location of player is not bedroom:
+		say "This is a Klondike Derby, not a scavenger hunt." instead;
+	if number of things carried by the player > 4:
+		if location of player is bedroom:
+			say "Oops, that'd be too much. Four items, four events to win. You hope you got it right."
+
+Report taking:
+	if number of things carried by the player is 4:
+		say "That's about all your Senior Patrol Leader said you could handle. You hope there's quality in that quantity."
+
+every turn:
+	if number of things carried by player >= 4:
+		if location of player is bedroom:
+			say "You stumble out to the assistant scoutmaster's van, and after a five-minute drive where everyone's subject to his obligatory harangue about teamwork, leadership and integrity, you're dropped off at the pickup area. Your Klondike Derby sled is there and packed--it'll pass inspection. That's more due to your Senior Patrol Leader than you, but what the hey.";
+			now player is in Registration Area;
+			now right hand status line is "[current-score of Smurfs]/[smurf-place]";
+			now timmy is in registration area;
+			now mikey is in registration area;
+			now fatty is in registration area;
+			now ted is in registration area;
+
+to say smurf-place:
+	let tied be false;
+	let Q be 1;
+	let events-won be 0;
+	repeat with Z running through patrols:
+		if current-score of Z > current-score of Smurfs:
+			increment Q;
+		if current-score of Z is current-score of Smurfs:
+			if Z is not Smurfs:
+				now tied is true;
+	repeat with Y running through events:
+		if Y is won:
+			increment events-won;
+	say "[if tied is true]T-[end if][Q][placing of Q] [events-won]W";
+		
+to say placing of (a - a number):
+	if a is 1:
+		say "st";
+		the rule succeeds;
+	if a is 2:
+		say "nd";
+		the rule succeeds;
+	if a is 3:
+		say "rd";
+		the rule succeeds;
+	if a is 4 or a is 5:
+		say "th";
+		the rule succeeds;
+	say "--BUG";
+
+The roll call list is a thing. It is in Your Bedroom.
+
+instead of taking the roll call list:
+	say "You don't need it. But you glance over it to remember who's who.[paragraph break]";
+	try examining the roll call list;
+	
+The Klondike Derby Itinerary is a thing. It is in your bedroom.
+
+instead of taking the itinerary:
+	say "You don't need it. But you glance over it to remember what you'll be doing.[paragraph break]";
+	try examining the Klondike Derby Itinerary;
+
+the description of the Klondike Derby Itinerary is "You glance over it for a refresher of the tasks you'll be doing. Thankfully there's nothing like building a big ol['] pinata a bear can't reach overnight, or having to haul a fellow patrol member around.[line break][itin-list]"
+
+to say itin-list:
+	let temp be 0;
+	repeat with Q running through events:
+		if Q is not unplayable:
+			increment temp;
+			say "[line break][temp] - [Q]";
+
+the description of roll call list is "It's enough to remember your patrol members: Timmy Tines, the eighth grader in Trigonometry. Ted Banning, the science whiz who doesn't just get good grades but makes gadgets. Mikey Mims, annoying know it all--so annoying, people don't want to seem like they know less than he does. Fatty Potter, well, he's not good for much. He eats a lot, you guess.[paragraph break]There's a distinct lack of applied life skills here, but that just makes you plucky underdogs."
+
+Your scout uniform is a wearable thing. The description of scout uniform is "Tan shirt, olive pants. Plenty of pockets. Lots of warm layers under."
+
+A warm coat is a wearable thing. "Plain and black and grey but it does the job."
+
+description of the player is "You're wearing your scout uniform and a warm coat over that[if player is in your bedroom]. It's a bit warm for inside, so you probably want to grab stuff and get going[end if]."
+
+instead of taking off your scout uniform:
+	say "You'll have to wear it [']til the Klondike Derby ends."
+
+instead of taking off warm coat:
+	if player is in your bedroom:
+		say "You shoulda put in on just before leaving, yeah, but you didn't. Enough time wasted already.";
+	otherwise:
+		say "It's too cold out."
+
+Your bedroom is a room. "It's kind of messy here. You probably don't want to look much at your desk or your bed. You probably should just grab what you can and get going before going outside."
+
+instead of exiting in your bedroom:
+	say "Just get a few items and exit, Dash.";
+
+instead of going nowhere in your bedroom:
+	say "Don't worry about compass directions--get a few items and leave.";
+
+instead of going nowhere:
+	say "You're the leader, Dash. No running from that responsibility.";
+	
+Hallway is a room. Hallway is outside of your bedroom.
+
+Registration Area is a room. "[one of]A big BE PREPARED sign hovers in the fake log cabin (it's missing the whole front wall) where troops must register. It seems like a pretty serious hint to hand out assignments before you get going. There may not be time when you are on the trail.[or]There's not much to do here except register, if that big REGISTER sign next to the BE PREPARED sign means anything. Well, you could wait around until a scoutmaster horse collars you and makes you register.[stopping]"
+
+the log cabin is scenery in Registration Area.
+
+instead of doing something with the log cabin:
+	say "Being distracted by your surroundings is no way to show leadership skills, Dash!"
+
+the BE PREPARED sign is scenery in Registration Area.
+
+instead of doing something with the BE PREPARED sign:
+	say "If staring at the sign actually helped with the competition, everyone else would be doing so, too. But it isn't, and they aren't."
+
+registering is an action applying to nothing.
+
+understand the command "register" as something new. understand "register" as registering.
+
+carry out registering:
+	if location of player is your bedroom:
+		say "Getting ahead of yourself there, Dash." instead;
+	if location of player is not registration area:
+		say "You already did!" instead;
+	say "'Inspection time!'[paragraph break]";
+	if player has the blue river:
+		if blue river is not drunkfrom:
+			say "'No food or drink on the trail, scouts. Especially junk food.' The adult leader checking you in takes your can of Blue River soda!";
+			now blue river soda is off-stage;
+	if player has the wrappers:
+		if blue river is off-stage and blue river is not drunkfrom:
+			say "He also confiscates the remains of your candy![paragraph break]";
+		otherwise:
+			say "'No food or drink on the trail, scouts. Especially junk food.' The adult leader checking you in takes your candy![paragraph break]";
+		now wrappers are off-stage;
+	say "The scout leader inspects your sled and gives it the thumbs-up. He explains that you will be competing against the Beastie Boys, WWF, Camel and Ninja Turtles patrols. You won't know what order your events are in [']til you get there. A scout needs to be prepared for this sort of thing.";
+	pick-new-event;
+	
+instead of waiting in registration area:
+	try registering instead;
+
+instead of waiting in your bedroom:
+	say "A scout does not procrastinate, Dash.";
+
+table of wl-msg
+event	win	lose
+trashpicking	"Your patrol starts combing through Litterbug Meadow. You don't dump the candy wrappers in your trash sack all at once, of course. In fact, you have Fatty split them up so everyone gets some candy wrappers. It's enough to put you over the top."	"You do pretty well, you think, but you're a bit suspicious of what the other patrols have for garbage--it looks more like something they snatched from their bathrooms than that they'd use on the trail."
+orienteering	"Timmy's worked it all out. You know where to go, and when you're off a bit, the landmarks that the organizers laid out are pretty clear. It's a snap. Full points for the Smurf patrol!"	"You get the feeling that with someone like Timmy, you should've done better than you did[if player has calculator], especially since you brought that calculator[otherwise], but you left the calculator at home[end if]. But you wind up wandering, and with a wobbly compass 'guided' by some metal bits you all forgot you had, you never really had a chance."
+firestarting	"Timmy knows what he's doing. He takes the empty can of Blue River soda and focuses it on the kindling, which erupts in flame. You're able to stoke it to get it going, and you wind up boiling the water you need to pretty quickly."	"You do okay, you suppose, or you would've if you'd been allowed to use more than five matches. You have decent enough kindling, but despite blowing, all you can say is that it worked in theory."
+first aid knowledge	"Ted had enough time to study and yell what to do. He whispers some stuff to you so it looks like you're delegating and listening equally well. Everything goes off without a hitch."	"Well, you get credit for trying, but unfortunately, that's only about ten percent. Every fifty-fifty choice you make seems to go against you, and of course it makes sense when it's explained--too late for you to do anything."
+sledding	"You're not sure what Ted did with the wheels, and you're not sure if it's legal for the competition or in general. But it works. The wheels seem to cut through the solid ground, and the sled darned near to hydroplanes to victory. The big kids can't believe it!"	"Your patrol really has no chance, as you're the weakest of the lot. A year or two means a lot in terms of growth, and you aren't exactly jocks anyway. You're just glad you don't get negative points at the end of it."
+rope lashing	"It's not as bad as knots, but even the lashings you get right seem to come loose because they're hastily made. Even a glance at the rope bridge to see what you maybe should do doesn't work. Just like the last few times you messed up lashings, they make so much sense once someone explains what you did wrong. They will the next time, too."	"Man! Mikey knew what he was doing, and he knew how to make you all seem to know what you are doing. You work with urgency, worried you'll forget, but getting stronger with repetition. Shockingly, the lashings are right, and they hold up."
+knot tying	"Well, at least you can tie your own shoelaces. You get the square knot and clove hitch right, but that's about it. It's nowhere near enough. The more experienced scouts--even those who didn't tie rookies to trees for hazing--have pitched enough tents that they pretty much know it."	"Man! Mikey sure knows how to cram, or help people cram. He'll be in demand in study groups, for sure. For now, he's the hero, but he insists you take all the credit, though there's a strong indication he'd appreciate reciprocity. No matter. Victory for the Smurf patrol!"
+
+to win-msg:
+	if current-event is an event listed in the table of wl-msg:
+		choose row with event of current-event in the table of wl-msg;
+		say "[win entry][line break]";
+	otherwise:
+		say "There should be a win message here, but there isn't."
+
+to lose-msg:
+	if current-event is an event listed in the table of wl-msg:
+		choose row with event of current-event in the table of wl-msg;
+		say "[lose entry][line break]";
+	otherwise:
+		say "There should be a lose message here, but there isn't."
+
+instead of waiting:
+	if current-event is not unplayable:
+		if current-event is winnable:
+			now current-event is won;
+			win-msg;
+		otherwise:
+			now current-event is lost;
+			lose-msg;
+		chalkup current-event;
+	pick-new-event;
+
+After deciding the scope of the player:
+	if player is not in your bedroom:
+		place Beastie Boys in scope;
+		place Camels in scope;
+		place Ninja Turtles in scope;
+		place WWF in scope;
+		place Scoutmaster in scope;
+		
+Scoutmaster is a person.
+
+instead of examining scoutmaster: say "They all look alike. Besides, you need to focus on the task, not them."
+
+understand "leader" as scoutmaster.
+		
+Litterbug Meadow is a room. "This meadow lives up to its name. You were assigned this at random, while other patrols got Trash Trail, Cluttered Creek and Junk Gully. Hope you can pick up trash." 
+
+trash is scenery in litterbug meadow.
+
+instead of taking trash:
+	say "You start picking up the trash...[paragraph break]";
+	
+Fungal Forest is a room. "A lot of trees block your way here, but apparently you should be able to slip through them to find the landmarks you need to."
+
+trees are scenery in fungal forest.
+
+description of trees is "This event is not about identifying trees, so no sense looking too closely. Basically, they look painful to run into if you're staring too hard at your compass, and that's all you need to know."
+
+Ramshackle Fire Pit is a room. "This is a small clearing with a circle of rocks where your nascent fire will, hopefully, go."
+
+rocks are scenery in ramshackle fire pit. description of rocks is "Not magic or anything--just marking where the pit should be, for safety purposes."
+
+Deceptive Ditch is a room. "This is a small gully with various dummies and staged accidents. A scoutmaster is watching and taking notes."
+
+Knot Nook is a room. "In this small cabin, you see a poster with a bunch of names of knots, presumably ones you need to tie."
+
+poster is scenery in Knot Nook.
+
+description of poster is "Just the basics--square, clove hitch, taut line hitch."
+
+The Rope Bridge That Always Scared You is a room. "This is a small clearing with a rope bridge that is pretty scary despite not being over a cavern."
+
+rope-bridge is privately-named scenery in rope bridge that always scared you.
+
+description of rope-bridge is "It looks wobbly and no fun--you couldn't even cross it now. It's fixed with the same lashings you'll need to show knowledge of."
+
+understand "rope bridge" as rope-bridge.
+
+Strawy Field is a room. "Bleah. There's been no snow, so there're still smashed stalks of straw that didn't get cleared for the summer harvest. You're not sure if this makes the odds slightly worse for people without brute strength, or slightly better."
+
+Book people
+
+Timmy Tines is a patrol-member.
+
+description of Timmy Tines is "He only failed to skip a grade because he was born just before the yearly cut-off date for entering kindergarten, and he's the shortest kid here. You wonder what he's doing in Boy Scouts, or why. You remember an argument he had with his mother about getting Eagle Scout the summer before college. He's wearing a wool hat with a 'MATH' patch shaped like the 'LOVE' sculpture."
+
+The wool hat is part of Timmy Tines. description of wool hat is "You wonder why he hasn't tried to rip the MATH patch off, yet."
+
+Ted Banning is a patrol-member.
+
+description of Ted Banning is "Surly, with a touch of acne...he's rather skinny but the puffy coat he's wearing hides that. He looks like a typical science geek, which he isn't--he's the turbo-powered type."
+
+Mikey Mims is a patrol-member.
+
+description of Mikey Mims is "He's got a sly leer behind these glasses, but it's more looking for weird knowledge than for anything malicious or deviant."
+
+Fatty Potter is a patrol-member.
+
+description of Fatty is "That's not his name, of course, but it's the one he's been given. He's rather more cheerful than others when he's not being insulted, and even when he is, people blame him for not being as fun to insult as he should."
+
+Book items needed
+
+A bag of candy wrappers is a thing in your bedroom.
+
+The description of bag of candy wrappers is "It's a mess of second-rate candies partially ashamed of their wrappers. You got rid of the good stuff months ago, and the selection of weird hard candies and root beer barrels wasn't all that bad. Still, it's a mess...but wait, there're a few random ones left. Well, not really random--they're the ones you put off [']til last and tried to forget about."
+
+the candy wrappers is edible. instead of eating candy wrappers: say "Eww. You don't need expensive stuff, but you draw the line somewhere."
+
+A pocket trigonometric calculator is a thing in your bedroom.
+
+The description of the pocket trigonometric calculator is "It's got those fancy SIN, COS and TAN buttons you'll eventually have to figure out. You'd need a math guy to tell you what they're about."
+
+A can of Blue River soda is a container in your bedroom. [It is closed and openable.]
+
+Rule for printing room description details of the Blue River Soda:
+	do nothing instead. 
+
+instead of drinking the can of blue river:
+	try opening the can of blue river;
+
+instead of opening the can of blue river soda:
+	if can of blue is drunkfrom:
+		say "Fatty already did.";
+	otherwise:
+		say "Nah, it's too nasty. The rest of the six-pack was enough.";
+
+The can of Blue River can be drunkfrom. It is not drunkfrom.
+
+The description of can of Blue River soda is "It advertises the cleanliness of Blue River, an unnatural blue raspberry-flavored fizzy concoction. You bought a six-pack a month ago, at a huge discount. You couldn't stomach this last one, but it's still shiny and polished[one of]. You look at the bottom of the can for an expiration date, and somehow, a reflection of the sunlight from [if player is in your bedroom]the window[otherwise]the sun[end if] hits you in the eyes. At least it wasn't concentrated in one place[or]. You half-heartedly try to shine the can in your eyes again, but there's probably some weird mathematical formula behind it[or][stopping]."
+
+A first aid cheat sheet is a thing in your bedroom.
+
+The description of first aid cheat sheet is "It's got all the points of what to do to rescue people if things go wrong in the wilderness, which you're determined never to get close to once you leave Boy Scouts. It's terribly common-sensical when you're reading it but easy to forget once you're not. Still, you can remember everything for about two hours after, and it's also handily rippable so you can destroy the evidence, so to speak. And even if you don't remember, a gung-ho junior patrol member should be able to--or to embarrass you into remembering it."
+
+A small string of knots is a thing in your bedroom.
+
+The description of small string of knots is "They're all the knots you need to know, and sensibly organized, too. But it's still quite possible to mess them up without a refresher[if location of player is bedroom]. Maybe you could delegate the teaching[end if][if player has lashings log]. But it might be tough to remember the knots AND the lashings[end if]. Knots are weird. There're only so many ways rope can go over itself and back, so you should be able to remember them, but there're even more granny knots."
+
+A lashings log is a thing in your bedroom.
+
+The description of lashings log is "It's a log, foot long and three inches thick, with the various lashings on it. They look simpler than knots, but the effort in cinching them makes you lose your stream of thought[if location of player is bedroom]. You bet one of your patrol could figure it out, though[end if][if player has small string of knots]. Might get the lashings confused with the knots, though[end if]."
+
+A techno wheels kit is a thing in your bedroom.
+
+The description of techno wheels kit is "You got this for Christmas last year from your grandparents but never used it. It has a bunch of parts you'll probably never understand how to fit together."
+
+instead of dropping a thing:
+	if player is in your bedroom:
+		say "You just picked it up. A scout is decisive!";
+	otherwise:
+		say "A scout is not a litterbug, Dash." instead;
+
+instead of showing to:
+	try giving the noun to the second noun;
+
+Book events
+
+Trashpicking is an event. shorthand of Trashpicking is "TRAS". the puzzle-loc of Trashpicking is Litterbug Meadow. the crit-item of trashpicking is the bag of candy wrappers.
+
+Orienteering is an event. shorthand of orienteering is "ORIE". the puzzle-loc of Orienteering is Fungal Forest. the crit-item of orienteering is pocket trigonometric calculator.
+
+Firestarting is an event. shorthand of firestarting is "FIRE". the puzzle-loc of Firestarting is Ramshackle Fire Pit. the crit-item of firestarting is can of blue river soda.
+
+First Aid Knowledge is an event. shorthand of first aid knowledge is "1AID". the puzzle-loc of first aid knowledge is Deceptive Ditch. the crit-item of first aid knowledge is first aid cheat sheet.
+
+Knot Tying is an event. shorthand of knot tying is "KNOT". the puzzle-loc of Knot tying is Knot Nook. the crit-item of knot tying is a small string of knots.
+
+Rope Lashing is an event. shorthand of Rope Lashing is "LASH". the puzzle-loc of Rope Lashing is The Rope Bridge That Always Scared You.
+
+Sledding is an event. shorthand of sledding is "SLED". the puzzle-loc of Sledding is Strawy Field. the crit-item of Sledding is techno wheels kit.
+
+Checkin is an event. shorthand of Checkin is "NONE". the puzzle-loc of Checkin is your bedroom. Checkin is unplayable.
+
+the current-event is an event that varies. the current-event is usually Checkin.
+
+book evenstart
+
+to eventstart (ev - an event):
+	now the current-event is ev;
+	now the player is in the puzzle-loc of ev;
+
+Book what to do with things
+
+disgraced is a truth state that varies.
+
+check giving the first aid cheat sheet to Ted Banning:
+	if First Aid Knowledge is winnable:
+		say "You already did." instead;
+	if First Aid Knowledge is lost:
+		say "'Smooth move, Ex-Lax. Now just gimme a time machine, and we could cram!'[paragraph break]He takes it and rips it up out of spite.";
+	otherwise if player is in Deceptive Ditch:
+		say "That's really a little too obvious. Maybe if you'd done it a bit sooner...the scout leader, of course, catches you and gives you the fifth degree. You are disqualified and not even given a participation ribbon for your efforts, and at your troop's next campout, you are not even allowed to make s'mores.";
+		now disgraced is true;
+		end the story;
+	otherwise:
+		say "Ted Banning studies the cheat sheet and starts convincing the rest of your patrol that you'd have to be dumb not to figure this out quickly. He's surprisingly persuasive, and motivated by not wanting to get left behind, you go along too. You've been shown it all before, and you're not liable to forget it, and you think you can remember to be decisive and all that. Ted disposes of the cheat sheet--won't do to get caught with it.";
+		now Ted Banning is pleased;
+		now First Aid Knowledge is winnable;
+	now the first aid cheat sheet is off-stage;
+	the rule succeeds;
+
+check giving the first aid cheat sheet to:
+	say "Nah, he'd take too long to learn it, and he couldn't share it." instead;
+
+check giving blue river to:
+	if blue river is drunkfrom:
+		say "'No way, Dash! That's disgusting. Fatty just drank from it. Plus I heard fat's contagious. No disrespect, Fatty.'" instead;
+	say "'No way, Dash! That's disgusting. Even Fatty might not drink it.'" instead;
+
+check giving blue river to timmy:
+	if Firestarting is winnable:
+		say "You already did." instead;
+	if Firestarting is lost:
+		say "'Damn, that's a parabola on the bottom. Coulda focused the rays and started that fire. Geez. Too late now, Dash.'" instead;
+	if blue river is drunkfrom:
+		say "'No way, Dash! That's disgu...' ... Timmy takes a closer look at it and realizes it might be handy for focusing light at the vertex of the parabola. The can's his now. Fatty beams with pride at being a team player in all of this.";
+		now Fatty is pleased;
+		now Timmy is pleased;
+		now the blue river is off-stage;
+		now firestarting is winnable instead;
+
+check giving techno wheels kit to:
+	say "'What?! Like I know about that. I'm not a whiz like Ted.'" instead;
+	
+check giving techno wheels kit to Ted:
+	if Sledding is winnable:
+		say "You already did." instead;
+	if Sledding is lost:
+		say "'A bit late, Dash. Why didn't you give me this earlier instead of staring off into space? Man, some LEADER.'" instead;
+	if location is Strawy Field:
+		say "'Man! If you'd shown me this earlier, I'd have been able to think up what to do. A scout should think ahead, Dash.'" instead;
+	say "'Hey! This'd be perfect for putting under the sled to get going. I bet I could make some handy modifications once the time comes.' The kit's all Ted's now.";
+	now sledding is winnable;
+	now Ted is pleased;
+	now techno wheels kit is off-stage instead;
+	
+check giving blue river to Fatty:
+	if blue river is not drunkfrom:
+		say "'Oh, man! Haven't had one of these for a while.' He guzzles it down and wipes his mouth. Then he hands you back the empty can. Well, at least it won't get confiscated as outside food, now.";
+		now player has blue river;
+		now Fatty is pleased;
+		now blue river is drunkfrom;
+	otherwise:
+		say "Fatty's not interested, now it's empty.";
+	the rule succeeds;
+
+check giving the pocket trigonometric calculator to Timmy Tines:
+	if orienteering is winnable:
+		say "You already did." instead;
+	if location is Fungal Forest:
+		say "'Hey! Yeah! That's a lot easier than using a fiddly old compass and whatnot!' Timmy snatches the calculator and begins to tap away, given the instructions and rotations and so forth. He coordinates it to the map and it's pretty clear about where you'll wind up, where you're going, and so forth. Timmy obviously needs to keep the calculator so there's no way you can lose.";
+		now calculator is off-stage;
+		now orienteering is winnable;
+		now Timmy is pleased;
+		the rule succeeds;
+	if orienteering is lost:
+		say "'Boy, that would've come in handy in the Orienteering challenge. Some leader you are, Dash.'" instead;
+	say "'I know, I know, I'm a math guy. What's that got to do with what we're doing NOW?'" instead;
+
+check giving the pocket trigonometric calculator to:
+	say "'I'm not the Math Guy. Timmy is. Duh.'" instead;
+
+check giving the candy wrappers to Fatty Potter:
+	if trashpicking is winnable:
+		say "You already did." instead;
+	if trashpicking is lost:
+		say "'Fatty eats up the rest of the candy, looking for a trash bag to dump it in. Sadly, that event has passed. He bundles it in his jacket.";
+		now the candy wrappers are off-stage instead;
+	if location is not Litterbug Meadow:
+		say "'Whoah! Candy! Sucky candy but I could eat about anything right now.' He can, and he does, before thoughtlessly tossing the mass of plastic on the ground. 'Say! I got an idea! I--I didn't mean to do this, but it's litter now. And there's no garbage can RIGHT around.' Fatty hides everything in his coat. Good call--people'd notice if YOU gained a little weight, say.";
+		now the candy wrappers are off-stage;
+	otherwise:
+		say "He quickly peels off the remaining candy and stuffs it in his mouth. It's energy enough, you guess, and the extra wrappers will help your cause, too.";
+	now trashpicking is winnable;
+	now fatty is pleased;
+	the rule succeeds;
+
+check giving the candy wrappers to:
+	say "'Eww. Even Fatty wouldn't eat the candy left over there. Well, he might not.'" instead;
+
+check giving to the player:
+	say "Pointless. You already have it." instead;
+
+check giving the lashings log to mikey:
+	if rope lashing is winnable:
+		say "You already did." instead;
+	if rope lashing is lost:
+		say "'Wow. That coulda been helpful a few events ago.'" instead;
+	if location is Rope Bridge:
+		say "'Great idea, with that scoutmaster watching us. Geez.'" instead;
+	say "He looks at it, nods, and finds about ten different ways to say 'of course,' none particularly pleasant. Then he finds ten different ways to show everyone why things should work--he divides up the tasks, a couple hitches per person, and you're surprised how quick it all is. You think you delegated effectively. Mikey slips the log inside his coat (weird pockets there) so nobody accuses anyone of cheating.";
+	now rope lashing is winnable;
+	now mikey is pleased;
+	now the log is off-stage instead;
+
+check giving the lashings log to:
+	say "'Whoah. That's something I've always been a little confused about. All that weird knowledge.'" instead;
+
+check giving the knots to:
+	say "'That's kind of weird knowledgy stuff. Go ask someone else.'" instead;
+	
+check giving the knots to mikey:
+	if knot tying is winnable:
+		say "You already did." instead;
+	if knot tying is lost:
+		say "'You know, I could've learned these knots BEFORE the event.'" instead;
+	if location is Knot Nook:
+		say "'The adult manning the station would see that. He's a scoutmaster from a rival troop. It's too late now.'" instead;
+	now knots are off-stage;
+	now knot tying is winnable;
+	now mikey is pleased;
+	say "He fiddles with the knots, which loosen just enough for him to figure what goes where. He has some rope of his own and yells at each of his patrol members (including you) to get going. It's surprisingly easy. He promises to take the tough ones--since the judges tend to ask people how to tie knots at random. You forget to ask for the knots back. You'll do that afterwards." instead;
+
+book other stuff
+
+instead of asking about:
+	say "You're here to do and not talk, Dash. Probably best to just give people stuff to meddle with."
+
+Book xyzzy
+
+xyzzying is an action out of world. understand the command "xyzzy" as something new. understand "xyzzy" as xyzzying.
+
+carry out xyzzying:
+	if player is in your bedroom:
+		say "Magic won't help you now, Dash. Use your Boy Scout instincts to choose useful items.";
+	otherwise:
+		say "There's no magic in Scouting, Dash. If you wanted to fear the cold, stay indoors and play a computer game, you made the wrong choice."
+
+Book walkthrough
+
+walkthruing is an action out of world.
+
+carry out walkthruing:
+	say "You don't have much to do, mostly taking and giving/showing items, and waiting around. You need to win 4 of 7 Klondike Derby events, and you can take 4 of 7 items from your bedroom. You have 4 patrol members, each with his own talents. ";
+	
+understand the command "help" as something new.
+understand the command "hint" as something new.
+understand the command "walkthrough" as something new.
+
+understand "help" as walkthruing.
+understand "hint" as walkthruing.
+understand "walkthrough" as walkthruing.
+
+Book about
+
+abouting is an action out of world. understand the command "about" as something new. understand "about" as abouting.
+
+carry out abouting:
+	say "This was originally written for the 2012 New Year's Speed-IF event on ClubFloyd, e.g. the one on 12/31/2011. I think I only spent about three hours in the Inform IDE. However, I culled the narrative and scoring notes in various patches, writing up stuff with no ideas how many compiler errors I'd set for the three hours.[paragraph break]Considerable white paper was involved, and it was fun. So I hope that's okay. This game did get a bit bigger than I originally intended, but it helped me try some new stuff. I'm particularly pleased with the scoreboard for the Derby.[paragraph break]Thanks to the organizer (Taleslinger,) the ClubFloyd person who compiled the games (Jacqueline) and everyone who has helped me learn how to program in Inform, as well as you, the player, for slugging through. Comments on this game can go to schultz.andrew@sbcglobal.net or ASchultz on IFMud / intfiction.org / ifdb.tads.org.[paragraph break]The game was revised 1/1/2012 after feedback from ClubFloyd, then author-tested 3/30/2012. It was re-sent to the IF Archive on 5/10/2012 with further endings and proofreading.[paragraph break]HINT or HELP gives a basic idea what to do."
+
+Book event parsing
+
+to chalkup (EV - an event):
+	let Q be indexed text;
+	now Q is shorthand of EV;
+	now event-header is "[event-header]|[Q]";
+	if EV is unfinished:
+		say "This shouldn't have happened. I can't tell if you won or lost [EV].";
+		end the story;
+		the rule succeeds;
+	if EV is lost:
+		now result of EV is result of EV + 1111;
+		now fullscore of Smurfs is "[fullscore of Smurfs] 10 |";
+		increase current-score of Smurfs by 10;
+	otherwise:
+		now fullscore of Smurfs is "[fullscore of Smurfs] 50 |";
+		increase current-score of Smurfs by 50;
+	[say "[result of EV]";]
+	let X be the remainder after dividing result of EV by 10;
+	now X is X * 10;
+	increase current-score of Beastie Boys by X;
+	now fullscore of Beastie Boys is "[fullscore of Beastie Boys] [X] |";
+	let X be the result of EV divided by 10;
+	let X be the remainder after dividing X by 10;
+	now X is X * 10;
+	increase current-score of Camels by X;
+	now fullscore of Camels is "[fullscore of Camels] [X] |";
+	let X be the result of EV divided by 100;
+	let X be the remainder after dividing X by 10;
+	now X is X * 10;
+	increase current-score of Ninja Turtles by X;
+	now fullscore of Ninja Turtles is "[fullscore of Ninja Turtles] [X] |";
+	let X be the result of EV divided by 1000;
+	now X is X * 10;
+	increase current-score of WWF by X;
+	now fullscore of WWF is "[fullscore of WWF] [X] |";
+	if there is an upcoming event:
+		say "[line break](the score has been updated. Type SCORE to see it.)[paragraph break]";
+
+Book patrols
+
+a patrol is a kind of thing. a patrol has indexed text called fullscore. A patrol has indexed text called spacyname. fullscore of a patrol is usually "". a patrol has a number called current-score. current-score of a patrol is usually 0.
+
+Beastie Boys is a patrol. spacyname of Beastie Boys is "Beastie Boys   ". description of Beastie Boys is "They're a bunch of middle-class punk wannabes, but their parents won't even let them get an ear pierced. Their patrol call, of course, is 'What time is it?' 'Time to get Ill.'[paragraph break]It could be worse. They wanted to be the NWA patrol. And I don't mean the wrestling federation. That would've been extra wrong, and not just because they're all white."
+
+Camels is a patrol. spacyname of Camels is "Camels         ". description of Camels is "Of course they assured the scoutmasters that they didn't take the name because any of them smoked (that'd be too obvious,) and of course the complete opposite was true and obvious, but nobody wanted to believe them. Still, they learn scout skills surprisingly well, since camping trips and skills lessons in the local forest preserve make for great excuses to sneak smokes."
+
+Ninja Turtles is a patrol. spacyname of Ninja Turtles is "Ninja Turtles  ". description of Ninja Turtles is "They all wear tie-dye t-shirts under their scout uniforms, and they all of course have the latest in lovely plastic toys, among other fads. They don't particularly care about being good scouts, but they don't want to lose to anybody who's obviously a bad scout."
+
+WWF is a patrol. spacyname of WWF is "WWF            ". description of WWF is "A tough, muscular bunch who will certainly turn 18 before they graduate from high school, if you know what I mean--and I think you do. They generally miss Eagle Scout due to misunderstanding the 'wuss' merit badges like Personal Management. They're pretty street smart, though. You'd have to be, to convince adults that of COURSE you were thinking of the conservation group and not the wrestling company."
+
+Smurfs is a patrol. spacyname of Smurfs is "Smurfs         ". description of Smurfs is "You didn't want to be the Smurf patrol, but your old patrol leader, a week before quitting, saddled everyone with it. Then you got the top job. You're worried it's your fault, since you two had to share a tent and you were too impressed about all the semi-legal stuff he did that he bragged about.[paragraph break]Nobody's happy with this-all. You're too young and too brainy and too weak for anything rough and ready--or so they say."
+
+book rules and weird verbs
+
+rule for printing a parser error:
+	if player is in bedroom:
+		say "Nothing fancy to do here--just take stuff and get out.";
+	otherwise:
+		say "Hm. I didn't understand that. You don't need to do much more than wait around, once you've distributed responsibilities. No need for fancy stuff. Maybe give patrol members items they might find useful.[paragraph break]You may wish to REMEMBER your Senior Patrol Leader's advice, or ROLLCALL to remember who in your patrol is good at what.";
+
+remembering is an action out of world.
+
+carry out remembering:
+	say "Your patrol leader said something about winning just enough events to get by. He rationalized that it's sort of cheating, but other people are doing it, too, so it isn't...and if it really violated the Scout Law and Scout Oath, then they'd have gotten caught and kicked out."
+
+understand the command "remember" as something new. understand "remember" as remembering.
+
+rollcalling is an action out of world.
+
+carry out rollcalling:
+	say "Ted: science guy. Timmy: math guy. Mikey: know-it-all. Fatty: eater.";
+
+understand the command "rollcall" as something new. understand "rollcall" as rollcalling.
+
+carry out requesting the score:
+	if player is in your bedroom:
+		say "There's no score yet. You aren't even at the Derby." instead;
+	say "[fixed letter spacing]";
+	say "[event-header]|TOTAL[line break]";
+	repeat with X running through patrols:
+		if X is smurfs:
+			say "[bold type]";
+		say "[spacyname of X]|[fullscore of X][current-score of X][line break]";
+		if X is smurfs:
+			say "[roman type]";
+	say "[variable letter spacing]";
+	the rule succeeds;
+
+event-text is text that varies. event-text is usually "
+               |TOTAL|[event-text]"
+
+book tests
+
+test happy with "get river, knots, candy and sheet/give blue river to fatty/give blue river to timmy/give knots to mikey/give candy to fatty/give sheet to ted/z/z/z/z/z/z/z/z"
+
+test 2un with "get sheet,knots,log,kit/give kit to ted/give sheet to ted/give knots to mikey/give log to mikey/z/z/z/z/z/z/z/z"
+
+test q1 with "get wrappers, calculator, soda and sheet/show sheet to ted/give soda to fatty/give soda to timmy/give calculator to timmy/give candy to fatty/test q2/test q2/test q2/test q2/test q2/test q2/test q2/test q2";
+
+test q2 with "z/give calculator to timmy";
+
+test r1 with "get sheet, knots, log and kit/give kit to ted/give sheet to ted/give knots to mikey/give log to mikey";
+
+test r2 with "get sheet, knots, log and kit/give kit to ted/give sheet to ted/give knots to mikey/give log to mikey/z/z/z/z/z/z/z/z"
+
+test s1 with "get wrappers, log, kit and soda/give kit to ted/give log to mikey/give soda to fatty/give soda to timmy/give wrappers to fatty/z/z/z/z/z/z/z/z"
+
+test lose with "get sheet, knots, log and kit/z/z/z/z/z/z/z/z"

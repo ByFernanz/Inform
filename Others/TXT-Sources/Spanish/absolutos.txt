@@ -1,0 +1,374 @@
+"Los sonidos absolutos" by Grendelkhan y Depresiv
+
+Part 0 - Library Card, Includes y Uses
+
+ [ Datos bibliográficos ]
+ The story title is "Los sonidos absolutos".
+The story author is "Grendelkhan y Depresiv".
+The story headline is "'La búsqueda de la supraesencia o los desvaríos de un demente.'".
+ The story genre is "Surreal".
+ The release number is 1.
+ The story creation year is 2008.
+ The story description is "Los sonidos absolutos. Sonidos que permiten conectarnos con nuestra supraesencia, sonando en una música absoluta... o los desvaríos de un musicólogo al borde de la locura.".
+
+Release along with cover art, a file of "Manual de juego" called "manual.pdf" and the source text and a website.
+
+Include Spanish by Sebastian Arg.
+Include Basic Screen Effects Sp by Emily Short.
+
+Use full-length room descriptions and no scoring.
+
+Rule for constructing the status line:
+     center "[story title]" at row 1;
+     rule succeeds.
+
+
+Rule for deciding whether all includes scenery: it does not. [para que no entren en 'coge todo']
+
+
+[Cuando el jugador pide ayuda]
+
+Asking for help is an action out of world. Understand "instrucciones" or "ayuda" as asking for help.
+
+Carry out asking for help:
+   say "Bienvenido al mundo de los relatos interactivos. En éstos juegos interaccionas escribiendo frases como EXAMINA SILLA o ABRE PUERTA (también puedes usar los verbos en infinitivo, si lo prefieres, como en ABRIR PUERTA). El juego responde describiéndote cómo es el mundo que te rodea y el resultado de tus acciones.
+[paragraph break]Hay una serie de comandos comunes a todos los juegos conversacionales. Puedes caminar simplemente indicando el punto cardinal hacia el que quieres ir; por ejemplo NORTE o SUDESTE. Todas las direcciones pueden abreviarse a una o dos letras; en el caso anterior N o SE. También puedes ir ARRIBA o ABAJO o sus sinónimos SUBE y BAJA. En algunos lugares puedes poner también ENTRA o SAL. Además puedes usar 'ENTRA EN' o 'TREPA A' con algunas cosas.[paragraph break]Cada vez que entres en un lugar, el juego te lo describirá con detalle. Sin embargo, para volver a ver la descripción completa en cualquier momento, usa el comando MIRA (abreviatura M).";
+wait for any key;
+say "[paragraph break]Puedes interactuar con tu entorno de varias formas. Puedes COGER objetos (o TOMAR en el dialecto sudamericano) y SOLTAR objetos. Tambíen puedes PONER objetos EN cosas, o SACAR objetos DE otros. Puedes llegar a crear frases complejas, como por ejemplo SACA EL LADRILLO ROJO Y LA PELOTA AZUL DE LA CAJA DE METAL Y DESPUES TIRA EL LADRILLO CONTRA LA VENTANA. El juego comprenderá esta frase, pero normalmente no necesitarás escribir nada tan complejo.
+[paragraph break]Para mirar un objeto más de cerca, EXAMINA el objeto (abreviatura X). Para obtener un listado de todo lo que llevas contigo escribe INVENTARIO (o I). Otros comandos útiles que puedes intentar son EMPUJA, REGISTRA, SACUDE, LANZA, FROTA, PATEA, TREPA, MIRA POR, o LEE.
+[paragraph break]También puedes interaccionar con otros personajes mediante órdenes como PREGUNTA A (personaje) SOBRE (tema). Por ejemplo, PREGUNTA A REY SOBRE CASTILLO.
+[paragraph break]Parte de un juego conversacional consiste en averiguar lo que el juego entiende. Éste relato conoce cientos de palabras, así que intenta todo lo que se te ocurra.[line break]Si finalmente no encuentras la solución puedes acudir a los foros del CAAD en www.caad.es/foro, lugar donde se reúnen los aficionados a los juegos conversacionales.".
+
+Part 1 - Inicializando
+
+
+[ Redefiniremos algunos de los mensajes estándares de la librería.]
+ When play begins: change the command prompt to "  - ";
+ Rule for printing a parser error when parser error is I beg your pardon: say " " instead.
+ Check requesting the score: say "No hay puntuación en éste juego, sólo música." instead.
+ Check examining a direction (called target):
+	if the target is up then say "No veo nada en especial." instead;
+	if the target is down then say "No veo nada en especial." instead.
+
+When play begins:
+clear the screen;
+     display the boxed quotation
+     "Los sonidos absolutos.
+Serie Minúscula (c) 2008. 
+por Grendelkhan y Depresiv";
+     show the current quotation;
+say "[paragraph break][italic type]Los sonidos absolutos. Habías leído acerca de ellos en algún volumen de musicología producto de los desvaríos de un teórico enloquecido. Huelga decir que nunca te los tomaste en serio. Según decía el pobre tipo, 'hay sonidos que permiten conectarnos con una especie de SUPRA-YO que está por encima de nuestra esencia material. Dichos sonidos, si son usados debidamente en una MÚSICA ABSOLUTA, pueden lograr reverberar en el hilo de conexión con nuestra supraesencia, logrando un despertar en la humanidad, una nueva era del espíritu, una trascendencia de la carne.[roman type]";
+wait for any key;
+clear the screen;
+say "[paragraph break]Desvaríos y tonterías, cómo no. Estupideces de un hombre solo. Y sin embargo, esas estupideces han llegado a divertirte terriblemente. Hasta el punto que aquí estás, en la parada de autobús y con el volumen del musicólogo loco bajo el brazo.
+[paragraph break]Esperas que no te vea nadie, tienes una reputación que mantener.[paragraph break]";
+wait for any key;
+
+Musicologo is a man. Musicologo is in the Parada del Bus. The description is "Eres un estudiante de musicología... con cierta afición por los aspectos más 'cuestionables' de la teoría musical. Afición que por supuesto prefieres mantener oculta.". The player is Musicologo.
+
+Instead of listening when the player is in Parada del Bus, say "Los sonidos típicos de la gran ciudad, pitos de coches, ruedas girando sobre el asfalto, gente hablando a gritos, o callada escuchando sus MP3 al máximo volumen. No parece haber calado mucho por aquí el mensaje de música absoluta del tal Gonzalo Derriére.".
+
+Instead of listening when the player is in Afueras, say "Escuchas un débil murmullo que surge del interior de la casa del musicólogo Gonzalo Derriére, pero no se oyen melodías, ni de las absolutas ni de las normales.".
+
+Instead of listening when the player is in Casi Oscuridad, say "Sonidos, sonidos por todas partes, de miles de instrumentos, sonidos absolutos, de locura, y todos a la vez... formando tal vez melodías dementes y acaso absolutas, sin duda no aptas para tus delicados tímpanos. Pero indudablemente hacen que algo surja de tu interior, algo nuevo que modifica tu percepción, tus sentidos, tu supraesencia...".
+
+The Libro de los Sonidos Absolutos is carried by Musicologo. The description of the Libro de los Sonidos Absolutos is "Un viejo volumen del XIX, en buen estado a pesar de su edad. Supongo que porque nadie en su sano juicio sacaría esto de la biblioteca. Ahora mismo no es el momento de leerlo, prefieres esperar a investigar la casa de Gonzalo Derriére, su escritor.".
+
+Instead of dropping the Libro, say "¡No lo puedes dejar por ahí abandonado! Es propiedad de la biblioteca...".
+
+Part 2 - El Juego
+
+Section 1 - Parada del Bus
+
+Parada del Bus is a room. "Te encuentras en una parada del bus cercana a la biblioteca. En uno de los laterales hay un anuncio de dentrífico un tanto lúbrico. Es un día de verano, hace buena temperatura en este momento.".
+
+Instead of going nowhere when the autobus is in Parada del Bus, say "Lo mejor que puedes hacer es subir al autobús antes de que se vaya.".
+
+Instead of going nowhere when Musicologo is in Parada del Bus, say "No conviene salir de aquí, el autobús puede llegar en cualquier momento.".
+
+The Anuncio is a scenery in Parada del Bus. "La chica esa del anuncio parece vender de todo menos dentrífico...". Understand "dentrifico" as Anuncio.
+
+The chica is a scenery in Parada del Bus. "Humm... dan ganas de cepillarse los dientes, sin duda...".
+
+The biblioteca is scenery in Parada del Bus. The description is "El antiguo edificio de la biblioteca da un poco de sombra a la parada de autobús. La biblioteca está abierta, invitándote a entrar y dejar ahí dentro y para siempre el libro que llevas entre manos." Understand "edificio" or "sombra" or "parada"  as the biblioteca.
+
+Instead of entering the biblioteca, end the game saying "[paragraph break]Quizás sea mejor olvidar todo éste tema, concluyes. Después de todo, tener que cruzar media ciudad para irte a las afueras a conocer a un teórico loco no sea el mejor plan para un viernes por la tarde.[paragraph break]Devuelves el libro en la biblioteca y regresas a tu hogar, sin duda es la opción más razonable...[paragraph break]".
+
+Section 2 - Afueras
+
+Afueras is a room. "Aquí estás. Enfrente de la casa de Gonzalo Derriére, el Musicólogo loco. Una vieja caserona abandonada en las afueras de la ciudad, en uno de esos barrios semi-abandonados que se prefieren no visitar. La desvencijada puerta cerrada del caserón se encuentra frente a tí.".
+
+[Instead of entering the casa, try going inside.]
+
+Before going inside when Musicologo is in Afueras, try entering the casa instead.
+
+Instead of entering the casa:
+   if Sara is in Afueras then say "Mientras la misteriosa mujer esté en la puerta, no podrás entrar.";
+   else say  "No es la forma más educada de visitar a tu colega entrando en su casa sin avisar.".
+
+Instead of going nowhere when Musicologo is in Afueras, say "Parece que sólo hay salida hacia el sur desde esta calle.".
+
+SucesoTerrible is a scene. SucesoTerrible begins when Esperabus ended happily.
+SucesoTerrible ends when the time since SucesoTerrible began is 5 minutes.
+
+When SucesoTerrible ends:
+   say "[paragraph break]Escuchas una voz terrible, que grita a lo lejos: '¡Por el amor de Dios, tapaos los oídos! ¡La música, es la música que comienza...!' Luego, algo así como un grupo de gritos ilocalizados y... el silencio.".
+
+The casa is a female scenery in Afueras. "Una vieja caserona, ni muy llamativa, ni muy bien cuidada, con una desvencijada puerta de madera cerrada.".
+
+The puerta is a female scenery in Afueras. "La puerta permanece cerrada, pero puedes ver un viejo picaporte esperando a ser usado. Extraños sonidos surgen ahogados del interior, algo así como susurros... música extraña que ansias conocer.". Understand "picaporte" as the puerta.
+
+Llamaring is an action applying to one visible thing.
+Understand "llama [something]" or "llama a la [something]" or  "usa [something]" as llamaring.
+
+Instead of opening the puerta, try llamaring the puerta.
+Instead of touching the puerta, try llamaring the puerta.
+Instead of turning the puerta, try llamaring the puerta.
+Instead of taking the puerta, try llamaring the puerta.
+
+Before llamaring the puerta:
+	say  "[paragraph break][italic type]Toc toc.[line break]Llamas a la puerta, impaciente por conocer lo que sea que está ocurriendo allí dentro. Transcurren unos pocos segundos, sólo unos pocos, pero te parecen horas interminables. La paciencia nunca fue una de tus virtudes.[paragraph break]Una mujer abre la puerta, completamente desnuda y con una expresión ausente, como si acabara de tomar alguna sustancia que la hubiera dejado en un estado alterado de consciencia.[paragraph break]-¿Qué instrumento has traído?";
+move Sara to Afueras;
+wait for any key;
+rule succeeds.
+
+The Callejuelas is south of the Afueras. "Deambulas por las callejuelas que forman las afueras de la gran ciudad. Un sórdido extrarradio típico de una ciudad industrial gris y desesperante.".
+
+The calles is scenery in Callejuelas. "Callejuelas grises cercanas al polígono industrial, tal vez un marco un tanto lumpen que nunca te habías atrevido a imaginar tan cerca de la moderna ciudad que has dejado atrás.". Understand "calles", "callejuelas", "lumpen" and "poligono" as the calles.
+
+Instead of going nowhere when Musicologo is in Callejuelas, say "Parece que hay salidas al norte, sur, este y oeste desde aquí.".
+
+The Poligono is east of the Callejuelas. "Tus pasos te conducen al polígono industrial, una masa de naves industriales humeantes, pobladas de hastío y costumbre de obreros sin ilusión ni vida. Un intenso olor a pobredumbre te sorprende los sentidos.".
+
+The naves industriales is scenery in Poligono. "Nada puede ser tran gris y dar tanto bajón como contemplar un polígono industrial un viernes al atardecer, cuando apenas hay obreros y los pocos que se ven son los puteados que tienen que hacer el deprimente turno de noche.". Understand "obreros", "fabricas", "pobredumbre" and "poligono" as the naves industriales.
+
+Instead of going nowhere when Musicologo is in Poligono, say "Parece que sólo hay salida hacia el oeste desde aquí.".
+
+The Descampado is west of the Callejuelas. "Un descampado de tierra y malas hierbas que se extiende hasta donde alcanza la vista, poblado de alimañas y suciedad. Aquí y allá puedes ver todo tipo de basura típica de una sociedad desesperada y sin alma.".
+
+The suciedad is scenery in Descampado. It is female. The description is "Botellas rotas, condones usados, jeringuillas y bolsas de la compra se entremezclan en un caleidoscopio de desesperación y pobredumbre.". Understand "botellas", "rotas", "condones", "jeringuillas", "bolsas", "basura", "basuras", "deshechos", "escombros", "tierra", "hierbas", "alimanas" and "malas hierbas" as the suciedad.
+
+Instead of going nowhere when Musicologo is in descampado, say "Parece que sólo hay salida hacia el este desde aquí.".
+
+Instead of searching suciedad, try taking suciedad.
+
+Instead of taking the suciedad for the first time: say "No te atreves a coger nada de por aquí... pero te sorprende descubrir una vieja armónica entre las malas hierbas.";
+move the armonica to the descampado.
+
+Instead of taking the suciedad, say "No encuentras nada más que basura por aquí.".
+
+The armonica is a thing and female. The printed name is "armónica". The description is "Una vieja armónica plateada, parece de muy buena calidad a pesar de su lamentable estado.". Understand "instrumento" as the armonica.
+
+Instead of touching the armonica, say "Tocas 'Oh, Susana', que es lo único que sabes tocar con una armónica. Y lo dejas unos segundos después, avergonzado.".
+
+The Carretera is south of the Callejuelas. "Hasta aquí llegan las callejuelas, que desembocan en una salida de asfalto a la carretera, por donde no ves pasar a nadie, tan sólo el viejo autobús de la línea regular pasa por aquí muy de vez en cuando.".
+
+The salida is in the Carretera. It is female and scenery. The description is "Nada en especial, asfalto entre los matojos, una vía de escape para las vidas miserables que pululan por aquí.". Understand "carretera", "asfalto" and "matojos" as the salida.
+
+Instead of going nowhere from the Carretera: say "[paragraph break]Finalmente decides irte de éste sórdido lugar, caminando por la carretera...[paragraph break]Ignoras qué podrías haber aprendido si te hubieras adentrado en la casa del musicólogo loco, pero concluyes que alguien que vive en éste ambiente no puede ser sino un loco desesperado.[paragraph break]";
+wait for any key;
+end the game saying "Te detienes a observar el libro, das un suspiro y lo lanzas con todas tus fuerzas hacia un descampado, quedando oculto entre las hierbas. Te parece haber escuchado una extraña melodía de muerte surgiendo de las páginas del libro, algo así como un grito de ayuda.[paragraph break]¡Bah! Absurdas tonterías.";
+rule succeeds.
+
+Section 3 - La mujer de la puerta
+
+Sara is a woman. The description is "La mujer fija su mirada en el infinito, impidiéndote pasar al interior de la casa. Está esperando que le muestres el instrumento musical que has traído para la sesión de hoy.". The printed name of Sara is "una mujer".
+Understand "figura", "chica", "mujer", "hembra", "mano", "cuerpo", "piernas", "mirada" as Sara.
+
+Instead of touching Sara, say "No te atreves a tocar a la mujer, no sabes qué podría pasar.".
+Instead of kissing Sara, try touching Sara.
+Instead of attacking Sara, try touching Sara.
+
+Instead of telling someone about something, try asking the noun about it. Instead of answering the noun that something, try asking the noun about it. 
+
+After asking Sara about "libro", say "'Si verdaderamente sabes lo que es ese libro... sabrás lo que hacer con él.'".
+After asking Sara about "instrumento", say "Ella se sonríe brevemente. 'Lo llevas contigo... y ni siquiera lo sabes.'".
+After asking Sara about "musicologo", say "'Él fue el primero. El iniciador. Tras él vendrán muchos más.'".
+After asking Sara about "mujer": say "'Mi nombre es Sara. Pero yo no soy importante en el esquema de los sucesos que vendrán. Tú en cambio lo eres mucho más que yo...'";
+now the printed name of Sara is "Sara".
+After asking Sara about "musica", say "'Vas a conocer la música para la que todo el resto de las composiciones de este mundo no son sino un pálido reflejo...'".
+After asking Sara about "voz", say "'El miedo es algo humano. Pero la humanidad está a punto de trascender sus miedos...'".
+After asking Sara about something, say "La mujer permanece en silencio. O bien no te entiende, o prefiere ignorarte.".
+
+Instead of asking Sara about "musica absoluta", try asking Sara about "musica".
+Instead of asking Sara about "sonido", try asking Sara about "musica".
+Instead of asking Sara about "sonidos", try asking Sara about "musica".
+Instead of asking Sara about "gonzalo derriere", try asking Sara about "musicologo".
+Instead of asking Sara about "gonzalo", try asking Sara about "musicologo".
+Instead of asking Sara about "sara", try asking Sara about "mujer".
+Instead of asking Sara about "grito", try asking Sara about "voz".
+Instead of asking Sara about "gritos", try asking Sara about "voz".
+
+Instead of showing something to someone, try giving the noun to the second noun. 
+
+Before giving the Libro to Sara:
+   say "Los ojos de la mujer se abren ampliamente, mirándote esta vez con fijeza, como inflamados en sangre...";
+   wait for any key;
+   say "[paragraph break]'Entonces lo sabes... ¿Verdad? Lo sabes... o lo intuyes. Siempre lo has sabido.'";
+   wait for any key;
+   say "[paragraph break]Sientes como si todo a tu alrededor se oscureciera. Como si sólo quedaran los ojos de la mujer, como si sólo existieran sus ojos...[paragraph break]'El libro es el verdadero instrumento para la Nueva Música. Ya se está extendiendo por las calles, por las avenidas de la ciudad. Todos conocerán su secreto, conocerán la existencia del Supra-Yo, la elevación de lo terreno...'";
+   wait for any key;
+   say "[paragraph break]Pierdes el conocimiento. Como en un rincón de tu consciencia, queda la voz de la mujer. 'La carne desaparecerá. Sólo quedará el espíritu.'";
+   wait for any key;
+   clear the screen;
+   say "[paragraph break]Tus ojos se abren de nuevo...";
+   remove the armonica from play;
+   move Musicologo to Casi Oscuridad;
+   rule succeeds.
+
+Before giving the armonica to Sara:
+   say "La mujer sonríe y acepta la armónica. Sin dirigirte la palabra te invita a pasar al interior de la casa. Entras en un pasillo débilmente iluminado, al final del cual puedes ver una puerta entreabierta.";
+   wait for any key;
+   say "[paragraph break]'Entra ahí, los otros discípulos te están esperando.'";
+   wait for any key;
+   say "[paragraph break]Te aproximas a la puerta, mientras escuchas un murmullo en el otro lado que te hace dar un paso atrás, pero en ése momento la mujer te empuja al interior haciéndote caer y cerrando la puerta tras de sí...[paragraph break]Te incorporas y rápidamente intentas abrir la puerta, pero está cerrada con llave. Lentamente te giras a observar el lugar donde te han encerrado... es entonces cuando puedes ver una gran sala, mucho más grande de lo que te habías imaginado, en la que puedes ver a cientos de personas tiradas por el suelo, famélicas y mirándote con ojos de terror...";
+   wait for any key;
+   say "[paragraph break]De repente una música horrible te golpea los sentidos, haciéndote caer de nuevo al suelo, retorciéndote por el inaudito dolor de escuchar semejante tortura, incapaz de pensar, sólo deseando que se acabe la lacerante melodía infernal...";
+   wait for any key;
+   clear the screen;
+   say "[paragraph break]Cuánto tiempo llevas aquí, lo ignoras. Cuántas veces has escuchado la música también. Perdiste la consciencia varias veces. Tocas la armónica, pero cada vez que lo haces una sonrisa burlona se escucha tras la puerta. ¿Era ésto encontrar el Supra-yo? ¿Es ésto la Música Absoluta? ¿El dolor y la muerte por el hambre y la tortura de sonidos enloquecedores? Quizás haya que esperar la muerte... el cálido manto de la muerte, que ya puedes ver cómo se acerca, cómo te cuida y como te da la mano para que la acompañes a escuchar la última melodía absoluta de tu vida.[paragraph break]";
+end the game in death;
+   rule succeeds.
+
+Section 4 - El Autobus
+
+      Paradabus is a recurring scene. Paradabus begins when play begins.
+   Paradabus ends when the time since Paradabus began is 5 minutes. 
+
+  When Paradabus ends:
+	say  "[paragraph break]Es en éste preciso momento cuando te das cuenta de que el autobús acaba de llegar.[paragraph break]Sonidos ronroneantes sacuden tus oídos al escuchar el tosco motor del viejo autobús de la línea regular, cuyo conductor espera apático que los viajeros bajen y suban, ignorando todos los sonidos preciosos que surgen espontáneos del torpe caminar de la gente.";
+move autobus to Parada del Bus;
+wait for any key;
+
+The autobus is a thing. The printed name is "autobús".  The description is "Un viejo autobús de la línea regular espera con las puertas abiertas a que los viajeros suban o bajen." Understand "autobus" or "bus" or "puertas" or "gente" or "viajeros" or "conductor"  as the autobus.
+
+Before entering the autobus:
+say "[paragraph break]Finalmente decides subir al autobús, para dirigirte a ése extraño lugar a las afueras que has descubierto durante tus pesquisas sobre el musicólogo loco. Un lugar donde esperas encontrar respuestas a todas tus preguntas.[paragraph break]El autobús te deja en tu destino, marchándose a toda velocidad, como si temiera permanecer mucho tiempo en ese lugar...[paragraph break]";
+wait for any key;
+move the player to the Afueras;
+rule succeeds.
+
+Esperabus is a recurring scene. Esperabus begins when Paradabus ends.
+Esperabus ends sadly when the time since Paradabus ended is 5 minutes.
+Esperabus ends happily when Musicologo is in Afueras.
+
+When Esperabus ends sadly:
+   say "El conductor del autobús, sorprendido porque no subas, se marcha dejándote en la parada. Tal vez sea lo mejor... quien sabe. Cambiando de opinión, puede que la opción más correcta sea devolver este condenado libro a la biblioteca y olvidarse de todo...";
+   end the game saying "Te has salido por la tangente". 
+
+Section 5 - Casi Oscuridad
+
+Casi Oscuridad is a room. The description is "[if luz is in Casi Oscuridad]Tan sólo distingues una luz, a lo lejos, al norte... ¿Una puerta? Todo lo demás es la más profunda, la más densa oscuridad. [otherwise]Cántico de oscuridad contiene luz humana con pétrea determinación mesiánica. Melodías imposibles surgen de entre las sombras lacerándote los oídos, impidiéndote pensar con claridad. La música absoluta te envuelve en su musical manto, empujando a tu supra-yo hacia la luz.".
+
+The luz is a female scenery in Casi Oscuridad. The description is "Es como una luz al final del túnel, semejante a la luz que dicen ver los que han estado al borde de la muerte... pero tú no estás muerto ¿verdad?". Understand "puerta", "tunel" as the luz.
+
+Before entering the luz:
+say "[paragraph break][italic type]Te aproximas a la luz, a la intensa luz que parece ser la única verdad en ésta neurótica oscuridad, tu única salvación...[paragraph break]Intentas atravesar el umbral de la luz, pero te das cuenta de que no es una puerta que conduzca a otro lugar, es algo físico, algo que produce luz. Miras aterrorizado la cegadora luz, cuando te das cuenta de que tiene facciones, que parece vagamente humana...[paragraph break]-Bienvenido a la música, iniciado. Mi nombre es Gonzalo Derriére.";
+wait for any key;
+remove the luz from play;
+move Gonzalo to the Casi Oscuridad;
+rule succeeds.
+
+Before examining the Libro when Musicologo is in Casi Oscuridad and Gonzalo is not in Casi Oscuridad,
+   say "Es curioso... el libro sigue contigo, pese a que recuerdas habérselo dado antes a la mujer. No lo puedes ver bien en esta oscuridad. Y sin embargo... Te da la sensación de que ha cambiado." instead.
+
+Before examining the Libro when Musicologo is in Casi Oscuridad and Gonzalo is in Casi Oscuridad:
+   now the piano is tocable;
+   say "¡El libro! Ha cambiado. Ya no es un libro... corriente. Está hecho de luz, contiene la partitura de una música... de una música distinta a todo lo que jamás ha sonado...";
+   rule succeeds.
+
+Instead of examining the Musicologo when Musicologo is in Casi Oscuridad, say "No te puedes ver. Es curioso... No eres lo mismo que eras antes, pero aún no puedes comprender exactamente 'qué' eres.".
+
+Instead of going inside when Musicologo is in Casi Oscuridad and Gonzalo is not in Casi Oscuridad, try entering the luz.
+Instead of going north when Musicologo is in Casi Oscuridad and Gonzalo is not in Casi Oscuridad, try entering the luz.
+
+Instead of touching the luz, try entering the luz.
+Instead of attacking the luz, try entering the luz.
+Instead of turning the luz, try entering the luz.
+
+Section 5.1 - Gonzalo Derriére
+
+Gonzalo is a man. The description is "Un cuerpo de intensa luz que te observa con pétrea determinación mesiánica, moviendo sus brazos como si estuviera tocando un violín cuya melodía puedes escuchar en la vorágine de melodías imposibles.". The printed name is "Gonzalo Derriére".
+Understand "figura", "hombre", "luz", "gonzalo", "derriere", "facciones" as Gonzalo.
+
+
+Instead of touching Gonzalo, say "Es un ser de luz, nada parece perturbarlo.".
+Instead of kissing Gonzalo, try touching Gonzalo.
+Instead of attacking Gonzalo, try touching Gonzalo.
+
+Instead of telling Gonzalo about something, try asking Gonzalo about it. 
+
+After asking Gonzalo about "libro", say "'Muchos son los que han venido hasta mí portando el libro de la Música Absoluta, pero ése es sólo el prólogo de un libro mucho mayor, que no está escrito excepto en la música en sí misma.'".
+After asking Gonzalo about "instrumento" for the first time: say "'Es cierto que no puedes producir música sin un instrumento adecuado, mi joven iniciado. Observa a tu alrededor y encontrarás la forma de acceder a tu supra-yo, gracias a tu propia música que alberga toda la esencia de tu verdadero espíritu.'"; move the piano to the Casi Oscuridad.
+After asking Gonzalo about "musica", say "'¿Qué es la música, me preguntas? Muchos son los estudiosos que han intentado explicar qué significan en esencia todos los sonidos que producen melodías, más aún, porqué producen en nosotros cambios de ánimo, produciéndonos alegría, o tristeza... cambios en nuestro ser, en nuestra percepción. Eso es porque la música conecta con nuestro Supra-yo.'".
+After asking Gonzalo about "mujer", say "'Ella es un cuerpo físico sin alma, cuya única misión es trasladar a los iniciados a éste lugar, fuera del tiempo y del espacio. No temas por su alma, pues reside aquí como un Supra-yo, tocando melodías absolutas... ¿no la oyes tocar, junto al resto de almas?'".
+After asking Gonzalo about "almas", say "'Todas las almas que aquí residen son músicos absolutos, que han renunciado a su cuerpo físico para liberar a su Supra-yo, para estar en armonía con el universo, tejiendo sonidos que provocan cambios sustanciales en la masa del cosmos. Todos tienen la oportunidad final de cambiar el curso del universo... ¿estás preparado para ser un Músico Absoluto?'".
+After asking Gonzalo about "supra-yo", say "'Gracias a la Música Absoluta ésas pinceladas de esencia primigenia que consigue la música tradicional consigue liberar a nuestro Supra-yo, librándolo de un cuerpo físico y sus limitaciones, convirtiéndonos en música, en armonía con el universo.'".
+After asking Gonzalo about "instrumento", say "'Ahí tienes la oportunidad de ser un ser de música.'".
+After asking Gonzalo about "partitura", say "'Debes encontrarla en tí mismo.'".
+After asking Gonzalo about "violin" for the first time: say "'Veo que estás empezando a ver, a comprender... has visto que estoy tocando un violín, pero no había violín, y aún así la música la puedes escuchar, porque tu percepción ha cambiado. ¿Puedes ver ahora el violín que estoy tocando, mi joven aprendiz?'"; move the violin to the Casi Oscuridad.
+After asking Gonzalo about "violin", say "'Puedes escuchar la música de mi violín, sólo te hace falta acompañarme con tu propia música para alcanzar la supraesencia. ¿Acaso no llevas un instrumento para producir sonidos absolutos?'".
+After asking Gonzalo about something, say "'No estás haciendo las preguntas correctas, la Música Absoluta debe guiarte en el infinito cosmos donde reside durmiente tu Supra-yo.'".
+
+Instead of asking Gonzalo about "musica absoluta", try asking Gonzalo about "musica".
+Instead of asking Gonzalo about "supra yo", try asking Gonzalo about "supra-yo".
+Instead of asking Gonzalo about "suprayo", try asking Gonzalo about "supra-yo".
+Instead of asking Gonzalo about "yo", try asking Gonzalo about "supra-yo".
+Instead of asking Gonzalo about "sara", try asking Gonzalo about "mujer".
+Instead of asking Gonzalo about "universo", try asking Gonzalo about "instrumento".
+Instead of asking Gonzalo about "armonica", try asking Gonzalo about "instrumento".
+Instead of asking Gonzalo about "musico", try asking Gonzalo about "instrumento".
+Instead of asking Gonzalo about "cosmos", try asking Gonzalo about "instrumento".
+Instead of asking Gonzalo about "luz", try asking Gonzalo about "gonzalo".
+
+Instead of giving the Libro to Gonzalo, try asking gonzalo about "libro".
+
+Section 6 - El piano
+
+The piano is a thing. "Un piano formado por líneas de luz espera a que sus teclas sean tocadas para crear melodías absolutas.". The description is "Es un piano formado por la luz, creado de la nada por Gonzalo Derriére... ¿pero es ésto real?". Understand "teclas" as the piano. The piano is either tocable or intocable.  The piano is intocable.
+
+Instead of taking the piano, say "Tus manos son incapaces de coger el piano.".
+
+Instead of touching the piano when the piano is intocable, say "Te dispones a recorrer las teclas del piano... cuando te das cuenta de que te falta una partitura con la que empezar. No sabes qué deberías tocar...".
+
+Instead of touching the piano when the piano is tocable:
+   clear the screen;
+   say "[paragraph break]Comienza la música. Notas, escuchas, cómo miles, millares de instrumentos se unen al tuyo. Cómo a medida que la música crece, otros despertados comienzan a su vez a unirse a la gran sinfonía de la música absoluta.";
+   wait for any key;
+   say "[paragraph break]Pronto ni siquiera hacen falta abstracciones de instrumentos, abstracciones de seres. Eres tú. Eres nosotros. La música forma parte del todo.";
+   wait for any key;
+   say "[paragraph break]Por fin has despertado, ahora lo entiendes. Se acabó la edad de la carne.";
+   wait for any key;
+   say "[paragraph break]BIENVENIDO A LA SUPRA-VIDA.";
+   end the game saying "Comienza una nueva Era para la Humanidad".
+
+The violin is a thing. "El ser de luz toca enérgicamente un violín con absoluta maestría.". The description is "Es un violín formado por la luz, creado de la nada por Gonzalo Derriére... ¿pero es ésto real?". The printed name of violin is "violín".
+
+Instead of touching the violin, try taking the violin.
+Instead of taking the violin, say "Tus manos son incapaces de coger el violín.".
+
+Section 7 - La música en la oscuridad
+
+The porcentaje is a number that varies. The porcentaje is 90.
+Every turn when the player is in the Casi Oscuridad:
+	if a random chance of porcentaje in 100 succeeds
+	begin;
+		choose a random row in the Table of Sonidos;
+      		say "[italic type][mensaje entry][line break][roman type]";
+	end if.
+	
+Table of Sonidos
+mensaje
+"Guturales sonidos de acordeones tocados con irracional frenesí sangriento escuchas por todas partes, surgidos de la oscuridad que te envuelve en su frío manto."
+"Violines que suenan cerca y lejos en el espacio de ésta oscuridad inabarcable tocados por manos invisibles y mentes enloquecidas."
+"Millones de flautas suenan acribillándote los tímpanos como tocadas por millones de flautistas dementes, sin melodía ni misericordia."
+"La música de cientos de instrumentos te obnubila los sentidos, haciéndote perder la cordura... conduciéndote al borde de la locura."
+"La musicalidad de la oscuridad te hace desvariar, ya nada puede ser igual, pues la música lo ocupa todo."
+"Cientos de notas discordantes surgen de entre las sombras arrancándote los tímpanos, penetrando por tus orificios, llenando tu alma de música enloquecida..."
+"Decimonónicas notas musicales bailan por el aire iluminadas por la luz del final de la oscuridad."
+"Miles de guitarras suenan a la vez en un frénetico rasgar de sus cuerdas."
+"Incontables trompetas que rugen sopladas como por huracanes, produciendo sonidos lacerantes que es imposible ignorar."
+
+
+
+

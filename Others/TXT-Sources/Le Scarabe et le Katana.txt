@@ -1,0 +1,517 @@
+"Le Scarabée et le Katana" by "Eric Forgeot".
+
+The story creation year is 2007.
+The release number is 3.
+The story genre is "Fiction".   
+The story headline is "Une aventure rapide.".
+The story description is "Un scarabée, une épée forgée pour le dieu des océans, et éventuellement quelques astéroïdes. Speed-IF / Rapid'IF du 26 août 2007 - http://ifiction.free.fr".
+
+Release along with cover art, a website, the source text, a file of "Fichier de jeu" called "otto_scarabeekatana.gblorb.blb", a file of "Version texte uniquement" called "otto_scarabeekatana.z8".
+
+[Figure of Cover is the file "Cover.png".]
+Figure of Nuit is the file "nuit.png".
+Figure of Jour is the file "jour.png".
+
+Sound of Intro is the file "scarabee_intro.ogg".
+Sound of Perdu is the file "scarabee_perdu.ogg".
+
+When play begins:
+	display the figure of Cover;
+	play the sound of Intro.
+
+
+Include French by Eric Forgeot. 
+
+Part 1 - Mise en place des options
+
+Chapter 1 - Les bases
+
+Use full-length room descriptions.
+Use no scoring.
+A door is usually female. A door is seldom locked. 
+
+Chapter 2 - Les verbes génériques
+
+Talking to is an action applying to one thing. 
+Carry out talking to:
+	say "Vous ne savez pas quoi dire.".
+	
+
+
+	
+Understand "talk to [someone]" and "greet [someone]" and "speak to [someone]" and "parler avec [someone]" and "parler au [someone]"  and "parler a [someone]" and "interroger [someone]" as talking to.
+
+Understand the command "read" as something new.
+Understand the command "lire" as something new.
+
+Reading is an action applying to one thing.
+
+Understand "read [something]" as reading.
+Understand "lire [something]" as reading.  
+
+Carry out reading: 
+	say "ll n'avait rien de spécial à lire ici.". 
+	
+Understand the command "score" as something new. [a mistake ("Pas de score dans ce jeu.")]
+
+
+[Understand "score" as a mistake ("Pas de score dans ce jeu."). : si on le laisse, commande chanter à la place]
+
+Understand "info" and "informations" as a mistake ("Ce jeu réalisé avec la version expérimentale d'Inform 7 en français peut présenter certaines limitations dans le choix des verbes. Merci de faire vos remarques sur le forum http://ifiction.free.fr")
+
+Understand "aide" and "conseil" and "conseils" as a mistake ("Essayez de méditer sur les objets qui vous entourent, ils pourront peut-être vous révéler quelques secrets. Sinon demandez la solution. De plus les adversaires à la fin seront plus facilement vaincus si vous êtes le mieux armé possible.")
+
+Understand "solution" and "walkthrough" as a mistake ("Voici une solution possible : [line break]x moi[line break]x paravent[line break]x panneaux[line break]x scarabee[line break]mediter sur scarabee[line break]mediter sur panneaux[line break]mediter sur armure[line break]mediter sur paravent[line break]enlever armure[line break]prendre le scarabee[line break]pousser panneau[line break]mettre scarabee dans l'ouverture[line break]fermer le panneau[line break]aller à droite[line break]prendre l'epee[line break]aller à gauche[line break]pousser le panneau[line break]prendre le scarabee[line break]mettre le scarabee sur kusanagi[line break]dormir[line break]mettre l'armure[line break]sortir[line break]descendre[line break]attaquer les ninjas [line break](et il a également une autre manière de faire, en placant le scarabée sur le corps des compagnons sur les marches...)")
+
+Understand "credits" and "credit" as a mistake ("Merci à Yoruk pour son beta-test détaillé ainsi qu'aux membres de http://ifiction.free.fr")
+
+Chapter 3 - Les routines et les scènes
+
+Taking inventory is acting confused. Looking is acting confused. Examining a thing is acting confused. Waiting is acting confused.
+Talking to someone is acting confused. 
+
+
+The player has some text called mission. The mission of the player is "Votre mission actuelle est de rapporter l'épée de Kusanagi-no-Tsurugi à votre Shogun, quel qu'en soit le prix. Vous ne laisserez absolument personne se mettre en travers de votre chemin. Et surtout pas les vils ninjas du clan de Daimyo"
+
+After acting confused for the fourth turn: 
+	say "Vous vous rappelez ce qui vous amène ici... [mission of the player].".
+
+Part 2 - Le jeu
+
+Chapter 1 - Les lieux, le décor et l'histoire
+
+Dedans is a region.
+Dehors is a region.
+
+Cage is a recurring scene. Cage begins when scarabee is inside cachette for the second turn. Cage ends when scarabee is in Temple.
+
+Protege is a scene. Protege begins when play begins. 
+Protege ends when the player is in Dehors for the first turn and nuit is happening.
+
+Traque is a scene. Traque begins when Protege ends. 
+
+Nuit is a scene. Nuit begins when play begins. Nuit ends when the player is asleep for the first turn.
+
+Jour is a scene. Jour begins when Nuit ends.
+
+[Every turn during Nuit:
+	if the player is in Dehors
+	begin;
+		say "Il fait nuit.";
+	otherwise;
+		say "";
+	end if.]
+
+Combat is a scene. Combat begins when the player is in Foret for the second turn.
+
+When combat begins:
+	say "L'affrontement commence... ";
+	try attacking ninjas.
+
+A person is either awake or asleep. A person is usually awake.
+
+Instead of sleeping when the player is in Dehors:
+	say "Cet endroit n'est pas le plus adapté ni le plus sûr pour faire un petit somme...".
+
+Instead of sleeping when the armure is worn:
+	say "Dormez-vous avec une armure de plate ? Le traditionalisme a ses limites tout de même...".
+	
+Instead of sleeping during nuit: now the player is asleep; say "Vous vous endormez.";
+	if Traque is happening and (the katana is magic or fantomes are in parvis)
+		begin;
+		say "Vous vous réveillez quelques heures plus tard, avec l'impression d'avoir été protégé durant votre sommeil par des forces extérieures aux vôtres.";
+		otherwise;
+		if Traque is happening
+		begin;
+		say "Durant votre sommeil, vous ne faites pas attention aux tueurs de l'ombre qui entrent discrètement dans le temple pour vous y enlever."; end the game in death;
+		play the sound of Perdu;
+		otherwise;
+		say "Vous vous réveillez quelques heures plus tard, en pleine forme.";
+		display the figure of Jour;
+		end if;
+	end if.
+
+
+Table of Stress
+evenement
+"des pas sur le parvis du temple"
+"un craquement dans le toit du temple"
+"un cri étouffé au loin"
+"un bruissement dans le feuillage des palmiers aux alentours"
+"un bruit sourd"
+
+
+When protege ends:
+	display the figure of Nuit;
+	say "Vous avez l'impression d'avoir vu bouger dans les ombres protégées par les arbres.".
+	
+Every turn during traque:
+	if a random chance of 20 in 100 succeeds 
+		begin;
+			choose a random row in Table of Stress;
+			say "Vous avez l'impression d'avoir entendu [evenement entry].";	
+		otherwise;
+			say "";
+		end if.
+	
+The CCombat is a number which vary. The CCombat is 10.
+
+Every turn:
+	Now the CCombat is 10;
+	if the armure is worn, increase the CCombat by 2;
+	if the armure is not worn, decrease the CCombat by 1;
+	if traque is happening, decrease the CCombat by 1;
+	if the player is not carrying wakizashi, decrease the CCombat by 2;
+	if the player carries katana, increase the CCombat by 3;
+	if the katana is magic, increase the CCombat by 4;
+	if the fantomes are in parvis, increase the CCombat by 3. 
+	
+Understand "CCombat" as a mistake ("Votre capacité de combat est de [CCombat].").
+
+Temple is a room in dedans. The description of Temple is "[if not visited]Après des jours de marche dans la forêt vierge avec votre compagnie, vous êtes enfin arrivé au temple de Susa-no-o, le dieu de la mer et des orages. Votre unité a été décimée sur les marches montant à ce lieu, mais vous avez réussi à vous glisser dans l'enceinte sacrée du temple, hors d'atteinte de vos ennemis. En tout cas cela ne veut pas dire qu'un de ces fourbes ne tentera pas de vous éliminer pour récupérer à votre place ce que vous êtes venu chercher ici. [end if]Le temple est une grande structure octogonale en bois, recouverte à l'intérieur de panneaux en palissandre. La plupart des décorations intérieures ont disparu au cours des temps, car ce temple a été abandonné durant plusieurs siècles et vraisemblablement pillé. La sortie se trouve au sud. [if player has katana][otherwise] Mais il n'est pas conseillé de sortir d'ici tout de suite, désarmé comme vous l'êtes. [end if]".
+
+ChambreSacree is east from Temple. ChambreSacree is in dedans. The printed name of ChambreSacree is "Chambre sacrée". The description of ChambreSacree is "Cette pièce a conservé tous ses objets rituels, car elle était restée fermée sans que personne ne la découvre durant tout ce temps.".
+
+Parvis is outside from Temple. Parvis is south from Temple.
+Parvis is in dehors. The description of parvis is "L'entrée du temple se trouve en haut de quelques marches, mais ces marches sont actuellement tâchées du sang de vos compagnons qui sont tous tombés sous les coups de vos ennemis. En bas, tout autour du temple, une forêt qui semble sans fin. [if player has katana][otherwise] Vous ne devriez pas rester ici, car ils vous attendent également pour vous faire subir le même sort. [end if][if nuit is happening]Il fait nuit. [otherwise]Il fait jour. [end if]".
+
+The DecorationInterieure is backdrop in Dedans.
+The printed name of DecorationInterieure is "intérieur du temple". Understand "Intérieur du temple" or "toit du temple" or "interieur/toit/toiture/sol/tatami/poutres/temple" as DecorationInterieure. The description of DecorationInterieure is "Tout cet espace inspire à la méditation et au travail sur soi-même.".
+
+The escalier is backdrop in parvis and in foret. Understand "sang/marches/marche/escalier" as escalier.
+The description of escalier is "Les marches sont recouvertes du sang de vos compagnons."
+
+Some compagnons are backdrop in dehors.
+The description of compagnons is "Des samouraïs honorables, qui sont tombés sous le nombre et la ruse de vos ennemis de toujours, les ninjas du clan de Daimyo."
+
+Some decorsdehors are backdrop in dehors. The printed name of decorsdehors is "des choses au dehors". The description of decorsdehors is "C'est juste des éléments du décor.". Understand "feuillage/palmiers/toit/temple/ombres/arbres" as decorsdehors.
+
+
+Foret is down from Parvis. Foret is in dehors. Foret is outside from Parvis.
+The printed name of Foret is "Forêt". The description of foret is "Une clairière dans la forêt.".
+
+Instead of going down from Parvis during Nuit:
+	say "Un samouraï évite toujours d'aller combattre durant la nuit, surtout si ses ennemis sont des adeptes des techniques et des combats nocturnes.".
+
+Instead of going east from Temple when the scarabee is not in cachette, say "Vous ne pouvez pas aller par là."
+
+Chapter 2 - Les petits objets
+
+Section 1 - Les armes
+
+Weapon is a kind of thing.
+
+The armure is a female Weapon. It is worn by the player.
+The description of the armure is "Une armure d'un rouge flamboyant, symbole de la famille des Kunitsukami. L'armure est la fièreté du samouraï, au même titre que son arme.".
+
+
+The wakizashi is a Weapon. It is held by the player.
+The description of wakizashi is "De la taille d'une longue dague, c'est le compagnon de votre katana. [if katana is in player][otherwise]Quel dommage que vous ayez été obligé de laisser ce dernier dehors, lorsqu'un ennemi l'a fait sauter de votre poigne. Mais celui-ci, même s'il a été forgé et trempé par les meilleurs forgerons du village, durant un long mois, semblait sans valeur par rapport à l'arme que vous êtes venu chercher en ce lieu.[end if]".
+Understand "wakizashi/dague/arme" as wakizashi.
+
+
+The katana is a weapon in ChambreSacree. Understand "arme/epee/katana/kusanagi/fourreau" as katana.
+The description of the katana is "C'est la plus belle arme que vous n'ayez jamais vue, une épée à double tranchant, et pourtant légère, tout en métal argenté tirant sur un blanc très pur. Une épée de roi ! [if katana is magic]Le fourreau de cette épée se trouve à vos côtés, faisant corps avec vous. [otherwise]Dommage qu'il manque son fourreau.[end if]".
+The printed name of katana is the "Kusanagi". The indefinite article of katana is "le".
+
+A thing is either magic or normal. The katana is normal.
+
+instead of taking the katana:
+	if the ninjas are not in foret
+	begin;
+		say "Félicitation, vous avez enfin pu vous débarrasser de vos ennemis et mettre la main sur cette arme mythique. ";
+		move katana to player;
+		end the game in victory;
+		play the sound of Intro;
+	otherwise;
+		say "Vous avez enfin pu trouver cet arme mythique, mais il vous reste encore à pouvoir rentrer sain et sauf chez vous.";
+		continue the action;
+	end if.
+
+Section 2 - La cachette
+
+The panneau is a scenery in Temple. The panneau is a closed container.
+Understand "trappe/scene/scenes/decorations/murs/mur/peintures/panneaux/panneau/porte/laque/boite/piedestal/oiseaux/dieu/fuji/bamboux/paysage" or "petite ouverture" as panneau. The panneau is openable.
+
+The cachette is a female container in panneau. It is open.
+Understand "cache/cachette/ouverture/ovale/marque" or "marque ovale" as cachette. The description of cachette is "L'ouverture qui est pratiquée dans le panneau est grande comme la main, et une marque ovale se trouve au fond de celle-ci."
+
+Instead of inserting a Weapon into panneau, say "Cela n'est pas fait pour mettre cela."
+
+Instead of inserting a Weapon into cachette, say "Cela n'est pas fait pour mettre cela."
+
+Instead of inserting scarabee into panneau, try inserting scarabee into cachette.
+
+Instead of putting scarabee on cachette, try inserting scarabee into cachette.
+
+
+When Cage begins:
+        if the panneau is not closed
+	begin;
+	say "Le panneau étant resté ouvert, le scarabée reprend sa liberté et s'envole dans le temple.";
+	move scarabee to location;
+	end if.
+
+Table of Decorations
+scene
+"des oiseaux aux longues pattes dans une rizière, sans doute des hérons"
+"un homme qui se cache sous une feuille de palmier"
+"une boîte sur un piédestal"
+"un paysage au bord de la mer, avec un bosquet de bamboux au premier plan"
+"le Mont-Fuji dans toute sa splendeur"
+"une représentation épique du dieu Susa-no-o"
+
+Instead of examining panneau:
+	choose a random row in the table of Decorations; 
+	say "Sur ces panneaux richement décorés habillant l'intérieur du temple, la laque noir issue du sumac n'a pas été altérée au cours du temps. Vous voyez sur l'un d'eux une scène représentant [scene entry].".
+	
+Instead of pushing or searching panneau:
+	if panneau is not open
+		begin;
+		say "Vous trouvez une cache secrète dans un des panneaux en vous faufilant derrière le paravent. La petite trappe coulisse en appuyant dessus latéralement, révélant une ouverture dans le mur.";
+		change the panneau to open;
+		otherwise;
+		continue the action;
+	end if.
+	
+Instead of pulling panneau:
+	say "Il n'y a pas de prise sur ces panneaux, mais peut-être est-il possible de les pousser à la place ?".
+	
+Instead of opening panneau:
+	say "[if panneau is open]C'est déjà ouvert.[otherwise]Vous ne trouvez pas le moyen d'ouvrir cela ainsi.[end if]".
+	
+
+Instead of closing panneau:
+	if scarabee is in cachette
+		begin;
+		say "Vous entendez un déclic et une porte parfaitement cachée dans un des panneaux sur votre droite s'ouvre sur une petite pièce lorsque vous manipulez la trappe.";
+		continue the action;
+		otherwise;
+			if panneau is open
+			begin;
+			say "Vous refermez le panneau en le faisant coulisser dans l'autre sens.";
+			now the panneau is closed;
+			otherwise;
+			say "Cela n'est pas ouvert.";
+		end if;
+	end if.
+	
+instead of closing cachette, try closing panneau.
+
+ 
+The paravent is a thing in temple. It is fixed in place. The description of paravent is "Un paravent recouvert d'incrustations en nacre, il se trouve assez proche d'un des murs."
+Understand "paravent/nacre/incrustations" as paravent.
+
+Instead of pushing or pulling or taking or attacking paravent, say "Il a été posé là par les prêtres de Susa-no-o pour protéger l'intimité du dieu, et cela serait un sacrilège de le déplacer ou de l'abimer."
+
+Instead of turning paravent, say "Un des panneaux qui se trouve derrière a un aspect un peu étrange, comme s'il n'avait pas été fabriqué en même temps que les autres.".
+
+Instead of looking under paravent, try turning paravent. 
+
+Chapter 3 - Les personnages
+
+Section 1 - Le joueur
+
+Instead of examining player:
+	say "Dans votre glorieuse armure de samouraï, vous savez que votre apparence est fière et déterminée. [mission of the player].";
+	try meditating player.
+
+Section 2 - Le scarabée
+
+The scarabee is an animal in temple. 
+The printed name of scarabee is "scarabée". Understand "insecte/scarabee" as scarabee. The description of scarabee is "Avec sa petite armure sophistiquée, il vous fait penser à un samouraï miniature. Sa couleur est d'un vert vif.".
+
+
+Table of ScarabeeAction
+mouvement
+"s'envoler pour se poser un peu plus loin"
+"s'éloigner rapidement pour passer sous l'interstice des panneaux"
+"disparaître dans un petit nuage de fumée pour réapparaître ensuite à un autre endroit"
+"s'éloigner rapidement"
+
+Instead of touching or taking scarabee when the armure is worn:
+	choose a random row in the table of ScarabeeAction;
+	say "Le scarabée décide de [mouvement entry] et il passe hors d'atteinte.".
+	
+Instead of touching or taking scarabee:
+	say "Sans votre armure, le scarabée ne vous a pas considéré comme un ennemi et ne s'est pas effrayé de votre présence, aussi vous pouvez le prendre avec vous.";
+	move scarabee to player.
+	
+	
+
+Instead of meditating armure:
+	say "Votre armure est terrifiante, tellement terrifiante que même les gens de votre famille ou vos animaux en ont peur lorsque vous la gardez continuellement sur vous. Vous repensez avec amusement aux samouraïs novices qui espèrent séduires les jeunes filles avec cette armure flamboyante...".
+
+Instead of meditating scarabee when armure is worn:
+	say "Vous voyez l'image d'un scarabée de votre taille, revêtu pourtant d'une armure gigantesque, qui essaye de se défendre tant bien que mal de vos coups.".
+	
+Instead of giving armure to scarabee, say "Cet insecte a déjà sa propre armure.".
+
+Instead of putting armure on scarabee, try giving armure to scarabee.
+
+Instead of meditating scarabee:
+	say "Vous voyez l'image d'un scarabée qui vous protège contre vos ennemis.".
+
+Instead of meditating player:
+	say "Vous vous concentrez sur vous-même, mais ici cette mission demande que vous méditiez plutôt sur ce qui vous est extérieur, si vous voulez la mener à son terme.".
+
+Instead of tying scarabee to katana:
+	now the katana is magic;
+	say "Au moment où vous posez le scarabée sur la garde de l'épée, une flamme verte illumine brièvement sa lame, et vous sentez une force surnaturelle prendre possession de vous. Le scarabée disparaît alors pour se transformer en un grand fourreau recouvert d'une carapace verte, qui vient se positionner à votre côté tant que vous gardez l'épée avec vous.";
+	remove scarabee from play.
+	
+Instead of putting scarabee on katana, try tying scarabee to the katana.
+	
+Instead of putting scarabee on compagnons during nuit:
+	say "Lorsque vous posez le scarabee sur ce qui fut autrefois l'âme de vos compagnons, une pluie d'étoiles filantes illumine le ciel. Vous avez une pensée émue pour tous ces valeureux combattants, et vous remémorez en une fraction de seconde les meilleurs moments passés avec eux. Vous avez maintenant l'impression qu'ils sont à vos côtés, prêts à combattre avec vous, prêts à se venger de l'infâmie qui leur a été faite.";
+	move fantomes to parvis;
+	remove compagnons from play;
+	remove scarabee from play. 
+	
+Instead of putting scarabee on escalier during nuit:
+	try putting scarabee on compagnons.
+
+Instead of attacking scarabee, say "Vous entendez dans votre tête la voix de votre vieux maître qui dit : 'La violence n'est pas une solution petit scarabée !'".
+
+Instead of turning scarabee, say "Cela n'a pas lieu d'être fait.".
+
+Instead of searching scarabee, try taking scarabee.
+
+Section 3 - Les fantômes
+
+Some Fantomes are men. The printed name of fantomes is "fantômes".
+The description of fantomes is "Quelques-uns de vos compagnons, revenus mystérieusement à la vie par la magie guerrière.".
+Understand "compagnons/fantomes/fantome" as fantomes.
+
+Instead of talking to fantomes, say "Vous essayez de rappeler à vos anciens amis diverses anecdotes les concernant, mais ils ne semblent pas prêter attention à vous pour le moment.".
+
+Instead of attacking fantomes, say "Vous ne savez pas quelle force surnaturelle les investi, aussi il ne vaut mieux pas, de plus vous n'avez pas envie d'attaquer vos anciens compagnons Samouraï.".
+
+Section 4 - Les Ninjas ennemis
+
+Some ninjas are men in foret. The description of ninjas is "Vos ennemis jurés et ceux de la famille Kunitsukami. Des tueurs de l'ombres, rendus invincibles par des pratiques physiques et spirituelles hors-normes."
+Understand "ninja/ninjas" as ninjas.
+
+Instead of talking to ninjas, say "L'heure n'est pas à la discussion, ils sont là pour vous éliminer.".
+
+Instead of attacking ninjas:
+	if CCombat is less than 10
+		begin;
+		say "Vous trouvant quasiment désarmé, vos ennemis n'ont eu aucun mal à vous vaincre.";
+		end the game in death;
+		play the sound of Perdu;
+	otherwise;
+	if  a random chance of CCombat in 20 succeeds
+		begin;
+		say "Puisant vos forces dans toutes vos ressources guerrières, vous trouvez la force de vaincre vos ennemis. ";
+		if fantomes are in parvis, say "Vos anciens compagnons ont été une aide précieuse dans cette tâche. ";
+		if katana is in player, say "L'épée de Kusanagi-no-Tsurugi a également armé votre bras d'une magie surnaturelle. Voudrez-vous réellement vous départir d'une telle arme pour donner à votre Shogun ?";
+		move scarabee to temple;
+		remove ninjas from play;
+		remove fantomes from play;
+		if player has katana, end the game in victory;
+		play the sound of Intro;
+		otherwise;
+		say "Les ninjas du clan ennemi étaient mieux préparés que vous, et ils vous massacrent sans autre forme de procès. Ou peut-être qu'ils ont eu un peu plus de chance cette fois-ci ?";
+		End the game in death;
+		play the sound of Perdu;
+	end if;
+	end if.
+
+Chapter 4 - Les verbes spécifiques au jeu
+
+Meditating is an action applying to one things.
+
+Carry out Meditating:
+	say "Vous n'arrivez pas à vous concentrer suffisamment sur ce sujet.".
+
+Understand "mediter sur [someone]" as meditating.
+Understand "mediter sur [something]" as meditating.
+
+Instead of meditating panneau:
+	say "Vous ne voyez que ce que vos yeux voient.".
+
+Instead of meditating paravent:
+	say "En vous concentrant un peu vous arrivez à voir un homme à l'air grave et avec une longue barbe noire qui médite derrière le paravent. Puis l'image vacille et disparaît rapidement.".
+	
+Instead of meditating katana:
+	say "Vous n'avez pas besoin de méditer dessus pour vous rendre compte du formidable pouvoir que cette arme renferme.".
+		
+Instead of meditating fantomes:
+	say "Leur présence est très subtile, mais leur action peut s'avérer très utile face à vos ennemis.".
+
+Instead of meditating ninjas:
+	say "Parfois il vaut mieux agir vite plutôt que de méditer trop longtemps dans le vide.".
+	
+	
+Instead of listening, say "À part quelques bruits provenant de la forêt, vous n'entendez plus rien de particulier en ce moment.".
+
+[
+Understand the command "attaque" as something new.
+Understand the command "take" as something new.
+ne fonctionne que pour les verbes anglais]
+
+Attacking it with is an action applying to one thing and one carried thing. 
+
+Understand "attack [something] avec [something]" as attacking it with.
+
+Understand "attaque [something] avec [something]" as attacking it with.
+
+
+[problème pour utiliser attaquer à la place de attack : you may not supply a second noun]
+
+Instead of attacking the ninjas with katana, try attacking the ninjas.
+Instead of attacking the ninjas with wakizashi, try attacking the ninjas.
+
+Going behind is an action applying to one thing.
+Understand "go derriere [something]" as going behind.
+[ fonctionne ...] 
+
+Understand "alller derriere [something]" as going behind.
+[ne fonctionne pas...] 
+
+Instead of going behind the paravent, try turning paravent. 
+
+Chapter 5 - Tests
+
+Test me with "test me1a/test me1b/test me1c"
+
+Test variante with "test me1a/test me2a/test me2b/test me1b"
+
+Test me1a with "x moi/regarder paravent/x panneaux/x scarabee/mediter sur scarabee/mediter sur panneaux/mediter sur armure/mediter sur paravent/enlever armure/prendre le scarabee"
+
+Test me1b with "pousser panneau/mettre scarabee dans l'ouverture/fermer le panneau/aller a droite/prendre l'epee"
+
+Test me1c with "aller a gauche/pousser le panneau/prendre le scarabee/mettre le scarabee sur kusanagi/dormir/mettre l'armure/sortir/descendre/attaquer les ninjas"
+
+
+Test me2a with "sortir/mettre le scarabee sur les compagnons/entrer/dormir/mettre l'armure/sortir/x fantomes/descendre/attaquer les ninjas"
+
+Test me2b with "monter/entrer/retirer armure/prendre le scarabee"
+
+
+
+Chapter 6 - Notes - Not for release
+
+[cat auto.inf | sed -e "s/ s~/ s\'/g" | sed -e "s/ n~/ n\'/g" | sed -e "s/ l~/ l\'/g" | sed -e "s/ c~/ c\'/g" | sed -e "s/ d~/ d\'/g" | sed -e "s/ j~/ j\'/g" | sed -e "s/ m~/ m\'/g"  | sed -e "s/ u~/ u\'/g"  > auto2.inf
+
+/usr/local/share/inform7/Compilers/inform-6.31-biplatform -kE2SDwv8x +/usr/local/share/inform7/Library/Natural ./auto2.inf -o ./scarabeekatana.z8
+
+]
+
+Include (- 
+!Extend 'regarder' last
+ !               * 'derriere' noun                      -> LookUnder;
+
+!Verb 'retirer'
+!	        * held                              -> Disrobe
+
+!Extend 'attaquer' first
+!		* noun 'avec' held	-> Attack;
+
+-)
+
+
+
+
+

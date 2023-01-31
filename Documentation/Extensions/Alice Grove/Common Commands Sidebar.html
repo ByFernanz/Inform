@@ -1,0 +1,1559 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Extension</title>
+    <style type="text/css">
+        <!--
+        /* The default font (family) and size */
+
+        body, p, td {
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.8rem; /* 100/125 */
+        }
+
+        /* For fixed-point material within text, such as the typing on the Library Card index page */
+
+        span.typewritten {
+        	font-family: monospace;
+        	font-size: 0.867rem; /* 13/12 * 100/125 */
+        }
+
+        /* For less important material: the small print */
+
+        span.smaller {
+        	font-size: 80%;
+        }
+
+        /* The "heading panel" is the coloured box, high up on the page. The colours
+        vary depending on the page: for example, the style on a report of a translation
+        with no problems is "headingpanelsucceeded", usually green, but if there were
+        problems then "headingpanelfailed" is used, which is usually red. "headingpanel"
+        itself is a more neutral grey by default. "headingpanelDark" is an alternative
+        look to make the extensions index pages have some visual contrast with the others;
+        by default they are a darker grey. */
+
+        .headingpanel {
+        	background: #eeeeee;
+        }
+        .headingpanelsucceeded {
+        	background: #E6FFE6;
+        }
+        .headingpanelfailed {
+        	background: #f69Ca6;
+        }
+        .headingpanelalt {
+        	background: #808080;
+        }
+
+        /* Heading panels have two lines of text: an upper one in a larger size, and a
+        lower one in a smaller. Again, the alt versions are meant to contrast.
+
+        	Report on Translation: Succeeded                <-- headingpaneltext
+        	Produced by Inform 10.1.0 (build 6U97)          <-- headingpanelrubric
+
+        	Installed Extensions                            <-- headingpaneltextalt
+        	Bundles of extra rules or phrases to...         <-- headingpanelrubricalt
+
+        */
+
+        span.headingpaneltext {
+        	color: #222222;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+        span.headingpaneltextalt {
+        	color: #ffffff;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        span.headingpanelrubric {
+        	color: #222222;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.733rem; /* 11/12 * 100/125 */
+        	font-weight: bold;
+        }
+        span.headingpanelrubricalt {
+        	color: #ffffff;
+        	font-family: sans-serif;
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 0.733rem; /* 11/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* Horizontal rule styling */
+
+        div.hr {
+        	border: 0;
+        	width: 100%;
+        	color: #707070;
+        	background-color: #707070;
+        	height: 5px;
+        }
+
+        /* This styles the (usually white) text of the example numbers written inside
+        oval blobs in the extension documentation, which mimic the look of the in-app
+        documentation. */
+
+        .oval, .oval td {
+        	background-image:url('inform:/doc_images/ovoid.png');
+        	color:white;
+        }
+
+        /* Styling used in the extension documentation indexes: */
+
+        /* Used for extension names in the extensions pane of the app */
+
+        span.extensioncensusentry {
+        	color: #ffffff;
+        }
+
+        span.extensionindexentry {
+        	color: #404040;
+        }
+
+        span.extensionindexerror {
+        	color: #ff8080;
+        }
+
+        /* This is used in extension documentation, where an example is presented
+        in a slightly tinted box: */
+
+        table.extensionexample {
+        	background-color: #f0f0f0;
+        }
+
+        span.extensionexampleletter {
+        	color: #202020;
+        	font-size: 14px;
+        	font-weight: bold;
+        }
+
+        /* Seen in problem messages: */
+
+        span.problemred {
+        	color: #800000;
+        }
+
+        span.problemgreen {
+        	color: #008000;
+        }
+
+        span.phraseword {
+        	color: #808080;
+        }
+
+        span.phrasetokentext {
+        	color: #e00060;
+        }
+
+        span.phrasetokendesctext {
+        	color: #4040ff;
+        }
+
+        span.phrasetokenvaluetext {
+        	color: #ff4040;
+        }
+
+        /* Now we move on to styling used in the Index pages only: */
+
+        /* The periodic table display has "sidebars", usually grey and taller than they
+        are wide; they contain no text. */
+
+        div.periodictablesidebarcolour {
+        	background: #888;
+        }
+        div.periodictablesidebar:hover {
+        	background: #222;
+        }
+
+        /* The text of the element-abbreviation, such as "Lx" or "Ph", uses: */
+
+        span.elementtext {
+        	color: #ffffff;
+        	font-size: 1.333rem; /* 20/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* Similarly for the "atomic number" - a single digit - in the top left corner
+        of these boxes: */
+
+        span.elementnumbertext {
+        	color: #ffffff;
+        	font-size: 0.622rem; /* 7/12 * 96/72 * 100/125 */
+        }
+
+        /* For the text of the element title, to the right of the element box: */
+
+        span.elementtitletext {
+        	color: #ffffff;
+        	font-size: 0.6rem; /* 9/12 * 100/125 */
+        	font-weight: bold;
+        }
+
+        /* The banner at the top of each element: */
+
+        table.elementbanner {
+        	background: #eeeeee;
+        }
+
+        /* For the typewriting on the Library Card: */
+
+        span.librarycardtitle {
+        	color: #803030;
+        }
+
+        span.librarycardother {
+        	color: #303030;
+        }
+
+        /* Generically used for "more details" boxes in the index: */
+
+        table.indexmorebox {
+        	background-color: #e0e0e0;
+            border-radius: 8px;
+        }
+
+        /* But not for activity contents: */
+
+        table.indexactivitycontents {
+        	background-color: #e8e0c0;
+            border-radius: 8px;
+        }
+
+        /* For responses in index entries about rules: */
+
+        span.indexresponseletter {
+        	color: #ffffff;
+        	font-family: 'Courier New', Courier, monospace;
+        	background-color: #8080ff;
+        }
+
+        span.indexresponsetext {
+        	color: #000066;
+        }
+
+        /* Used ubiquitously throughout the index and extension documentation: */
+
+        span.indexblack {
+        	color: #000000;
+        }
+
+        span.indexgrey {
+        	color: #808080;
+        }
+
+        span.indexdarkgrey {
+            color: #505050;
+        }
+
+        span.indexdullred {
+        	color: #800000;
+        }
+
+        span.indexdullgreen {
+        	color: #008000;
+        }
+
+        span.indexdullblue {
+        	color: #000080;
+        }
+
+        /* Used for the room squares in the World map in the Index (which is currently
+        a table with one row of one column) */
+
+        table.indexmaproom {
+        	border-color: #000000;
+        }
+
+        /* Used in the numbering of levels of the World map in the Index */
+
+        span.indexmaplevelnumbers {
+        	color: #c0c0c0;
+        }
+
+        /* Used e.g. for title rows in the Chart of basic kinds in the Index */
+
+        tr.headingrow {
+        	background-color: #e0e0e0;
+        }
+
+        /* Standard rows have black text on striped background colours, these being
+        the usual ones seen in Mac OS X applications such as iTunes. */
+
+        tr.stripeone {
+        	background-color: #ffffff;
+        }
+
+        tr.stripetwo {
+        	background-color: #f3f6fa;
+        }
+
+        tr.tintedrow {
+        	background-color: #808080;
+        }
+
+        /* In the Figures index, this is the background colour used behind images
+        (though in fact it will only be visible if the image fails to load, or uses
+        transparency): */
+
+        div.figureindexbox {
+        	background-color: #6495ed;
+        }
+
+        /* To get the book-contents-page style leaders on the Contents element of
+           the index to work, these must use the background colour of the body of
+           the page, whatever that is: */
+
+        ul.leaders li.leaded span:first-child {
+        	background: white;
+        }
+        ul.leaders li.leaded span + span {
+        	background: white;
+        }
+
+        /* On Registry index pages (such as the Public Library), these are used for
+        download buttons and the like: */
+
+        span.registrybuttontext {
+        	font-size: 11px;
+        	border-color: #000000;
+        }
+
+        span.registryminibuttontext {
+        	font-size: 10px;
+        	border-color: #000000;
+        }
+
+        span.registrybuttonuninstalled {
+        	color: #000000;
+        	background: #ffffdd;
+        }
+
+        span.registrybuttoninstalled {
+        	color: #000000;
+        	background: #ffffff;
+        	pointer-events: none;
+        }
+
+        span.registrybuttonbuiltin {
+        	color: #888888;
+        	background: #ffffff;
+        	pointer-events: none;
+        }
+
+        span.registrybuttonupdate {
+        	color: #000000;
+        	background: #aaddff;
+        }
+
+        span.registrybuttonrevert {
+        	color: #000000;
+        	background: #ddaaff;
+        }
+
+        span.registrybuttonrevealer {
+        	color: #ffffff;
+        	background: #444444;
+        }
+
+        /* Registry index section headings: */
+
+        span.registrysectionname {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 16px;
+        	line-height: 18px;
+        }
+        span.registrysubsectionname {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 14px;
+        	line-height: 16px;
+        }
+
+        /* These are for the "mark" for a section, usually a section-symbol and number */
+
+        span.registrysectionmark {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 16px;
+        	line-height: 18px;
+        	color: #666;
+        }
+        span.registrysubsectionmark {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 14px;
+        	line-height: 16px;
+        	color: #666;
+        }
+
+        /* Text of an item listed in a registry: */
+
+        span.registryitemtext {
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 12px;
+        	line-height: 16px;
+        }
+
+        /* And how the links in a registry index page behave: */
+
+        a.registrysilentlink {
+        	text-decoration: none;
+        	color: #000;
+        }
+        a.registrybuttonlink {
+        	text-decoration: none;
+        }
+        a.registrycontentslink:link {
+        	text-decoration: none;
+        	color: #202020;
+        }
+        a.registrycontentslink:visited {
+        	text-decoration: none;
+        	color: #202020;
+        }
+        a.registrycontentslink:hover {
+        	text-decoration: none;
+        	color: #D00000;
+        }
+        a.registrycontentslink:active {
+        	text-decoration: none;
+        	color: #D00000;
+        }
+
+        -->
+    </style>
+    <style type="text/css">
+        <!--
+        /* (1) General layout material */
+
+        *, *:before, *:after {
+        	-moz-box-sizing: border-box;
+        	-webkit-box-sizing: border-box;
+        	box-sizing: border-box;
+        }
+        .headingpanellayout {
+        	position: relative;
+        	height: 56px;
+        	padding: 0px;
+        	white-space:nowrap;
+        }
+        .headingpanellayoutdeeper {
+        	position: relative;
+        	height: 117px;
+        	padding: 0px;
+        	white-space:nowrap;
+        }
+        .headingtext {
+        	position: absolute;
+        	top: -4px;
+        	left: -1px;
+        	width: 100%;
+        	padding: 14px 10px 0px 10px;
+        }
+        .headingrubric {
+        	position: absolute;
+        	top: 36px;
+        	width: 100%;
+        	padding: 0px 10px 0px 10px;
+        }
+        h3.tighter {
+        	margin-top: 0px;
+        }
+        p.hang {
+        	padding-left: 25px;
+        	text-indent: -25px;
+        	margin-top: 0px;
+        	margin-bottom: 0px;
+        }
+        p.in1 {
+        	padding-left: 0px;
+        }
+        p.tightin1 {
+        	padding-left: 0px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin1 {
+        	padding-left: 0px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin1 {
+        	padding-left: 50px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in2 {
+        	padding-left: 25px;
+        }
+        p.tightin2 {
+        	padding-left: 25px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin2 {
+        	padding-left: 25px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin2 {
+        	padding-left: 75px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in3 {
+        	padding-left: 50px;
+        }
+        p.tightin3 {
+        	padding-left: 50px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin3 {
+        	padding-left: 50px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin3 {
+        	padding-left: 100px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in4 {
+        	padding-left: 75px;
+        }
+        p.tightin4 {
+        	padding-left: 75px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin4 {
+        	padding-left: 75px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin4 {
+        	padding-left: 125px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in5 {
+        	padding-left: 100px;
+        }
+        p.tightin5 {
+        	padding-left: 100px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin5 {
+        	padding-left: 100px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin5 {
+        	padding-left: 150px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in6 {
+        	padding-left: 125px;
+        }
+        p.tightin6 {
+        	padding-left: 125px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin6 {
+        	padding-left: 125px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin6 {
+        	padding-left: 175px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in7 {
+        	padding-left: 150px;
+        }
+        p.tightin7 {
+        	padding-left: 150px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin7 {
+        	padding-left: 150px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin7 {
+        	padding-left: 200px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in8 {
+        	padding-left: 175px;
+        }
+        p.tightin8 {
+        	padding-left: 175px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin8 {
+        	padding-left: 175px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin8 {
+        	padding-left: 225px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in9 {
+        	padding-left: 200px;
+        }
+        p.tightin9 {
+        	padding-left: 200px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin9 {
+        	padding-left: 200px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin9 {
+        	padding-left: 250px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+
+        /* (2) Index page layout material */
+
+        /* The periodic table display has "sidebars", usually grey and taller than they
+        are wide; they contain no text. */
+
+        div.periodictablesidebar {
+        	height: 56px;
+        	width: 16px;
+        }
+        .periodictablesidebar a:link { text-decoration: none; }
+        .periodictablesidebar a:visited { text-decoration: none; }
+        .periodictablesidebar a:active { text-decoration: none; }
+
+        /* The "element boxes" are the cells appearing in the periodic-table display
+        on the welcome page of the index: */
+
+        .elementbox {
+        	position: relative;
+        	height: 56px;
+        	width: 56px;
+        	padding: 0px;
+        }
+
+        .elementbox a:link { text-decoration: none; }
+        .elementbox a:visited { text-decoration: none; }
+        .elementbox a:active { text-decoration: none; }
+        .elementbox a:hover { text-decoration: none; }
+        .elementbox:hover {
+        	opacity: 0.6;
+        }
+
+        /* The "small element boxes" look like those, but are smaller, and used on
+        the headings of the content which those original boxes link to: */
+
+        .smallelementbox {
+        	position: relative;
+        	height: 40px;
+        	width: 40px;
+        	padding: 0px;
+        }
+
+        .smallelementbox a:link { text-decoration: none; }
+        .smallelementbox a:visited { text-decoration: none; }
+        .smallelementbox a:active { text-decoration: none; }
+        .smallelementbox a:hover { text-decoration: none; }
+        .smallelementbox:hover {
+        	opacity: 0.6;
+        }
+
+        /* This is a class for the links formed by the element boxes: */
+
+        a.elementlink {
+        	position: absolute;
+        	top: -4px;
+        	left: -1px;
+        	width: 100%;
+        	padding: 14px 0px 14px 1px;
+        	text-align: center;
+        }
+
+        /* Similarly for the "atomic number" - a single digit - in the top left corner
+        of these boxes: */
+
+        div.elementnumber {
+        	position: absolute;
+        	top: 1px;
+        	left: 3px;
+        	text-align: left;
+        }
+
+        /* For the text of the element title, to the right of the element box: */
+
+        div.elementtitle {
+        	position: absolute;
+        	top: 35px;
+        	width: 100%;
+        	text-align: center;
+        }
+
+        /* Used for the book-contents-page style leaders on the Contents element of
+           the index: */
+
+        ul.leaders {
+        	padding: 0;
+        	margin-top: 1px;
+        	margin-bottom: 0;
+        	overflow-x: hidden;
+        	list-style: none}
+        ul.leaders li.leaded:before {
+        	float: left;
+        	width: 0;
+        	white-space: nowrap;
+        	content:
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "}
+        ul.leaders li.leaded span:first-child {
+        	padding-right: 0.33em;
+        }
+        ul.leaders li.leaded span + span {
+        	float: right;
+        	padding-left: 0.33em;
+        }
+        li.indent1 span:first-child {
+        	padding-left: 25px;
+        }
+        li.indent2 span:first-child {
+        	padding-left: 50px;
+        }
+        li.indent3 span:first-child {
+        	padding-left: 75px;
+        }
+        li.indent4 span:first-child {
+        	padding-left: 100px;
+        }
+        li.indent5 span:first-child {
+        	padding-left: 125px;
+        }
+        li.indent6 span:first-child {
+        	padding-left: 150px;
+        }
+        li.indent7 span:first-child {
+        	padding-left: 175px;
+        }
+        li.indent8 span:first-child {
+        	padding-left: 200px;
+        }
+        li.indent9 span:first-child {
+        	padding-left: 225px;
+        }
+
+        li.unleaded:before {
+        	content: "";
+        }
+
+        /* On Registry index pages (such as the Public Library), these are used for
+        download buttons and the like: */
+
+        span.registrybuttons {
+        	height: 20px;
+        	padding: 2px 8px 2px 8px;
+        	margin: 2px;
+        	border:1px solid;
+        	border-radius: 5px;
+        }
+
+        span.registryminibuttons {
+        	height: 14px;
+        	padding: 2px 5px 2px 5px;
+        	margin: 2px;
+        	border:1px solid;
+        	border-radius: 4px;
+        }
+
+        /* Used to hide or display sections in the Registry pages: */
+
+        div.registrysectionitemsopen {
+        	display: block;
+        }
+
+        div.registrysectionitemsclosed {
+        	display: none;
+        }
+
+        /* Hanging indentation for Registry item paragraphs: */
+
+        p.registryitem {
+        	padding-left: 80px;
+        	text-indent: -40px;
+        }
+
+        p.registryaddition {
+        	padding-left: 40px;
+        	text-indent: -40px;
+        }
+
+        -->
+    </style>
+    <script type="text/javascript">
+        function project() {
+            return window.Project;
+        }
+        function showExtra(id, imid) {
+        	if (document.getElementById(id).style.display == 'block') {
+        		document.getElementById(id).style.display = 'none';
+        		document.getElementById(imid).src = 'inform:/extra.png';
+        	} else {
+        		document.getElementById(id).style.display = 'block';
+        		document.getElementById(imid).src = 'inform:/extraclose.png';
+        	}
+        }
+        function openExtra(id, imid) {
+        	document.getElementById(id).style.display = 'block';
+        	document.getElementById(imid).src = 'inform:/extraclose.png';
+        }
+        function closeExtra(id, imid) {
+        	document.getElementById(id).style.display = 'none';
+        	document.getElementById(imid).src = 'inform:/extra.png';
+        }
+        function pasteCode(code) {
+            var myProject = project();
+
+            myProject.selectView('source');
+            myProject.pasteCode(code);
+        }
+
+    </script>
+</head>
+<body>
+    <!--CONTENT BEGINS-->
+    <table CELLPADDING=0 CELLSPACING=0 width="100%" bgcolor="#000000"><tr><TD width=38px height=26px align="center" valign="center"><a href="inform://Extensions/Extensions.html" border=0><img border=0 src="inform:/doc_images/Hookindex.png" border=0></a></td><TD width=38px height=26px align="center" valign="center"></td><td halign="left" valign="center" CELLPADDING=0 CELLSPACING=0><font color="#FFFFFF" size=2>Extensions</font></a></td><TD width=56px height=26px align="right" valign="center"><a href="inform:/index.html" border=0><img border=0 src="inform:/doc_images/Hookup.png" border=0></a></td></tr></table>
+
+    <p><a href="javascript:pasteCode('Include Common Commands Sidebar by Alice Grove.[=0x000A=][=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a>&nbsp;<b>Common Commands Sidebar<span class="extensionindexentry"> by </span>Alice Grove</b></p>
+    <p><span class="smaller">(For Glulx Only)&nbsp; <img border=0 src=inform:/doc_images/vm_glulx.png>&nbsp;Version 2.0.161024</span></p>
+    <p>Displays a list of common parser commands in a sidebar as a reference for novice players. Includes actions to turn the sidebar off and on. Story author can tailor the command list and the appearance of the sidebar, or just plug and play. For version 6L or 6M of Inform 7.</p>
+    <p></p>
+    <hr>
+    <p><span class="indexblack"><b><a style="text-decoration: none" href=#docsec1>Chapter 1: </a></b></span>Acknowledgements<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec2>Chapter 2: </a></b></span>Basics<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec3>Section 2.1: </a></span>About the Required Extensions<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec4>Section 2.2: </a></span>Bare Minimum Implementation<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec5>Section 2.3: </a></span>Toggling the Sidebar from a Full-Screen Menu<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec6>Chapter 3: </a></b></span>Options<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec7>Section 3.1: </a></span>Built-in Options<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec8>Section 3.2: </a></span>Debugging<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec9>Section 3.3: </a></span>Colors, Margin, and Measurements<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec10>Section 3.4: </a></span>Colors, etc. in Quixe<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec11>Chapter 4: </a></b></span>Using Different Commands in the Sidebar<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec12>Section 4.1: </a></span>The &quot;Cut and Paste&quot; Method<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec13>Section 4.2: </a></span>The &quot;Add or Remove Rows in the Default Table&quot; Method<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec14>Section 4.3: </a></span>The &quot;Swap in a Different Table&quot; Method<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec15>Chapter 5: </a></b></span>Adjusting the Commands Listed in the Main Window<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec16>Chapter 6: </a></b></span>Showing and Hiding Individual Commands During Play<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec17>Section 6.1: </a></span>Updating the Sidebar During Play<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec18>Section 6.2: </a></span>Showing and Hiding Using Conditions<br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href=#docsec19>Section 6.3: </a></span>Showing and Hiding Using Phrases<br>
+    <br>
+    <span class="indexblack"><b><a style="text-decoration: none" href=#docsec20>Chapter 7: </a></b></span>A Note to Extension Authors<br>
+    <br>
+    <b>Examples</b><br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href="Common Commands Sidebar-eg1.html#eg1">A &mdash; The Absolute Minimum</a></span><br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href="Common Commands Sidebar-eg2.html#eg2">B &mdash; Sidebar in Chocolate</a></span><br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href="Common Commands Sidebar-eg3.html#eg3">C &mdash; Lost in 'Lost Igpay'</a></span><br>
+    &nbsp;&nbsp;&nbsp;<span class="indexblack"><a style="text-decoration: none" href="Common Commands Sidebar-eg4.html#eg4">D &mdash; Dropping the Compass</a></span><br>
+    </p>
+    <hr>
+    <p></p>
+    </p>
+
+    <p><p><span class="indexdullred"><b><span id=docsec1>Chapter 1: Acknowledgements</span></b></span></p>
+    </p>
+
+    <p> Thanks to Joseph Geipel, Andrew Schultz, and Nick Turner for testing, to Björn Paulsen for code feedback, and to Björn Paulsen, Daniel Stelzer, Dannii Willis, Erik Temple, Hanon Ondricek, Joseph Geipel, Juhana, Matt Weiner, Peter Piers, and zarf for responding to my questions.</p>
+
+    <p> This extension is inspired by 'How To Play Interactive Fiction: An entire strategy guide on a single postcard' written by Andrew Plotkin and designed by Lea Albaugh. The postcard, available at &lt;http://pr-if.org/doc/play-if-card/&gt;, is licensed under a CC BY SA 3.0 United States license, available at &lt;http://creativecommons.org/licenses/by-sa/3.0/us/&gt;. Content from the postcard has been adapted with permission.</p>
+
+    <p> Modifications from the original postcard:</p>
+
+    <p><blockquote><span class="indexdullblue"> * Adapted to extension form with Inform code and documentation.<br>
+     * Layout changed to vertical window.<br>
+     * Changed colors.<br>
+     * New heading.<br>
+     * Condensed the list of commands and added extension-specific commands.<br>
+     * Changes to wording, arrangement, and text formatting of commands.<br>
+     * Explanations and other text omitted.<br>
+     * Compass rose represented in text; other graphical elements omitted.</span></blockquote>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec2>Chapter 2: Basics</span></b></span></p>
+    </p>
+
+    <p><p><span class="indexblack"><b><span id=docsec3>Section 2.1: About the Required Extensions</span></b></span></p>
+    </p>
+
+    <p> Common Commands Sidebar requires</p>
+
+    <p><blockquote><span class="indexdullblue"> Version 15/161003 of Flexible Windows (for Glulx only) by Jon Ingold</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> http://raw.githubusercontent.com/i7/extensions/master/Jon%20Ingold/Flexible%20Windows.i7x</span></blockquote>
+
+    <p> which in turn requires various other extensions that can be found at https://github.com/i7/extensions. See Flexible Windows for the version numbers required.</p>
+
+    <p> (Basic Screen Effects is also required, but any relatively recent version will do.)</p>
+
+    <p> Note that Flexible Windows uses the container relation for windows, so we'll need to be cautious about iterating through all containers. Also note that Spatterlight is liable to crash when Flexible Windows is used. If Common Commands Sidebar detects Spatterlight, the player will be warned to switch interpreters.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec4>Section 2.2: Bare Minimum Implementation</span></b></span></p>
+    </p>
+
+    <p> If we want the default appearance and behavior for the sidebar, the only thing we need to do is to include the following line in our source:</p>
+
+    <p><blockquote><span class="indexdullblue"> Include Common Commands Sidebar by Alice Grove.</span></blockquote>
+
+    <p> Everything else is optional.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec5>Section 2.3: Toggling the Sidebar from a Full-Screen Menu</span></b></span></p>
+    </p>
+
+    <p> When we open a full-screen menu created with Menus by Emily Short or Menus by Wade Clarke, the sidebar, if visible, will be automatically hidden. It will also be flagged so that, once the menu closes, the sidebar will automatically be shown again. To allow toggling the sidebar from inside the menu, we can write a toggle rule to set the sidebar property</p>
+
+    <p><blockquote><span class="indexdullblue"> flagged to appear later</span></blockquote>
+
+    <p> as in the &quot;Lost in 'Lost Igpay'&quot; example.</p>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec6>Chapter 3: Options</span></b></span></p>
+    </p>
+
+    <p><p><span class="indexblack"><b><span id=docsec7>Section 3.1: Built-in Options</span></b></span></p>
+    </p>
+
+    <p> Many of the options can be set with a single rule, for example</p>
+
+    <p><blockquote><span class="indexdullblue"> When play begins:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; prepare the command sidebar, shown automatically, on the right, with italic type.</span></blockquote>
+
+    <p> The first part of the rule</p>
+
+    <p><blockquote><span class="indexdullblue"><a href="javascript:pasteCode('[=0x000A=]When play begins:[=0x000A=][=0x0009=]prepare the command sidebar,[=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a><br>
+     When play begins:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; prepare the command sidebar,</span></blockquote>
+
+    <p> is followed by one or more of the phrases below, separated by commas. Within each of the following code blocks, phrases are mutually exclusive--including both &quot;prompted automatically&quot; and &quot;shown automatically,&quot; for instance, will result in only one of these options taking effect. (See the section on debugging.)</p>
+
+    <p> The sidebar can be introduced in one of three ways:</p>
+
+    <p><blockquote><span class="indexdullblue"> prompted automatically<br>
+     shown automatically<br>
+     shown manually</span></blockquote>
+
+    <p> &quot;Prompted automatically,&quot; the default setting, prompts the player to choose whether or not to show the sidebar. &quot;Shown automatically&quot; displays the sidebar without giving the player a choice. &quot;Shown manually&quot; keeps the sidebar hidden until it is shown manually (for instance, if the player types SIDEBAR ON).</p>
+
+    <p> The &quot;prompted automatically&quot; and &quot;shown automatically&quot; options include a brief explanation of the sidebar. But if we choose &quot;shown manually,&quot; it will be up to us to inform the player that the sidebar is available. We may want to give instructions in our help text for turning the sidebar on and off (SIDEBAR ON and SIDEBAR OFF), and for listing the commands in the main window (COMMANDS) if a player's interpreter or screenreader doesn't support the sidebar. See also the section on toggling the sidebar from a menu.</p>
+
+    <p> To position the sidebar (left is the default):</p>
+
+    <p><blockquote><span class="indexdullblue"> on the left<br>
+     on the right</span></blockquote>
+
+    <p> To choose a style for the sidebar text (&quot;with roman type&quot; is the default):</p>
+
+    <p><blockquote><span class="indexdullblue"> with roman type<br>
+     with fixed letter spacing<br>
+     with italic type<br>
+     with bold type</span></blockquote>
+
+    <p> To visually divide the groups of commands (the default is &quot;divided with space,&quot; which leaves a blank line between categories):</p>
+
+    <p><blockquote><span class="indexdullblue"> divided with space<br>
+     divided with stars<br>
+     not divided</span></blockquote>
+
+    <p> (Note: For a custom divider, we can instead set the variable &quot;custom sidebar divider&quot; to the ornament we'd like to use, altering the typeface from our other sidebar text if desired:</p>
+
+    <p><blockquote><span class="indexdullblue"><a href="javascript:pasteCode('The custom sidebar divider is [=0x0022=][fixed letter spacing]+ + +[variable letter spacing][=0x0022=].[=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a> The custom sidebar divider is &quot;[fixed letter spacing]+ + +[variable letter spacing]&quot;.</span></blockquote>
+
+    <p> This is not part of the &quot;prepare the command sidebar&quot; line.)</p>
+
+    <p> To add, at the bottom of the sidebar, any additional commands that have been provided by compatible extensions (this option is off by default):</p>
+
+    <p><blockquote><span class="indexdullblue"> with extension commands</span></blockquote>
+
+    <p> For example, a swimming extension might add a &quot;Swim&quot; command, and an invisibility extension might add a &quot;Turn invisible&quot; command. If the extension authors have made their extensions compatible with Common Commands Sidebar, and if we've included both these extensions in our source after Common Commands Sidebar, the &quot;with extension commands&quot; option will add the commands &quot;Swim&quot; and &quot;Turn invisible&quot; to the end of the sidebar, after a divider. (If we want to fine-tune the sequence of commands, we should skip this option and arrange them by hand instead. See the &quot;cut and paste method&quot; in the chapter on changing the text in the sidebar.)</p>
+
+    <p> To suggest to players who enter a blank command, and who do not have the sidebar visible, that they type SIDEBAR ON or COMMANDS to see some commands to try (this suggestion is disabled by default):</p>
+
+    <p><blockquote><span class="indexdullblue"> suggested after blank commands</span></blockquote>
+
+    <p> To prevent the typed commands SIDEBAR ON, SIDEBAR OFF, and SIDEBAR (which normally turn the sidebar on and off) from being understood:</p>
+
+    <p><blockquote><span class="indexdullblue"> with toggling disabled</span></blockquote>
+
+    <p> To leave the status line untouched, instead of automatically adjusting it when the sidebar is visible:</p>
+
+    <p><blockquote><span class="indexdullblue"> without changing the status line</span></blockquote>
+
+    <p> This extension assumes we are using Inform's default status line, with the player's surroundings on the left and (if we are using scoring) the score and turn count on the right. To avoid inconsistent text alignment between the status line and the sidebar, and to avoid ambiguity (especially if the sidebar and status line are similar in color), this extension by default centers the standard status text whenever it would otherwise appear directly above the sidebar. If we have a custom status bar, we'll likely want to disable or adjust this behavior.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec8>Section 3.2: Debugging</span></b></span></p>
+    </p>
+
+    <p> A built-in debugging feature will warn us if 'prepare the command sidebar' is invoked more than once in the code (in which case a later invocation will override an earlier one) or if mutually exclusive sidebar options have been chosen (in which case only one of the options will take effect). The debugging messages are disabled in the release version of the story. We can also turn off debugging in the not-for-release version by including</p>
+
+    <p><blockquote><span class="indexdullblue"> The sidebar is disabling debugging in the not-for-release version.</span></blockquote>
+
+    <p> in our code.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec9>Section 3.3: Colors, Margin, and Measurements</span></b></span></p>
+    </p>
+
+    <p> To change the sidebar colors from the default brown text on a beige background, we can use hex color codes (the 6-digit variety). A web search for &quot;hex color codes&quot; will bring up helpful sites that give the codes. For a black background with white text, we could say</p>
+
+    <p><blockquote><span class="indexdullblue"><a href="javascript:pasteCode('[=0x000A=]The background color of the sidebar is [=0x0022=]#000000[=0x0022=].[=0x000A=]The text color of the sidebar is [=0x0022=]#ffffff[=0x0022=].[=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a><br>
+     The background color of the sidebar is &quot;#000000&quot;.<br>
+     The text color of the sidebar is &quot;#ffffff&quot;.</span></blockquote>
+
+    <p> Since not all interpreters support indentation, the left margin of the sidebar is created by printing fixed-width blank spaces at the beginning of each line. We can override this default indentation with our own, putting the desired number of spaces between the quotation marks:</p>
+
+    <p><blockquote><span class="indexdullblue"><a href="javascript:pasteCode('The indent of the sidebar is [=0x0022=]   [=0x0022=].[=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a> The indent of the sidebar is &quot;   &quot;.</span></blockquote>
+
+    <p> To set the sidebar width (in characters, not pixels), we could say</p>
+
+    <p><blockquote><span class="indexdullblue"><a href="javascript:pasteCode('The measurement of the sidebar is 28.[=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a> The measurement of the sidebar is 28.</span></blockquote>
+
+    <p> The units used to measure text windows vary in size from one interpreter to another--width in characters is an approximation. We'll want to check the results in interpreters that are used by players, because the sidebar may look very different in the Inform IDE.</p>
+
+    <p> To set the minimum size that we want the main window to be (in approximate characters, rather than pixels) in order to allow the sidebar to be displayed, we can say, for instance,</p>
+
+    <p><blockquote><span class="indexdullblue"><a href="javascript:pasteCode('[=0x000A=]The minimum window width for opening of the sidebar is 60.[=0x000A=]The minimum window height for opening of the sidebar is 20.[=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a><br>
+     The minimum window width for opening of the sidebar is 60.<br>
+     The minimum window height for opening of the sidebar is 20.</span></blockquote>
+
+    <p> If, at the start of play, the main window does not meet these minimums, and if the sidebar is set to be shown automatically or to show an opening prompt, the player will instead see an opening message about how to list the commands in the main window.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec10>Section 3.4: Colors, etc. in Quixe</span></b></span></p>
+    </p>
+
+    <p> The Quixe interpreter will not automatically display the colors we have set in the source. To customize the colors, presence/absence of scroll bars, and various other elements as they appear in the Quixe interpreter, we can &quot;Release along with an interpreter&quot; (see &quot;25.11. A playable web page&quot; in the Inform manual) and modify the glkote.css file found in the interpreter folder. Glkote.css is automatically generated on each release, so we'll want to keep a copy of the modified file where it won't be overwritten. (There's a bit about this in &quot;25.13. Website templates&quot; in the Inform manual.)</p>
+
+    <p> The glkote.css file is written in a language called CSS. In glkote.css we should use &quot;.WindowRock_225&quot; to identify the sidebar.</p>
+
+    <p> An example: to set the sidebar's background color (&quot;background&quot;) to light blue and its text color (&quot;color&quot;) to dark blue using hex color codes, we could add the following to the CSS file. (Despite how the spacing may appear in this documentation, there should be no space between the period and the W.)</p>
+
+    <p><blockquote><span class="indexdullblue">. WindowRock_225 {<br>
+     background: #BAF7F4;<br>
+     color: #070833;<br>
+     }</span></blockquote>
+
+    <p> More information about CSS is available with a web search. There are also some explanatory comments in the glkote.css file, available in the interpreter folder, as mentioned, or at &lt;http://github.com/erkyrath/quixe/blob/master/media/i7-glkote.css&gt;. Further information can be found at &lt;http://eblong.com/zarf/glk/glkote/docs.html#css&gt;.</p>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec11>Chapter 4: Using Different Commands in the Sidebar</span></b></span></p>
+    </p>
+
+    <p> If we don't want to use the default set of commands in the sidebar, there are several ways we can go about adjusting the commands. We can paste in and edit a provided template with the &quot;Cut and Paste&quot; method, or alter the default table using code with the &quot;Add or Remove Rows in the Default Table&quot; method, or swap entire sets of commands in and out during play with the &quot;Swap in a Different Table&quot; method.</p>
+
+    <p> Note that when we tailor the commands in the sidebar, we are also affecting the list printed by the &quot;listing the sidebar commands in the main window&quot; action. After we've made changes to the sidebar commands, we should type COMMANDS to see how they look in list form. See also &quot;Adjusting the Commands Listed in the Main Window.&quot;</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec12>Section 4.1: The &quot;Cut and Paste&quot; Method</span></b></span></p>
+    </p>
+
+    <p> The &quot;Cut and Paste&quot; method of tailoring the sidebar commands gives the most control for the least effort. If we paste one of the templates below into our code to continue the (initially blank) Table of Custom Sidebar Commands, we can edit, cut, and paste rows to arrange the commands exactly how we want them. What you see is basically what you get. If we continue the Table of Custom Sidebar Commands in our code, our custom table will automatically be substituted for the default table in the sidebar (unless we specify otherwise).</p>
+
+    <p> The commands in this first template are identical to the commands in the default sidebar:</p>
+
+    <p><blockquote><span class="indexdullblue"><a href="javascript:pasteCode('[=0x000A=]Table of Custom Sidebar Commands (continued)[=0x000A=]Displayed Command[=0x000A=][=0x0022=][bold type]Useful Commands[=0x0022=][=0x000A=][=0x0022=] [=0x0022=][=0x000A=][=0x0022=][fixed letter spacing]     N[=0x0022=][=0x000A=][=0x0022=][fixed letter spacing]  NW   NE[=0x0022=][=0x000A=][=0x0022=][fixed letter spacing]W    *    E[=0x0022=][=0x000A=][=0x0022=][fixed letter spacing]  SW   SE[=0x0022=][=0x000A=][=0x0022=][fixed letter spacing][=0x0009=]    S[=0x0022=][=0x000A=][=0x0022=] [=0x0022=][=0x000A=][=0x0022=]In/Out[=0x0022=][=0x000A=][=0x0022=]Up (U)/Down (D)[=0x0022=][=0x000A=][=0x0022=]?[=0x0022=][=0x000A=][=0x0022=]Look (L)[=0x0022=][=0x000A=][=0x0022=]Inventory (I)[=0x0022=][=0x000A=][=0x0022=]Take/Drop something[=0x0022=][=0x000A=][=0x0022=]Examine (X) it[=0x0022=][=0x000A=][=0x0022=]Open/Close it[=0x0022=][=0x000A=][=0x0022=]Push/Pull it[=0x0022=][=0x000A=][=0x0022=]Put it in something[=0x0022=][=0x000A=][=0x0022=]Put it on something[=0x0022=][=0x000A=][=0x0022=]Wait (Z)[=0x0022=][=0x000A=][=0x0022=]?[=0x0022=][=0x000A=][=0x0022=]About[=0x0022=][=0x000A=][=0x0022=]Help[=0x0022=][=0x000A=][=0x0022=]Hint[=0x0022=][=0x000A=][=0x0022=]Again (G)[=0x0022=][=0x000A=][=0x0022=]Undo[=0x0022=][=0x000A=][=0x0022=]Save/Restore[=0x0022=][=0x000A=][=0x0022=]Quit (Q)[=0x0022=][=0x000A=][=0x0022=][if the sidebar is allowing toggling]Sidebar on/off[end if][=0x0022=][=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a><br>
+     Table of Custom Sidebar Commands (continued)<br>
+     Displayed Command<br>
+     &quot;[bold type]Useful Commands&quot;<br>
+     &quot; &quot;<br>
+     &quot;[fixed letter spacing]     N&quot;<br>
+     &quot;[fixed letter spacing]  NW   NE&quot;<br>
+     &quot;[fixed letter spacing]W    *    E&quot;<br>
+     &quot;[fixed letter spacing]  SW   SE&quot;<br>
+     &quot;[fixed letter spacing]	    S&quot;<br>
+     &quot; &quot;<br>
+     &quot;In/Out&quot;<br>
+     &quot;Up (U)/Down (D)&quot;<br>
+     &quot;?&quot;<br>
+     &quot;Look (L)&quot;<br>
+     &quot;Inventory (I)&quot;<br>
+     &quot;Take/Drop something&quot;<br>
+     &quot;Examine (X) it&quot;<br>
+     &quot;Open/Close it&quot;<br>
+     &quot;Push/Pull it&quot;<br>
+     &quot;Put it in something&quot;<br>
+     &quot;Put it on something&quot;<br>
+     &quot;Wait (Z)&quot;<br>
+     &quot;?&quot;<br>
+     &quot;About&quot;<br>
+     &quot;Help&quot;<br>
+     &quot;Hint&quot;<br>
+     &quot;Again (G)&quot;<br>
+     &quot;Undo&quot;<br>
+     &quot;Save/Restore&quot;<br>
+     &quot;Quit (Q)&quot;<br>
+     &quot;[if the sidebar is allowing toggling]Sidebar on/off[end if]&quot;</span></blockquote>
+
+    <p> This next template has the above commands plus Give, Show, Ask, and Tell, for stories with other characters:</p>
+
+    <p><blockquote><span class="indexdullblue"><a href="javascript:pasteCode('[=0x000A=]Table of Custom Sidebar Commands (continued)[=0x000A=]Displayed Command[=0x000A=][=0x0022=][bold type]Useful Commands[=0x0022=][=0x000A=][=0x0022=] [=0x0022=][=0x000A=][=0x0022=][fixed letter spacing]     N[=0x0022=][=0x000A=][=0x0022=][fixed letter spacing]  NW   NE[=0x0022=][=0x000A=][=0x0022=][fixed letter spacing]W    *    E[=0x0022=][=0x000A=][=0x0022=][fixed letter spacing]  SW   SE[=0x0022=][=0x000A=][=0x0022=][fixed letter spacing][=0x0009=]    S[=0x0022=][=0x000A=][=0x0022=] [=0x0022=][=0x000A=][=0x0022=]In/Out[=0x0022=][=0x000A=][=0x0022=]Up (U)/Down (D)[=0x0022=][=0x000A=][=0x0022=]?[=0x0022=][=0x000A=][=0x0022=]Look (L)[=0x0022=][=0x000A=][=0x0022=]Inventory (I)[=0x0022=][=0x000A=][=0x0022=]Take/Drop something[=0x0022=][=0x000A=][=0x0022=]Examine (X) it[=0x0022=][=0x000A=][=0x0022=]Open/Close it[=0x0022=][=0x000A=][=0x0022=]Push/Pull it[=0x0022=][=0x000A=][=0x0022=]Put it in something[=0x0022=][=0x000A=][=0x0022=]Put it on something[=0x0022=][=0x000A=][=0x0022=]Give it to someone[=0x0022=][=0x000A=][=0x0022=]Show it to someone[=0x0022=][=0x000A=][=0x0022=]Ask someone about it[=0x0022=][=0x000A=][=0x0022=]Tell someone about it[=0x0022=][=0x000A=][=0x0022=]Wait (Z)[=0x0022=][=0x000A=][=0x0022=]?[=0x0022=][=0x000A=][=0x0022=]About[=0x0022=][=0x000A=][=0x0022=]Help[=0x0022=][=0x000A=][=0x0022=]Hint[=0x0022=][=0x000A=][=0x0022=]Again (G)[=0x0022=][=0x000A=][=0x0022=]Undo[=0x0022=][=0x000A=][=0x0022=]Save/Restore[=0x0022=][=0x000A=][=0x0022=]Quit (Q)[=0x0022=][=0x000A=][=0x0022=][if the sidebar is allowing toggling]Sidebar on/off[end if][=0x0022=][=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a><br>
+     Table of Custom Sidebar Commands (continued)<br>
+     Displayed Command<br>
+     &quot;[bold type]Useful Commands&quot;<br>
+     &quot; &quot;<br>
+     &quot;[fixed letter spacing]     N&quot;<br>
+     &quot;[fixed letter spacing]  NW   NE&quot;<br>
+     &quot;[fixed letter spacing]W    *    E&quot;<br>
+     &quot;[fixed letter spacing]  SW   SE&quot;<br>
+     &quot;[fixed letter spacing]	    S&quot;<br>
+     &quot; &quot;<br>
+     &quot;In/Out&quot;<br>
+     &quot;Up (U)/Down (D)&quot;<br>
+     &quot;?&quot;<br>
+     &quot;Look (L)&quot;<br>
+     &quot;Inventory (I)&quot;<br>
+     &quot;Take/Drop something&quot;<br>
+     &quot;Examine (X) it&quot;<br>
+     &quot;Open/Close it&quot;<br>
+     &quot;Push/Pull it&quot;<br>
+     &quot;Put it in something&quot;<br>
+     &quot;Put it on something&quot;<br>
+     &quot;Give it to someone&quot;<br>
+     &quot;Show it to someone&quot;<br>
+     &quot;Ask someone about it&quot;<br>
+     &quot;Tell someone about it&quot;<br>
+     &quot;Wait (Z)&quot;<br>
+     &quot;?&quot;<br>
+     &quot;About&quot;<br>
+     &quot;Help&quot;<br>
+     &quot;Hint&quot;<br>
+     &quot;Again (G)&quot;<br>
+     &quot;Undo&quot;<br>
+     &quot;Save/Restore&quot;<br>
+     &quot;Quit (Q)&quot;<br>
+     &quot;[if the sidebar is allowing toggling]Sidebar on/off[end if]&quot;</span></blockquote>
+
+    <p> If we'd rather start from scratch, we can use a table continuation with the following name and column heading:<blockquote><span class="indexdullblue"><a href="javascript:pasteCode('[=0x000A=]Table of Custom Sidebar Commands (continued)[=0x000A=]Displayed Command (a text)[=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a><br>
+     Table of Custom Sidebar Commands (continued)<br>
+     Displayed Command (a text)</span></blockquote>
+
+    <p> Below this, we list the sidebar title (if desired) and command entries in a single column in the order we'd like them displayed. Each &quot;?&quot; entry will automatically be replaced with the chosen divider option (which, if it's a text ornament, will include a blank line before and after). A blank line will automatically be added at the top of the sidebar. Each &quot; &quot; entry will result in a blank line in the sidebar. (That's a single space between quotation marks--using more than one space can lead to stray punctuation in the auto-generated list for the &quot;listing the sidebar commands&quot; action.)</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec13>Section 4.2: The &quot;Add or Remove Rows in the Default Table&quot; Method</span></b></span></p>
+    </p>
+
+    <p> If we'd rather write traditional code than paste in a template, we can use code to add or remove rows in the Table of Default Sidebar Commands, which is found in the extension source. Or we could continue this table to add new commands at the end, perhaps starting with a divider (&quot;?&quot;) if we want to separate the new commands from the default meta commands:</p>
+
+    <p><blockquote><span class="indexdullblue"><a href="javascript:pasteCode('[=0x000A=]Table of Default Sidebar Commands (continued)[=0x000A=]Displayed Command[=0x000A=][=0x0022=]?[=0x0022=][=0x000A=][=0x0022=]New Command 1[=0x0022=][=0x000A=][=0x0022=]New Command 2[=0x0022=][=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a><br>
+     Table of Default Sidebar Commands (continued)<br>
+     Displayed Command<br>
+     &quot;?&quot;<br>
+     &quot;New Command 1&quot;<br>
+     &quot;New Command 2&quot;</span></blockquote>
+
+    <p> For more information, see &quot;16.9. Blank rows,&quot; &quot;16.10: Adding and removing rows,&quot; and &quot;16.18: Table continuations&quot; in the Inform manual.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec14>Section 4.3: The &quot;Swap in a Different Table&quot; Method</span></b></span></p>
+    </p>
+
+    <p> Still another approach to adjusting the commands in the sidebar is to designate a specific table (an additional table we have created, or one from an extension) as the table from which the sidebar commands should be drawn. To do this we use the phrase &quot;swap Table Name into the/-- sidebar&quot;:</p>
+
+    <p><blockquote><span class="indexdullblue"><a href="javascript:pasteCode('[=0x000A=]When play begins:[=0x000A=][=0x0009=]swap the Table of Aquatic Commands into the sidebar.[=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a><br>
+     When play begins:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; swap the Table of Aquatic Commands into the sidebar.</span></blockquote>
+
+    <p> We can swap in any table so long as it includes a column with the following heading:</p>
+
+    <p><blockquote><span class="indexdullblue"><a href="javascript:pasteCode('[=0x000A=]Displayed Command (a text)[=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a><br>
+     Displayed Command (a text)</span></blockquote>
+
+    <p> If we don't include this column, the commands will not show up in the sidebar.</p>
+
+    <p> The &quot;swap Table Name into the/-- sidebar&quot; phrase can also be used to switch from one set of commands to another mid-story.</p>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec15>Chapter 5: Adjusting the Commands Listed in the Main Window</span></b></span></p>
+    </p>
+
+    <p> When the player types COMMANDS, the &quot;listing the sidebar commands in the main window&quot; action prints the sidebar commands in the main window. This feature is intended for players using screenreader software, or devices with small screens, or interpreters that won't display the sidebar (e.g. Parchment).</p>
+
+    <p> The list is automatically generated from our table of commands, so we'll probably want to check that the results look reasonable, especially if we've changed the sidebar text or if we're controlling command visibility with phrases.</p>
+
+    <p> If we want to adjust the results, and if the commands will not change during play, we can create our own list as a string called the &quot;custom command list of the sidebar&quot;, for instance</p>
+
+    <p><blockquote><span class="indexdullblue"><a href="javascript:pasteCode('[=0x000A=]The custom command list of the sidebar is [=0x0022=]Useful Commands. North (N). South (S). East (E). West (W). Talk to someone. Help. Quit (Q).[=0x0022=][=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a><br>
+     The custom command list of the sidebar is &quot;Useful Commands. North (N). South (S). East (E). West (W). Talk to someone. Help. Quit (Q).&quot;</span></blockquote>
+
+    <p> Our custom list will automatically be used instead of the auto-generated list.</p>
+
+    <p> If we instead want to modify listed commands individually (for instance, if we're using phrases to show or hide commands during play, and so the list needs to change during play), we can use the column &quot;Listed Command&quot; in our command table to show how we want each command to appear in the list. When the commands are printed as a list in the main window, the Listed Command entry, if present, will automatically be printed instead of the Displayed Command entry. Each entry will be followed by a period when it's printed in the list, but if we need additional periods within an entry, we'll need to include those ourselves, as in the &quot;West (W). East (E)&quot; entry below.</p>
+
+    <p><blockquote><span class="indexdullblue"> Displayed Command Listed Command<br>
+     &quot; N&quot; &quot;North (N)&quot;<br>
+     &quot;W E&quot; &quot;West (W). East (E)&quot;<br>
+     &quot; S&quot; &quot;South (S)&quot;<br>
+     &quot;In (I)/Out (O)&quot; --</span></blockquote>
+
+    <p> The commands in the above table will look like ths in listed form:</p>
+
+    <p> North (N). West (W). East (E). South (S). In (I)/Out (O).</p>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec16>Chapter 6: Showing and Hiding Individual Commands During Play</span></b></span></p>
+    </p>
+
+    <p> If we want to hide or show individual commands during play, we can use conditions or phrases. Either way, we'll want to make sure to update the sidebar.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec17>Section 6.1: Updating the Sidebar During Play</span></b></span></p>
+    </p>
+
+    <p> If the contents of the sidebar change during play, we can use the phrase &quot;refresh the sidebar&quot; inside a rule to keep the sidebar up to date, for instance:</p>
+
+    <p><blockquote><span class="indexdullblue"><a href="javascript:pasteCode('[=0x000A=]Every turn:[=0x000A=][=0x0009=]refresh the sidebar.[=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a><br>
+     Every turn:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; refresh the sidebar.</span></blockquote>
+
+    <p> Note that if we refresh often, we'll want to be extra careful about whether our sidebar commands fit into the height of the window. If the list of commands is too long to fit in the window, an interpreter may show a &quot;More&quot; message at the bottom of the sidebar and require the player to press a key before continuing. This will happen every time the sidebar refreshes. To avoid making the player press an extra key every turn, we'll want to make sure our list of commands isn't overlong, and set the minimum window height to an adequate number. (See the &quot;measurements&quot; section.)</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec18>Section 6.2: Showing and Hiding Using Conditions</span></b></span></p>
+    </p>
+
+    <p> We can include conditions in the text of the displayed command entries to specify when to show them.</p>
+
+    <p> For example:</p>
+
+    <p><blockquote><span class="indexdullblue"> Displayed Command (a text)<br>
+     &quot;[if the player wears the duck costume]Quack[end if]&quot;</span></blockquote>
+
+    <p> If we do this in such a way that the entry evaluates to &quot;&quot; when the command is hidden, subsequent commands in the sidebar will move up to close the gap.</p>
+
+    <p> But if we want a blank line in the sidebar where the absent command belongs, we should instead arrange for the entry to evaluate to &quot; &quot;. (That's a single space. Using more than one space may lead to extra punctuation in the &quot;listing the sidebar commands&quot; action.)</p>
+
+    <p> For example:</p>
+
+    <p><blockquote><span class="indexdullblue"> Displayed Command (a text)<br>
+     &quot;[if the player wears the duck costume]Quack[end if] &quot;</span></blockquote>
+
+    <p> For more complicated conditions, we can make the table more readable by putting the conditions in &quot;to decide&quot; phrases outside of the table:</p>
+
+    <p><blockquote><span class="indexdullblue"> To decide if quack is displayed:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; if the player wears the duck costume, decide yes;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; if the player is a duck, decide yes;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; decide no.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> Displayed Command (a text)<br>
+     &quot;[if quack is displayed]Quack[end if]&quot;</span></blockquote>
+
+    <p> For more on &quot;to decide&quot; phrases, see &quot;11.16. New conditions, new adjectives&quot; in the Inform 7 manual.</p>
+
+    <p><p><span class="indexblack"><b><span id=docsec19>Section 6.3: Showing and Hiding Using Phrases</span></b></span></p>
+    </p>
+
+    <p> If we want to use phrases to show or hide commands, we need to opt in by including the following line in our code:</p>
+
+    <p><blockquote><span class="indexdullblue"><a href="javascript:pasteCode('[=0x000A=]The sidebar is using phrases to control command visibility.[=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a><br>
+     The sidebar is using phrases to control command visibility.</span></blockquote>
+
+    <p> We also need to declare a &quot;command-label&quot; for each command or group of commands that we want to show or hide during play. For instance:</p>
+
+    <p><blockquote><span class="indexdullblue"> turn_invisible is a command-label.<br>
+     compass_direction is a command-label.</span></blockquote>
+
+    <p> In our table of commands, we include the columns &quot;Command Label&quot; and &quot;Command Visibility&quot;:</p>
+
+    <p><blockquote><span class="indexdullblue"><a href="javascript:pasteCode('[=0x000A=]Displayed Command (a text)[=0x0009=]Command Label (a command-label)[=0x0009=]Command Visibility (a command-visibility)[=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a><br>
+     Displayed Command (a text) Command Label (a command-label) Command Visibility (a command-visibility)</span></blockquote>
+
+    <p> In the &quot;Command Label&quot; column, we enter the command-label we want to use for the command in that row. If we have multiple commands that we want to treat as a single unit for showing and hiding purposes, we can list the same command-label in all the relevant rows.</p>
+
+    <p> In the Command Visibility column, we can enter one of these options in each row:</p>
+
+    <p><blockquote><span class="indexdullblue"> c-shown<br>
+     c-blank<br>
+     c-hidden</span></blockquote>
+
+    <p> &quot;C-shown&quot; means the relevant command entry is displayed normally. &quot;C-blank&quot; means the relevant command entry is not visible, but a blank line appears in the sidebar where the command belongs. &quot;C-hidden&quot; means the relevant command entry is not visible, and subsequent commands in the sidebar are moved up to close the gap.</p>
+
+    <p> Strictly speaking, we need only specify &quot;c-blank&quot; and &quot;c-hidden,&quot; because any entries missing from the Command Visibility column will be treated as &quot;c-shown&quot;.</p>
+
+    <p> An example:</p>
+
+    <p><blockquote><span class="indexdullblue"><a href="javascript:pasteCode('[=0x000A=]Displayed Command (a text)[=0x0009=]Command Label (a command-label)[=0x0009=]Command Visibility (a command-visibility)[=0x000A=][=0x0022=]North (N)[=0x0022=][=0x0009=]compass_direction[=0x0009=]c-blank[=0x000A=][=0x0022=]South (S)[=0x0022=][=0x0009=]compass_direction[=0x0009=]c-blank[=0x000A=][=0x0022=]East (E)[=0x0022=][=0x0009=]compass_direction[=0x0009=]c-blank[=0x000A=][=0x0022=]West (W)[=0x0022=][=0x0009=]compass_direction[=0x0009=]c-blank[=0x000A=][=0x0022=]Quack[=0x0022=][=0x0009=]quack[=0x0009=]c-hidden[=0x000A=][=0x0022=]Turn invisible[=0x0022=][=0x0009=]turn_invisible[=0x0009=]c-shown[=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a><br>
+     Displayed Command (a text) Command Label (a command-label) Command Visibility (a command-visibility)<br>
+     &quot;North (N)&quot; compass_direction c-blank<br>
+     &quot;South (S)&quot; compass_direction c-blank<br>
+     &quot;East (E)&quot; compass_direction c-blank<br>
+     &quot;West (W)&quot; compass_direction c-blank<br>
+     &quot;Quack&quot; quack c-hidden<br>
+     &quot;Turn invisible&quot; turn_invisible c-shown</span></blockquote>
+
+    <p> To show, hide, or blank (that is, leave a blank space for the command in the sidebar) commands during play, we can use the following phrases, where X is the command-label:</p>
+
+    <p><blockquote><span class="indexdullblue"><a href="javascript:pasteCode('[=0x000A=]show the/-- X command/commands in Table Name[=0x000A=]show the/-- X command/commands[=0x000A=]hide the/-- X command/commands in Table Name[=0x000A=]hide the/-- X command/commands[=0x000A=]blank the/-- X command/commands in Table Name[=0x000A=]blank the/-- X command/commands[=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a><br>
+     show the/-- X command/commands in Table Name<br>
+     show the/-- X command/commands<br>
+     hide the/-- X command/commands in Table Name<br>
+     hide the/-- X command/commands<br>
+     blank the/-- X command/commands in Table Name<br>
+     blank the/-- X command/commands</span></blockquote>
+
+    <p> The above phrases will show, hide, or blank all instances of X in the given table. The choices &quot;command&quot; and &quot;commands&quot; are provided only so that the code can read naturally regardless of whether the command-label applies to one command, or several.</p>
+
+    <p> If we don't mention the table name, the extension will look for X in whichever table is currently designated as the source of sidebar commands. (That table name is held in the property &quot;chosen table of the sidebar&quot;).</p>
+
+    <p> If we are trying to show, hide, or blank a command, and the command-label is not found in the table, the attempt will either generate a debug message (if debugging is on) or be ignored (if debugging is off).</p>
+
+    <p> Some examples:</p>
+
+    <p><blockquote><span class="indexdullblue"> After wearing the duck costume:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; show the quack command in the Table of Special Commands;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; continue the action.</span></blockquote>
+
+    <p><blockquote><span class="indexdullblue"> After taking the ancient compass:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; show the compass_direction commands;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; continue the action.</span></blockquote>
+
+    <p> To find the Command Visibility entry for for a given command label, we can use the following phrases, where C is the command-label:</p>
+
+    <p><blockquote><span class="indexdullblue"> the/-- command-visibility of C in Table Name<br>
+     the/-- command-visibility of C</span></blockquote>
+
+    <p> These will check only the first instance of C in the table. And if we don't mention a table name, the extension will assume we mean the &quot;chosen table of the sidebar.&quot;</p>
+
+    <p> If there a Command Visibility column but no Command Visibility entry in the given row, the command is treated as shown, and so these phrases will return the value &quot;c-shown&quot;.</p>
+
+    <p> But if there's something wrong with the table (for instance, if the command-label is not found in the given table), these phrases will return the value &quot;c-table-error&quot;. If debugging is on, a debug message will be shown.</p>
+
+    <p><hr>
+    <p><span class="indexdullred"><b><span id=docsec20>Chapter 7: A Note to Extension Authors</span></b></span></p>
+    </p>
+
+    <p> If we've written an extension that creates a new command for the player, we can, in a section marked &quot;(for use with Common Commands Sidebar by Alice Grove),&quot; include the following table continuation:</p>
+
+    <p><blockquote><span class="indexdullblue"><a href="javascript:pasteCode('[=0x000A=]Table of Extension-Provided Sidebar Commands (continued)[=0x000A=]Displayed Command[=0x000A=][=0x0022=]New command goes here[=0x0022=][=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a><br>
+     Table of Extension-Provided Sidebar Commands (continued)<br>
+     Displayed Command<br>
+     &quot;New command goes here&quot;</span></blockquote>
+
+    <p> By using this table, we make our extension compatible with other extensions adding their own sidebar commands. This way the story author can automatically add commands to the sidebar from multiple extensions at once, just by adding &quot;with extension commands&quot; to the &quot;prepare the commands sidebar&quot; line.</p>
+
+    <p> If we want to provide a complete list of commands that can replace the default commands (for instance, if we're translating Common Commands Sidebar into another language), we can write a new extension to be used in place of Common Commands Sidebar, or we can write a compatible extension that provides a new table with a unique name. In the new table, the commands should be listed in a column entitled &quot;Displayed Command (a text)&quot;. The story author can then swap in the new table if desired.</p>
+
+    <p> Most of the responses visible to players can be changed according to &quot;14.11. Changing the text of responses&quot; in the Inform manual, but there are two exceptions: the responses shown when players mistakenly type &quot;sidebar [text]&quot; or &quot;commands [text].&quot; These can be changed as follows:</p>
+
+    <p><blockquote><span class="indexdullblue"><a href="javascript:pasteCode('[=0x000A=]The SIDEBAR instructions of the sidebar are [=0x0022=]New response here.[=0x0022=].[=0x000A=]The COMMANDS instructions of the sidebar are [=0x0022=]New response here.[=0x0022=].[=0x000A=][=0x000A=]')"><img border=0 src=inform:/doc_images/paste.png></a><br>
+     The SIDEBAR instructions of the sidebar are &quot;New response here.&quot;.<br>
+     The COMMANDS instructions of the sidebar are &quot;New response here.&quot;.</span></blockquote>
+
+    <p> Extensions intended to be compatible with Common Commands Sidebar should not modify the Table of Default Sidebar Commands or the Table of Custom Sidebar Commands, as this would create obstacles for story authors who want to include only the original commands, or who want to create a custom list from scratch. Compatible extensions should also avoid setting any of the built-in sidebar options without good reason, because if both the extension author and the story author include &quot;Prepare the Commands Sidebar&quot; lines, the extension will detect both lines and generate error messages.</p>
+
+    <p><hr>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td halign="left" valign="top" cellpadding=0 cellspacing=0 width=38px>
+                <span id=eg1><table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="oval">
+                        <td width=38px height=30px align="left" valign="center">
+                            <a href="Common Commands Sidebar-eg1.html#eg1" style="text-decoration: none"><div class="paragraph Body" style="line-height: 1px; margin-bottom: 0px; margin-top: 0px; padding-bottom: 0pt; padding-top: 0px; text-align: center;">
+                                <span class="extensionexampleletter">A</span></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                </span>
+            </td>
+            <td cellpadding=0 cellspacing=0 halign="left" valign="top">
+                <a href="Common Commands Sidebar-eg1.html#eg1" style="text-decoration: none"><img border="0" src='inform:/doc_images/asterisk.png'><b><span class="indexdarkgrey">&nbsp;Example&nbsp;</span><span class="indexblack">The Absolute Minimum</span></b></a><br>
+                <p>Including the sidebar with a minimum of code.</p>
+
+            </td>
+        </tr>
+    </table>
+    </p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p><hr>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td halign="left" valign="top" cellpadding=0 cellspacing=0 width=38px>
+                <span id=eg2><table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="oval">
+                        <td width=38px height=30px align="left" valign="center">
+                            <a href="Common Commands Sidebar-eg2.html#eg2" style="text-decoration: none"><div class="paragraph Body" style="line-height: 1px; margin-bottom: 0px; margin-top: 0px; padding-bottom: 0pt; padding-top: 0px; text-align: center;">
+                                <span class="extensionexampleletter">B</span></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                </span>
+            </td>
+            <td cellpadding=0 cellspacing=0 halign="left" valign="top">
+                <a href="Common Commands Sidebar-eg2.html#eg2" style="text-decoration: none"><img border="0" src='inform:/doc_images/asterisk.png'><b><span class="indexdarkgrey">&nbsp;Example&nbsp;</span><span class="indexblack">Sidebar in Chocolate</span></b></a><br>
+                <p>A sidebar that makes use of presentation options and a custom command list.</p>
+
+            </td>
+        </tr>
+    </table>
+    </p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p><hr>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td halign="left" valign="top" cellpadding=0 cellspacing=0 width=38px>
+                <span id=eg3><table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="oval">
+                        <td width=38px height=30px align="left" valign="center">
+                            <a href="Common Commands Sidebar-eg3.html#eg3" style="text-decoration: none"><div class="paragraph Body" style="line-height: 1px; margin-bottom: 0px; margin-top: 0px; padding-bottom: 0pt; padding-top: 0px; text-align: center;">
+                                <span class="extensionexampleletter">C</span></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                </span>
+            </td>
+            <td cellpadding=0 cellspacing=0 halign="left" valign="top">
+                <a href="Common Commands Sidebar-eg3.html#eg3" style="text-decoration: none"><img border="0" src='inform:/doc_images/asterisk.png'><b><span class="indexdarkgrey">&nbsp;Example&nbsp;</span><span class="indexblack">Lost in 'Lost Igpay'</span></b></a><br>
+                <p>A way to toggle the command sidebar from inside a full-screen menu using Emily Short's Menus extension.</p>
+
+            </td>
+        </tr>
+    </table>
+    </p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p><hr>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td halign="left" valign="top" cellpadding=0 cellspacing=0 width=38px>
+                <span id=eg4><table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="oval">
+                        <td width=38px height=30px align="left" valign="center">
+                            <a href="Common Commands Sidebar-eg4.html#eg4" style="text-decoration: none"><div class="paragraph Body" style="line-height: 1px; margin-bottom: 0px; margin-top: 0px; padding-bottom: 0pt; padding-top: 0px; text-align: center;">
+                                <span class="extensionexampleletter">D</span></div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                </span>
+            </td>
+            <td cellpadding=0 cellspacing=0 halign="left" valign="top">
+                <a href="Common Commands Sidebar-eg4.html#eg4" style="text-decoration: none"><img border="0" src='inform:/doc_images/asterisk.png'><img border="0" src='inform:/doc_images/asterisk.png'><img border="0" src='inform:/doc_images/asterisk.png'><b><span class="indexdarkgrey">&nbsp;Example&nbsp;</span><span class="indexblack">Dropping the Compass</span></b></a><br>
+                <p>Using phrases to blank out compass directions in the sidebar when the player drops the compass.</p>
+
+            </td>
+        </tr>
+    </table>
+    </p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    <p>
+    <!--CONTENT ENDS-->
+</body>
+</html>

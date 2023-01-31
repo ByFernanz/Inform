@@ -1,0 +1,303 @@
+"Robopuppy Redux" by "J.D. Clemens"
+
+The story headline is "An Interactive Pet".
+The release number is 1.
+
+Release along with the source text and a website.
+
+
+Chapter 1 - Actions storing, replaying, and reporting
+
+Section A - Action storing
+
+A command is a kind of thing. A command has an indexed text called message. Understand the message property as describing a command.
+A command is either blank or nonblank. A command is usually blank.
+
+Table of Stored Commands
+Command		index		undertaking
+a command	a number		a stored action
+with 49 blank rows
+
+The current command is a command that varies.
+The command index is a number that varies.The command index is 0.
+The learning flag is a truth state that varies.
+
+A person can be recorded. A person is usually not recorded.
+
+Every turn when the learning flag is true: now the player is recorded.
+
+To store the action: 
+	if the number of blank rows in the Table of Stored Commands is greater than 0 begin;
+		choose a blank row in the Table of Stored Commands;
+		change the command entry to the current command;
+		change the index entry to the command index;
+		change the undertaking entry to the current action;
+		increase the command index by 1;
+	otherwise;	
+		say "Robopuppy beeps unhappily, indicating that his memory is full.";
+		change the learning flag to false;
+	end if;
+	now the player is not recorded.
+	
+Action storing is an activity.
+The last for action storing rule: store the action.
+Rule for action storing while implicitly taking something: do nothing.
+Rule for action storing when unteachable: do nothing.
+
+This is the remembrances of things past rule:
+	if the player is recorded, carry out the action storing activity.
+
+The remembrances of things past rule is listed first in the action-processing rules.
+
+Section B - Action replaying
+
+To change the noun part of (act - stored action) to (o - object): (- I7_Blk_Put({-pointer-to:act},1,{o}); -).
+To change the second noun part of (act - stored action) to (o - object): (- I7_Blk_Put({-pointer-to:act},2,{o}); -).
+To change the actor part of (act - stored action) to (o - object): (- I7_Blk_Put({-pointer-to:act},3,{o}); -).
+
+To perform (next step - command):
+	repeat through the Table of Stored Commands begin;
+		if the command entry is the next step and the index entry is the command index begin;
+			let mimicry be the undertaking entry;
+			if the noun part of mimicry is the placeholder object, change the noun part of mimicry to the noted object;
+			if the second noun part of mimicry is the placeholder object, change the second noun part of mimicry to the noted object;
+			change the actor part of mimicry to Robopuppy;
+			try mimicry;
+			increase the command index by 1;
+			rule succeeds;
+		end if;
+	end repeat;
+	now Robopuppy is not scripted.
+
+
+Chapter 2 - Learning and performing
+
+Section A - Learning
+
+The command repository is a room. Ten commands are in the command repository.
+
+Learning is an action applying to one topic.
+Understand "learn to [text]" as learning.
+
+Check learning:
+	if Robopuppy is not visible, say "Robopuppy isn't here." instead.
+
+Check learning: if the number of blank commands in the command repository is 0, say "Robopuppy's memory is full. You will have to erase a command before he can learn more." instead.	
+
+Check learning: if the number of characters in the topic understood is 0, say "You'll have to tell him what to learn." instead.
+
+Check learning:
+	if the learning flag is true, say "You're already teaching Robopuppy." instead.
+
+Check learning: if Robopuppy is scripted, say "Robopuppy is currently performing a command." instead.
+
+Carry out learning:
+	change the important object to the i6-nothing;
+	change the current command to a random blank command;
+	now the current command is nonblank;
+	change the message of the current command to the topic understood;
+	change the learning flag to true;
+	change the command index to 1.
+	
+Report learning:
+	say "Robopuppy begins watching you intently."
+
+Graduating is an action applying to nothing. Understand "stop learning" or "end learning" as graduating.
+
+Check graduating: if the learning flag is false, say "Robopuppy isn't learning a command right now." instead.
+
+Carry out graduating:
+	now the player is not recorded;
+	change the learning flag to false;
+	if the important object is not the i6-nothing begin;
+		repeat through the table of stored commands begin;
+			if the command entry is the current command begin;
+				if the noun part of the undertaking entry is the important object, change the noun part of the undertaking entry to the placeholder object;
+				if the second noun part of the undertaking entry is the important object, change the second noun part of the undertaking entry to the placeholder object;
+			end if;
+		end repeat;
+	end if.
+	
+Report graduating: say "Robopuppy stops watching you and settles down."
+
+[ Make an action "unteachable" to prevent it being stored. ]
+
+Graduating is unteachable. Learning is unteachable. 
+
+Section B - Performing one step each turn
+
+[ This will cause the actor to execute one steep of the command each turn until done. ]
+
+A person can be scripted. A person is usually not scripted.
+
+After deciding the scope of the player when Robopuppy is in the location:
+	repeat with item running through nonblank commands begin;
+		place the item in scope;
+	end repeat.
+
+The pending command is a command that varies.
+
+Performing is an action applying to one visible thing.
+Understand "[nonblank command]" as performing.
+
+Check performing:
+	if Robopuppy is scripted, say "Robopuppy is already performing a command." instead;
+	if the learning flag is true, say "Robopuppy is learning a command right now." instead.
+	
+Carry out performing:
+	change the pending command to the noun;
+	change the command index to 1;
+	now Robopuppy is scripted;
+	say "You tell Robopuppy to [the message of noun].".
+	
+Every turn when Robopuppy is scripted:
+	let buffer be indexed text;
+	let buffer be "[single command output]";
+	replace the regular expression "\s" in buffer with " ";
+	replace the regular expression "\s\s" in buffer with " ";
+	while buffer matches the regular expression "(?<=Robopuppy)(.*?\.\s)Robopuppy" begin;
+		replace the regular expression "(?<=Robopuppy)(.*?\.\s)Robopuppy(.*)" in buffer with "\1[one of]He then[or]Next he[or]After that he[or]He now[or]Then he[or]A moment later he[or]Now he[or]He next[in random order]\2";
+	end while;
+	replace the regular expression "(?<=Robopuppy)(.*?)Robopuppy" in buffer with "\1himself";
+	if buffer matches the regular expression "\S", say "[buffer][paragraph  break]";
+	otherwise say "[run paragraph on]".
+	
+To say single command output: perform the pending command;
+
+Instead of Robopuppy trying performing: try performing the noun.
+
+Performing is unteachable.
+
+Section C - Immediate performing
+
+[ This will cause all steps of a command to be performed in one turn. ]
+
+Immediate performing is an action applying to one visible thing.
+Understand "[nonblank command] now" as immediate performing.
+
+Check immediate performing:
+	if Robopuppy is scripted, say "Robopuppy is already performing a command." instead;
+	if the learning flag is true, say "Robopuppy is learning a command right now." instead.
+	
+Instead of Robopuppy trying immediate performing: try immediate performing the noun.
+
+Carry out immediate performing:
+	say "You tell Robopuppy to [the message of noun] immediately.[paragraph break]";
+	change the command index to 1;
+	now Robopuppy is scripted;
+	let buffer be indexed text;
+	let buffer be "[multiple command output]";
+	replace the regular expression "\s" in buffer with " ";
+	replace the regular expression "\s\s" in buffer with " ";
+	while buffer matches the regular expression "(?<=Robopuppy)(.*?\.\s)Robopuppy" begin;
+		replace the regular expression "(?<=Robopuppy)(.*?\.\s)Robopuppy(.*)" in buffer with "\1[one of]He then[or]Next he[or]After that he[or]He now[or]Then he[or]A moment later he[or]Now he[or]He next[in random order]\2";
+	end while;
+	replace the regular expression "(?<=Robopuppy)(.*?)Robopuppy" in buffer with "\1himself";
+	if buffer matches the regular expression "\S", say "[buffer][paragraph  break]";
+	otherwise say "[run paragraph on]".
+
+To say multiple command output:
+	while Robopuppy is scripted repeatedly perform the noun.
+
+Immediate performing is unteachable.
+
+Section D - Object learning
+
+[ This is a very rough attempt to teach an action that can be performed on different objects. ]
+
+The placeholder prop is a thing.
+
+The placeholder object is an object that varies. The placeholder object is the placeholder prop.
+
+The noted object is an object that varies.
+
+The important object is an object that varies.
+
+Indicating is an action applying to one visible thing. Understand "indicate [any thing]" as indicating.
+
+Carry out indicating:
+	change the noted object to the noun;
+	if the learning flag is true, change the important object to the noun;
+	say "Robopuppy takes note of [the noun]."
+
+Indicating is unteachable.
+
+Section E - Erasing
+
+Erasing is an action applying to one visible thing. Understand "erase [nonblank command]" as erasing.
+
+Check erasing:
+	if Robopuppy is scripted, say "Robopuppy is already performing a command." instead;
+	if the learning flag is true, say "Robopuppy is learning a command right now." instead.
+	
+Carry out erasing:
+	say "You order Robopuppy to erase the [the message of the noun] command.";
+	now the noun is blank;
+	change the message of the noun to "";
+	repeat through the Table of Stored Commands begin;
+		if the command entry is the noun, blank out the whole row;
+	end repeat.
+
+
+Chapter 3 - Christmas Morning
+
+Section A - The House
+
+The Living Room is a room. "The living room is still dark, the bright lights of the Christmas tree providing the only light. The kitchen is to the east."
+
+The player is in the living room.
+
+The Christmas tree is scenery in the living room. The description is "It's  a nice tree, but you don't care about it right now; you have Robopuppy!"
+
+Robopuppy is an animal in the living room. "Underneath the tree, you see a brand new Robopuppy, your present! He can learn ten command of up to fifty total steps!" The description is "He's everything you hoped he would be!" Understand "robot" or "puppy" or "dog" as Robopuppy.
+
+After looking for the first time, now Robopuppy is handled.
+
+An instruction sheet is in the living room. "An instruction sheet rests on the floor." Understand "instructions" as the instruction sheet.
+
+Instead of examining the instruction sheet:
+	say "[bold type]Using Robopuppy[roman type] [line break][line  break]'learn to <command name>' will start recording a command. Perform the actions you want him to mimic. [line break][line break]'end learning' will end storing actions for the current command. [line break][line break]";
+	say "'<command name>' will tell Robopuppy to start performing the command, one step per turn. [line break][line break]'<command name> now' will tell Robopuppy to perform the entire command in one turn. [line break][line break]'erace <command name>' will erase the command from Robopuppy's memory. [line break][line break]";
+	say "'indicate <object>' will alert Robopuppy to a particular object. If you say this while he is learning, he will be able to replace the indicated object by another in subsequent execution of the command. If you say this before performing a command, he will try to perform the action on the indicated object instead of the original.".
+
+Persuasion rule for asking Robopuppy to try doing something: persuasion succeeds.
+
+After going a direction when the learning flag is true: move Robopuppy to the location; say "Robopuppy obediently follows you."; continue the action.
+
+The ball is a thing in the living room. The box is an open container in the living room.
+
+The Kitchen is east of the living room. "The kitchen is somewhat disorganized. The living room is back to the west."
+
+A soda is in the kitchen. A hamburger is in the kitchen. Some french fries are in the kitchen. A book is in the kitchen.
+
+Section B - A few default message replacements
+
+Instead of Robopuppy trying throwing something at: say "Unfortunately, since Robopuppy lacks arms he is unable to throw things."
+
+Instead of attacking Robopuppy, say "'Robopuppy Mistreatment Alert! Robopuppy Mistreatment Alert!'"
+
+Understand the command "kick" as "attack".
+
+Instead of Robopuppy trying singing, say "'Bark bark bark!'"
+
+Report Robopuppy trying dropping something: say "[Robopuppy] sets [the noun] at your feet." instead.
+
+
+Chapter 4 - Tests
+
+Test fetch with "learn to fetch / e / take book / w / drop book / indicate book / end learning / indicate hamburger / fetch / z / z / z / indicate soda / fetch now".
+
+Test more with "learn to foo / take ball / drop ball / sing / end learning / foo now".
+
+Test buffer with "learn to bar / look / x robopuppy / take ball / drop ball / x robopuppy / end learning / bar now".
+
+
+Chapter 5 - Debugging  - not for release
+
+Command listing is an action out of world. Understand "show commands" as command listing.
+Carry out command listing:
+	repeat through the Table of Stored Commands begin;
+		say "[message of command entry]	[index entry]	[action-name part of undertaking entry]	[noun part of undertaking entry]	[second noun part of undertaking entry][line break]";
+	end repeat.
+	
+

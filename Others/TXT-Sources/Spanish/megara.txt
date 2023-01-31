@@ -1,0 +1,659 @@
+
+Part 0 - Library Card, Includes y Uses
+
+[Código fuente parcialmente basado en el juego Collision, de Captain Midnight.
+Todos los textos y personajes son originales de Grendelkhan]
+
+ [ Datos bibliográficos ]
+ The story title is "Los placeres de Megara".
+The story author is "Grendelkhan".
+The story headline is "'Episodio I de las aventuras de Ringo Inferno'".
+ The story genre is "Erotica".
+ The release number is 1.
+ The story creation year is 2009.
+ The story description is "Eres el cazarrecompensas del espacio conocido como 'Ringo Inferno, el gran falo del universo'. Surcas las infinitas llanuras del cosmos a bordo de tu nave espacial, la mas larga y dura de la galaxia, temible, letal, veloz y espectacular... ¡La Gran Empujadora! Siempre disponible para las más peligrosas misiones, a cambio de pasta (consultar tarifa en folleto adjunto). ".
+
+Release along with cover art, a file of "Instrucciones" called "manual.pdf" and the source text and a website.
+
+Include Spanish by Sebastian Arg.
+Include Exit Descriptions Sp by Matthew Fletcher.
+Include Basic Screen Effects Sp by Emily Short.
+
+Use full-length room descriptions and no scoring.
+Use Comando Salidas.
+
+Rule for constructing the status line:
+     center "[location]" at row 1;
+     rule succeeds.
+
+Rule for deciding whether all includes scenery: it does not. [para que no entren en 'coge todo']
+
+
+Part 1 - Inicializando
+
+
+Table of Tasks Achieved
+Task				Achieved
+"en un lugar apartado"		"false"
+"en tus manos"			"false"
+"masajeando sus pechos"		"false"
+"masajeando sus ingles"		"false"
+"encima de ella"			"false"
+"tocando sus nalgas"		"false"
+"delante de ella"			"false"
+
+To record (T - text) as achieved:
+choose row with a task of T in the Table of Tasks Achieved;
+change achieved entry to "true".
+
+When play begins:
+say "[fixed letter spacing][paragraph break]Las aventuras de Ringo Inferno. Episodio I.[variable letter spacing] [italic type][paragraph break]En las profundidades del espacio interestelar una solitaria nave se dirige hacia su destino, ignorando lo que el destino le tiene preparado. ¡Pero no estamos hablando de una nave cualquiera! Es ni más ni menos que... ¡la Gran Empujadora![paragraph break]El gran falo del universo está a bordo, el terror de las féminas de todas las especias conocidas, el mejor agente de la Federación Planetaria... ¡el capitán Ringo Inferno![roman type][paragraph break]Pulsa una tecla para empezar.";
+wait for any key;
+
+When play ends:
+let finished tasks be 0;
+repeat through the Table of Tasks Achieved begin;
+if the achieved entry is "true" then change the finished tasks to the finished tasks + 1;
+end repeat;
+say "[paragraph break](Ringo, has conseguido [the finished tasks] de 7 tareas sexuales.)"
+
+
+[Una regla de mirar extra]
+Understand "examina lugar" or "examina habitación" or "examina habitacion" or "examina rincon" or "examina rincón" or "examina sala" or "examina estancia" or "examina pasillo" or "examina espacio" or "examina gran empujadora" or "examina empujadora" or "examina compartimento" or "examina estrellas" as looking.
+
+[Cuando el jugador pide ayuda]
+
+Asking for help is an action out of world. Understand "instrucciones" or "verbos" or "pistas" or "ayuda" as asking for help.
+
+Carry out asking for help:
+   say "Bienvenido al mundo de los relatos interactivos. En éstos juegos interaccionas escribiendo frases como EXAMINA SILLA o ABRE PUERTA (también puedes usar los verbos en infinitivo, si lo prefieres, como en ABRIR PUERTA). El juego responde describiéndote cómo es el mundo que te rodea y el resultado de tus acciones.
+[paragraph break]Hay una serie de comandos comunes a todos los juegos conversacionales. Puedes caminar simplemente indicando el punto cardinal hacia el que quieres ir; por ejemplo NORTE o SUDESTE. Todas las direcciones pueden abreviarse a una o dos letras; en el caso anterior N o SE. También puedes ir ARRIBA o ABAJO o sus sinónimos SUBE y BAJA. En algunos lugares puedes poner también ENTRA o SAL. Además puedes usar 'ENTRA EN' o 'TREPA A' con algunas cosas.[paragraph break]Cada vez que entres en un lugar, el juego te lo describirá con detalle. Sin embargo, para volver a ver la descripción completa en cualquier momento, usa el comando MIRA (abreviatura M).";
+wait for any key;
+say "[paragraph break]Puedes interactuar con tu entorno de varias formas. Puedes COGER objetos (o TOMAR en el dialecto sudamericano) y SOLTAR objetos. Tambíen puedes PONER objetos EN cosas, o SACAR objetos DE otros. Puedes llegar a crear frases complejas, como por ejemplo SACA EL LADRILLO ROJO Y LA PELOTA AZUL DE LA CAJA DE METAL Y DESPUES TIRA EL LADRILLO CONTRA LA VENTANA. El juego comprenderá esta frase, pero normalmente no necesitarás escribir nada tan complejo.
+[paragraph break]Para mirar un objeto más de cerca, EXAMINA el objeto (abreviatura X). Para obtener un listado de todo lo que llevas contigo escribe INVENTARIO (o I). Otros comandos útiles que puedes intentar son EMPUJA, REGISTRA, SACUDE, LANZA, FROTA, PATEA, TREPA, MIRA POR, o LEE.
+[paragraph break]También puedes interaccionar con otros personajes mediante órdenes como PREGUNTA A (personaje) SOBRE (tema). Por ejemplo, PREGUNTA A REY SOBRE CASTILLO. Adicionalmente, en éste juego, al ser erótico, puedes intentar otras acciones menos obvias, como por ejemplo BESAR A (personaje) así que deja volar tu imaginación. Exacto, lo que estás pensando.
+[paragraph break]Parte de un juego conversacional consiste en averiguar lo que el juego entiende. Éste relato conoce cientos de palabras, así que intenta todo lo que se te ocurra.[line break]Si finalmente no encuentras la solución puedes acudir a los foros del CAAD en www.caad.es/foro, lugar donde se reúnen los aficionados a los juegos conversacionales.".
+
+Indicator is a kind of value.  The indicators are cierta and falsa.
+
+Atmosfera restaurada is an indicator that varies.  Atmosfera restaurada is falsa.
+
+Instead of listening when the luz de estado is roja, say "¡Beeep! ¡Beeep! ¡Beeep!".
+
+Part 2 - Ringo Inferno
+
+Ringo Inferno is a man. Ringo is in the Sala de Control. The description is "Eres el cazarrecompensas del espacio conocido como Ringo Inferno, siempre disponible, a cambio de pasta, para las más peligrosas misiones. Surcas el espacio a bordo de una nave... ¡Pero no de cualquier nave! Eres el capitán de la nave estelar mas larga y dura de la galaxia... ¡La Gran Empujadora!". The player is Ringo Inferno. Ringo wears a traje espacial. "Es un traje de látex de color rojo, acampanado y muy ceñido a tu fenomenal cuerpo. En la parte de atrás se puede leer, en letras doradas: RINGO INFERNO.".
+Understand "traje" or "bolsillos" or "latex" or "letras" as traje espacial.  
+
+Instead of taking off traje espacial:
+if the indicador is full and the player is not in Espacio exterior then say "Es mejor que no te lo quites, a pesar de privar así al universo de mostrar tu cuerpo escultural.";
+otherwise say "¿Cómo puedes estar pensando en desnudarte en éstas circunstancias?".
+
+Instead of jumping:
+if Ringo is in Espacio exterior, say "¿Exactamente qué pretendes hacer? ¿Dar saltitos sobre la Gran Empujadora?";
+otherwise say "Flotas por las estancias de la nave, dando pequeños saltos para impulsarte.".
+Understand "saltar", "flota", "flota ingrávido", "flota ingravido", "vola" and "vuela" as jumping.
+
+The polla is part of Ringo.  The description is "[if Megara is calmada or Megara is satisfecha]Parece que tu pequeña empujadora tiene ganas de penetrar en el espacio."
+The polla is female. Understand "mi polla", "verga", "prepucio", "puntita", "pene", "ereccion" and "falo" as the polla.  
+Understand "chupa [something]" or "chupale [something]" as tasting.
+Instead of tasting the polla, say "Lo has intentado muchas veces pero nunca lo has conseguido, hoy no es una excepción.".
+
+Check touching the polla:
+if Megara is fuera and Megara is in the location begin;
+	if Megara is calmada, try turning Megara instead;
+	if Megara is fuera begin;
+		now Megara is dentro;
+		say "Te aproximas a la figura...";
+	end if;
+end if.
+
+Carry out touching the polla:
+if Megara is fuera and Megara is in the location begin;
+	if Megara is frenetica begin;
+		Record "en un lugar apartado" as achieved;
+		change Megara to torrida;
+	end if;
+	if Megara is caliente then change Megara to frenetica;
+	if Megara is cachonda then change Megara to caliente;
+	if Megara is curiosa then change Megara to cachonda;
+end if.
+
+Report touching the polla:
+if Megara is fuera and Megara is in the location begin;
+	if Megara is cachonda then say "Lentamente, sin dejar de mirar a la chica, introduces tu mano por dentro del traje hacia el prominente bulto que hay bajo tu traje espacial..." instead;
+	if Megara is caliente then say "Empiezas a tocarte, poco a poco, mirando como Megara se masturba delante tuyo, igual que tú..." instead;
+	if Megara is frenetica then say "Te masturbas cada vez más frenéticamente, Megara empieza a jadear y a frotarse cada vez más rápido, sin dejar de mirarte..." instead;
+	if Megara is torrida then say "De repente Megara cierra los ojos y grita de placer, temblando de arriba a abajo, totalmente empapada. Acaba de tener un profundo orgasmo..." instead;
+otherwise;
+	say "Es aburrido estar solo en el espacio, pero eso no impide que no puedas tener sexo... aunque sea en solitario ¿verdad?" instead;
+end if.
+
+
+Section 1 - Masturbarse
+
+Instead of eating or kissing the polla, try tasting the polla.
+
+Masturbating is an action applying to nothing.
+
+Understand "masturbate", "masturbarse", "correte" and "correrse" as masturbating.
+
+Cunilinguling  is an action applying to one visible thing.
+
+Understand "masturba [someone]", "muerde  [someone]", "morde  [someone]", "muerde  [something]", "morde  [something]" as cunilinguling.
+
+Instead of masturbating or pushing, try touching the polla instead.
+
+Instead of touching or tasting the player, try touching the polla instead.
+
+Instead of rubbing or cunilinguling something, try touching the noun.
+
+Understand "pellizca [someone]", "limpia [something]", "agarra [someone]", "frota [someone]", "acaricia [someone]"  and "masajea [someone]", "pellizca [something]", "agarra [something]", "frota [something]", "acaricia [something]"  and "masajea [something]"  as touching.
+
+
+Section 2 - Hacer el amor
+
+Folling is an action applying to one visible thing.
+
+Understand "folla [someone]", "folla con [someone]", "follar con [someone]", "ama a [someone]", "fornica a[someone]", "fornica con [someone]", "haz el amor con [someone]", "hacer el amor con [someone]" and "penetra a [someone]"as folling.
+
+Check folling Megara:
+abide by the malvado rule.
+
+Carry out folling Megara:
+if Megara is frenetica begin;
+	if Megara is fuera then record "encima de ella" as achieved;
+	otherwise record "delante de ella" as achieved;
+	change Megara to torrida;
+end if;
+if Megara is caliente then change Megara to frenetica;
+if Megara is cachonda then change Megara to caliente;
+if Megara is curiosa then change Megara to cachonda.
+
+Report folling Megara:
+if Megara is fuera begin;
+	if Megara is cachonda then say "Te aproximas a ella, flotando ingrávido entre la oscuridad espacial, hasta que llegas a tocar su casco, los dos os miráis fijamente mientras tus manos se deslizan por su cuerpo. Ella responde con extrañas palabras que no logras comprender, pero sus manos empizan a palpar tu torso, bajando por tus abdominales, a la vez que tu recorres sus nalgas hasta llegar a sus ingles..." instead;
+	if Megara is caliente then say "Te colocas detrás de ella, acariciando su cuerpo oculto por la fina tela del traje espacial, palpando cada centímetro de sus curvas, mientras ella coloca sus nalgas justo encima de tu entrepierna, frotándose lentamente..." instead;
+	if Megara is frenetica then say "Le das la vuelta a la chica hasta colocarla frente a tí y la agarras con fuerza, flotando en el mar de estrellas os buscáis ávidamente para daros mútuo placer, sin importar las limitaciones de vuestros trajes espaciales, que no podéis quitaros al no haber atmósfera, pero el roce de vuestras manos y vuestros cuerpos en tensión son suficientes para alcanzar el clímax..." instead;
+	if Megara is torrida then say "La chica está frente a tí, flotando ingrávida alrededor de la Gran Empujadora, abierta de piernas y jadeando a causa del frenético roce de tu entrepierna, agarrándola con fuerza hacia tí, haciendo el amor de una forma que jamás habías practicado antes, flotando encima de tu nave, silenciosa observadora de la tórrida escena. Tenéis un profundo orgasmo a la vez, vuestros cuerpos se contorsionan del placer, vuestros gemidos se ahogan en el interior de vuestros cascos, estáis exhaustos por el esfuerzo y os abrazáis cansados en la oscuridad plagada de estrellas." instead;
+otherwise;
+	if Megara is cachonda then say "Pones tus manos en su cintura, y ella desliza sus manos sobre tus hombros, abrazándose a tu cuerpo. La dureza de tu verga se frota contra su abdomen, ella nota tu cuerpo en tensión y un leve escalofrío le recorre el cuerpo..." instead;
+	if Megara is caliente then say "Ella separa sus muslos para tí, presionando sus ingles hacia tu cuerpo, invitándote a frotar el bulto de tu entrepierna sobre ella. Lo haces, tomándola por la cintura y un dulce gemido de placer sale de su boca, mientras tú la sujetas moviéndola ingrávida de arriba a abajo..." instead;
+	if Megara is frenetica then say "El movimiento de placer se intensifica volviéndose salvaje, ahora es ella la que se mueve sobre tu verga, enlazándose a tu cuerpo con sus piernas, intentas buscar su boca pero sólo encuentras el frío tacto del casco, pero tu mirada se cruza con la suya, caliente y llena de deseo, los jadeos se escapan de su boca y la intensidad de vuestro enérgico baile espacial se intesifica...";
+	if Megara is torrida then say "Sus piernas se cruzan desesperadamente sobre tu entrepierna, agarrándose sobre tus hombros y arqueando su espalda mientras su frenético movimiento te transporta a cotas insospechadas de placer. Ella da un grito incomprensible y sus gemidos y jadeos se suceden entrecortados, está teniendo un profundo orgasmo y su cuerpo se abandona al placer, su respiración se tranquiliza y sus nalgas dejan de apretar, está exhausta pero visiblemente satisfecha. La abrazas y os quedáis flotando ingrávidos, cansados y esperando a que la presión de aire de la nave os permita quitaros los cascos y los trajes..." instead;
+end if.
+
+Understand "empuja a[something]", or "lleva a[something]", or "acercate a [something]", or "aproximate a [something]", or "gira a [something]", or "coge a[something]",  "empuja a[something]hacia la nave", or "lleva a[something] hacia la nave", or "mete a[something] en la nave" as turning.
+
+Instead of taking Megara, try turning Megara.
+
+Instead of turning Megara:
+if Megara is dentro begin;
+	say "Te acercas a ella, flotando ingrávido entre los escombros. ";
+otherwise;
+ 	now Megara is dentro;
+	if Megara is dentro for the first time then say "Te acercas a ella, flotando ingrávido entre los escombros. La contemplas silencioso, su bello rostro y su escultural cuerpo, embutido en un fino traje espacial de color rojo, te hacen enmudecer. El impacto sufrido le ha abierto una pequeña fisura en el casco, por donde se escapa el aire...[paragraph break]";
+end if.
+
+
+Section 3 - Controlando el placer
+
+[Si Megara llega al clímax, volvemos a ponerla curiosa]
+Every turn when Megara is torrida:
+now Megara is curiosa;
+now the indicador is full.
+[A medida que vamos estimulando a la chica, conseguimos finalizar las tareas sexuales:
+1. Masturbarse delante de Megara.
+2. Acariciar sus pechos en el espacio exterior.
+3. Acariciar sus pechos en el interior de la nave.
+4. Acariciarle el clítoris.
+5. Acariciarle las nalgas.
+6. Hacer el amor en el espacio exterior.
+7. Hacer el amor en el interior de la nave.
+Finalmente, el juego acabará cuando activemos de nuevo la hipervelocidad.]
+
+
+Section 4 - Hacer que Megara nos siga
+
+[Siempre que Megara no esté calmada nos sigue en cada localidad]
+Every turn when Megara is not calmada:
+if Megara is not in the location begin;
+	now Megara is in the location;
+	say "Megara está aquí.";
+end if.
+
+
+Section 5 - Dando besitos
+
+Check kissing:
+if the noun is Megara then say "Imposible, lleva el casco puesto." instead;
+if the noun is Megara's pechos or the noun is Megara's entrepierna or the noun is Megara's caderas then say "No puedo hacerlo bien mientras esté vestida con el traje espacial." instead.
+
+
+Section 6 - Reparar cosas
+
+Repairing is an action applying to one visible thing.
+
+Understand "repara [something]" as repairing.
+
+Understand the command "arregla" as something new.
+
+Understand the commands "monta", "solda", "revisa", "modifica", "repasa" and "arregla" as "repara".
+
+Understand "desmonta [something]", "extrae [something]", "desarma [something]" and "desarticula [something]" as taking.
+
+Report repairing:
+say "[The noun] está bien."
+
+
+Part 3 - La Gran Empujadora
+
+Section 1 - Sala de Control
+
+The Sala de Control is a room and female.  "[if unvisited]Después de tu aventura en el planeta Kuaran has decidido tomarte unas merecidas vacaciones, así que has puesto el piloto automático rumbo a Endor, pensando en una rubia que dejaste a medias que bien vale un viaje de varios días solares. A bordo de tu nave, la Gran Empujadora, observas a través del monitor la oscuridad salpicada de pequeñas luces que forman galaxias, algunas por explorar, y otras ya de sobras conocidas. [paragraph break][end if]Estás en la Sala de Control, flotando ingrávido delante del monitor. A tu lado está el panel de control, lleno de botones y palanquitas. El silencio es casi absoluto, sólo un leve zumbido del radar se escucha débilmente, la escasa iluminación proviene del brillo parpadeante de la luz de estado principal."
+
+The cabina is here.  The cabina is  scenery and female.  The description is "Pasas demasiado tiempo aquí sentado, en la cabina del piloto. La verdad es que podrías limpiarla más a menudo, aquí hay sospechosas manchas. Puedes ver el escaner del radar, el botón de hipervelocidad y el indicador de presión.".
+Understand "monitor", "espacio", "galaxias", "oscuridad", "rubia" or "nave" as the cabina.
+
+The mancha is scenery and female. The plural of mancha is manchas. Some manchas are here. The description is "Pues veo un montón de manchas sospechosas por aquí.". Understand "manchas", "suciedad" and "mugre" as the mancha.
+Instead of touching or taking  the mancha, say "¡Si hombre! A limpiar me voy a poner yo ahora... no te jode.".
+
+
+The controles are here.  The controles are scenery.  The description is "Hay muchos botones por aquí, pero los controles más importantes son el escaner del radar, el botón de hipervelocidad, el indicador de presión y la luz de estado."
+
+Understand "panel" or "paneles" or "botones" or "pilotos" or "piloto" or "palancas" or "palanquitas" as the controles.
+
+The visera is on the mesa.  The visera is wearable.  The description is "Es un casco ultra-ligero con válvula de oxígeno, indicador de atmósfera exterior, cresta metálica y visera solar. El indicador muestra [if the player is in Espacio exterior or the indicador is empty]que no hay atmósfera exterior (o sea, que mejor no te quites el casco).[otherwise]que hay atmósfera respirable en el exterior.". The printed name of visera is "casco".
+Understand "casco", "valvula", "cresta" as the visera.
+Instead of opening the visera, say "La visera del casco no puede abrirse, está fija.".
+
+Understand "vestir [something]", "poner [something]" as wearing.
+
+Check taking off the visera:
+if the player is in Espacio exterior or the indicador is empty then say "¿Estás loco? ¡Si me saco el casco moriré ahogado, no hay aire aquí!" instead.
+
+[Esto lo pongo para que no diga que el casco no necesita ser reparado cuando Megara está inconsciente]
+Check repairing the visera:
+if the player is in Espacio exterior and the casco is roto, try repairing the casco instead.
+Check examining the visera:
+if the player is in Espacio exterior and Megara is in Espacio exterior, try examining the casco instead.
+
+The luz de estado is here.  The luz de estado is scenery and female.  The luz de estado is either amarilla, roja, or verde.  The description of the luz de estado is "La luz de estado brilla con un intenso color [if amarilla]amarillo, que significa que estás viajando a hipervelocidad espacial.[end if][if roja]rojo... ¡Oops! Esto quiere decir que tenemos un problema, y de los gordos.[end if][if verde]verde, que significa que todo va bien (es un decir) tanto dentro como fuera de la nave.[end if]". The printed name of the luz de estado is "luz de estado". Understand "luz" or "luz de estado" or "brillo" or "iluminacion" as the luz de estado.
+
+The radar is here.  The radar is scenery.  The radar is either operating or roto.  The description of the radar is "[if operating]El radar está funcionando, no indica ningún signo de peligro alrededor de la nave.[otherwise]La pantalla del radar no muestra nada, parece que está averiada.".
+Understand "escaner", "scanner" or "escanner" as the radar.
+
+Instead of repairing the radar:
+if the radar is operating then say "Funciona perfectamente." instead;
+otherwise say "En teoría no debería de estar roto, pues no ha sido afectado por el impacto, a no ser que haya demasiados elementos cerca de la nave y esté saturado." instead.
+
+The acelerador is here.  The acelerador is scenery.  The acelerador is either activado or desactivado.  The acelerador is activado.  The description of the acelerador is "La hipervelocidad es necesaria para los viajes interestelares, a no ser que quieras llegar varios miles de años tarde a tu destino. Ahora mismo está [if activado]activada.[otherwise] desactivada.". The printed name of acelerador is "botón de hipervelocidad". Understand "boton" or "botón" or "hipervelocidad" or "palanca"  as the acelerador.
+
+Instead of pushing the acelerador:
+if the acelerador is desactivado begin;
+	if the indicador is not full begin;
+		say "Necesitas restaurar la presión de aire antes hacer otra cosa. ";
+	otherwise;
+		now the acelerador is activado;
+		if the motor is roto begin;
+			say "Intentas activar la hipervelocidad, pero la nave no responde. ";
+		otherwise;
+			now the luz de estado is amarilla;
+			say "[fixed letter spacing]Modo de hipervelocidad activado. [variable letter spacing]";
+			if The Impacto is happening begin;
+				say "[paragraph break]Coges a Megara por la cintura mientras pulsas el botón de hipervelocidad. Instantáneamente la nave activa el motor y notáis el fuerte cambio de velocidad que os zarandea por toda la sala hasta dejaros boca abajo en mitad del pasillo central.[paragraph break][italic type]- Tenemos un largo viaje hasta tu planeta, rubia. ¿Crees que podremos aprovechar el tiempo?[roman type]";
+wait for any key;
+say "[paragraph break]La chica sonríe y comienza a bajar por tu cuerpo, rozándote el bulto prominente que se vuelve a asomar por ahí abajo. Parece que lo vais a pasar muy bien durante el viaje, piensas mientras te desabrocha el traje y libera todo tu amor... ¡humm!... Ojalá todos los impactos espaciales tuvieran éste feliz desenlace. [paragraph break][italic type]- ¡Cuando vaya a tu planeta voy a arreglarles la nave a todas las mujeres![roman type]";
+				end the game saying "Continuará...";
+			otherwise;
+				 say "La luz parpadeante está de color amarillo, lo que indica que estás viajando a hipervelocidad.";
+			end if;
+		end if;
+	end if;
+otherwise;
+	now the luz de estado is verde;
+	now the acelerador is desactivado;
+	say "[fixed letter spacing]Modo de hipervelocidad [if activado]activado. [variable letter spacing][line break][otherwise]desactivado. [variable letter spacing][line break]Acuérdate de activar la hipervelocidad cuando termines tu paseo espacial.";
+end if.
+
+The indicador is here.  The indicador is scenery.  The indicador is either full, falling, or empty.  The indicador is full.  The description of the indicador is "El indicador de presión muestra que [if full]la nave está en un nivel óptimo de aire.[otherwise if falling]la nave está en un nivel bajo de aire.[otherwise if empty]la nave está en un nivel crítico de aire.".
+Understand  "presion" or "atmosfera" or "aire" as the indicador. 
+
+
+Section 2 - Pasillo Central
+
+The Pasillo Central is south of the Sala de Control.  "Estás flotando por el pasillo central de la nave, un amplio corredor de luz verdosa y paredes metálicas recubiertas de cables y mugre por doquier. Desde aquí puedes acceder a los otros compartimentos de la Gran Empujadora."
+
+The corredor is scenery in the Pasillo Central. "Te detienes a mirar el corredor metálico, con numerosos cables colgando alrededor, iluminado tenuemente con una luz verdosa. Es bastante largo, porque está diseñado conforme a las medidas de tu falo.".
+Understand "cables", "compartimentos" and "estancias" as the corredor.
+
+The mugre is scenery in Pasillo Central. "Mucha suciedad incrustada por aquí. Tendrías que ponerte a limpiar de vez en cuando.". Understand "manchas", "suciedad" and "mugre" as the mugre.
+Instead of touching or taking the mugre, say "¡Si hombre! A limpiar me voy a poner yo ahora... no te jode.".
+
+
+Section 3 - Sala de motores
+
+The Sala de motores is female and south of the Pasillo Central.  "Te encuentras en la Sala de motores, una estancia que no te gusta visitar ya que por lo general vienes aquí solo cuando hay algún problema con el sistema de hipervelocidad. En el centro de la sala y pegado a la pared se encuentra el compartimento del motor, y al otro lado se encuentra la caja de herramientas."
+
+The motor is here.  The motor is scenery.  The motor is either roto or trabajando.  The motor is trabajando.  The description of the motor is "[if trabajando]El motor está funcionando correctamente. [end if][if Ringo is carrying the oscilador verde]El motor no funciona a causa del oscilador, pero tienes un nuevo, ¿a qué esperas? ¡Ya puedes reparar el motor! [end if][if Ringo is not carrying the oscilador verde and the motor is roto]Está roto. La parte más dañada es el oscilador positrónico, que está prácticamente inservible.  El oscilador no puede ser reparado, pero se puede cambiar por uno nuevo.[paragraph break][italic type]  - ¡Maldita sea! ¿y ahora de dónde saco yo un oscilador?[line break][roman type][end if]". Understand "compartimento" or "compartimento del motor" as the motor.
+
+Check repairing the motor:
+if the motor is trabajando then say "Funciona perfectamente." instead;
+if the player is not carrying an soldador atomico then say "¿Y cómo piensas arreglarlo? Necesitas la herramienta adecuada... ¿no has abierto la caja de herramientas?" instead;
+if the player is not carrying the oscilador verde then say "Empiezas a trastear el motor, pero no puedes repararlo sin cambiar el oscilador... ¡necesitas una pieza nueva!" instead.
+
+Carry out repairing the motor:
+remove the oscilador verde from play;
+now the motor is trabajando;
+now the acelerador is desactivado;
+now the luz de estado is verde.
+
+Report repairing the motor:
+say "Con el soldador atómico y el oscilador que has recuperado de la nave de Megara logras reparar el motor, cosa fácil para un tipo como tú, que eres un fenómeno en todos los sentidos.[paragraph break][italic type]   - ¡Arreglado! ¿Te apetece dar una vuelta por el universo, guapa?[paragraph break][roman type]Ahora ya puedes volver a activar la hipervelocidad para continuar con tu viaje a Endor.[paragraph break]" instead. 
+
+The oscilador positronico is here.  The oscilador positronico is scenery.  The description is "[if the motor is trabajando]El oscilador de la otra nave funciona perfectamente en tu motor.[otherwise]Tu oscilador positrónico está irreparablemente dañado."
+
+[Esto lo pongo para desambiguación entre los dos osciladores]
+Instead of repairing the oscilador positronico:
+if the motor is roto begin;
+try repairing the motor;
+otherwise;
+say "Tu oscilador positrónico está irreparablemente dañado.";
+end if.
+
+A caja de herramientas is here.  The caja is scenery, female, openable and closed.  The description is "La caja de herramientas contiene los útiles necesarios para cualquier emergencia de la nave.  La caja está  [if open]abierta.[otherwise]cerrada.". Understand "caja" or "herramientas" or "armario" as the caja.
+
+A kit de reparaciones is in the caja.  The description is "Este pequeño kit de reparaciones tiene de todo lo que has ido pillando por ahí, si lo llevas encima podrás superar cualquier contratiempo."
+
+An soldador atomico is in the caja.  The description is "El soldador atómico es una herramienta de precisión para reparar motores positrónicos."
+
+
+Section 4 - Burbuja de aire
+
+The Burbuja de aire is female and east of the Pasillo Central.  "Éste angosto compartimento es el punto de transición entre la relativa seguridad de tu nave y el hostil espacio exterior."
+
+The escotilla is female in Burbuja de aire.
+
+Instead of taking or examining the escotilla, say  "La escotilla se abrirá automáticamente cuando quieras salir, excepto cuando estes viajando a hipervelocidad o no lleves puesto el casco.".
+
+Instead of opening the escotilla, try going outside.
+
+Before going outside from the burbuja de aire:
+if the luz de estado is amarilla, say "No puedes salir mientras la nave esté en movimiento." instead;
+if the player is not wearing the visera, say "Salir ahí afuera sin tu casco no es una buena idea." instead.
+
+
+Section 5 - Sala de descanso
+
+The Sala de descanso is female and west of the Pasillo Central.  "Te encuentras en la sala de descanso, donde habitualmente duermes durante tus viajes intergalácticos. Incrustadas en la pared de la sala están las cámaras de hibernación. [if the agujero is in the Sala de descanso]Tu vista se dirige rápidamente hacia un agujero en mitad de la Sala de descanso. ¡Vaya problema![otherwise]Se trata de una sala amplia y ovalada, en el centro de la cual hay una mesa metálica iluminada con una débil luz blanca."
+
+The mesa is scenery, female and supporter in the Sala de descanso. The description is "Una mesa de luz blanca, rectangular y con los bordes redondeados. Es una mesa de diseño para naves espaciales que te compraste en el planeta Ikeah. Prácticamente no la has usado nunca, excepto cuando la montaste.".
+
+The camara de hibernacion is scenery, container, transparent, enterable, openable and female. The plural of camara de hibernacion is camaras de hibernacion. Some camaras de hibernacion are here.  The printed name is "cámara de hibernación". The description is "Incrustadas en la pared de la sala están las cámaras de hibernación unipersonales, lugar de descanso para los interminables viajes interestelares." Understand "dormitorio" or "vaina" or "camara" or "cámara" or "camaras" as camara de hibernacion.
+
+
+Section 6 - Espacio exterior
+
+Espacio exterior is outside of the burbuja de aire.  "[if The Impacto is happening]Te encuentras en el exterior de tu nave, flotando ingrávido en el espacio estelar. La Gran Empujadora está un tanto magullada por el impacto que ha recibido de una nave a la deriva, que se ha convertido en un amasijo de chatarra espacial. Un buen número de restos de la nave se encuentran flotando en un mar de escombros. [otherwise]Deambulas libre por el espacio, alrededor de tu nave espacial. Siempre te ha gustado contemplar la belleza hipnótica del manto negro plagado de estrellas, pero la verdad esque estás perdiendo un tiempo precioso aquí, ya que tendrías que estar viajando rumbo a Endor a toda hipervelocidad, donde te espera una buena amiga..."
+
+Part 4 - Megara
+
+Mujer is a kind of value.  The plural of mujer is mujeres. The mujeres are calmada, curiosa, cachonda, caliente, frenetica, torrida, and satisfecha.
+
+Megara is a woman. "[if Megara is inconsciente]Una figura humana flota inconsciente entre los escombros.[otherwise]Megara flota ingrávida cerca de ti.". Megara is either dentro or fuera.  Megara is either inconsciente or despierta.  Megara has an Mujer.  Megara is fuera, inconsciente, and calmada.  The description is "[if dentro]Una esbelta mujer de aspecto humano, o al menos parece que sea humana. A través del cristal de su casco observas su delicado rostro, su pequeña nariz, sus labios entreabiertos. Su pelo, rubio y corto te sugieren que se pueda tratar de una soldado, ya que habitualmente lo llevan al raso. Además  la chica muestra una forma física excelente, atlética, con unas piernas largas y bien torneadas. [otherwise]Está inconsciente. Lleva puesto un ajustado traje de piloto y un casco espacial de cristal. Estás seguro que se trata de una mujer, pues las curvas del ajustado traje no admiten dudas al respecto. [end if][if inconsciente][paragraph break]La figura flota ingrávida entre los escombros, pero no parece herida de gravedad, por lo que supones que debió salir justo antes del choque.[end if][if fuera] Su traje espacial tiene solo unos rasguños sin importancia y el tanque de aire está intacto, aunque no puedes verla bien ya que está de espaldas y algo alejada de tu posición.[end if]".
+Understand "figura", "chica", "mujer", "hembra", "rasgunos", "espaldas", "espalda", "rasguños" as Megara.
+
+Megara wears Megara's traje espacial. The printed name is "chica". The description of Megara's traje espacial is "El traje espacial de la mujer es de un intenso color rojo brillante, ajustado a las impresionantes curvas de su dueña. Puedes verte babear en el reflejo del cristal de su casco."
+Understand "taques de aire", "curvas", "cuerpo", "tanque", "tanque de aire" as Megara's traje espacial.
+
+Instead of touching the Megara's traje espacial, try touching Megara.
+
+
+Section 1 - Reparar el casco de Megara
+
+Megara wears Megara's casco. Megara's casco is either roto or reparado.  Megara's casco is roto. The printed name is "casco de Megara". The description of Megara's casco is "[if Megara is fuera]No puedes verla bien ya que está de espaldas, tendrías que tratar de moverla.[otherwise if roto]Hay una pequeña grieta en el cristal del casco por donde se está escapando el aire poco a poco.[otherwise if reparado]El cristal del casco de la chica está toscamente pero efectivamente reparado, y ya no pierde aire.". Understand 
+"cristal", "cristal del casco", "casco esferico", "rostro", "pelo", "reflejo", "traductor", "traductor automatico", "grieta" as Megara's casco.
+
+Instead of waking Megara, try examining the casco;
+
+Instead of kissing Megara, try examining the casco;
+
+Instead of attacking Megara, try examining the casco;
+
+Check repairing the casco:
+if Megara is fuera then say "Desde aquí no puedes verle el rostro, ya que la figura está de espaldas." instead;
+if the player is not carrying the kit de reparaciones then say "No puedes reparar el casco sin tu kit de reparaciones." instead.
+
+Carry out repairing the casco:
+now the casco is reparado;
+now Megara is despierta.
+
+Report repairing the casco:
+say "Encuentras un parche pequeño y transparente en tu kit de reparaciones, sin dudarlo lo coges entre tus manos y lo pegas cuidadosamente en la grieta del casco. En unos pocos segundos puedes observar que el monitor interno del casco informa que la presión de aire ha sido restaurada.";
+wait for any key;
+say "[paragraph break]La chica empieza a moverse, tose un par de veces y sus párpados pestañean hasta que consiguen abrirse, entonces vuestra mirada se cruza... ¡Tiene unos ojos preciosos, que te observan perplejos... la chica se muestra sorprendida de encontrarse entre tu brazos.";
+wait for any key;
+say "[paragraph break][italic type]- Buenos días, guapa. Has impactado contra mi nave, ésa de ahí, me temo que la tuya se ha convertido en todos estos escombros, je. Bueno, estabas inconsciente y tenías el casco roto, pero te lo he arreglado. Ahora estás a salvo. Por éstas latitudes me conocen como Inferno, Ringo Inferno. ¿Y tú quién eres, preciosa?";
+wait for any key;
+say "[roman type][paragraph break]La chica frunce el ceño, palpa su traje y su casco, está visiblemente afectada por el impacto, moviéndose insegura y torpemente. Se te queda mirando extrañada, hasta que por fin reacciona y te indica con un gesto que el traductor automático de su casco se ha estropeado. Se encoge de hombros y te sonríe débilmente mientras se señala a sí misma y dice:
+[paragraph break][italic type]- Megara.[roman type][paragraph break]";
+wait for any key instead.
+
+This is the malvado rule:
+if Megara is inconsciente then say "Ella está inconsciente, mejor será comprobar si su casco ha sufrido daños." instead;
+if Megara is calmada then say "Paciencia, Ringo. Hay prioridades." instead.
+
+Section 2 - Pechos
+
+Megara's pechos are part of Megara.  The printed name is "pechos de Megara". Understand "pechos", "pezones", "pezon", "pecho", "senos", "seno", "teta" and "tetas" as pechos.  The description is "[if Megara is fuera]No puedes ver mucho desde aquí.[otherwise]Perfectos, redondos y firmes pechos.[end if][if Megara is not calmada]El material con el que está confeccionado su traje espacial es demasiado fino como para ocultar sus firmes pezones.[end if]"
+
+Instead of touching Megara, try touching Megara's entrepierna.
+
+Check touching Megara's pechos:
+abide by the malvado rule.
+
+Carry out touching Megara's pechos:
+if Megara is frenetica begin;
+	if Megara is fuera then record "masajeando sus pechos" as achieved;
+	otherwise record "en tus manos" as achieved;
+	change Megara to torrida;
+end if;
+if Megara is caliente then change Megara to frenetica;
+if Megara is cachonda then change Megara to caliente;
+if Megara is curiosa or Megara is satisfecha then change Megara to cachonda.
+
+Report touching Megara's pechos:
+if Megara is fuera begin;
+	if Megara is cachonda then say "Te aproximas hacia ella por detrás hasta que vuestros cascos se topan con un divertido ¡cloc! y la abrazas por la cintura, sonriendo. Entonces, lentamente, ella pone sus manos encima de las tuyas y se las lleva un poco más arriba, hacia la irresistible curvatura de sus pechos, desafiantes y firmes..." instead;
+	if Megara is caliente then say "Continúas el recorrido por el territorio de su pecho y acaricias suavemente su forma perfecta, como si lo estuvieras moldeando, aproximándote con círculos dibujados con tus dedos hacia sus erectos pezones... [paragraph break]hasta que llegas a la cima y ella arquea su espalda, respirando más rápidamente. Entonces notas el contacto de su mano sobre tu traje, recorriendo tu musculado torso, deslizándose sinuosamente hacia abajo, mientras la otra se pierde entre los pliegues de su traje..." instead;
+	if Megara is frenetica then say "
+Tomas sus pechos desde atrás, tus manos cubren como una copa su forma, apretando ligeramente hacia tí, notando cómo se excitan... ella gime de placer y empieza a buscar ávida el bulto prominente que se exhibe en tu traje, rozándolo, acariciándolo de arriba a abajo, pegando su cuerpo caliente al tuyo, frotándose y cubriendo tu entrepierna excitada y palpitante. [paragraph break]Ella experimenta el placer de sentir como juegas con sus pezones mientras la dureza de tu miembro la estimula frotándose por detrás. La chica gime y de vez en cuando emite palabras imposibles de comprender para tí..." instead;
+	if Megara is torrida then say "Continúas excitando a la chica desde detrás, masajeando sus pechos palpitantes, jugando con sus pezones a través del fino tejido de su traje, fundiéndola con un movimiento lento de arriba a abajo. Notas su cuerpo caliente estremecerse cuando aprietas sus pezones, y sus nalgas se frotan cada vez más rápido sobre tu miembro, que apenas puede resistirse ya al calor de tanta fricción.[paragraph break]";
+wait for any key;
+say "El clímax culmina cuando aprietas fuertemente sus pezones al notar ése momento en que el orgasmo está a punto de llegar, cierras tus ojos abandonándote al intenso placer, ella sigue moviendo sus nalgas cada vez más rápidamente hasta que el cuerpo de la chica se estremece también a causa de un intenso orgasmo, jadeando en un mar de éxtasis. [paragraph break]";
+wait for any key;
+say "Permanecéis unidos así mientras el intenso orgasmo mutuo se manifiesta en oleadas de placer, hasta que lentamente os soltáis, flotando ingrávidos uno frente al otro." instead;
+otherwise;
+	if Megara is cachonda then say "Te está gustando el tema, y ella se pone cada vez más cachonda. Con disimulo colocas tus manos en su cuello, dándole un suave masaje, aunque poco a poco tus manos se dirigen hacia la curvatura de sus senos..." instead;
+	if Megara is caliente then say "Te deleitas observando el ligero temblor de la chica cuando pasas tus manos rozando los pezones, pero ella no se queda atrás cuando posa sus nalgas sobre tu entrepierna, empezando a darte un improvisado masaje que no esperabas..." instead;
+	if Megara is frenetica then say "Le presionas los pezones y ella ya no aguanta más, recorre con sus manos tu traje espacial hasta que logra encontrar la cremallera y abrirla. Tu pene sale disparado hacia arriba, erecto y libre al fin de tanta opresión. Ella lo agarra con fuerza y empieza a masajearlo de arriba a abajo." instead;
+	if Megara is torrida then say "Juegas con sus pezones, llevándolos de arriba a abajo, pellizcándolos, pasándolos por entre tus dedos, mientras ella jadea de placer y hace lo propio con tu miembro viril, que sufre una intensa fricción constante por parte de la chica. [paragraph break]";
+wait for any key;
+say "Tanto es así que no logras contenerte y cierras los ojos cuando el orgasmo te sacude el cuerpo, un intenso placer te envuelve mientras todo tu amor sale disparado, para acabar flotando ingrávido por el aire. La chica te observa, entre curiosa y satisfecha. " instead;
+end if.
+
+Section 3 - Entrepierna
+
+Megara's entrepierna is part of Megara. The printed name is "sexo de Megara".  Understand "coño", "cono", "vagina", "vulva", "ingles", "sexo", "vientre" and "clitoris" as Megara's entrepierna.  The description is "[if Megara is fuera]No puedes ver mucho desde aquí.[otherwise]Ringo, córtate un poco...[end if][if Megara is not calmada]Tu pequeña empujadora está deseando penetrar en ése espacio interior...[end if]"
+
+Check touching Megara's entrepierna:
+abide by the malvado rule.
+
+Carry out touching Megara's entrepierna:
+if Megara is fuera begin;
+	if Megara is frenetica begin;
+		change Megara to torrida;
+		record "masajeando sus ingles" as achieved;
+	end if;
+	if Megara is caliente then change Megara to frenetica;
+	if Megara is cachonda then change Megara to caliente;
+end if;
+if Megara is curiosa then change Megara to cachonda.
+
+Report touching Megara's entrepierna:
+if Megara is fuera begin;
+	if Megara is cachonda then say "Flotando alrededor de ella, con el manto de estrellas envolviéndo vuestros cuerpos, te aproximas por detrás y le pones las manos en su cintura..." instead;
+	if Megara is caliente then say "Le acaricias suavemente sobre la tela del traje y te la acercas a tí, con sus nalgas sobre tu entrepierna, hasta que vuestros cascos se tocan y os cruzáis una tórrida mirada de deseo..." instead;
+	if Megara is frenetica then say "Empiezas a acariciar la entrepierna de la chica, tocando y presionando con tus manos en el punto exacto, con las estrellas como mudas espectadoras. Ella se masajea los pechos, firmes y generosos, temblando de placer..." instead;
+	if Megara is torrida then say "Masajeas la zona de las ingles de la chica, presionando con tus dedos en las zonas prohibidas, mientras la chica jadea y se frota violentamente contra tu entrepierna.[paragraph break]";
+wait for any key;
+say " Flotáis ingrávidos alrededor de la Gran Empujadora mientras os proporcionáis mutuo placer, hasta que el clímax es total y un torrente de placer os invade el cuerpo.[paragraph break]";
+wait for any key;
+say "Exhaustos, os abrazáis a la luz de débiles estrellas, que han asistido ausentes a vuestro espectáculo de pasión y deseo. Jamás pensaste en experimentar tanto placer estando vestido con un traje espacial y flotando en el espacio, pero hoy ya sabes lo que se siente." instead;
+otherwise;
+	if Megara is cachonda then say "Te aproximas a la chica por atrás y pasas tus manos por su cintura, bajando tus manos por su vientre, rozando con tus dedos el extraño tacto del traje de Megara." instead;
+	if Megara is caliente then say "Le acaricias suavemente sobre la tela del traje y te la acercas a tí, con sus nalgas sobre tu entrepierna, hasta que vuestros cascos se tocan y os cruzáis una tórrida mirada de deseo...." instead;
+	if Megara is frenetica then say "Empiezas a masturbar a la chica, tocando y presionando con tus manos mientras ella se masajea los pechos, firmes y generosos, temblando de placer..." instead;
+	if Megara is torrida then say "Juegas con su clítoris, llevándolo de arriba a abajo, pellizcándolo, pasándolo por entre tus dedos, mientras ella jadea de placer y hace lo propio con tu miembro viril, que sufre una intensa fricción constante por parte de la chica. [paragraph break]";
+wait for any key;
+say "Cierras los ojos cuando el orgasmo te sacude el cuerpo, la sensación de placer te invade por completo y a jugzar por los espamos de placer de la chica ella también está experimentando lo mismo que tú, agarrándose con fuerza a tus hombros deja escapar gemidos incomprensibles para tí. Acabáis exhaustos el uno sobre el otro, flotando en el interior de la estancia." instead;
+end if.
+
+Section 4 - Caderas
+
+Megara's caderas is part of Megara. The printed name is "trasero de Megara". Understand "culo", "nalgas", "cintura", "nalga", "caderas", "cadera", "trasero", "pierna" and "piernas" as caderas.  The description is "[if Megara is fuera]Tiene un buen culo, aunque no lo puedes ver del todo bien desde aquí...[otherwise]Cintura estrecha, excelentes caderas, vamos... que tiene un culo estupendo.[end if][if Megara is not calmada]Tu pequeña empujadora tiene muchas ganas de descubrir ése nuevo agujero negro...[end if]"
+
+Check touching Megara's caderas:
+abide by the malvado rule.
+
+Carry out touching Megara's caderas:
+if Megara is dentro begin;
+	if Megara is frenetica begin;
+		change Megara to torrida;
+		record "tocando sus nalgas" as achieved;
+	end if;
+	if Megara is caliente then change Megara to frenetica;
+	if Megara is cachonda then change Megara to caliente;
+end if;
+if Megara is curiosa then change Megara to cachonda.
+
+Report touching Megara's caderas:
+if Megara is fuera begin;
+	if Megara is cachonda then say "Te aproximas a la chica y tocas con disimulo la erótica curva de sus nalgas, rozando con tus dedos el extraño tacto del traje de Megara." instead;
+otherwise;
+	if Megara is cachonda then say "Le pones las manos en las caderas y te la acercas a tí, hasta que vuestros cascos se tocan y os cruzáis una tórrida mirada de deseo..." instead;
+	if Megara is caliente then say "Acaricias sus nalgas, tocando y presionando con tus manos mientras ella se masajea los pechos, firmes y generosos, temblando de deseo..." instead;
+	if Megara is frenetica then say "Agarras sus nalgas con fuerza mientras ella empieza a acariciarse su entrepierna delante de tí, dando gemidos de placer y gritando palabras que eres incapaz de descifrar..." instead;
+	if Megara is torrida then say "Juegas con sus nalgas, llevándolas de arriba a abajo, pellizcándolas, azotándola cariñosamente, mientras ella juega con tu miembro viril, que sufre una intensa fricción constante por parte de la chica. Tanto es así que no logras contenerte y cierras los ojos cuando el orgasmo te sacude el cuerpo, un intenso placer te envuelve mientras todo tu amor sale disparado, para acabar flotando ingrávido por el aire. La chica te observa, entre curiosa y satisfecha." instead;
+end if.
+
+
+Section 5 - Hablar por hablar
+
+[Para cuando digan: dile hola a megara]
+Check telling Megara about something:
+if Megara is fuera then say "Por mucho que grites, en el espacio no se transmiten los sonidos, quizá sea hora de ponerse a estudiar algo de física..." instead;
+if Megara is dentro then say "Imposible que te entienda, tiene roto el traductor automático." instead.
+
+[Para cuando pregunten: pregunta a megara sobre algo]
+Check asking Megara about something:
+if Megara is fuera then say "Por mucho que grites, en el espacio no se transmiten los sonidos, quizá sea hora de ponerse a estudiar algo de física..." instead;
+if Megara is dentro then say "Imposible que te entienda, tiene roto el traductor automático." instead.
+
+
+Part 5 - El Impacto
+
+The Impacto is a scene.  The Impacto begins when the motor is roto.
+
+Every turn during The Impacto:
+if the player is not in Espacio exterior and the indicador is full and Atmosfera restaurada is falsa begin;
+	now Atmosfera restaurada is cierta;
+	say "El monitor de tu casco espacial te informa que la presión de aire de la nave ha sido restaurada.";
+end if.
+
+Every turn when the luz de estado is amarilla:
+if the luz de estado has been amarilla for exactly six turns begin;
+	now the radar is roto;
+	if the player is in the Sala de Control and the radar is operating then say "Escuchas un zumbido eléctrico que surge del panel de control. Súbitamente el radar da un chasquido y la pantalla se pone de un siniestro color negro.";	
+end if;
+if the luz de estado has been amarilla for eight turns begin;
+	now the luz de estado is roja;
+	now the indicador is falling;
+	now the motor is roto;
+	now Megara is in Espacio exterior;
+	now the escombros is in Espacio exterior;
+	now the pedazo de metal is in Espacio exterior;
+	now the agujero is in the Sala de descanso;
+	now the Sala de descanso is unvisited;
+	say "De repente se escucha un sonido metálico y acto seguido algo sacude la nave con inusitada violencia. Pierdes el control y tu cuerpo sale despedido hacia el techo y las paredes, golpeándote los huesos. Todo se tiñe del color rojo de la luz de emergencia.";
+wait for any key;
+say "[paragraph break]En unos momentos, todo ha pasado, pero la cosa va mal. La nave se ha frenado en seco, incapaz de moverse. Piensas que el motor ha podido resultar seriamente dañado. También observas que ha disminuido la presión de aire. ¡Algo ha impactado con fuerza ahí fuera! [if the player is in the Sala de descanso]Te das cuenta de que ha sido aquí mismo... ¡hay un agujero en la pared! El aire se escapa por aquí y esto no presagia nada bueno...[end if]";
+	if the player is carrying the kit de reparaciones begin;
+		if the player is in the Pasillo Central then move the kit to the Sala de motores;
+		otherwise move the kit to the Pasillo Central;
+		say "[paragraph break][italic type]   -¡Joder! Vaya golpe... ¿qué puede haber pasado ahí fuera?[paragraph break][roman type]Además, te das cuenta de que con el violento impacto has perdido el kit de reparaciones.";
+	end if;
+end if.
+
+Every turn when the indicador is falling:
+if the indicador has been falling for less than four turns and the player is not in Espacio exterior and the player is not in the burbuja de aire and the player is not in the Sala de descanso then say "Escuchas el silbido de la alarma sonando en todas las salas de la nave.";
+if the indicador has been falling for exactly two turns and the player is not wearing the visera then say "El aire se está escapando rápidamente, será mejor que te pongas el casco espacial y trates de arreglar la presión de aire como sea.";
+if the indicador has been falling for four turns begin;
+	now the indicador is empty;
+	now the Espacio exterior is unvisited;
+	if the player is not wearing the visera begin;
+		say "Finalmente se acaba el aire de la nave... no puedes respirar y poco a poco se te nubla la vista... la oscuridad te rodea y te abraza cálidamente, dejándote llevar inconsciente...";
+wait for any key; 
+say "[paragraph break]Te quedas flotando ingrávido, inerte en el interior de tu nave, quizás si te hubieras puesto el casco todo hubiera cambiado, pero  ahora todo ha acabado ya para tí, pues éste es tu fin.";
+		end the game in death;
+	otherwise;
+		say "Finalmente se acaba el aire de la nave... menos mal que llevas puesto el casco. Pero el aire de éste también se acabará si no te das prisa en arreglar la presión de aire de la nave.";
+	end if;
+end if.
+
+The agujero is scenery.  The description is "Algo ha perforado el duro metal del casco de tu nave, algo que ha ocasionado un amenazador agujero por donde se escapa el aire.  ¡Debes repararlo rápidamente!"
+
+Check repairing the agujero:
+if the player is not carrying the kit de reparaciones then say "Necesitarás el kit de reparaciones." instead.
+
+Carry out repairing the agujero:
+remove the agujero from play.
+
+Report repairing the agujero:
+say "Encuentras un largo y robusto parche de acoplamiento en el kit de reparaciones, algo que puede servir para tapar el agujero a duras penas durante el transcurso del viaje. [paragraph break][italic type]   -¡Menos mal que no me pierdo ningún programa de Tallermanía espacial![paragraph break][roman type]El sistema de soporte vital presurizará automáticamente la nave, aunque se llevará un buen tiempo hasta que el sistema de aire vuelva a funcionar con normalidad.[paragraph break]" instead.
+
+The pedazo de metal is scenery.  The pedazo de metal is either intact or dismantled.  The pedazo de metal is intact.  The description is "Es un pedazo de metal largo y retorcido, que parece una sección de motor arrancada por la furza del tremendo impacto. [if intact]Cuando te la miras más de cerca te das cuenta de que justamente corresponde al trozo de motor que contiene el oscilador positrónico, que a pesar del golpe parece que está intacto. ¡Quizá podría funcionar en tu nave si logras desmontarlo de éste amasijo de metal![end if]".
+Understand "motor" or "seccion" or "pieza" or "amasijo" or "pedazo" as the pedazo de metal.
+
+Instead of taking or repairing the pedazo de metal, say "No vas a poder llevarte el pedazo entero, es demasiado grande y pesado para tí.".
+
+The oscilador verde is part of the pedazo de metal.  The description is "Es un oscilador de fabricación desconocida para tí, de color verde brillante, pero indudablemente positrónico.".
+Understand "oscilador" or "verde" or "verde brillante" or "positronico" as the oscilador verde.
+
+[Esto lo pongo para desambiguación entre los dos osciladores]
+Instead of repairing the oscilador verde:
+if the motor is roto and the player is in the Sala de motores begin;
+try repairing the motor;
+otherwise;
+say "El oscilador funciona perfectamente, lo que tienes que hacer es montarlo en el motor de tu nave.";
+end if.
+
+Instead of taking the oscilador:
+if the player is not carrying the soldador atomico begin;
+	say "Necesitas algún tipo de herramienta para desmontarlo.";
+otherwise;
+	if Megara is inconsciente begin;
+		 say "El oscilador está incrustado en una posición imposible de desmontar para una sola persona, para poder arrancarlo necesitas más de dos manos....";
+	otherwise;
+		now Megara is curiosa;
+		now the player is carrying the oscilador;
+		say "Con una serie de gestos, indicas a Megara que quieres desmontar el oscilador de la pieza de metal para arreglar el motor de tu nave. Ella asiente y se acerca flotando hacia tí, indicándote que le pases el soldador y que aguantes la pieza para que no se mueva. [paragraph break]El trabajo acarrea más dificultad de la que esperabas, te tienes que emplear a fondo y utilizas toda tu fuerza para intentar que la pieza no se mueva demasiado mientras la chica intenta arrancar la pieza.";
+wait for any key;
+say "[paragraph break]Observas cómo se esfuerza en desmontar el oscilador, cogiendo con ambas manos el soldador y manipulando con destreza todos sus mecanismos. Te detienes a mirar su cuerpo, oculto tras el fino traje espacial, tu vista recorre su pecho perfecto, su estrecha cintura y sus largas piernas, le miras al rostro y descubres que ella también te está mirando a tí...";
+wait for any key;
+say "[paragraph break]La chica sonríe y te muestra el oscilador, brillando con verde fosforescencia en su mano. Se lo lleva a la boca sin dejar de mirarte y le da un beso, mientras su vista recorre cada centímetro de tu musculado torso, te guiña un ojo y acto seguido te ofrece el bendito oscilador.[paragraph break]";
+	end if;
+end if;
+
+The escombros is scenery.  Understand "pedazos", "nave", "chatarra", "piezas", "mar", "mar de escombros", "accidente" and "restos"  as escombros.  The description is "Un buen número de restos de la otra nave se encuentran flotando en un mar de escombros metálicos. Varios pedazos retorcidos se alejan ingrávidos del lugar del accidente, pero uno de ellos te llama poderosamente la atención, un pedazo de metal que parece ser una pieza importante del motor de la otra nave."
+Instead of taking or touching or repairing the escombros, say "Demasiados escombros por todos lados, sólo uno de ellos, un pedazo de metal que parece contener parte del motor de la otra nave, te atrae poderosamente la atención.".

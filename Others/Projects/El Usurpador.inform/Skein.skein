@@ -1,0 +1,588 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Skein rootNode="node-1">
+  <generator>Windows Inform 7 6M62</generator>
+  <activeNode nodeId="node-70"/>
+  <item nodeId="node-1">
+    <command xml:space="preserve">El Usurpador</command>
+    <result xml:space="preserve">EL USURPADOR&#x000A;&#x000A;&#x000A;&#x000A;        Presiona cualquier tecla para continuar...</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-2"/>
+      <child nodeId="node-64"/>
+    </children>
+  </item>
+  <item nodeId="node-2">
+    <command xml:space="preserve"></command>
+    <result xml:space="preserve">&#x000A;&#x000A;"Cada d&#x00ED;a es un carnaval", dice la gente de Fraudavit.&#x000A;&#x000A;&#x000A;Presiona cualquier tecla para continuar...</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-3"/>
+    </children>
+  </item>
+  <item nodeId="node-3">
+    <command xml:space="preserve"></command>
+    <result xml:space="preserve">&#x000A;&#x000A;Desde que nacen, a los habitantes de la ciudad se les asigna una m&#x00E1;scara que deben llevar durante toda su vida...&#x000A;&#x000A;&#x000A;Presiona cualquier tecla para continuar...</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-4"/>
+    </children>
+  </item>
+  <item nodeId="node-4">
+    <command xml:space="preserve"></command>
+    <result xml:space="preserve">&#x000A;&#x000A;pero cuando mueren, tanto la m&#x00E1;scara como su rostro son incinerados, porque...&#x000A;&#x000A;&#x000A;Presiona cualquier tecla para continuar...</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-5"/>
+    </children>
+  </item>
+  <item nodeId="node-5">
+    <command xml:space="preserve"></command>
+    <result xml:space="preserve">&#x000A;&#x000A;si la m&#x00E1;scara cayera en manos de otra persona, esta podr&#x00ED;a usurpar la vida del fallecido.&#x000A;&#x000A;&#x000A;Presiona cualquier tecla para continuar...</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-6"/>
+    </children>
+  </item>
+  <item nodeId="node-6">
+    <command xml:space="preserve"></command>
+    <result xml:space="preserve">Pero t&#x00FA; Miles, todo esto ya lo sabes. &#x00BF;Acaso no llevas tambi&#x00E9;n una m&#x00E1;scara?&#x000A;&#x000A;&#x000A;Presiona cualquier tecla para continuar...</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-7"/>
+    </children>
+  </item>
+  <item nodeId="node-7">
+    <command xml:space="preserve"></command>
+    <result xml:space="preserve">&#x000A;&#x000A;Abres los ojos, con el vago recuerdo del sue&#x00F1;o: muerte; ecos de una risa estrepitosa en toda la ciudad; vivos entre los no vivos; inundaci&#x00F3;n; el llanto de una mujer en lo profundo; una voz agonizante, que te susurra auxilio...&#x000A;&#x000A;Te levantas de la cama asustado.&#x000A;&#x000A;Habitaci&#x00F3;n de Miles&#x000A;Este es tu cuarto, el peque&#x00F1;o recept&#x00E1;culo de tus pensamientos, las paredes de tu condena. Una cama, un ropero, un espejo... Con poco es suficiente, siempre te dices.&#x000A;&#x000A;Salidas: este y norte.&#x000A;mirarinvent.EXAMINARTOMARROMPERREFLEJAR&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-8"/>
+      <child nodeId="node-9"/>
+      <child nodeId="node-11"/>
+      <child nodeId="node-13"/>
+      <child nodeId="node-16"/>
+      <child nodeId="node-18"/>
+      <child nodeId="node-20"/>
+      <child nodeId="node-30"/>
+      <child nodeId="node-36"/>
+      <child nodeId="node-38"/>
+      <child nodeId="node-46"/>
+      <child nodeId="node-49"/>
+      <child nodeId="node-50"/>
+      <child nodeId="node-52"/>
+      <child nodeId="node-54"/>
+      <child nodeId="node-55"/>
+      <child nodeId="node-61"/>
+    </children>
+  </item>
+  <item nodeId="node-8">
+    <command xml:space="preserve">x suelo</command>
+    <result xml:space="preserve">(el piso)&#x000A;El piso es de baldosas triangulares&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+  </item>
+  <item nodeId="node-9">
+    <command xml:space="preserve">actions</command>
+    <result xml:space="preserve">Actions listing on.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-10"/>
+    </children>
+  </item>
+  <item nodeId="node-10">
+    <command xml:space="preserve">mirar</command>
+    <result xml:space="preserve">[looking]&#x000A;Habitaci&#x00F3;n de Miles&#x000A;Est&#x00E1;s en tu cuarto, rodeado por tu cama, el espejo y el ropero&#x000A;&#x000A;La puerta de tu habitaci&#x00F3;n est&#x00E1; cerrada.&#x000A;&#x000A;[looking - succeeded]&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+  </item>
+  <item nodeId="node-11">
+    <command xml:space="preserve">m</command>
+    <result xml:space="preserve">Habitaci&#x00F3;n de Miles&#x000A;Este es tu cuarto, el peque&#x00F1;o recept&#x00E1;culo de tus pensamientos, las paredes de tu condena. Una cama, un ropero, un espejo... Con poco es suficiente, siempre te dices.&#x000A;&#x000A;La puerta de tu habitaci&#x00F3;n est&#x00E1; cerrada.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-12"/>
+    </children>
+  </item>
+  <item nodeId="node-12">
+    <command xml:space="preserve">x ropero</command>
+    <result xml:space="preserve">Habitaci&#x00F3;n de Miles&#x000A;Este es tu cuarto, el peque&#x00F1;o recept&#x00E1;culo de tus pensamientos, las paredes de tu condena. Una cama, un ropero, un espejo... Con poco es suficiente, siempre te dices.&#x000A;&#x000A;La puerta de tu habitaci&#x00F3;n est&#x00E1; cerrada.&#x000A;&#x000A;Es un ropero&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+  </item>
+  <item nodeId="node-13">
+    <command xml:space="preserve">abrir ropero</command>
+    <result xml:space="preserve">Abres el ropero.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-14"/>
+    </children>
+  </item>
+  <item nodeId="node-14">
+    <command xml:space="preserve">entrar al ropero</command>
+    <result xml:space="preserve">No es algo donde puedas entrar.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-15"/>
+    </children>
+  </item>
+  <item nodeId="node-15">
+    <command xml:space="preserve">x ropero</command>
+    <result xml:space="preserve">Es un ropero&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+  </item>
+  <item nodeId="node-16">
+    <command xml:space="preserve">rules</command>
+    <result xml:space="preserve">Rules tracing now switched on. Type "rules off" to switch it off again, or "rules all" to include even rules which do not apply.&#x000A;&#x000A;[Rule "convert default prompt to Vorple prompt rule" applies.]&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-17"/>
+    </children>
+  </item>
+  <item nodeId="node-17">
+    <command xml:space="preserve">mirar</command>
+    <result xml:space="preserve">[Rule "declare everything initially unmentioned rule" applies.]&#x000A;[Rule "determine visibility ceiling rule" applies.]&#x000A;[Rule "announce items from multiple object lists rule" applies.]&#x000A;[Rule "set pronouns from items from multiple object lists rule" applies.]&#x000A;[Rule "before stage rule" applies.]&#x000A;[Rule "instead stage rule" applies.]&#x000A;[Rule "investigate player's awareness before action rule" applies.]&#x000A;[Rule "player aware of his own actions rule" applies.]&#x000A;[Rule "check stage rule" applies.]&#x000A;[Rule "carry out stage rule" applies.]&#x000A;[Rule "declare everything unmentioned rule" applies.]&#x000A;[Rule "spanish room description heading rule" applies.]&#x000A;Habitaci&#x00F3;n de Miles&#x000A;[Rule "room description body text rule" applies.]&#x000A;Este es tu cuarto, el peque&#x00F1;o recept&#x00E1;culo de tus pensamientos, las paredes de tu condena. Una cama, un ropero, un espejo... Con poco es suficiente, siempre te dices.&#x000A;&#x000A;[Rule "room description paragraphs about objects rule" applies.]&#x000A;[Rule "initialise locale description rule" applies.]&#x000A;[Rule "find notable locale objects rule" applies.]&#x000A;[Rule "standard notable locale objects rule" applies.]&#x000A;[Rule "interesting locale paragraphs rule" applies.]&#x000A;[Rule "don't mention player's supporter in room descriptions rule" applies.]&#x000A;[Rule "don't mention scenery in room descriptions rule" applies.]&#x000A;[Rule "don't mention undescribed items in room descriptions rule" applies.]&#x000A;[Rule "set pronouns from items in room descriptions rule" applies.]&#x000A;[Rule "offer items to writing a paragraph about rule" applies.]&#x000A;[Rule "use initial appearance in room descriptions rule" applies.]&#x000A;La puerta de tu habitaci&#x00F3;n est&#x00E1; cerrada.&#x000A;&#x000A;[Rule "describe what's on scenery supporters in room descriptions rule" applies.]&#x000A;[Rule "describe what's on mentioned supporters in room descriptions rule" applies.]&#x000A;[Rule "don't mention player's supporter in room descriptions rule" applies.]&#x000A;[Rule "don't mention scenery in room descriptions rule" applies.]&#x000A;[Rule "don't mention undescribed items in room descriptions rule" applies.]&#x000A;[Rule "set pronouns from items in room descriptions rule" applies.]&#x000A;[Rule "offer items to writing a paragraph about rule" applies.]&#x000A;[Rule "use initial appearance in room descriptions rule" applies.]&#x000A;[Rule "describe what's on scenery supporters in room descriptions rule" applies.]&#x000A;[Rule "describe what's on mentioned supporters in room descriptions rule" applies.]&#x000A;[Rule "don't mention player's supporter in room descriptions rule" applies.]&#x000A;[Rule "don't mention scenery in room descriptions rule" applies.]&#x000A;[Rule "don't mention undescribed items in room descriptions rule" applies.]&#x000A;[Rule "set pronouns from items in room descriptions rule" applies.]&#x000A;[Rule "offer items to writing a paragraph about rule" applies.]&#x000A;[Rule "use initial appearance in room descriptions rule" applies.]&#x000A;[Rule "describe what's on scenery supporters in room descriptions rule" applies.]&#x000A;[Rule "describe what's on mentioned supporters in room descriptions rule" applies.]&#x000A;[Rule "don't mention player's supporter in room descriptions rule" applies.]&#x000A;[Rule "don't mention scenery in room descriptions rule" applies.]&#x000A;[Rule "don't mention undescribed items in room descriptions rule" applies.]&#x000A;[Rule "set pronouns from items in room descriptions rule" applies.]&#x000A;[Rule "offer items to writing a paragraph about rule" applies.]&#x000A;[Rule "use initial appearance in room descriptions rule" applies.]&#x000A;[Rule "describe what's on scenery supporters in room descriptions rule" applies.]&#x000A;[Rule "describe what's on mentioned supporters in room descriptions rule" applies.]&#x000A;[Rule "don't mention player's supporter in room descriptions rule" applies.]&#x000A;[Rule "don't mention scenery in room descriptions rule" applies.]&#x000A;[Rule "don't mention undescribed items in room descriptions rule" applies.]&#x000A;[Rule "set pronouns from items in room descriptions rule" applies.]&#x000A;[Rule "offer items to writing a paragraph about rule" applies.]&#x000A;[Rule "use initial appearance in room descriptions rule" applies.]&#x000A;[Rule "describe what's on scenery supporters in room descriptions rule" applies.]&#x000A;[Rule "describe what's on mentioned supporters in room descriptions rule" applies.]&#x000A;[Rule "don't mention player's supporter in room descriptions rule" applies.]&#x000A;[Rule "don't mention scenery in room descriptions rule" applies.]&#x000A;[Rule "don't mention undescribed items in room descriptions rule" applies.]&#x000A;[Rule "set pronouns from items in room descriptions rule" applies.]&#x000A;[Rule "offer items to writing a paragraph about rule" applies.]&#x000A;[Rule "use initial appearance in room descriptions rule" applies.]&#x000A;[Rule "describe what's on scenery supporters in room descriptions rule" applies.]&#x000A;[Rule "describe what's on mentioned supporters in room descriptions rule" applies.]&#x000A;[Rule "you-can-also-see rule" applies.]&#x000A;Puedes ver tambi&#x00E9;n un ropero.&#x000A;&#x000A;[Rule "check new arrival rule" applies.]&#x000A;[Rule "after stage rule" applies.]&#x000A;[Rule "investigate player's awareness after action rule" applies.]&#x000A;[Rule "report stage rule" applies.]&#x000A;[Rule "other people looking rule" applies.]&#x000A;[Rule "last specific action-processing rule" applies.]&#x000A;[Rule "A first turn sequence rule" applies.]&#x000A;[Rule "every turn stage rule" applies.]&#x000A;[Rule "A last turn sequence rule" applies.]&#x000A;[Rule "notify score changes rule" applies.]&#x000A;[Rule "convert default prompt to Vorple prompt rule" applies.]&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+  </item>
+  <item nodeId="node-18">
+    <command xml:space="preserve">ropero</command>
+    <result xml:space="preserve">Es un ropero&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-19"/>
+    </children>
+  </item>
+  <item nodeId="node-19">
+    <command xml:space="preserve">ropero</command>
+    <result xml:space="preserve">Es un ropero&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+  </item>
+  <item nodeId="node-20">
+    <command xml:space="preserve">abrir puerta</command>
+    <result xml:space="preserve">Abres la puerta.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-21"/>
+      <child nodeId="node-22"/>
+      <child nodeId="node-24"/>
+      <child nodeId="node-26"/>
+    </children>
+  </item>
+  <item nodeId="node-21">
+    <command xml:space="preserve">salir</command>
+    <result xml:space="preserve">&#x000A;Casa del doctor Elit Nivel #2&#x000A;Es un pasillo que conecta ambas habitaciones&#x000A;&#x000A;La puerta de tu habitaci&#x00F3;n est&#x00E1; abierta.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+  </item>
+  <item nodeId="node-22">
+    <command xml:space="preserve">m</command>
+    <result xml:space="preserve">Habitaci&#x00F3;n de Miles&#x000A;Este es tu cuarto, el peque&#x00F1;o recept&#x00E1;culo de tus pensamientos, las paredes de tu condena. Una cama, un ropero, un espejo... Con poco es suficiente, siempre te dices.&#x000A;&#x000A;La puerta de tu habitaci&#x00F3;n est&#x00E1; abierta.&#x000A;&#x000A;Puedes ver tambi&#x00E9;n un ropero.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-23"/>
+    </children>
+  </item>
+  <item nodeId="node-23">
+    <command xml:space="preserve">coger puerta</command>
+    <result xml:space="preserve">puerta est&#x00E1; fij en el sitio.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+  </item>
+  <item nodeId="node-24">
+    <command xml:space="preserve">entrar</command>
+    <result xml:space="preserve">No puedes ir por ah&#x00ED;.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-25"/>
+    </children>
+  </item>
+  <item nodeId="node-25">
+    <command xml:space="preserve">salir</command>
+    <result xml:space="preserve">&#x000A;Casa del doctor Elit Nivel #2&#x000A;Es un pasillo que conecta ambas habitaciones&#x000A;&#x000A;La puerta de tu habitaci&#x00F3;n est&#x00E1; abierta.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+  </item>
+  <item nodeId="node-26">
+    <command xml:space="preserve">mirar</command>
+    <result xml:space="preserve">Habitaci&#x00F3;n de Miles&#x000A;Este es tu cuarto, el peque&#x00F1;o recept&#x00E1;culo de tus pensamientos, las paredes de tu condena. Una cama, un ropero, un espejo... Con poco es suficiente, siempre te dices.&#x000A;&#x000A;La puerta de tu habitaci&#x00F3;n est&#x00E1; abierta.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-27"/>
+    </children>
+  </item>
+  <item nodeId="node-27">
+    <command xml:space="preserve">salir</command>
+    <result xml:space="preserve">&#x000A;Casa del doctor Elit Nivel #2&#x000A;Es un pasillo que conecta ambas habitaciones&#x000A;&#x000A;La puerta de tu habitaci&#x00F3;n est&#x00E1; abierta.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-28"/>
+    </children>
+  </item>
+  <item nodeId="node-28">
+    <command xml:space="preserve">entrar</command>
+    <result xml:space="preserve">No puedes ir por ah&#x00ED;.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-29"/>
+    </children>
+  </item>
+  <item nodeId="node-29">
+    <command xml:space="preserve">entrar por la puerta</command>
+    <result xml:space="preserve">&#x000A;Habitaci&#x00F3;n de Miles&#x000A;Este es tu cuarto, el peque&#x00F1;o recept&#x00E1;culo de tus pensamientos, las paredes de tu condena. Una cama, un ropero, un espejo... Con poco es suficiente, siempre te dices.&#x000A;&#x000A;La puerta de tu habitaci&#x00F3;n est&#x00E1; abierta.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+  </item>
+  <item nodeId="node-30">
+    <command xml:space="preserve">salir</command>
+    <result xml:space="preserve">debes abrir la puerta primero.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-31"/>
+      <child nodeId="node-33"/>
+    </children>
+  </item>
+  <item nodeId="node-31">
+    <command xml:space="preserve">abrir puerta</command>
+    <result xml:space="preserve">Abres la puerta.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-32"/>
+    </children>
+  </item>
+  <item nodeId="node-32">
+    <command xml:space="preserve">m</command>
+    <result xml:space="preserve">Habitaci&#x00F3;n de Miles&#x000A;Este es tu cuarto, el peque&#x00F1;o recept&#x00E1;culo de tus pensamientos, las paredes de tu condena. Una cama, un ropero, un espejo... Con poco es suficiente, siempre te dices.&#x000A;&#x000A;Puedes ver la puerta y un ropero.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+  </item>
+  <item nodeId="node-33">
+    <command xml:space="preserve">ir fuera</command>
+    <result xml:space="preserve">debes abrir la puerta primero.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-34"/>
+    </children>
+  </item>
+  <item nodeId="node-34">
+    <command xml:space="preserve">abrir la puerta</command>
+    <result xml:space="preserve">Abres la puerta.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-35"/>
+    </children>
+  </item>
+  <item nodeId="node-35">
+    <command xml:space="preserve">salir</command>
+    <result xml:space="preserve">&#x000A;Casa del doctor Elit Nivel #2&#x000A;Es un pasillo que conecta ambas habitaciones&#x000A;&#x000A;La puerta de tu habitaci&#x00F3;n est&#x00E1; abierta.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+  </item>
+  <item nodeId="node-36">
+    <command xml:space="preserve">showme</command>
+    <result xml:space="preserve">Habitaci&#x00F3;n de Miles - room&#x000A;    puerta - closed door&#x000A;    ti mismo - man&#x000A;    espejo&#x000A;    ropero - closed container&#x000A;    piso&#x000A;    cama&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-37"/>
+    </children>
+  </item>
+  <item nodeId="node-37">
+    <command xml:space="preserve">showme ropero</command>
+    <result xml:space="preserve">ropero - closed container&#x000A;location: in el Habitaci&#x00F3;n de Miles&#x000A;singular-named, improper-named; unlit, inedible, portable, male, keyworded; opaque, closed, openable, unlocked&#x000A;list grouping key: none&#x000A;printed name: "ropero"&#x000A;printed plural name: "contenedores"&#x000A;indefinite article: none&#x000A;grammatical gender: masculine gender&#x000A;description: "Es un ropero"&#x000A;initial appearance: none&#x000A;keyword: none&#x000A;carrying capacity: 100&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+  </item>
+  <item nodeId="node-38">
+    <command xml:space="preserve">x puerta</command>
+    <result xml:space="preserve">Una puerta com&#x00FA;n y corriente.&#x000A;&#x000A;hola&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-39"/>
+      <child nodeId="node-43"/>
+    </children>
+  </item>
+  <item nodeId="node-39">
+    <command xml:space="preserve">x cristo</command>
+    <result xml:space="preserve">No veo eso que dices.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-40"/>
+    </children>
+  </item>
+  <item nodeId="node-40">
+    <command xml:space="preserve">x jesus</command>
+    <result xml:space="preserve">No veo eso que dices.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-41"/>
+    </children>
+  </item>
+  <item nodeId="node-41">
+    <command xml:space="preserve">x ropero</command>
+    <result xml:space="preserve">Es un ropero&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-42"/>
+    </children>
+  </item>
+  <item nodeId="node-42">
+    <command xml:space="preserve">x cama</command>
+    <result xml:space="preserve">Una cama muy c&#x00F3;moda hecha de paja.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+  </item>
+  <item nodeId="node-43">
+    <command xml:space="preserve">x puerta</command>
+    <result xml:space="preserve">Una puerta com&#x00FA;n y corriente.&#x000A;&#x000A;hola&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-44"/>
+    </children>
+  </item>
+  <item nodeId="node-44">
+    <command xml:space="preserve">x puerta</command>
+    <result xml:space="preserve">Una puerta com&#x00FA;n y corriente.&#x000A;&#x000A;hola&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-45"/>
+    </children>
+  </item>
+  <item nodeId="node-45">
+    <command xml:space="preserve">x cama</command>
+    <result xml:space="preserve">Una cama muy c&#x00F3;moda hecha de paja.&#x000A;&#x000A;hola&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+  </item>
+  <item nodeId="node-46">
+    <command xml:space="preserve">x ropero</command>
+    <result xml:space="preserve">Habitaci&#x00F3;n de Miles&#x000A;Este es tu cuarto, el peque&#x00F1;o recept&#x00E1;culo de tus pensamientos, las paredes de tu condena. Una cama, un ropero, un espejo... Con poco es suficiente, siempre te dices.&#x000A;&#x000A;La puerta de tu habitaci&#x00F3;n est&#x00E1; cerrada.&#x000A;&#x000A;Es un ropero&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-47"/>
+    </children>
+  </item>
+  <item nodeId="node-47">
+    <command xml:space="preserve">x pepe</command>
+    <result xml:space="preserve">No veo eso que dices.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-48"/>
+    </children>
+  </item>
+  <item nodeId="node-48">
+    <command xml:space="preserve">x lucas</command>
+    <result xml:space="preserve">No veo eso que dices.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+  </item>
+  <item nodeId="node-49">
+    <command xml:space="preserve">n</command>
+    <result xml:space="preserve">&#x000A;Elitnorte&#x000A;Salidas: sur hacia el Habitaci&#x00F3;n de Miles.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+  </item>
+  <item nodeId="node-50">
+    <command xml:space="preserve">e</command>
+    <result xml:space="preserve">&#x000A;Casa del doctor Elit Nivel #2&#x000A;Es un pasillo que conecta ambas habitaciones&#x000A;&#x000A;Salidas: oeste.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-51"/>
+    </children>
+  </item>
+  <item nodeId="node-51">
+    <command xml:space="preserve">o</command>
+    <result xml:space="preserve">&#x000A;Habitaci&#x00F3;n de Miles&#x000A;Este es tu cuarto, el peque&#x00F1;o recept&#x00E1;culo de tus pensamientos, las paredes de tu condena. Una cama, un ropero, un espejo... Con poco es suficiente, siempre te dices.&#x000A;&#x000A;Salidas: este y norte.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+  </item>
+  <item nodeId="node-52">
+    <command xml:space="preserve"></command>
+    <result xml:space="preserve">&#x00BF;Perd&#x00F3;n?&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-53"/>
+    </children>
+  </item>
+  <item nodeId="node-53">
+    <command xml:space="preserve">e</command>
+    <result xml:space="preserve">&#x000A;Casa del doctor Elit Nivel #2&#x000A;Es un pasillo que conecta ambas habitaciones&#x000A;&#x000A;Salidas: oeste hacia el Habitaci&#x00F3;n de Miles.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+  </item>
+  <item nodeId="node-54">
+    <command xml:space="preserve">esto es genial</command>
+    <result xml:space="preserve">No conozco ese verbo.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+  </item>
+  <item nodeId="node-55">
+    <command xml:space="preserve">ir al este</command>
+    <result xml:space="preserve">Salidas: oeste.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-56"/>
+    </children>
+  </item>
+  <item nodeId="node-56">
+    <command xml:space="preserve">ir al oeste</command>
+    <result xml:space="preserve">Salidas: este y norte.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-57"/>
+    </children>
+  </item>
+  <item nodeId="node-57">
+    <command xml:space="preserve">n</command>
+    <result xml:space="preserve">Salidas: sur.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-58"/>
+    </children>
+  </item>
+  <item nodeId="node-58">
+    <command xml:space="preserve">s</command>
+    <result xml:space="preserve">Salidas: este y norte.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-59"/>
+    </children>
+  </item>
+  <item nodeId="node-59">
+    <command xml:space="preserve">e</command>
+    <result xml:space="preserve">Salidas: oeste.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-60"/>
+    </children>
+  </item>
+  <item nodeId="node-60">
+    <command xml:space="preserve">mirar</command>
+    <result xml:space="preserve">Casa del doctor Elit Nivel #2&#x000A;Es un pasillo que conecta ambas habitaciones&#x000A;&#x000A;Salidas: oeste.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+  </item>
+  <item nodeId="node-61">
+    <command xml:space="preserve">x espejo</command>
+    <result xml:space="preserve">Aqu&#x00ED; no hay nada que ver&#x000A;&#x000A;las acciones posibles sobre el espejo son: examinar, romper, mirar, &#x000A;Salidas: este y norte.&#x000A;mirarinvent.EXAMINARTOMARROMPERREFLEJAR&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-62"/>
+    </children>
+  </item>
+  <item nodeId="node-62">
+    <command xml:space="preserve">actions</command>
+    <result xml:space="preserve">Actions listing on.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-63"/>
+    </children>
+  </item>
+  <item nodeId="node-63">
+    <command xml:space="preserve">examinar espejo</command>
+    <result xml:space="preserve">[examining el espejo]&#x000A;Aqu&#x00ED; no hay nada que ver&#x000A;&#x000A;las acciones posibles sobre el espejo son: examinar, romper, mirar, [examining el espejo - succeeded]&#x000A;&#x000A;Salidas: este y norte.&#x000A;mirarinvent.EXAMINARTOMARROMPERREFLEJAR&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+  </item>
+  <item nodeId="node-64">
+    <command xml:space="preserve">[enter]</command>
+    <result xml:space="preserve">"Cada d&#x00ED;a es un carnaval", dice la gente de Fraudavit.&#x000A;&#x000A;&#x000A;        Presiona cualquier tecla para continuar...</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-65"/>
+    </children>
+  </item>
+  <item nodeId="node-65">
+    <command xml:space="preserve">[enter]</command>
+    <result xml:space="preserve">Desde que nacen, a los habitantes de la ciudad se les asigna una m&#x00E1;scara que deben llevar durante toda su vida...&#x000A;&#x000A;&#x000A;        Presiona cualquier tecla para continuar...</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-66"/>
+    </children>
+  </item>
+  <item nodeId="node-66">
+    <command xml:space="preserve">[enter]</command>
+    <result xml:space="preserve">pero cuando mueren, tanto la m&#x00E1;scara como su rostro son incinerados, porque...&#x000A;&#x000A;&#x000A;        Presiona cualquier tecla para continuar...</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-67"/>
+    </children>
+  </item>
+  <item nodeId="node-67">
+    <command xml:space="preserve">[enter]</command>
+    <result xml:space="preserve">si la m&#x00E1;scara cayera en manos de otra persona, esta podr&#x00ED;a usurpar la vida del fallecido.&#x000A;&#x000A;&#x000A;        Presiona cualquier tecla para continuar...</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-68"/>
+    </children>
+  </item>
+  <item nodeId="node-68">
+    <command xml:space="preserve">[enter]</command>
+    <result xml:space="preserve">Pero t&#x00FA; Miles, todo esto ya lo sabes. &#x00BF;Acaso no llevas tambi&#x00E9;n una m&#x00E1;scara?&#x000A;&#x000A;&#x000A;        Presiona cualquier tecla para continuar...</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-69"/>
+    </children>
+  </item>
+  <item nodeId="node-69">
+    <command xml:space="preserve">[enter]</command>
+    <result xml:space="preserve">Abres los ojos, con el vago recuerdo del sue&#x00F1;o: muerte; ecos de una risa estrepitosa en toda la ciudad; vivos entre los no vivos; inundaci&#x00F3;n; el llanto de una mujer en lo profundo; una voz agonizante, que te susurra auxilio...&#x000A;&#x000A;Te levantas de la cama asustado.&#x000A;&#x000A;Habitaci&#x00F3;n de Miles&#x000A;Este es tu cuarto, el peque&#x00F1;o recept&#x00E1;culo de tus pensamientos, las paredes de tu condena. Una cama, un ropero, un espejo... Con poco es suficiente, siempre te dices.&#x000A;&#x000A;Salidas: este y norte.&#x000A;mirarinvent.EXAMINARTOMARROMPERREFLEJAR&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>YES</changed>
+    <children>
+      <child nodeId="node-70"/>
+    </children>
+  </item>
+  <item nodeId="node-70">
+    <command xml:space="preserve">x ropero</command>
+    <result xml:space="preserve">Es un ropero&#x000A;&#x000A;Salidas: este y norte.&#x000A;mirarinvent.EXAMINARTOMARROMPERREFLEJAR&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+  </item>
+</Skein>

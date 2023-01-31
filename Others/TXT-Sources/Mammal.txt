@@ -1,0 +1,646 @@
+"Mammal" by Joey Jones
+
+
+The story headline is "An Interactive Song Tribute". 
+The story genre is "Tribute". 
+The release number is 1. 
+The story description is "Inspired by the They Might Be Giant song 'Mammal', you are tasked by your new lizard overlords to remove all mammalian traces from the back rooms of a museum."
+The story creation year is 2012.
+Include Basic Screen Effects by Emily Short.
+
+
+Chapter Stuff
+
+Table of Fancy Status
+left			central		right 
+"[location]"	"Exits: [room list]"			"[score]/[maximum score]" 
+
+Rule for constructing the status line:
+fill status bar with Table of Fancy Status;
+rule succeeds.
+
+Understand "* [text]" as a mistake ("Noted.").
+
+Abouting is an action applying to nothing. Understand "credits" and "about" as abouting. Report abouting: say "Thanks for playing Mammal. Special thanks goes to They Might Be Giants and of course the rest of the They Might Be Giants Apollo 18/20 Tribute Team (especially, Ruth, Andrew, Jack and Melvin).[paragraph break]If you've anything to report or suggest, drop Joey an email at notquitethere@gmail.com."
+
+To say room list:
+let exit total be zero;
+repeat with way running through directions begin;
+if the room-or-door way from the location of the player is a room begin;
+increment exit total;
+otherwise if the room-or-door way from the location of the player is a door;
+let chosen door be the door way from the location;
+let chosen room be the other side of the chosen door from the location;
+if the chosen room is not nothing, increment exit total;
+end if;
+end repeat;
+if exit total is zero begin;
+say "absolutely nowhere";
+otherwise;
+let exit count be zero;
+repeat with way running through directions begin;
+if the room-or-door way from the location of the player is a room begin;
+let chosen room be the room way from the location;
+increment exit count;
+say "[if exit count is one][otherwise if exit count is exit total] and [otherwise], [end if][way]";
+otherwise if the room-or-door way from the location of the player is a door;
+let chosen door be the door way from the location;
+let chosen room be the other side of the chosen door from the location;
+if the chosen room is not nothing begin;
+increment exit count;
+say "[if exit count is one][otherwise if exit count is exit total] and [otherwise], [end if][way]";
+end if;
+end if;
+end repeat;
+end if.
+
+
+
+The maximum score is 14.
+
+Table of Rankings 
+Score	Rank
+0	"human, all too human"
+4	"one whossse effortsss are comparable to that of one dozen particularly ineffective monkeysss"
+7	"one asss good at finding mammalsss asss a lion isss at fielding conference callsss"
+10	"one admired for a high metabolisssm, but not general level of competencccy in executing a tasssk"
+11	"one who hasss done better than could ever have been imagined. Perhapsss they won't sssend you the way of the allotheria.."
+12	"one who'sss tremulousss four-chambered heart beats with purpose"
+14	"one that hasss done almost too well"
+15 	"one who has done a runner"
+
+When play begins:
+say "You are a lowly human slave, suffering beneath the squamous toes of your new lizard overlords. Patrisnake Kssshsss has charged you with getting rid of all trace of mammals in the back rooms of the Don Quixote Memorial Museum.".
+
+Chapter Atrium
+
+The Atrium is a room. The description of the atrium is "You stand in a vast glass-ceilinged atrium. The main doors stand behind you to the south, in front is the rest of the museum. The part that you actually need to clear is through the little door to the back rooms, behind the information desk to the east. The portrait gallery opens off to the west.". A thing is either a mammal or not a mammal. A thing is usually not a mammal.
+
+The glass ceiling is scenery in the atrium. The description is "Light streams through the ceiling above." Understand "glass-ceiling" as the glass ceiling.
+
+The skip is in the atrium. "In the centre of the atrium is a huge skip, (or garbage dumpster, if you're so inclined), into which you are to place all objects tainted with mammalian DNA, or direct organic bi-products of mammals.[first time] Your co-slaves have already gone through most of museum, including thankfully, the toilets.[only] When the job is done, you need only blow the whistle you've been given, and Kssshsss will come and assess your execution of the task.". Understand "garbage dumpster/skip/bin" and "bin/dumpster" as the skip.
+
+The skip is an enterable, open, unopenable, fixed in place container.
+
+The information desk is scenery in the atrium. The little drawer is part of the desk. The little drawer is a closed, openable container. The description of the desk is "A large wood-panelled information desk sits in the atrium, with a little drawer on the staff side.". The desk is an enterable supporter. The carrying capacity of the little drawer is 2.
+
+The packet of pork scratchings is in the little drawer. The description of the pork scratchings is "This is a pack of dried battered scraps of pig, some with visible stubble.". Understand "meat/pig" as the packet of pork. 
+
+The stubble is a part of the pork. The description is "[first time]You narrow your eyes, focusing on the stubble on the pork scratchings. [only]Seventeen distinct stub of thick black hair bristle out of the dried chunks of pig meat[first time]. You're suddenly glad that pigs don't have fingertips[only]." Understand "hair/hairs" and "bristles" as the stubble.
+
+Check opening the pork scratchings: say "Lizards may have taken over the Earth's resources, but you're still not [italic type]that[roman type] desperate." instead. Check eating the pork: try opening the pork instead.
+
+The piece of string is in the little drawer. The description of the string is "The piece of string is long enough to be wound around things.[if the bat is tied]. You've tied the string to the bat and the rock, anchoring the poor bat down[otherwise if something is part of the noun] The string is tied  to [a list of things which are part of the noun].[end if]".
+
+After inserting something into the skip:
+say "You throw [the noun] into the skip.";
+if the noun is a mammal, increase score by one.
+
+After entering the skip:
+increase score by one;
+say "You climb into the skip."
+
+Carry out exiting when the player is enclosed by the skip:
+decrease score by one.
+
+Carry out taking something when the noun is in the skip:
+if the noun is a mammal, decrease the score by one.
+
+Carry out dropping when the player is in the skip:
+if the noun is a mammal, increase the score by one.
+
+The glass of milk is a mammal. The reticent bat is a mammal. The resident cat is a mammal. The stuffed dolphin is a mammal. The mourning dog is a mammal. The over-stuffed koala is a mammal. The whale bones are a mammal. The packet of pork scratchings is a mammal. The moose head is a mammal. The stuffed echidna is a mammal. The family of shrews are a mammal. The pair of fox-fur gloves are a mammal. The regular trifle is a mammal.
+
+Check going north when the location of the player is the atrium: say "The rest of the museum has been cleared already, your job lies in the back room through the little door to the east." instead.
+
+Chapter Gallery
+ 
+  The Portrait Gallery is west of the atrium. The description of the gallery is "The once impressive collection of portraits has now disappeared, [if the crowbar is off-stage]most likely[otherwise]definitely[end if] looted. The gallery is centred around a great window that overlooks the eastern exit."
+ 
+ The great window is scenery in the gallery. The description is "The window has been broken open[first time], and a crowbar is still jammed in it[only]." 
+ 
+ After examining the window:
+ if the crowbar is off-stage, now the crowbar is in the gallery.
+ 
+ The crowbar is a thing. "Jutting out of the window is a crowbar." The description is "The crowbar is a solid length of metal with a hooked end, designed for prying things.". Understand "bar/prybar", "crow/pry bar" as the crowbar.
+ 
+ Check opening the great window:
+ say "It's already smashed open." instead.
+ 
+ Check closing the great window:
+ say "The window is broken and it will not close." instead.
+ 
+ The moose head is in the gallery. "A lone moose head is all that remains[if broken], on the floor[end if].". The description is "[if worn]On even closer inspection, you look ridiculous with the caribou head on your head[otherwise]On closer inspection, it looks like a caribou[end if].". The moose head is wearable.
+
+Understand "caribou/reindeer/elk" and "reindeer/elk/caribou head" as the moose head.
+
+After examining the moose head:
+now the printed name of the moose is "caribou head";
+now the initial appearance of the moose is "There's [if less than two portable things are in the gallery]only a lone [otherwise]a [end if]caribou head[if broken], lying on the ground[end if] here."
+
+Check taking the moose head:
+if the moose head is intact, say "It's pretty much nailed to the wall." instead.
+
+Chapter Steps
+
+The Museum Steps are south of the atrium. "You are greeted by a sunny day on the steps of the museum. The grand entrance looms up to the north, while steps radiate out in all other directions. Going in such directions would, of course, be highly forbidden.".
+
+The Don Quixote Memorial Museum is scenery in the steps. 
+Understand "windmill/face/buttress/buttresses", "faux-colonial face", "giants/giant", "entrance" and "grand entrance" as don quixote. The description is "The grand entrance of the Don Quixote Memorial Museum is made out to look like a windmill. The sails are etched into the faux-colonial face, and there are more buttresses than is usually considered polite.".
+
+Some vaporised remains is in the museum steps. They are undescribed. "All that remains of the remains is a sorry pile of no longer organic ash in a pair of shoe.".  Understand "pile of ash", "owner/ash/shoes" and "pair of shoes" as the remains.
+
+The mourning dog is in the steps. "A dog is mourning here over the vaporised remains of its owner.". The mourning dog is an animal.
+
+The description of the dog is "The dog is one of those really sad looking pugs. You know how you can have jolly looking pugs? Well this isn't one of them.". Understand "pug" as the dog.
+
+Check touching the dog:
+say "As much as you'd love to pet the dog, the dog doesn't seem inclined to suffer the affection." instead.
+
+Check taking the dog:
+say "The dog growls at you, and refuses to be budged from the remains of its owner." instead.
+
+Yourself is either rebellious or conformist. Yourself is conformist.
+
+Check going when the location of the player is the museum steps and the room gone to is not the atrium:
+if yourself is conformist begin;
+now yourself is rebellious;
+say "You really shouldn't stroll off from the museum: that is in direct violation of the commands of your lizard overlords." instead;
+otherwise if yourself is rebellious;
+say "You boldly stride beyond the confines of the museum, rebelling against your less-than-benevolent overlords.";
+now score is 15;
+end the game saying "You Are Free";
+end if.
+
+Chapter Back Corridor
+
+The little door is a door. The little door is scenery. East of the atrium is the little door. East of the little door is the Back Corridor. The description of the little door is "It's a little door.". The description of the back corridor is "You find yourself in a dingy back corridor with [one of]an incredibly[or]an improbably[or]an impossibly[or]a significantly[or]a plot relevant[cycling] high ceiling. The way back to the atrium lies through the little door west. The main Holding Room opens up to the east, the curator's office is to south, while north sits a cloak room.".
+
+The high ceiling is scenery in the back corridor. The high ceiling is an open, unopenable container. Check inserting into the high ceiling: say "[one of]What? What?! That doesn't make any sense.[or]No really, think about it for a second.[or]I, I have no more words.[or]'...'[stopping]" instead.
+
+The description of the ceiling is "Above you is a very high ceiling!"
+
+The bat is in the ceiling. The description of the bat is "[if the bat is in the ceiling]The bat is circling above you, apparently reticent about coming down.[otherwise][bat tie].[end if]". The bat is an animal.
+
+Instead of attacking:
+say "Violence begets violence. Or maybe it begets sentient lizard people. Either way, it's not the solution.".
+
+To say bat tie:
+if the bat is tied begin;
+say "The bat is flapping uselessly against its tether";
+otherwise;
+say "It's a small winged rodent, scowling in your hands";
+end if.
+
+Check taking the bat:
+if the player is not on something , say "The bat is too high to jump and catch from the ground." instead.
+
+After taking the bat:
+say "Triumphantly, you leap and grasp hold of the bat.".
+
+The bat is either tied or untied. The bat is untied.
+
+Check dropping the bat:
+if the bat is untied, say "No way! It'll only fly away. There's got to be some way of keeping it down[one of].[or].[or], perhaps tying it to something weighty?[stopping]" instead.
+
+Check inserting the bat into something:
+if the bat is untied, try dropping the bat instead.
+
+Chapter Curator
+
+The Curator's Office is south of the back corridor. The Main Holding Room is east of the back corridor. The Cloak Room is north of the back corridor.
+
+The description of the Curator's Office is "[if the painting is intact]The office of the curator is mostly taken up by a huge painting of a giraffe[otherwise]The painting lies in tatters on the floor of the office, revealing a hole in the brickwork behind[end if]. Beneath the painting the small office comprises of a small desk[if the chair is in the office], a huge overstuffed chair[end if] and mini fridge.".
+
+The hole in the brickwork is an open, unopenable container. The description is "There's a gaping hole in the crumbling brickwork.". The carrying capacity of the hole in the brickwork is one. The family of shrews is in the hole in the brickwork.
+
+Check taking the hole in the brickwork:
+say "I'm sure your mother told not to mess around with strange holes." instead.
+
+The description of the family of shrews is "[if the shrews are in the brickwork]There's a small family of shrews living in the brickwork[otherwise]It's a small community of closely related vicious rodents[end if].[first time] The only thing you remember about shrews is that if you try to poison them, it only makes their bites fatal. And that might not be true.[only]".
+
+Check taking the shrews:
+if the gloves are not worn by the player, say "Pick them up with your unprotected hands?! They're vicious little biting things; it's not going to happen." instead.
+
+The small desk is scenery in the curator's office. "The desk is small and practical, but it doesn't have drawer.". It is an enterable supporter.
+
+The rock paperweight is on the small desk. The description is "It's a pet rock. They were all the craze once: everyone wanted one[if the bat is tied]. With the length of sting, you've tied the rock to the bat[otherwise if the string is part of the rock or the rock is a part of the string]. A piece of string has been wrapped round it[end if].".
+
+The mini fridge is scenery in the office. The description is "It's a small white box for keeping things cold.". It is a closed, openable container. The glass of milk is in the fridge. The description of the milk is "It's a cold glass of milk. From the smell, you'd say it might be goat's milk[if broken]. There are smudge marks where the cat had a little lap[end if].". Understand "goats milk", "marks/smudges" and "smudge marks" as the glass of milk. The bunch of grapes are in the fridge. The description of the grapes is "Just a bunch of sad looking grapes.". The vegan trifle is in the fridge. The description of the trifle is "It's gluten and sugar free as well. You can only assume that it's made entirely from rice starch.". The regular trifle is in the fridge. The description of the regular trifle is "It's a three-tiered concoction of full-fat cream, ox gelatin jelly, and milk-powder-enriched sponge cake.". Understand "mini-fridge" and "white box" as the mini fridge.
+
+After opening the mini fridge:
+say "You open the fridge, and inside is [a list of things in the mini fridge].".
+
+Food is a kind of thing. The regular, vegan, grapes, and milk are food.
+
+Check inserting something into the fridge:
+if the noun is not food, say "That doesn't belong in the fridge!" instead.
+
+Check eating food:
+say "You've already had lunch." instead.
+
+Check drinking food:
+say "You're not really that thirsty." instead.
+
+The huge overstuffed chair is undescribed in the office. It is pushable between rooms, enterable and portable. The description is "The chair is huge and overstuffed, but it looks like it could easily be moved between places.".
+
+Check entering the chair: if the cat is on the chair, say "Aw, you might stand on the cat[first time]. Sure, you've been tasked with sending the cat to be incinerated, but you don't have to be inconsiderate about it[only]." instead.
+
+After taking the chair:
+now the chair is described;
+say "You pick up the chair with both hands.".
+
+After dropping the chair in the office:
+now the chair is undescribed.
+
+Yourself has carrying capacity two.
+
+The cat is either asleep or awake. The cat is asleep.
+The cat is on the chair. The description is "[if the cat is asleep and the cat is on the chair]The resident cat slumbers peacefully[otherwise if the cat is asleep]The cat is stretched out on the ground here, apparently fast asleep, but who knows what she could be scheming[otherwise]The cat is a rather fluffy tortoiseshell, insistent on following you around[end if].". The indefinite article of the cat is "the". The cat is a female animal. Understand "feline/tortoiseshell" and "tortoise shell" as the cat.
+
+Understand "stroke [something]", "pet [something]", "scratch [something]" and "scratch [something]" as touching.
+
+After touching the cat:
+say "The cat purrs merrily as you pet her.";
+now the cat is awake.
+
+The painting of a giraffe is scenery in the office. The description of the painting is "[if intact]A somewhat postmodern arrangement of orange and black splodges. You're fairly sure that the only animals harmed by the making of this painting were the human critics paid to look at it[otherwise]The painting is torn in pieces and still lacking in artistic merit[end if]."
+
+Check taking the painting:
+if the painting is intact, say "It's rather attached to the wall." instead;
+if the painting is broken, say "It's a worthless painting: there's no point." instead.
+
+ After taking the cat:
+ say "You pick her up and she miaows with minor concern.";
+ now the cat is awake.
+ 
+The can't take other people rule is not listed in the check taking rulebook.
+
+A thing is either intact or broken. A thing is usually intact.
+
+Every turn when the player is enclosed by the office and the painting is intact:
+if a random chance of 1 in 3 succeeds, say "[one of]You hear some squeaking from somewhere in the room[or]There's that squeaking again[or]Yep, definitely some squeaking[stopping].".
+
+Check listening when the player is in the office:
+if the painting is intact, say "You think you can hear some squeaking from behind the huge giraffe painting.".
+
+
+Chapter Tying
+
+Understand "wind [something] around [something]" and "tie [something] around [something]" as tying it to.
+
+Instead of tying the string to something:
+	if the second noun is the player, say "Nope. That could get messy fast." instead;
+	if the second noun is the cat or the second noun is the dog, say "Unfortunately, [the second noun] doesn't seem to be too enthusiastic about that plan. It'd probably work on a smaller animal though." instead;
+	if the second noun is the shrews, say "There's so many of them! I couldn't possibly tie them all up." instead;
+	now the string is part of the second noun; 
+	say "You tie [the string] to [the second noun]." 
+
+Check pulling the string:
+say "The string is good for tying two things together, anchoring if you like, but is flimsy enough to be unsuited for pulling things about." instead.
+
+Instead of tying the bat to the rock:
+try tying the rock to the bat.
+
+Instead of tying the rock to the bat:
+say "Not a bad plan, but you'd need something to tie it with.".
+
+Before tying the string to something when the string is part of something: 
+    if the string is part of the second noun begin; 
+        say "[The string] is already tied to [the second noun]." instead; 
+    otherwise;
+    if the second noun is the bat and the noun is part of the rock begin;
+    now the rock is part of the bat;
+    now the string is part of the bat;
+    say "With the string, you tie the bat to the rock, anchoring the poor bat to the rock.";
+    now the bat is tied;
+    now the printed name of the bat is "anchored bat";
+    stop the action;
+    otherwise if the noun is part of the bat and the second noun is the rock;
+    now the rock is part of the bat;
+    now the string is part of the bat;
+    say "With the string, you tie the bat to the rock, anchoring the poor bat to the rock.";
+    now the bat is tied;
+    now the printed name of the bat is "anchored bat";
+    stop the action;
+    otherwise;
+        say "(first untying the string)[line break]"; 
+        silently try taking the string; 
+        if the string is part of something, stop the action;
+	end if;
+	end if.
+	
+	Understand "untie [something]" as taking.
+
+
+Understand "anchored bat" as the bat when the bat is tied.
+
+Instead of tying the string to the string: 
+    say "You wouldn't want to tie it into knots." 
+
+Check taking the string when the string is part of something (called the anchor): 
+    if the anchor is the bat or the anchor is the rock, say "You want the string tied around [the anchor]." instead;
+    now the player carries the string; 
+    say "You deftly untie the string." 
+
+Instead of tying something to the string: 
+    try tying the string to the noun. 
+
+Instead of putting the string on something: 
+    try tying the string to the second noun. 
+
+Instead of inserting the string into something: 
+    try tying the string to the second noun. 
+ 
+Chapter Holding Room
+ 
+ A thing can be large. A thing is usually not large. The dolphin, the chair and the whale bones are large.
+
+The description of the Main Holding Room is "You stand in a vast maze of shelves and low tables cluttered with all the pots and less interesting artefacts that haven't won a place in the public parts of the museum.".
+
+The whale bones are in the holding. "[if the wires are intact]A half-constructed whale skeleton hangs from the ceiling from long thin wires[otherwise]There's a pile of whale bones here[end if].". Understand "skeleton", "half-constructed whale skeleton", "pile/ribcage", "rib cage", "pile of whale bones", "half-constructed whale", and "tail/whale skeleton/bones" as the bones. The description of the bones is "The bones form the back end of a whale- mostly a rib cage and tail bones.". 
+
+The long thin wires are scenery in the holding. Understand "wire" as wires. The description of the wires is "[if intact]The wires that hold the skeleton are attached up in the heights of the room, but they look thin enough to cut- with the right tool[otherwise]The wires now hang in tatters.[end if]"
+
+Check taking the bones:
+if the wires is intact, say "There's no way you'll be able to take the bones while the wire is still intact." instead.
+
+After taking the bones:
+say "[one of]The bones are very bulky but surprisingly light[or]You pick up the bones again[stopping].".
+
+The maze of shelves is scenery in the holding room. The maze of shelves is a supporter. The description is "The shelves are stacked with banal pots and unfathomable ancient trinkets.[first time] On one of the shelves there's a pair of secateurs.[only]". Check searching the shelves: try examining the shelves instead.
+
+The shelf is scenery in the holding room. The description is "It's just one of many shelves. It's got [the list of things on the shelf] on it.". The shelf is a supporter. The printed name of the shelf is "one of the shelves".
+
+The pair of secateurs are a thing. The description of the secateurs is "It's a small pair of very sharp hand-shears, used for snipping or cutting things.". Understand "scissors", "fancy scissors", "shears", "hand shears" and "hand-shears" as the pair of secateurs.
+
+After examining the maze of shelves:
+if the secateurs is off-stage, now the secateurs is on the shelf.
+
+Low table is scenery in the holding room. Understand "tables" and "low tables" as low table. The printed name of low table is "a low table".
+
+Check examining the low table:
+now the massive crate is described;
+say "The low tables mostly just hold uninteresting pots[if the massive crate is on the low table], but one of them has a massive crate on it[end if]." instead.
+
+The massive crate is undescribed on the low table. The crate is a large, closed, enterable, unopenable container. The description is "[if intact]It's a massive crate with an Australian postage mark on the side- it's currently nailed shut[otherwise]You've broken open the massive crate[end if].".
+
+Check taking the crate:
+say "It's way to cumbersome to lug the crate about." instead.
+
+Check opening the crate:
+if the crate is intact, say "The crate needs to be pryed open." instead;
+if the crate is broken, say "The crate is already opened up." instead.
+
+Check taking when something large is carried by the player:
+say "You'll never be able to pick up [the noun] while you're carrying [the list of things carried by the player]." instead.
+
+The less interesting artefacts are scenery in the holding room. Understand "trinket/trinkets", "uninteresting artefacts", "ancient trinkets", "unfathomable ancient trinkets" as the less interesting artefacts. The description of the artefacts is "The holding room is full of the cultural detritus of ages. And pots. Lots of pots. Apparently, the only thing that consistently survives each era is a culture's equivalent to Tupperware."
+
+The banal pot is undescribed in the holding room. Understand "pots", "equivalent to tupperware", "tupperware" and "ancient pots" as the pot. The pot is an open, unopenable, enterable container.
+
+Check taking the pot: say "It's a bit too cumbersome to lug about." instead.
+
+Carry out taking the dolphin:
+now the banal pot is undescribed.
+
+Carry out examining the pot:
+if the dolphin is in the pot, now the banal pot is described;
+say "[if the dolphin is in the pot]One pot stands out as particularly significant. Not because of the design (a bland series of brown lines), but because of the massive stuffed dolphin sticking out of it[otherwise]The pots in the holding area are universally uninteresting unless you study that sort of thing, and [italic type]even then[roman type]..[end if]." instead.
+
+The stuffed dolphin is in the banal pot. The description of the dolphin is "It's a small river dolphin, gently preserved for future generations to admire.".
+
+Check taking the something large:
+if anything is carried by the player, say "This is definitely a two handed job. You'll have to put down [the list of things carried by the player] first." instead.
+
+After taking the the koala:
+if the stuffed echidna is off-stage begin;
+now The stuffed echidna is in the massive crate;
+say "You pull out the koala, revealing a slightly squashed stuffed echidna underneath.";
+end if.
+
+The description of the echidna is "It's a slightly squashed prickly monotreme. Given that it's stuffed, it's not likely it'll lay eggs any time soon."
+
+Check taking the koala:
+if the stuffing is not handled, say "[one of]You give the koala a pull, but it's too overstuffed to remove[or]You'll have to take the stuffing first[stopping]." instead.
+
+Understand "kick [something]" as attacking.
+
+The koala is in the crate. The description of the koala is "[if the koala is intact and the koala is in the crate][first time]The taxidermist evidently had never seen a living koala, and so did not know when to stop stuffing the late marsupial. [only]It's almost bursting at its clearly visible seams[otherwise if the koala is broken and the koala is in the crate and the stuffing is not handled]You've torn a great gash in the koala, revealing reams of stuffing[otherwise]The koala is more streamlined now, albeit at the cost of having a vast hole in its abdomen[end if].".
+
+Check pulling the koala when the koala is intact:
+say "You give the koala a tug, but it's seriously stuffed in the crate." instead.
+
+Instead of throwing something at something:
+	if the noun is large, say "You're not going to be able to throw [the noun] around so easily." instead;
+	if the second noun is yourself, say "That would be awkward to bring about[first time]. No, really think about it for a moment. The physics just don't work. You weren't cut out for many things in life and throwing stuff at yourself is one of those things[only]." instead;
+	if the second noun is an animal, say "No, that would be cruel." instead;
+	if the second noun is a supporter:
+		say "With more vigour than usual...";
+		try putting the noun on the second noun instead;
+	if the second noun is a container:
+		say "With more vigour than usual...";
+		try inserting the noun into the second noun instead;
+	say "You're not really in the business of throwing things at other things." instead.
+	
+	
+Understand "hum" as singing.
+The block singing rule is not listed in the check singing rulebook.
+Check singing:
+say "You sing [one of]a[or]the next[stopping] line from that song that always gets in your head:[paragraph break][italic type] [one of]Glass of milk standing in between extinction in the cold and explosive radiating growth[or]So the warm blood flows through the large four-chambered heart, maintaining the very high metabolism rate they have[or]Mammal, mammal their names are called they raise a paw, the bat, the cat, the dolphin and dog, koala bear and hog[or]One of us might lose his hair but you're reminded that it once was there from the embryonic whale to the monkey with no tail[or]So the warm blood flows with the warm blood flows with the red blood cells, lacking nuclei through the large four-chambered heart, maintaining the very high metabolism rate they have[or]Mammal, mammal their names are called they raise a paw the bat the cat the dolphin and dog koala bear and hog[or]Placental the sister of her brother marsupial their cousin called monotreme dead uncle allotheria[or]Mammal, mammal their names are called they raise a paw, the bat, the cat, the dolphin and dog, koala bear and hog[or]The fox, the ox, giraffe and shrew, echidna, caribou[cycling][roman type]."
+	
+Chapter Cutting & prying
+
+Understand "cut [something] with the secateurs", "cut [something] with secateurs", "snip [something] with the secateurs","shear [something] with the secateurs", "rip [koala]", "unstuff [the koala]", "tear [something]", "snip [something]" and "shear [something]" as cutting.
+
+Check cutting:
+if the noun is yourself, say "Things aren't that dire yet." instead;
+if the secateurs are not carried by the player, say "You'll need to be holding something with which to cut [the noun]." instead;
+if the noun is an animal, say "That's horrendous! You may be doing the bidding of cold-blooded killers, but you're not yet a monster." instead;
+if the noun is not cuttable, say "It's not going to be worthwhile cutting that." instead;
+if the noun is broken, say "You've already cut that!" instead.
+
+A thing can be cuttable. The wires are cuttable. The koala is cuttable. A thing is usually not cuttable.
+
+Carry out cutting:
+	if the noun is the koala:
+		now the koala is broken;
+		now the treated straw stuffing is in the holding;
+	if the noun is the wires:
+		now the wires are broken.
+
+The treated straw stuffing is a thing. "Chemically treated straw stuffing bursts out of the koala in hand-sized clumps.". The description of the stuffing is "There's really so much more stuffing that you'd imagine could fit in a single koala.". Understand "reams" and "reams of stuffing/straw" as the stuffing. Understand "abdomen/hole/gash" and "vast hole/gash" as the koala when the the koala is broken and the koala is in the crate.
+
+
+Understand "seams" and "seam" as the koala.
+
+Report cutting:
+if the noun is the koala, say "You shear into the overstuffed koala, revealing a mound of treated straw bursting out of its abdomen.";
+if the noun is the wires, say "You snip the many wires that hold up the whale skeleton, and with the last one all the bones fall into a vast pile at your feet."
+
+The block cutting rule is not listed in the check cutting rulebook.
+
+Prying it with is an action applying to two things. Understand "pry [something] with [something preferably held]" as prying it with.
+
+Understand "pry [something] off the wall", "pry open [something]", "pry [something] off/open"  and "pry [something]" as prying it with.
+
+Understand the commands "lever" or "prise" as "pry".
+
+Rule for supplying a missing second noun when prying something with: 
+    now the second noun is the crowbar.
+
+A thing can be pryable. A thing is usually not pryable. The moose head, the painting and the crate are pryable.
+
+Check pulling a pryable intact thing:
+say "You give [the noun] a good yank, but it's no good: you'll need some kind of tool to pry it free." instead.
+
+Nails are backdrop. They are[ goddamn] everywhere.
+
+Before doing anything to the nails:
+say "When a narrator says something is nailed down, this isn't usually a hint to interact with the nails." instead.
+
+Check prying it with:
+if the second noun is food, say "You begin to pry open [the noun] with [the second noun], then remember that that's completely insane." instead;
+if the second noun is not the crowbar, say "You can't really use [the second noun] to pry things." instead;
+if the noun is broken, say "That's broken enough as it is." instead;
+if the noun is not pryable, say "You can't pry open [the noun]." instead.
+
+Carry out prying it with:
+	now the noun is broken;
+	if the noun is the crate, now the noun is open;
+	if the noun is the painting:
+		now the printed name of the painting is "torn up painting";
+		now the hole in the brickwork is in the office.
+
+Report prying it with:
+if the noun is the moose, say "You lever the moose head off the wall and it lands undignified upon its nose.";
+if the noun is the painting, say "The painting tears off the wall, landing in a torn heap on the floor.";
+if the noun is the crate, say "You pry open the crate, revealing a severely over-stuffed koala within.".
+
+
+Chapter Cloak Room
+
+An old coat is a kind of thing. The ocelot coat is an old coat. The snakeskin coat is an old coat. The blue raincoat is an old coat. Understand "coats" as an old coat.
+
+The description of the Cloak Room is "The cloak room is musty[if an old coat is in the cloak room] and full of old coats[end if].".
+
+The description of the ocelot is "It's a faux-fur ocelot coat, as revealing as it is tasteless.".
+
+The description of the snakeskin coat is "The coat is made of real snake skin. Best not show this to Kssshsss...".
+
+The description of the blue raincoat is "It's a famous design, with an inside pocket." Understand "rain coat" and "coat" as the blue raincoat.
+
+The description of yourself is "You are a lowly human slave[if the player is wearing more than one old coat] and you look ridiculous wearing all those coats[end if].[if the moose is worn] And you're the caribou head on your head is most unbecoming.[end if]".
+
+Check searching the blue raincoat:
+try examining the inside pocket instead.
+
+The inside pocket is a part of the blue raincoat. Check inserting something large into the inside pocket: say "The pocket is spacious, but it's not [italic type]that[roman type] big!" instead. The description of the inside pocket is "The pocket is very spacious.". The carrying capacity of the pocket is one.
+
+The pair of fox-fur gloves are in the inside pocket. Understand "fox", "fox fur gloves" and "fox fur" as the gloves. The gloves are wearable. The description of the gloves is "The gloves are made of fox leather and lined with fox fur."
+
+Understand "snake", "snake skin" and "snake skin coat" as the snakeskin coat.
+
+When play begins:
+now all old coats are in the cloak room;
+now all old coats are undescribed;
+now all old coats are wearable.
+
+Carry out taking an old coat: now the noun is described.
+
+Chapter Animals Moving About
+
+[Cat Behaviour]
+
+Instead of waking something, try touching the noun.
+
+The cat behaviour rules is a rulebook producing an object. 
+
+A cat behaviour rule when the cat can touch the stuffing and the cat is not held by the player and the stuffing is not held by the player: 
+    say "The cat pounces on the stuffing, pulling it about and reducing it to shreds."; 
+    rule succeeds with result stuffing.
+
+A cat behaviour rule when the cat can touch the milk and the cat is not held by the player and the milk is not held by the player and the milk is handled and the cat is in the location of the player:
+	if the milk is intact:
+		say "The cat starts lapping at the milk, but then gets bored.";
+		now the milk is broken.
+
+A cat behaviour rule when the cat can touch the ocelot and the cat is not held by the player and the ocelot is not held by the player and the ocelot is handled and the cat is in the location of the player: 
+    say "The cat climbs up the faux-fur ocelot coat, destroying it in no time at all."; 
+    rule succeeds with result ocelot.
+
+A cat behaviour rule: 
+	if a random chance of 1 in 3 succeeds, say "[one of]The cat purrs contently[or]The cat rubs against your legs[or]The cat stretches joyously[or][sleepy cat][in random order].";
+	rule fails. 
+
+To say sleepy cat:
+say "The cat turns around three time, flops to the ground and falls asleep";
+now the cat is asleep.
+
+Every turn when the cat is awake and the cat is in the location of the player: 
+	let the destroyed object be the object produced by the cat behaviour rules; 
+	if the destroyed object is not nothing: 
+		remove the destroyed object from play.
+
+[cat moving]
+
+Every turn when the cat is awake:
+	if the cat is in the skip and the player is not in the skip and a random chance of 1 in 3 succeeds:
+		say "The cat gets bored of being in the skip and jumps out.";
+		now the cat is in the atrium;
+		decrease score by one;
+	if the location of the cat is not the location of the player: 
+		let the way be the best route from the location of the cat to the location of the player, using doors; 
+		try cat going the way.
+		
+[dog moving]
+		
+Every turn:
+	if the location of the dog is not the location of the remains: 
+		let the way be the best route from the location of the dog to the location of the remains, using doors; 
+		try dog going the way;
+	if the dog is not in the skip and the remains are in the skip and the dog is in the atrium:
+		say "The dog clambers into the skip to be closer to the remains.";
+		increase score by one;
+		now the dog is in the skip.
+
+Check taking the remains when the remains are in the skip and the dog is in the skip:
+say "The dog growls at you. It looks like your time taking the remains has come to an end." instead.
+
+Chapter End Game
+
+The lizard whistle is worn by the player. The description of the whistle is "[if worn]Around your neck is a whistle. [end if]The whistle can be blown to summon the Patrisnake Kssshsss. This should only be done when you've collected as many mammals as you expect to be able to get."
+
+Blowing is an action applying to one thing. Understand "blow [something]", "play on [something]" and "play [something]" as blowing.
+
+Check blowing:
+if the noun is not the whistle, say "You can only blow the whistle.";
+if the location is not the atrium, say "You should be in the atrium first.".
+
+Carry out blowing:
+say "You give the whistle a sharp blow, and in moments Patrisnake Ksshss arrives to survey the skip.";
+say paragraph break;
+if the player is in the skip begin;
+ say "He finds you within the skip and smiles (snakes always smile) as he orders all the contents (including yourself) summarily destroyed[if score is 14].[paragraph break]Just before you are incinerated, Kssshsss congratulates you on finding everything in the museum[end if].";
+end the story finally saying "You Have Been Incinerated[if score is 14], But At Least You Got The Top Score[end if]";
+otherwise if score is zero;
+say "He (or she?) is aghast by the distinct lack of mammals in the skip.";
+end the story finally saying "You Will Be Eaten Imminently";
+otherwise if score is one;
+say "'One?' cries Kssshsss, 'Only one mammal?'";
+end the story finally saying "Your Days Are Numbered";
+otherwise if score is less than five and the score is greater than one;
+say "Ksshsss isn't very satisfied with the [score in words] mammals you found.";
+end the story finally saying "Your Future As A Slave Will Be Thankfully Brief";
+otherwise if score is less than eight and the score is greater than four;
+say "'So you found [score in words] mammalian items,' says Kssshsss, 'A tolerable amount. For Now.";
+end the story finally saying "You Might Be Re-employed Before Being Ingested";
+otherwise if score is less than 13 and the score is greater than seven;
+say "'Hmm,' muses Kssshss, '[score in words] mammalian items is fairly impressive. Come, there is much work to do.'";
+end the story finally saying "This Could Be The Start Of A Squamous Relationship";
+otherwise if score is 13;
+say "'So,' starts Ksssnsss, 'a magnificent performance, you have found all the mammalian items!'[paragraph break]'But you're much too clever by half...' he says, eating you whole. Lizards are not known for their appreciation of high-achievers.";
+end the story finally saying "You Didn't Even Get The Last Lousy Point!";
+end if.
+
+Understand "get all/everything", "pick up all/everything" and "take all/everything" as a mistake ("One thing at a time: you've only got two hands!")

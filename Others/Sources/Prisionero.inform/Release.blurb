@@ -1,0 +1,38 @@
+! Blurb file created by Inform build 6M62
+
+status "C:\Program Files (x86)\Inform 7\Internal\Miscellany\CblorbModel.html" "C:\Users\ruben.aguilera.nieto\Documents\Inform\Projects\Prisionero.inform\Build\StatusCblorb.html"
+
+
+! Identification
+
+project folder "C:\Users\ruben.aguilera.nieto\Documents\Inform\Projects\Prisionero.inform"
+release to "C:\Users\ruben.aguilera.nieto\Documents\Inform\Projects\Prisionero.materials\Release"
+
+! Blorb instructions
+
+storyfile leafname "Prisionero de la tormenta.gblorb"
+storyfile "C:\Users\ruben.aguilera.nieto\Documents\Inform\Projects\Prisionero.inform\Build\output.ulx" include
+ifiction "C:\Users\ruben.aguilera.nieto\Documents\Inform\Projects\Prisionero.inform\Metadata.iFiction" include
+cover "C:\Program Files (x86)\Inform 7\Internal\Miscellany\Cover.jpg"
+picture 1 "C:\Program Files (x86)\Inform 7\Internal\Miscellany\Cover.jpg"
+
+! Placeholder variables
+
+placeholder [IFID] = "8C9A0B3D-0D18-4E3A-B4F1-90203DC70589"
+placeholder [RELEASE] = "1"
+placeholder [YEAR] = "2017"
+placeholder [TITLE] = "Prisionero de la tormenta"
+placeholder [AUTHOR] = "Ruber Eaglenest"
+placeholder [BLURB] = "Perseguido y buscado como uno de los fugitivos más escurridizos de todo el sistema solar, fuiste atrapado y llevado a una de las cárceles de mayor seguridad en todo el universo: la prisión de la tormenta. Rodeada de desierto y pantanos, con una policía implacable, está situada, precisamente, en las afueras de tu ciudad natal: una mancha fronteriza abrasada por el sol, en mitad de ninguna parte. Pero una vez más has logrado fugarte."
+
+! Other material to release
+
+status alternative ||Using 'Release along with cover art', to provide something more distinctive than the default artwork above&nbsp;<a href=inform:/doc403.html><img border=0 src=inform:/doc_images/help.png></a>||
+status alternative ||Using 'Release along with a website'&nbsp;<a href=inform:/doc405.html><img border=0 src=inform:/doc_images/help.png></a>||
+status alternative ||Using 'Release along with an interpreter', for in-browser play on your website&nbsp;<a href=inform:/doc406.html><img border=0 src=inform:/doc_images/help.png></a>||
+status alternative ||Using 'Release along with a file of "Such-and-Such" called "whatever.pdf"', perhaps to add a manual, or a welcoming note&nbsp;<a href=inform:/doc401.html><img border=0 src=inform:/doc_images/help.png></a>||
+status alternative ||Using 'Release along with the source text'&nbsp;<a href=inform:/doc412.html><img border=0 src=inform:/doc_images/help.png></a>||
+status alternative ||Using 'Release along with a solution'&nbsp;<a href=inform:/doc411.html><img border=0 src=inform:/doc_images/help.png></a>||
+status alternative ||Using 'Release along with the library card'&nbsp;<a href=inform:/doc412.html><img border=0 src=inform:/doc_images/help.png></a>||
+status alternative ||Using 'Release along with the introductory booklet'&nbsp;<a href=inform:/doc404.html><img border=0 src=inform:/doc_images/help.png></a>||
+status alternative ||Using 'Release along with the introductory postcard'&nbsp;<a href=inform:/doc404.html><img border=0 src=inform:/doc_images/help.png></a>||
